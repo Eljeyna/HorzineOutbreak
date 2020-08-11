@@ -47,7 +47,7 @@ public:
 
 	void PrimaryAttack( void );
 	//void SecondaryAttack( void );
-	int SecondaryAmmoIndex( void );
+	//int SecondaryAmmoIndex( void );
 	BOOL Deploy( void );
 	void Reload( void );
 	void WeaponIdle( void );
@@ -61,10 +61,10 @@ LINK_ENTITY_TO_CLASS( weapon_9mmAR, CMP5 );
 
 //=========================================================
 //=========================================================
-int CMP5::SecondaryAmmoIndex( void )
+/*int CMP5::SecondaryAmmoIndex( void )
 {
 	return m_iSecondaryAmmoType;
-}
+}*/
 
 void CMP5::Spawn( void )
 {
@@ -365,7 +365,7 @@ class CMP5Chainammo : public CBasePlayerAmmo
 
 LINK_ENTITY_TO_CLASS( ammo_9mmbox, CMP5Chainammo );
 
-class CMP5AmmoGrenade : public CBasePlayerAmmo
+/*class CMP5AmmoGrenade : public CBasePlayerAmmo
 {
 	DECLARE_CLASS( CMP5AmmoGrenade, CBasePlayerAmmo );
 
@@ -393,4 +393,4 @@ class CMP5AmmoGrenade : public CBasePlayerAmmo
 };
 
 LINK_ENTITY_TO_CLASS( ammo_mp5grenades, CMP5AmmoGrenade );
-LINK_ENTITY_TO_CLASS( ammo_ARgrenades, CMP5AmmoGrenade );
+LINK_ENTITY_TO_CLASS( ammo_ARgrenades, CMP5AmmoGrenade );*/

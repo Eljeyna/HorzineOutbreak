@@ -1478,14 +1478,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	cmp	DWORD PTR [eax+2980], 0
-	jne	SHORT $L38485
+	jne	SHORT $L38486
 
 ; 74   : 		// player doesn't have an active item!
 ; 75   : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38484
-$L38485:
+	jmp	SHORT $L38485
+$L38486:
 
 ; 77   : 
 ; 78   : 	if ( !pPlayer->m_pActiveItem->CanHolster() )
@@ -1497,19 +1497,19 @@ $L38485:
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+364]
 	test	eax, eax
-	jne	SHORT $L38486
+	jne	SHORT $L38487
 
 ; 80   : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38484
-$L38486:
+	jmp	SHORT $L38485
+$L38487:
 
 ; 82   : 
 ; 83   : 	return TRUE;
 
 	mov	eax, 1
-$L38484:
+$L38485:
 
 ; 84   : }
 
@@ -1715,7 +1715,7 @@ _pWeaponEntity$ = -8
 ; 124  : 	CBaseEntity	*pWeaponEntity = NULL;
 
 	mov	DWORD PTR _pWeaponEntity$[ebp], 0
-$L38518:
+$L38519:
 
 ; 125  : 
 ; 126  : // LRC what's wrong with allowing "game_player_equip" entities in single player? (The
@@ -1729,7 +1729,7 @@ $L38518:
 	add	esp, 8
 	mov	DWORD PTR _pWeaponEntity$[ebp], eax
 	cmp	DWORD PTR _pWeaponEntity$[ebp], 0
-	je	SHORT $L38519
+	je	SHORT $L38520
 
 ; 130  : 		pWeaponEntity->Touch( pPlayer );
 
@@ -1742,8 +1742,8 @@ $L38518:
 
 ; 131  : 	}
 
-	jmp	SHORT $L38518
-$L38519:
+	jmp	SHORT $L38519
+$L38520:
 
 ; 132  : }
 

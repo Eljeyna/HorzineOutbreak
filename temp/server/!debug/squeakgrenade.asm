@@ -1460,7 +1460,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S41@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L39194
+	jne	SHORT $L39195
 	mov	cl, BYTE PTR _?$S41@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S41@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4EA, cl
@@ -1470,7 +1470,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E42
 	call	_atexit
 	add	esp, 4
-$L39194:
+$L39195:
 	call	?GetBaseMap@CSqueakGrenade@@CAPAUdatamap_s@@XZ ; CSqueakGrenade::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CSqueakGrenade@@0Udatamap_s@@A+12, eax
 
@@ -1486,7 +1486,7 @@ $L39194:
 	mov	dl, BYTE PTR _?$S41@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4EA
 	and	edx, 2
 	test	edx, edx
-	jne	$L39216
+	jne	$L39217
 	mov	al, BYTE PTR _?$S41@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4EA
 	or	al, 2
 	mov	BYTE PTR _?$S41@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4EA, al
@@ -1512,20 +1512,20 @@ $L39194:
 	mov	WORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4PAUtypedescription_s@@A+206, 8
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4PAUtypedescription_s@@A+208, 0
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4PAUtypedescription_s@@A+212, OFFSET FLAT:?HuntThink@CSqueakGrenade@@AAEXXZ ; CSqueakGrenade::HuntThink
-$L39216:
+$L39217:
 
 ; 85   : END_DATADESC()
 
 	mov	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L39223
+	je	SHORT $L39224
 	mov	DWORD PTR ?m_DataMap@CSqueakGrenade@@0Udatamap_s@@A+4, 8
 	mov	DWORD PTR ?m_DataMap@CSqueakGrenade@@0Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L39224
-$L39223:
+	jmp	SHORT $L39225
+$L39224:
 	mov	DWORD PTR ?m_DataMap@CSqueakGrenade@@0Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CSqueakGrenade@@0Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCSqueakGrenade@@@Z@4PAUtypedescription_s@@A
-$L39224:
+$L39225:
 	mov	eax, OFFSET FLAT:?m_DataMap@CSqueakGrenade@@0Udatamap_s@@A ; CSqueakGrenade::m_DataMap
 	pop	edi
 	pop	esi
@@ -1595,7 +1595,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?GenerateName@CDatadescGeneratedNameHolder@@QAEPBDPBD@Z
 _TEXT	SEGMENT
-$T40152 = -12
+$T40153 = -12
 _pszIdentifier$ = 8
 _this$ = -4
 _pBuf$ = -8
@@ -1623,8 +1623,8 @@ _pBuf$ = -8
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40152[ebp], eax
-	mov	ecx, DWORD PTR $T40152[ebp]
+	mov	DWORD PTR $T40153[ebp], eax
+	mov	ecx, DWORD PTR $T40153[ebp]
 	mov	DWORD PTR _pBuf$[ebp], ecx
 
 ; 207  : 		sprintf( pBuf, "%s::", m_pszBase );
@@ -1709,7 +1709,7 @@ __unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
 _TEXT	SEGMENT
-$T40157 = -24
+$T40158 = -24
 __$EHRec$ = -12
 _this$ = -16
 _i$ = -20
@@ -1754,8 +1754,8 @@ $L30214:
 	add	ecx, 8
 	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR $T40157[ebp], edx
-	mov	eax, DWORD PTR $T40157[ebp]
+	mov	DWORD PTR $T40158[ebp], edx
+	mov	eax, DWORD PTR $T40158[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1814,25 +1814,25 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L39230
+	je	SHORT $L39231
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+2388]
-	jmp	$L39229
-$L39230:
+	jmp	$L39230
+$L39231:
 
 ; 90   : 
 ; 91   : 	if (m_iMyClass != 0)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+2444], 0
-	je	SHORT $L39231
+	je	SHORT $L39232
 
 ; 92   : 		return m_iMyClass; // protect against recursion
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax+2444]
-	jmp	SHORT $L39229
-$L39231:
+	jmp	SHORT $L39230
+$L39232:
 
 ; 93   : 
 ; 94   : 	if (m_hEnemy != NULL)
@@ -1841,7 +1841,7 @@ $L39231:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39232
+	je	SHORT $L39233
 
 ; 96   : 		m_iMyClass = CLASS_INSECT; // no one cares about it
 
@@ -1860,11 +1860,11 @@ $L39231:
 	call	DWORD PTR [eax+68]
 	mov	DWORD PTR -12+[ebp], eax
 	cmp	DWORD PTR -12+[ebp], 2
-	jl	SHORT $L39234
+	jl	SHORT $L39235
 	cmp	DWORD PTR -12+[ebp], 4
-	jle	SHORT $L39237
-	jmp	SHORT $L39234
-$L39237:
+	jle	SHORT $L39238
+	jmp	SHORT $L39235
+$L39238:
 
 ; 99   : 			case CLASS_PLAYER:
 ; 100  : 			case CLASS_HUMAN_PASSIVE:
@@ -1877,20 +1877,20 @@ $L39237:
 ; 103  : 				return CLASS_ALIEN_MILITARY; // barney's get mad, grunts get mad at it
 
 	mov	eax, 5
-	jmp	SHORT $L39229
-$L39234:
+	jmp	SHORT $L39230
+$L39235:
 
 ; 105  : 		m_iMyClass = 0;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2444], 0
-$L39232:
+$L39233:
 
 ; 107  : 
 ; 108  : 	return CLASS_ALIEN_BIOWEAPON;
 
 	mov	eax, 13					; 0000000dH
-$L39229:
+$L39230:
 
 ; 109  : }
 
@@ -2105,8 +2105,8 @@ __real@8@4002f000000000000000 DQ 0402e000000000000r ; 15
 CONST	ENDS
 ;	COMDAT ?Spawn@CSqueakGrenade@@EAEXXZ
 _TEXT	SEGMENT
-$T40181 = -16
-$T40182 = -28
+$T40182 = -16
+$T40183 = -28
 _this$ = -4
 ?Spawn@CSqueakGrenade@@EAEXXZ PROC NEAR			; CSqueakGrenade::Spawn, COMDAT
 
@@ -2158,13 +2158,13 @@ _this$ = -4
 	push	1090519040				; 41000000H
 	push	1082130432				; 40800000H
 	push	1082130432				; 40800000H
-	lea	ecx, DWORD PTR $T40181[ebp]
+	lea	ecx, DWORD PTR $T40182[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1065353216				; c0800000H
 	push	-1065353216				; c0800000H
-	lea	ecx, DWORD PTR $T40182[ebp]
+	lea	ecx, DWORD PTR $T40183[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	eax, DWORD PTR _this$[ebp]
@@ -2271,7 +2271,7 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+408], 0
-	je	SHORT $L39249
+	je	SHORT $L39250
 
 ; 139  : 		m_hOwner = Instance( pev->owner );
 
@@ -2285,7 +2285,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2436				; 00000984H
 	call	??4EHANDLE@@QAEPAVCBaseEntity@@PAV1@@Z	; EHANDLE::operator=
-$L39249:
+$L39250:
 
 ; 140  : 
 ; 141  : 	m_flNextBounceSoundTime = gpGlobals->time;// reset each time a snark is spawned.
@@ -2960,7 +2960,7 @@ _this$ = -4
 	add	ecx, 2436				; 00000984H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39271
+	je	SHORT $L39272
 
 ; 179  : 		RadiusDamage ( pev, m_hOwner->pev, pev->dmg, CLASS_NONE, DMG_BLAST );
 
@@ -2983,8 +2983,8 @@ _this$ = -4
 
 ; 180  : 	else
 
-	jmp	SHORT $L39272
-$L39271:
+	jmp	SHORT $L39273
+$L39272:
 
 ; 181  : 		RadiusDamage ( pev, pev, pev->dmg, CLASS_NONE, DMG_BLAST );
 
@@ -3002,7 +3002,7 @@ $L39271:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RadiusDamage@CBaseMonster@@QAEXPAUentvars_s@@0MHH@Z ; CBaseMonster::RadiusDamage
-$L39272:
+$L39273:
 
 ; 182  : 
 ; 183  : 	// reset owner so death message happens
@@ -3012,7 +3012,7 @@ $L39272:
 	add	ecx, 2436				; 00000984H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39273
+	je	SHORT $L39274
 
 ; 185  : 		pev->owner = m_hOwner->edict();
 
@@ -3024,7 +3024,7 @@ $L39272:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	DWORD PTR [edx+408], eax
-$L39273:
+$L39274:
 
 ; 186  : 
 ; 187  : 	CBaseMonster :: Killed( pevAttacker, GIB_ALWAYS );
@@ -3194,29 +3194,29 @@ __real@8@3fff8000000000000000 DQ 03ff0000000000000r ; 1
 CONST	ENDS
 ;	COMDAT ?HuntThink@CSqueakGrenade@@AAEXXZ
 _TEXT	SEGMENT
-$T40218 = -172
-$T40219 = -184
-$T40220 = -196
-$T40221 = -208
-$T40222 = -220
-$T40223 = -232
-$T40224 = -244
-$T40225 = -256
-$T40226 = -268
-$T40227 = -280
-$T40228 = -292
+$T40219 = -172
+$T40220 = -184
+$T40221 = -196
+$T40222 = -208
+$T40223 = -220
+$T40224 = -232
+$T40225 = -244
+$T40226 = -256
+$T40227 = -268
+$T40228 = -280
+$T40229 = -292
 _this$ = -4
-_vecVelocity$39290 = -16
+_vecVelocity$39291 = -16
 _pOther$ = -20
 _vecDir$ = -32
 _tr$ = -88
 _vecFlat$ = -100
 _flpitch$ = -104
-_flVel$39311 = -108
-_flAdj$39312 = -112
-_vecVelocity$39314 = -124
-_vecAvelocity$39321 = -136
-_vecVelocity$39324 = -148
+_flVel$39312 = -108
+_flAdj$39313 = -112
+_vecVelocity$39315 = -124
+_vecAvelocity$39322 = -136
+_vecVelocity$39325 = -148
 _vecAngles$ = -160
 ?HuntThink@CSqueakGrenade@@AAEXXZ PROC NEAR		; CSqueakGrenade::HuntThink, COMDAT
 
@@ -3240,7 +3240,7 @@ _vecAngles$ = -160
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+220]
 	test	eax, eax
-	jne	SHORT $L39283
+	jne	SHORT $L39284
 
 ; 201  : 		SetTouch( NULL );
 
@@ -3258,8 +3258,8 @@ _vecAngles$ = -160
 
 ; 203  : 		return;
 
-	jmp	$L39282
-$L39283:
+	jmp	$L39283
+$L39284:
 
 ; 205  : 	
 ; 206  : 	StudioFrameAdvance( );
@@ -3289,11 +3289,11 @@ $L39283:
 	fcomp	DWORD PTR [edx+2400]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L39286
+	jne	SHORT $L39287
 
 ; 212  : 		g_vecAttackDir = GetAbsVelocity().Normalize( );
 
-	lea	eax, DWORD PTR $T40218[ebp]
+	lea	eax, DWORD PTR $T40219[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
@@ -3325,8 +3325,8 @@ $L39283:
 
 ; 215  : 		return;
 
-	jmp	$L39282
-$L39286:
+	jmp	$L39283
+$L39287:
 
 ; 217  : 
 ; 218  : 	// float
@@ -3335,65 +3335,65 @@ $L39286:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+448], 0
-	je	SHORT $L39288
+	je	SHORT $L39289
 
 ; 221  : 		if (pev->movetype == MOVETYPE_BOUNCE)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 10			; 0000000aH
-	jne	SHORT $L39289
+	jne	SHORT $L39290
 
 ; 223  : 			pev->movetype = MOVETYPE_FLY;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+264], 5
-$L39289:
+$L39290:
 
 ; 225  : 		Vector vecVelocity = GetAbsVelocity() * 0.9f;
 
 	push	1063675494				; 3f666666H
-	lea	ecx, DWORD PTR $T40219[ebp]
+	lea	ecx, DWORD PTR $T40220[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR _vecVelocity$39290[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$39291[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 226  : 		vecVelocity.z += 8.0f;
 
-	fld	DWORD PTR _vecVelocity$39290[ebp+8]
+	fld	DWORD PTR _vecVelocity$39291[ebp+8]
 	fadd	DWORD PTR __real@4@40028000000000000000
-	fstp	DWORD PTR _vecVelocity$39290[ebp+8]
+	fstp	DWORD PTR _vecVelocity$39291[ebp+8]
 
 ; 227  : 		SetAbsVelocity( vecVelocity );
 
-	lea	edx, DWORD PTR _vecVelocity$39290[ebp]
+	lea	edx, DWORD PTR _vecVelocity$39291[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
 
 ; 229  : 	else if (pev->movetype = MOVETYPE_FLY)
 
-	jmp	SHORT $L39293
-$L39288:
+	jmp	SHORT $L39294
+$L39289:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+264], 5
 	mov	edx, 5
 	test	edx, edx
-	je	SHORT $L39293
+	je	SHORT $L39294
 
 ; 231  : 		pev->movetype = MOVETYPE_BOUNCE;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+264], 10			; 0000000aH
-$L39293:
+$L39294:
 
 ; 233  : 
 ; 234  : 	// return if not time to hunt
@@ -3405,12 +3405,12 @@ $L39293:
 	fcomp	DWORD PTR [eax]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39294
+	jne	SHORT $L39295
 
 ; 236  : 		return;
 
-	jmp	$L39282
-$L39294:
+	jmp	$L39283
+$L39295:
 
 ; 237  : 
 ; 238  : 	m_flNextHunt = gpGlobals->time + 2.0;
@@ -3451,7 +3451,7 @@ $L39294:
 
 ; 246  : 	vecFlat = vecFlat.Normalize( );
 
-	lea	eax, DWORD PTR $T40220[ebp]
+	lea	eax, DWORD PTR $T40221[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecFlat$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -3478,7 +3478,7 @@ $L39294:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39301
+	je	SHORT $L39302
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
@@ -3488,8 +3488,8 @@ $L39294:
 	mov	ecx, DWORD PTR -300+[ebp]
 	call	DWORD PTR [edx+200]
 	test	eax, eax
-	jne	SHORT $L39300
-$L39301:
+	jne	SHORT $L39301
+$L39302:
 
 ; 252  : 		// find target, bounce a bit towards it.
 ; 253  : 		Look( 512 );
@@ -3510,7 +3510,7 @@ $L39301:
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??4EHANDLE@@QAEPAVCBaseEntity@@PAV1@@Z	; EHANDLE::operator=
-$L39300:
+$L39301:
 
 ; 256  : 
 ; 257  : 	// squeek if it's about time blow up
@@ -3523,7 +3523,7 @@ $L39300:
 	fcomp	QWORD PTR __real@8@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39302
+	je	SHORT $L39303
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [edx+2400]
@@ -3531,7 +3531,7 @@ $L39300:
 	fcomp	QWORD PTR __real@8@3ffd9999999999999800
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L39302
+	jne	SHORT $L39303
 
 ; 260  : 		EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_die1.wav", 1, ATTN_NORM, 0, 100 + RANDOM_LONG(0,0x3F));
 
@@ -3565,7 +3565,7 @@ $L39300:
 	push	1
 	call	?InsertSound@CSoundEnt@@SAXHABVVector@@HM@Z ; CSoundEnt::InsertSound
 	add	esp, 16					; 00000010H
-$L39302:
+$L39303:
 
 ; 263  : 
 ; 264  : 	// higher pitch as squeeker gets closer to detonation time
@@ -3586,12 +3586,12 @@ $L39302:
 	fcomp	DWORD PTR __real@4@4005a000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L39305
+	je	SHORT $L39306
 
 ; 267  : 		flpitch = 80;
 
 	mov	DWORD PTR _flpitch$[ebp], 1117782016	; 42a00000H
-$L39305:
+$L39306:
 
 ; 268  : 
 ; 269  : 	if (m_hEnemy != NULL)
@@ -3600,7 +3600,7 @@ $L39305:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	$L39306
+	je	$L39307
 
 ; 271  : 		if (FVisible( m_hEnemy ))
 
@@ -3613,16 +3613,16 @@ $L39305:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+332]
 	test	eax, eax
-	je	SHORT $L39307
+	je	SHORT $L39308
 
 ; 273  : 			vecDir = m_hEnemy->EyePosition() - GetAbsOrigin();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T40222[ebp]
+	lea	ecx, DWORD PTR $T40223[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T40221[ebp]
+	lea	edx, DWORD PTR $T40222[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
@@ -3643,7 +3643,7 @@ $L39305:
 
 ; 274  : 			m_vecTarget = vecDir.Normalize( );
 
-	lea	ecx, DWORD PTR $T40223[ebp]
+	lea	ecx, DWORD PTR $T40224[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vecDir$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -3655,7 +3655,7 @@ $L39305:
 	mov	DWORD PTR [edx+4], ecx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
-$L39307:
+$L39308:
 
 ; 276  : 
 ; 277  : 		float flVel = GetAbsVelocity().Length();
@@ -3664,27 +3664,27 @@ $L39307:
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	mov	ecx, eax
 	call	?Length@Vector@@QBEMXZ			; Vector::Length
-	fst	DWORD PTR _flVel$39311[ebp]
+	fst	DWORD PTR _flVel$39312[ebp]
 
 ; 278  : 		float flAdj = 50.0 / (flVel + 10.0);
 
 	fadd	QWORD PTR __real@8@4002a000000000000000
 	fdivr	QWORD PTR __real@8@4004c800000000000000
-	fstp	DWORD PTR _flAdj$39312[ebp]
+	fstp	DWORD PTR _flAdj$39313[ebp]
 
 ; 279  : 
 ; 280  : 		if (flAdj > 1.2)
 
-	fld	DWORD PTR _flAdj$39312[ebp]
+	fld	DWORD PTR _flAdj$39313[ebp]
 	fcomp	QWORD PTR __real@8@3fff9999999999999800
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39313
+	jne	SHORT $L39314
 
 ; 281  : 			flAdj = 1.2;
 
-	mov	DWORD PTR _flAdj$39312[ebp], 1067030938	; 3f99999aH
-$L39313:
+	mov	DWORD PTR _flAdj$39313[ebp], 1067030938	; 3f99999aH
+$L39314:
 
 ; 282  : 		
 ; 283  : 		// ALERT( at_console, "think : enemy\n");
@@ -3695,33 +3695,33 @@ $L39313:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	push	eax
-	lea	ecx, DWORD PTR _vecVelocity$39314[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$39315[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 287  : 
 ; 288  : 		SetAbsVelocity( vecVelocity * flAdj + m_vecTarget * 300 );
 
 	push	1133903872				; 43960000H
-	lea	ecx, DWORD PTR $T40225[ebp]
+	lea	ecx, DWORD PTR $T40226[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2404				; 00000964H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40226[ebp]
+	lea	edx, DWORD PTR $T40227[ebp]
 	push	edx
-	mov	eax, DWORD PTR _flAdj$39312[ebp]
+	mov	eax, DWORD PTR _flAdj$39313[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40224[ebp]
+	lea	ecx, DWORD PTR $T40225[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _vecVelocity$39314[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$39315[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
-$L39306:
+$L39307:
 
 ; 290  : 
 ; 291  : 	if (pev->flags & FL_ONGROUND)
@@ -3731,7 +3731,7 @@ $L39306:
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 512				; 00000200H
 	test	ecx, ecx
-	je	SHORT $L39318
+	je	SHORT $L39319
 
 ; 293  : 		SetLocalAvelocity( g_vecZero );
 
@@ -3741,8 +3741,8 @@ $L39306:
 
 ; 295  : 	else
 
-	jmp	SHORT $L39320
-$L39318:
+	jmp	SHORT $L39321
+$L39319:
 
 ; 297  : 		if (GetLocalAvelocity() == g_vecZero)
 
@@ -3752,11 +3752,11 @@ $L39318:
 	mov	ecx, eax
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L39320
+	je	SHORT $L39321
 
 ; 299  : 			Vector vecAvelocity;
 
-	lea	ecx, DWORD PTR _vecAvelocity$39321[ebp]
+	lea	ecx, DWORD PTR _vecAvelocity$39322[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 300  : 			vecAvelocity.x = RANDOM_FLOAT( -100, 100 );
@@ -3765,7 +3765,7 @@ $L39318:
 	push	-1027080192				; c2c80000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fstp	DWORD PTR _vecAvelocity$39321[ebp]
+	fstp	DWORD PTR _vecAvelocity$39322[ebp]
 
 ; 301  : 			vecAvelocity.z = RANDOM_FLOAT( -100, 100 );
 
@@ -3773,19 +3773,19 @@ $L39318:
 	push	-1027080192				; c2c80000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fstp	DWORD PTR _vecAvelocity$39321[ebp+8]
+	fstp	DWORD PTR _vecAvelocity$39322[ebp+8]
 
 ; 302  : 			vecAvelocity.y = 0;
 
-	mov	DWORD PTR _vecAvelocity$39321[ebp+4], 0
+	mov	DWORD PTR _vecAvelocity$39322[ebp+4], 0
 
 ; 303  : 			SetLocalAvelocity( vecAvelocity );
 
-	lea	edx, DWORD PTR _vecAvelocity$39321[ebp]
+	lea	edx, DWORD PTR _vecAvelocity$39322[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetLocalAvelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalAvelocity
-$L39320:
+$L39321:
 
 ; 306  : 
 ; 307  : 	if ((GetAbsOrigin() - m_posPrev).Length() < 1.0)
@@ -3793,7 +3793,7 @@ $L39320:
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 2424				; 00000978H
 	push	eax
-	lea	ecx, DWORD PTR $T40227[ebp]
+	lea	ecx, DWORD PTR $T40228[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -3804,11 +3804,11 @@ $L39320:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L39323
+	je	SHORT $L39324
 
 ; 309  : 		Vector vecVelocity;
 
-	lea	ecx, DWORD PTR _vecVelocity$39324[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$39325[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 310  : 		vecVelocity.x = RANDOM_FLOAT( -100, 100 );
@@ -3817,7 +3817,7 @@ $L39320:
 	push	-1027080192				; c2c80000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fstp	DWORD PTR _vecVelocity$39324[ebp]
+	fstp	DWORD PTR _vecVelocity$39325[ebp]
 
 ; 311  : 		vecVelocity.y = RANDOM_FLOAT( -100, 100 );
 
@@ -3825,19 +3825,19 @@ $L39320:
 	push	-1027080192				; c2c80000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fstp	DWORD PTR _vecVelocity$39324[ebp+4]
+	fstp	DWORD PTR _vecVelocity$39325[ebp+4]
 
 ; 312  : 		vecVelocity.z = 0;
 
-	mov	DWORD PTR _vecVelocity$39324[ebp+8], 0
+	mov	DWORD PTR _vecVelocity$39325[ebp+8], 0
 
 ; 313  : 		SetAbsVelocity( vecVelocity );
 
-	lea	edx, DWORD PTR _vecVelocity$39324[ebp]
+	lea	edx, DWORD PTR _vecVelocity$39325[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
-$L39323:
+$L39324:
 
 ; 315  : 	m_posPrev = GetAbsOrigin();
 
@@ -3858,7 +3858,7 @@ $L39323:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	push	eax
-	lea	ecx, DWORD PTR $T40228[ebp]
+	lea	ecx, DWORD PTR $T40229[ebp]
 	push	ecx
 	call	?UTIL_VecToAngles@@YA?AVVector@@ABV1@@Z	; UTIL_VecToAngles
 	add	esp, 8
@@ -3880,7 +3880,7 @@ $L39323:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
-$L39282:
+$L39283:
 
 ; 321  : }
 
@@ -3972,26 +3972,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40257
+	je	SHORT $L40258
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40257
+	je	SHORT $L40258
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40257
+	je	SHORT $L40258
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40258
-$L40257:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40259
 $L40258:
+	mov	DWORD PTR -8+[ebp], 0
+$L40259:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -4006,7 +4006,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40261 = -16
+$T40262 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -4036,7 +4036,7 @@ $T40261 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40261[ebp]
+	lea	ecx, DWORD PTR $T40262[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4055,7 +4055,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40264 = -16
+$T40265 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -4085,7 +4085,7 @@ $T40264 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40264[ebp]
+	lea	ecx, DWORD PTR $T40265[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4104,7 +4104,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40267 = -16
+$T40268 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -4131,7 +4131,7 @@ $T40267 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40267[ebp]
+	lea	ecx, DWORD PTR $T40268[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4203,7 +4203,7 @@ _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
 _flLen$ = -8
-$T40272 = -20
+$T40273 = -20
 ?Normalize@Vector@@QBE?AV1@XZ PROC NEAR			; Vector::Normalize, COMDAT
 
 ; 232  : 	{
@@ -4254,7 +4254,7 @@ $T40272 = -20
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40272[ebp]
+	lea	ecx, DWORD PTR $T40273[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4361,13 +4361,13 @@ __real@8@3ffea8f5c28f5c28f800 DQ 03fe51eb851eb851fr ; 0.66
 CONST	ENDS
 ;	COMDAT ?SuperBounceTouch@CSqueakGrenade@@AAEXPAVCBaseEntity@@@Z
 _TEXT	SEGMENT
-$T40283 = -136
+$T40284 = -136
 _pOther$ = 8
 _this$ = -4
 _flpitch$ = -8
 _tr$ = -64
 _vecAngles$ = -76
-_flRndSound$39351 = -80
+_flRndSound$39352 = -80
 ?SuperBounceTouch@CSqueakGrenade@@AAEXPAVCBaseEntity@@@Z PROC NEAR ; CSqueakGrenade::SuperBounceTouch, COMDAT
 
 ; 324  : {
@@ -4384,7 +4384,7 @@ _flRndSound$39351 = -80
 ; 326  : 
 ; 327  : 	TraceResult tr = UTIL_GetGlobalTrace( );
 
-	lea	eax, DWORD PTR $T40283[ebp]
+	lea	eax, DWORD PTR $T40284[ebp]
 	push	eax
 	call	?UTIL_GetGlobalTrace@@YA?AUgametrace_s@@XZ ; UTIL_GetGlobalTrace
 	add	esp, 4
@@ -4399,18 +4399,18 @@ _flRndSound$39351 = -80
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+408], 0
-	je	SHORT $L39336
+	je	SHORT $L39337
 	mov	ecx, DWORD PTR _pOther$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	eax, DWORD PTR [edx+408]
-	jne	SHORT $L39336
+	jne	SHORT $L39337
 
 ; 331  : 		return;
 
-	jmp	$L39332
-$L39336:
+	jmp	$L39333
+$L39337:
 
 ; 332  : 
 ; 333  : 	// at least until we've bounced once
@@ -4456,12 +4456,12 @@ $L39336:
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39338
+	jne	SHORT $L39339
 
 ; 345  : 		return;
 
-	jmp	$L39332
-$L39338:
+	jmp	$L39333
+$L39339:
 
 ; 346  : 
 ; 347  : 	// higher pitch as squeeker gets closer to detonation time
@@ -4485,14 +4485,14 @@ $L39338:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	$L39340
+	jne	$L39341
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax+2308]
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 1
-	je	$L39340
+	je	$L39341
 
 ; 352  : 		// attack!
 ; 353  : 
@@ -4502,7 +4502,7 @@ $L39338:
 	mov	ecx, DWORD PTR _pOther$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	cmp	DWORD PTR _tr$[ebp+48], eax
-	jne	$L39340
+	jne	$L39341
 
 ; 357  : 			// and it's not another squeakgrenade
 ; 358  : 			if (tr.pHit->v.modelindex != pev->modelindex)
@@ -4512,7 +4512,7 @@ $L39338:
 	mov	ecx, DWORD PTR _tr$[ebp+48]
 	mov	edx, DWORD PTR [ecx+308]
 	cmp	edx, DWORD PTR [eax+180]
-	je	$L39341
+	je	$L39342
 
 ; 360  : 				// ALERT( at_console, "hit enemy\n");
 ; 361  : 				ClearMultiDamage( );
@@ -4547,7 +4547,7 @@ $L39338:
 	add	ecx, 2436				; 00000984H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39343
+	je	SHORT $L39344
 
 ; 364  : 					ApplyMultiDamage( pev, m_hOwner->pev );
 
@@ -4564,8 +4564,8 @@ $L39338:
 
 ; 365  : 				else
 
-	jmp	SHORT $L39344
-$L39343:
+	jmp	SHORT $L39345
+$L39344:
 
 ; 366  : 					ApplyMultiDamage( pev, pev );
 
@@ -4577,7 +4577,7 @@ $L39343:
 	push	eax
 	call	?ApplyMultiDamage@@YAXPAUentvars_s@@0@Z	; ApplyMultiDamage
 	add	esp, 8
-$L39344:
+$L39345:
 
 ; 367  : 
 ; 368  : 				pev->dmg += gSkillData.snarkDmgPop; // add more explosion damage
@@ -4619,8 +4619,8 @@ $L39344:
 	fadd	QWORD PTR __real@8@3ffe8000000000000000
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2308]
+$L39342:
 $L39341:
-$L39340:
 
 ; 381  : 
 ; 382  : 	m_flNextHit = gpGlobals->time + 0.1;
@@ -4646,7 +4646,7 @@ $L39340:
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	call	DWORD PTR [eax+24]
 	test	eax, eax
-	je	SHORT $L39349
+	je	SHORT $L39350
 
 ; 387  : 		// in multiplayer, we limit how often snarks can make their bounce sounds to prevent overflows.
 ; 388  : 		if ( gpGlobals->time < m_flNextBounceSoundTime )
@@ -4656,13 +4656,13 @@ $L39340:
 	fcomp	DWORD PTR ?m_flNextBounceSoundTime@CSqueakGrenade@@0MA ; CSqueakGrenade::m_flNextBounceSoundTime
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L39349
+	je	SHORT $L39350
 
 ; 390  : 			// too soon!
 ; 391  : 			return;
 
-	jmp	$L39332
-$L39349:
+	jmp	$L39333
+$L39350:
 
 ; 394  : 
 ; 395  : 	if (!(pev->flags & FL_ONGROUND))
@@ -4672,7 +4672,7 @@ $L39349:
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 512				; 00000200H
 	test	ecx, ecx
-	jne	$L39350
+	jne	$L39351
 
 ; 397  : 		// play bounce sound
 ; 398  : 		float flRndSound = RANDOM_FLOAT ( 0 , 1 );
@@ -4681,16 +4681,16 @@ $L39349:
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fstp	DWORD PTR _flRndSound$39351[ebp]
+	fstp	DWORD PTR _flRndSound$39352[ebp]
 
 ; 399  : 
 ; 400  : 		if ( flRndSound <= 0.33 )
 
-	fld	DWORD PTR _flRndSound$39351[ebp]
+	fld	DWORD PTR _flRndSound$39352[ebp]
 	fcomp	QWORD PTR __real@8@3ffda8f5c28f5c28f800
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39352
+	je	SHORT $L39353
 
 ; 401  : 			EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt1.wav", 1, ATTN_NORM, 0, (int)flpitch);		
 
@@ -4713,13 +4713,13 @@ $L39349:
 
 ; 402  : 		else if (flRndSound <= 0.66)
 
-	jmp	SHORT $L39359
-$L39352:
-	fld	DWORD PTR _flRndSound$39351[ebp]
+	jmp	SHORT $L39360
+$L39353:
+	fld	DWORD PTR _flRndSound$39352[ebp]
 	fcomp	QWORD PTR __real@8@3ffea8f5c28f5c28f800
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39356
+	je	SHORT $L39357
 
 ; 403  : 			EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt2.wav", 1, ATTN_NORM, 0, (int)flpitch);
 
@@ -4742,8 +4742,8 @@ $L39352:
 
 ; 404  : 		else 
 
-	jmp	SHORT $L39359
-$L39356:
+	jmp	SHORT $L39360
+$L39357:
 
 ; 405  : 			EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt3.wav", 1, ATTN_NORM, 0, (int)flpitch);
 
@@ -4763,7 +4763,7 @@ $L39356:
 	push	eax
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
-$L39359:
+$L39360:
 
 ; 406  : 		CSoundEnt::InsertSound ( bits_SOUND_COMBAT, GetAbsOrigin(), 256, 0.25 );
 
@@ -4778,8 +4778,8 @@ $L39359:
 
 ; 408  : 	else
 
-	jmp	SHORT $L39362
-$L39350:
+	jmp	SHORT $L39363
+$L39351:
 
 ; 410  : 		// skittering sound
 ; 411  : 		CSoundEnt::InsertSound ( bits_SOUND_COMBAT, GetAbsOrigin(), 100, 0.1 );
@@ -4792,7 +4792,7 @@ $L39350:
 	push	1
 	call	?InsertSound@CSoundEnt@@SAXHABVVector@@HM@Z ; CSoundEnt::InsertSound
 	add	esp, 16					; 00000010H
-$L39362:
+$L39363:
 
 ; 413  : 
 ; 414  : 	m_flNextBounceSoundTime = gpGlobals->time + 0.5;// half second.
@@ -4801,7 +4801,7 @@ $L39362:
 	fld	DWORD PTR [edx]
 	fadd	QWORD PTR __real@8@3ffe8000000000000000
 	fstp	DWORD PTR ?m_flNextBounceSoundTime@CSqueakGrenade@@0MA ; CSqueakGrenade::m_flNextBounceSoundTime
-$L39332:
+$L39333:
 
 ; 415  : }
 
@@ -5236,7 +5236,7 @@ _flRndSound$ = -8
 	fcomp	QWORD PTR __real@8@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39447
+	je	SHORT $L39448
 
 ; 483  : 		EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt2.wav", 1, ATTN_NORM, 0, 100);
 
@@ -5257,8 +5257,8 @@ _flRndSound$ = -8
 
 ; 484  : 	else 
 
-	jmp	SHORT $L39449
-$L39447:
+	jmp	SHORT $L39450
+$L39448:
 
 ; 485  : 		EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt3.wav", 1, ATTN_NORM, 0, 100);
 
@@ -5276,7 +5276,7 @@ $L39447:
 	push	eax
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
-$L39449:
+$L39450:
 
 ; 486  : 
 ; 487  : 	m_pPlayer->m_iWeaponVolume = QUIET_GUN_VOLUME;
@@ -5355,7 +5355,7 @@ _this$ = -4
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+1856]
 	cmp	DWORD PTR [ecx+eax*4+3508], 0
-	jne	SHORT $L39456
+	jne	SHORT $L39457
 
 ; 498  : 		m_pPlayer->RemoveWeapon( WEAPON_SNARK );
 
@@ -5383,8 +5383,8 @@ _this$ = -4
 
 ; 501  : 		return;
 
-	jmp	SHORT $L39455
-$L39456:
+	jmp	SHORT $L39456
+$L39457:
 
 ; 503  : 	
 ; 504  : 	SendWeaponAnim( SQUEAK_DOWN );
@@ -5412,7 +5412,7 @@ $L39456:
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L39455:
+$L39456:
 
 ; 506  : }
 
@@ -5520,18 +5520,18 @@ __real@8@3ffd8000000000000000 DQ 03fd0000000000000r ; 0.25
 CONST	ENDS
 ;	COMDAT ?PrimaryAttack@CSqueak@@UAEXXZ
 _TEXT	SEGMENT
-$T40312 = -92
-$T40313 = -104
-$T40314 = -116
-$T40315 = -128
-$T40316 = -140
-$T40317 = -152
-$T40318 = -164
+$T40313 = -92
+$T40314 = -104
+$T40315 = -116
+$T40316 = -128
+$T40317 = -140
+$T40318 = -152
+$T40319 = -164
 _this$ = -4
-_tr$39467 = -60
-_pSqueak$39473 = -64
-_vecGround$39474 = -76
-_flRndSound$39480 = -80
+_tr$39468 = -60
+_pSqueak$39474 = -64
+_vecGround$39475 = -76
+_flRndSound$39481 = -80
 ?PrimaryAttack@CSqueak@@UAEXXZ PROC NEAR		; CSqueak::PrimaryAttack, COMDAT
 
 ; 509  : {
@@ -5551,7 +5551,7 @@ _flRndSound$39480 = -80
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+1856]
 	cmp	DWORD PTR [ecx+eax*4+3508], 0
-	je	$L39472
+	je	$L39473
 
 ; 512  : 		UTIL_MakeVectors( m_pPlayer->pev->v_angle );
 
@@ -5565,25 +5565,25 @@ _flRndSound$39480 = -80
 
 ; 513  : 		TraceResult tr;
 
-	lea	ecx, DWORD PTR _tr$39467[ebp]
+	lea	ecx, DWORD PTR _tr$39468[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 514  : 
 ; 515  : 		// find place to toss monster
 ; 516  : 		UTIL_TraceLine( m_pPlayer->GetAbsOrigin() + gpGlobals->v_forward * 20, m_pPlayer->GetAbsOrigin() + gpGlobals->v_forward * 64, dont_ignore_monsters, NULL, &tr );
 
-	lea	ecx, DWORD PTR _tr$39467[ebp]
+	lea	ecx, DWORD PTR _tr$39468[ebp]
 	push	ecx
 	push	0
 	push	0
 	push	1115684864				; 42800000H
-	lea	edx, DWORD PTR $T40312[ebp]
+	lea	edx, DWORD PTR $T40313[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40313[ebp]
+	lea	eax, DWORD PTR $T40314[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+1816]
@@ -5592,13 +5592,13 @@ _flRndSound$39480 = -80
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
 	push	1101004800				; 41a00000H
-	lea	edx, DWORD PTR $T40314[ebp]
+	lea	edx, DWORD PTR $T40315[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40315[ebp]
+	lea	eax, DWORD PTR $T40316[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+1816]
@@ -5612,15 +5612,15 @@ _flRndSound$39480 = -80
 ; 517  : 
 ; 518  : 		if (tr.fAllSolid == 0 && tr.fStartSolid == 0 && tr.flFraction > 0.25)
 
-	cmp	DWORD PTR _tr$39467[ebp], 0
-	jne	$L39472
-	cmp	DWORD PTR _tr$39467[ebp+4], 0
-	jne	$L39472
-	fld	DWORD PTR _tr$39467[ebp+16]
+	cmp	DWORD PTR _tr$39468[ebp], 0
+	jne	$L39473
+	cmp	DWORD PTR _tr$39468[ebp+4], 0
+	jne	$L39473
+	fld	DWORD PTR _tr$39468[ebp+16]
 	fcomp	QWORD PTR __real@8@3ffd8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	$L39472
+	jne	$L39473
 
 ; 520  : 			SendWeaponAnim( SQUEAK_THROW );
 
@@ -5653,16 +5653,16 @@ _flRndSound$39480 = -80
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 116				; 00000074H
 	push	edx
-	lea	eax, DWORD PTR _tr$39467[ebp+20]
+	lea	eax, DWORD PTR _tr$39468[ebp+20]
 	push	eax
 	push	OFFSET FLAT:??_C@_0O@MMBK@monster_snark?$AA@ ; `string'
 	call	?Create@CBaseEntity@@SAPAV1@PADABVVector@@1PAUedict_s@@@Z ; CBaseEntity::Create
 	add	esp, 16					; 00000010H
-	mov	DWORD PTR _pSqueak$39473[ebp], eax
+	mov	DWORD PTR _pSqueak$39474[ebp], eax
 
 ; 526  : 			Vector vecGround;
 
-	lea	ecx, DWORD PTR _vecGround$39474[ebp]
+	lea	ecx, DWORD PTR _vecGround$39475[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 527  : 
@@ -5672,7 +5672,7 @@ _flRndSound$39480 = -80
 	mov	ecx, DWORD PTR [ecx+1816]
 	call	?GetGroundEntity@CBaseEntity@@QAEPAV1@XZ ; CBaseEntity::GetGroundEntity
 	test	eax, eax
-	je	SHORT $L39475
+	je	SHORT $L39476
 
 ; 529  : 				vecGround = m_pPlayer->GetGroundEntity( )->GetAbsVelocity();
 
@@ -5682,39 +5682,39 @@ _flRndSound$39480 = -80
 	mov	ecx, eax
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _vecGround$39474[ebp], ecx
+	mov	DWORD PTR _vecGround$39475[ebp], ecx
 	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR _vecGround$39474[ebp+4], edx
+	mov	DWORD PTR _vecGround$39475[ebp+4], edx
 	mov	eax, DWORD PTR [eax+8]
-	mov	DWORD PTR _vecGround$39474[ebp+8], eax
+	mov	DWORD PTR _vecGround$39475[ebp+8], eax
 
 ; 530  : 			else vecGround = g_vecZero;
 
-	jmp	SHORT $L39476
-$L39475:
-	mov	ecx, DWORD PTR ?g_vecZero@@3VVector@@B
-	mov	DWORD PTR _vecGround$39474[ebp], ecx
-	mov	edx, DWORD PTR ?g_vecZero@@3VVector@@B+4
-	mov	DWORD PTR _vecGround$39474[ebp+4], edx
-	mov	eax, DWORD PTR ?g_vecZero@@3VVector@@B+8
-	mov	DWORD PTR _vecGround$39474[ebp+8], eax
+	jmp	SHORT $L39477
 $L39476:
+	mov	ecx, DWORD PTR ?g_vecZero@@3VVector@@B
+	mov	DWORD PTR _vecGround$39475[ebp], ecx
+	mov	edx, DWORD PTR ?g_vecZero@@3VVector@@B+4
+	mov	DWORD PTR _vecGround$39475[ebp+4], edx
+	mov	eax, DWORD PTR ?g_vecZero@@3VVector@@B+8
+	mov	DWORD PTR _vecGround$39475[ebp+8], eax
+$L39477:
 
 ; 531  : 
 ; 532  : 			pSqueak->SetAbsVelocity( gpGlobals->v_forward * 200 + m_pPlayer->GetAbsVelocity( ) + vecGround );
 
-	lea	ecx, DWORD PTR _vecGround$39474[ebp]
+	lea	ecx, DWORD PTR _vecGround$39475[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T40318[ebp]
+	lea	edx, DWORD PTR $T40319[ebp]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	push	eax
-	lea	ecx, DWORD PTR $T40317[ebp]
+	lea	ecx, DWORD PTR $T40318[ebp]
 	push	ecx
 	push	1128792064				; 43480000H
-	lea	edx, DWORD PTR $T40316[ebp]
+	lea	edx, DWORD PTR $T40317[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
@@ -5724,7 +5724,7 @@ $L39476:
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	mov	ecx, DWORD PTR _pSqueak$39473[ebp]
+	mov	ecx, DWORD PTR _pSqueak$39474[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
 
 ; 533  : 
@@ -5735,16 +5735,16 @@ $L39476:
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fstp	DWORD PTR _flRndSound$39480[ebp]
+	fstp	DWORD PTR _flRndSound$39481[ebp]
 
 ; 536  : 
 ; 537  : 			if ( flRndSound <= 0.5 )
 
-	fld	DWORD PTR _flRndSound$39480[ebp]
+	fld	DWORD PTR _flRndSound$39481[ebp]
 	fcomp	QWORD PTR __real@8@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39481
+	je	SHORT $L39482
 
 ; 538  : 				EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt2.wav", 1, ATTN_NORM, 0, 105);
 
@@ -5765,8 +5765,8 @@ $L39476:
 
 ; 539  : 			else 
 
-	jmp	SHORT $L39483
-$L39481:
+	jmp	SHORT $L39484
+$L39482:
 
 ; 540  : 				EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "squeek/sqk_hunt3.wav", 1, ATTN_NORM, 0, 105);
 
@@ -5784,7 +5784,7 @@ $L39481:
 	push	eax
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
-$L39483:
+$L39484:
 
 ; 541  : 
 ; 542  : 			m_pPlayer->m_iWeaponVolume = QUIET_GUN_VOLUME;
@@ -5830,7 +5830,7 @@ $L39483:
 	fadd	QWORD PTR __real@8@3fff8000000000000000
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+1852]
-$L39472:
+$L39473:
 
 ; 552  : }
 
@@ -5922,19 +5922,19 @@ _flRand$ = -12
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39489
+	jne	SHORT $L39490
 
 ; 557  : 		return;
 
-	jmp	$L39488
-$L39489:
+	jmp	$L39489
+$L39490:
 
 ; 558  : 
 ; 559  : 	if (m_fJustThrown)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1884], 0
-	je	SHORT $L39490
+	je	SHORT $L39491
 
 ; 561  : 		m_fJustThrown = 0;
 
@@ -5951,7 +5951,7 @@ $L39489:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+396]
 	cmp	DWORD PTR [esi+eax*4+3508], 0
-	jne	SHORT $L39491
+	jne	SHORT $L39492
 
 ; 565  : 			RetireWeapon();
 
@@ -5962,8 +5962,8 @@ $L39489:
 
 ; 566  : 			return;
 
-	jmp	$L39488
-$L39491:
+	jmp	$L39489
+$L39492:
 
 ; 568  : 
 ; 569  : 		SendWeaponAnim( SQUEAK_UP );
@@ -5989,8 +5989,8 @@ $L39491:
 
 ; 571  : 		return;
 
-	jmp	$L39488
-$L39490:
+	jmp	$L39489
+$L39491:
 
 ; 575  : 	float flRand = RANDOM_FLOAT(0, 1);
 
@@ -6006,7 +6006,7 @@ $L39490:
 	fcomp	QWORD PTR __real@8@3ffec000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39494
+	je	SHORT $L39495
 
 ; 578  : 		iAnim = SQUEAK_IDLE1;
 
@@ -6022,13 +6022,13 @@ $L39490:
 
 ; 581  : 	else if (flRand <= 0.875)
 
-	jmp	SHORT $L39497
-$L39494:
+	jmp	SHORT $L39498
+$L39495:
 	fld	DWORD PTR _flRand$[ebp]
 	fcomp	QWORD PTR __real@8@3ffee000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39496
+	je	SHORT $L39497
 
 ; 583  : 		iAnim = SQUEAK_FIDGETFIT;
 
@@ -6044,8 +6044,8 @@ $L39494:
 
 ; 586  : 	else
 
-	jmp	SHORT $L39497
-$L39496:
+	jmp	SHORT $L39498
+$L39497:
 
 ; 588  : 		iAnim = SQUEAK_FIDGETNIP;
 
@@ -6058,7 +6058,7 @@ $L39496:
 	fadd	QWORD PTR __real@8@4001a000000000000000
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+1852]
-$L39497:
+$L39498:
 
 ; 591  : 
 ; 592  : 	SendWeaponAnim( iAnim );
@@ -6071,7 +6071,7 @@ $L39497:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+436]
-$L39488:
+$L39489:
 
 ; 593  : }
 
@@ -6681,11 +6681,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	test	eax, eax
-	je	SHORT $L40377
+	je	SHORT $L40378
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	cmp	DWORD PTR _src$[ebp], eax
-	jb	SHORT $L40377
+	jb	SHORT $L40378
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	mov	esi, eax
@@ -6693,13 +6693,13 @@ _this$ = -4
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	lea	eax, DWORD PTR [esi+eax*4]
 	cmp	DWORD PTR _src$[ebp], eax
-	jae	SHORT $L40377
+	jae	SHORT $L40378
 	push	519					; 00000207H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40377:
+$L40378:
 
 ; 520  : 	return InsertBefore( m_Size, src );
 
@@ -6770,8 +6770,8 @@ __unwindtable$?GetClassPtr@@YAPAVCSqueakGrenade@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCSqueakGrenade@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T40382 = -20
-$T40383 = -24
+$T40383 = -20
+$T40384 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -6802,7 +6802,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39558
+	jne	SHORT $L39559
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -6811,7 +6811,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39558:
+$L39559:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -6830,7 +6830,7 @@ $L39558:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39560
+	jne	SHORT $L39561
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -6840,21 +6840,21 @@ $L39558:
 	push	2448					; 00000990H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40383[ebp], eax
+	mov	DWORD PTR $T40384[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40383[ebp], 0
-	je	SHORT $L40384
-	mov	ecx, DWORD PTR $T40383[ebp]
+	cmp	DWORD PTR $T40384[ebp], 0
+	je	SHORT $L40385
+	mov	ecx, DWORD PTR $T40384[ebp]
 	call	??0CSqueakGrenade@@QAE@XZ		; CSqueakGrenade::CSqueakGrenade
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40385
-$L40384:
-	mov	DWORD PTR -28+[ebp], 0
+	jmp	SHORT $L40386
 $L40385:
+	mov	DWORD PTR -28+[ebp], 0
+$L40386:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40382[ebp], eax
+	mov	DWORD PTR $T40383[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40382[ebp]
+	mov	ecx, DWORD PTR $T40383[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -6862,7 +6862,7 @@ $L40385:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39560:
+$L39561:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -6892,7 +6892,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCSqueakGrenade@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40383[ebp]
+	mov	ecx, DWORD PTR $T40384[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -7058,8 +7058,8 @@ __unwindtable$?GetClassPtr@@YAPAVCSqueak@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCSqueak@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T40403 = -20
-$T40404 = -24
+$T40404 = -20
+$T40405 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -7090,7 +7090,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39569
+	jne	SHORT $L39570
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -7099,7 +7099,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39569:
+$L39570:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -7118,7 +7118,7 @@ $L39569:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39571
+	jne	SHORT $L39572
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -7128,21 +7128,21 @@ $L39569:
 	push	1888					; 00000760H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40404[ebp], eax
+	mov	DWORD PTR $T40405[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40404[ebp], 0
-	je	SHORT $L40405
-	mov	ecx, DWORD PTR $T40404[ebp]
+	cmp	DWORD PTR $T40405[ebp], 0
+	je	SHORT $L40406
+	mov	ecx, DWORD PTR $T40405[ebp]
 	call	??0CSqueak@@QAE@XZ			; CSqueak::CSqueak
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40406
-$L40405:
-	mov	DWORD PTR -28+[ebp], 0
+	jmp	SHORT $L40407
 $L40406:
+	mov	DWORD PTR -28+[ebp], 0
+$L40407:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40403[ebp], eax
+	mov	DWORD PTR $T40404[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40403[ebp]
+	mov	ecx, DWORD PTR $T40404[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -7150,7 +7150,7 @@ $L40406:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39571:
+$L39572:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -7180,7 +7180,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCSqueak@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40404[ebp]
+	mov	ecx, DWORD PTR $T40405[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -8277,26 +8277,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L40485
+	jne	SHORT $L40486
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L40486
-$L40485:
+	je	SHORT $L40487
+$L40486:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40486
+	je	SHORT $L40487
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40487
-$L40486:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40488
 $L40487:
+	mov	DWORD PTR -8+[ebp], 0
+$L40488:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -8879,8 +8879,8 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40526 = -16
-$T40527 = -28
+$T40527 = -16
+$T40528 = -28
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
 
 ; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
@@ -8893,13 +8893,13 @@ $T40527 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T40527[ebp]
+	lea	eax, DWORD PTR $T40528[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T40526[ebp]
+	lea	eax, DWORD PTR $T40527[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -8923,7 +8923,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40530 = -16
+$T40531 = -16
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
 
 ; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
@@ -8939,7 +8939,7 @@ $T40530 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40530[ebp]
+	lea	edx, DWORD PTR $T40531[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -8961,7 +8961,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40533 = -16
+$T40534 = -16
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
 
 ; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
@@ -8977,7 +8977,7 @@ $T40533 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40533[ebp]
+	lea	edx, DWORD PTR $T40534[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -9397,11 +9397,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40570 = -16
-$T40571 = -28
-$T40572 = -40
-$T40573 = -52
-$T40574 = -64
+$T40571 = -16
+$T40572 = -28
+$T40573 = -40
+$T40574 = -52
+$T40575 = -64
 ?BodyTarget@CBaseMonster@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseMonster::BodyTarget, COMDAT
 
 ; 318  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ) * 0.75 + EyePosition() * 0.25; };		// position to shoot at
@@ -9414,9 +9414,9 @@ $T40574 = -64
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1048576000				; 3e800000H
-	lea	eax, DWORD PTR $T40573[ebp]
+	lea	eax, DWORD PTR $T40574[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40572[ebp]
+	lea	ecx, DWORD PTR $T40573[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -9425,12 +9425,12 @@ $T40574 = -64
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40574[ebp]
+	lea	ecx, DWORD PTR $T40575[ebp]
 	push	ecx
 	push	1061158912				; 3f400000H
-	lea	edx, DWORD PTR $T40571[ebp]
+	lea	edx, DWORD PTR $T40572[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T40570[ebp]
+	lea	eax, DWORD PTR $T40571[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -10022,19 +10022,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L40610
+	jne	SHORT $L40611
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L40610
+	jne	SHORT $L40611
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40611
-$L40610:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40612
 $L40611:
+	mov	DWORD PTR -8+[ebp], 0
+$L40612:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -10123,7 +10123,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40620 = -16
+$T40621 = -16
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
 
 ; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
@@ -10135,7 +10135,7 @@ $T40620 = -16
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T40620[ebp]
+	lea	eax, DWORD PTR $T40621[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -10204,7 +10204,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?CanHolster@CBasePlayerItem@@UAEHXZ PROC NEAR		; CBasePlayerItem::CanHolster, COMDAT
 
-; 240  : 	virtual BOOL CanHolster( void ) { return TRUE; };		// can this weapon be put away right now?
+; 248  : 	virtual BOOL CanHolster( void ) { return TRUE; };		// can this weapon be put away right now?
 
 	push	ebp
 	mov	ebp, esp
@@ -10227,7 +10227,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?ItemPreFrame@CBasePlayerItem@@UAEXXZ PROC NEAR		; CBasePlayerItem::ItemPreFrame, COMDAT
 
-; 244  : 	virtual void ItemPreFrame( void ) { return; }		// called each frame by the player PreThink
+; 252  : 	virtual void ItemPreFrame( void ) { return; }		// called each frame by the player PreThink
 
 	push	ebp
 	mov	ebp, esp
@@ -10249,7 +10249,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?AddWeapon@CBasePlayerWeapon@@UAEHXZ PROC NEAR		; CBasePlayerWeapon::AddWeapon, COMDAT
 
-; 292  : 	virtual int AddWeapon( void ) { ExtractAmmo( this ); return TRUE; };	// Return TRUE if you want to add yourself to the player
+; 300  : 	virtual int AddWeapon( void ) { ExtractAmmo( this ); return TRUE; };	// Return TRUE if you want to add yourself to the player
 
 	push	ebp
 	mov	ebp, esp
@@ -10278,7 +10278,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?UpdateItemInfo@CBasePlayerWeapon@@UAEXXZ PROC NEAR	; CBasePlayerWeapon::UpdateItemInfo, COMDAT
 
-; 298  : 	virtual void UpdateItemInfo( void ) {};	// updates HUD state
+; 306  : 	virtual void UpdateItemInfo( void ) {};	// updates HUD state
 
 	push	ebp
 	mov	ebp, esp
@@ -10300,7 +10300,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?SecondaryAttack@CBasePlayerWeapon@@UAEXXZ PROC NEAR	; CBasePlayerWeapon::SecondaryAttack, COMDAT
 
-; 316  : 	virtual void SecondaryAttack( void ) { return; }			// do "+ATTACK2"
+; 324  : 	virtual void SecondaryAttack( void ) { return; }			// do "+ATTACK2"
 
 	push	ebp
 	mov	ebp, esp
@@ -10322,7 +10322,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Reload@CBasePlayerWeapon@@UAEXXZ PROC NEAR		; CBasePlayerWeapon::Reload, COMDAT
 
-; 317  : 	virtual void Reload( void ) { return; }						// do "+RELOAD"
+; 325  : 	virtual void Reload( void ) { return; }						// do "+RELOAD"
 
 	push	ebp
 	mov	ebp, esp
@@ -10344,7 +10344,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?ShouldWeaponIdle@CBasePlayerWeapon@@UAEHXZ PROC NEAR	; CBasePlayerWeapon::ShouldWeaponIdle, COMDAT
 
-; 321  : 	virtual BOOL ShouldWeaponIdle( void ) {return FALSE; };
+; 329  : 	virtual BOOL ShouldWeaponIdle( void ) {return FALSE; };
 
 	push	ebp
 	mov	ebp, esp
@@ -10367,7 +10367,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?UseDecrement@CBasePlayerWeapon@@UAEHXZ PROC NEAR	; CBasePlayerWeapon::UseDecrement, COMDAT
 
-; 323  : 	virtual BOOL UseDecrement( void ) { return FALSE; };
+; 331  : 	virtual BOOL UseDecrement( void ) { return FALSE; };
 
 	push	ebp
 	mov	ebp, esp
@@ -10390,7 +10390,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?GetWeaponPtr@CBasePlayerWeapon@@UAEPAVCBasePlayerItem@@XZ PROC NEAR ; CBasePlayerWeapon::GetWeaponPtr, COMDAT
 
-; 330  : 	virtual CBasePlayerItem *GetWeaponPtr( void ) { return (CBasePlayerItem *)this; };
+; 338  : 	virtual CBasePlayerItem *GetWeaponPtr( void ) { return (CBasePlayerItem *)this; };
 
 	push	ebp
 	mov	ebp, esp
@@ -10660,14 +10660,14 @@ _this$ = -4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L40652
+	je	SHORT $L40653
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2388]
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L40653
-$L40652:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40654
 $L40653:
+	mov	DWORD PTR -8+[ebp], 0
+$L40654:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -10903,7 +10903,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?GetItemInfo@CBasePlayerItem@@UAEHPAUItemInfo@@@Z PROC NEAR ; CBasePlayerItem::GetItemInfo, COMDAT
 
-; 235  : 	virtual int GetItemInfo(ItemInfo *p) { return 0; };	// returns 0 if struct not filled out
+; 243  : 	virtual int GetItemInfo(ItemInfo *p) { return 0; };	// returns 0 if struct not filled out
 
 	push	ebp
 	mov	ebp, esp
@@ -10926,7 +10926,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Deploy@CBasePlayerItem@@UAEHXZ PROC NEAR		; CBasePlayerItem::Deploy, COMDAT
 
-; 237  : 	virtual BOOL Deploy( ) { return TRUE; };		// returns is deploy was successful
+; 245  : 	virtual BOOL Deploy( ) { return TRUE; };		// returns is deploy was successful
 
 	push	ebp
 	mov	ebp, esp
@@ -10949,7 +10949,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?iItemSlot@CBasePlayerItem@@UAEHXZ PROC NEAR		; CBasePlayerItem::iItemSlot, COMDAT
 
-; 265  : 	virtual int iItemSlot( void ) { return 0; }		// return 0 to MAX_ITEMS_SLOTS, used in hud
+; 273  : 	virtual int iItemSlot( void ) { return 0; }		// return 0 to MAX_ITEMS_SLOTS, used in hud
 
 	push	ebp
 	mov	ebp, esp
@@ -10972,7 +10972,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PrimaryAttack@CBasePlayerWeapon@@UAEXXZ PROC NEAR	; CBasePlayerWeapon::PrimaryAttack, COMDAT
 
-; 315  : 	virtual void PrimaryAttack( void ) { return; }				// do "+ATTACK"
+; 323  : 	virtual void PrimaryAttack( void ) { return; }				// do "+ATTACK"
 
 	push	ebp
 	mov	ebp, esp
@@ -10994,7 +10994,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?WeaponIdle@CBasePlayerWeapon@@UAEXXZ PROC NEAR		; CBasePlayerWeapon::WeaponIdle, COMDAT
 
-; 318  : 	virtual void WeaponIdle( void ) { return; }					// called when no buttons pressed
+; 326  : 	virtual void WeaponIdle( void ) { return; }					// called when no buttons pressed
 
 	push	ebp
 	mov	ebp, esp
@@ -11449,7 +11449,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?AddDuplicate@CBasePlayerItem@@UAEHPAV1@@Z PROC NEAR	; CBasePlayerItem::AddDuplicate, COMDAT
 
-; 226  : 	virtual int AddDuplicate( CBasePlayerItem *pItem ) { return FALSE; }	// return TRUE if you want your duplicate removed from world
+; 234  : 	virtual int AddDuplicate( CBasePlayerItem *pItem ) { return FALSE; }	// return TRUE if you want your duplicate removed from world
 
 	push	ebp
 	mov	ebp, esp
@@ -11472,7 +11472,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?CanDeploy@CBasePlayerItem@@UAEHXZ PROC NEAR		; CBasePlayerItem::CanDeploy, COMDAT
 
-; 236  : 	virtual BOOL CanDeploy( void ) { return TRUE; };
+; 244  : 	virtual BOOL CanDeploy( void ) { return TRUE; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11495,7 +11495,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?UpdateItemInfo@CBasePlayerItem@@UAEXXZ PROC NEAR	; CBasePlayerItem::UpdateItemInfo, COMDAT
 
-; 242  : 	virtual void UpdateItemInfo( void ) { return; };
+; 250  : 	virtual void UpdateItemInfo( void ) { return; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11517,7 +11517,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?ItemPostFrame@CBasePlayerItem@@UAEXXZ PROC NEAR	; CBasePlayerItem::ItemPostFrame, COMDAT
 
-; 245  : 	virtual void ItemPostFrame( void ) { return; }		// called each frame by the player PostThink
+; 253  : 	virtual void ItemPostFrame( void ) { return; }		// called each frame by the player PostThink
 
 	push	ebp
 	mov	ebp, esp
@@ -11539,7 +11539,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PrimaryAmmoIndex@CBasePlayerItem@@UAEHXZ PROC NEAR	; CBasePlayerItem::PrimaryAmmoIndex, COMDAT
 
-; 251  : 	virtual int PrimaryAmmoIndex() { return -1; };
+; 259  : 	virtual int PrimaryAmmoIndex() { return -1; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11562,7 +11562,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?SecondaryAmmoIndex@CBasePlayerItem@@UAEHXZ PROC NEAR	; CBasePlayerItem::SecondaryAmmoIndex, COMDAT
 
-; 252  : 	virtual int SecondaryAmmoIndex() { return -1; };
+; 260  : 	virtual int SecondaryAmmoIndex() { return -1; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11585,7 +11585,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?UpdateClientData@CBasePlayerItem@@UAEHPAVCBasePlayer@@@Z PROC NEAR ; CBasePlayerItem::UpdateClientData, COMDAT
 
-; 254  : 	virtual int UpdateClientData( CBasePlayer *pPlayer ) { return 0; }
+; 262  : 	virtual int UpdateClientData( CBasePlayer *pPlayer ) { return 0; }
 
 	push	ebp
 	mov	ebp, esp
@@ -11608,7 +11608,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?GetWeaponPtr@CBasePlayerItem@@UAEPAV1@XZ PROC NEAR	; CBasePlayerItem::GetWeaponPtr, COMDAT
 
-; 256  : 	virtual CBasePlayerItem *GetWeaponPtr( void ) { return NULL; };
+; 264  : 	virtual CBasePlayerItem *GetWeaponPtr( void ) { return NULL; };
 
 	push	ebp
 	mov	ebp, esp
@@ -12674,11 +12674,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	test	eax, eax
-	je	SHORT $L40755
+	je	SHORT $L40756
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	cmp	DWORD PTR _src$[ebp], eax
-	jb	SHORT $L40755
+	jb	SHORT $L40756
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	mov	esi, eax
@@ -12686,13 +12686,13 @@ _this$ = -4
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	lea	eax, DWORD PTR [esi+eax*4]
 	cmp	DWORD PTR _src$[ebp], eax
-	jae	SHORT $L40755
+	jae	SHORT $L40756
 	push	535					; 00000217H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40755:
+$L40756:
 
 ; 536  : 
 ; 537  : 	// Can insert at the end
@@ -12701,20 +12701,20 @@ $L40755:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	cmp	DWORD PTR _elem$[ebp], eax
-	je	SHORT $L40756
+	je	SHORT $L40757
 	mov	edx, DWORD PTR _elem$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::IsValidIndex
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40756
+	jne	SHORT $L40757
 	push	538					; 0000021aH
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0CI@IOBG@?$CIelem?5?$DN?$DN?5Count?$CI?$CJ?$CJ?5?$HM?$HM?5IsValidInde@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40756:
+$L40757:
 
 ; 539  : 
 ; 540  : 	GrowVector();
@@ -12846,19 +12846,19 @@ _this$ = -4
 ; 297  : 	assert( nGrowSize >= 0 );
 
 	cmp	DWORD PTR _nGrowSize$[ebp], 0
-	jge	SHORT $L40761
+	jge	SHORT $L40762
 	push	297					; 00000129H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40761:
+$L40762:
 
 ; 298  : 	if (m_nAllocationCount)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L39645
+	je	SHORT $L39646
 
 ; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -12870,7 +12870,7 @@ $L40761:
 	add	esp, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L39645:
+$L39646:
 
 ; 302  : }
 
@@ -12948,13 +12948,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40766
+	je	SHORT $L40767
 	push	424					; 000001a8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40766:
+$L40767:
 
 ; 425  : 	assert( IsIdxValid(i) );
 
@@ -12964,13 +12964,13 @@ $L40766:
 	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40767
+	jne	SHORT $L40768
 	push	425					; 000001a9H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40767:
+$L40768:
 
 ; 426  : 	return m_pMemory[i];
 
@@ -13010,13 +13010,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40770
+	je	SHORT $L40771
 	push	488					; 000001e8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40770:
+$L40771:
 
 ; 489  : 	return m_pMemory;
 
@@ -13121,16 +13121,16 @@ _this$ = -4
 ; 355  : 	return (i >= 0) && (i < m_Size);
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40777
+	jl	SHORT $L40778
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+12]
-	jge	SHORT $L40777
+	jge	SHORT $L40778
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40778
-$L40777:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40779
 $L40778:
+	mov	DWORD PTR -8+[ebp], 0
+$L40779:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 356  : }
@@ -13165,12 +13165,12 @@ _i$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _i$[ebp], ecx
-$L39678:
+$L39679:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L39679
+	jl	SHORT $L39680
 
 ; 729  : 		Destruct(&Element(i));
 
@@ -13184,8 +13184,8 @@ $L39678:
 
 ; 730  : 	}
 
-	jmp	SHORT $L39678
-$L39679:
+	jmp	SHORT $L39679
+$L39680:
 
 ; 731  : 
 ; 732  : 	m_Size = 0;
@@ -13229,7 +13229,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?NumAllocated@?$CUtlMemory@PADH@@QBEHXZ	; CUtlMemory<char *,int>::NumAllocated
 	cmp	esi, eax
-	jle	SHORT $L39688
+	jle	SHORT $L39689
 
 ; 377  : 		m_Memory.Grow( m_Size + num - m_Memory.NumAllocated() );
 
@@ -13242,7 +13242,7 @@ _this$ = -4
 	push	esi
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Grow@?$CUtlMemory@PADH@@QAEXH@Z	; CUtlMemory<char *,int>::Grow
-$L39688:
+$L39689:
 
 ; 379  : 
 ; 380  : 	m_Size += num;
@@ -13302,18 +13302,18 @@ _numToMove$ = -8
 	call	?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::IsValidIndex
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40785
+	jne	SHORT $L40786
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+12], 0
-	je	SHORT $L40785
+	je	SHORT $L40786
 	cmp	DWORD PTR _num$[ebp], 0
-	je	SHORT $L40785
+	je	SHORT $L40786
 	push	448					; 000001c0H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0DG@DBGD@IsValidIndex?$CIelem?$CJ?5?$HM?$HM?5?$CI?5m_Size?5?$DN@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40785:
+$L40786:
 
 ; 449  : 	int numToMove = m_Size - elem - num;
 
@@ -13326,9 +13326,9 @@ $L40785:
 ; 450  : 	if ((numToMove > 0) && (num > 0))
 
 	cmp	DWORD PTR _numToMove$[ebp], 0
-	jle	SHORT $L39697
+	jle	SHORT $L39698
 	cmp	DWORD PTR _num$[ebp], 0
-	jle	SHORT $L39697
+	jle	SHORT $L39698
 
 ; 451  : 		memmove( &Element(elem+num), &Element(elem), numToMove * sizeof(T) );
 
@@ -13348,7 +13348,7 @@ $L40785:
 	push	eax
 	call	_memmove
 	add	esp, 12					; 0000000cH
-$L39697:
+$L39698:
 
 ; 452  : }
 
@@ -13365,7 +13365,7 @@ PUBLIC	??2@YAPAXIPAX@Z					; operator new
 _TEXT	SEGMENT
 _pMemory$ = 8
 _src$ = 12
-$T40788 = -4
+$T40789 = -4
 ?CopyConstruct@@YAXPAPADABQAD@Z PROC NEAR		; CopyConstruct, COMDAT
 
 ; 43   : {
@@ -13384,19 +13384,19 @@ $T40788 = -4
 	push	4
 	call	??2@YAPAXIPAX@Z				; operator new
 	add	esp, 8
-	mov	DWORD PTR $T40788[ebp], eax
-	cmp	DWORD PTR $T40788[ebp], 0
-	je	SHORT $L40789
-	mov	ecx, DWORD PTR $T40788[ebp]
+	mov	DWORD PTR $T40789[ebp], eax
+	cmp	DWORD PTR $T40789[ebp], 0
+	je	SHORT $L40790
+	mov	ecx, DWORD PTR $T40789[ebp]
 	mov	edx, DWORD PTR _src$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR [ecx], eax
-	mov	ecx, DWORD PTR $T40788[ebp]
+	mov	ecx, DWORD PTR $T40789[ebp]
 	mov	DWORD PTR -8+[ebp], ecx
-	jmp	SHORT $L40790
-$L40789:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40791
 $L40790:
+	mov	DWORD PTR -8+[ebp], 0
+$L40791:
 
 ; 45   : }
 
@@ -13449,16 +13449,16 @@ _this$ = -4
 ; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40795
+	jl	SHORT $L40796
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jge	SHORT $L40795
+	jge	SHORT $L40796
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40796
-$L40795:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40797
 $L40796:
+	mov	DWORD PTR -8+[ebp], 0
+$L40797:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 522  : }
@@ -13494,13 +13494,13 @@ _this$ = -4
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L39711
+	jne	SHORT $L39712
 
 ; 648  : 		if (m_pMemory)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L39712
+	je	SHORT $L39713
 
 ; 650  : 			free( (void*)m_pMemory );
 
@@ -13514,13 +13514,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], 0
-$L39712:
+$L39713:
 
 ; 653  : 		m_nAllocationCount = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+4], 0
-$L39711:
+$L39712:
 
 ; 655  : }
 
@@ -13633,13 +13633,13 @@ _nAllocationRequested$ = -8
 ; 561  : 	assert( num > 0 );
 
 	cmp	DWORD PTR _num$[ebp], 0
-	jg	SHORT $L40805
+	jg	SHORT $L40806
 	push	561					; 00000231H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_07BGLK@num?5?$DO?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40805:
+$L40806:
 
 ; 562  : 
 ; 563  : 	if ( IsExternallyAllocated() )
@@ -13648,25 +13648,25 @@ $L40805:
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L39726
+	je	SHORT $L39727
 
 ; 565  : 		// Can't grow a buffer whose memory was externally allocated 
 ; 566  : 		assert(0);
 
 	xor	ecx, ecx
 	test	ecx, ecx
-	jne	SHORT $L40806
+	jne	SHORT $L40807
 	push	566					; 00000236H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_01PLJA@0?$AA@		; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40806:
+$L40807:
 
 ; 567  : 		return;
 
-	jmp	$L39723
-$L39726:
+	jmp	$L39724
+$L39727:
 
 ; 569  : 
 ; 570  : 	// Make sure we have at least numallocated + num allocations.
@@ -13702,18 +13702,18 @@ $L39726:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	eax, DWORD PTR _nAllocationRequested$[ebp]
-	jge	SHORT $L39746
+	jge	SHORT $L39747
 
 ; 579  : 		if ( ( int )( I )m_nAllocationCount == 0 && ( int )( I )( m_nAllocationCount - 1 ) >= nAllocationRequested )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L39738
+	jne	SHORT $L39739
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	sub	eax, 1
 	cmp	eax, DWORD PTR _nAllocationRequested$[ebp]
-	jl	SHORT $L39738
+	jl	SHORT $L39739
 
 ; 581  : 			--m_nAllocationCount; // deal w/ the common case of m_nAllocationCount == MAX_USHORT + 1
 
@@ -13725,39 +13725,39 @@ $L39726:
 
 ; 583  : 		else
 
-	jmp	SHORT $L39746
-$L39738:
+	jmp	SHORT $L39747
+$L39739:
 
 ; 585  : 			if ( ( int )( I )nAllocationRequested != nAllocationRequested )
 
 	mov	ecx, DWORD PTR _nAllocationRequested$[ebp]
 	cmp	ecx, DWORD PTR _nAllocationRequested$[ebp]
-	je	SHORT $L39742
+	je	SHORT $L39743
 
 ; 587  : 				// we've been asked to grow memory to a size s.t. the index type can't address the requested amount of memory
 ; 588  : 				assert( 0 );
 
 	xor	edx, edx
 	test	edx, edx
-	jne	SHORT $L40807
+	jne	SHORT $L40808
 	push	588					; 0000024cH
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_01PLJA@0?$AA@		; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40807:
+$L40808:
 
 ; 589  : 				return;
 
-	jmp	$L39723
-$L39742:
+	jmp	$L39724
+$L39743:
 
 ; 591  : 			while ( ( int )( I )m_nAllocationCount < nAllocationRequested )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	edx, DWORD PTR _nAllocationRequested$[ebp]
-	jge	SHORT $L39746
+	jge	SHORT $L39747
 
 ; 593  : 				m_nAllocationCount = ( m_nAllocationCount + nAllocationRequested ) / 2;
 
@@ -13772,15 +13772,15 @@ $L39742:
 
 ; 594  : 			}
 
-	jmp	SHORT $L39742
-$L39746:
+	jmp	SHORT $L39743
+$L39747:
 
 ; 597  : 
 ; 598  : 	if (m_pMemory)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	je	SHORT $L39749
+	je	SHORT $L39750
 
 ; 600  : 		m_pMemory = (T*)realloc( m_pMemory, m_nAllocationCount * sizeof(T) );
 
@@ -13800,18 +13800,18 @@ $L39746:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L40808
+	jne	SHORT $L40809
 	push	601					; 00000259H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_09JCKE@m_pMemory?$AA@	; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40808:
+$L40809:
 
 ; 603  : 	else
 
-	jmp	SHORT $L40809
-$L39749:
+	jmp	SHORT $L40810
+$L39750:
 
 ; 605  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -13828,14 +13828,14 @@ $L39749:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L40809
+	jne	SHORT $L40810
 	push	606					; 0000025eH
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_09JCKE@m_pMemory?$AA@	; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40809:
-$L39723:
+$L40810:
+$L39724:
 
 ; 608  : }
 

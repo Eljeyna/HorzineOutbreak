@@ -326,7 +326,7 @@ FLAT	GROUP _DATA, CONST, _BSS
 endif
 PUBLIC	?gSkillData@@3Uskilldata_t@@A			; gSkillData
 _BSS	SEGMENT
-?gSkillData@@3Uskilldata_t@@A DB 0154H DUP (?)		; gSkillData
+?gSkillData@@3Uskilldata_t@@A DB 0158H DUP (?)		; gSkillData
 _BSS	ENDS
 PUBLIC	??_H@YGXPAXIHP6EX0@Z@Z				; `vector constructor iterator'
 ;	COMDAT ??_H@YGXPAXIHP6EX0@Z@Z
@@ -434,7 +434,7 @@ _szBuffer$ = -72
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L33393
+	je	SHORT $L33394
 
 ; 42   : 		ALERT ( at_console, "\n\n** GetSkillCVar Got a zero for %s **\n\n", szBuffer );
 
@@ -444,7 +444,7 @@ _szBuffer$ = -72
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L33393:
+$L33394:
 
 ; 44   : 
 ; 45   : 	return flValue;

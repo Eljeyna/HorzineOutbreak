@@ -354,11 +354,11 @@ void CBasePlayer :: DeathSound( void )
 
 	// play one of the suit death alarms
 	//LRC- if no suit, then no flatline sound. (unless it's a deathmatch.)
-	if ( !HasWeapon( WEAPON_SUIT ) && !g_pGameRules->IsDeathmatch() )
+	/*if ( !HasWeapon( WEAPON_SUIT ) && !g_pGameRules->IsDeathmatch() )
 		return;
 
 	// play one of the suit death alarms
-	EMIT_GROUPNAME_SUIT(ENT(pev), "HEV_DEAD");
+	EMIT_GROUPNAME_SUIT(ENT(pev), "HEV_DEAD");*/
 }
 
 // override takehealth
@@ -1480,15 +1480,6 @@ void CBasePlayer::PlayerUse ( void )
 		}
 		else
 		{
-
-			/*кидание гранаты для теста*/
-			/*if ( m_rgpPlayerItems[5] != NULL )
-			{
-				SwitchWeapon( m_rgpPlayerItems[5] );
-				if (m_pActiveItem)
-					m_pActiveItem->m_flNextPrimaryAttack(0);
-			}*/
-
 			if ( m_afPhysicsFlags & PFLAG_ONTRAIN )
 			{
 				m_afPhysicsFlags &= ~PFLAG_ONTRAIN;
@@ -1601,11 +1592,11 @@ void CBasePlayer::PlayerUse ( void )
 			PickHoldableItem( pObject );
 		}
 	}
-	else
+	/*else
 	{
 		if ( m_afButtonPressed & IN_USE )
 			EMIT_SOUND( ENT(pev), CHAN_ITEM, "common/wpn_denyselect.wav", 0.4, ATTN_NORM);
-	}
+	}*/
 }
 
 
@@ -3753,6 +3744,19 @@ void CBasePlayer::ImpulseCommands( )
 
 	switch (iImpulse)
 	{
+	case 70:
+		//кидание гранаты для теста
+		if ( m_rgpPlayerItems[5] != NULL )
+		{
+			CBasePlayerWeapon *grenade = (CBasePlayerWeapon *)m_rgpPlayerItems[5];
+			if ( m_rgpPlayerItems[5] != m_pActiveItem )
+				SwitchWeapon( grenade );
+			if (m_pActiveItem && grenade->m_flNextPrimaryAttack <= gpGlobals->time)
+			{
+				grenade->PrimaryAttack();
+			}
+		}
+		break;
 	case 99:
 		{
 
@@ -3857,9 +3861,6 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		UTIL_MakeVectors( Vector( 0, pev->v_angle.y, 0 ));
 		Create( "monster_human_grunt", GetAbsOrigin() + gpGlobals->v_forward * 128, GetAbsAngles( ));
 		break;
-	case 75:
-		GiveNamedItem( "item_suit" );
-		break;
 	case 77:
 		UTIL_MakeVectors( Vector( 0, pev->v_angle.y, 0 ));
 		Create( "monster_zombie", GetAbsOrigin() + gpGlobals->v_forward * 128, GetAbsAngles( ));
@@ -3869,6 +3870,8 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "item_suit" );
 		GiveNamedItem( "item_battery" );
 		GiveNamedItem( "weapon_crowbar" );
+		//GiveNamedItem( "weapon_axe" );
+		//GiveNamedItem( "weapon_chainsaw" );
 		GiveNamedItem( "weapon_9mmhandgun" );
 		GiveNamedItem( "ammo_9mmclip" );
 		GiveNamedItem( "weapon_shotgun" );

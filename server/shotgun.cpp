@@ -184,7 +184,7 @@ void CShotgun::PrimaryAttack()
 	Vector vecSrc	 = m_pPlayer->GetGunPosition( );
 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
-	if ( g_pGameRules->IsDeathmatch() )
+	/*if ( g_pGameRules->IsDeathmatch() )
 	{
 		// altered deathmatch spread
 		m_pPlayer->FireBullets( 4, vecSrc, vecAiming, VECTOR_CONE_DM_SHOTGUN, 2048, BULLET_PLAYER_BUCKSHOT, 0 );
@@ -193,7 +193,8 @@ void CShotgun::PrimaryAttack()
 	{
 		// regular old, untouched spread.
 		m_pPlayer->FireBullets( 6, vecSrc, vecAiming, VECTOR_CONE_10DEGREES, 2048, BULLET_PLAYER_BUCKSHOT, 0 );
-	}
+	}*/
+	m_pPlayer->FireBullets( 7, vecSrc, vecAiming, VECTOR_CONE_10DEGREES, 2048, BULLET_PLAYER_BUCKSHOT, 0 );
 
 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
 		// HEV suit - indicate out of ammo condition
@@ -202,12 +203,12 @@ void CShotgun::PrimaryAttack()
 	if (m_iClip != 0)
 		m_flPumpTime = gpGlobals->time + 0.5;
 
-	m_flNextPrimaryAttack = gpGlobals->time + 0.75;
-	m_flNextSecondaryAttack = gpGlobals->time + 0.75;
+	m_flNextPrimaryAttack = gpGlobals->time + 0.965;
+	m_flNextSecondaryAttack = gpGlobals->time + 0.965;
 	if (m_iClip != 0)
 		m_flTimeWeaponIdle = gpGlobals->time + 5.0;
 	else
-		m_flTimeWeaponIdle = 0.75;
+		m_flTimeWeaponIdle = 0.965;
 	m_fInReload = 0;
 
 	m_pPlayer->pev->punchangle.x -= 5;
@@ -311,8 +312,8 @@ void CShotgun::Reload( void )
 	{
 		SendWeaponAnim( SHOTGUN_START_RELOAD );
 		m_fInReload = 1;
-		m_pPlayer->m_flNextAttack = gpGlobals->time + 0.6;
-		m_flTimeWeaponIdle = gpGlobals->time + 0.6;
+		m_pPlayer->m_flNextAttack = gpGlobals->time + 0.67;
+		m_flTimeWeaponIdle = gpGlobals->time + 0.67;
 		m_flNextPrimaryAttack = gpGlobals->time + 1.0;
 		m_flNextSecondaryAttack = gpGlobals->time + 1.0;
 		return;
@@ -331,8 +332,8 @@ void CShotgun::Reload( void )
 
 		SendWeaponAnim( SHOTGUN_RELOAD );
 
-		m_flNextReload = gpGlobals->time + 0.5;
-		m_flTimeWeaponIdle = gpGlobals->time + 0.5;
+		m_flNextReload = gpGlobals->time + 0.67;
+		m_flTimeWeaponIdle = gpGlobals->time + 0.67;
 	}
 	else
 	{

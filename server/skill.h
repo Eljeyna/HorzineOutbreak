@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -26,7 +26,7 @@ struct skilldata_t
 	float agruntDmgPunch;
 
 	float apacheHealth;
-	
+
 	float barneyHealth;
 
 	float bigmommaHealthFactor;		// Multiply each node's health by this
@@ -93,6 +93,7 @@ struct skilldata_t
 
 // Player Weapons
 	float plrDmgCrowbar;
+	float plrDmgCrowbarStab;
 	float plrDmg9MM;
 	float plrDmg357;
 	float plrDmgMP5;
@@ -108,7 +109,7 @@ struct skilldata_t
 	float plrDmgHandGrenade;
 	float plrDmgSatchel;
 	float plrDmgTripmine;
-	
+
 // weapons shared by monsters
 	float monDmg9MM;
 	float monDmgMP5;

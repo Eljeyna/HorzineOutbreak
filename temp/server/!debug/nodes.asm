@@ -1853,7 +1853,7 @@ EXTRN	_memset:NEAR
 ;	COMDAT ??0CVirtualFS@@QAE@XZ
 _TEXT	SEGMENT
 _this$ = -4
-$T39795 = -8
+$T39796 = -8
 ??0CVirtualFS@@QAE@XZ PROC NEAR				; CVirtualFS::CVirtualFS, COMDAT
 
 ; 42   : {
@@ -1878,9 +1878,9 @@ $T39795 = -8
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39795[ebp], eax
+	mov	DWORD PTR $T39796[ebp], eax
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR $T39795[ebp]
+	mov	ecx, DWORD PTR $T39796[ebp]
 	mov	DWORD PTR [eax], ecx
 
 ; 45   : 	memset( m_pBuffer, 0, m_iBuffSize );
@@ -1920,7 +1920,7 @@ _TEXT	SEGMENT
 _file$ = 8
 _size$ = 12
 _this$ = -4
-$T39798 = -8
+$T39799 = -8
 ??0CVirtualFS@@QAE@PBEI@Z PROC NEAR			; CVirtualFS::CVirtualFS, COMDAT
 
 ; 50   : {
@@ -1977,9 +1977,9 @@ $L36276:
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39798[ebp], eax
+	mov	DWORD PTR $T39799[ebp], eax
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR $T39798[ebp]
+	mov	edx, DWORD PTR $T39799[ebp]
 	mov	DWORD PTR [ecx], edx
 
 ; 60   : 	memcpy( m_pBuffer, file, m_iBuffSize );
@@ -2017,7 +2017,7 @@ EXTRN	??3@YAXPAX@Z:NEAR				; operator delete
 ;	COMDAT ??1CVirtualFS@@QAE@XZ
 _TEXT	SEGMENT
 _this$ = -4
-$T39801 = -8
+$T39802 = -8
 ??1CVirtualFS@@QAE@XZ PROC NEAR				; CVirtualFS::~CVirtualFS, COMDAT
 
 ; 65   : {
@@ -2034,8 +2034,8 @@ $T39801 = -8
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR $T39801[ebp], ecx
-	mov	edx, DWORD PTR $T39801[ebp]
+	mov	DWORD PTR $T39802[ebp], ecx
+	mov	edx, DWORD PTR $T39802[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2359,8 +2359,8 @@ _this$ = -4
 _newsize$36314 = -8
 _rp_size$ = -12
 _backup$ = -16
-$T39808 = -20
-$T39809 = -24
+$T39809 = -20
+$T39810 = -24
 ?Insert@CVirtualFS@@QAEIPBXI@Z PROC NEAR		; CVirtualFS::Insert, COMDAT
 
 ; 125  : {
@@ -2459,8 +2459,8 @@ $L36315:
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39808[ebp], eax
-	mov	ecx, DWORD PTR $T39808[ebp]
+	mov	DWORD PTR $T39809[ebp], eax
+	mov	ecx, DWORD PTR $T39809[ebp]
 	mov	DWORD PTR _backup$[ebp], ecx
 
 ; 144  : 	memcpy( backup, m_pBuffer + m_iOffset, rp_size );
@@ -2520,8 +2520,8 @@ $L36315:
 ; 152  : 	delete [] backup;
 
 	mov	edx, DWORD PTR _backup$[ebp]
-	mov	DWORD PTR $T39809[ebp], edx
-	mov	eax, DWORD PTR $T39809[ebp]
+	mov	DWORD PTR $T39810[ebp], edx
+	mov	eax, DWORD PTR $T39810[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2762,9 +2762,9 @@ _this$ = -4
 _buff_size$ = -8
 _tempbuff$ = -12
 _len$ = -16
-$T39820 = -20
-$T39821 = -24
-$T39822 = -28
+$T39821 = -20
+$T39822 = -24
+$T39823 = -28
 ?VPrintf@CVirtualFS@@QAEIPBDPAD@Z PROC NEAR		; CVirtualFS::VPrintf, COMDAT
 
 ; 195  : {
@@ -2797,8 +2797,8 @@ $L36362:
 	push	ecx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39820[ebp], eax
-	mov	edx, DWORD PTR $T39820[ebp]
+	mov	DWORD PTR $T39821[ebp], eax
+	mov	edx, DWORD PTR $T39821[ebp]
 	mov	DWORD PTR _tempbuff$[ebp], edx
 
 ; 203  : 		len = Q_vsprintf( tempbuff, fmt, ap );
@@ -2830,8 +2830,8 @@ $L36366:
 ; 206  : 		delete [] tempbuff;
 
 	mov	ecx, DWORD PTR _tempbuff$[ebp]
-	mov	DWORD PTR $T39821[ebp], ecx
-	mov	edx, DWORD PTR $T39821[ebp]
+	mov	DWORD PTR $T39822[ebp], ecx
+	mov	edx, DWORD PTR $T39822[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2861,8 +2861,8 @@ $L36363:
 ; 211  : 	delete [] tempbuff;
 
 	mov	eax, DWORD PTR _tempbuff$[ebp]
-	mov	DWORD PTR $T39822[ebp], eax
-	mov	ecx, DWORD PTR $T39822[ebp]
+	mov	DWORD PTR $T39823[ebp], eax
+	mov	ecx, DWORD PTR $T39823[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2890,9 +2890,9 @@ _this$ = -4
 _buff_size$ = -8
 _tempbuff$ = -12
 _len$ = -16
-$T39825 = -20
-$T39826 = -24
-$T39827 = -28
+$T39826 = -20
+$T39827 = -24
+$T39828 = -28
 ?IVPrintf@CVirtualFS@@QAEIPBDPAD@Z PROC NEAR		; CVirtualFS::IVPrintf, COMDAT
 
 ; 217  : {
@@ -2925,8 +2925,8 @@ $L36378:
 	push	ecx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39825[ebp], eax
-	mov	edx, DWORD PTR $T39825[ebp]
+	mov	DWORD PTR $T39826[ebp], eax
+	mov	edx, DWORD PTR $T39826[ebp]
 	mov	DWORD PTR _tempbuff$[ebp], edx
 
 ; 225  : 		len = Q_vsprintf( tempbuff, fmt, ap );
@@ -2958,8 +2958,8 @@ $L36382:
 ; 228  : 		delete [] tempbuff;
 
 	mov	ecx, DWORD PTR _tempbuff$[ebp]
-	mov	DWORD PTR $T39826[ebp], ecx
-	mov	edx, DWORD PTR $T39826[ebp]
+	mov	DWORD PTR $T39827[ebp], ecx
+	mov	edx, DWORD PTR $T39827[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2989,8 +2989,8 @@ $L36379:
 ; 233  : 	delete [] tempbuff;
 
 	mov	eax, DWORD PTR _tempbuff$[ebp]
-	mov	DWORD PTR $T39827[ebp], eax
-	mov	ecx, DWORD PTR $T39827[ebp]
+	mov	DWORD PTR $T39828[ebp], eax
+	mov	ecx, DWORD PTR $T39828[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -3553,7 +3553,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+16], 0
-	je	SHORT $L37248
+	je	SHORT $L37249
 
 ; 63   : 		free ( m_pLinkPool );
 
@@ -3567,7 +3567,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+16], 0
-$L37248:
+$L37249:
 
 ; 66   : 		
 ; 67   : 	// Free the node info
@@ -3576,7 +3576,7 @@ $L37248:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+12], 0
-	je	SHORT $L37249
+	je	SHORT $L37250
 
 ; 71   : 		free ( m_pNodes );
 
@@ -3590,14 +3590,14 @@ $L37248:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+12], 0
-$L37249:
+$L37250:
 
 ; 74   : 
 ; 75   : 	if ( m_di )
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+36], 0
-	je	SHORT $L37250
+	je	SHORT $L37251
 
 ; 77   : 		free ( m_di );
 
@@ -3611,7 +3611,7 @@ $L37249:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+36], 0
-$L37250:
+$L37251:
 
 ; 80   : 
 ; 81   : 	// Free the routing info.
@@ -3620,7 +3620,7 @@ $L37250:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+20], 0
-	je	SHORT $L37251
+	je	SHORT $L37252
 
 ; 85   : 		free ( m_pRouteInfo );
 
@@ -3634,14 +3634,14 @@ $L37250:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+20], 0
-$L37251:
+$L37252:
 
 ; 88   : 
 ; 89   : 	if (m_pHashLinks)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+8380], 0
-	je	SHORT $L37252
+	je	SHORT $L37253
 
 ; 91   : 		free(m_pHashLinks);
 
@@ -3655,7 +3655,7 @@ $L37251:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+8380], 0
-$L37252:
+$L37253:
 
 ; 94   : 
 ; 95   : 	// Zero node and link counts
@@ -3735,7 +3735,7 @@ _this$ = -4
 ; 116  : 	if ( !WorldGraph.m_pNodes )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+12, 0
-	jne	SHORT $L37259
+	jne	SHORT $L37260
 
 ; 118  : 		ALERT ( at_aiconsole, "**ERROR**\nCouldn't malloc %d nodes!\n", WorldGraph.m_cNodes );
 
@@ -3749,14 +3749,14 @@ _this$ = -4
 ; 119  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L37256
-$L37259:
+	jmp	SHORT $L37257
+$L37260:
 
 ; 121  : 
 ; 122  : 	return TRUE;
 
 	mov	eax, 1
-$L37256:
+$L37257:
 
 ; 123  : }
 
@@ -3814,7 +3814,7 @@ _pentTrigger$ = -12
 _pevTrigger$ = -16
 _pevLinkEnt$ = -20
 _tr$ = -76
-$T39858 = -88
+$T39859 = -88
 ?LinkEntForLink@CGraph@@QAEPAUentvars_s@@PAVCLink@@PAVCNode@@@Z PROC NEAR ; CGraph::LinkEntForLink, COMDAT
 
 ; 139  : {
@@ -3846,13 +3846,13 @@ $T39858 = -88
 ; 147  : 	if ( !pevLinkEnt )
 
 	cmp	DWORD PTR _pevLinkEnt$[ebp], 0
-	jne	SHORT $L37271
+	jne	SHORT $L37272
 
 ; 148  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L37287
-$L37271:
+	jmp	$L37288
+$L37272:
 
 ; 149  : 
 ; 150  : 	pentSearch = NULL;// start search at the top of the ent list.
@@ -3868,15 +3868,15 @@ $L37271:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L37273
+	jne	SHORT $L37274
 	push	OFFSET FLAT:??_C@_0BD@DIJK@func_door_rotating?$AA@ ; `string'
 	mov	eax, DWORD PTR _pevLinkEnt$[ebp]
 	push	eax
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	$L37272
-$L37273:
+	je	$L37273
+$L37274:
 
 ; 154  : 
 ; 155  : 		///!!!UNDONE - check for TOGGLE or STAY open doors here. If a door is in the way, and is 
@@ -3888,20 +3888,20 @@ $L37273:
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 256				; 00000100H
 	test	edx, edx
-	je	SHORT $L37276
+	je	SHORT $L37277
 
 ; 160  : 			return pevLinkEnt;
 
 	mov	eax, DWORD PTR _pevLinkEnt$[ebp]
-	jmp	$L37287
-$L37276:
+	jmp	$L37288
+$L37277:
 
 ; 162  : 
 ; 163  : 		while ( 1 )
 
 	mov	eax, 1
 	test	eax, eax
-	je	$L37279
+	je	$L37280
 
 ; 165  : 			pentTrigger = FIND_ENTITY_BY_TARGET ( pentSearch, STRING( pevLinkEnt->targetname ) );// find the button or trigger
 
@@ -3925,7 +3925,7 @@ $L37276:
 	call	?FNullEnt@@YAHPBUedict_s@@@Z		; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L37280
+	je	SHORT $L37281
 
 ; 169  : 
 ; 170  : 				// right now this is a problem among auto-open doors, or any door that opens through the use 
@@ -3934,8 +3934,8 @@ $L37276:
 ; 173  : 				return pevLinkEnt;
 
 	mov	eax, DWORD PTR _pevLinkEnt$[ebp]
-	jmp	$L37287
-$L37280:
+	jmp	$L37288
+$L37281:
 
 ; 175  : 			
 ; 176  : 			pentSearch = pentTrigger;
@@ -3960,15 +3960,15 @@ $L37280:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L37282
+	jne	SHORT $L37283
 	push	OFFSET FLAT:??_C@_0BA@GHEL@func_rot_button?$AA@ ; `string'
 	mov	edx, DWORD PTR _pevTrigger$[ebp]
 	push	edx
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37286
-$L37282:
+	je	SHORT $L37287
+$L37283:
 
 ; 181  : 
 ; 182  : 				// trace from the node to the trigger, make sure it's one we can see from the node.
@@ -3982,7 +3982,7 @@ $L37282:
 	push	1
 	mov	edx, DWORD PTR _pevTrigger$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T39858[ebp]
+	lea	eax, DWORD PTR $T39859[ebp]
 	push	eax
 	call	?VecBModelOrigin@@YA?AVVector@@PAUentvars_s@@@Z ; VecBModelOrigin
 	add	esp, 8
@@ -4001,7 +4001,7 @@ $L37282:
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	cmp	eax, DWORD PTR _pevTrigger$[ebp]
-	jne	SHORT $L37286
+	jne	SHORT $L37287
 
 ; 189  : 					return VARS( tr.pHit );
 
@@ -4009,18 +4009,18 @@ $L37282:
 	push	eax
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
-	jmp	SHORT $L37287
-$L37286:
+	jmp	SHORT $L37288
+$L37287:
 
 ; 192  : 		}
 
-	jmp	$L37276
-$L37279:
+	jmp	$L37277
+$L37280:
 
 ; 194  : 	else
 
-	jmp	SHORT $L37287
-$L37272:
+	jmp	SHORT $L37288
+$L37273:
 
 ; 196  : 		ALERT ( at_aiconsole, "Unsupported PathEnt:\n'%s'\n", STRING ( pevLinkEnt->classname ) );
 
@@ -4038,7 +4038,7 @@ $L37272:
 ; 197  : 		return NULL;
 
 	xor	eax, eax
-$L37287:
+$L37288:
 
 ; 199  : }
 
@@ -4149,7 +4149,7 @@ _pent$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L39865
+	je	SHORT $L39866
 	mov	eax, DWORD PTR _pent$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPBUedict_s@@@Z		; OFFSET
@@ -4158,12 +4158,12 @@ _pent$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L39865
+	jne	SHORT $L39866
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L39866
-$L39865:
-	mov	DWORD PTR -4+[ebp], 1
+	jmp	SHORT $L39867
 $L39866:
+	mov	DWORD PTR -4+[ebp], 1
+$L39867:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -4318,7 +4318,7 @@ _pev$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pev$[ebp], 0
-	je	SHORT $L39875
+	je	SHORT $L39876
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPAUentvars_s@@@Z		; OFFSET
@@ -4327,12 +4327,12 @@ _pev$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L39875
+	jne	SHORT $L39876
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L39876
-$L39875:
-	mov	DWORD PTR -4+[ebp], 1
+	jmp	SHORT $L39877
 $L39876:
+	mov	DWORD PTR -4+[ebp], 1
+$L39877:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -4541,11 +4541,11 @@ _tr$ = -68
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L37302
+	je	SHORT $L37303
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L37301
-$L37302:
+	jne	SHORT $L37302
+$L37303:
 
 ; 215  : 		ALERT ( at_aiconsole, "Graph not ready!\n" );
 
@@ -4557,8 +4557,8 @@ $L37302:
 ; 216  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L37297
-$L37301:
+	jmp	$L37298
+$L37302:
 
 ; 218  : 
 ; 219  : 	if ( FNullEnt ( pevLinkEnt ) )
@@ -4568,7 +4568,7 @@ $L37301:
 	call	?FNullEnt@@YAHPAUentvars_s@@@Z		; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L37304
+	je	SHORT $L37305
 
 ; 221  : 		ALERT ( at_aiconsole, "dead path ent!\n" );
 
@@ -4580,8 +4580,8 @@ $L37301:
 ; 222  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	$L37297
-$L37304:
+	jmp	$L37298
+$L37305:
 
 ; 224  : 	pentWorld = NULL;
 
@@ -4597,15 +4597,15 @@ $L37304:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L37307
+	jne	SHORT $L37308
 	push	OFFSET FLAT:??_C@_0BD@DIJK@func_door_rotating?$AA@ ; `string'
 	mov	ecx, DWORD PTR _pevLinkEnt$[ebp]
 	push	ecx
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	$L37306
-$L37307:
+	je	$L37307
+$L37308:
 
 ; 229  : 
 ; 230  : 		pDoor = ( CBaseEntity::Instance( pevLinkEnt ) );
@@ -4623,7 +4623,7 @@ $L37307:
 	mov	ecx, DWORD PTR [eax+416]
 	and	ecx, 256				; 00000100H
 	test	ecx, ecx
-	je	SHORT $L37308
+	je	SHORT $L37309
 
 ; 234  : 
 ; 235  : 			if  ( ( afCapMask & bits_CAP_OPEN_DOORS ) )
@@ -4631,13 +4631,13 @@ $L37307:
 	mov	edx, DWORD PTR _afCapMask$[ebp]
 	and	edx, 512				; 00000200H
 	test	edx, edx
-	je	SHORT $L37309
+	je	SHORT $L37310
 
 ; 237  : 				return TRUE;
 
 	mov	eax, 1
-	jmp	$L37297
-$L37309:
+	jmp	$L37298
+$L37310:
 
 ; 241  : 				// monster should try for it if the door is open and looks as if it will stay that way
 ; 242  : 				if ( pDoor->GetToggleState()== TS_AT_TOP && ( pevLinkEnt->spawnflags & SF_DOOR_NO_AUTO_RETURN ) )
@@ -4647,25 +4647,25 @@ $L37309:
 	mov	ecx, DWORD PTR _pDoor$[ebp]
 	call	DWORD PTR [edx+136]
 	test	eax, eax
-	jne	SHORT $L37311
+	jne	SHORT $L37312
 	mov	eax, DWORD PTR _pevLinkEnt$[ebp]
 	mov	ecx, DWORD PTR [eax+416]
 	and	ecx, 32					; 00000020H
 	test	ecx, ecx
-	je	SHORT $L37311
+	je	SHORT $L37312
 
 ; 244  : 					return TRUE;
 
 	mov	eax, 1
-	jmp	$L37297
-$L37311:
+	jmp	$L37298
+$L37312:
 
 ; 246  : 
 ; 247  : 				return FALSE;
 
 	xor	eax, eax
-	jmp	$L37297
-$L37308:
+	jmp	$L37298
+$L37309:
 
 ; 252  : 			
 ; 253  : 			// monster should try for it if the door is open and looks as if it will stay that way
@@ -4676,25 +4676,25 @@ $L37308:
 	mov	ecx, DWORD PTR _pDoor$[ebp]
 	call	DWORD PTR [eax+136]
 	test	eax, eax
-	jne	SHORT $L37313
+	jne	SHORT $L37314
 	mov	ecx, DWORD PTR _pevLinkEnt$[ebp]
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 32					; 00000020H
 	test	edx, edx
-	je	SHORT $L37313
+	je	SHORT $L37314
 
 ; 256  : 				return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L37297
-$L37313:
+	jmp	SHORT $L37298
+$L37314:
 
 ; 258  : 			if  ( ( afCapMask & bits_CAP_OPEN_DOORS ) )
 
 	mov	eax, DWORD PTR _afCapMask$[ebp]
 	and	eax, 512				; 00000200H
 	test	eax, eax
-	je	SHORT $L37315
+	je	SHORT $L37316
 
 ; 260  : 				if ( !( pevLinkEnt->spawnflags & SF_DOOR_NOMONSTERS ) || queryType == NODEGRAPH_STATIC )
 
@@ -4702,23 +4702,23 @@ $L37313:
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 512				; 00000200H
 	test	edx, edx
-	je	SHORT $L37316
+	je	SHORT $L37317
 	cmp	DWORD PTR _queryType$[ebp], 1
-	jne	SHORT $L37315
-$L37316:
+	jne	SHORT $L37316
+$L37317:
 
 ; 261  : 					return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L37297
-$L37315:
+	jmp	SHORT $L37298
+$L37316:
 
 ; 263  : 
 ; 264  : 			return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L37297
-$L37306:
+	jmp	SHORT $L37298
+$L37307:
 
 ; 267  : // func_breakable	
 ; 268  : 	else if ( FClassnameIs( pevLinkEnt, "func_breakable" ) && queryType == NODEGRAPH_STATIC )
@@ -4729,15 +4729,15 @@ $L37306:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37318
+	je	SHORT $L37319
 	cmp	DWORD PTR _queryType$[ebp], 1
-	jne	SHORT $L37318
+	jne	SHORT $L37319
 
 ; 270  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L37297
-$L37318:
+	jmp	SHORT $L37298
+$L37319:
 
 ; 274  : 		ALERT ( at_aiconsole, "Unhandled Ent in Path %s\n", STRING( pevLinkEnt->classname ) );
 
@@ -4755,7 +4755,7 @@ $L37318:
 ; 275  : 		return FALSE;
 
 	xor	eax, eax
-$L37297:
+$L37298:
 
 ; 277  : 
 ; 278  : 	return FALSE;
@@ -4924,9 +4924,9 @@ EXTRN	__fltused:NEAR
 _TEXT	SEGMENT
 _pEntity$ = 8
 _this$ = -4
-$T39897 = -16
-$T39898 = -28
-$T39899 = -40
+$T39898 = -16
+$T39899 = -28
+$T39900 = -40
 ?HullIndex@CGraph@@QAEHPBVCBaseEntity@@@Z PROC NEAR	; CGraph::HullIndex, COMDAT
 
 ; 434  : {
@@ -4944,13 +4944,13 @@ $T39899 = -40
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 5
-	jne	SHORT $L37326
+	jne	SHORT $L37327
 
 ; 436  : 		return NODE_FLY_HULL;
 
 	mov	eax, 3
-	jmp	$L37325
-$L37326:
+	jmp	$L37326
+$L37327:
 
 ; 437  : 
 ; 438  : 	if ( pEntity->pev->mins == Vector( -12, -12, 0 ) )
@@ -4958,7 +4958,7 @@ $L37326:
 	push	0
 	push	-1052770304				; c1400000H
 	push	-1052770304				; c1400000H
-	lea	ecx, DWORD PTR $T39897[ebp]
+	lea	ecx, DWORD PTR $T39898[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	edx, DWORD PTR _pEntity$[ebp]
@@ -4966,20 +4966,20 @@ $L37326:
 	add	ecx, 220				; 000000dcH
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L37328
+	je	SHORT $L37329
 
 ; 439  : 		return NODE_SMALL_HULL;
 
 	xor	eax, eax
-	jmp	SHORT $L37325
-$L37328:
+	jmp	SHORT $L37326
+$L37329:
 
 ; 440  : 	else if ( pEntity->pev->mins == VEC_HUMAN_HULL_MIN )
 
 	push	0
 	push	-1048576000				; c1800000H
 	push	-1048576000				; c1800000H
-	lea	ecx, DWORD PTR $T39898[ebp]
+	lea	ecx, DWORD PTR $T39899[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	eax, DWORD PTR _pEntity$[ebp]
@@ -4987,20 +4987,20 @@ $L37328:
 	add	ecx, 220				; 000000dcH
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L37331
+	je	SHORT $L37332
 
 ; 441  : 		return NODE_HUMAN_HULL;
 
 	mov	eax, 1
-	jmp	SHORT $L37325
-$L37331:
+	jmp	SHORT $L37326
+$L37332:
 
 ; 442  : 	else if ( pEntity->pev->mins == Vector ( -32, -32, 0 ) )
 
 	push	0
 	push	-1040187392				; c2000000H
 	push	-1040187392				; c2000000H
-	lea	ecx, DWORD PTR $T39899[ebp]
+	lea	ecx, DWORD PTR $T39900[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
@@ -5008,20 +5008,20 @@ $L37331:
 	add	ecx, 220				; 000000dcH
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L37334
+	je	SHORT $L37335
 
 ; 443  : 		return NODE_LARGE_HULL;
 
 	mov	eax, 2
-	jmp	SHORT $L37325
-$L37334:
+	jmp	SHORT $L37326
+$L37335:
 
 ; 444  : 
 ; 445  : //	ALERT ( at_aiconsole, "Unknown Hull Mins!\n" );
 ; 446  : 	return NODE_HUMAN_HULL;
 
 	mov	eax, 1
-$L37325:
+$L37326:
 
 ; 447  : }
 
@@ -5089,26 +5089,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39905
+	je	SHORT $L39906
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39905
+	je	SHORT $L39906
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39905
+	je	SHORT $L39906
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39906
-$L39905:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L39907
 $L39906:
+	mov	DWORD PTR -8+[ebp], 0
+$L39907:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -5140,31 +5140,31 @@ _this$ = -4
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 5
-	jne	SHORT $L37341
+	jne	SHORT $L37342
 
 ; 454  : 		if (pEntity->pev->waterlevel != 0)
 
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	DWORD PTR [eax+448], 0
-	je	SHORT $L37340
+	je	SHORT $L37341
 
 ; 456  : 			return bits_NODE_WATER;
 
 	mov	eax, 4
-	jmp	SHORT $L37338
-$L37340:
+	jmp	SHORT $L37339
+$L37341:
 
 ; 460  : 			return bits_NODE_AIR;
 
 	mov	eax, 2
-	jmp	SHORT $L37338
-$L37341:
+	jmp	SHORT $L37339
+$L37342:
 
 ; 463  : 	return bits_NODE_LAND;
 
 	mov	eax, 1
-$L37338:
+$L37339:
 
 ; 464  : }
 
@@ -5210,8 +5210,8 @@ _iNext$ = -12
 _iMaxLoop$ = -16
 _iCurrentNode$ = -20
 _iCap$ = -24
-_iLink$37360 = -28
-_link$37363 = -32
+_iLink$37361 = -28
+_link$37364 = -32
 ?PathLength@CGraph@@QAEMHHHH@Z PROC NEAR		; CGraph::PathLength, COMDAT
 
 ; 469  : {
@@ -5249,14 +5249,14 @@ _link$37363 = -32
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CapIndex@CGraph@@QAEHH@Z		; CGraph::CapIndex
 	mov	DWORD PTR _iCap$[ebp], eax
-$L37355:
+$L37356:
 
 ; 477  : 
 ; 478  : 	while (iCurrentNode != iDest)
 
 	mov	ecx, DWORD PTR _iCurrentNode$[ebp]
 	cmp	ecx, DWORD PTR _iDest$[ebp]
-	je	$L37356
+	je	$L37357
 
 ; 480  : 		if (iMaxLoop-- <= 0)
 
@@ -5265,7 +5265,7 @@ $L37355:
 	sub	eax, 1
 	mov	DWORD PTR _iMaxLoop$[ebp], eax
 	test	edx, edx
-	jg	SHORT $L37357
+	jg	SHORT $L37358
 
 ; 482  : 			ALERT( at_console, "Route Failure\n" );
 
@@ -5277,8 +5277,8 @@ $L37355:
 ; 483  : 			return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	$L37348
-$L37357:
+	jmp	$L37349
+$L37358:
 
 ; 485  : 
 ; 486  : 		iNext = NextNodeInRoute( iCurrentNode, iDest, iHull, iCap );
@@ -5299,18 +5299,18 @@ $L37357:
 
 	mov	edx, DWORD PTR _iCurrentNode$[ebp]
 	cmp	edx, DWORD PTR _iNext$[ebp]
-	jne	SHORT $L37359
+	jne	SHORT $L37360
 
 ; 489  : 			//ALERT(at_aiconsole, "SVD: Can't get there from here..\n");
 ; 490  : 			return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	SHORT $L37348
-$L37359:
+	jmp	SHORT $L37349
+$L37360:
 
 ; 494  : 		HashSearch(iCurrentNode, iNext, iLink);
 
-	lea	eax, DWORD PTR _iLink$37360[ebp]
+	lea	eax, DWORD PTR _iLink$37361[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _iNext$[ebp]
 	push	ecx
@@ -5321,8 +5321,8 @@ $L37359:
 
 ; 495  : 		if (iLink < 0)
 
-	cmp	DWORD PTR _iLink$37360[ebp], 0
-	jge	SHORT $L37361
+	cmp	DWORD PTR _iLink$37361[ebp], 0
+	jge	SHORT $L37362
 
 ; 497  : 			ALERT(at_console, "HashLinks is broken from %d to %d.\n", iCurrentNode, iDest);
 
@@ -5338,20 +5338,20 @@ $L37359:
 ; 498  : 			return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	SHORT $L37348
-$L37361:
+	jmp	SHORT $L37349
+$L37362:
 
 ; 500  : 		CLink &link = Link(iLink);
 
-	mov	edx, DWORD PTR _iLink$37360[ebp]
+	mov	edx, DWORD PTR _iLink$37361[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Link@CGraph@@QAEAAVCLink@@H@Z		; CGraph::Link
-	mov	DWORD PTR _link$37363[ebp], eax
+	mov	DWORD PTR _link$37364[ebp], eax
 
 ; 501  : 		distance += link.m_flWeight;
 
-	mov	eax, DWORD PTR _link$37363[ebp]
+	mov	eax, DWORD PTR _link$37364[ebp]
 	fld	DWORD PTR _distance$[ebp]
 	fadd	DWORD PTR [eax+20]
 	fstp	DWORD PTR _distance$[ebp]
@@ -5364,14 +5364,14 @@ $L37361:
 
 ; 504  : 	}
 
-	jmp	$L37355
-$L37356:
+	jmp	$L37356
+$L37357:
 
 ; 505  : 
 ; 506  : 	return distance;
 
 	fld	DWORD PTR _distance$[ebp]
-$L37348:
+$L37349:
 
 ; 507  : }
 
@@ -5404,18 +5404,18 @@ _this$ = -4
 	mov	eax, DWORD PTR _afCapMask$[ebp]
 	and	eax, 832				; 00000340H
 	test	eax, eax
-	je	SHORT $L36906
+	je	SHORT $L36907
 
 ; 204  : 			return 1; 
 
 	mov	eax, 1
-	jmp	SHORT $L36905
-$L36906:
+	jmp	SHORT $L36906
+$L36907:
 
 ; 205  : 		return 0; 
 
 	xor	eax, eax
-$L36905:
+$L36906:
 
 ; 206  : 	}
 
@@ -5454,14 +5454,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+16], 0
-	je	SHORT $L36915
+	je	SHORT $L36916
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L36915
+	jl	SHORT $L36916
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+28]
-	jle	SHORT $L36914
-$L36915:
+	jle	SHORT $L36915
+$L36916:
 
 ; 222  : 			ALERT( at_error, "Bad link!\n" );
 
@@ -5469,7 +5469,7 @@ $L36915:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36914:
+$L36915:
 
 ; 223  : #endif
 ; 224  : 		return m_pLinkPool[i];
@@ -5500,7 +5500,7 @@ _this$ = -4
 _iNext$ = -8
 _nCount$ = -12
 _pRoute$ = -16
-_ch$37377 = -20
+_ch$37378 = -20
 ?NextNodeInRoute@CGraph@@QAEHHHHH@Z PROC NEAR		; CGraph::NextNodeInRoute, COMDAT
 
 ; 512  : {
@@ -5538,7 +5538,7 @@ _ch$37377 = -20
 	mov	ecx, DWORD PTR _iCap$[ebp]
 	add	edx, DWORD PTR [eax+ecx*4]
 	mov	DWORD PTR _pRoute$[ebp], edx
-$L37375:
+$L37376:
 
 ; 516  : 
 ; 517  : 	// Until we decode the next best node
@@ -5546,13 +5546,13 @@ $L37375:
 ; 519  : 	while (nCount > 0)
 
 	cmp	DWORD PTR _nCount$[ebp], 0
-	jle	$L37376
+	jle	$L37377
 
 ; 521  : 		char ch = *pRoute++;
 
 	mov	edx, DWORD PTR _pRoute$[ebp]
 	mov	al, BYTE PTR [edx]
-	mov	BYTE PTR _ch$37377[ebp], al
+	mov	BYTE PTR _ch$37378[ebp], al
 	mov	ecx, DWORD PTR _pRoute$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _pRoute$[ebp], ecx
@@ -5560,23 +5560,23 @@ $L37375:
 ; 522  : 		//ALERT(at_aiconsole, "C(%d)", ch);
 ; 523  : 		if (ch < 0)
 
-	movsx	edx, BYTE PTR _ch$37377[ebp]
+	movsx	edx, BYTE PTR _ch$37378[ebp]
 	test	edx, edx
-	jge	SHORT $L37378
+	jge	SHORT $L37379
 
 ; 525  : 			// Sequence phrase
 ; 526  : 			//
 ; 527  : 			ch = -ch;
 
-	movsx	eax, BYTE PTR _ch$37377[ebp]
+	movsx	eax, BYTE PTR _ch$37378[ebp]
 	neg	eax
-	mov	BYTE PTR _ch$37377[ebp], al
+	mov	BYTE PTR _ch$37378[ebp], al
 
 ; 528  : 			if (nCount <= ch)
 
-	movsx	ecx, BYTE PTR _ch$37377[ebp]
+	movsx	ecx, BYTE PTR _ch$37378[ebp]
 	cmp	DWORD PTR _nCount$[ebp], ecx
-	jg	SHORT $L37379
+	jg	SHORT $L37380
 
 ; 530  : 				iNext = iDest;
 
@@ -5589,22 +5589,22 @@ $L37375:
 
 ; 534  : 			else
 
-	jmp	SHORT $L37380
-$L37379:
+	jmp	SHORT $L37381
+$L37380:
 
 ; 536  : 				//ALERT(at_aiconsole, "SEQ: nCount + ch (%d + %d)\n", nCount, ch);
 ; 537  : 				nCount = nCount - ch;
 
-	movsx	eax, BYTE PTR _ch$37377[ebp]
+	movsx	eax, BYTE PTR _ch$37378[ebp]
 	mov	ecx, DWORD PTR _nCount$[ebp]
 	sub	ecx, eax
 	mov	DWORD PTR _nCount$[ebp], ecx
-$L37380:
+$L37381:
 
 ; 540  : 		else
 
-	jmp	SHORT $L37381
-$L37378:
+	jmp	SHORT $L37382
+$L37379:
 
 ; 542  : 			//ALERT(at_aiconsole, "C(%d)", *pRoute);
 ; 543  : 
@@ -5612,10 +5612,10 @@ $L37378:
 ; 545  : 			//
 ; 546  : 			if (nCount <= ch+1)
 
-	movsx	edx, BYTE PTR _ch$37377[ebp]
+	movsx	edx, BYTE PTR _ch$37378[ebp]
 	add	edx, 1
 	cmp	DWORD PTR _nCount$[ebp], edx
-	jg	SHORT $L37382
+	jg	SHORT $L37383
 
 ; 548  : 				iNext = iCurrentNode + *pRoute;
 
@@ -5630,7 +5630,7 @@ $L37378:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _iNext$[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jl	SHORT $L37383
+	jl	SHORT $L37384
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _iNext$[ebp]
 	sub	eax, DWORD PTR [edx+24]
@@ -5638,15 +5638,15 @@ $L37378:
 
 ; 550  : 				else if (iNext < 0) iNext += m_cNodes;
 
-	jmp	SHORT $L37385
-$L37383:
+	jmp	SHORT $L37386
+$L37384:
 	cmp	DWORD PTR _iNext$[ebp], 0
-	jge	SHORT $L37385
+	jge	SHORT $L37386
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _iNext$[ebp]
 	add	edx, DWORD PTR [ecx+24]
 	mov	DWORD PTR _iNext$[ebp], edx
-$L37385:
+$L37386:
 
 ; 551  : 				nCount = 0;
 
@@ -5654,30 +5654,30 @@ $L37385:
 
 ; 554  : 			else
 
-	jmp	SHORT $L37386
-$L37382:
+	jmp	SHORT $L37387
+$L37383:
 
 ; 556  : 				//ALERT(at_aiconsole, "REP: nCount - ch+1 (%d - %d+1)\n", nCount, ch);
 ; 557  : 				nCount = nCount - ch - 1;
 
-	movsx	eax, BYTE PTR _ch$37377[ebp]
+	movsx	eax, BYTE PTR _ch$37378[ebp]
 	mov	ecx, DWORD PTR _nCount$[ebp]
 	sub	ecx, eax
 	sub	ecx, 1
 	mov	DWORD PTR _nCount$[ebp], ecx
-$L37386:
+$L37387:
 
 ; 559  : 			pRoute++;
 
 	mov	edx, DWORD PTR _pRoute$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _pRoute$[ebp], edx
-$L37381:
+$L37382:
 
 ; 561  : 	}
 
-	jmp	$L37375
-$L37376:
+	jmp	$L37376
+$L37377:
 
 ; 562  : 
 ; 563  : 	return iNext;
@@ -5729,13 +5729,13 @@ _iVisitNode$ = -8
 _iCurrentNode$ = -12
 _iNumPathNodes$ = -16
 _iHullMask$ = -20
-_iCap$37406 = -24
-_iNext$37407 = -28
-_queue$37414 = -832
-_i$37423 = -836
-_flCurrentDistance$37430 = -840
-_pCurrentNode$37432 = -844
-_flOurDistance$37439 = -848
+_iCap$37407 = -24
+_iNext$37408 = -28
+_queue$37415 = -832
+_i$37424 = -836
+_flCurrentDistance$37431 = -840
+_pCurrentNode$37433 = -844
+_flOurDistance$37440 = -848
 ?FindShortestPath@CGraph@@QAEHPAHHHHH@Z PROC NEAR	; CGraph::FindShortestPath, COMDAT
 
 ; 575  : {
@@ -5757,11 +5757,11 @@ _flOurDistance$37439 = -848
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L37400
+	je	SHORT $L37401
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L37399
-$L37400:
+	jne	SHORT $L37400
+$L37401:
 
 ; 583  : 		ALERT ( at_aiconsole, "Graph not ready!\n" );
 
@@ -5773,19 +5773,19 @@ $L37400:
 ; 584  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L37394
-$L37399:
+	jmp	$L37395
+$L37400:
 
 ; 586  : 	
 ; 587  : 	if ( iStart < 0 || iStart > m_cNodes )
 
 	cmp	DWORD PTR _iStart$[ebp], 0
-	jl	SHORT $L37402
+	jl	SHORT $L37403
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _iStart$[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jle	SHORT $L37401
-$L37402:
+	jle	SHORT $L37402
+$L37403:
 
 ; 589  : 		ALERT ( at_aiconsole, "Can't build a path, iStart is %d!\n", iStart );
 
@@ -5799,15 +5799,15 @@ $L37402:
 ; 590  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L37394
-$L37401:
+	jmp	$L37395
+$L37402:
 
 ; 592  : 
 ; 593  : 	if (iStart == iDest)
 
 	mov	edx, DWORD PTR _iStart$[ebp]
 	cmp	edx, DWORD PTR _iDest$[ebp]
-	jne	SHORT $L37404
+	jne	SHORT $L37405
 
 ; 595  : 		piPath[0] = iStart;
 
@@ -5824,8 +5824,8 @@ $L37401:
 ; 597  : 		return 2;
 
 	mov	eax, 2
-	jmp	$L37394
-$L37404:
+	jmp	$L37395
+$L37405:
 
 ; 599  : 
 ; 600  : 	// Is routing information present.
@@ -5834,7 +5834,7 @@ $L37404:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+8], 0
-	je	$L37405
+	je	$L37406
 
 ; 604  : 		int iCap = CapIndex( afCapMask );
 
@@ -5842,7 +5842,7 @@ $L37404:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CapIndex@CGraph@@QAEHH@Z		; CGraph::CapIndex
-	mov	DWORD PTR _iCap$37406[ebp], eax
+	mov	DWORD PTR _iCap$37407[ebp], eax
 
 ; 605  : 
 ; 606  : 		iNumPathNodes = 0;
@@ -5863,7 +5863,7 @@ $L37404:
 
 	mov	ecx, DWORD PTR _iStart$[ebp]
 	mov	DWORD PTR _iCurrentNode$[ebp], ecx
-$L37409:
+$L37410:
 
 ; 609  : 		int iNext;
 ; 610  : 
@@ -5875,11 +5875,11 @@ $L37409:
 
 	mov	edx, DWORD PTR _iCurrentNode$[ebp]
 	cmp	edx, DWORD PTR _iDest$[ebp]
-	je	SHORT $L37410
+	je	SHORT $L37411
 
 ; 617  : 			iNext = NextNodeInRoute( iCurrentNode, iDest, iHull, iCap );
 
-	mov	eax, DWORD PTR _iCap$37406[ebp]
+	mov	eax, DWORD PTR _iCap$37407[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _iHull$[ebp]
 	push	ecx
@@ -5889,37 +5889,37 @@ $L37409:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?NextNodeInRoute@CGraph@@QAEHHHHH@Z	; CGraph::NextNodeInRoute
-	mov	DWORD PTR _iNext$37407[ebp], eax
+	mov	DWORD PTR _iNext$37408[ebp], eax
 
 ; 618  : 			if (iCurrentNode == iNext)
 
 	mov	ecx, DWORD PTR _iCurrentNode$[ebp]
-	cmp	ecx, DWORD PTR _iNext$37407[ebp]
-	jne	SHORT $L37411
+	cmp	ecx, DWORD PTR _iNext$37408[ebp]
+	jne	SHORT $L37412
 
 ; 620  : 				//ALERT(at_aiconsole, "SVD: Can't get there from here..\n");
 ; 621  : 				return 0;
 
 	xor	eax, eax
-	jmp	$L37394
-$L37411:
+	jmp	$L37395
+$L37412:
 
 ; 624  : 			if (iNumPathNodes >= MAX_PATH_SIZE) 
 
 	cmp	DWORD PTR _iNumPathNodes$[ebp], 10	; 0000000aH
-	jl	SHORT $L37412
+	jl	SHORT $L37413
 
 ; 626  : 				//ALERT(at_aiconsole, "SVD: Don't return the entire path.\n");
 ; 627  : 				break;
 
-	jmp	SHORT $L37410
-$L37412:
+	jmp	SHORT $L37411
+$L37413:
 
 ; 629  : 			piPath[iNumPathNodes++] = iNext;
 
 	mov	edx, DWORD PTR _iNumPathNodes$[ebp]
 	mov	eax, DWORD PTR _piPath$[ebp]
-	mov	ecx, DWORD PTR _iNext$37407[ebp]
+	mov	ecx, DWORD PTR _iNext$37408[ebp]
 	mov	DWORD PTR [eax+edx*4], ecx
 	mov	edx, DWORD PTR _iNumPathNodes$[ebp]
 	add	edx, 1
@@ -5927,22 +5927,22 @@ $L37412:
 
 ; 630  : 			iCurrentNode = iNext;
 
-	mov	eax, DWORD PTR _iNext$37407[ebp]
+	mov	eax, DWORD PTR _iNext$37408[ebp]
 	mov	DWORD PTR _iCurrentNode$[ebp], eax
 
 ; 631  : 		}
 
-	jmp	SHORT $L37409
-$L37410:
+	jmp	SHORT $L37410
+$L37411:
 
 ; 634  : 	else
 
-	jmp	$L37448
-$L37405:
+	jmp	$L37449
+$L37406:
 
 ; 636  : 		CQueuePriority	queue;
 
-	lea	ecx, DWORD PTR _queue$37414[ebp]
+	lea	ecx, DWORD PTR _queue$37415[ebp]
 	call	??0CQueuePriority@@QAE@XZ		; CQueuePriority::CQueuePriority
 
 ; 639  : 		{
@@ -5950,10 +5950,10 @@ $L37405:
 	mov	ecx, DWORD PTR _iHull$[ebp]
 	mov	DWORD PTR -852+[ebp], ecx
 	cmp	DWORD PTR -852+[ebp], 3
-	ja	SHORT $L37416
+	ja	SHORT $L37417
 	mov	edx, DWORD PTR -852+[ebp]
-	jmp	DWORD PTR $L39925[edx*4]
-$L37419:
+	jmp	DWORD PTR $L39926[edx*4]
+$L37420:
 
 ; 640  : 		case NODE_SMALL_HULL:
 ; 641  : 			iHullMask = bits_LINK_SMALL_HULL;
@@ -5962,8 +5962,8 @@ $L37419:
 
 ; 642  : 			break;
 
-	jmp	SHORT $L37416
-$L37420:
+	jmp	SHORT $L37417
+$L37421:
 
 ; 643  : 		case NODE_HUMAN_HULL:
 ; 644  : 			iHullMask = bits_LINK_HUMAN_HULL;
@@ -5972,8 +5972,8 @@ $L37420:
 
 ; 645  : 			break;
 
-	jmp	SHORT $L37416
-$L37421:
+	jmp	SHORT $L37417
+$L37422:
 
 ; 646  : 		case NODE_LARGE_HULL:
 ; 647  : 			iHullMask = bits_LINK_LARGE_HULL;
@@ -5982,35 +5982,35 @@ $L37421:
 
 ; 648  : 			break;
 
-	jmp	SHORT $L37416
-$L37422:
+	jmp	SHORT $L37417
+$L37423:
 
 ; 649  : 		case NODE_FLY_HULL:
 ; 650  : 			iHullMask = bits_LINK_FLY_HULL;
 
 	mov	DWORD PTR _iHullMask$[ebp], 8
-$L37416:
+$L37417:
 
 ; 653  : 
 ; 654  : 		// Mark all the nodes as unvisited.
 ; 655  : 		//
 ; 656  : 		for ( int i = 0; i < m_cNodes; i++)
 
-	mov	DWORD PTR _i$37423[ebp], 0
-	jmp	SHORT $L37424
-$L37425:
-	mov	eax, DWORD PTR _i$37423[ebp]
+	mov	DWORD PTR _i$37424[ebp], 0
+	jmp	SHORT $L37425
+$L37426:
+	mov	eax, DWORD PTR _i$37424[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$37423[ebp], eax
-$L37424:
+	mov	DWORD PTR _i$37424[ebp], eax
+$L37425:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _i$37423[ebp]
+	mov	edx, DWORD PTR _i$37424[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	SHORT $L37426
+	jge	SHORT $L37427
 
 ; 658  : 			m_pNodes[ i ].m_flClosestSoFar = -1.0;
 
-	mov	eax, DWORD PTR _i$37423[ebp]
+	mov	eax, DWORD PTR _i$37424[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
@@ -6018,8 +6018,8 @@ $L37424:
 
 ; 659  : 		}
 
-	jmp	SHORT $L37425
-$L37426:
+	jmp	SHORT $L37426
+$L37427:
 
 ; 660  : 
 ; 661  : 		m_pNodes[ iStart ].m_flClosestSoFar = 0.0;
@@ -6044,25 +6044,25 @@ $L37426:
 	push	0
 	mov	edx, DWORD PTR _iStart$[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _queue$37414[ebp]
+	lea	ecx, DWORD PTR _queue$37415[ebp]
 	call	?Insert@CQueuePriority@@QAEXHM@Z	; CQueuePriority::Insert
-$L37428:
+$L37429:
 
 ; 664  : 		
 ; 665  : 		while ( !queue.Empty() )
 
-	lea	ecx, DWORD PTR _queue$37414[ebp]
+	lea	ecx, DWORD PTR _queue$37415[ebp]
 	call	?Empty@CQueuePriority@@QAEHXZ		; CQueuePriority::Empty
 	test	eax, eax
-	jne	$L37429
+	jne	$L37430
 
 ; 667  : 			// now pull a node out of the queue
 ; 668  : 			float flCurrentDistance;
 ; 669  : 			iCurrentNode = queue.Remove(flCurrentDistance);
 
-	lea	eax, DWORD PTR _flCurrentDistance$37430[ebp]
+	lea	eax, DWORD PTR _flCurrentDistance$37431[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _queue$37414[ebp]
+	lea	ecx, DWORD PTR _queue$37415[ebp]
 	call	?Remove@CQueuePriority@@QAEHAAM@Z	; CQueuePriority::Remove
 	mov	DWORD PTR _iCurrentNode$[ebp], eax
 
@@ -6074,9 +6074,9 @@ $L37428:
 
 	mov	ecx, DWORD PTR _iCurrentNode$[ebp]
 	cmp	ecx, DWORD PTR _iDest$[ebp]
-	jne	SHORT $L37431
-	jmp	$L37429
-$L37431:
+	jne	SHORT $L37432
+	jmp	$L37430
+$L37432:
 
 ; 675  : 
 ; 676  : 			CNode *pCurrentNode = &m_pNodes[ iCurrentNode ];
@@ -6086,27 +6086,27 @@ $L37431:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	add	ecx, edx
-	mov	DWORD PTR _pCurrentNode$37432[ebp], ecx
+	mov	DWORD PTR _pCurrentNode$37433[ebp], ecx
 
 ; 677  : 			
 ; 678  : 			for ( i = 0 ; i < pCurrentNode->m_cNumLinks ; i++ )
 
-	mov	DWORD PTR _i$37423[ebp], 0
-	jmp	SHORT $L37433
-$L37434:
-	mov	edx, DWORD PTR _i$37423[ebp]
+	mov	DWORD PTR _i$37424[ebp], 0
+	jmp	SHORT $L37434
+$L37435:
+	mov	edx, DWORD PTR _i$37424[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$37423[ebp], edx
-$L37433:
-	mov	eax, DWORD PTR _pCurrentNode$37432[ebp]
-	mov	ecx, DWORD PTR _i$37423[ebp]
+	mov	DWORD PTR _i$37424[ebp], edx
+$L37434:
+	mov	eax, DWORD PTR _pCurrentNode$37433[ebp]
+	mov	ecx, DWORD PTR _i$37424[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	$L37435
+	jge	$L37436
 
 ; 680  : 				
 ; 681  : 				iVisitNode = INodeLink ( iCurrentNode, i );
 
-	mov	edx, DWORD PTR _i$37423[ebp]
+	mov	edx, DWORD PTR _i$37424[ebp]
 	push	edx
 	mov	eax, DWORD PTR _iCurrentNode$[ebp]
 	push	eax
@@ -6121,20 +6121,20 @@ $L37433:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	ecx, DWORD PTR [eax+ecx+36]
-	add	ecx, DWORD PTR _i$37423[ebp]
+	add	ecx, DWORD PTR _i$37424[ebp]
 	imul	ecx, 24					; 00000018H
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+16]
 	mov	ecx, DWORD PTR [eax+ecx+16]
 	and	ecx, DWORD PTR _iHullMask$[ebp]
 	cmp	ecx, DWORD PTR _iHullMask$[ebp]
-	je	SHORT $L37436
+	je	SHORT $L37437
 
 ; 684  : 					//ALERT ( at_aiconsole, "fat ass %d/%d\n",m_pLinkPool[ m_pNodes[ iCurrentNode ].m_iFirstLink + i ].m_afLinkInfo, iMonsterHull );
 ; 685  : 					continue;
 
-	jmp	SHORT $L37434
-$L37436:
+	jmp	SHORT $L37435
+$L37437:
 
 ; 687  : 				// check the connection from the current node to the node we're about to mark visited and push into the queue				
 ; 688  : 				if ( m_pLinkPool[ m_pNodes[ iCurrentNode ].m_iFirstLink + i ].m_pLinkEnt != NULL )
@@ -6144,12 +6144,12 @@ $L37436:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	edx, DWORD PTR [ecx+edx+36]
-	add	edx, DWORD PTR _i$37423[ebp]
+	add	edx, DWORD PTR _i$37424[ebp]
 	imul	edx, 24					; 00000018H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+16]
 	cmp	DWORD PTR [ecx+edx+8], 0
-	je	SHORT $L37438
+	je	SHORT $L37439
 
 ; 690  : 					
 ; 691  : 					if ( !HandleLinkEnt ( iCurrentNode, m_pLinkPool[ m_pNodes[ iCurrentNode ].m_iFirstLink + i ].m_pLinkEnt, afCapMask, NODEGRAPH_STATIC ) )
@@ -6162,7 +6162,7 @@ $L37436:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	eax, DWORD PTR [edx+eax+36]
-	add	eax, DWORD PTR _i$37423[ebp]
+	add	eax, DWORD PTR _i$37424[ebp]
 	imul	eax, 24					; 00000018H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+16]
@@ -6173,12 +6173,12 @@ $L37436:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HandleLinkEnt@CGraph@@QAEHHPAUentvars_s@@HW4NODEQUERY@1@@Z ; CGraph::HandleLinkEnt
 	test	eax, eax
-	jne	SHORT $L37438
+	jne	SHORT $L37439
 
 ; 693  : 						continue;
 
-	jmp	$L37434
-$L37438:
+	jmp	$L37435
+$L37439:
 
 ; 696  : 				float flOurDistance = flCurrentDistance + m_pLinkPool[ m_pNodes[ iCurrentNode ].m_iFirstLink + i].m_flWeight;
 
@@ -6187,13 +6187,13 @@ $L37438:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	edx, DWORD PTR [ecx+edx+36]
-	add	edx, DWORD PTR _i$37423[ebp]
+	add	edx, DWORD PTR _i$37424[ebp]
 	imul	edx, 24					; 00000018H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+16]
-	fld	DWORD PTR _flCurrentDistance$37430[ebp]
+	fld	DWORD PTR _flCurrentDistance$37431[ebp]
 	fadd	DWORD PTR [ecx+edx+20]
-	fstp	DWORD PTR _flOurDistance$37439[ebp]
+	fstp	DWORD PTR _flOurDistance$37440[ebp]
 
 ; 698  : 				   || flOurDistance < m_pNodes[ iVisitNode ].m_flClosestSoFar - 0.001 )
 
@@ -6205,8 +6205,8 @@ $L37438:
 	fcomp	QWORD PTR __real@8@bffe8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L37441
-	fld	DWORD PTR _flOurDistance$37439[ebp]
+	jne	SHORT $L37442
+	fld	DWORD PTR _flOurDistance$37440[ebp]
 	mov	edx, DWORD PTR _iVisitNode$[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
@@ -6216,8 +6216,8 @@ $L37438:
 	fcompp
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37440
-$L37441:
+	jne	SHORT $L37441
+$L37442:
 
 ; 700  : 					m_pNodes[iVisitNode].m_flClosestSoFar = flOurDistance;
 
@@ -6225,7 +6225,7 @@ $L37441:
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
-	mov	eax, DWORD PTR _flOurDistance$37439[ebp]
+	mov	eax, DWORD PTR _flOurDistance$37440[ebp]
 	mov	DWORD PTR [ecx+edx+72], eax
 
 ; 701  : 					m_pNodes[iVisitNode].m_iPreviousNode = iCurrentNode;
@@ -6240,23 +6240,23 @@ $L37441:
 ; 702  : 
 ; 703  : 					queue.Insert ( iVisitNode, flOurDistance );
 
-	mov	eax, DWORD PTR _flOurDistance$37439[ebp]
+	mov	eax, DWORD PTR _flOurDistance$37440[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _iVisitNode$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _queue$37414[ebp]
+	lea	ecx, DWORD PTR _queue$37415[ebp]
 	call	?Insert@CQueuePriority@@QAEXHM@Z	; CQueuePriority::Insert
-$L37440:
+$L37441:
 
 ; 705  : 			}
 
-	jmp	$L37434
-$L37435:
+	jmp	$L37435
+$L37436:
 
 ; 706  : 		}
 
-	jmp	$L37428
-$L37429:
+	jmp	$L37429
+$L37430:
 
 ; 707  : 		if ( m_pNodes[iDest].m_flClosestSoFar < -0.5 )
 
@@ -6268,13 +6268,13 @@ $L37429:
 	fcomp	QWORD PTR __real@8@bffe8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37442
+	je	SHORT $L37443
 
 ; 709  : 			return 0;
 
 	xor	eax, eax
-	jmp	$L37394
-$L37442:
+	jmp	$L37395
+$L37443:
 
 ; 711  : 
 ; 712  : 	// the queue is not empty
@@ -6288,14 +6288,14 @@ $L37442:
 ; 716  : 		iNumPathNodes = 1;// count the dest
 
 	mov	DWORD PTR _iNumPathNodes$[ebp], 1
-$L37444:
+$L37445:
 
 ; 717  : 		
 ; 718  : 		while ( iCurrentNode != iStart )
 
 	mov	eax, DWORD PTR _iCurrentNode$[ebp]
 	cmp	eax, DWORD PTR _iStart$[ebp]
-	je	SHORT $L37445
+	je	SHORT $L37446
 
 ; 720  : 			iNumPathNodes++;
 
@@ -6314,8 +6314,8 @@ $L37444:
 
 ; 722  : 		}
 
-	jmp	SHORT $L37444
-$L37445:
+	jmp	SHORT $L37445
+$L37446:
 
 ; 723  : 
 ; 724  : 		iCurrentNode = iDest;
@@ -6327,19 +6327,19 @@ $L37445:
 
 	mov	ecx, DWORD PTR _iNumPathNodes$[ebp]
 	sub	ecx, 1
-	mov	DWORD PTR _i$37423[ebp], ecx
-	jmp	SHORT $L37446
-$L37447:
-	mov	edx, DWORD PTR _i$37423[ebp]
+	mov	DWORD PTR _i$37424[ebp], ecx
+	jmp	SHORT $L37447
+$L37448:
+	mov	edx, DWORD PTR _i$37424[ebp]
 	sub	edx, 1
-	mov	DWORD PTR _i$37423[ebp], edx
-$L37446:
-	cmp	DWORD PTR _i$37423[ebp], 0
-	jl	SHORT $L37448
+	mov	DWORD PTR _i$37424[ebp], edx
+$L37447:
+	cmp	DWORD PTR _i$37424[ebp], 0
+	jl	SHORT $L37449
 
 ; 727  : 			piPath[ i ] = iCurrentNode;
 
-	mov	eax, DWORD PTR _i$37423[ebp]
+	mov	eax, DWORD PTR _i$37424[ebp]
 	mov	ecx, DWORD PTR _piPath$[ebp]
 	mov	edx, DWORD PTR _iCurrentNode$[ebp]
 	mov	DWORD PTR [ecx+eax*4], edx
@@ -6355,8 +6355,8 @@ $L37446:
 
 ; 729  : 		}
 
-	jmp	SHORT $L37447
-$L37448:
+	jmp	SHORT $L37448
+$L37449:
 
 ; 731  : 
 ; 732  : #if 0
@@ -6399,7 +6399,7 @@ $L37448:
 ; 769  : 	return iNumPathNodes;
 
 	mov	eax, DWORD PTR _iNumPathNodes$[ebp]
-$L37394:
+$L37395:
 
 ; 770  : }
 
@@ -6409,11 +6409,11 @@ $L37394:
 	mov	esp, ebp
 	pop	ebp
 	ret	20					; 00000014H
-$L39925:
-	DD	$L37419
+$L39926:
 	DD	$L37420
 	DD	$L37421
 	DD	$L37422
+	DD	$L37423
 ?FindShortestPath@CGraph@@QAEHPAHHHHH@Z ENDP		; CGraph::FindShortestPath
 _TEXT	ENDS
 PUBLIC	?NodeLink@CGraph@@QAEAAVCLink@@HH@Z		; CGraph::NodeLink
@@ -6521,14 +6521,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+12], 0
-	je	SHORT $L36910
+	je	SHORT $L36911
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L36910
+	jl	SHORT $L36911
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jle	SHORT $L36909
-$L36910:
+	jle	SHORT $L36910
+$L36911:
 
 ; 213  : 			ALERT( at_error, "Bad Node!\n" );
 
@@ -6536,7 +6536,7 @@ $L36910:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36909:
+$L36910:
 
 ; 214  : #endif
 ; 215  : 		return m_pNodes[i];
@@ -6598,12 +6598,12 @@ __real@8@3fff8000000000000000 DQ 03ff0000000000000r ; 1
 CONST	ENDS
 ;	COMDAT ?CheckNode@CGraph@@QAEXVVector@@H@Z
 _TEXT	SEGMENT
-$T39936 = -76
+$T39937 = -76
 _vecOrigin$ = 8
 _iNode$ = 20
 _this$ = -4
 _flDist$ = -8
-_tr$37487 = -64
+_tr$37488 = -64
 ?CheckNode@CGraph@@QAEXVVector@@H@Z PROC NEAR		; CGraph::CheckNode, COMDAT
 
 ; 812  : {
@@ -6627,9 +6627,9 @@ _tr$37487 = -64
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [edx+eax+12]
 	cmp	edx, DWORD PTR [ecx+6240]
-	jne	SHORT $L37483
-	jmp	$L37482
-$L37483:
+	jne	SHORT $L37484
+	jmp	$L37483
+$L37484:
 
 ; 816  :     m_di[iNode].m_CheckedEvent = m_CheckedCounter;
 
@@ -6650,7 +6650,7 @@ $L37483:
 	mov	ecx, DWORD PTR [eax+12]
 	lea	edx, DWORD PTR [ecx+edx+12]
 	push	edx
-	lea	eax, DWORD PTR $T39936[ebp]
+	lea	eax, DWORD PTR $T39937[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecOrigin$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -6666,18 +6666,18 @@ $L37483:
 	fcomp	DWORD PTR [ecx+6184]
 	fnstsw	ax
 	test	ah, 1
-	je	$L37488
+	je	$L37489
 
 ; 822  : 		TraceResult tr;
 
-	lea	ecx, DWORD PTR _tr$37487[ebp]
+	lea	ecx, DWORD PTR _tr$37488[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 823  : 
 ; 824  : 		// make sure that vecOrigin can trace to this node!
 ; 825  : 		UTIL_TraceLine ( vecOrigin, m_pNodes[ iNode ].m_vecOriginPeek, ignore_monsters, 0, &tr );
 
-	lea	edx, DWORD PTR _tr$37487[ebp]
+	lea	edx, DWORD PTR _tr$37488[ebp]
 	push	edx
 	push	0
 	push	1
@@ -6695,11 +6695,11 @@ $L37483:
 ; 826  : 
 ; 827  : 		if ( tr.flFraction == 1.0 )
 
-	fld	DWORD PTR _tr$37487[ebp+16]
+	fld	DWORD PTR _tr$37488[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	$L37488
+	je	$L37489
 
 ; 829  : 			m_iNearest = iNode;
 
@@ -6927,8 +6927,8 @@ $L37483:
 	add	esp, 12					; 0000000cH
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+6236], eax
-$L37488:
-$L37482:
+$L37489:
+$L37483:
 
 ; 847  : }
 
@@ -6943,7 +6943,7 @@ _TEXT	ENDS
 PUBLIC	??0Vector@@QAE@ABV0@@Z				; Vector::Vector
 ;	COMDAT ??GVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
-$T39942 = -16
+$T39943 = -16
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -6976,7 +6976,7 @@ _this$ = -4
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39942[ebp]
+	lea	ecx, DWORD PTR $T39943[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -7144,22 +7144,22 @@ _Upper$ = -8
 	mov	ecx, DWORD PTR _maxValue$[ebp]
 	mov	edx, DWORD PTR _Upper$[ebp]
 	cmp	edx, DWORD PTR [ecx]
-	jge	SHORT $L37476
+	jge	SHORT $L37477
 	mov	eax, DWORD PTR _maxValue$[ebp]
 	mov	ecx, DWORD PTR _Upper$[ebp]
 	mov	DWORD PTR [eax], ecx
-$L37476:
+$L37477:
 
 ; 808  :     if (minValue < Lower) minValue = Lower;
 
 	mov	edx, DWORD PTR _minValue$[ebp]
 	mov	eax, DWORD PTR [edx]
 	cmp	eax, DWORD PTR _Lower$[ebp]
-	jge	SHORT $L37477
+	jge	SHORT $L37478
 	mov	ecx, DWORD PTR _minValue$[ebp]
 	mov	edx, DWORD PTR _Lower$[ebp]
 	mov	DWORD PTR [ecx], edx
-$L37477:
+$L37478:
 
 ; 809  : }
 
@@ -7200,7 +7200,7 @@ _Temp$ = -4
 
 	mov	ecx, DWORD PTR _Best$[ebp]
 	cmp	ecx, DWORD PTR _Goal$[ebp]
-	jle	SHORT $L37461
+	jle	SHORT $L37462
 
 ; 785  :         Lower = Q_max(0, Temp);
 
@@ -7220,19 +7220,19 @@ _Temp$ = -4
 
 ; 788  :     else
 
-	jmp	SHORT $L37462
-$L37461:
+	jmp	SHORT $L37463
+$L37462:
 
 ; 790  :         Upper = Q_min(255, Temp);
 
 	cmp	DWORD PTR _Temp$[ebp], 255		; 000000ffH
-	jle	SHORT $L39953
+	jle	SHORT $L39954
 	mov	DWORD PTR -8+[ebp], 255			; 000000ffH
-	jmp	SHORT $L39954
-$L39953:
+	jmp	SHORT $L39955
+$L39954:
 	mov	eax, DWORD PTR _Temp$[ebp]
 	mov	DWORD PTR -8+[ebp], eax
-$L39954:
+$L39955:
 	mov	ecx, DWORD PTR _Upper$[ebp]
 	mov	edx, DWORD PTR -8+[ebp]
 	mov	DWORD PTR [ecx], edx
@@ -7242,7 +7242,7 @@ $L39954:
 	mov	eax, DWORD PTR _Lower$[ebp]
 	mov	ecx, DWORD PTR _Best$[ebp]
 	mov	DWORD PTR [eax], ecx
-$L37462:
+$L37463:
 
 ; 793  : }
 
@@ -7305,23 +7305,23 @@ _this$ = -4
 _i$ = -8
 _tr$ = -64
 _iHash$ = -68
-_i$37509 = -72
+_i$37510 = -72
 _halfX$ = -76
 _halfY$ = -80
 _halfZ$ = -84
 _j$ = -88
-_rgY$37524 = -92
-_rgZ$37527 = -96
-_rgZ$37538 = -100
-_rgX$37541 = -104
-_rgX$37552 = -108
-_rgY$37555 = -112
-_rgY$37566 = -116
-_rgZ$37569 = -120
-_rgZ$37580 = -124
-_rgX$37583 = -128
-_rgX$37594 = -132
-_rgY$37597 = -136
+_rgY$37525 = -92
+_rgZ$37528 = -96
+_rgZ$37539 = -100
+_rgX$37542 = -104
+_rgX$37553 = -108
+_rgY$37556 = -112
+_rgY$37567 = -116
+_rgZ$37570 = -120
+_rgZ$37581 = -124
+_rgX$37584 = -128
+_rgX$37595 = -132
+_rgY$37598 = -136
 ?FindNearestNode@CGraph@@QAEHABVVector@@H@Z PROC NEAR	; CGraph::FindNearestNode, COMDAT
 
 ; 860  : {
@@ -7345,11 +7345,11 @@ _rgY$37597 = -136
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L37502
+	je	SHORT $L37503
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L37501
-$L37502:
+	jne	SHORT $L37502
+$L37503:
 
 ; 866  : 		ALERT ( at_aiconsole, "Graph not ready!\n" );
 
@@ -7361,8 +7361,8 @@ $L37502:
 ; 867  : 		return -1;
 
 	or	eax, -1
-	jmp	$L37498
-$L37501:
+	jmp	$L37499
+$L37502:
 
 ; 869  : 
 ; 870  : 	// Check with the cache
@@ -7388,7 +7388,7 @@ $L37501:
 	lea	ecx, DWORD PTR [ecx+eax+6268]
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L37506
+	je	SHORT $L37507
 
 ; 875  : 		//ALERT(at_aiconsole, "Cache Hit.\n");
 ; 876  : 		return m_Cache[iHash].n;
@@ -7397,8 +7397,8 @@ $L37501:
 	shl	edx, 4
 	mov	eax, DWORD PTR _this$[ebp]
 	movsx	eax, WORD PTR [eax+edx+6280]
-	jmp	$L37498
-$L37506:
+	jmp	$L37499
+$L37507:
 
 ; 882  : 
 ; 883  : 	// Mark all points as unchecked.
@@ -7415,25 +7415,25 @@ $L37506:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+6240], 0
-	jne	SHORT $L37508
+	jne	SHORT $L37509
 
 ; 888  : 		for (int i = 0; i < m_cNodes; i++)
 
-	mov	DWORD PTR _i$37509[ebp], 0
-	jmp	SHORT $L37510
-$L37511:
-	mov	edx, DWORD PTR _i$37509[ebp]
+	mov	DWORD PTR _i$37510[ebp], 0
+	jmp	SHORT $L37511
+$L37512:
+	mov	edx, DWORD PTR _i$37510[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$37509[ebp], edx
-$L37510:
+	mov	DWORD PTR _i$37510[ebp], edx
+$L37511:
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _i$37509[ebp]
+	mov	ecx, DWORD PTR _i$37510[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	SHORT $L37512
+	jge	SHORT $L37513
 
 ; 890  : 			m_di[i].m_CheckedEvent = 0;
 
-	mov	edx, DWORD PTR _i$37509[ebp]
+	mov	edx, DWORD PTR _i$37510[ebp]
 	shl	edx, 4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+36]
@@ -7441,8 +7441,8 @@ $L37510:
 
 ; 891  : 		}
 
-	jmp	SHORT $L37511
-$L37512:
+	jmp	SHORT $L37512
+$L37513:
 
 ; 892  : 		m_CheckedCounter++;
 
@@ -7451,7 +7451,7 @@ $L37512:
 	add	eax, 1
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+6240], eax
-$L37508:
+$L37509:
 
 ; 894  : 
 ; 895  : 	m_iNearest = -1;
@@ -7563,16 +7563,16 @@ $L37508:
 
 	mov	edx, DWORD PTR _halfX$[ebp]
 	mov	DWORD PTR _i$[ebp], edx
-	jmp	SHORT $L37517
-$L37518:
+	jmp	SHORT $L37518
+$L37519:
 	mov	eax, DWORD PTR _i$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L37517:
+$L37518:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+6192]
-	jl	$L37519
+	jl	$L37520
 
 ; 928  :         for (j = m_RangeStart[0][i]; j <= m_RangeEnd[0][i]; j++)
 
@@ -7580,17 +7580,17 @@ $L37517:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4+40]
 	mov	DWORD PTR _j$[ebp], edx
-	jmp	SHORT $L37520
-$L37521:
+	jmp	SHORT $L37521
+$L37522:
 	mov	eax, DWORD PTR _j$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L37520:
+$L37521:
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _j$[ebp]
 	cmp	eax, DWORD PTR [edx+ecx*4+3112]
-	jg	$L37522
+	jg	$L37523
 
 ; 930  : 			if (!(m_pNodes[m_di[j].m_SortedBy[0]].m_afNodeInfo & afNodeTypes)) continue;
 
@@ -7605,9 +7605,9 @@ $L37520:
 	mov	ecx, DWORD PTR [eax+ecx+28]
 	and	ecx, DWORD PTR _afNodeTypes$[ebp]
 	test	ecx, ecx
-	jne	SHORT $L37523
-	jmp	SHORT $L37521
-$L37523:
+	jne	SHORT $L37524
+	jmp	SHORT $L37522
+$L37524:
 
 ; 931  : 
 ; 932  : 			int rgY = m_pNodes[m_di[j].m_SortedBy[0]].m_Region[1];
@@ -7622,25 +7622,25 @@ $L37523:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+25]
-	mov	DWORD PTR _rgY$37524[ebp], eax
+	mov	DWORD PTR _rgY$37525[ebp], eax
 
 ; 933  : 			if (rgY > m_maxBoxY) break;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgY$37524[ebp]
+	mov	edx, DWORD PTR _rgY$37525[ebp]
 	cmp	edx, DWORD PTR [ecx+6232]
-	jle	SHORT $L37525
-	jmp	$L37522
-$L37525:
+	jle	SHORT $L37526
+	jmp	$L37523
+$L37526:
 
 ; 934  :             if (rgY < m_minBoxY) continue;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _rgY$37524[ebp]
+	mov	ecx, DWORD PTR _rgY$37525[ebp]
 	cmp	ecx, DWORD PTR [eax+6220]
-	jge	SHORT $L37526
-	jmp	$L37521
-$L37526:
+	jge	SHORT $L37527
+	jmp	$L37522
+$L37527:
 
 ; 935  : 
 ; 936  : 			int rgZ = m_pNodes[m_di[j].m_SortedBy[0]].m_Region[2];
@@ -7655,25 +7655,25 @@ $L37526:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+26]
-	mov	DWORD PTR _rgZ$37527[ebp], eax
+	mov	DWORD PTR _rgZ$37528[ebp], eax
 
 ; 937  :             if (rgZ < m_minBoxZ) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgZ$37527[ebp]
+	mov	edx, DWORD PTR _rgZ$37528[ebp]
 	cmp	edx, DWORD PTR [ecx+6224]
-	jge	SHORT $L37528
-	jmp	$L37521
-$L37528:
+	jge	SHORT $L37529
+	jmp	$L37522
+$L37529:
 
 ; 938  :             if (rgZ > m_maxBoxZ) continue;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _rgZ$37527[ebp]
+	mov	ecx, DWORD PTR _rgZ$37528[ebp]
 	cmp	ecx, DWORD PTR [eax+6236]
-	jle	SHORT $L37529
-	jmp	$L37521
-$L37529:
+	jle	SHORT $L37530
+	jmp	$L37522
+$L37530:
 
 ; 939  :             CheckNode(vecOrigin, m_di[j].m_SortedBy[0]);
 
@@ -7693,13 +7693,13 @@ $L37529:
 
 ; 940  :         }
 
-	jmp	$L37521
-$L37522:
+	jmp	$L37522
+$L37523:
 
 ; 941  :     }
 
-	jmp	$L37518
-$L37519:
+	jmp	$L37519
+$L37520:
 
 ; 942  : 
 ; 943  :     for (i = Q_max(m_minY,halfY+1); i <= m_maxY; i++)
@@ -7708,28 +7708,28 @@ $L37519:
 	add	ecx, 1
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+6196], ecx
-	jle	SHORT $L39960
+	jle	SHORT $L39961
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+6196]
 	mov	DWORD PTR -164+[ebp], ecx
-	jmp	SHORT $L39961
-$L39960:
+	jmp	SHORT $L39962
+$L39961:
 	mov	edx, DWORD PTR _halfY$[ebp]
 	add	edx, 1
 	mov	DWORD PTR -164+[ebp], edx
-$L39961:
+$L39962:
 	mov	eax, DWORD PTR -164+[ebp]
 	mov	DWORD PTR _i$[ebp], eax
-	jmp	SHORT $L37531
-$L37532:
+	jmp	SHORT $L37532
+$L37533:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37531:
+$L37532:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+6208]
-	jg	$L37533
+	jg	$L37534
 
 ; 945  :         for (j = m_RangeStart[1][i]; j <= m_RangeEnd[1][i]; j++)
 
@@ -7737,17 +7737,17 @@ $L37531:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+1064]
 	mov	DWORD PTR _j$[ebp], eax
-	jmp	SHORT $L37534
-$L37535:
+	jmp	SHORT $L37535
+$L37536:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L37534:
+$L37535:
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+4136]
-	jg	$L37536
+	jg	$L37537
 
 ; 947  : 			if (!(m_pNodes[m_di[j].m_SortedBy[1]].m_afNodeInfo & afNodeTypes)) continue;
 
@@ -7762,9 +7762,9 @@ $L37534:
 	mov	edx, DWORD PTR [ecx+edx+28]
 	and	edx, DWORD PTR _afNodeTypes$[ebp]
 	test	edx, edx
-	jne	SHORT $L37537
-	jmp	SHORT $L37535
-$L37537:
+	jne	SHORT $L37538
+	jmp	SHORT $L37536
+$L37538:
 
 ; 948  : 
 ; 949  : 			int rgZ = m_pNodes[m_di[j].m_SortedBy[1]].m_Region[2];
@@ -7779,25 +7779,25 @@ $L37537:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+26]
-	mov	DWORD PTR _rgZ$37538[ebp], ecx
+	mov	DWORD PTR _rgZ$37539[ebp], ecx
 
 ; 950  :             if (rgZ > m_maxBoxZ) break;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rgZ$37538[ebp]
+	mov	eax, DWORD PTR _rgZ$37539[ebp]
 	cmp	eax, DWORD PTR [edx+6236]
-	jle	SHORT $L37539
-	jmp	$L37536
-$L37539:
+	jle	SHORT $L37540
+	jmp	$L37537
+$L37540:
 
 ; 951  :             if (rgZ < m_minBoxZ) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgZ$37538[ebp]
+	mov	edx, DWORD PTR _rgZ$37539[ebp]
 	cmp	edx, DWORD PTR [ecx+6224]
-	jge	SHORT $L37540
-	jmp	$L37535
-$L37540:
+	jge	SHORT $L37541
+	jmp	$L37536
+$L37541:
 
 ; 952  : 			int rgX = m_pNodes[m_di[j].m_SortedBy[1]].m_Region[0];
 
@@ -7811,25 +7811,25 @@ $L37540:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+24]
-	mov	DWORD PTR _rgX$37541[ebp], ecx
+	mov	DWORD PTR _rgX$37542[ebp], ecx
 
 ; 953  :             if (rgX < m_minBoxX) continue;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rgX$37541[ebp]
+	mov	eax, DWORD PTR _rgX$37542[ebp]
 	cmp	eax, DWORD PTR [edx+6216]
-	jge	SHORT $L37542
-	jmp	$L37535
-$L37542:
+	jge	SHORT $L37543
+	jmp	$L37536
+$L37543:
 
 ; 954  :             if (rgX > m_maxBoxX) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgX$37541[ebp]
+	mov	edx, DWORD PTR _rgX$37542[ebp]
 	cmp	edx, DWORD PTR [ecx+6228]
-	jle	SHORT $L37543
-	jmp	$L37535
-$L37543:
+	jle	SHORT $L37544
+	jmp	$L37536
+$L37544:
 
 ; 955  :             CheckNode(vecOrigin, m_di[j].m_SortedBy[1]);
 
@@ -7849,13 +7849,13 @@ $L37543:
 
 ; 956  :         }
 
-	jmp	$L37535
-$L37536:
+	jmp	$L37536
+$L37537:
 
 ; 957  :     }
 
-	jmp	$L37532
-$L37533:
+	jmp	$L37533
+$L37534:
 
 ; 958  : 
 ; 959  :     for (i = Q_min(m_maxZ,halfZ); i >= m_minZ; i--)
@@ -7863,27 +7863,27 @@ $L37533:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+6212]
 	cmp	ecx, DWORD PTR _halfZ$[ebp]
-	jge	SHORT $L39963
+	jge	SHORT $L39964
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+6212]
 	mov	DWORD PTR -168+[ebp], eax
-	jmp	SHORT $L39964
-$L39963:
+	jmp	SHORT $L39965
+$L39964:
 	mov	ecx, DWORD PTR _halfZ$[ebp]
 	mov	DWORD PTR -168+[ebp], ecx
-$L39964:
+$L39965:
 	mov	edx, DWORD PTR -168+[ebp]
 	mov	DWORD PTR _i$[ebp], edx
-	jmp	SHORT $L37545
-$L37546:
+	jmp	SHORT $L37546
+$L37547:
 	mov	eax, DWORD PTR _i$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L37545:
+$L37546:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+6200]
-	jl	$L37547
+	jl	$L37548
 
 ; 961  :         for (j = m_RangeStart[2][i]; j <= m_RangeEnd[2][i]; j++)
 
@@ -7891,17 +7891,17 @@ $L37545:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4+2088]
 	mov	DWORD PTR _j$[ebp], edx
-	jmp	SHORT $L37548
-$L37549:
+	jmp	SHORT $L37549
+$L37550:
 	mov	eax, DWORD PTR _j$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L37548:
+$L37549:
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _j$[ebp]
 	cmp	eax, DWORD PTR [edx+ecx*4+5160]
-	jg	$L37550
+	jg	$L37551
 
 ; 963  : 			if (!(m_pNodes[m_di[j].m_SortedBy[2]].m_afNodeInfo & afNodeTypes)) continue;
 
@@ -7916,9 +7916,9 @@ $L37548:
 	mov	ecx, DWORD PTR [eax+ecx+28]
 	and	ecx, DWORD PTR _afNodeTypes$[ebp]
 	test	ecx, ecx
-	jne	SHORT $L37551
-	jmp	SHORT $L37549
-$L37551:
+	jne	SHORT $L37552
+	jmp	SHORT $L37550
+$L37552:
 
 ; 964  : 
 ; 965  : 			int rgX = m_pNodes[m_di[j].m_SortedBy[2]].m_Region[0];
@@ -7933,25 +7933,25 @@ $L37551:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+24]
-	mov	DWORD PTR _rgX$37552[ebp], eax
+	mov	DWORD PTR _rgX$37553[ebp], eax
 
 ; 966  :             if (rgX > m_maxBoxX) break;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgX$37552[ebp]
+	mov	edx, DWORD PTR _rgX$37553[ebp]
 	cmp	edx, DWORD PTR [ecx+6228]
-	jle	SHORT $L37553
-	jmp	$L37550
-$L37553:
+	jle	SHORT $L37554
+	jmp	$L37551
+$L37554:
 
 ; 967  :             if (rgX < m_minBoxX) continue;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _rgX$37552[ebp]
+	mov	ecx, DWORD PTR _rgX$37553[ebp]
 	cmp	ecx, DWORD PTR [eax+6216]
-	jge	SHORT $L37554
-	jmp	$L37549
-$L37554:
+	jge	SHORT $L37555
+	jmp	$L37550
+$L37555:
 
 ; 968  : 			int rgY = m_pNodes[m_di[j].m_SortedBy[2]].m_Region[1];
 
@@ -7965,25 +7965,25 @@ $L37554:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+25]
-	mov	DWORD PTR _rgY$37555[ebp], eax
+	mov	DWORD PTR _rgY$37556[ebp], eax
 
 ; 969  :             if (rgY < m_minBoxY) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgY$37555[ebp]
+	mov	edx, DWORD PTR _rgY$37556[ebp]
 	cmp	edx, DWORD PTR [ecx+6220]
-	jge	SHORT $L37556
-	jmp	$L37549
-$L37556:
+	jge	SHORT $L37557
+	jmp	$L37550
+$L37557:
 
 ; 970  : 			if (rgY > m_maxBoxY) continue;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _rgY$37555[ebp]
+	mov	ecx, DWORD PTR _rgY$37556[ebp]
 	cmp	ecx, DWORD PTR [eax+6232]
-	jle	SHORT $L37557
-	jmp	$L37549
-$L37557:
+	jle	SHORT $L37558
+	jmp	$L37550
+$L37558:
 
 ; 971  :             CheckNode(vecOrigin, m_di[j].m_SortedBy[2]);
 
@@ -8003,13 +8003,13 @@ $L37557:
 
 ; 972  :         }
 
-	jmp	$L37549
-$L37550:
+	jmp	$L37550
+$L37551:
 
 ; 973  :     }
 
-	jmp	$L37546
-$L37547:
+	jmp	$L37547
+$L37548:
 
 ; 974  : 
 ; 975  :     for (i = Q_max(m_minX,halfX+1); i <= m_maxX; i++)
@@ -8018,28 +8018,28 @@ $L37547:
 	add	ecx, 1
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+6192], ecx
-	jle	SHORT $L39966
+	jle	SHORT $L39967
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+6192]
 	mov	DWORD PTR -172+[ebp], ecx
-	jmp	SHORT $L39967
-$L39966:
+	jmp	SHORT $L39968
+$L39967:
 	mov	edx, DWORD PTR _halfX$[ebp]
 	add	edx, 1
 	mov	DWORD PTR -172+[ebp], edx
-$L39967:
+$L39968:
 	mov	eax, DWORD PTR -172+[ebp]
 	mov	DWORD PTR _i$[ebp], eax
-	jmp	SHORT $L37559
-$L37560:
+	jmp	SHORT $L37560
+$L37561:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37559:
+$L37560:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+6204]
-	jg	$L37561
+	jg	$L37562
 
 ; 977  :         for (j = m_RangeStart[0][i]; j <= m_RangeEnd[0][i]; j++)
 
@@ -8047,17 +8047,17 @@ $L37559:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+40]
 	mov	DWORD PTR _j$[ebp], eax
-	jmp	SHORT $L37562
-$L37563:
+	jmp	SHORT $L37563
+$L37564:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L37562:
+$L37563:
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+3112]
-	jg	$L37564
+	jg	$L37565
 
 ; 979  : 			if (!(m_pNodes[m_di[j].m_SortedBy[0]].m_afNodeInfo & afNodeTypes)) continue;
 
@@ -8072,9 +8072,9 @@ $L37562:
 	mov	edx, DWORD PTR [ecx+edx+28]
 	and	edx, DWORD PTR _afNodeTypes$[ebp]
 	test	edx, edx
-	jne	SHORT $L37565
-	jmp	SHORT $L37563
-$L37565:
+	jne	SHORT $L37566
+	jmp	SHORT $L37564
+$L37566:
 
 ; 980  : 
 ; 981  : 			int rgY = m_pNodes[m_di[j].m_SortedBy[0]].m_Region[1];
@@ -8089,25 +8089,25 @@ $L37565:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+25]
-	mov	DWORD PTR _rgY$37566[ebp], ecx
+	mov	DWORD PTR _rgY$37567[ebp], ecx
 
 ; 982  : 			if (rgY > m_maxBoxY) break;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rgY$37566[ebp]
+	mov	eax, DWORD PTR _rgY$37567[ebp]
 	cmp	eax, DWORD PTR [edx+6232]
-	jle	SHORT $L37567
-	jmp	$L37564
-$L37567:
+	jle	SHORT $L37568
+	jmp	$L37565
+$L37568:
 
 ; 983  :             if (rgY < m_minBoxY) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgY$37566[ebp]
+	mov	edx, DWORD PTR _rgY$37567[ebp]
 	cmp	edx, DWORD PTR [ecx+6220]
-	jge	SHORT $L37568
-	jmp	$L37563
-$L37568:
+	jge	SHORT $L37569
+	jmp	$L37564
+$L37569:
 
 ; 984  : 
 ; 985  : 			int rgZ = m_pNodes[m_di[j].m_SortedBy[0]].m_Region[2];
@@ -8122,25 +8122,25 @@ $L37568:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+26]
-	mov	DWORD PTR _rgZ$37569[ebp], ecx
+	mov	DWORD PTR _rgZ$37570[ebp], ecx
 
 ; 986  :             if (rgZ < m_minBoxZ) continue;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rgZ$37569[ebp]
+	mov	eax, DWORD PTR _rgZ$37570[ebp]
 	cmp	eax, DWORD PTR [edx+6224]
-	jge	SHORT $L37570
-	jmp	$L37563
-$L37570:
+	jge	SHORT $L37571
+	jmp	$L37564
+$L37571:
 
 ; 987  :             if (rgZ > m_maxBoxZ) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgZ$37569[ebp]
+	mov	edx, DWORD PTR _rgZ$37570[ebp]
 	cmp	edx, DWORD PTR [ecx+6236]
-	jle	SHORT $L37571
-	jmp	$L37563
-$L37571:
+	jle	SHORT $L37572
+	jmp	$L37564
+$L37572:
 
 ; 988  :             CheckNode(vecOrigin, m_di[j].m_SortedBy[0]);
 
@@ -8160,13 +8160,13 @@ $L37571:
 
 ; 989  :         }
 
-	jmp	$L37563
-$L37564:
+	jmp	$L37564
+$L37565:
 
 ; 990  :     }
 
-	jmp	$L37560
-$L37561:
+	jmp	$L37561
+$L37562:
 
 ; 991  : 
 ; 992  :     for (i = Q_min(m_maxY,halfY); i >= m_minY; i--)
@@ -8174,27 +8174,27 @@ $L37561:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+6208]
 	cmp	ecx, DWORD PTR _halfY$[ebp]
-	jge	SHORT $L39969
+	jge	SHORT $L39970
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+6208]
 	mov	DWORD PTR -176+[ebp], eax
-	jmp	SHORT $L39970
-$L39969:
+	jmp	SHORT $L39971
+$L39970:
 	mov	ecx, DWORD PTR _halfY$[ebp]
 	mov	DWORD PTR -176+[ebp], ecx
-$L39970:
+$L39971:
 	mov	edx, DWORD PTR -176+[ebp]
 	mov	DWORD PTR _i$[ebp], edx
-	jmp	SHORT $L37573
-$L37574:
+	jmp	SHORT $L37574
+$L37575:
 	mov	eax, DWORD PTR _i$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L37573:
+$L37574:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+6196]
-	jl	$L37575
+	jl	$L37576
 
 ; 994  :         for (j = m_RangeStart[1][i]; j <= m_RangeEnd[1][i]; j++)
 
@@ -8202,17 +8202,17 @@ $L37573:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4+1064]
 	mov	DWORD PTR _j$[ebp], edx
-	jmp	SHORT $L37576
-$L37577:
+	jmp	SHORT $L37577
+$L37578:
 	mov	eax, DWORD PTR _j$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L37576:
+$L37577:
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _j$[ebp]
 	cmp	eax, DWORD PTR [edx+ecx*4+4136]
-	jg	$L37578
+	jg	$L37579
 
 ; 996  : 			if (!(m_pNodes[m_di[j].m_SortedBy[1]].m_afNodeInfo & afNodeTypes)) continue;
 
@@ -8227,9 +8227,9 @@ $L37576:
 	mov	ecx, DWORD PTR [eax+ecx+28]
 	and	ecx, DWORD PTR _afNodeTypes$[ebp]
 	test	ecx, ecx
-	jne	SHORT $L37579
-	jmp	SHORT $L37577
-$L37579:
+	jne	SHORT $L37580
+	jmp	SHORT $L37578
+$L37580:
 
 ; 997  : 
 ; 998  : 			int rgZ = m_pNodes[m_di[j].m_SortedBy[1]].m_Region[2];
@@ -8244,25 +8244,25 @@ $L37579:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+26]
-	mov	DWORD PTR _rgZ$37580[ebp], eax
+	mov	DWORD PTR _rgZ$37581[ebp], eax
 
 ; 999  :             if (rgZ > m_maxBoxZ) break;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgZ$37580[ebp]
+	mov	edx, DWORD PTR _rgZ$37581[ebp]
 	cmp	edx, DWORD PTR [ecx+6236]
-	jle	SHORT $L37581
-	jmp	$L37578
-$L37581:
+	jle	SHORT $L37582
+	jmp	$L37579
+$L37582:
 
 ; 1000 :             if (rgZ < m_minBoxZ) continue;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _rgZ$37580[ebp]
+	mov	ecx, DWORD PTR _rgZ$37581[ebp]
 	cmp	ecx, DWORD PTR [eax+6224]
-	jge	SHORT $L37582
-	jmp	$L37577
-$L37582:
+	jge	SHORT $L37583
+	jmp	$L37578
+$L37583:
 
 ; 1001 : 			int rgX = m_pNodes[m_di[j].m_SortedBy[1]].m_Region[0];
 
@@ -8276,25 +8276,25 @@ $L37582:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+24]
-	mov	DWORD PTR _rgX$37583[ebp], eax
+	mov	DWORD PTR _rgX$37584[ebp], eax
 
 ; 1002 :             if (rgX < m_minBoxX) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgX$37583[ebp]
+	mov	edx, DWORD PTR _rgX$37584[ebp]
 	cmp	edx, DWORD PTR [ecx+6216]
-	jge	SHORT $L37584
-	jmp	$L37577
-$L37584:
+	jge	SHORT $L37585
+	jmp	$L37578
+$L37585:
 
 ; 1003 :             if (rgX > m_maxBoxX) continue;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _rgX$37583[ebp]
+	mov	ecx, DWORD PTR _rgX$37584[ebp]
 	cmp	ecx, DWORD PTR [eax+6228]
-	jle	SHORT $L37585
-	jmp	$L37577
-$L37585:
+	jle	SHORT $L37586
+	jmp	$L37578
+$L37586:
 
 ; 1004 :             CheckNode(vecOrigin, m_di[j].m_SortedBy[1]);
 
@@ -8314,13 +8314,13 @@ $L37585:
 
 ; 1005 :         }
 
-	jmp	$L37577
-$L37578:
+	jmp	$L37578
+$L37579:
 
 ; 1006 :     }
 
-	jmp	$L37574
-$L37575:
+	jmp	$L37575
+$L37576:
 
 ; 1007 : 
 ; 1008 :     for (i = Q_max(m_minZ,halfZ+1); i <= m_maxZ; i++)
@@ -8329,28 +8329,28 @@ $L37575:
 	add	ecx, 1
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+6200], ecx
-	jle	SHORT $L39972
+	jle	SHORT $L39973
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+6200]
 	mov	DWORD PTR -180+[ebp], ecx
-	jmp	SHORT $L39973
-$L39972:
+	jmp	SHORT $L39974
+$L39973:
 	mov	edx, DWORD PTR _halfZ$[ebp]
 	add	edx, 1
 	mov	DWORD PTR -180+[ebp], edx
-$L39973:
+$L39974:
 	mov	eax, DWORD PTR -180+[ebp]
 	mov	DWORD PTR _i$[ebp], eax
-	jmp	SHORT $L37587
-$L37588:
+	jmp	SHORT $L37588
+$L37589:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37587:
+$L37588:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+6212]
-	jg	$L37589
+	jg	$L37590
 
 ; 1010 :         for (j = m_RangeStart[2][i]; j <= m_RangeEnd[2][i]; j++)
 
@@ -8358,17 +8358,17 @@ $L37587:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+2088]
 	mov	DWORD PTR _j$[ebp], eax
-	jmp	SHORT $L37590
-$L37591:
+	jmp	SHORT $L37591
+$L37592:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L37590:
+$L37591:
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+5160]
-	jg	$L37592
+	jg	$L37593
 
 ; 1012 : 			if (!(m_pNodes[m_di[j].m_SortedBy[2]].m_afNodeInfo & afNodeTypes)) continue;
 
@@ -8383,9 +8383,9 @@ $L37590:
 	mov	edx, DWORD PTR [ecx+edx+28]
 	and	edx, DWORD PTR _afNodeTypes$[ebp]
 	test	edx, edx
-	jne	SHORT $L37593
-	jmp	SHORT $L37591
-$L37593:
+	jne	SHORT $L37594
+	jmp	SHORT $L37592
+$L37594:
 
 ; 1013 : 
 ; 1014 : 			int rgX = m_pNodes[m_di[j].m_SortedBy[2]].m_Region[0];
@@ -8400,25 +8400,25 @@ $L37593:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+24]
-	mov	DWORD PTR _rgX$37594[ebp], ecx
+	mov	DWORD PTR _rgX$37595[ebp], ecx
 
 ; 1015 :             if (rgX > m_maxBoxX) break;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rgX$37594[ebp]
+	mov	eax, DWORD PTR _rgX$37595[ebp]
 	cmp	eax, DWORD PTR [edx+6228]
-	jle	SHORT $L37595
-	jmp	$L37592
-$L37595:
+	jle	SHORT $L37596
+	jmp	$L37593
+$L37596:
 
 ; 1016 :             if (rgX < m_minBoxX) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgX$37594[ebp]
+	mov	edx, DWORD PTR _rgX$37595[ebp]
 	cmp	edx, DWORD PTR [ecx+6216]
-	jge	SHORT $L37596
-	jmp	$L37591
-$L37596:
+	jge	SHORT $L37597
+	jmp	$L37592
+$L37597:
 
 ; 1017 : 			int rgY = m_pNodes[m_di[j].m_SortedBy[2]].m_Region[1];
 
@@ -8432,25 +8432,25 @@ $L37596:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+25]
-	mov	DWORD PTR _rgY$37597[ebp], ecx
+	mov	DWORD PTR _rgY$37598[ebp], ecx
 
 ; 1018 :             if (rgY < m_minBoxY) continue;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rgY$37597[ebp]
+	mov	eax, DWORD PTR _rgY$37598[ebp]
 	cmp	eax, DWORD PTR [edx+6220]
-	jge	SHORT $L37598
-	jmp	$L37591
-$L37598:
+	jge	SHORT $L37599
+	jmp	$L37592
+$L37599:
 
 ; 1019 : 			if (rgY > m_maxBoxY) continue;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _rgY$37597[ebp]
+	mov	edx, DWORD PTR _rgY$37598[ebp]
 	cmp	edx, DWORD PTR [ecx+6232]
-	jle	SHORT $L37599
-	jmp	$L37591
-$L37599:
+	jle	SHORT $L37600
+	jmp	$L37592
+$L37600:
 
 ; 1020 :             CheckNode(vecOrigin, m_di[j].m_SortedBy[2]);
 
@@ -8470,13 +8470,13 @@ $L37599:
 
 ; 1021 :         }
 
-	jmp	$L37591
-$L37592:
+	jmp	$L37592
+$L37593:
 
 ; 1022 :     }
 
-	jmp	$L37588
-$L37589:
+	jmp	$L37589
+$L37590:
 
 ; 1023 : 
 ; 1024 : #if 0
@@ -8546,7 +8546,7 @@ $L37589:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+6188]
-$L37498:
+$L37499:
 
 ; 1067 : }
 
@@ -8688,11 +8688,11 @@ _i$ = -28
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L37610
+	je	SHORT $L37611
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L37609
-$L37610:
+	jne	SHORT $L37610
+$L37611:
 
 ; 1082 : 		ALERT ( at_aiconsole, "Graph not ready!\n" );
 
@@ -8703,14 +8703,14 @@ $L37610:
 
 ; 1083 : 		return;
 
-	jmp	$L37604
-$L37609:
+	jmp	$L37605
+$L37610:
 
 ; 1085 : 
 ; 1086 : 	if ( iNode < 0 )
 
 	cmp	DWORD PTR _iNode$[ebp], 0
-	jge	SHORT $L37611
+	jge	SHORT $L37612
 
 ; 1088 : 		ALERT( at_aiconsole, "Can't show connections for node %d\n", iNode );
 
@@ -8723,8 +8723,8 @@ $L37609:
 
 ; 1089 : 		return;
 
-	jmp	$L37604
-$L37611:
+	jmp	$L37605
+$L37612:
 
 ; 1091 : 
 ; 1092 : 	pNode = &m_pNodes[ iNode ];
@@ -8752,7 +8752,7 @@ $L37611:
 
 	mov	ecx, DWORD PTR _pNode$[ebp]
 	cmp	DWORD PTR [ecx+32], 0
-	jg	SHORT $L37613
+	jg	SHORT $L37614
 
 ; 1098 : 		ALERT ( at_aiconsole, "**No Connections!\n" );
 
@@ -8760,22 +8760,22 @@ $L37611:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L37613:
+$L37614:
 
 ; 1100 : 
 ; 1101 : 	for ( i = 0 ; i < pNode->m_cNumLinks ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37615
-$L37616:
+	jmp	SHORT $L37616
+$L37617:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L37615:
+$L37616:
 	mov	eax, DWORD PTR _pNode$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	$L37617
+	jge	$L37618
 
 ; 1103 : 		
 ; 1104 : 		pLinkNode = &Node( NodeLink( iNode, i).m_iDestNode );
@@ -8885,9 +8885,9 @@ $L37615:
 ; 1118 : 
 ; 1119 : 	}
 
-	jmp	$L37616
-$L37617:
-$L37604:
+	jmp	$L37617
+$L37618:
+$L37605:
 
 ; 1120 : }
 
@@ -9077,7 +9077,7 @@ _tr$ = -88
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+24], 0
-	jg	SHORT $L37632
+	jg	SHORT $L37633
 
 ; 1148 : 		ALERT ( at_aiconsole, "No Nodes!\n" );
 
@@ -9089,8 +9089,8 @@ _tr$ = -88
 ; 1149 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L37623
-$L37632:
+	jmp	$L37624
+$L37633:
 
 ; 1151 : 
 ; 1152 : 	// if the file pointer is bad, don't blow up, just don't write the
@@ -9098,7 +9098,7 @@ $L37632:
 ; 1154 : 	if ( !file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	jne	SHORT $L37634
+	jne	SHORT $L37635
 
 ; 1156 : 		ALERT ( at_aiconsole, "**LinkVisibleNodes:\ncan't write to file." );
 
@@ -9109,8 +9109,8 @@ $L37632:
 
 ; 1158 : 	else
 
-	jmp	SHORT $L37636
-$L37634:
+	jmp	SHORT $L37637
+$L37635:
 
 ; 1160 : 		file->Printf( "----------------------------------------------------------------------------\n" );
 
@@ -9135,7 +9135,7 @@ $L37634:
 	push	ecx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L37636:
+$L37637:
 
 ; 1164 : 
 ; 1165 : 	cTotalLinks = 0;// start with no connections
@@ -9154,16 +9154,16 @@ $L37636:
 ; 1172 : 	for ( i = 0 ; i < m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37639
-$L37640:
+	jmp	SHORT $L37640
+$L37641:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L37639:
+$L37640:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	$L37641
+	jge	$L37642
 
 ; 1174 : 		cLinksThisNode = 0;// reset this count for each node.
 
@@ -9173,7 +9173,7 @@ $L37639:
 ; 1176 : 		if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37642
+	je	SHORT $L37643
 
 ; 1178 : 			file->Printf( "Node #%4d:\n\n", i );
 
@@ -9184,20 +9184,20 @@ $L37639:
 	push	eax
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 12					; 0000000cH
-$L37642:
+$L37643:
 
 ; 1180 : 
 ; 1181 : 		for ( z = 0 ; z < MAX_NODE_INITIAL_LINKS ; z++ )
 
 	mov	DWORD PTR _z$[ebp], 0
-	jmp	SHORT $L37644
-$L37645:
+	jmp	SHORT $L37645
+$L37646:
 	mov	ecx, DWORD PTR _z$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _z$[ebp], ecx
-$L37644:
+$L37645:
 	cmp	DWORD PTR _z$[ebp], 128			; 00000080H
-	jge	SHORT $L37646
+	jge	SHORT $L37647
 
 ; 1183 : 			// clear out the important fields in the link pool for this node
 ; 1184 : 			pLinkPool [ cTotalLinks + z ].m_iSrcNode = i;// so each link knows which node it originates from
@@ -9227,8 +9227,8 @@ $L37644:
 
 ; 1187 : 		}
 
-	jmp	SHORT $L37645
-$L37646:
+	jmp	SHORT $L37646
+$L37647:
 
 ; 1188 : 
 ; 1189 : 		m_pNodes [ i ].m_iFirstLink = cTotalLinks;
@@ -9245,27 +9245,27 @@ $L37646:
 ; 1192 : 		for ( j = 0 ; j < m_cNodes ; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L37647
-$L37648:
+	jmp	SHORT $L37648
+$L37649:
 	mov	edx, DWORD PTR _j$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _j$[ebp], edx
-$L37647:
+$L37648:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	$L37649
+	jge	$L37650
 
 ; 1194 : 			if ( j == i )
 
 	mov	edx, DWORD PTR _j$[ebp]
 	cmp	edx, DWORD PTR _i$[ebp]
-	jne	SHORT $L37650
+	jne	SHORT $L37651
 
 ; 1196 : 				continue;
 
-	jmp	SHORT $L37648
-$L37650:
+	jmp	SHORT $L37649
+$L37651:
 
 ; 1198 : 
 ; 1199 : #if 0
@@ -9290,13 +9290,13 @@ $L37650:
 	mov	ecx, DWORD PTR [edx+ecx+28]
 	and	ecx, 7
 	cmp	eax, ecx
-	je	SHORT $L37651
+	je	SHORT $L37652
 
 ; 1208 : 				// don't connect air nodes to water nodes to land nodes. It just wouldn't be prudent at this juncture.
 ; 1209 : 				continue;
 
-	jmp	SHORT $L37648
-$L37651:
+	jmp	SHORT $L37649
+$L37652:
 
 ; 1211 : #endif
 ; 1212 : 
@@ -9340,12 +9340,12 @@ $L37651:
 ; 1223 : 			if ( tr.fStartSolid )
 
 	cmp	DWORD PTR _tr$[ebp+4], 0
-	je	SHORT $L37652
+	je	SHORT $L37653
 
 ; 1224 : 				continue;
 
-	jmp	$L37648
-$L37652:
+	jmp	$L37649
+$L37653:
 
 ; 1225 : 
 ; 1226 : 			if ( tr.flFraction != 1.0 )
@@ -9354,7 +9354,7 @@ $L37652:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	$L37656
+	jne	$L37657
 
 ; 1228 : 				
 ; 1229 : 				pTraceEnt = tr.pHit;// store the ent that the trace hit, for comparison
@@ -9399,11 +9399,11 @@ $L37652:
 
 	mov	ecx, DWORD PTR _tr$[ebp+48]
 	cmp	ecx, DWORD PTR _pTraceEnt$[ebp]
-	jne	$L37654
+	jne	$L37655
 	mov	ecx, DWORD PTR ?g_pWorld@@3PAVCBaseEntity@@A ; g_pWorld
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	cmp	DWORD PTR _tr$[ebp+48], eax
-	je	$L37654
+	je	$L37655
 
 ; 1244 : 					// get a pointer
 ; 1245 : 					pLinkPool [ cTotalLinks ].m_pLinkEnt = VARS( tr.pHit );
@@ -9452,7 +9452,7 @@ $L37652:
 	mov	eax, DWORD PTR [eax+420]
 	and	eax, 65536				; 00010000H
 	test	eax, eax
-	jne	SHORT $L37655
+	jne	SHORT $L37656
 
 ; 1255 : 						VARS( tr.pHit )->flags += FL_GRAPHED;
 
@@ -9467,23 +9467,23 @@ $L37652:
 	add	eax, 65536				; 00010000H
 	mov	ecx, DWORD PTR -92+[ebp]
 	mov	DWORD PTR [ecx], eax
-$L37655:
+$L37656:
 
 ; 1258 : 				else
 
-	jmp	SHORT $L37656
-$L37654:
+	jmp	SHORT $L37657
+$L37655:
 
 ; 1260 : 					continue;
 
-	jmp	$L37648
-$L37656:
+	jmp	$L37649
+$L37657:
 
 ; 1263 : 
 ; 1264 : 			if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	$L37657
+	je	$L37658
 
 ; 1266 : 				file->Printf( "%4d", j );
 
@@ -9506,7 +9506,7 @@ $L37656:
 	call	?FNullEnt@@YAHPAUentvars_s@@@Z		; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L37659
+	jne	SHORT $L37660
 
 ; 1270 : 					// record info about the ent in the way, if any.
 ; 1271 : 					file->Printf( "  Entity on connection: %s, name: %s  Model: %s", STRING( VARS( pTraceEnt )->classname ), STRING ( VARS( pTraceEnt )->targetname ), STRING ( VARS(tr.pHit)->model ) );
@@ -9543,7 +9543,7 @@ $L37656:
 	push	ecx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 20					; 00000014H
-$L37659:
+$L37660:
 
 ; 1273 : 				
 ; 1274 : 				file->Printf( "\n", j );
@@ -9555,7 +9555,7 @@ $L37659:
 	push	eax
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 12					; 0000000cH
-$L37657:
+$L37658:
 
 ; 1276 : 
 ; 1277 : 			pLinkPool [ cTotalLinks ].m_iDestNode = j;
@@ -9584,7 +9584,7 @@ $L37657:
 ; 1283 : 			if ( cLinksThisNode == MAX_NODE_INITIAL_LINKS )
 
 	cmp	DWORD PTR _cLinksThisNode$[ebp], 128	; 00000080H
-	jne	SHORT $L37662
+	jne	SHORT $L37663
 
 ; 1285 : 				ALERT ( at_aiconsole, "**LinkVisibleNodes:\nNode %d has NodeLinks > MAX_NODE_INITIAL_LINKS", i );
 
@@ -9598,7 +9598,7 @@ $L37657:
 ; 1286 : 				if( file ) file->Printf( "** NODE %d HAS NodeLinks > MAX_NODE_INITIAL_LINKS **\n", i );
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37664
+	je	SHORT $L37665
 	mov	ecx, DWORD PTR _i$[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0DG@JFJG@?$CK?$CK?5NODE?5?$CFd?5HAS?5NodeLinks?5?$DO?5MAX_N@ ; `string'
@@ -9606,7 +9606,7 @@ $L37657:
 	push	edx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 12					; 0000000cH
-$L37664:
+$L37665:
 
 ; 1287 : 				*piBadNode = i;
 
@@ -9617,8 +9617,8 @@ $L37664:
 ; 1288 : 				return	FALSE;
 
 	xor	eax, eax
-	jmp	$L37623
-$L37662:
+	jmp	$L37624
+$L37663:
 
 ; 1290 : 			else if ( cTotalLinks > MAX_NODE_INITIAL_LINKS * m_cNodes )
 
@@ -9626,7 +9626,7 @@ $L37662:
 	mov	eax, DWORD PTR [edx+24]
 	shl	eax, 7
 	cmp	DWORD PTR _cTotalLinks$[ebp], eax
-	jle	SHORT $L37667
+	jle	SHORT $L37668
 
 ; 1292 : 				// this is paranoia
 ; 1293 : 				ALERT ( at_aiconsole, "**LinkVisibleNodes:\nTotalLinks > MAX_NODE_INITIAL_LINKS * NUMNODES" );
@@ -9645,16 +9645,16 @@ $L37662:
 ; 1295 : 				return	FALSE;
 
 	xor	eax, eax
-	jmp	$L37623
-$L37667:
+	jmp	$L37624
+$L37668:
 
 ; 1297 : 
 ; 1298 : 			if ( cLinksThisNode == 0 && file )
 
 	cmp	DWORD PTR _cLinksThisNode$[ebp], 0
-	jne	SHORT $L37669
+	jne	SHORT $L37670
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37669
+	je	SHORT $L37670
 
 ; 1300 : 				file->Printf( "**NO INITIAL LINKS**\n" );
 
@@ -9663,7 +9663,7 @@ $L37667:
 	push	eax
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L37669:
+$L37670:
 
 ; 1302 : 
 ; 1303 : 			// record the connection info in the link pool
@@ -9682,25 +9682,25 @@ $L37669:
 
 	mov	ecx, DWORD PTR _cLinksThisNode$[ebp]
 	cmp	ecx, DWORD PTR _cMaxInitialLinks$[ebp]
-	jle	SHORT $L37671
+	jle	SHORT $L37672
 
 ; 1310 : 				cMaxInitialLinks = cLinksThisNode;
 
 	mov	edx, DWORD PTR _cLinksThisNode$[ebp]
 	mov	DWORD PTR _cMaxInitialLinks$[ebp], edx
-$L37671:
+$L37672:
 
 ; 1312 : 		}
 
-	jmp	$L37648
-$L37649:
+	jmp	$L37649
+$L37650:
 
 ; 1313 : 		
 ; 1314 : 
 ; 1315 : 		if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37672
+	je	SHORT $L37673
 
 ; 1317 : 			file->Printf( "----------------------------------------------------------------------------\n" );
 
@@ -9709,18 +9709,18 @@ $L37649:
 	push	eax
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L37672:
+$L37673:
 
 ; 1319 : 	}
 
-	jmp	$L37640
-$L37641:
+	jmp	$L37641
+$L37642:
 
 ; 1320 : 
 ; 1321 : 	if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37673
+	je	SHORT $L37674
 
 ; 1323 : 		file->Printf( "\n%4d Total Initial Connections - %4d Maximum connections for a single node.\n", cTotalLinks, cMaxInitialLinks );
 
@@ -9741,13 +9741,13 @@ $L37641:
 	push	ecx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L37673:
+$L37674:
 
 ; 1326 : 
 ; 1327 : 	return cTotalLinks;
 
 	mov	eax, DWORD PTR _cTotalLinks$[ebp]
-$L37623:
+$L37624:
 
 ; 1328 : }
 
@@ -9823,12 +9823,12 @@ __real@8@3ffeff7ced916872b000 DQ 03fefef9db22d0e56r ; 0.998
 CONST	ENDS
 ;	COMDAT ?RejectInlineLinks@CGraph@@QAEHPAVCLink@@PAVCVirtualFS@@@Z
 _TEXT	SEGMENT
-$T39991 = -72
-$T39992 = -80
-$T39993 = -88
-$T39994 = -100
-$T39995 = -108
-$T39996 = -116
+$T39992 = -72
+$T39993 = -80
+$T39994 = -88
+$T39995 = -100
+$T39996 = -108
+$T39997 = -116
 _pLinkPool$ = 8
 _file$ = 12
 _this$ = -4
@@ -9879,7 +9879,7 @@ _vec2DirToCheckNode$ = -60
 ; 1352 : 	if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37693
+	je	SHORT $L37694
 
 ; 1354 : 		file->Printf( "----------------------------------------------------------------------------\n" );
 
@@ -9904,7 +9904,7 @@ _vec2DirToCheckNode$ = -60
 	push	edx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L37693:
+$L37694:
 
 ; 1358 : 
 ; 1359 : 	cRejectedLinks = 0;
@@ -9915,16 +9915,16 @@ $L37693:
 ; 1361 : 	for ( i = 0 ; i < m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37695
-$L37696:
+	jmp	SHORT $L37696
+$L37697:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L37695:
+$L37696:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L37697
+	jge	$L37698
 
 ; 1363 : 		pSrcNode = &m_pNodes[ i ];
 
@@ -9939,7 +9939,7 @@ $L37695:
 ; 1365 : 		if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37698
+	je	SHORT $L37699
 
 ; 1367 : 			file->Printf( "Node %3d:\n", i );
 
@@ -9950,22 +9950,22 @@ $L37695:
 	push	ecx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 12					; 0000000cH
-$L37698:
+$L37699:
 
 ; 1369 : 
 ; 1370 : 		for ( j = 0 ; j < pSrcNode->m_cNumLinks ; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L37700
-$L37701:
+	jmp	SHORT $L37701
+$L37702:
 	mov	edx, DWORD PTR _j$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _j$[ebp], edx
-$L37700:
+$L37701:
 	mov	eax, DWORD PTR _pSrcNode$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	$L37702
+	jge	$L37703
 
 ; 1372 : 			pCheckNode = &m_pNodes[ pLinkPool[ pSrcNode->m_iFirstLink + j ].m_iDestNode ];
 
@@ -9984,11 +9984,11 @@ $L37700:
 ; 1373 : 
 ; 1374 : 			vec2DirToCheckNode = ( pCheckNode->m_vecOrigin - pSrcNode->m_vecOrigin ).Make2D(); 
 
-	lea	edx, DWORD PTR $T39992[ebp]
+	lea	edx, DWORD PTR $T39993[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pSrcNode$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39991[ebp]
+	lea	ecx, DWORD PTR $T39992[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pCheckNode$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -10007,7 +10007,7 @@ $L37700:
 
 ; 1376 : 			vec2DirToCheckNode = vec2DirToCheckNode.Normalize();
 
-	lea	ecx, DWORD PTR $T39993[ebp]
+	lea	ecx, DWORD PTR $T39994[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vec2DirToCheckNode$[ebp]
 	call	?Normalize@Vector2D@@QBE?AV1@XZ		; Vector2D::Normalize
@@ -10035,30 +10035,30 @@ $L37700:
 ; 1381 : 			for ( k = 0 ; k < pSrcNode->m_cNumLinks && !fRestartLoop ; k++ )
 
 	mov	DWORD PTR _k$[ebp], 0
-	jmp	SHORT $L37706
-$L37707:
+	jmp	SHORT $L37707
+$L37708:
 	mov	edx, DWORD PTR _k$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _k$[ebp], edx
-$L37706:
+$L37707:
 	mov	eax, DWORD PTR _pSrcNode$[ebp]
 	mov	ecx, DWORD PTR _k$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	$L37708
+	jge	$L37709
 	cmp	DWORD PTR _fRestartLoop$[ebp], 0
-	jne	$L37708
+	jne	$L37709
 
 ; 1383 : 				if ( k == j )
 
 	mov	edx, DWORD PTR _k$[ebp]
 	cmp	edx, DWORD PTR _j$[ebp]
-	jne	SHORT $L37709
+	jne	SHORT $L37710
 
 ; 1385 : 					// don't check against same node
 ; 1386 : 					continue;
 
-	jmp	SHORT $L37707
-$L37709:
+	jmp	SHORT $L37708
+$L37710:
 
 ; 1388 : 
 ; 1389 : 				pTestNode = &m_pNodes [ pLinkPool[ pSrcNode->m_iFirstLink + k ].m_iDestNode ];
@@ -10078,11 +10078,11 @@ $L37709:
 ; 1390 : 
 ; 1391 : 				vec2DirToTestNode = ( pTestNode->m_vecOrigin - pSrcNode->m_vecOrigin ).Make2D(); 
 
-	lea	eax, DWORD PTR $T39995[ebp]
+	lea	eax, DWORD PTR $T39996[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pSrcNode$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39994[ebp]
+	lea	edx, DWORD PTR $T39995[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _pTestNode$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -10102,7 +10102,7 @@ $L37709:
 
 ; 1394 : 				vec2DirToTestNode = vec2DirToTestNode.Normalize();
 
-	lea	eax, DWORD PTR $T39996[ebp]
+	lea	eax, DWORD PTR $T39997[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vec2DirToTestNode$[ebp]
 	call	?Normalize@Vector2D@@QBE?AV1@XZ		; Vector2D::Normalize
@@ -10123,7 +10123,7 @@ $L37709:
 	fcomp	QWORD PTR __real@8@3ffeff7ced916872b000
 	fnstsw	ax
 	test	ah, 1
-	jne	$L37714
+	jne	$L37715
 
 ; 1398 : 					// there's a chance that TestNode intersects the line to CheckNode. If so, we should disconnect the link to CheckNode. 
 ; 1399 : 					if ( flDistToTestNode < flDistToCheckNode )
@@ -10132,12 +10132,12 @@ $L37709:
 	fcomp	DWORD PTR _flDistToCheckNode$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	$L37714
+	je	$L37715
 
 ; 1401 : 						if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37715
+	je	SHORT $L37716
 
 ; 1403 : 							file->Printf( "REJECTED NODE %3d through Node %3d, Dot = %8f\n", pLinkPool[ pSrcNode->m_iFirstLink + j ].m_iDestNode, pLinkPool[ pSrcNode->m_iFirstLink + k ].m_iDestNode, DotProduct ( vec2DirToCheckNode, vec2DirToTestNode ) );
 
@@ -10166,7 +10166,7 @@ $L37709:
 	push	eax
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 24					; 00000018H
-$L37715:
+$L37716:
 
 ; 1405 : 
 ; 1406 : 						pLinkPool[ pSrcNode->m_iFirstLink + j ] = pLinkPool[ pSrcNode->m_iFirstLink + ( pSrcNode->m_cNumLinks - 1 ) ];
@@ -10213,23 +10213,23 @@ $L37715:
 ; 1412 : 						fRestartLoop = TRUE;
 
 	mov	DWORD PTR _fRestartLoop$[ebp], 1
-$L37714:
+$L37715:
 
 ; 1415 : 			}
 
-	jmp	$L37707
-$L37708:
+	jmp	$L37708
+$L37709:
 
 ; 1416 : 		}
 
-	jmp	$L37701
-$L37702:
+	jmp	$L37702
+$L37703:
 
 ; 1417 : 
 ; 1418 : 		if ( file )
 
 	cmp	DWORD PTR _file$[ebp], 0
-	je	SHORT $L37717
+	je	SHORT $L37718
 
 ; 1420 : 			file->Printf( "----------------------------------------------------------------------------\n\n" );
 
@@ -10238,12 +10238,12 @@ $L37702:
 	push	ecx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L37717:
+$L37718:
 
 ; 1422 : 	}
 
-	jmp	$L37696
-$L37697:
+	jmp	$L37697
+$L37698:
 
 ; 1423 : 
 ; 1424 : 	return cRejectedLinks;
@@ -10328,8 +10328,8 @@ __real@4@3fff8000000000000000 DD 03f800000r	; 1
 CONST	ENDS
 ;	COMDAT ?Normalize@Vector2D@@QBE?AV1@XZ
 _TEXT	SEGMENT
-$T40005 = -24
-$T40006 = -32
+$T40006 = -24
+$T40007 = -32
 ___$ReturnUdt$ = 8
 _this$ = -4
 _vec2$ = -12
@@ -10370,7 +10370,7 @@ _flLen$ = -16
 
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40005[ebp]
+	lea	ecx, DWORD PTR $T40006[ebp]
 	call	??0Vector2D@@QAE@MM@Z			; Vector2D::Vector2D
 	mov	ecx, DWORD PTR [eax]
 	mov	edx, DWORD PTR [eax+4]
@@ -10399,7 +10399,7 @@ $L24660:
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40006[ebp]
+	lea	ecx, DWORD PTR $T40007[ebp]
 	call	??0Vector2D@@QAE@MM@Z			; Vector2D::Vector2D
 	mov	ecx, DWORD PTR [eax]
 	mov	edx, DWORD PTR [eax+4]
@@ -10729,7 +10729,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S36@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L37828
+	jne	SHORT $L37829
 	mov	cl, BYTE PTR _?$S36@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S36@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4EA, cl
@@ -10739,7 +10739,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E37
 	call	_atexit
 	add	esp, 4
-$L37828:
+$L37829:
 	call	?GetBaseMap@CTestHull@@SAPAUdatamap_s@@XZ ; CTestHull::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CTestHull@@2Udatamap_s@@A+12, eax
 
@@ -10749,7 +10749,7 @@ $L37828:
 	mov	dl, BYTE PTR _?$S36@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4EA
 	and	edx, 2
 	test	edx, edx
-	jne	$L37832
+	jne	$L37833
 	mov	al, BYTE PTR _?$S36@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4EA
 	or	al, 2
 	mov	BYTE PTR _?$S36@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4EA, al
@@ -10801,20 +10801,20 @@ $L37828:
 	mov	WORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4PAUtypedescription_s@@A+110, 8
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4PAUtypedescription_s@@A+112, 0
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4PAUtypedescription_s@@A+116, OFFSET FLAT:?PathFind@CTestHull@@QAEXXZ ; CTestHull::PathFind
-$L37832:
+$L37833:
 
 ; 1455 : END_DATADESC()
 
 	mov	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L37845
+	je	SHORT $L37846
 	mov	DWORD PTR ?m_DataMap@CTestHull@@2Udatamap_s@@A+4, 4
 	mov	DWORD PTR ?m_DataMap@CTestHull@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L37846
-$L37845:
+	jmp	SHORT $L37847
+$L37846:
 	mov	DWORD PTR ?m_DataMap@CTestHull@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CTestHull@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCTestHull@@@Z@4PAUtypedescription_s@@A
-$L37846:
+$L37847:
 	mov	eax, OFFSET FLAT:?m_DataMap@CTestHull@@2Udatamap_s@@A ; CTestHull::m_DataMap
 	pop	edi
 	pop	esi
@@ -10883,7 +10883,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?GenerateName@CDatadescGeneratedNameHolder@@QAEPBDPBD@Z
 _TEXT	SEGMENT
-$T40034 = -12
+$T40035 = -12
 _pszIdentifier$ = 8
 _this$ = -4
 _pBuf$ = -8
@@ -10911,8 +10911,8 @@ _pBuf$ = -8
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40034[ebp], eax
-	mov	ecx, DWORD PTR $T40034[ebp]
+	mov	DWORD PTR $T40035[ebp], eax
+	mov	ecx, DWORD PTR $T40035[ebp]
 	mov	DWORD PTR _pBuf$[ebp], ecx
 
 ; 207  : 		sprintf( pBuf, "%s::", m_pszBase );
@@ -10996,7 +10996,7 @@ __unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
 _TEXT	SEGMENT
-$T40039 = -24
+$T40040 = -24
 __$EHRec$ = -12
 _this$ = -16
 _i$ = -20
@@ -11041,8 +11041,8 @@ $L30214:
 	add	ecx, 8
 	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR $T40039[ebp], edx
-	mov	eax, DWORD PTR $T40039[ebp]
+	mov	DWORD PTR $T40040[ebp], edx
+	mov	eax, DWORD PTR $T40040[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -11097,8 +11097,8 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?Spawn@CTestHull@@QAEXPAUentvars_s@@@Z
 _TEXT	SEGMENT
-$T40053 = -16
-$T40054 = -28
+$T40054 = -16
+$T40055 = -28
 _this$ = -4
 ?Spawn@CTestHull@@QAEXPAUentvars_s@@@Z PROC NEAR	; CTestHull::Spawn, COMDAT
 
@@ -11129,13 +11129,13 @@ _this$ = -4
 	push	1116733440				; 42900000H
 	push	1098907648				; 41800000H
 	push	1098907648				; 41800000H
-	lea	ecx, DWORD PTR $T40053[ebp]
+	lea	ecx, DWORD PTR $T40054[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1048576000				; c1800000H
 	push	-1048576000				; c1800000H
-	lea	ecx, DWORD PTR $T40054[ebp]
+	lea	ecx, DWORD PTR $T40055[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	edx, DWORD PTR _this$[ebp]
@@ -11173,7 +11173,7 @@ _this$ = -4
 ; 1470 : 	if ( WorldGraph.m_fGraphPresent )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A, 0
-	je	SHORT $L37855
+	je	SHORT $L37856
 
 ; 1472 : 		// graph loaded from disk, so we don't need the test hull
 ; 1473 : 		SetThink ( SUB_Remove );
@@ -11193,8 +11193,8 @@ _this$ = -4
 
 ; 1476 : 	else
 
-	jmp	SHORT $L37859
-$L37855:
+	jmp	SHORT $L37860
+$L37856:
 
 ; 1478 : 		SetThink ( DropDelay );
 
@@ -11211,7 +11211,7 @@ $L37855:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fstp	DWORD PTR [eax+260]
-$L37859:
+$L37860:
 
 ; 1481 : 
 ; 1482 : 	// Make this invisible
@@ -11537,7 +11537,7 @@ _this$ = -4
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37873
+	je	SHORT $L37874
 
 ; 1511 : 		m_sHintType = (short)atoi( pkvd->szValue );
 
@@ -11553,7 +11553,7 @@ _this$ = -4
 
 	mov	edx, DWORD PTR _pkvd$[ebp]
 	mov	DWORD PTR [edx+12], 1
-$L37873:
+$L37874:
 
 ; 1514 : 
 ; 1515 : 	if (FStrEq(pkvd->szKeyName, "activity"))
@@ -11565,7 +11565,7 @@ $L37873:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37876
+	je	SHORT $L37877
 
 ; 1517 : 		m_sHintActivity = (short)atoi( pkvd->szValue );
 
@@ -11584,8 +11584,8 @@ $L37873:
 
 ; 1520 : 	else
 
-	jmp	SHORT $L37879
-$L37876:
+	jmp	SHORT $L37880
+$L37877:
 
 ; 1521 : 		CBaseEntity::KeyValue( pkvd );
 
@@ -11593,7 +11593,7 @@ $L37876:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CBaseEntity@@UAEXPAUKeyValueData_s@@@Z ; CBaseEntity::KeyValue
-$L37879:
+$L37880:
 
 ; 1522 : }
 
@@ -11862,7 +11862,7 @@ CONST	ENDS
 ;	COMDAT ?Spawn@CNodeEnt@@EAEXXZ
 _TEXT	SEGMENT
 _this$ = -4
-_pHull$37886 = -8
+_pHull$37887 = -8
 ?Spawn@CNodeEnt@@EAEXXZ PROC NEAR			; CNodeEnt::Spawn, COMDAT
 
 ; 1527 : {
@@ -11891,7 +11891,7 @@ _pHull$37886 = -8
 ; 1531 : 	if ( WorldGraph.m_fGraphPresent )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A, 0
-	je	SHORT $L37884
+	je	SHORT $L37885
 
 ; 1533 : 		// graph loaded from disk, so discard all these node ents as soon as they spawn
 ; 1534 : 		REMOVE_ENTITY( edict() );
@@ -11904,14 +11904,14 @@ _pHull$37886 = -8
 
 ; 1535 : 		return;
 
-	jmp	$L37883
-$L37884:
+	jmp	$L37884
+$L37885:
 
 ; 1537 : 
 ; 1538 : 	if ( WorldGraph.m_cNodes == 0 )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+24, 0
-	jne	SHORT $L37885
+	jne	SHORT $L37886
 
 ; 1540 : 		// this is the first node to spawn, spawn the test hull entity that builds and walks the node tree
 ; 1541 : 		CTestHull *pHull = GetClassPtr((CTestHull *)NULL);
@@ -11919,22 +11919,22 @@ $L37884:
 	push	0
 	call	?GetClassPtr@@YAPAVCTestHull@@PAV1@@Z	; GetClassPtr
 	add	esp, 4
-	mov	DWORD PTR _pHull$37886[ebp], eax
+	mov	DWORD PTR _pHull$37887[ebp], eax
 
 ; 1542 : 		pHull->Spawn( pev );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	push	edx
-	mov	ecx, DWORD PTR _pHull$37886[ebp]
+	mov	ecx, DWORD PTR _pHull$37887[ebp]
 	call	?Spawn@CTestHull@@QAEXPAUentvars_s@@@Z	; CTestHull::Spawn
-$L37885:
+$L37886:
 
 ; 1544 : 
 ; 1545 : 	if ( WorldGraph.m_cNodes >= MAX_NODES )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+24, 1024 ; 00000400H
-	jl	SHORT $L37892
+	jl	SHORT $L37893
 
 ; 1547 : 		ALERT ( at_aiconsole, "cNodes > MAX_NODES\n" );
 
@@ -11945,8 +11945,8 @@ $L37885:
 
 ; 1548 : 		return;
 
-	jmp	$L37883
-$L37892:
+	jmp	$L37884
+$L37893:
 
 ; 1552 : 	WorldGraph.m_pNodes[ WorldGraph.m_cNodes ].m_vecOrigin = GetAbsOrigin();
 
@@ -12015,7 +12015,7 @@ $L37892:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37894
+	je	SHORT $L37895
 
 ; 1558 : 		WorldGraph.m_pNodes[ WorldGraph.m_cNodes ].m_afNodeInfo = bits_NODE_AIR;
 
@@ -12026,8 +12026,8 @@ $L37892:
 
 ; 1559 : 	else
 
-	jmp	SHORT $L37895
-$L37894:
+	jmp	SHORT $L37896
+$L37895:
 
 ; 1560 : 		WorldGraph.m_pNodes[ WorldGraph.m_cNodes ].m_afNodeInfo = 0;
 
@@ -12035,7 +12035,7 @@ $L37894:
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
 	mov	DWORD PTR [eax+edx+28], 0
-$L37895:
+$L37896:
 
 ; 1561 : 
 ; 1562 : 	WorldGraph.m_cNodes++;
@@ -12052,7 +12052,7 @@ $L37895:
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+88
 	add	esp, 4
-$L37883:
+$L37884:
 
 ; 1565 : }
 
@@ -12084,14 +12084,14 @@ _TEXT	SEGMENT
 _this$ = -4
 _absOrigin$ = -16
 _absAngles$ = -28
-$T40073 = -40
-$T40074 = -52
-$T40075 = -64
-$T40076 = -76
-$T40077 = -88
-$T40078 = -100
-$T40079 = -112
-$T40080 = -124
+$T40074 = -40
+$T40075 = -52
+$T40076 = -64
+$T40077 = -76
+$T40078 = -88
+$T40079 = -100
+$T40080 = -112
+$T40081 = -124
 ?ShowBadNode@CTestHull@@QAEXXZ PROC NEAR		; CTestHull::ShowBadNode, COMDAT
 
 ; 1574 : {
@@ -12166,13 +12166,13 @@ $T40080 = -124
 	push	255					; 000000ffH
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
 	push	1115684864				; 42800000H
-	lea	ecx, DWORD PTR $T40073[ebp]
+	lea	ecx, DWORD PTR $T40074[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40074[ebp]
+	lea	edx, DWORD PTR $T40075[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _absOrigin$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -12186,13 +12186,13 @@ $T40080 = -124
 	push	255					; 000000ffH
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
 	push	1115684864				; 42800000H
-	lea	eax, DWORD PTR $T40075[ebp]
+	lea	eax, DWORD PTR $T40076[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40076[ebp]
+	lea	ecx, DWORD PTR $T40077[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _absOrigin$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -12206,13 +12206,13 @@ $T40080 = -124
 	push	255					; 000000ffH
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
 	push	1115684864				; 42800000H
-	lea	edx, DWORD PTR $T40077[ebp]
+	lea	edx, DWORD PTR $T40078[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40078[ebp]
+	lea	eax, DWORD PTR $T40079[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _absOrigin$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -12226,13 +12226,13 @@ $T40080 = -124
 	push	255					; 000000ffH
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
 	push	1115684864				; 42800000H
-	lea	ecx, DWORD PTR $T40079[ebp]
+	lea	ecx, DWORD PTR $T40080[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40080[ebp]
+	lea	edx, DWORD PTR $T40081[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _absOrigin$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -12264,7 +12264,7 @@ _TEXT	ENDS
 ;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
 _v$ = 12
-$T40087 = -16
+$T40088 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
@@ -12296,7 +12296,7 @@ _this$ = -4
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40087[ebp]
+	lea	ecx, DWORD PTR $T40088[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -12313,7 +12313,7 @@ _TEXT	ENDS
 ;	COMDAT ??DVector@@QBE?AV0@M@Z
 _TEXT	SEGMENT
 _fl$ = 12
-$T40090 = -16
+$T40091 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
@@ -12342,7 +12342,7 @@ _this$ = -4
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40090[ebp]
+	lea	ecx, DWORD PTR $T40091[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -12426,8 +12426,8 @@ PUBLIC	??_C@_0BL@FKJF@Couldn?8t?5malloc?5LinkPool?$CB?6?$AA@ ; `string'
 PUBLIC	__real@4@40058000000000000000
 PUBLIC	??_C@_0FD@BEFM@?6?6?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9@ ; `string'
 PUBLIC	??_C@_0BA@JFHC@Link?5Pairings?3?6?$AA@		; `string'
-PUBLIC	??_C@_0DF@ECLH@WARNING?3?5Node?5?$CF3d?5does?5not?5conne@ ; `string'
 PUBLIC	?Length2D@Vector@@QBEMXZ			; Vector::Length2D
+PUBLIC	??_C@_0DF@ECLH@WARNING?3?5Node?5?$CF3d?5does?5not?5conne@ ; `string'
 PUBLIC	??_C@_0BO@GHBB@?6All?5Connections?5are?5Paired?$CB?6?$AA@ ; `string'
 PUBLIC	??_C@_0CJ@IKOB@Total?5Number?5of?5Connections?5in?5P@ ; `string'
 PUBLIC	??_C@_0BL@LCPH@Connection?5Pool?3?5?$CFd?5bytes?6?$AA@ ; `string'
@@ -12641,36 +12641,36 @@ _vec2Spot$ = -500
 _flYaw$ = -504
 _flDist$ = -508
 _step$ = -512
-_tr$37977 = -568
-_trEnt$37980 = -624
-_SaveFlags$38025 = -628
-_MoveMode$38026 = -632
-_fWalkFailed$38030 = -636
-_stepSize$38034 = -640
-$T40095 = -720
-$T40096 = -732
-$T40097 = -744
-$T40098 = -756
-$T40099 = -768
-_tr$38051 = -696
-$T40100 = -780
-$T40101 = -792
-$T40102 = -804
-$T40103 = -816
-$T40104 = -828
-$T40105 = -840
-$T40106 = -852
-$T40107 = -864
-$T40108 = -876
-$T40109 = -888
-$T40110 = -900
-$T40111 = -912
-$T40112 = -924
-$T40113 = -936
+_tr$37978 = -568
+_trEnt$37981 = -624
+_SaveFlags$38026 = -628
+_MoveMode$38027 = -632
+_fWalkFailed$38031 = -636
+_stepSize$38035 = -640
+$T40096 = -720
+$T40097 = -732
+$T40098 = -744
+$T40099 = -756
+$T40100 = -768
+_tr$38052 = -696
+$T40101 = -780
+$T40102 = -792
+$T40103 = -804
+$T40104 = -816
+$T40105 = -828
+$T40106 = -840
+$T40107 = -852
+$T40108 = -864
+$T40109 = -876
+$T40110 = -888
+$T40111 = -900
+$T40112 = -912
+$T40113 = -924
+$T40114 = -936
 __$EHRec$ = -12
 _iFinalPoolIndex$ = -700
 _iOldFirstLink$ = -704
-_iLink$38083 = -708
+_iLink$38084 = -708
 ?BuildNodeGraph@CTestHull@@QAEXXZ PROC NEAR		; CTestHull::BuildNodeGraph, COMDAT
 
 ; 1612 : {
@@ -12815,7 +12815,7 @@ _iLink$38083 = -708
 ; 1657 : 	if ( !pTempPool )
 
 	cmp	DWORD PTR _pTempPool$[ebp], 0
-	jne	SHORT $L37952
+	jne	SHORT $L37953
 
 ; 1659 : 		ALERT ( at_aiconsole, "**Could not malloc TempPool!\n" );
 
@@ -12829,8 +12829,8 @@ _iLink$38083 = -708
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	jmp	$L37918
-$L37952:
+	jmp	$L37919
+$L37953:
 
 ; 1662 : 
 ; 1663 : 	Q_snprintf( szNrpFilename, sizeof( szNrpFilename ), "maps/%s.nrp", STRING( gpGlobals->mapname ));
@@ -12877,15 +12877,15 @@ $L37952:
 ; 1668 : 	for ( i = 0 ; i < WorldGraph.m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37957
-$L37958:
+	jmp	SHORT $L37958
+$L37959:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37957:
+$L37958:
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	$L37959
+	jge	$L37960
 
 ; 1670 : 		// print all node numbers and their locations to the file.
 ; 1671 : 		WorldGraph.m_pNodes[ i ].m_cNumLinks = 0;
@@ -13001,8 +13001,8 @@ $L37957:
 
 ; 1681 : 	}
 
-	jmp	$L37958
-$L37959:
+	jmp	$L37959
+$L37960:
 
 ; 1682 : 
 ; 1683 : 	file.Printf( "\n\n" );
@@ -13019,15 +13019,15 @@ $L37959:
 ; 1687 : 	for ( i = 0; i < WorldGraph.m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37970
-$L37971:
+	jmp	SHORT $L37971
+$L37972:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L37970:
+$L37971:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	$L37972
+	jge	$L37973
 
 ; 1689 : 		if (WorldGraph.m_pNodes[ i ].m_afNodeInfo & bits_NODE_AIR)
 
@@ -13037,12 +13037,12 @@ $L37970:
 	mov	eax, DWORD PTR [edx+ecx+28]
 	and	eax, 2
 	test	eax, eax
-	je	SHORT $L37973
+	je	SHORT $L37974
 
 ; 1693 : 		else if (UTIL_PointContents(WorldGraph.m_pNodes[ i ].m_vecOrigin) == CONTENTS_WATER)
 
-	jmp	$L37976
-$L37973:
+	jmp	$L37977
+$L37974:
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
@@ -13051,7 +13051,7 @@ $L37973:
 	call	?UTIL_PointContents@@YAHABVVector@@@Z	; UTIL_PointContents
 	add	esp, 4
 	cmp	eax, -3					; fffffffdH
-	jne	SHORT $L37975
+	jne	SHORT $L37976
 
 ; 1695 : 			WorldGraph.m_pNodes[ i ].m_afNodeInfo |= bits_NODE_WATER;
 
@@ -13067,8 +13067,8 @@ $L37973:
 
 ; 1697 : 		else
 
-	jmp	$L37976
-$L37975:
+	jmp	$L37977
+$L37976:
 
 ; 1699 : 			WorldGraph.m_pNodes[ i ].m_afNodeInfo |= bits_NODE_LAND;
 
@@ -13089,7 +13089,7 @@ $L37975:
 ; 1704 : 			//
 ; 1705 : 			TraceResult	tr;
 
-	lea	ecx, DWORD PTR _tr$37977[ebp]
+	lea	ecx, DWORD PTR _tr$37978[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 1706 : 
@@ -13099,7 +13099,7 @@ $L37975:
 ; 1710 : 							 g_pBodyQueueHead,//!!!HACKHACK no real ent to supply here, using a global we don't care about
 ; 1711 : 							 &tr );
 
-	lea	ecx, DWORD PTR _tr$37977[ebp]
+	lea	ecx, DWORD PTR _tr$37978[ebp]
 	push	ecx
 	mov	edx, DWORD PTR ?g_pBodyQueueHead@@3PAUedict_s@@A ; g_pBodyQueueHead
 	push	edx
@@ -13107,10 +13107,10 @@ $L37975:
 	push	1136656384				; 43c00000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40095[ebp]
+	lea	ecx, DWORD PTR $T40096[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T40096[ebp]
+	lea	eax, DWORD PTR $T40097[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 88					; 00000058H
@@ -13130,7 +13130,7 @@ $L37975:
 ; 1713 : 			// This trace is ONLY used if we hit an entity flagged with FL_WORLDBRUSH
 ; 1714 : 			TraceResult	trEnt;
 
-	lea	ecx, DWORD PTR _trEnt$37980[ebp]
+	lea	ecx, DWORD PTR _trEnt$37981[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 1715 : 			UTIL_TraceLine ( WorldGraph.m_pNodes[i].m_vecOrigin,
@@ -13139,7 +13139,7 @@ $L37975:
 ; 1718 : 				 g_pBodyQueueHead,//!!!HACKHACK no real ent to supply here, using a global we don't care about
 ; 1719 : 				 &trEnt );
 
-	lea	edx, DWORD PTR _trEnt$37980[ebp]
+	lea	edx, DWORD PTR _trEnt$37981[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?g_pBodyQueueHead@@3PAUedict_s@@A ; g_pBodyQueueHead
 	push	eax
@@ -13147,10 +13147,10 @@ $L37975:
 	push	1136656384				; 43c00000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40097[ebp]
+	lea	ecx, DWORD PTR $T40098[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T40098[ebp]
+	lea	ecx, DWORD PTR $T40099[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _i$[ebp]
 	imul	edx, 88					; 00000058H
@@ -13171,36 +13171,36 @@ $L37975:
 ; 1722 : 			// Did we hit something closer than the floor?
 ; 1723 : 			if ( trEnt.flFraction < tr.flFraction )
 
-	fld	DWORD PTR _trEnt$37980[ebp+16]
-	fcomp	DWORD PTR _tr$37977[ebp+16]
+	fld	DWORD PTR _trEnt$37981[ebp+16]
+	fcomp	DWORD PTR _tr$37978[ebp+16]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37984
+	je	SHORT $L37985
 
 ; 1725 : 				// If it was a world brush entity, copy the node location
 ; 1726 : 				if ( trEnt.pHit && (trEnt.pHit->v.flags & FL_WORLDBRUSH) )
 
-	cmp	DWORD PTR _trEnt$37980[ebp+48], 0
-	je	SHORT $L37984
-	mov	edx, DWORD PTR _trEnt$37980[ebp+48]
+	cmp	DWORD PTR _trEnt$37981[ebp+48], 0
+	je	SHORT $L37985
+	mov	edx, DWORD PTR _trEnt$37981[ebp+48]
 	mov	eax, DWORD PTR [edx+548]
 	and	eax, 33554432				; 02000000H
 	test	eax, eax
-	je	SHORT $L37984
+	je	SHORT $L37985
 
 ; 1727 : 					tr.vecEndPos = trEnt.vecEndPos;
 
-	mov	ecx, DWORD PTR _trEnt$37980[ebp+20]
-	mov	DWORD PTR _tr$37977[ebp+20], ecx
-	mov	edx, DWORD PTR _trEnt$37980[ebp+24]
-	mov	DWORD PTR _tr$37977[ebp+24], edx
-	mov	eax, DWORD PTR _trEnt$37980[ebp+28]
-	mov	DWORD PTR _tr$37977[ebp+28], eax
-$L37984:
+	mov	ecx, DWORD PTR _trEnt$37981[ebp+20]
+	mov	DWORD PTR _tr$37978[ebp+20], ecx
+	mov	edx, DWORD PTR _trEnt$37981[ebp+24]
+	mov	DWORD PTR _tr$37978[ebp+24], edx
+	mov	eax, DWORD PTR _trEnt$37981[ebp+28]
+	mov	DWORD PTR _tr$37978[ebp+28], eax
+$L37985:
 
 ; 1731 : 				WorldGraph.m_pNodes[i].m_vecOrigin.z = tr.vecEndPos.z + NODE_HEIGHT;
 
-	fld	DWORD PTR _tr$37977[ebp+28]
+	fld	DWORD PTR _tr$37978[ebp+28]
 	fadd	DWORD PTR __real@4@40028000000000000000
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 88					; 00000058H
@@ -13214,12 +13214,12 @@ $L37984:
 	mov	esi, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
 	mov	eax, DWORD PTR [esi+eax+8]
 	mov	DWORD PTR [edx+ecx+20], eax
-$L37976:
+$L37977:
 
 ; 1733 : 	}
 
-	jmp	$L37971
-$L37972:
+	jmp	$L37972
+$L37973:
 
 ; 1734 : 
 ; 1735 : 	cPoolLinks = WorldGraph.LinkVisibleNodes( pTempPool, &file, &iBadNode );
@@ -13238,7 +13238,7 @@ $L37972:
 ; 1737 : 	if ( !cPoolLinks )
 
 	cmp	DWORD PTR _cPoolLinks$[ebp], 0
-	jne	$L37985
+	jne	$L37986
 
 ; 1739 : 		ALERT ( at_aiconsole, "**ConnectVisibleNodes FAILED!\n" );
 
@@ -13269,7 +13269,7 @@ $L37972:
 ; 1744 : 		if ( pTempPool )
 
 	cmp	DWORD PTR _pTempPool$[ebp], 0
-	je	SHORT $L37989
+	je	SHORT $L37990
 
 ; 1746 : 			free ( pTempPool );
 
@@ -13277,7 +13277,7 @@ $L37972:
 	push	eax
 	call	_free
 	add	esp, 4
-$L37989:
+$L37990:
 
 ; 1748 : 
 ; 1749 : 		// dump the report onto disk
@@ -13300,8 +13300,8 @@ $L37989:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	jmp	$L37918
-$L37985:
+	jmp	$L37919
+$L37986:
 
 ; 1754 : 
 ; 1755 : // send the walkhull to all of this node's connections now. We'll do this here since
@@ -13326,15 +13326,15 @@ $L37985:
 ; 1760 : 	for ( i = 0 ; i < WorldGraph.m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37991
-$L37992:
+	jmp	SHORT $L37992
+$L37993:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37991:
+$L37992:
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	$L37993
+	jge	$L37994
 
 ; 1762 : 		pSrcNode = &WorldGraph.m_pNodes[ i ];
 
@@ -13367,16 +13367,16 @@ $L37991:
 ; 1767 : 		for ( j = 0 ; j < pSrcNode->m_cNumLinks ; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L37995
-$L37996:
+	jmp	SHORT $L37996
+$L37997:
 	mov	edx, DWORD PTR _j$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _j$[ebp], edx
-$L37995:
+$L37996:
 	mov	eax, DWORD PTR _pSrcNode$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	$L37997
+	jge	$L37998
 
 ; 1769 : 			// assume that all hulls can walk this link, then eliminate the ones that can't.
 ; 1770 : 			pTempPool [ pSrcNode->m_iFirstLink + j ].m_afLinkInfo = bits_LINK_SMALL_HULL | bits_LINK_HUMAN_HULL | bits_LINK_LARGE_HULL | bits_LINK_FLY_HULL;
@@ -13401,39 +13401,39 @@ $L37995:
 ; 1778 : 			for ( hull = 0 ; hull < MAX_NODE_HULLS; hull++ )
 
 	mov	DWORD PTR _hull$[ebp], 0
-	jmp	SHORT $L37998
-$L37999:
+	jmp	SHORT $L37999
+$L38000:
 	mov	edx, DWORD PTR _hull$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _hull$[ebp], edx
-$L37998:
+$L37999:
 	cmp	DWORD PTR _hull$[ebp], 4
-	jge	$L38000
+	jge	$L38001
 
 ; 1780 : 				if (fSkipRemainingHulls && (hull == NODE_HUMAN_HULL || hull == NODE_LARGE_HULL)) // skip the remaining walk hulls
 
 	cmp	DWORD PTR _fSkipRemainingHulls$[ebp], 0
-	je	SHORT $L38001
-	cmp	DWORD PTR _hull$[ebp], 1
 	je	SHORT $L38002
+	cmp	DWORD PTR _hull$[ebp], 1
+	je	SHORT $L38003
 	cmp	DWORD PTR _hull$[ebp], 2
-	jne	SHORT $L38001
-$L38002:
+	jne	SHORT $L38002
+$L38003:
 
 ; 1781 : 					continue;
 
-	jmp	SHORT $L37999
-$L38001:
+	jmp	SHORT $L38000
+$L38002:
 
 ; 1784 : 				{
 
 	mov	eax, DWORD PTR _hull$[ebp]
 	mov	DWORD PTR -940+[ebp], eax
 	cmp	DWORD PTR -940+[ebp], 3
-	ja	$L38004
+	ja	$L38005
 	mov	ecx, DWORD PTR -940+[ebp]
-	jmp	DWORD PTR $L40120[ecx*4]
-$L38007:
+	jmp	DWORD PTR $L40121[ecx*4]
+$L38008:
 
 ; 1785 : 				case NODE_SMALL_HULL:
 ; 1786 : 					UTIL_SetSize(pev, Vector(-12, -12, 0), Vector(12, 12, 24));
@@ -13441,13 +13441,13 @@ $L38007:
 	push	1103101952				; 41c00000H
 	push	1094713344				; 41400000H
 	push	1094713344				; 41400000H
-	lea	ecx, DWORD PTR $T40099[ebp]
+	lea	ecx, DWORD PTR $T40100[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1052770304				; c1400000H
 	push	-1052770304				; c1400000H
-	lea	ecx, DWORD PTR $T40100[ebp]
+	lea	ecx, DWORD PTR $T40101[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	edx, DWORD PTR _this$[ebp]
@@ -13458,8 +13458,8 @@ $L38007:
 
 ; 1787 : 					break;
 
-	jmp	$L38004
-$L38010:
+	jmp	$L38005
+$L38011:
 
 ; 1788 : 				case NODE_HUMAN_HULL:
 ; 1789 : 					UTIL_SetSize(pev, VEC_HUMAN_HULL_MIN, VEC_HUMAN_HULL_MAX );
@@ -13467,13 +13467,13 @@ $L38010:
 	push	1116733440				; 42900000H
 	push	1098907648				; 41800000H
 	push	1098907648				; 41800000H
-	lea	ecx, DWORD PTR $T40101[ebp]
+	lea	ecx, DWORD PTR $T40102[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1048576000				; c1800000H
 	push	-1048576000				; c1800000H
-	lea	ecx, DWORD PTR $T40102[ebp]
+	lea	ecx, DWORD PTR $T40103[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -13484,8 +13484,8 @@ $L38010:
 
 ; 1790 : 					break;
 
-	jmp	$L38004
-$L38013:
+	jmp	$L38005
+$L38014:
 
 ; 1791 : 				case NODE_LARGE_HULL:
 ; 1792 : 					UTIL_SetSize(pev, Vector(-32, -32, 0), Vector(32, 32, 64));
@@ -13493,13 +13493,13 @@ $L38013:
 	push	1115684864				; 42800000H
 	push	1107296256				; 42000000H
 	push	1107296256				; 42000000H
-	lea	ecx, DWORD PTR $T40103[ebp]
+	lea	ecx, DWORD PTR $T40104[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1040187392				; c2000000H
 	push	-1040187392				; c2000000H
-	lea	ecx, DWORD PTR $T40104[ebp]
+	lea	ecx, DWORD PTR $T40105[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	eax, DWORD PTR _this$[ebp]
@@ -13510,8 +13510,8 @@ $L38013:
 
 ; 1793 : 					break;
 
-	jmp	SHORT $L38004
-$L38016:
+	jmp	SHORT $L38005
+$L38017:
 
 ; 1794 : 				case NODE_FLY_HULL:
 ; 1795 : 					UTIL_SetSize(pev, Vector(-32, -32, 0), Vector(32, 32, 64));
@@ -13519,13 +13519,13 @@ $L38016:
 	push	1115684864				; 42800000H
 	push	1107296256				; 42000000H
 	push	1107296256				; 42000000H
-	lea	ecx, DWORD PTR $T40105[ebp]
+	lea	ecx, DWORD PTR $T40106[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1040187392				; c2000000H
 	push	-1040187392				; c2000000H
-	lea	ecx, DWORD PTR $T40106[ebp]
+	lea	ecx, DWORD PTR $T40107[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	edx, DWORD PTR _this$[ebp]
@@ -13533,7 +13533,7 @@ $L38016:
 	push	eax
 	call	?UTIL_SetSize@@YAXPAUentvars_s@@ABVVector@@1@Z ; UTIL_SetSize
 	add	esp, 12					; 0000000cH
-$L38004:
+$L38005:
 
 ; 1799 : 
 ; 1800 : 				UTIL_SetOrigin ( this, pSrcNode->m_vecOrigin );// place the hull on the node
@@ -13553,7 +13553,7 @@ $L38004:
 	mov	edx, DWORD PTR [ecx+420]
 	and	edx, 512				; 00000200H
 	test	edx, edx
-	jne	SHORT $L38019
+	jne	SHORT $L38020
 
 ; 1804 : 					ALERT ( at_aiconsole, "OFFGROUND!\n" );
 
@@ -13561,14 +13561,14 @@ $L38004:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L38019:
+$L38020:
 
 ; 1806 : 
 ; 1807 : 				// now build a yaw that points to the dest node, and get the distance.
 ; 1808 : 				if ( j < 0 )
 
 	cmp	DWORD PTR _j$[ebp], 0
-	jge	SHORT $L38021
+	jge	SHORT $L38022
 
 ; 1810 : 					ALERT ( at_aiconsole, "**** j = %d ****\n", j );
 
@@ -13582,7 +13582,7 @@ $L38019:
 ; 1811 : 					if ( pTempPool )
 
 	cmp	DWORD PTR _pTempPool$[ebp], 0
-	je	SHORT $L38023
+	je	SHORT $L38024
 
 ; 1813 : 						free ( pTempPool );
 
@@ -13590,7 +13590,7 @@ $L38019:
 	push	ecx
 	call	_free
 	add	esp, 4
-$L38023:
+$L38024:
 
 ; 1815 : 
 ; 1816 : 					// dump the report onto disk
@@ -13612,8 +13612,8 @@ $L38023:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	jmp	$L37918
-$L38021:
+	jmp	$L37919
+$L38022:
 
 ; 1820 : 				
 ; 1821 : 				pDestNode = &WorldGraph.m_pNodes [ pTempPool[ pSrcNode->m_iFirstLink + j ].m_iDestNode ];
@@ -13644,18 +13644,18 @@ $L38021:
 ; 1825 : 				if (hull < NODE_FLY_HULL)
 
 	cmp	DWORD PTR _hull$[ebp], 3
-	jge	$L38024
+	jge	$L38025
 
 ; 1827 : 					int SaveFlags = pev->flags;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+420]
-	mov	DWORD PTR _SaveFlags$38025[ebp], edx
+	mov	DWORD PTR _SaveFlags$38026[ebp], edx
 
 ; 1828 : 					int MoveMode = WALKMOVE_WORLDONLY;
 
-	mov	DWORD PTR _MoveMode$38026[ebp], 1
+	mov	DWORD PTR _MoveMode$38027[ebp], 1
 
 ; 1829 : 					if (pSrcNode->m_afNodeInfo & bits_NODE_WATER)
 
@@ -13663,7 +13663,7 @@ $L38021:
 	mov	ecx, DWORD PTR [eax+28]
 	and	ecx, 4
 	test	ecx, ecx
-	je	SHORT $L38027
+	je	SHORT $L38028
 
 ; 1831 : 						pev->flags |= FL_SWIM;
 
@@ -13677,8 +13677,8 @@ $L38021:
 
 ; 1832 : 						MoveMode = WALKMOVE_NORMAL;
 
-	mov	DWORD PTR _MoveMode$38026[ebp], 0
-$L38027:
+	mov	DWORD PTR _MoveMode$38027[ebp], 0
+$L38028:
 
 ; 1834 : 
 ; 1835 : 					flYaw = UTIL_VecToYaw ( pDestNode->m_vecOrigin - GetAbsOrigin() );
@@ -13686,7 +13686,7 @@ $L38027:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T40107[ebp]
+	lea	ecx, DWORD PTR $T40108[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pDestNode$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -13701,7 +13701,7 @@ $L38027:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	edx, DWORD PTR $T40108[ebp]
+	lea	edx, DWORD PTR $T40109[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecSpot$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -13712,57 +13712,57 @@ $L38027:
 ; 1838 : 
 ; 1839 : 					int fWalkFailed = FALSE;
 
-	mov	DWORD PTR _fWalkFailed$38030[ebp], 0
+	mov	DWORD PTR _fWalkFailed$38031[ebp], 0
 
 ; 1840 : 
 ; 1841 : 					// in this loop we take tiny steps from the current node to the nodes that it links to, one at a time.
 ; 1842 : 					for ( step = 0 ; step < flDist && !fWalkFailed ; step += HULL_STEP_SIZE )
 
 	mov	DWORD PTR _step$[ebp], 0
-	jmp	SHORT $L38031
-$L38032:
+	jmp	SHORT $L38032
+$L38033:
 	mov	eax, DWORD PTR _step$[ebp]
 	add	eax, 16					; 00000010H
 	mov	DWORD PTR _step$[ebp], eax
-$L38031:
+$L38032:
 	fild	DWORD PTR _step$[ebp]
 	fcomp	DWORD PTR _flDist$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	$L38033
-	cmp	DWORD PTR _fWalkFailed$38030[ebp], 0
-	jne	$L38033
+	je	$L38034
+	cmp	DWORD PTR _fWalkFailed$38031[ebp], 0
+	jne	$L38034
 
 ; 1844 : 						float stepSize = HULL_STEP_SIZE;
 
-	mov	DWORD PTR _stepSize$38034[ebp], 1098907648 ; 41800000H
+	mov	DWORD PTR _stepSize$38035[ebp], 1098907648 ; 41800000H
 
 ; 1845 : 
 ; 1846 : 						if ( (step + stepSize) >= (flDist-1) )
 
 	fild	DWORD PTR _step$[ebp]
-	fadd	DWORD PTR _stepSize$38034[ebp]
+	fadd	DWORD PTR _stepSize$38035[ebp]
 	fld	DWORD PTR _flDist$[ebp]
 	fsub	DWORD PTR __real@4@3fff8000000000000000
 	fcompp
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38035
+	je	SHORT $L38036
 
 ; 1847 : 							stepSize = (flDist - step) - 1;
 
 	fild	DWORD PTR _step$[ebp]
 	fsubr	DWORD PTR _flDist$[ebp]
 	fsub	DWORD PTR __real@4@3fff8000000000000000
-	fstp	DWORD PTR _stepSize$38034[ebp]
-$L38035:
+	fstp	DWORD PTR _stepSize$38035[ebp]
+$L38036:
 
 ; 1848 : 
 ; 1849 : 						if ( !WALK_MOVE( ENT(pev), flYaw, stepSize, MoveMode ) )
 
-	mov	ecx, DWORD PTR _MoveMode$38026[ebp]
+	mov	ecx, DWORD PTR _MoveMode$38027[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _stepSize$38034[ebp]
+	mov	edx, DWORD PTR _stepSize$38035[ebp]
 	push	edx
 	mov	eax, DWORD PTR _flYaw$[ebp]
 	push	eax
@@ -13775,31 +13775,31 @@ $L38035:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+108
 	add	esp, 16					; 00000010H
 	test	eax, eax
-	jne	SHORT $L38036
+	jne	SHORT $L38037
 
 ; 1851 : 
 ; 1852 : 							fWalkFailed = TRUE;
 
-	mov	DWORD PTR _fWalkFailed$38030[ebp], 1
+	mov	DWORD PTR _fWalkFailed$38031[ebp], 1
 
 ; 1853 : 							break;
 
-	jmp	SHORT $L38033
-$L38036:
+	jmp	SHORT $L38034
+$L38037:
 
 ; 1855 : 					}
 
-	jmp	$L38032
-$L38033:
+	jmp	$L38033
+$L38034:
 
 ; 1856 : 
 ; 1857 : 					if (!fWalkFailed && (GetAbsOrigin() - vecSpot).Length() > 64)
 
-	cmp	DWORD PTR _fWalkFailed$38030[ebp], 0
-	jne	SHORT $L38038
+	cmp	DWORD PTR _fWalkFailed$38031[ebp], 0
+	jne	SHORT $L38039
 	lea	eax, DWORD PTR _vecSpot$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40109[ebp]
+	lea	ecx, DWORD PTR $T40110[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -13810,33 +13810,33 @@ $L38033:
 	fcomp	DWORD PTR __real@4@40058000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38038
+	jne	SHORT $L38039
 
 ; 1859 : 						// ALERT( at_console, "bogus walk\n");
 ; 1860 : 						// we thought we 
 ; 1861 : 						fWalkFailed = TRUE;
 
-	mov	DWORD PTR _fWalkFailed$38030[ebp], 1
-$L38038:
+	mov	DWORD PTR _fWalkFailed$38031[ebp], 1
+$L38039:
 
 ; 1863 : 
 ; 1864 : 					if (fWalkFailed)
 
-	cmp	DWORD PTR _fWalkFailed$38030[ebp], 0
-	je	$L38041
+	cmp	DWORD PTR _fWalkFailed$38031[ebp], 0
+	je	$L38042
 
 ; 1871 : 						{
 
 	mov	edx, DWORD PTR _hull$[ebp]
 	mov	DWORD PTR -944+[ebp], edx
 	cmp	DWORD PTR -944+[ebp], 0
-	je	SHORT $L38044
+	je	SHORT $L38045
 	cmp	DWORD PTR -944+[ebp], 1
-	je	SHORT $L38046
+	je	SHORT $L38047
 	cmp	DWORD PTR -944+[ebp], 2
-	je	$L38048
-	jmp	$L38041
-$L38044:
+	je	$L38049
+	jmp	$L38042
+$L38045:
 
 ; 1872 : 						case NODE_SMALL_HULL:	// if this hull can't fit, nothing can, so drop the connection
 ; 1873 : 							file.Printf( "NODE_SMALL_HULL step %f\n", step );
@@ -13871,8 +13871,8 @@ $L38044:
 
 ; 1876 : 							break;
 
-	jmp	$L38041
-$L38046:
+	jmp	$L38042
+$L38047:
 
 ; 1877 : 						case NODE_HUMAN_HULL:
 ; 1878 : 							file.Printf( "NODE_HUMAN_HULL step %f\n", step );
@@ -13907,8 +13907,8 @@ $L38046:
 
 ; 1881 : 							break;
 
-	jmp	SHORT $L38041
-$L38048:
+	jmp	SHORT $L38042
+$L38049:
 
 ; 1882 : 						case NODE_LARGE_HULL:
 ; 1883 : 							file.Printf( "NODE_LARGE_HULL step %f\n", step );
@@ -13936,29 +13936,29 @@ $L38048:
 	imul	eax, 24					; 00000018H
 	mov	edx, DWORD PTR _pTempPool$[ebp]
 	mov	DWORD PTR [edx+eax+16], ecx
-$L38041:
+$L38042:
 
 ; 1888 : 					pev->flags = SaveFlags;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
-	mov	edx, DWORD PTR _SaveFlags$38025[ebp]
+	mov	edx, DWORD PTR _SaveFlags$38026[ebp]
 	mov	DWORD PTR [ecx+420], edx
 
 ; 1890 : 				else
 
-	jmp	$L38056
-$L38024:
+	jmp	$L38057
+$L38025:
 
 ; 1892 : 					TraceResult tr;
 
-	lea	ecx, DWORD PTR _tr$38051[ebp]
+	lea	ecx, DWORD PTR _tr$38052[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 1893 : 
 ; 1894 : 					UTIL_TraceHull( pSrcNode->m_vecOrigin + Vector( 0, 0, 32 ), pDestNode->m_vecOriginPeek + Vector( 0, 0, 32 ), ignore_monsters, large_hull, ENT( pev ), &tr );
 
-	lea	eax, DWORD PTR _tr$38051[ebp]
+	lea	eax, DWORD PTR _tr$38052[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -13971,10 +13971,10 @@ $L38024:
 	push	1107296256				; 42000000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40110[ebp]
+	lea	ecx, DWORD PTR $T40111[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T40111[ebp]
+	lea	eax, DWORD PTR $T40112[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pDestNode$[ebp]
 	add	ecx, 12					; 0000000cH
@@ -13983,10 +13983,10 @@ $L38024:
 	push	1107296256				; 42000000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40112[ebp]
+	lea	ecx, DWORD PTR $T40113[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T40113[ebp]
+	lea	ecx, DWORD PTR $T40114[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pSrcNode$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -13996,14 +13996,14 @@ $L38024:
 
 ; 1895 : 					if (tr.fStartSolid || tr.flFraction < 1.0)
 
-	cmp	DWORD PTR _tr$38051[ebp+4], 0
-	jne	SHORT $L38057
-	fld	DWORD PTR _tr$38051[ebp+16]
+	cmp	DWORD PTR _tr$38052[ebp+4], 0
+	jne	SHORT $L38058
+	fld	DWORD PTR _tr$38052[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38056
-$L38057:
+	je	SHORT $L38057
+$L38058:
 
 ; 1897 : 						pTempPool[ pSrcNode->m_iFirstLink + j ].m_afLinkInfo &= ~bits_LINK_FLY_HULL;
 
@@ -14020,12 +14020,12 @@ $L38057:
 	imul	ecx, 24					; 00000018H
 	mov	eax, DWORD PTR _pTempPool$[ebp]
 	mov	DWORD PTR [eax+ecx+16], edx
-$L38056:
+$L38057:
 
 ; 1900 : 			}
 
-	jmp	$L37999
-$L38000:
+	jmp	$L38000
+$L38001:
 
 ; 1901 : 
 ; 1902 : 			if (pTempPool[ pSrcNode->m_iFirstLink + j ].m_afLinkInfo == 0)
@@ -14036,7 +14036,7 @@ $L38000:
 	imul	edx, 24					; 00000018H
 	mov	eax, DWORD PTR _pTempPool$[ebp]
 	cmp	DWORD PTR [eax+edx+16], 0
-	jne	$L38058
+	jne	$L38059
 
 ; 1904 : 				file.Printf( "Rejected Node %3d - Unreachable by ", pTempPool [ pSrcNode->m_iFirstLink + j ].m_iDestNode );
 
@@ -14100,18 +14100,18 @@ $L38000:
 	mov	eax, DWORD PTR _j$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L38058:
+$L38059:
 
 ; 1912 : 
 ; 1913 : 		}
 
-	jmp	$L37996
-$L37997:
+	jmp	$L37997
+$L37998:
 
 ; 1914 : 	}
 
-	jmp	$L37992
-$L37993:
+	jmp	$L37993
+$L37994:
 
 ; 1915 : 	file.Printf( "-------------------------------------------------------------------------------\n\n\n");
 
@@ -14149,7 +14149,7 @@ $L37993:
 ; 1922 : 	if ( !WorldGraph.m_pLinkPool )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+16, 0
-	jne	SHORT $L38064
+	jne	SHORT $L38065
 
 ; 1924 : 		// couldn't make the link pool!
 ; 1925 : 		ALERT ( at_aiconsole, "Couldn't malloc LinkPool!\n" );
@@ -14162,7 +14162,7 @@ $L37993:
 ; 1926 : 		if ( pTempPool )
 
 	cmp	DWORD PTR _pTempPool$[ebp], 0
-	je	SHORT $L38066
+	je	SHORT $L38067
 
 ; 1928 : 			free ( pTempPool );
 
@@ -14170,7 +14170,7 @@ $L37993:
 	push	eax
 	call	_free
 	add	esp, 4
-$L38066:
+$L38067:
 
 ; 1930 : 
 ; 1931 : 		// dump the report onto disk
@@ -14192,8 +14192,8 @@ $L38066:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	jmp	$L37918
-$L38064:
+	jmp	$L37919
+$L38065:
 
 ; 1935 : 	WorldGraph.m_cLinks = cPoolLinks;
 
@@ -14211,15 +14211,15 @@ $L38064:
 ; 1941 : 	for ( i = 0 ; i < WorldGraph.m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38069
-$L38070:
+	jmp	SHORT $L38070
+$L38071:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38069:
+$L38070:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	$L38071
+	jge	$L38072
 
 ; 1943 : 		iOldFirstLink = WorldGraph.m_pNodes[ i ].m_iFirstLink;// store this, because we have to re-assign it before entering the copy loop
 
@@ -14242,18 +14242,18 @@ $L38069:
 ; 1947 : 		for ( j = 0 ; j < WorldGraph.m_pNodes[ i ].m_cNumLinks ; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L38072
-$L38073:
+	jmp	SHORT $L38073
+$L38074:
 	mov	edx, DWORD PTR _j$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _j$[ebp], edx
-$L38072:
+$L38073:
 	mov	eax, DWORD PTR _i$[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
 	mov	edx, DWORD PTR _j$[ebp]
 	cmp	edx, DWORD PTR [ecx+eax+32]
-	jge	SHORT $L38074
+	jge	SHORT $L38075
 
 ; 1949 : 			WorldGraph.m_pLinkPool[ iFinalPoolIndex++ ] = pTempPool[ iOldFirstLink + j ];
 
@@ -14274,13 +14274,13 @@ $L38072:
 
 ; 1950 : 		}
 
-	jmp	SHORT $L38073
-$L38074:
+	jmp	SHORT $L38074
+$L38075:
 
 ; 1951 : 	}
 
-	jmp	$L38070
-$L38071:
+	jmp	$L38071
+$L38072:
 
 ; 1952 : 	
 ; 1953 : 	// Node sorting numbers linked nodes close to each other
@@ -14327,36 +14327,36 @@ $L38071:
 ; 1969 : 	for ( i = 0 ; i < WorldGraph.m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38077
-$L38078:
+	jmp	SHORT $L38078
+$L38079:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L38077:
+$L38078:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	$L38079
+	jge	$L38080
 
 ; 1971 : 		for ( j = 0 ; j < WorldGraph.m_pNodes[ i ].m_cNumLinks ; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L38080
-$L38081:
+	jmp	SHORT $L38081
+$L38082:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L38080:
+$L38081:
 	mov	edx, DWORD PTR _i$[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx+32]
-	jge	SHORT $L38082
+	jge	SHORT $L38083
 
 ; 1973 : 			int iLink;
 ; 1974 : 			WorldGraph.HashSearch(WorldGraph.INodeLink(i,j), i, iLink);
 
-	lea	edx, DWORD PTR _iLink$38083[ebp]
+	lea	edx, DWORD PTR _iLink$38084[ebp]
 	push	edx
 	mov	eax, DWORD PTR _i$[ebp]
 	push	eax
@@ -14372,8 +14372,8 @@ $L38080:
 
 ; 1975 : 			if (iLink < 0)
 
-	cmp	DWORD PTR _iLink$38083[ebp], 0
-	jge	SHORT $L38084
+	cmp	DWORD PTR _iLink$38084[ebp], 0
+	jge	SHORT $L38085
 
 ; 1977 : 				fPairsValid = FALSE;// unmatched link pair.
 
@@ -14395,17 +14395,17 @@ $L38080:
 	push	eax
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 16					; 00000010H
-$L38084:
+$L38085:
 
 ; 1980 : 		}
 
-	jmp	$L38081
-$L38082:
+	jmp	$L38082
+$L38083:
 
 ; 1981 : 	}
 
-	jmp	$L38078
-$L38079:
+	jmp	$L38079
+$L38080:
 
 ; 1982 : 
 ; 1983 : 	// !!!LATER - if all connections are properly paired, when can enable an optimization in the pathfinding code
@@ -14413,7 +14413,7 @@ $L38079:
 ; 1985 : 	if ( fPairsValid )
 
 	cmp	DWORD PTR _fPairsValid$[ebp], 0
-	je	SHORT $L38086
+	je	SHORT $L38087
 
 ; 1987 : 		file.Printf( "\nAll Connections are Paired!\n");
 
@@ -14422,7 +14422,7 @@ $L38079:
 	push	ecx
 	call	?Printf@CVirtualFS@@QAAIPBDZZ		; CVirtualFS::Printf
 	add	esp, 8
-$L38086:
+$L38087:
 
 ; 1989 : 
 ; 1990 : 	file.Printf( "-------------------------------------------------------------------------------\n");
@@ -14506,15 +14506,15 @@ $L38086:
 ; 2007 : 	for ( i = 0 ; i < WorldGraph.m_cNodes ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38092
-$L38093:
+	jmp	SHORT $L38093
+$L38094:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38092:
+$L38093:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	SHORT $L38094
+	jge	SHORT $L38095
 
 ; 2009 : 		if ((WorldGraph.m_pNodes[ i ].m_afNodeInfo & bits_NODE_LAND))
 
@@ -14524,7 +14524,7 @@ $L38092:
 	mov	ecx, DWORD PTR [eax+edx+28]
 	and	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L38095
+	je	SHORT $L38096
 
 ; 2011 : 			WorldGraph.m_pNodes[ i ].m_vecOrigin.z -= NODE_HEIGHT;
 
@@ -14537,18 +14537,18 @@ $L38092:
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
 	fstp	DWORD PTR [edx+ecx+8]
-$L38095:
+$L38096:
 
 ; 2013 : 	}
 
-	jmp	SHORT $L38093
-$L38094:
+	jmp	SHORT $L38094
+$L38095:
 
 ; 2014 : 
 ; 2015 : 	if ( pTempPool )
 
 	cmp	DWORD PTR _pTempPool$[ebp], 0
-	je	SHORT $L38096
+	je	SHORT $L38097
 
 ; 2017 : 		// free the temp pool
 ; 2018 : 		free ( pTempPool );
@@ -14557,7 +14557,7 @@ $L38094:
 	push	eax
 	call	_free
 	add	esp, 4
-$L38096:
+$L38097:
 
 ; 2020 : 
 ; 2021 : 	// dump the report onto disk
@@ -14622,7 +14622,7 @@ $L38096:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-$L37918:
+$L37919:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -14631,11 +14631,11 @@ $L37918:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L40120:
-	DD	$L38007
-	DD	$L38010
-	DD	$L38013
-	DD	$L38016
+$L40121:
+	DD	$L38008
+	DD	$L38011
+	DD	$L38014
+	DD	$L38017
 _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
@@ -14771,10 +14771,10 @@ _pNextNode$ = -220
 ; 2050 : 	if ( !WorldGraph.m_fGraphPresent || !WorldGraph.m_fGraphPointersSet )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A, 0
-	je	SHORT $L38109
+	je	SHORT $L38110
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+4, 0
-	jne	SHORT $L38108
-$L38109:
+	jne	SHORT $L38109
+$L38110:
 
 ; 2052 : 		ALERT ( at_aiconsole, "Graph not ready!\n" );
 
@@ -14785,8 +14785,8 @@ $L38109:
 
 ; 2053 : 		return;
 
-	jmp	$L38102
-$L38108:
+	jmp	$L38103
+$L38109:
 
 ; 2055 : 
 ; 2056 : 	iPathSize = WorldGraph.FindShortestPath ( iPath, 0, 19, 0, 0 ); // UNDONE use hull constant
@@ -14805,7 +14805,7 @@ $L38108:
 ; 2058 : 	if ( !iPathSize )
 
 	cmp	DWORD PTR _iPathSize$[ebp], 0
-	jne	SHORT $L38110
+	jne	SHORT $L38111
 
 ; 2060 : 		ALERT ( at_aiconsole, "No Path!\n" );
 
@@ -14816,8 +14816,8 @@ $L38108:
 
 ; 2061 : 		return;
 
-	jmp	$L38102
-$L38110:
+	jmp	$L38103
+$L38111:
 
 ; 2063 : 	
 ; 2064 : 	ALERT ( at_aiconsole, "%d\n", iPathSize );
@@ -14842,16 +14842,16 @@ $L38110:
 ; 2068 : 	for ( i = 0 ; i < iPathSize - 1 ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38113
-$L38114:
+	jmp	SHORT $L38114
+$L38115:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38113:
+$L38114:
 	mov	edx, DWORD PTR _iPathSize$[ebp]
 	sub	edx, 1
 	cmp	DWORD PTR _i$[ebp], edx
-	jge	$L38115
+	jge	$L38116
 
 ; 2070 : 
 ; 2071 : 		pNextNode = &WorldGraph.m_pNodes[ iPath [ i + 1 ] ];
@@ -14945,9 +14945,9 @@ $L38113:
 
 ; 2086 : 	}
 
-	jmp	$L38114
-$L38115:
-$L38102:
+	jmp	$L38115
+$L38116:
+$L38103:
 
 ; 2087 : 
 ; 2088 : }
@@ -15020,7 +15020,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+400], 100		; 00000064H
-	jl	SHORT $L38124
+	jl	SHORT $L38125
 
 ; 2106 : 		printf("Error!\n");
 
@@ -15030,8 +15030,8 @@ _this$ = -4
 
 ; 2107 : 		return;
 
-	jmp	SHORT $L38123
-$L38124:
+	jmp	SHORT $L38124
+$L38125:
 
 ; 2109 : 	m_stack[m_level] = value;
 
@@ -15048,7 +15048,7 @@ $L38124:
 	add	eax, 1
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+400], eax
-$L38123:
+$L38124:
 
 ; 2111 : }
 
@@ -15080,13 +15080,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+400], 0
-	jg	SHORT $L38130
+	jg	SHORT $L38131
 
 ; 2119 : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L38129
-$L38130:
+	jmp	SHORT $L38130
+$L38131:
 
 ; 2120 : 
 ; 2121 : 	m_level--;
@@ -15103,7 +15103,7 @@ $L38130:
 	mov	edx, DWORD PTR [ecx+400]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax+edx*4]
-$L38129:
+$L38130:
 
 ; 2123 : }
 
@@ -15171,16 +15171,16 @@ _i$ = -8
 ; 2140 : 	for ( i = 0 ; i < m_level ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38140
-$L38141:
+	jmp	SHORT $L38141
+$L38142:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38140:
+$L38141:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+400]
-	jge	SHORT $L38142
+	jge	SHORT $L38143
 
 ; 2142 : 		piArray[ i ] = m_stack[ i ];
 
@@ -15193,8 +15193,8 @@ $L38140:
 
 ; 2143 : 	}
 
-	jmp	SHORT $L38141
-$L38142:
+	jmp	SHORT $L38142
+$L38143:
 
 ; 2144 : }
 
@@ -15279,7 +15279,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Full@CQueue@@QAEHXZ			; CQueue::Full
 	test	eax, eax
-	je	SHORT $L38152
+	je	SHORT $L38153
 
 ; 2164 : 		printf ( "Queue is full!\n" );
 
@@ -15289,8 +15289,8 @@ _this$ = -4
 
 ; 2165 : 		return;
 
-	jmp	SHORT $L38151
-$L38152:
+	jmp	SHORT $L38152
+$L38153:
 
 ; 2167 : 
 ; 2168 : 	m_tail++;
@@ -15306,13 +15306,13 @@ $L38152:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+808], 100		; 00000064H
-	jne	SHORT $L38154
+	jne	SHORT $L38155
 
 ; 2172 : 		m_tail = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+808], 0
-$L38154:
+$L38155:
 
 ; 2174 : 
 ; 2175 : 	m_queue[ m_tail ].Id = iValue;
@@ -15338,7 +15338,7 @@ $L38154:
 	add	edx, 1
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], edx
-$L38151:
+$L38152:
 
 ; 2178 : }
 
@@ -15398,13 +15398,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+804], 100		; 00000064H
-	jne	SHORT $L38159
+	jne	SHORT $L38160
 
 ; 2187 : 		m_head = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+804], 0
-$L38159:
+$L38160:
 
 ; 2189 : 
 ; 2190 : 	m_cSize--;
@@ -15502,7 +15502,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Full@CQueuePriority@@QAEHXZ		; CQueuePriority::Full
 	test	eax, eax
-	je	SHORT $L38169
+	je	SHORT $L38170
 
 ; 2211 : 		printf ( "Queue is full!\n" );
 
@@ -15512,8 +15512,8 @@ _this$ = -4
 
 ; 2212 : 		return;
 
-	jmp	SHORT $L38168
-$L38169:
+	jmp	SHORT $L38169
+$L38170:
 
 ; 2214 : 
 ; 2215 :     m_heap[ m_cSize ].Priority = fPriority;
@@ -15544,7 +15544,7 @@ $L38169:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Heap_SiftUp@CQueuePriority@@AAEXXZ	; CQueuePriority::Heap_SiftUp
-$L38168:
+$L38169:
 
 ; 2219 : }
 
@@ -15663,7 +15663,7 @@ _this$ = -4
 _parent$ = -8
 _child$ = -12
 _Ref$ = -20
-_rightchild$38188 = -24
+_rightchild$38189 = -24
 ?Heap_SiftDown@CQueuePriority@@AAEXH@Z PROC NEAR	; CQueuePriority::Heap_SiftDown, COMDAT
 
 ; 2243 : {
@@ -15696,7 +15696,7 @@ _rightchild$38188 = -24
 	mov	eax, DWORD PTR [ecx+eax*8+8]
 	mov	DWORD PTR _Ref$[ebp], edx
 	mov	DWORD PTR _Ref$[ebp+4], eax
-$L38186:
+$L38187:
 
 ; 2248 : 
 ; 2249 :     while (child < m_cSize)
@@ -15704,24 +15704,24 @@ $L38186:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _child$[ebp]
 	cmp	edx, DWORD PTR [ecx]
-	jge	SHORT $L38187
+	jge	SHORT $L38188
 
 ; 2251 : 		int rightchild = HEAP_RIGHT_CHILD(parent);
 
 	mov	eax, DWORD PTR _parent$[ebp]
 	lea	ecx, DWORD PTR [eax+eax+2]
-	mov	DWORD PTR _rightchild$38188[ebp], ecx
+	mov	DWORD PTR _rightchild$38189[ebp], ecx
 
 ; 2252 : 		if (rightchild < m_cSize)
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _rightchild$38188[ebp]
+	mov	eax, DWORD PTR _rightchild$38189[ebp]
 	cmp	eax, DWORD PTR [edx]
-	jge	SHORT $L38190
+	jge	SHORT $L38191
 
 ; 2254 : 			if ( m_heap[ rightchild ].Priority < m_heap[ child ].Priority )
 
-	mov	ecx, DWORD PTR _rightchild$38188[ebp]
+	mov	ecx, DWORD PTR _rightchild$38189[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _child$[ebp]
 	mov	esi, DWORD PTR _this$[ebp]
@@ -15729,13 +15729,13 @@ $L38186:
 	fcomp	DWORD PTR [esi+eax*8+8]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38190
+	je	SHORT $L38191
 
 ; 2256 : 				child = rightchild;
 
-	mov	ecx, DWORD PTR _rightchild$38188[ebp]
+	mov	ecx, DWORD PTR _rightchild$38189[ebp]
 	mov	DWORD PTR _child$[ebp], ecx
-$L38190:
+$L38191:
 
 ; 2259 : 		if ( Ref.Priority <= m_heap[ child ].Priority )
 
@@ -15745,12 +15745,12 @@ $L38190:
 	fcomp	DWORD PTR [eax+edx*8+8]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38191
+	je	SHORT $L38192
 
 ; 2260 : 			break;
 
-	jmp	SHORT $L38187
-$L38191:
+	jmp	SHORT $L38188
+$L38192:
 
 ; 2261 : 
 ; 2262 : 		m_heap[ parent ] = m_heap[ child ];
@@ -15777,8 +15777,8 @@ $L38191:
 
 ; 2265 : 	}
 
-	jmp	$L38186
-$L38187:
+	jmp	$L38187
+$L38188:
 
 ; 2266 : 	m_heap[ parent ] = Ref;
 
@@ -15803,8 +15803,8 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _child$ = -8
-_parent$38200 = -12
-_Tmp$38202 = -20
+_parent$38201 = -12
+_Tmp$38203 = -20
 ?Heap_SiftUp@CQueuePriority@@AAEXXZ PROC NEAR		; CQueuePriority::Heap_SiftUp, COMDAT
 
 ; 2270 : {
@@ -15823,12 +15823,12 @@ _Tmp$38202 = -20
 	mov	ecx, DWORD PTR [eax]
 	sub	ecx, 1
 	mov	DWORD PTR _child$[ebp], ecx
-$L38198:
+$L38199:
 
 ; 2272 : 	while (child)
 
 	cmp	DWORD PTR _child$[ebp], 0
-	je	SHORT $L38199
+	je	SHORT $L38200
 
 ; 2274 : 		int parent = HEAP_PARENT(child);
 
@@ -15837,11 +15837,11 @@ $L38198:
 	cdq
 	sub	eax, edx
 	sar	eax, 1
-	mov	DWORD PTR _parent$38200[ebp], eax
+	mov	DWORD PTR _parent$38201[ebp], eax
 
 ; 2275 : 		if ( m_heap[ parent ].Priority <= m_heap[ child ].Priority )
 
-	mov	edx, DWORD PTR _parent$38200[ebp]
+	mov	edx, DWORD PTR _parent$38201[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _child$[ebp]
 	mov	esi, DWORD PTR _this$[ebp]
@@ -15849,12 +15849,12 @@ $L38198:
 	fcomp	DWORD PTR [esi+ecx*8+8]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38201
+	je	SHORT $L38202
 
 ; 2276 : 			break;
 
-	jmp	SHORT $L38199
-$L38201:
+	jmp	SHORT $L38200
+$L38202:
 
 ; 2279 : 		Tmp = m_heap[ child ];
 
@@ -15862,12 +15862,12 @@ $L38201:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*8+4]
 	mov	edx, DWORD PTR [eax+edx*8+8]
-	mov	DWORD PTR _Tmp$38202[ebp], ecx
-	mov	DWORD PTR _Tmp$38202[ebp+4], edx
+	mov	DWORD PTR _Tmp$38203[ebp], ecx
+	mov	DWORD PTR _Tmp$38203[ebp+4], edx
 
 ; 2280 : 		m_heap[ child ] = m_heap[ parent ];
 
-	mov	eax, DWORD PTR _parent$38200[ebp]
+	mov	eax, DWORD PTR _parent$38201[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*8+4]
 	mov	eax, DWORD PTR [ecx+eax*8+8]
@@ -15878,23 +15878,23 @@ $L38201:
 
 ; 2281 : 		m_heap[ parent ] = Tmp;
 
-	mov	edx, DWORD PTR _parent$38200[ebp]
+	mov	edx, DWORD PTR _parent$38201[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _Tmp$38202[ebp]
+	mov	ecx, DWORD PTR _Tmp$38203[ebp]
 	mov	DWORD PTR [eax+edx*8+4], ecx
-	mov	ecx, DWORD PTR _Tmp$38202[ebp+4]
+	mov	ecx, DWORD PTR _Tmp$38203[ebp+4]
 	mov	DWORD PTR [eax+edx*8+8], ecx
 
 ; 2282 : 
 ; 2283 : 		child = parent;
 
-	mov	edx, DWORD PTR _parent$38200[ebp]
+	mov	edx, DWORD PTR _parent$38201[ebp]
 	mov	DWORD PTR _child$[ebp], edx
 
 ; 2284 : 	}
 
-	jmp	SHORT $L38198
-$L38199:
+	jmp	SHORT $L38199
+$L38200:
 
 ; 2285 : }
 
@@ -15967,7 +15967,7 @@ _iResult$ = -272
 _length$ = -276
 _aMemFile$ = -280
 _pMemFile$ = -284
-_i$38270 = -288
+_i$38271 = -288
 ?FLoadGraph@CGraph@@QAEHPAD@Z PROC NEAR			; CGraph::FLoadGraph, COMDAT
 
 ; 2294 : {
@@ -16016,7 +16016,7 @@ _i$38270 = -288
 ; 2306 : 	if( iResult != LUMP_LOAD_OK )
 
 	cmp	DWORD PTR _iResult$[ebp], 0
-	je	SHORT $L38215
+	je	SHORT $L38216
 
 ; 2308 : 		// this map doesn't support including new lumps. fallback to old method
 ; 2309 : 		Q_snprintf( szFilename, sizeof( szFilename ), "maps/graphs/%s.nod", szMapName );
@@ -16040,7 +16040,7 @@ _i$38270 = -288
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+380
 	add	esp, 8
 	mov	DWORD PTR _aMemFile$[ebp], eax
-$L38215:
+$L38216:
 
 ; 2313 : 
 ; 2314 : 	pMemFile = aMemFile;
@@ -16052,14 +16052,14 @@ $L38215:
 ; 2316 : 	if( !aMemFile )
 
 	cmp	DWORD PTR _aMemFile$[ebp], 0
-	jne	SHORT $L38217
+	jne	SHORT $L38218
 
 ; 2318 : 		// nodegraph is completely missed
 ; 2319 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L38206
-$L38217:
+	jmp	$L38207
+$L38218:
 
 ; 2323 : 		// Read the graph version number
 ; 2324 : 		//
@@ -16072,9 +16072,9 @@ $L38217:
 ; 2326 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38220
-	jmp	$L38222
-$L38220:
+	jge	SHORT $L38221
+	jmp	$L38223
+$L38221:
 
 ; 2327 : 		memcpy(&iVersion, pMemFile, sizeof(int));
 
@@ -16096,7 +16096,7 @@ $L38220:
 ; 2330 : 		if ( iVersion != GRAPH_VERSION )
 
 	cmp	DWORD PTR _iVersion$[ebp], 16		; 00000010H
-	je	SHORT $L38226
+	je	SHORT $L38227
 
 ; 2332 : 			// This file was written by a different build of the dll!
 ; 2333 : 			//
@@ -16112,8 +16112,8 @@ $L38220:
 
 ; 2335 : 			goto ShortFile;
 
-	jmp	$L38229
-$L38226:
+	jmp	$L38230
+$L38227:
 
 ; 2337 : 
 ; 2338 : 		// Read the graph class
@@ -16127,9 +16127,9 @@ $L38226:
 ; 2341 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38231
-	jmp	$L38232
-$L38231:
+	jge	SHORT $L38232
+	jmp	$L38233
+$L38232:
 
 ; 2342 : 		memcpy(this, pMemFile, sizeof(CGraph));
 
@@ -16195,7 +16195,7 @@ $L38231:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+12], 0
-	jne	SHORT $L38237
+	jne	SHORT $L38238
 
 ; 2360 : 			ALERT ( at_aiconsole, "**ERROR**\nCouldn't malloc %d nodes!\n", m_cNodes );
 
@@ -16209,8 +16209,8 @@ $L38231:
 
 ; 2361 : 			goto NoMemory;
 
-	jmp	$L38239
-$L38237:
+	jmp	$L38240
+$L38238:
 
 ; 2363 : 
 ; 2364 : 		// Read in all the nodes
@@ -16227,9 +16227,9 @@ $L38237:
 ; 2367 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38241
-	jmp	$L38242
-$L38241:
+	jge	SHORT $L38242
+	jmp	$L38243
+$L38242:
 
 ; 2368 : 		memcpy(m_pNodes, pMemFile, sizeof(CNode)*m_cNodes);
 
@@ -16274,7 +16274,7 @@ $L38241:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+16], 0
-	jne	SHORT $L38247
+	jne	SHORT $L38248
 
 ; 2378 : 			ALERT ( at_aiconsole, "**ERROR**\nCouldn't malloc %d link!\n", m_cLinks );
 
@@ -16288,8 +16288,8 @@ $L38241:
 
 ; 2379 : 			goto NoMemory;
 
-	jmp	$L38249
-$L38247:
+	jmp	$L38250
+$L38248:
 
 ; 2381 : 
 ; 2382 : 		// Read in all the links
@@ -16306,9 +16306,9 @@ $L38247:
 ; 2385 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38251
-	jmp	$L38252
-$L38251:
+	jge	SHORT $L38252
+	jmp	$L38253
+$L38252:
 
 ; 2386 : 		memcpy(m_pLinkPool, pMemFile, sizeof(CLink)*m_cLinks);
 
@@ -16351,7 +16351,7 @@ $L38251:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+36], 0
-	jne	SHORT $L38257
+	jne	SHORT $L38258
 
 ; 2394 : 			ALERT ( at_aiconsole, "***ERROR**\nCouldn't malloc %d entries sorting nodes!\n", m_cNodes );
 
@@ -16365,8 +16365,8 @@ $L38251:
 
 ; 2395 : 			goto NoMemory;
 
-	jmp	$L38259
-$L38257:
+	jmp	$L38260
+$L38258:
 
 ; 2397 : 
 ; 2398 : 		// Read it in.
@@ -16383,9 +16383,9 @@ $L38257:
 ; 2401 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38261
-	jmp	$L38262
-$L38261:
+	jge	SHORT $L38262
+	jmp	$L38263
+$L38262:
 
 ; 2402 : 		memcpy(m_di, pMemFile, sizeof(DIST_INFO)*m_cNodes);
 
@@ -16433,7 +16433,7 @@ $L38261:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+20], 0
-	jne	SHORT $L38267
+	jne	SHORT $L38268
 
 ; 2411 : 			ALERT ( at_aiconsole, "***ERROR**\nCounldn't malloc %d route bytes!\n", m_nRouteInfo );
 
@@ -16447,8 +16447,8 @@ $L38261:
 
 ; 2412 : 			goto NoMemory;
 
-	jmp	$L38269
-$L38267:
+	jmp	$L38270
+$L38268:
 
 ; 2414 : 		m_CheckedCounter = 0;
 
@@ -16457,21 +16457,21 @@ $L38267:
 
 ; 2415 : 		for (int i = 0; i < m_cNodes; i++)
 
-	mov	DWORD PTR _i$38270[ebp], 0
-	jmp	SHORT $L38271
-$L38272:
-	mov	eax, DWORD PTR _i$38270[ebp]
+	mov	DWORD PTR _i$38271[ebp], 0
+	jmp	SHORT $L38272
+$L38273:
+	mov	eax, DWORD PTR _i$38271[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$38270[ebp], eax
-$L38271:
+	mov	DWORD PTR _i$38271[ebp], eax
+$L38272:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _i$38270[ebp]
+	mov	edx, DWORD PTR _i$38271[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	SHORT $L38273
+	jge	SHORT $L38274
 
 ; 2417 : 			m_di[i].m_CheckedEvent = 0;
 
-	mov	eax, DWORD PTR _i$38270[ebp]
+	mov	eax, DWORD PTR _i$38271[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
@@ -16479,8 +16479,8 @@ $L38271:
 
 ; 2418 : 		}
 
-	jmp	SHORT $L38272
-$L38273:
+	jmp	SHORT $L38273
+$L38274:
 
 ; 2419 : 		
 ; 2420 : 		// Read in the route information.
@@ -16495,9 +16495,9 @@ $L38273:
 ; 2423 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38275
-	jmp	$L38276
-$L38275:
+	jge	SHORT $L38276
+	jmp	$L38277
+$L38276:
 
 ; 2424 : 		memcpy(m_pRouteInfo, pMemFile, sizeof(char)*m_nRouteInfo);
 
@@ -16542,7 +16542,7 @@ $L38275:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+8380], 0
-	jne	SHORT $L38281
+	jne	SHORT $L38282
 
 ; 2433 : 			ALERT ( at_aiconsole, "***ERROR**\nCounldn't malloc %d hash link bytes!\n", m_nHashLinks );
 
@@ -16556,8 +16556,8 @@ $L38275:
 
 ; 2434 : 			goto NoMemory;
 
-	jmp	$L38283
-$L38281:
+	jmp	$L38284
+$L38282:
 
 ; 2436 : 
 ; 2437 : 		// Read in the hash link information
@@ -16574,9 +16574,9 @@ $L38281:
 ; 2440 : 		if (length < 0) goto ShortFile;
 
 	cmp	DWORD PTR _length$[ebp], 0
-	jge	SHORT $L38285
-	jmp	$L38286
-$L38285:
+	jge	SHORT $L38286
+	jmp	$L38287
+$L38286:
 
 ; 2441 : 		memcpy(m_pHashLinks, pMemFile, sizeof(short)*m_nHashLinks);
 
@@ -16625,7 +16625,7 @@ $L38285:
 ; 2451 : 		if (length != 0)
 
 	cmp	DWORD PTR _length$[ebp], 0
-	je	SHORT $L38289
+	je	SHORT $L38290
 
 ; 2453 : 			ALERT ( at_aiconsole, "***WARNING***:Node graph was longer than expected by %d bytes.!\n", length);
 
@@ -16635,15 +16635,15 @@ $L38285:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L38289:
+$L38290:
 
 ; 2455 : 
 ; 2456 : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38206
-$ShortFile$38221:
-$NoMemory$38238:
+	jmp	SHORT $L38207
+$ShortFile$38222:
+$NoMemory$38239:
 
 ; 2458 : 
 ; 2459 : ShortFile:
@@ -16658,37 +16658,37 @@ $NoMemory$38238:
 ; 2462 : 	return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38206
-$L38286:
+	jmp	SHORT $L38207
+$L38287:
 
 ; 2463 : }
 
-	jmp	SHORT $ShortFile$38221
-$L38283:
-	jmp	SHORT $NoMemory$38238
-$L38276:
-	jmp	SHORT $ShortFile$38221
-$L38269:
-	jmp	SHORT $NoMemory$38238
-$L38262:
-	jmp	SHORT $ShortFile$38221
-$L38259:
-	jmp	SHORT $NoMemory$38238
-$L38252:
-	jmp	SHORT $ShortFile$38221
-$L38249:
-	jmp	SHORT $NoMemory$38238
-$L38242:
-	jmp	SHORT $ShortFile$38221
-$L38239:
-	jmp	SHORT $NoMemory$38238
-$L38232:
-	jmp	SHORT $ShortFile$38221
-$L38229:
-	jmp	SHORT $ShortFile$38221
-$L38222:
-	jmp	SHORT $ShortFile$38221
-$L38206:
+	jmp	SHORT $ShortFile$38222
+$L38284:
+	jmp	SHORT $NoMemory$38239
+$L38277:
+	jmp	SHORT $ShortFile$38222
+$L38270:
+	jmp	SHORT $NoMemory$38239
+$L38263:
+	jmp	SHORT $ShortFile$38222
+$L38260:
+	jmp	SHORT $NoMemory$38239
+$L38253:
+	jmp	SHORT $ShortFile$38222
+$L38250:
+	jmp	SHORT $NoMemory$38239
+$L38243:
+	jmp	SHORT $ShortFile$38222
+$L38240:
+	jmp	SHORT $NoMemory$38239
+$L38233:
+	jmp	SHORT $ShortFile$38222
+$L38230:
+	jmp	SHORT $ShortFile$38222
+$L38223:
+	jmp	SHORT $ShortFile$38222
+$L38207:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -16717,10 +16717,10 @@ __unwindtable$?FSaveGraph@CGraph@@QAEHPAD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?FSaveGraph@CGraph@@QAEHPAD@Z
 _TEXT	SEGMENT
-$T40166 = -304
-$T40167 = -308
-$T40168 = -312
-$T40169 = -316
+$T40167 = -304
+$T40168 = -308
+$T40169 = -312
+$T40170 = -316
 __$EHRec$ = -12
 _szMapName$ = 8
 _this$ = -16
@@ -16761,11 +16761,11 @@ _iResult$ = -300
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L38300
+	je	SHORT $L38301
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L38299
-$L38300:
+	jne	SHORT $L38300
+$L38301:
 
 ; 2477 : 		// protect us in the case that the node graph isn't available or built
 ; 2478 : 		ALERT ( at_aiconsole, "Graph not ready!\n" );
@@ -16777,13 +16777,13 @@ $L38300:
 
 ; 2479 : 		return FALSE;
 
-	mov	DWORD PTR $T40166[ebp], 0
+	mov	DWORD PTR $T40167[ebp], 0
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	mov	eax, DWORD PTR $T40166[ebp]
-	jmp	$L38294
-$L38299:
+	mov	eax, DWORD PTR $T40167[ebp]
+	jmp	$L38295
+$L38300:
 
 ; 2481 : 
 ; 2482 : 	Q_snprintf( szFilename, sizeof( szFilename ), "maps/%s.bsp", szMapName );
@@ -16873,10 +16873,10 @@ $L38299:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+20], 0
-	je	SHORT $L38308
+	je	SHORT $L38309
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+32], 0
-	je	SHORT $L38308
+	je	SHORT $L38309
 
 ; 2502 : 		file.Write( m_pRouteInfo, m_nRouteInfo );
 
@@ -16888,17 +16888,17 @@ $L38299:
 	push	eax
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	?Write@CVirtualFS@@QAEIPBXI@Z		; CVirtualFS::Write
-$L38308:
+$L38309:
 
 ; 2504 : 
 ; 2505 : 	if( m_pHashLinks && m_nHashLinks )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+8380], 0
-	je	SHORT $L38309
+	je	SHORT $L38310
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+8384], 0
-	je	SHORT $L38309
+	je	SHORT $L38310
 
 ; 2507 : 		file.Write( m_pHashLinks, sizeof( short ) * m_nHashLinks );
 
@@ -16911,7 +16911,7 @@ $L38308:
 	push	eax
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	?Write@CVirtualFS@@QAEIPBXI@Z		; CVirtualFS::Write
-$L38309:
+$L38310:
 
 ; 2509 : 
 ; 2510 : 	// dump into real file
@@ -16934,7 +16934,7 @@ $L38309:
 ; 2513 : 	if( iResult != LUMP_SAVE_OK )
 
 	cmp	DWORD PTR _iResult$[ebp], 0
-	je	$L38312
+	je	$L38313
 
 ; 2515 : 		// this map doesn't support including new lumps. fallback to old method
 ; 2516 : 		Q_snprintf( szFilename, sizeof( szFilename ), "maps/graphs/%s.nod", szMapName ); 
@@ -16962,27 +16962,27 @@ $L38309:
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+112
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	je	SHORT $L38313
+	je	SHORT $L38314
 
 ; 2519 : 			return true;
 
-	mov	DWORD PTR $T40167[ebp], 1
-	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _file$[ebp]
-	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	mov	eax, DWORD PTR $T40167[ebp]
-	jmp	SHORT $L38294
-$L38313:
-
-; 2520 : 		return false;
-
-	mov	DWORD PTR $T40168[ebp], 0
+	mov	DWORD PTR $T40168[ebp], 1
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
 	mov	eax, DWORD PTR $T40168[ebp]
-	jmp	SHORT $L38294
-$L38312:
+	jmp	SHORT $L38295
+$L38314:
+
+; 2520 : 		return false;
+
+	mov	DWORD PTR $T40169[ebp], 0
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	lea	ecx, DWORD PTR _file$[ebp]
+	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
+	mov	eax, DWORD PTR $T40169[ebp]
+	jmp	SHORT $L38295
+$L38313:
 
 ; 2522 : 
 ; 2523 : 	return (iResult == LUMP_SAVE_OK) ? true : false;
@@ -16990,12 +16990,12 @@ $L38312:
 	cmp	DWORD PTR _iResult$[ebp], 0
 	sete	dl
 	and	edx, 255				; 000000ffH
-	mov	DWORD PTR $T40169[ebp], edx
+	mov	DWORD PTR $T40170[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _file$[ebp]
 	call	??1CVirtualFS@@QAE@XZ			; CVirtualFS::~CVirtualFS
-	mov	eax, DWORD PTR $T40169[ebp]
-$L38294:
+	mov	eax, DWORD PTR $T40170[ebp]
+$L38295:
 
 ; 2524 : }
 
@@ -17038,7 +17038,7 @@ _TEXT	SEGMENT
 _this$ = -4
 _i$ = -8
 _pLinkEnt$ = -12
-_name$38327 = -20
+_name$38328 = -20
 ?FSetGraphPointers@CGraph@@QAEHXZ PROC NEAR		; CGraph::FSetGraphPointers, COMDAT
 
 ; 2534 : {
@@ -17057,16 +17057,16 @@ _name$38327 = -20
 ; 2538 : 	for ( i = 0 ; i < m_cLinks ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38323
-$L38324:
+	jmp	SHORT $L38324
+$L38325:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38323:
+$L38324:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+28]
-	jge	$L38325
+	jge	$L38326
 
 ; 2540 : 		
 ; 2541 : 		if ( m_pLinkPool[ i ].m_pLinkEnt != NULL )
@@ -17076,7 +17076,7 @@ $L38323:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+16]
 	cmp	DWORD PTR [edx+eax+8], 0
-	je	$L38332
+	je	$L38333
 
 ; 2543 : 			char name[5];
 ; 2544 : 			// when graphs are saved, any valid pointers are will be non-zero, signifying that we should
@@ -17093,18 +17093,18 @@ $L38323:
 	mov	edx, DWORD PTR [ecx+16]
 	lea	eax, DWORD PTR [edx+eax+12]
 	push	eax
-	lea	ecx, DWORD PTR _name$38327[ebp]
+	lea	ecx, DWORD PTR _name$38328[ebp]
 	push	ecx
 	call	_memcpy
 	add	esp, 12					; 0000000cH
 
 ; 2550 : 			name[4] = 0;
 
-	mov	BYTE PTR _name$38327[ebp+4], 0
+	mov	BYTE PTR _name$38328[ebp+4], 0
 
 ; 2551 : 			pLinkEnt =  UTIL_FindEntityByString( NULL, "model", name );
 
-	lea	edx, DWORD PTR _name$38327[ebp]
+	lea	edx, DWORD PTR _name$38328[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_05LHJL@model?$AA@	; `string'
 	push	0
@@ -17116,13 +17116,13 @@ $L38323:
 ; 2553 : 			if ( !pLinkEnt )
 
 	cmp	DWORD PTR _pLinkEnt$[ebp], 0
-	jne	SHORT $L38329
+	jne	SHORT $L38330
 
 ; 2555 : 			// the ent isn't around anymore? Either there is a major problem, or it was removed from the world
 ; 2556 : 			// ( like a func_breakable that's been destroyed or something ). Make sure that LinkEnt is null.
 ; 2557 : 				ALERT ( at_aiconsole, "**Could not find model %s\n", name );
 
-	lea	eax, DWORD PTR _name$38327[ebp]
+	lea	eax, DWORD PTR _name$38328[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_0BL@LJKI@?$CK?$CKCould?5not?5find?5model?5?$CFs?6?$AA@ ; `string'
 	push	2
@@ -17139,8 +17139,8 @@ $L38323:
 
 ; 2560 : 			else
 
-	jmp	SHORT $L38332
-$L38329:
+	jmp	SHORT $L38333
+$L38330:
 
 ; 2562 : 				m_pLinkPool[ i ].m_pLinkEnt = pLinkEnt->pev;
 
@@ -17163,7 +17163,7 @@ $L38329:
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 65536				; 00010000H
 	test	ecx, ecx
-	jne	SHORT $L38332
+	jne	SHORT $L38333
 
 ; 2566 : 					m_pLinkPool[ i ].m_pLinkEnt->flags += FL_GRAPHED;
 
@@ -17180,12 +17180,12 @@ $L38329:
 	mov	edx, DWORD PTR [edx+16]
 	mov	ecx, DWORD PTR [edx+ecx+8]
 	mov	DWORD PTR [ecx+420], eax
-$L38332:
+$L38333:
 
 ; 2570 : 	}
 
-	jmp	$L38324
-$L38325:
+	jmp	$L38325
+$L38326:
 
 ; 2571 : 
 ; 2572 : 	// the pointers are now set.
@@ -17266,24 +17266,24 @@ _iCompare$ = -532
 ; 2602 : 	if( retValue == LUMP_LOAD_OK )
 
 	cmp	DWORD PTR _retValue$[ebp], 0
-	jne	SHORT $L38340
+	jne	SHORT $L38341
 
 ; 2603 : 		return true;
 
 	mov	eax, 1
-	jmp	$L38336
-$L38340:
+	jmp	$L38337
+$L38341:
 
 ; 2604 : 	else if( retValue == LUMP_LOAD_NOT_EXIST )
 
 	cmp	DWORD PTR _retValue$[ebp], 6
-	jne	SHORT $L38342
+	jne	SHORT $L38343
 
 ; 2605 : 		return false;
 
 	xor	eax, eax
-	jmp	$L38336
-$L38342:
+	jmp	$L38337
+$L38343:
 
 ; 2606 : 
 ; 2607 : 	Q_snprintf( szBspFilename, sizeof( szBspFilename ), "maps/%s.bsp", szMapName );
@@ -17327,12 +17327,12 @@ $L38342:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+392
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	je	SHORT $L38344
+	je	SHORT $L38345
 
 ; 2616 : 		if ( iCompare > 0 )
 
 	cmp	DWORD PTR _iCompare$[ebp], 0
-	jle	SHORT $L38345
+	jle	SHORT $L38346
 
 ; 2618 : 			// BSP file is newer.
 ; 2619 : 			ALERT ( at_aiconsole, ".NOD File will be updated\n\n" );
@@ -17345,23 +17345,23 @@ $L38342:
 ; 2620 : 			retValue = FALSE;
 
 	mov	DWORD PTR _retValue$[ebp], 0
-$L38345:
+$L38346:
 
 ; 2623 : 	else
 
-	jmp	SHORT $L38347
-$L38344:
+	jmp	SHORT $L38348
+$L38345:
 
 ; 2625 : 		retValue = FALSE;
 
 	mov	DWORD PTR _retValue$[ebp], 0
-$L38347:
+$L38348:
 
 ; 2627 : 
 ; 2628 : 	return retValue;
 
 	mov	eax, DWORD PTR _retValue$[ebp]
-$L38336:
+$L38337:
 
 ; 2629 : }
 
@@ -17451,7 +17451,7 @@ _i$ = -20
 	xor	edx, edx
 	div	DWORD PTR [ecx+8384]
 	mov	DWORD PTR _i$[ebp], edx
-$L38370:
+$L38371:
 
 ; 2652 :     while (m_pHashLinks[i] != ENTRY_STATE_EMPTY)
 
@@ -17460,7 +17460,7 @@ $L38370:
 	mov	ecx, DWORD PTR _i$[ebp]
 	movsx	edx, WORD PTR [eax+ecx*2]
 	cmp	edx, -1
-	je	SHORT $L38371
+	je	SHORT $L38372
 
 ; 2654 :         i += di;
 
@@ -17473,17 +17473,17 @@ $L38370:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+8384]
-	jl	SHORT $L38372
+	jl	SHORT $L38373
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	sub	ecx, DWORD PTR [eax+8384]
 	mov	DWORD PTR _i$[ebp], ecx
-$L38372:
+$L38373:
 
 ; 2656 :     }
 
-	jmp	SHORT $L38370
-$L38371:
+	jmp	SHORT $L38371
+$L38372:
 
 ; 2657 : 	m_pHashLinks[i] = iKey;
 
@@ -17513,7 +17513,7 @@ _np$ = -8
 _dwHash$ = -12
 _di$ = -16
 _i$ = -20
-_link$38386 = -24
+_link$38387 = -24
 ?HashSearch@CGraph@@QAEXHHAAH@Z PROC NEAR		; CGraph::HashSearch, COMDAT
 
 ; 2661 : {
@@ -17581,7 +17581,7 @@ _link$38386 = -24
 	xor	edx, edx
 	div	DWORD PTR [ecx+8384]
 	mov	DWORD PTR _i$[ebp], edx
-$L38384:
+$L38385:
 
 ; 2673 :     while (m_pHashLinks[i] != ENTRY_STATE_EMPTY)
 
@@ -17590,7 +17590,7 @@ $L38384:
 	mov	ecx, DWORD PTR _i$[ebp]
 	movsx	edx, WORD PTR [eax+ecx*2]
 	cmp	edx, -1
-	je	SHORT $L38385
+	je	SHORT $L38386
 
 ; 2675 : 		CLink &link = Link(m_pHashLinks[i]);
 
@@ -17601,23 +17601,23 @@ $L38384:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Link@CGraph@@QAEAAVCLink@@H@Z		; CGraph::Link
-	mov	DWORD PTR _link$38386[ebp], eax
+	mov	DWORD PTR _link$38387[ebp], eax
 
 ; 2676 :         if (iSrcNode == link.m_iSrcNode && iDestNode == link.m_iDestNode)
 
-	mov	ecx, DWORD PTR _link$38386[ebp]
+	mov	ecx, DWORD PTR _link$38387[ebp]
 	mov	edx, DWORD PTR _iSrcNode$[ebp]
 	cmp	edx, DWORD PTR [ecx]
-	jne	SHORT $L38387
-	mov	eax, DWORD PTR _link$38386[ebp]
+	jne	SHORT $L38388
+	mov	eax, DWORD PTR _link$38387[ebp]
 	mov	ecx, DWORD PTR _iDestNode$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jne	SHORT $L38387
+	jne	SHORT $L38388
 
 ; 2678 : 			break;
 
-	jmp	SHORT $L38385
-$L38387:
+	jmp	SHORT $L38386
+$L38388:
 
 ; 2682 :             i += di;
 
@@ -17630,17 +17630,17 @@ $L38387:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+8384]
-	jl	SHORT $L38389
+	jl	SHORT $L38390
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	sub	eax, DWORD PTR [edx+8384]
 	mov	DWORD PTR _i$[ebp], eax
-$L38389:
+$L38390:
 
 ; 2685 :     }
 
-	jmp	SHORT $L38384
-$L38385:
+	jmp	SHORT $L38385
+$L38386:
 
 ; 2686 : 	iKey = m_pHashLinks[i];
 
@@ -17670,11 +17670,11 @@ _LargestPrime$ = -8
 _Spacing$ = -12
 _iZone$ = -16
 _iPrime$ = -20
-_Lower$38404 = -24
-_jPrime$38405 = -28
-_Upper$38410 = -32
-_Pick$38420 = -36
-_Temp$38421 = -40
+_Lower$38405 = -24
+_jPrime$38406 = -28
+_Upper$38411 = -32
+_Pick$38421 = -36
+_Temp$38422 = -40
 ?HashChoosePrimes@CGraph@@QAEXH@Z PROC NEAR		; CGraph::HashChoosePrimes, COMDAT
 
 ; 2705 : {
@@ -17699,13 +17699,13 @@ _Temp$38421 = -40
 
 	mov	eax, DWORD PTR _LargestPrime$[ebp]
 	cmp	eax, DWORD PTR ?Primes@@3PAHA+700
-	jle	SHORT $L38397
+	jle	SHORT $L38398
 
 ; 2709 :         LargestPrime = Primes[NUMBER_OF_PRIMES-2];
 
 	mov	ecx, DWORD PTR ?Primes@@3PAHA+700
 	mov	DWORD PTR _LargestPrime$[ebp], ecx
-$L38397:
+$L38398:
 
 ; 2711 :     int Spacing = LargestPrime/16;
 
@@ -17725,14 +17725,14 @@ $L38397:
 
 	mov	DWORD PTR _iZone$[ebp], 1
 	mov	DWORD PTR _iPrime$[ebp], 0
-	jmp	SHORT $L38401
-$L38402:
+	jmp	SHORT $L38402
+$L38403:
 	mov	edx, DWORD PTR _iZone$[ebp]
 	add	edx, DWORD PTR _Spacing$[ebp]
 	mov	DWORD PTR _iZone$[ebp], edx
-$L38401:
+$L38402:
 	cmp	DWORD PTR _iPrime$[ebp], 16		; 00000010H
-	jge	$L38403
+	jge	$L38404
 
 ; 2719 :         // Search for a prime number that is less than the target zone
 ; 2720 :         // number given by iZone.
@@ -17740,65 +17740,65 @@ $L38401:
 ; 2722 :         int Lower = Primes[0];
 
 	mov	eax, DWORD PTR ?Primes@@3PAHA
-	mov	DWORD PTR _Lower$38404[ebp], eax
+	mov	DWORD PTR _Lower$38405[ebp], eax
 
 ; 2723 :         for (int jPrime = 0; Primes[jPrime] != 0; jPrime++)
 
-	mov	DWORD PTR _jPrime$38405[ebp], 0
-	jmp	SHORT $L38406
-$L38407:
-	mov	ecx, DWORD PTR _jPrime$38405[ebp]
+	mov	DWORD PTR _jPrime$38406[ebp], 0
+	jmp	SHORT $L38407
+$L38408:
+	mov	ecx, DWORD PTR _jPrime$38406[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _jPrime$38405[ebp], ecx
-$L38406:
-	mov	edx, DWORD PTR _jPrime$38405[ebp]
+	mov	DWORD PTR _jPrime$38406[ebp], ecx
+$L38407:
+	mov	edx, DWORD PTR _jPrime$38406[ebp]
 	cmp	DWORD PTR ?Primes@@3PAHA[edx*4], 0
-	je	$L38408
+	je	$L38409
 
 ; 2725 :             if (jPrime != 0 && TableSize % Primes[jPrime] == 0) continue;
 
-	cmp	DWORD PTR _jPrime$38405[ebp], 0
-	je	SHORT $L38409
-	mov	ecx, DWORD PTR _jPrime$38405[ebp]
+	cmp	DWORD PTR _jPrime$38406[ebp], 0
+	je	SHORT $L38410
+	mov	ecx, DWORD PTR _jPrime$38406[ebp]
 	mov	eax, DWORD PTR _TableSize$[ebp]
 	cdq
 	idiv	DWORD PTR ?Primes@@3PAHA[ecx*4]
 	test	edx, edx
-	jne	SHORT $L38409
-	jmp	SHORT $L38407
-$L38409:
+	jne	SHORT $L38410
+	jmp	SHORT $L38408
+$L38410:
 
 ; 2726 :             int Upper = Primes[jPrime];
 
-	mov	edx, DWORD PTR _jPrime$38405[ebp]
+	mov	edx, DWORD PTR _jPrime$38406[ebp]
 	mov	eax, DWORD PTR ?Primes@@3PAHA[edx*4]
-	mov	DWORD PTR _Upper$38410[ebp], eax
+	mov	DWORD PTR _Upper$38411[ebp], eax
 
 ; 2727 :             if (Lower <= iZone && iZone <= Upper)
 
-	mov	ecx, DWORD PTR _Lower$38404[ebp]
+	mov	ecx, DWORD PTR _Lower$38405[ebp]
 	cmp	ecx, DWORD PTR _iZone$[ebp]
-	jg	SHORT $L38411
+	jg	SHORT $L38412
 	mov	edx, DWORD PTR _iZone$[ebp]
-	cmp	edx, DWORD PTR _Upper$38410[ebp]
-	jg	SHORT $L38411
+	cmp	edx, DWORD PTR _Upper$38411[ebp]
+	jg	SHORT $L38412
 
 ; 2729 :                 // Choose the closest lower prime number.
 ; 2730 :                 //
 ; 2731 :                 if (iZone - Lower <= Upper - iZone)
 
 	mov	eax, DWORD PTR _iZone$[ebp]
-	sub	eax, DWORD PTR _Lower$38404[ebp]
-	mov	ecx, DWORD PTR _Upper$38410[ebp]
+	sub	eax, DWORD PTR _Lower$38405[ebp]
+	mov	ecx, DWORD PTR _Upper$38411[ebp]
 	sub	ecx, DWORD PTR _iZone$[ebp]
 	cmp	eax, ecx
-	jg	SHORT $L38412
+	jg	SHORT $L38413
 
 ; 2733 :                     m_HashPrimes[iPrime++] = Lower;
 
 	mov	edx, DWORD PTR _iPrime$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _Lower$38404[ebp]
+	mov	ecx, DWORD PTR _Lower$38405[ebp]
 	mov	DWORD PTR [eax+edx*4+8316], ecx
 	mov	edx, DWORD PTR _iPrime$[ebp]
 	add	edx, 1
@@ -17806,39 +17806,39 @@ $L38409:
 
 ; 2735 :                 else
 
-	jmp	SHORT $L38413
-$L38412:
+	jmp	SHORT $L38414
+$L38413:
 
 ; 2737 :                     m_HashPrimes[iPrime++] = Upper;
 
 	mov	eax, DWORD PTR _iPrime$[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _Upper$38410[ebp]
+	mov	edx, DWORD PTR _Upper$38411[ebp]
 	mov	DWORD PTR [ecx+eax*4+8316], edx
 	mov	eax, DWORD PTR _iPrime$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _iPrime$[ebp], eax
-$L38413:
+$L38414:
 
 ; 2739 :                 break;
 
-	jmp	SHORT $L38408
-$L38411:
+	jmp	SHORT $L38409
+$L38412:
 
 ; 2741 :             Lower = Upper;
 
-	mov	ecx, DWORD PTR _Upper$38410[ebp]
-	mov	DWORD PTR _Lower$38404[ebp], ecx
+	mov	ecx, DWORD PTR _Upper$38411[ebp]
+	mov	DWORD PTR _Lower$38405[ebp], ecx
 
 ; 2742 :         }
 
-	jmp	$L38407
-$L38408:
+	jmp	$L38408
+$L38409:
 
 ; 2743 :     }
 
-	jmp	$L38402
-$L38403:
+	jmp	$L38403
+$L38404:
 
 ; 2744 : 
 ; 2745 :     // Alternate negative and positive numbers
@@ -17846,14 +17846,14 @@ $L38403:
 ; 2747 :     for (iPrime = 0; iPrime < 16; iPrime += 2)
 
 	mov	DWORD PTR _iPrime$[ebp], 0
-	jmp	SHORT $L38414
-$L38415:
+	jmp	SHORT $L38415
+$L38416:
 	mov	edx, DWORD PTR _iPrime$[ebp]
 	add	edx, 2
 	mov	DWORD PTR _iPrime$[ebp], edx
-$L38414:
+$L38415:
 	cmp	DWORD PTR _iPrime$[ebp], 16		; 00000010H
-	jge	SHORT $L38416
+	jge	SHORT $L38417
 
 ; 2749 :         m_HashPrimes[iPrime] = TableSize-m_HashPrimes[iPrime];
 
@@ -17867,8 +17867,8 @@ $L38414:
 
 ; 2750 :     }
 
-	jmp	SHORT $L38415
-$L38416:
+	jmp	SHORT $L38416
+$L38417:
 
 ; 2751 : 
 ; 2752 :     // Shuffle the set of primes to reduce correlation with bits in
@@ -17877,14 +17877,14 @@ $L38416:
 ; 2755 :     for (iPrime = 0; iPrime < 16-1; iPrime++)
 
 	mov	DWORD PTR _iPrime$[ebp], 0
-	jmp	SHORT $L38417
-$L38418:
+	jmp	SHORT $L38418
+$L38419:
 	mov	edx, DWORD PTR _iPrime$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _iPrime$[ebp], edx
-$L38417:
+$L38418:
 	cmp	DWORD PTR _iPrime$[ebp], 15		; 0000000fH
-	jge	SHORT $L38419
+	jge	SHORT $L38420
 
 ; 2757 :         int Pick = RANDOM_LONG(0, 15-iPrime);
 
@@ -17894,20 +17894,20 @@ $L38417:
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
-	mov	DWORD PTR _Pick$38420[ebp], eax
+	mov	DWORD PTR _Pick$38421[ebp], eax
 
 ; 2758 :         int Temp = m_HashPrimes[Pick];
 
-	mov	ecx, DWORD PTR _Pick$38420[ebp]
+	mov	ecx, DWORD PTR _Pick$38421[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+8316]
-	mov	DWORD PTR _Temp$38421[ebp], eax
+	mov	DWORD PTR _Temp$38422[ebp], eax
 
 ; 2759 :         m_HashPrimes[Pick] = m_HashPrimes[15-iPrime];
 
 	mov	ecx, 15					; 0000000fH
 	sub	ecx, DWORD PTR _iPrime$[ebp]
-	mov	edx, DWORD PTR _Pick$38420[ebp]
+	mov	edx, DWORD PTR _Pick$38421[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	esi, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [esi+ecx*4+8316]
@@ -17918,13 +17918,13 @@ $L38417:
 	mov	edx, 15					; 0000000fH
 	sub	edx, DWORD PTR _iPrime$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _Temp$38421[ebp]
+	mov	ecx, DWORD PTR _Temp$38422[ebp]
 	mov	DWORD PTR [eax+edx*4+8316], ecx
 
 ; 2761 :     }
 
-	jmp	SHORT $L38418
-$L38419:
+	jmp	SHORT $L38419
+$L38420:
 
 ; 2762 : }
 
@@ -17942,10 +17942,10 @@ _TEXT	SEGMENT
 _this$ = -4
 _iNodeCnt$ = -8
 _i$ = -12
-_j$38435 = -16
-_iDestNode$38439 = -20
-_iDestNode$38454 = -24
-_TempNode$38455 = -112
+_j$38436 = -16
+_iDestNode$38440 = -20
+_iDestNode$38455 = -24
+_TempNode$38456 = -112
 ?SortNodes@CGraph@@QAEXXZ PROC NEAR			; CGraph::SortNodes, COMDAT
 
 ; 2768 : {
@@ -17979,16 +17979,16 @@ _TempNode$38455 = -112
 ; 2775 : 	for (int i = 1; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L38429
-$L38430:
+	jmp	SHORT $L38430
+$L38431:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38429:
+$L38430:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	SHORT $L38431
+	jge	SHORT $L38432
 
 ; 2777 : 		m_pNodes[i].m_iPreviousNode = UNNUMBERED_NODE;
 
@@ -18000,65 +18000,65 @@ $L38429:
 
 ; 2778 : 	}
 
-	jmp	SHORT $L38430
-$L38431:
+	jmp	SHORT $L38431
+$L38432:
 
 ; 2779 : 
 ; 2780 : 	for (i = 0; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38432
-$L38433:
+	jmp	SHORT $L38433
+$L38434:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38432:
+$L38433:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	SHORT $L38434
+	jge	SHORT $L38435
 
 ; 2782 : 		// Run through all of this node's neighbors
 ; 2783 : 		//
 ; 2784 : 		for (int j = 0 ; j < m_pNodes[i].m_cNumLinks; j++ )
 
-	mov	DWORD PTR _j$38435[ebp], 0
-	jmp	SHORT $L38436
-$L38437:
-	mov	ecx, DWORD PTR _j$38435[ebp]
+	mov	DWORD PTR _j$38436[ebp], 0
+	jmp	SHORT $L38437
+$L38438:
+	mov	ecx, DWORD PTR _j$38436[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _j$38435[ebp], ecx
-$L38436:
+	mov	DWORD PTR _j$38436[ebp], ecx
+$L38437:
 	mov	edx, DWORD PTR _i$[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
-	mov	eax, DWORD PTR _j$38435[ebp]
+	mov	eax, DWORD PTR _j$38436[ebp]
 	cmp	eax, DWORD PTR [ecx+edx+32]
-	jge	SHORT $L38438
+	jge	SHORT $L38439
 
 ; 2786 : 			int iDestNode = INodeLink(i, j);
 
-	mov	ecx, DWORD PTR _j$38435[ebp]
+	mov	ecx, DWORD PTR _j$38436[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _i$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?INodeLink@CGraph@@QAEHHH@Z		; CGraph::INodeLink
-	mov	DWORD PTR _iDestNode$38439[ebp], eax
+	mov	DWORD PTR _iDestNode$38440[ebp], eax
 
 ; 2787 : 			if (m_pNodes[iDestNode].m_iPreviousNode == UNNUMBERED_NODE)
 
-	mov	eax, DWORD PTR _iDestNode$38439[ebp]
+	mov	eax, DWORD PTR _iDestNode$38440[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	cmp	DWORD PTR [edx+eax+76], -1
-	jne	SHORT $L38440
+	jne	SHORT $L38441
 
 ; 2789 : 				m_pNodes[iDestNode].m_iPreviousNode = iNodeCnt++;
 
-	mov	eax, DWORD PTR _iDestNode$38439[ebp]
+	mov	eax, DWORD PTR _iDestNode$38440[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
@@ -18067,17 +18067,17 @@ $L38436:
 	mov	edx, DWORD PTR _iNodeCnt$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _iNodeCnt$[ebp], edx
-$L38440:
+$L38441:
 
 ; 2791 : 		}
 
-	jmp	SHORT $L38437
-$L38438:
+	jmp	SHORT $L38438
+$L38439:
 
 ; 2792 : 	}
 
-	jmp	$L38433
-$L38434:
+	jmp	$L38434
+$L38435:
 
 ; 2793 : 
 ; 2794 : 	// Assign remaining node numbers to unlinked nodes.
@@ -18085,16 +18085,16 @@ $L38434:
 ; 2796 : 	for (i = 0; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38441
-$L38442:
+	jmp	SHORT $L38442
+$L38443:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38441:
+$L38442:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	SHORT $L38443
+	jge	SHORT $L38444
 
 ; 2798 : 		if (m_pNodes[i].m_iPreviousNode == UNNUMBERED_NODE)
 
@@ -18103,7 +18103,7 @@ $L38441:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	cmp	DWORD PTR [edx+eax+76], -1
-	jne	SHORT $L38444
+	jne	SHORT $L38445
 
 ; 2800 : 			m_pNodes[i].m_iPreviousNode = iNodeCnt++;
 
@@ -18116,12 +18116,12 @@ $L38441:
 	mov	edx, DWORD PTR _iNodeCnt$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _iNodeCnt$[ebp], edx
-$L38444:
+$L38445:
 
 ; 2802 : 	}
 
-	jmp	SHORT $L38442
-$L38443:
+	jmp	SHORT $L38443
+$L38444:
 
 ; 2803 : 
 ; 2804 : 	// Alter links to reflect new node numbers.
@@ -18129,16 +18129,16 @@ $L38443:
 ; 2806 : 	for (i = 0; i < m_cLinks; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38445
-$L38446:
+	jmp	SHORT $L38446
+$L38447:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38445:
+$L38446:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+28]
-	jge	SHORT $L38447
+	jge	SHORT $L38448
 
 ; 2808 : 		m_pLinkPool[i].m_iSrcNode  = m_pNodes[m_pLinkPool[i].m_iSrcNode].m_iPreviousNode;
 
@@ -18176,8 +18176,8 @@ $L38445:
 
 ; 2810 : 	}
 
-	jmp	SHORT $L38446
-$L38447:
+	jmp	SHORT $L38447
+$L38448:
 
 ; 2811 : 
 ; 2812 : 	// Rearrange nodes to reflect new node numbering.
@@ -18185,17 +18185,17 @@ $L38447:
 ; 2814 : 	for (i = 0; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38448
-$L38449:
+	jmp	SHORT $L38449
+$L38450:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38448:
+$L38449:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L38450
-$L38452:
+	jge	$L38451
+$L38453:
 
 ; 2816 : 		while (m_pNodes[i].m_iPreviousNode != i)
 
@@ -18205,7 +18205,7 @@ $L38452:
 	mov	edx, DWORD PTR [ecx+12]
 	mov	eax, DWORD PTR [edx+eax+76]
 	cmp	eax, DWORD PTR _i$[ebp]
-	je	SHORT $L38453
+	je	SHORT $L38454
 
 ; 2818 : 			// Move current node off to where it should be, and bring
 ; 2819 : 			// that other node back into the current slot.
@@ -18217,17 +18217,17 @@ $L38452:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	ecx, DWORD PTR [eax+ecx+76]
-	mov	DWORD PTR _iDestNode$38454[ebp], ecx
+	mov	DWORD PTR _iDestNode$38455[ebp], ecx
 
 ; 2822 : 			CNode TempNode = m_pNodes[iDestNode];
 
-	mov	edx, DWORD PTR _iDestNode$38454[ebp]
+	mov	edx, DWORD PTR _iDestNode$38455[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	add	ecx, edx
 	push	ecx
-	lea	ecx, DWORD PTR _TempNode$38455[ebp]
+	lea	ecx, DWORD PTR _TempNode$38456[ebp]
 	call	??0CNode@@QAE@ABV0@@Z			; CNode::CNode
 
 ; 2823 : 			m_pNodes[iDestNode] = m_pNodes[i];
@@ -18237,7 +18237,7 @@ $L38452:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	esi, DWORD PTR [eax+12]
 	add	esi, edx
-	mov	ecx, DWORD PTR _iDestNode$38454[ebp]
+	mov	ecx, DWORD PTR _iDestNode$38455[ebp]
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	edi, DWORD PTR [edx+12]
@@ -18253,18 +18253,18 @@ $L38452:
 	mov	edi, DWORD PTR [ecx+12]
 	add	edi, eax
 	mov	ecx, 22					; 00000016H
-	lea	esi, DWORD PTR _TempNode$38455[ebp]
+	lea	esi, DWORD PTR _TempNode$38456[ebp]
 	rep movsd
 
 ; 2825 : 		}
 
-	jmp	SHORT $L38452
-$L38453:
+	jmp	SHORT $L38453
+$L38454:
 
 ; 2826 : 	}
 
-	jmp	$L38449
-$L38450:
+	jmp	$L38450
+$L38451:
 
 ; 2827 : }
 
@@ -18364,7 +18364,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _i$ = -8
-_link$38474 = -12
+_link$38475 = -12
 ?BuildLinkLookups@CGraph@@QAEXXZ PROC NEAR		; CGraph::BuildLinkLookups, COMDAT
 
 ; 2830 : {
@@ -18413,7 +18413,7 @@ _link$38474 = -12
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+8380], 0
-	jne	SHORT $L38465
+	jne	SHORT $L38466
 
 ; 2837 : 		ALERT(at_aiconsole, "Couldn't allocated Link Lookup Table.\n");
 
@@ -18424,22 +18424,22 @@ _link$38474 = -12
 
 ; 2838 : 		return;
 
-	jmp	SHORT $L38462
-$L38465:
+	jmp	SHORT $L38463
+$L38466:
 
 ; 2840 : 	for (int i = 0; i < m_nHashLinks; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38468
-$L38469:
+	jmp	SHORT $L38469
+$L38470:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38468:
+$L38469:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+8384]
-	jge	SHORT $L38470
+	jge	SHORT $L38471
 
 ; 2842 : 		m_pHashLinks[i] = ENTRY_STATE_EMPTY;
 
@@ -18450,23 +18450,23 @@ $L38468:
 
 ; 2843 : 	}
 
-	jmp	SHORT $L38469
-$L38470:
+	jmp	SHORT $L38470
+$L38471:
 
 ; 2844 : 
 ; 2845 : 	for (i = 0; i < m_cLinks; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38471
-$L38472:
+	jmp	SHORT $L38472
+$L38473:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38471:
+$L38472:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+28]
-	jge	SHORT $L38473
+	jge	SHORT $L38474
 
 ; 2847 : 		CLink &link = Link(i);
 
@@ -18474,16 +18474,16 @@ $L38471:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Link@CGraph@@QAEAAVCLink@@H@Z		; CGraph::Link
-	mov	DWORD PTR _link$38474[ebp], eax
+	mov	DWORD PTR _link$38475[ebp], eax
 
 ; 2848 : 		HashInsert(link.m_iSrcNode, link.m_iDestNode, i);
 
 	mov	ecx, DWORD PTR _i$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _link$38474[ebp]
+	mov	edx, DWORD PTR _link$38475[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	push	eax
-	mov	ecx, DWORD PTR _link$38474[ebp]
+	mov	ecx, DWORD PTR _link$38475[ebp]
 	mov	edx, DWORD PTR [ecx]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -18491,9 +18491,9 @@ $L38471:
 
 ; 2849 : 	}
 
-	jmp	SHORT $L38472
-$L38473:
-$L38462:
+	jmp	SHORT $L38473
+$L38474:
+$L38463:
 
 ; 2850 : #if 0
 ; 2851 : 	for (i = 0; i < m_cLinks; i++)
@@ -18528,22 +18528,22 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _i$ = -8
-_j$38503 = -12
-_jNode$38513 = -16
-_jCodeX$38514 = -20
-_jCodeY$38515 = -24
-_jCodeZ$38516 = -28
-_jCode$38517 = -32
-_k$38525 = -36
-_kNode$38529 = -40
-_kCodeX$38530 = -44
-_kCodeY$38531 = -48
-_kCodeZ$38532 = -52
-_kCode$38533 = -56
-_Tmp$38542 = -60
-_CodeX$38546 = -64
-_CodeY$38547 = -68
-_CodeZ$38548 = -72
+_j$38504 = -12
+_jNode$38514 = -16
+_jCodeX$38515 = -20
+_jCodeY$38516 = -24
+_jCodeZ$38517 = -28
+_jCode$38518 = -32
+_k$38526 = -36
+_kNode$38530 = -40
+_kCodeX$38531 = -44
+_kCodeY$38532 = -48
+_kCodeZ$38533 = -52
+_kCode$38534 = -56
+_Tmp$38543 = -60
+_CodeX$38547 = -64
+_CodeY$38548 = -68
+_CodeZ$38549 = -72
 ?BuildRegionTables@CGraph@@QAEXXZ PROC NEAR		; CGraph::BuildRegionTables, COMDAT
 
 ; 2865 : {
@@ -18560,13 +18560,13 @@ _CodeZ$38548 = -72
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+36], 0
-	je	SHORT $L38479
+	je	SHORT $L38480
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_free
 	add	esp, 4
-$L38479:
+$L38480:
 
 ; 2867 : 
 ; 2868 : 	// Go ahead and setup for range searching the nodes for FindNearestNodes
@@ -18586,7 +18586,7 @@ $L38479:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+36], 0
-	jne	SHORT $L38482
+	jne	SHORT $L38483
 
 ; 2873 : 		ALERT(at_aiconsole, "Couldn't allocated node ordering array.\n");
 
@@ -18597,8 +18597,8 @@ $L38479:
 
 ; 2874 : 		return;
 
-	jmp	$L38478
-$L38482:
+	jmp	$L38479
+$L38483:
 
 ; 2876 : 
 ; 2877 : 	// Calculate regions for all the nodes.
@@ -18607,14 +18607,14 @@ $L38482:
 ; 2880 : 	for (int i = 0; i < 3; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38485
-$L38486:
+	jmp	SHORT $L38486
+$L38487:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38485:
+$L38486:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L38487
+	jge	SHORT $L38488
 
 ; 2882 : 		m_RegionMin[i] =  999999999.0; // just a big number out there;
 
@@ -18630,22 +18630,22 @@ $L38485:
 
 ; 2884 : 	}
 
-	jmp	SHORT $L38486
-$L38487:
+	jmp	SHORT $L38487
+$L38488:
 
 ; 2885 : 	for (i = 0; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38488
-$L38489:
+	jmp	SHORT $L38489
+$L38490:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38488:
+$L38489:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L38490
+	jge	$L38491
 
 ; 2887 : 		if (m_pNodes[i].m_vecOrigin.x < m_RegionMin[0])
 
@@ -18658,7 +18658,7 @@ $L38488:
 	fcomp	DWORD PTR [ecx+6244]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38491
+	je	SHORT $L38492
 
 ; 2888 : 			m_RegionMin[0] = m_pNodes[i].m_vecOrigin.x;
 
@@ -18669,7 +18669,7 @@ $L38488:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+edx]
 	mov	DWORD PTR [eax+6244], ecx
-$L38491:
+$L38492:
 
 ; 2889 : 		if (m_pNodes[i].m_vecOrigin.y < m_RegionMin[1])
 
@@ -18682,7 +18682,7 @@ $L38491:
 	fcomp	DWORD PTR [eax+6248]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38492
+	je	SHORT $L38493
 
 ; 2890 : 			m_RegionMin[1] = m_pNodes[i].m_vecOrigin.y;
 
@@ -18693,7 +18693,7 @@ $L38491:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax+ecx+4]
 	mov	DWORD PTR [edx+6248], eax
-$L38492:
+$L38493:
 
 ; 2891 : 		if (m_pNodes[i].m_vecOrigin.z < m_RegionMin[2])
 
@@ -18706,7 +18706,7 @@ $L38492:
 	fcomp	DWORD PTR [edx+6252]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38493
+	je	SHORT $L38494
 
 ; 2892 : 			m_RegionMin[2] = m_pNodes[i].m_vecOrigin.z;
 
@@ -18717,7 +18717,7 @@ $L38492:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [edx+eax+8]
 	mov	DWORD PTR [ecx+6252], edx
-$L38493:
+$L38494:
 
 ; 2893 : 
 ; 2894 : 		if (m_pNodes[i].m_vecOrigin.x > m_RegionMax[0])
@@ -18731,7 +18731,7 @@ $L38493:
 	fcomp	DWORD PTR [ecx+6256]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38494
+	jne	SHORT $L38495
 
 ; 2895 : 			m_RegionMax[0] = m_pNodes[i].m_vecOrigin.x;
 
@@ -18742,7 +18742,7 @@ $L38493:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+edx]
 	mov	DWORD PTR [eax+6256], ecx
-$L38494:
+$L38495:
 
 ; 2896 : 		if (m_pNodes[i].m_vecOrigin.y > m_RegionMax[1])
 
@@ -18755,7 +18755,7 @@ $L38494:
 	fcomp	DWORD PTR [eax+6260]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38495
+	jne	SHORT $L38496
 
 ; 2897 : 			m_RegionMax[1] = m_pNodes[i].m_vecOrigin.y;
 
@@ -18766,7 +18766,7 @@ $L38494:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax+ecx+4]
 	mov	DWORD PTR [edx+6260], eax
-$L38495:
+$L38496:
 
 ; 2898 : 		if (m_pNodes[i].m_vecOrigin.z > m_RegionMax[2])
 
@@ -18779,7 +18779,7 @@ $L38495:
 	fcomp	DWORD PTR [edx+6264]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38496
+	jne	SHORT $L38497
 
 ; 2899 : 			m_RegionMax[2] = m_pNodes[i].m_vecOrigin.z;
 
@@ -18790,26 +18790,26 @@ $L38495:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [edx+eax+8]
 	mov	DWORD PTR [ecx+6264], edx
-$L38496:
+$L38497:
 
 ; 2900 : 	}
 
-	jmp	$L38489
-$L38490:
+	jmp	$L38490
+$L38491:
 
 ; 2901 : 	for (i = 0; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38497
-$L38498:
+	jmp	SHORT $L38498
+$L38499:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38497:
+$L38498:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L38499
+	jge	$L38500
 
 ; 2903 : 		m_pNodes[i].m_Region[0] = CALC_RANGE(m_pNodes[i].m_vecOrigin.x, m_RegionMin[0], m_RegionMax[0]);
 
@@ -18888,33 +18888,33 @@ $L38497:
 
 ; 2906 : 	}
 
-	jmp	$L38498
-$L38499:
+	jmp	$L38499
+$L38500:
 
 ; 2907 : 
 ; 2908 : 	for (i = 0; i < 3; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38500
-$L38501:
+	jmp	SHORT $L38501
+$L38502:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L38500:
+$L38501:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	$L38502
+	jge	$L38503
 
 ; 2910 : 		for (int j = 0; j < NUM_RANGES; j++)
 
-	mov	DWORD PTR _j$38503[ebp], 0
-	jmp	SHORT $L38504
-$L38505:
-	mov	eax, DWORD PTR _j$38503[ebp]
+	mov	DWORD PTR _j$38504[ebp], 0
+	jmp	SHORT $L38505
+$L38506:
+	mov	eax, DWORD PTR _j$38504[ebp]
 	add	eax, 1
-	mov	DWORD PTR _j$38503[ebp], eax
-$L38504:
-	cmp	DWORD PTR _j$38503[ebp], 256		; 00000100H
-	jge	SHORT $L38506
+	mov	DWORD PTR _j$38504[ebp], eax
+$L38505:
+	cmp	DWORD PTR _j$38504[ebp], 256		; 00000100H
+	jge	SHORT $L38507
 
 ; 2912 : 			m_RangeStart[i][j] = 255;
 
@@ -18922,7 +18922,7 @@ $L38504:
 	shl	ecx, 10					; 0000000aH
 	mov	edx, DWORD PTR _this$[ebp]
 	lea	eax, DWORD PTR [edx+ecx+40]
-	mov	ecx, DWORD PTR _j$38503[ebp]
+	mov	ecx, DWORD PTR _j$38504[ebp]
 	mov	DWORD PTR [eax+ecx*4], 255		; 000000ffH
 
 ; 2913 : 			m_RangeEnd[i][j] = 0;
@@ -18931,307 +18931,307 @@ $L38504:
 	shl	edx, 10					; 0000000aH
 	mov	eax, DWORD PTR _this$[ebp]
 	lea	ecx, DWORD PTR [eax+edx+3112]
-	mov	edx, DWORD PTR _j$38503[ebp]
+	mov	edx, DWORD PTR _j$38504[ebp]
 	mov	DWORD PTR [ecx+edx*4], 0
 
 ; 2914 : 		}
 
-	jmp	SHORT $L38505
-$L38506:
+	jmp	SHORT $L38506
+$L38507:
 
 ; 2915 : 		for (j = 0; j < m_cNodes; j++)
 
-	mov	DWORD PTR _j$38503[ebp], 0
-	jmp	SHORT $L38507
-$L38508:
-	mov	eax, DWORD PTR _j$38503[ebp]
+	mov	DWORD PTR _j$38504[ebp], 0
+	jmp	SHORT $L38508
+$L38509:
+	mov	eax, DWORD PTR _j$38504[ebp]
 	add	eax, 1
-	mov	DWORD PTR _j$38503[ebp], eax
-$L38507:
+	mov	DWORD PTR _j$38504[ebp], eax
+$L38508:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _j$38503[ebp]
+	mov	edx, DWORD PTR _j$38504[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	SHORT $L38509
+	jge	SHORT $L38510
 
 ; 2917 : 			m_di[j].m_SortedBy[i] = j;
 
-	mov	eax, DWORD PTR _j$38503[ebp]
+	mov	eax, DWORD PTR _j$38504[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	add	edx, eax
 	mov	eax, DWORD PTR _i$[ebp]
-	mov	ecx, DWORD PTR _j$38503[ebp]
+	mov	ecx, DWORD PTR _j$38504[ebp]
 	mov	DWORD PTR [edx+eax*4], ecx
 
 ; 2918 : 		}
 
-	jmp	SHORT $L38508
-$L38509:
+	jmp	SHORT $L38509
+$L38510:
 
 ; 2919 : 
 ; 2920 : 		for (j = 0; j < m_cNodes - 1; j++)
 
-	mov	DWORD PTR _j$38503[ebp], 0
-	jmp	SHORT $L38510
-$L38511:
-	mov	edx, DWORD PTR _j$38503[ebp]
+	mov	DWORD PTR _j$38504[ebp], 0
+	jmp	SHORT $L38511
+$L38512:
+	mov	edx, DWORD PTR _j$38504[ebp]
 	add	edx, 1
-	mov	DWORD PTR _j$38503[ebp], edx
-$L38510:
+	mov	DWORD PTR _j$38504[ebp], edx
+$L38511:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	sub	ecx, 1
-	cmp	DWORD PTR _j$38503[ebp], ecx
-	jge	$L38512
+	cmp	DWORD PTR _j$38504[ebp], ecx
+	jge	$L38513
 
 ; 2922 : 			int jNode = m_di[j].m_SortedBy[i];
 
-	mov	edx, DWORD PTR _j$38503[ebp]
+	mov	edx, DWORD PTR _j$38504[ebp]
 	shl	edx, 4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+36]
 	add	ecx, edx
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR [ecx+edx*4]
-	mov	DWORD PTR _jNode$38513[ebp], eax
+	mov	DWORD PTR _jNode$38514[ebp], eax
 
 ; 2923 : 			int jCodeX = m_pNodes[jNode].m_Region[0];
 
-	mov	ecx, DWORD PTR _jNode$38513[ebp]
+	mov	ecx, DWORD PTR _jNode$38514[ebp]
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	xor	edx, edx
 	mov	dl, BYTE PTR [eax+ecx+24]
-	mov	DWORD PTR _jCodeX$38514[ebp], edx
+	mov	DWORD PTR _jCodeX$38515[ebp], edx
 
 ; 2924 : 			int jCodeY = m_pNodes[jNode].m_Region[1];
 
-	mov	eax, DWORD PTR _jNode$38513[ebp]
+	mov	eax, DWORD PTR _jNode$38514[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+25]
-	mov	DWORD PTR _jCodeY$38515[ebp], ecx
+	mov	DWORD PTR _jCodeY$38516[ebp], ecx
 
 ; 2925 : 			int jCodeZ = m_pNodes[jNode].m_Region[2];
 
-	mov	edx, DWORD PTR _jNode$38513[ebp]
+	mov	edx, DWORD PTR _jNode$38514[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+26]
-	mov	DWORD PTR _jCodeZ$38516[ebp], eax
+	mov	DWORD PTR _jCodeZ$38517[ebp], eax
 
 ; 2928 : 			{
 
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR -76+[ebp], ecx
 	cmp	DWORD PTR -76+[ebp], 0
-	je	SHORT $L38522
-	cmp	DWORD PTR -76+[ebp], 1
 	je	SHORT $L38523
-	cmp	DWORD PTR -76+[ebp], 2
+	cmp	DWORD PTR -76+[ebp], 1
 	je	SHORT $L38524
-	jmp	SHORT $L38519
-$L38522:
+	cmp	DWORD PTR -76+[ebp], 2
+	je	SHORT $L38525
+	jmp	SHORT $L38520
+$L38523:
 
 ; 2929 : 			case 0:
 ; 2930 : 				jCode = (jCodeX << 16) + (jCodeY << 8) + jCodeZ;
 
-	mov	edx, DWORD PTR _jCodeX$38514[ebp]
+	mov	edx, DWORD PTR _jCodeX$38515[ebp]
 	shl	edx, 16					; 00000010H
-	mov	eax, DWORD PTR _jCodeY$38515[ebp]
+	mov	eax, DWORD PTR _jCodeY$38516[ebp]
 	shl	eax, 8
-	mov	ecx, DWORD PTR _jCodeZ$38516[ebp]
+	mov	ecx, DWORD PTR _jCodeZ$38517[ebp]
 	add	ecx, edx
 	add	eax, ecx
-	mov	DWORD PTR _jCode$38517[ebp], eax
+	mov	DWORD PTR _jCode$38518[ebp], eax
 
 ; 2931 : 				break;
 
-	jmp	SHORT $L38519
-$L38523:
+	jmp	SHORT $L38520
+$L38524:
 
 ; 2932 : 			case 1:
 ; 2933 : 				jCode = (jCodeY << 16) + (jCodeZ << 8) + jCodeX;
 
-	mov	edx, DWORD PTR _jCodeY$38515[ebp]
+	mov	edx, DWORD PTR _jCodeY$38516[ebp]
 	shl	edx, 16					; 00000010H
-	mov	eax, DWORD PTR _jCodeZ$38516[ebp]
+	mov	eax, DWORD PTR _jCodeZ$38517[ebp]
 	shl	eax, 8
-	mov	ecx, DWORD PTR _jCodeX$38514[ebp]
+	mov	ecx, DWORD PTR _jCodeX$38515[ebp]
 	add	ecx, edx
 	add	eax, ecx
-	mov	DWORD PTR _jCode$38517[ebp], eax
+	mov	DWORD PTR _jCode$38518[ebp], eax
 
 ; 2934 : 				break;
 
-	jmp	SHORT $L38519
-$L38524:
+	jmp	SHORT $L38520
+$L38525:
 
 ; 2935 : 			case 2:
 ; 2936 : 				jCode = (jCodeZ << 16) + (jCodeX << 8) + jCodeY;
 
-	mov	edx, DWORD PTR _jCodeZ$38516[ebp]
+	mov	edx, DWORD PTR _jCodeZ$38517[ebp]
 	shl	edx, 16					; 00000010H
-	mov	eax, DWORD PTR _jCodeX$38514[ebp]
+	mov	eax, DWORD PTR _jCodeX$38515[ebp]
 	shl	eax, 8
-	mov	ecx, DWORD PTR _jCodeY$38515[ebp]
+	mov	ecx, DWORD PTR _jCodeY$38516[ebp]
 	add	ecx, edx
 	add	eax, ecx
-	mov	DWORD PTR _jCode$38517[ebp], eax
-$L38519:
+	mov	DWORD PTR _jCode$38518[ebp], eax
+$L38520:
 
 ; 2939 : 
 ; 2940 : 			for (int k = j+1; k < m_cNodes; k++)
 
-	mov	edx, DWORD PTR _j$38503[ebp]
+	mov	edx, DWORD PTR _j$38504[ebp]
 	add	edx, 1
-	mov	DWORD PTR _k$38525[ebp], edx
-	jmp	SHORT $L38526
-$L38527:
-	mov	eax, DWORD PTR _k$38525[ebp]
+	mov	DWORD PTR _k$38526[ebp], edx
+	jmp	SHORT $L38527
+$L38528:
+	mov	eax, DWORD PTR _k$38526[ebp]
 	add	eax, 1
-	mov	DWORD PTR _k$38525[ebp], eax
-$L38526:
+	mov	DWORD PTR _k$38526[ebp], eax
+$L38527:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _k$38525[ebp]
+	mov	edx, DWORD PTR _k$38526[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L38528
+	jge	$L38529
 
 ; 2942 : 				int kNode = m_di[k].m_SortedBy[i];
 
-	mov	eax, DWORD PTR _k$38525[ebp]
+	mov	eax, DWORD PTR _k$38526[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	add	edx, eax
 	mov	eax, DWORD PTR _i$[ebp]
 	mov	ecx, DWORD PTR [edx+eax*4]
-	mov	DWORD PTR _kNode$38529[ebp], ecx
+	mov	DWORD PTR _kNode$38530[ebp], ecx
 
 ; 2943 : 				int kCodeX = m_pNodes[kNode].m_Region[0];
 
-	mov	edx, DWORD PTR _kNode$38529[ebp]
+	mov	edx, DWORD PTR _kNode$38530[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+24]
-	mov	DWORD PTR _kCodeX$38530[ebp], eax
+	mov	DWORD PTR _kCodeX$38531[ebp], eax
 
 ; 2944 : 				int kCodeY = m_pNodes[kNode].m_Region[1];
 
-	mov	ecx, DWORD PTR _kNode$38529[ebp]
+	mov	ecx, DWORD PTR _kNode$38530[ebp]
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	xor	edx, edx
 	mov	dl, BYTE PTR [eax+ecx+25]
-	mov	DWORD PTR _kCodeY$38531[ebp], edx
+	mov	DWORD PTR _kCodeY$38532[ebp], edx
 
 ; 2945 : 				int kCodeZ = m_pNodes[kNode].m_Region[2];
 
-	mov	eax, DWORD PTR _kNode$38529[ebp]
+	mov	eax, DWORD PTR _kNode$38530[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+26]
-	mov	DWORD PTR _kCodeZ$38532[ebp], ecx
+	mov	DWORD PTR _kCodeZ$38533[ebp], ecx
 
 ; 2948 : 				{
 
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR -80+[ebp], edx
 	cmp	DWORD PTR -80+[ebp], 0
-	je	SHORT $L38538
-	cmp	DWORD PTR -80+[ebp], 1
 	je	SHORT $L38539
-	cmp	DWORD PTR -80+[ebp], 2
+	cmp	DWORD PTR -80+[ebp], 1
 	je	SHORT $L38540
-	jmp	SHORT $L38535
-$L38538:
+	cmp	DWORD PTR -80+[ebp], 2
+	je	SHORT $L38541
+	jmp	SHORT $L38536
+$L38539:
 
 ; 2949 : 				case 0:
 ; 2950 : 					kCode = (kCodeX << 16) + (kCodeY << 8) + kCodeZ;
 
-	mov	eax, DWORD PTR _kCodeX$38530[ebp]
+	mov	eax, DWORD PTR _kCodeX$38531[ebp]
 	shl	eax, 16					; 00000010H
-	mov	ecx, DWORD PTR _kCodeY$38531[ebp]
+	mov	ecx, DWORD PTR _kCodeY$38532[ebp]
 	shl	ecx, 8
-	mov	edx, DWORD PTR _kCodeZ$38532[ebp]
+	mov	edx, DWORD PTR _kCodeZ$38533[ebp]
 	add	edx, eax
 	add	ecx, edx
-	mov	DWORD PTR _kCode$38533[ebp], ecx
+	mov	DWORD PTR _kCode$38534[ebp], ecx
 
 ; 2951 : 					break;
 
-	jmp	SHORT $L38535
-$L38539:
+	jmp	SHORT $L38536
+$L38540:
 
 ; 2952 : 				case 1:
 ; 2953 : 					kCode = (kCodeY << 16) + (kCodeZ << 8) + kCodeX;
 
-	mov	eax, DWORD PTR _kCodeY$38531[ebp]
+	mov	eax, DWORD PTR _kCodeY$38532[ebp]
 	shl	eax, 16					; 00000010H
-	mov	ecx, DWORD PTR _kCodeZ$38532[ebp]
+	mov	ecx, DWORD PTR _kCodeZ$38533[ebp]
 	shl	ecx, 8
-	mov	edx, DWORD PTR _kCodeX$38530[ebp]
+	mov	edx, DWORD PTR _kCodeX$38531[ebp]
 	add	edx, eax
 	add	ecx, edx
-	mov	DWORD PTR _kCode$38533[ebp], ecx
+	mov	DWORD PTR _kCode$38534[ebp], ecx
 
 ; 2954 : 					break;
 
-	jmp	SHORT $L38535
-$L38540:
+	jmp	SHORT $L38536
+$L38541:
 
 ; 2955 : 				case 2:
 ; 2956 : 					kCode = (kCodeZ << 16) + (kCodeX << 8) + kCodeY;
 
-	mov	eax, DWORD PTR _kCodeZ$38532[ebp]
+	mov	eax, DWORD PTR _kCodeZ$38533[ebp]
 	shl	eax, 16					; 00000010H
-	mov	ecx, DWORD PTR _kCodeX$38530[ebp]
+	mov	ecx, DWORD PTR _kCodeX$38531[ebp]
 	shl	ecx, 8
-	mov	edx, DWORD PTR _kCodeY$38531[ebp]
+	mov	edx, DWORD PTR _kCodeY$38532[ebp]
 	add	edx, eax
 	add	ecx, edx
-	mov	DWORD PTR _kCode$38533[ebp], ecx
-$L38535:
+	mov	DWORD PTR _kCode$38534[ebp], ecx
+$L38536:
 
 ; 2959 : 
 ; 2960 : 				if (kCode < jCode)
 
-	mov	eax, DWORD PTR _kCode$38533[ebp]
-	cmp	eax, DWORD PTR _jCode$38517[ebp]
-	jge	SHORT $L38541
+	mov	eax, DWORD PTR _kCode$38534[ebp]
+	cmp	eax, DWORD PTR _jCode$38518[ebp]
+	jge	SHORT $L38542
 
 ; 2962 : 					// Swap j and k entries.
 ; 2963 : 					//
 ; 2964 : 					int Tmp = m_di[j].m_SortedBy[i];
 
-	mov	ecx, DWORD PTR _j$38503[ebp]
+	mov	ecx, DWORD PTR _j$38504[ebp]
 	shl	ecx, 4
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+36]
 	add	eax, ecx
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR [eax+ecx*4]
-	mov	DWORD PTR _Tmp$38542[ebp], edx
+	mov	DWORD PTR _Tmp$38543[ebp], edx
 
 ; 2965 : 					m_di[j].m_SortedBy[i] = m_di[k].m_SortedBy[i];
 
-	mov	eax, DWORD PTR _k$38525[ebp]
+	mov	eax, DWORD PTR _k$38526[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	add	edx, eax
-	mov	eax, DWORD PTR _j$38503[ebp]
+	mov	eax, DWORD PTR _j$38504[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+36]
@@ -19243,30 +19243,30 @@ $L38535:
 
 ; 2966 : 					m_di[k].m_SortedBy[i] = Tmp;
 
-	mov	eax, DWORD PTR _k$38525[ebp]
+	mov	eax, DWORD PTR _k$38526[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	add	edx, eax
 	mov	eax, DWORD PTR _i$[ebp]
-	mov	ecx, DWORD PTR _Tmp$38542[ebp]
+	mov	ecx, DWORD PTR _Tmp$38543[ebp]
 	mov	DWORD PTR [edx+eax*4], ecx
-$L38541:
+$L38542:
 
 ; 2968 : 			}
 
-	jmp	$L38527
-$L38528:
+	jmp	$L38528
+$L38529:
 
 ; 2969 : 		}
 
-	jmp	$L38511
-$L38512:
+	jmp	$L38512
+$L38513:
 
 ; 2970 : 	}
 
-	jmp	$L38501
-$L38502:
+	jmp	$L38502
+$L38503:
 
 ; 2971 : 
 ; 2972 : 	// Generate lookup tables.
@@ -19274,16 +19274,16 @@ $L38502:
 ; 2974 : 	for (i = 0; i < m_cNodes; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38543
-$L38544:
+	jmp	SHORT $L38544
+$L38545:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L38543:
+$L38544:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	$L38545
+	jge	$L38546
 
 ; 2976 : 		int CodeX = m_pNodes[m_di[i].m_SortedBy[0]].m_Region[0];
 
@@ -19297,7 +19297,7 @@ $L38543:
 	mov	ecx, DWORD PTR [eax+12]
 	xor	eax, eax
 	mov	al, BYTE PTR [ecx+edx+24]
-	mov	DWORD PTR _CodeX$38546[ebp], eax
+	mov	DWORD PTR _CodeX$38547[ebp], eax
 
 ; 2977 : 		int CodeY = m_pNodes[m_di[i].m_SortedBy[1]].m_Region[1];
 
@@ -19311,7 +19311,7 @@ $L38543:
 	mov	eax, DWORD PTR [edx+12]
 	xor	edx, edx
 	mov	dl, BYTE PTR [eax+ecx+25]
-	mov	DWORD PTR _CodeY$38547[ebp], edx
+	mov	DWORD PTR _CodeY$38548[ebp], edx
 
 ; 2978 : 		int CodeZ = m_pNodes[m_di[i].m_SortedBy[2]].m_Region[2];
 
@@ -19325,109 +19325,109 @@ $L38543:
 	mov	edx, DWORD PTR [ecx+12]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [edx+eax+26]
-	mov	DWORD PTR _CodeZ$38548[ebp], ecx
+	mov	DWORD PTR _CodeZ$38549[ebp], ecx
 
 ; 2979 : 
 ; 2980 :         if (i < m_RangeStart[0][CodeX])
 
-	mov	edx, DWORD PTR _CodeX$38546[ebp]
+	mov	edx, DWORD PTR _CodeX$38547[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+40]
-	jge	SHORT $L38549
+	jge	SHORT $L38550
 
 ; 2982 :             m_RangeStart[0][CodeX] = i;
 
-	mov	edx, DWORD PTR _CodeX$38546[ebp]
+	mov	edx, DWORD PTR _CodeX$38547[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR [eax+edx*4+40], ecx
-$L38549:
+$L38550:
 
 ; 2984 :         if (i < m_RangeStart[1][CodeY])
 
-	mov	edx, DWORD PTR _CodeY$38547[ebp]
+	mov	edx, DWORD PTR _CodeY$38548[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+1064]
-	jge	SHORT $L38550
+	jge	SHORT $L38551
 
 ; 2986 :             m_RangeStart[1][CodeY] = i;
 
-	mov	edx, DWORD PTR _CodeY$38547[ebp]
+	mov	edx, DWORD PTR _CodeY$38548[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR [eax+edx*4+1064], ecx
-$L38550:
+$L38551:
 
 ; 2988 :         if (i < m_RangeStart[2][CodeZ])
 
-	mov	edx, DWORD PTR _CodeZ$38548[ebp]
+	mov	edx, DWORD PTR _CodeZ$38549[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+2088]
-	jge	SHORT $L38551
+	jge	SHORT $L38552
 
 ; 2990 :             m_RangeStart[2][CodeZ] = i;
 
-	mov	edx, DWORD PTR _CodeZ$38548[ebp]
+	mov	edx, DWORD PTR _CodeZ$38549[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR [eax+edx*4+2088], ecx
-$L38551:
+$L38552:
 
 ; 2992 :         if (m_RangeEnd[0][CodeX] < i)
 
-	mov	edx, DWORD PTR _CodeX$38546[ebp]
+	mov	edx, DWORD PTR _CodeX$38547[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+3112]
 	cmp	ecx, DWORD PTR _i$[ebp]
-	jge	SHORT $L38552
+	jge	SHORT $L38553
 
 ; 2994 :             m_RangeEnd[0][CodeX] = i;
 
-	mov	edx, DWORD PTR _CodeX$38546[ebp]
+	mov	edx, DWORD PTR _CodeX$38547[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR [eax+edx*4+3112], ecx
-$L38552:
+$L38553:
 
 ; 2996 :         if (m_RangeEnd[1][CodeY] < i)
 
-	mov	edx, DWORD PTR _CodeY$38547[ebp]
+	mov	edx, DWORD PTR _CodeY$38548[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+4136]
 	cmp	ecx, DWORD PTR _i$[ebp]
-	jge	SHORT $L38553
+	jge	SHORT $L38554
 
 ; 2998 :             m_RangeEnd[1][CodeY] = i;
 
-	mov	edx, DWORD PTR _CodeY$38547[ebp]
+	mov	edx, DWORD PTR _CodeY$38548[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR [eax+edx*4+4136], ecx
-$L38553:
+$L38554:
 
 ; 3000 :         if (m_RangeEnd[2][CodeZ] < i)
 
-	mov	edx, DWORD PTR _CodeZ$38548[ebp]
+	mov	edx, DWORD PTR _CodeZ$38549[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+5160]
 	cmp	ecx, DWORD PTR _i$[ebp]
-	jge	SHORT $L38554
+	jge	SHORT $L38555
 
 ; 3002 :             m_RangeEnd[2][CodeZ] = i;
 
-	mov	edx, DWORD PTR _CodeZ$38548[ebp]
+	mov	edx, DWORD PTR _CodeZ$38549[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	DWORD PTR [eax+edx*4+5160], ecx
-$L38554:
+$L38555:
 
 ; 3004 : 	}
 
-	jmp	$L38544
-$L38545:
+	jmp	$L38545
+$L38546:
 
 ; 3005 : 
 ; 3006 : 	// Initialize the cache.
@@ -19441,7 +19441,7 @@ $L38545:
 	push	edx
 	call	_memset
 	add	esp, 12					; 0000000cH
-$L38478:
+$L38479:
 
 ; 3009 : }
 
@@ -19469,51 +19469,51 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?ComputeStaticRoutingTables@CGraph@@QAEXXZ
 _TEXT	SEGMENT
-$T40197 = -152
-$T40198 = -156
-$T40199 = -160
-$T40200 = -164
-$T40205 = -168
-$T40206 = -172
-$T40207 = -176
-$T40208 = -180
+$T40198 = -152
+$T40199 = -156
+$T40200 = -160
+$T40201 = -164
+$T40206 = -168
+$T40207 = -172
+$T40208 = -176
+$T40209 = -180
 _this$ = -4
 _nRoutes$ = -8
 _Routes$ = -12
 _pMyPath$ = -16
 _BestNextNodes$ = -20
 _pRoute$ = -24
-_nTotalCompressedSize$38574 = -28
-_iHull$38575 = -32
-_iCap$38579 = -36
-_iCapMask$38583 = -40
-_iFrom$38590 = -44
-_iTo$38594 = -48
-_iTo$38601 = -52
-_cPathSize$38606 = -56
-_iNode$38608 = -60
-_iStart$38612 = -64
-_iNext$38613 = -68
-_iNode1$38614 = -72
-_iEnd$38618 = -76
-_iTo$38623 = -80
-_iLastNode$38627 = -84
-_cSequence$38628 = -88
-_cRepeats$38629 = -92
-_CompressedSize$38630 = -96
-_p$38631 = -100
-_i$38632 = -104
-_CanRepeat$38636 = -108
-_CanSequence$38637 = -112
-_a$38641 = -116
-_b$38642 = -120
-_c$38643 = -124
-_a$38663 = -128
-_b$38664 = -132
-_c$38665 = -136
-_nRoute$38673 = -140
-_i$38675 = -144
-_Tmp$38682 = -148
+_nTotalCompressedSize$38575 = -28
+_iHull$38576 = -32
+_iCap$38580 = -36
+_iCapMask$38584 = -40
+_iFrom$38591 = -44
+_iTo$38595 = -48
+_iTo$38602 = -52
+_cPathSize$38607 = -56
+_iNode$38609 = -60
+_iStart$38613 = -64
+_iNext$38614 = -68
+_iNode1$38615 = -72
+_iEnd$38619 = -76
+_iTo$38624 = -80
+_iLastNode$38628 = -84
+_cSequence$38629 = -88
+_cRepeats$38630 = -92
+_CompressedSize$38631 = -96
+_p$38632 = -100
+_i$38633 = -104
+_CanRepeat$38637 = -108
+_CanSequence$38638 = -112
+_a$38642 = -116
+_b$38643 = -120
+_c$38644 = -124
+_a$38664 = -128
+_b$38665 = -132
+_c$38666 = -136
+_nRoute$38674 = -140
+_i$38676 = -144
+_Tmp$38683 = -148
 ?ComputeStaticRoutingTables@CGraph@@QAEXXZ PROC NEAR	; CGraph::ComputeStaticRoutingTables, COMDAT
 
 ; 3012 : {
@@ -19542,8 +19542,8 @@ _Tmp$38682 = -148
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40197[ebp], eax
-	mov	ecx, DWORD PTR $T40197[ebp]
+	mov	DWORD PTR $T40198[ebp], eax
+	mov	ecx, DWORD PTR $T40198[ebp]
 	mov	DWORD PTR _Routes$[ebp], ecx
 
 ; 3016 : 
@@ -19555,8 +19555,8 @@ _Tmp$38682 = -148
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40198[ebp], eax
-	mov	ecx, DWORD PTR $T40198[ebp]
+	mov	DWORD PTR $T40199[ebp], eax
+	mov	ecx, DWORD PTR $T40199[ebp]
 	mov	DWORD PTR _pMyPath$[ebp], ecx
 
 ; 3018 : 	unsigned short *BestNextNodes = new unsigned short[m_cNodes];
@@ -19567,8 +19567,8 @@ _Tmp$38682 = -148
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40199[ebp], eax
-	mov	ecx, DWORD PTR $T40199[ebp]
+	mov	DWORD PTR $T40200[ebp], eax
+	mov	ecx, DWORD PTR $T40200[ebp]
 	mov	DWORD PTR _BestNextNodes$[ebp], ecx
 
 ; 3019 : 	char *pRoute = new char[m_cNodes*2];
@@ -19579,8 +19579,8 @@ _Tmp$38682 = -148
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40200[ebp], eax
-	mov	ecx, DWORD PTR $T40200[ebp]
+	mov	DWORD PTR $T40201[ebp], eax
+	mov	ecx, DWORD PTR $T40201[ebp]
 	mov	DWORD PTR _pRoute$[ebp], ecx
 
 ; 3020 : 
@@ -19588,69 +19588,69 @@ _Tmp$38682 = -148
 ; 3022 : 	if (Routes && pMyPath && BestNextNodes && pRoute)
 
 	cmp	DWORD PTR _Routes$[ebp], 0
-	je	$L38573
+	je	$L38574
 	cmp	DWORD PTR _pMyPath$[ebp], 0
-	je	$L38573
+	je	$L38574
 	cmp	DWORD PTR _BestNextNodes$[ebp], 0
-	je	$L38573
+	je	$L38574
 	cmp	DWORD PTR _pRoute$[ebp], 0
-	je	$L38573
+	je	$L38574
 
 ; 3024 : 		int nTotalCompressedSize = 0;
 
-	mov	DWORD PTR _nTotalCompressedSize$38574[ebp], 0
+	mov	DWORD PTR _nTotalCompressedSize$38575[ebp], 0
 
 ; 3025 : 		for (int iHull = 0; iHull < MAX_NODE_HULLS; iHull++)
 
-	mov	DWORD PTR _iHull$38575[ebp], 0
-	jmp	SHORT $L38576
-$L38577:
-	mov	edx, DWORD PTR _iHull$38575[ebp]
+	mov	DWORD PTR _iHull$38576[ebp], 0
+	jmp	SHORT $L38577
+$L38578:
+	mov	edx, DWORD PTR _iHull$38576[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iHull$38575[ebp], edx
-$L38576:
-	cmp	DWORD PTR _iHull$38575[ebp], 4
-	jge	$L38578
+	mov	DWORD PTR _iHull$38576[ebp], edx
+$L38577:
+	cmp	DWORD PTR _iHull$38576[ebp], 4
+	jge	$L38579
 
 ; 3027 : 			for (int iCap = 0; iCap < 2; iCap++)
 
-	mov	DWORD PTR _iCap$38579[ebp], 0
-	jmp	SHORT $L38580
-$L38581:
-	mov	eax, DWORD PTR _iCap$38579[ebp]
+	mov	DWORD PTR _iCap$38580[ebp], 0
+	jmp	SHORT $L38581
+$L38582:
+	mov	eax, DWORD PTR _iCap$38580[ebp]
 	add	eax, 1
-	mov	DWORD PTR _iCap$38579[ebp], eax
-$L38580:
-	cmp	DWORD PTR _iCap$38579[ebp], 2
-	jge	$L38582
+	mov	DWORD PTR _iCap$38580[ebp], eax
+$L38581:
+	cmp	DWORD PTR _iCap$38580[ebp], 2
+	jge	$L38583
 
 ; 3031 : 				{
 
-	mov	ecx, DWORD PTR _iCap$38579[ebp]
+	mov	ecx, DWORD PTR _iCap$38580[ebp]
 	mov	DWORD PTR -184+[ebp], ecx
 	cmp	DWORD PTR -184+[ebp], 0
-	je	SHORT $L38588
-	cmp	DWORD PTR -184+[ebp], 1
 	je	SHORT $L38589
-	jmp	SHORT $L38585
-$L38588:
+	cmp	DWORD PTR -184+[ebp], 1
+	je	SHORT $L38590
+	jmp	SHORT $L38586
+$L38589:
 
 ; 3032 : 				case 0:
 ; 3033 : 					iCapMask = 0;
 
-	mov	DWORD PTR _iCapMask$38583[ebp], 0
+	mov	DWORD PTR _iCapMask$38584[ebp], 0
 
 ; 3034 : 					break;
 
-	jmp	SHORT $L38585
-$L38589:
+	jmp	SHORT $L38586
+$L38590:
 
 ; 3035 : 
 ; 3036 : 				case 1:
 ; 3037 : 					iCapMask = bits_CAP_OPEN_DOORS | bits_CAP_AUTO_DOORS | bits_CAP_USE;
 
-	mov	DWORD PTR _iCapMask$38583[ebp], 832	; 00000340H
-$L38585:
+	mov	DWORD PTR _iCapMask$38584[ebp], 832	; 00000340H
+$L38586:
 
 ; 3040 : 
 ; 3041 : 
@@ -19658,261 +19658,261 @@ $L38585:
 ; 3043 : 				//
 ; 3044 : 				for (int iFrom = 0; iFrom < m_cNodes; iFrom++)
 
-	mov	DWORD PTR _iFrom$38590[ebp], 0
-	jmp	SHORT $L38591
-$L38592:
-	mov	edx, DWORD PTR _iFrom$38590[ebp]
+	mov	DWORD PTR _iFrom$38591[ebp], 0
+	jmp	SHORT $L38592
+$L38593:
+	mov	edx, DWORD PTR _iFrom$38591[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iFrom$38590[ebp], edx
-$L38591:
+	mov	DWORD PTR _iFrom$38591[ebp], edx
+$L38592:
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _iFrom$38590[ebp]
+	mov	ecx, DWORD PTR _iFrom$38591[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	SHORT $L38593
+	jge	SHORT $L38594
 
 ; 3046 : 					for (int iTo = 0; iTo < m_cNodes; iTo++)
 
-	mov	DWORD PTR _iTo$38594[ebp], 0
-	jmp	SHORT $L38595
-$L38596:
-	mov	edx, DWORD PTR _iTo$38594[ebp]
+	mov	DWORD PTR _iTo$38595[ebp], 0
+	jmp	SHORT $L38596
+$L38597:
+	mov	edx, DWORD PTR _iTo$38595[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iTo$38594[ebp], edx
-$L38595:
+	mov	DWORD PTR _iTo$38595[ebp], edx
+$L38596:
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _iTo$38594[ebp]
+	mov	ecx, DWORD PTR _iTo$38595[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	SHORT $L38597
+	jge	SHORT $L38598
 
 ; 3048 : 						Routes[FROM_TO(iFrom, iTo)] = -1;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	imul	eax, DWORD PTR [edx+24]
-	add	eax, DWORD PTR _iTo$38594[ebp]
+	add	eax, DWORD PTR _iTo$38595[ebp]
 	mov	ecx, DWORD PTR _Routes$[ebp]
 	mov	WORD PTR [ecx+eax*2], -1
 
 ; 3049 : 					}
 
-	jmp	SHORT $L38596
-$L38597:
+	jmp	SHORT $L38597
+$L38598:
 
 ; 3050 : 				}
 
-	jmp	SHORT $L38592
-$L38593:
+	jmp	SHORT $L38593
+$L38594:
 
 ; 3051 : 
 ; 3052 : 				for (iFrom = 0; iFrom < m_cNodes; iFrom++)
 
-	mov	DWORD PTR _iFrom$38590[ebp], 0
-	jmp	SHORT $L38598
-$L38599:
-	mov	edx, DWORD PTR _iFrom$38590[ebp]
+	mov	DWORD PTR _iFrom$38591[ebp], 0
+	jmp	SHORT $L38599
+$L38600:
+	mov	edx, DWORD PTR _iFrom$38591[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iFrom$38590[ebp], edx
-$L38598:
+	mov	DWORD PTR _iFrom$38591[ebp], edx
+$L38599:
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _iFrom$38590[ebp]
+	mov	ecx, DWORD PTR _iFrom$38591[ebp]
 	cmp	ecx, DWORD PTR [eax+24]
-	jge	$L38600
+	jge	$L38601
 
 ; 3054 : 					for (int iTo = m_cNodes-1; iTo >= 0; iTo--)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	sub	eax, 1
-	mov	DWORD PTR _iTo$38601[ebp], eax
-	jmp	SHORT $L38602
-$L38603:
-	mov	ecx, DWORD PTR _iTo$38601[ebp]
+	mov	DWORD PTR _iTo$38602[ebp], eax
+	jmp	SHORT $L38603
+$L38604:
+	mov	ecx, DWORD PTR _iTo$38602[ebp]
 	sub	ecx, 1
-	mov	DWORD PTR _iTo$38601[ebp], ecx
-$L38602:
-	cmp	DWORD PTR _iTo$38601[ebp], 0
-	jl	$L38604
+	mov	DWORD PTR _iTo$38602[ebp], ecx
+$L38603:
+	cmp	DWORD PTR _iTo$38602[ebp], 0
+	jl	$L38605
 
 ; 3056 : 						if (Routes[FROM_TO(iFrom, iTo)] != -1) continue;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	imul	eax, DWORD PTR [edx+24]
-	add	eax, DWORD PTR _iTo$38601[ebp]
+	add	eax, DWORD PTR _iTo$38602[ebp]
 	mov	ecx, DWORD PTR _Routes$[ebp]
 	movsx	edx, WORD PTR [ecx+eax*2]
 	cmp	edx, -1
-	je	SHORT $L38605
-	jmp	SHORT $L38603
-$L38605:
+	je	SHORT $L38606
+	jmp	SHORT $L38604
+$L38606:
 
 ; 3057 : 
 ; 3058 : 						int cPathSize = FindShortestPath(pMyPath, iFrom, iTo, iHull, iCapMask);
 
-	mov	eax, DWORD PTR _iCapMask$38583[ebp]
+	mov	eax, DWORD PTR _iCapMask$38584[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iHull$38575[ebp]
+	mov	ecx, DWORD PTR _iHull$38576[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iTo$38601[ebp]
+	mov	edx, DWORD PTR _iTo$38602[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pMyPath$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FindShortestPath@CGraph@@QAEHPAHHHHH@Z	; CGraph::FindShortestPath
-	mov	DWORD PTR _cPathSize$38606[ebp], eax
+	mov	DWORD PTR _cPathSize$38607[ebp], eax
 
 ; 3059 : 
 ; 3060 : 						// Use the computed path to update the routing table.
 ; 3061 : 						//
 ; 3062 : 						if (cPathSize > 1)
 
-	cmp	DWORD PTR _cPathSize$38606[ebp], 1
-	jle	SHORT $L38607
+	cmp	DWORD PTR _cPathSize$38607[ebp], 1
+	jle	SHORT $L38608
 
 ; 3064 : 							for (int iNode = 0; iNode < cPathSize-1; iNode++)
 
-	mov	DWORD PTR _iNode$38608[ebp], 0
-	jmp	SHORT $L38609
-$L38610:
-	mov	edx, DWORD PTR _iNode$38608[ebp]
+	mov	DWORD PTR _iNode$38609[ebp], 0
+	jmp	SHORT $L38610
+$L38611:
+	mov	edx, DWORD PTR _iNode$38609[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iNode$38608[ebp], edx
-$L38609:
-	mov	eax, DWORD PTR _cPathSize$38606[ebp]
+	mov	DWORD PTR _iNode$38609[ebp], edx
+$L38610:
+	mov	eax, DWORD PTR _cPathSize$38607[ebp]
 	sub	eax, 1
-	cmp	DWORD PTR _iNode$38608[ebp], eax
-	jge	SHORT $L38611
+	cmp	DWORD PTR _iNode$38609[ebp], eax
+	jge	SHORT $L38612
 
 ; 3066 : 								int iStart = pMyPath[iNode];
 
-	mov	ecx, DWORD PTR _iNode$38608[ebp]
+	mov	ecx, DWORD PTR _iNode$38609[ebp]
 	mov	edx, DWORD PTR _pMyPath$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
-	mov	DWORD PTR _iStart$38612[ebp], eax
+	mov	DWORD PTR _iStart$38613[ebp], eax
 
 ; 3067 : 								int iNext  = pMyPath[iNode+1];
 
-	mov	ecx, DWORD PTR _iNode$38608[ebp]
+	mov	ecx, DWORD PTR _iNode$38609[ebp]
 	mov	edx, DWORD PTR _pMyPath$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+4]
-	mov	DWORD PTR _iNext$38613[ebp], eax
+	mov	DWORD PTR _iNext$38614[ebp], eax
 
 ; 3068 : 								for (int iNode1 = iNode+1; iNode1 < cPathSize; iNode1++)
 
-	mov	ecx, DWORD PTR _iNode$38608[ebp]
+	mov	ecx, DWORD PTR _iNode$38609[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _iNode1$38614[ebp], ecx
-	jmp	SHORT $L38615
-$L38616:
-	mov	edx, DWORD PTR _iNode1$38614[ebp]
+	mov	DWORD PTR _iNode1$38615[ebp], ecx
+	jmp	SHORT $L38616
+$L38617:
+	mov	edx, DWORD PTR _iNode1$38615[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iNode1$38614[ebp], edx
-$L38615:
-	mov	eax, DWORD PTR _iNode1$38614[ebp]
-	cmp	eax, DWORD PTR _cPathSize$38606[ebp]
-	jge	SHORT $L38617
+	mov	DWORD PTR _iNode1$38615[ebp], edx
+$L38616:
+	mov	eax, DWORD PTR _iNode1$38615[ebp]
+	cmp	eax, DWORD PTR _cPathSize$38607[ebp]
+	jge	SHORT $L38618
 
 ; 3070 : 									int iEnd = pMyPath[iNode1];
 
-	mov	ecx, DWORD PTR _iNode1$38614[ebp]
+	mov	ecx, DWORD PTR _iNode1$38615[ebp]
 	mov	edx, DWORD PTR _pMyPath$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
-	mov	DWORD PTR _iEnd$38618[ebp], eax
+	mov	DWORD PTR _iEnd$38619[ebp], eax
 
 ; 3071 : 									Routes[FROM_TO(iStart, iEnd)] = iNext;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _iStart$38612[ebp]
+	mov	edx, DWORD PTR _iStart$38613[ebp]
 	imul	edx, DWORD PTR [ecx+24]
-	add	edx, DWORD PTR _iEnd$38618[ebp]
+	add	edx, DWORD PTR _iEnd$38619[ebp]
 	mov	eax, DWORD PTR _Routes$[ebp]
-	mov	cx, WORD PTR _iNext$38613[ebp]
+	mov	cx, WORD PTR _iNext$38614[ebp]
 	mov	WORD PTR [eax+edx*2], cx
 
 ; 3072 : 								}
 
-	jmp	SHORT $L38616
-$L38617:
+	jmp	SHORT $L38617
+$L38618:
 
 ; 3073 : 							}
 
-	jmp	SHORT $L38610
-$L38611:
+	jmp	SHORT $L38611
+$L38612:
 
 ; 3092 : 						else
 
-	jmp	SHORT $L38619
-$L38607:
+	jmp	SHORT $L38620
+$L38608:
 
 ; 3094 : 							Routes[FROM_TO(iFrom, iTo)] = iFrom;
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	imul	eax, DWORD PTR [edx+24]
-	add	eax, DWORD PTR _iTo$38601[ebp]
+	add	eax, DWORD PTR _iTo$38602[ebp]
 	mov	ecx, DWORD PTR _Routes$[ebp]
-	mov	dx, WORD PTR _iFrom$38590[ebp]
+	mov	dx, WORD PTR _iFrom$38591[ebp]
 	mov	WORD PTR [ecx+eax*2], dx
 
 ; 3095 : 							Routes[FROM_TO(iTo, iFrom)] = iTo;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _iTo$38601[ebp]
+	mov	ecx, DWORD PTR _iTo$38602[ebp]
 	imul	ecx, DWORD PTR [eax+24]
-	add	ecx, DWORD PTR _iFrom$38590[ebp]
+	add	ecx, DWORD PTR _iFrom$38591[ebp]
 	mov	edx, DWORD PTR _Routes$[ebp]
-	mov	ax, WORD PTR _iTo$38601[ebp]
+	mov	ax, WORD PTR _iTo$38602[ebp]
 	mov	WORD PTR [edx+ecx*2], ax
-$L38619:
+$L38620:
 
 ; 3097 : 					}
 
-	jmp	$L38603
-$L38604:
+	jmp	$L38604
+$L38605:
 
 ; 3098 : 				}
 
-	jmp	$L38599
-$L38600:
+	jmp	$L38600
+$L38601:
 
 ; 3099 : 
 ; 3100 : 				for (iFrom = 0; iFrom < m_cNodes; iFrom++)
 
-	mov	DWORD PTR _iFrom$38590[ebp], 0
-	jmp	SHORT $L38620
-$L38621:
-	mov	ecx, DWORD PTR _iFrom$38590[ebp]
+	mov	DWORD PTR _iFrom$38591[ebp], 0
+	jmp	SHORT $L38621
+$L38622:
+	mov	ecx, DWORD PTR _iFrom$38591[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _iFrom$38590[ebp], ecx
-$L38620:
+	mov	DWORD PTR _iFrom$38591[ebp], ecx
+$L38621:
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	$L38622
+	jge	$L38623
 
 ; 3102 : 					for (int iTo = 0; iTo < m_cNodes; iTo++)
 
-	mov	DWORD PTR _iTo$38623[ebp], 0
-	jmp	SHORT $L38624
-$L38625:
-	mov	ecx, DWORD PTR _iTo$38623[ebp]
+	mov	DWORD PTR _iTo$38624[ebp], 0
+	jmp	SHORT $L38625
+$L38626:
+	mov	ecx, DWORD PTR _iTo$38624[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _iTo$38623[ebp], ecx
-$L38624:
+	mov	DWORD PTR _iTo$38624[ebp], ecx
+$L38625:
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _iTo$38623[ebp]
+	mov	eax, DWORD PTR _iTo$38624[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	SHORT $L38626
+	jge	SHORT $L38627
 
 ; 3104 : 						BestNextNodes[iTo] = Routes[FROM_TO(iFrom, iTo)];
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _iFrom$38590[ebp]
+	mov	edx, DWORD PTR _iFrom$38591[ebp]
 	imul	edx, DWORD PTR [ecx+24]
-	add	edx, DWORD PTR _iTo$38623[ebp]
-	mov	eax, DWORD PTR _iTo$38623[ebp]
+	add	edx, DWORD PTR _iTo$38624[ebp]
+	mov	eax, DWORD PTR _iTo$38624[ebp]
 	mov	ecx, DWORD PTR _BestNextNodes$[ebp]
 	mov	esi, DWORD PTR _Routes$[ebp]
 	mov	dx, WORD PTR [esi+edx*2]
@@ -19920,268 +19920,268 @@ $L38624:
 
 ; 3105 : 					}
 
-	jmp	SHORT $L38625
-$L38626:
+	jmp	SHORT $L38626
+$L38627:
 
 ; 3106 : 
 ; 3107 : 					// Compress this node's routing table.
 ; 3108 : 					//
 ; 3109 : 					int iLastNode = 9999999; // just really big.
 
-	mov	DWORD PTR _iLastNode$38627[ebp], 9999999 ; 0098967fH
+	mov	DWORD PTR _iLastNode$38628[ebp], 9999999 ; 0098967fH
 
 ; 3110 : 					int cSequence = 0;
 
-	mov	DWORD PTR _cSequence$38628[ebp], 0
+	mov	DWORD PTR _cSequence$38629[ebp], 0
 
 ; 3111 : 					int cRepeats = 0;
 
-	mov	DWORD PTR _cRepeats$38629[ebp], 0
+	mov	DWORD PTR _cRepeats$38630[ebp], 0
 
 ; 3112 : 					int CompressedSize = 0;
 
-	mov	DWORD PTR _CompressedSize$38630[ebp], 0
+	mov	DWORD PTR _CompressedSize$38631[ebp], 0
 
 ; 3113 : 					char *p = pRoute;
 
 	mov	eax, DWORD PTR _pRoute$[ebp]
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3114 : 					for (int i = 0; i < m_cNodes; i++)
 
-	mov	DWORD PTR _i$38632[ebp], 0
-	jmp	SHORT $L38633
-$L38634:
-	mov	ecx, DWORD PTR _i$38632[ebp]
+	mov	DWORD PTR _i$38633[ebp], 0
+	jmp	SHORT $L38634
+$L38635:
+	mov	ecx, DWORD PTR _i$38633[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _i$38632[ebp], ecx
-$L38633:
+	mov	DWORD PTR _i$38633[ebp], ecx
+$L38634:
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _i$38632[ebp]
+	mov	eax, DWORD PTR _i$38633[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	$L38635
+	jge	$L38636
 
 ; 3116 : 						BOOL CanRepeat = ((BestNextNodes[i] == iLastNode) && cRepeats < 127);
 
-	mov	ecx, DWORD PTR _i$38632[ebp]
+	mov	ecx, DWORD PTR _i$38633[ebp]
 	mov	edx, DWORD PTR _BestNextNodes$[ebp]
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+ecx*2]
-	cmp	eax, DWORD PTR _iLastNode$38627[ebp]
-	jne	SHORT $L40201
-	cmp	DWORD PTR _cRepeats$38629[ebp], 127	; 0000007fH
-	jge	SHORT $L40201
+	cmp	eax, DWORD PTR _iLastNode$38628[ebp]
+	jne	SHORT $L40202
+	cmp	DWORD PTR _cRepeats$38630[ebp], 127	; 0000007fH
+	jge	SHORT $L40202
 	mov	DWORD PTR -188+[ebp], 1
-	jmp	SHORT $L40202
-$L40201:
-	mov	DWORD PTR -188+[ebp], 0
+	jmp	SHORT $L40203
 $L40202:
+	mov	DWORD PTR -188+[ebp], 0
+$L40203:
 	mov	ecx, DWORD PTR -188+[ebp]
-	mov	DWORD PTR _CanRepeat$38636[ebp], ecx
+	mov	DWORD PTR _CanRepeat$38637[ebp], ecx
 
 ; 3117 : 						BOOL CanSequence = (BestNextNodes[i] == i && cSequence < 128);
 
-	mov	edx, DWORD PTR _i$38632[ebp]
+	mov	edx, DWORD PTR _i$38633[ebp]
 	mov	eax, DWORD PTR _BestNextNodes$[ebp]
 	xor	ecx, ecx
 	mov	cx, WORD PTR [eax+edx*2]
-	cmp	ecx, DWORD PTR _i$38632[ebp]
-	jne	SHORT $L40203
-	cmp	DWORD PTR _cSequence$38628[ebp], 128	; 00000080H
-	jge	SHORT $L40203
+	cmp	ecx, DWORD PTR _i$38633[ebp]
+	jne	SHORT $L40204
+	cmp	DWORD PTR _cSequence$38629[ebp], 128	; 00000080H
+	jge	SHORT $L40204
 	mov	DWORD PTR -192+[ebp], 1
-	jmp	SHORT $L40204
-$L40203:
-	mov	DWORD PTR -192+[ebp], 0
+	jmp	SHORT $L40205
 $L40204:
+	mov	DWORD PTR -192+[ebp], 0
+$L40205:
 	mov	edx, DWORD PTR -192+[ebp]
-	mov	DWORD PTR _CanSequence$38637[ebp], edx
+	mov	DWORD PTR _CanSequence$38638[ebp], edx
 
 ; 3118 : 
 ; 3119 : 						if (cRepeats)
 
-	cmp	DWORD PTR _cRepeats$38629[ebp], 0
-	je	$L38638
+	cmp	DWORD PTR _cRepeats$38630[ebp], 0
+	je	$L38639
 
 ; 3121 : 							if (CanRepeat)
 
-	cmp	DWORD PTR _CanRepeat$38636[ebp], 0
-	je	SHORT $L38639
+	cmp	DWORD PTR _CanRepeat$38637[ebp], 0
+	je	SHORT $L38640
 
 ; 3123 : 								cRepeats++;
 
-	mov	eax, DWORD PTR _cRepeats$38629[ebp]
+	mov	eax, DWORD PTR _cRepeats$38630[ebp]
 	add	eax, 1
-	mov	DWORD PTR _cRepeats$38629[ebp], eax
+	mov	DWORD PTR _cRepeats$38630[ebp], eax
 
 ; 3125 : 							else
 
-	jmp	$L38652
-$L38639:
+	jmp	$L38653
+$L38640:
 
 ; 3127 : 								// Emit the repeat phrase.
 ; 3128 : 								//
 ; 3129 : 								CompressedSize += 2; // (count-1, iLastNode-i)
 
-	mov	ecx, DWORD PTR _CompressedSize$38630[ebp]
+	mov	ecx, DWORD PTR _CompressedSize$38631[ebp]
 	add	ecx, 2
-	mov	DWORD PTR _CompressedSize$38630[ebp], ecx
+	mov	DWORD PTR _CompressedSize$38631[ebp], ecx
 
 ; 3130 : 								*p++ = cRepeats - 1;
 
-	mov	edx, DWORD PTR _cRepeats$38629[ebp]
+	mov	edx, DWORD PTR _cRepeats$38630[ebp]
 	sub	edx, 1
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	mov	BYTE PTR [eax], dl
-	mov	ecx, DWORD PTR _p$38631[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _p$38631[ebp], ecx
+	mov	DWORD PTR _p$38632[ebp], ecx
 
 ; 3131 : 								int a = iLastNode - iFrom;
 
-	mov	edx, DWORD PTR _iLastNode$38627[ebp]
-	sub	edx, DWORD PTR _iFrom$38590[ebp]
-	mov	DWORD PTR _a$38641[ebp], edx
+	mov	edx, DWORD PTR _iLastNode$38628[ebp]
+	sub	edx, DWORD PTR _iFrom$38591[ebp]
+	mov	DWORD PTR _a$38642[ebp], edx
 
 ; 3132 : 								int b = iLastNode - iFrom + m_cNodes;
 
-	mov	eax, DWORD PTR _iLastNode$38627[ebp]
-	sub	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iLastNode$38628[ebp]
+	sub	eax, DWORD PTR _iFrom$38591[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	eax, DWORD PTR [ecx+24]
-	mov	DWORD PTR _b$38642[ebp], eax
+	mov	DWORD PTR _b$38643[ebp], eax
 
 ; 3133 : 								int c = iLastNode - iFrom - m_cNodes;
 
-	mov	edx, DWORD PTR _iLastNode$38627[ebp]
-	sub	edx, DWORD PTR _iFrom$38590[ebp]
+	mov	edx, DWORD PTR _iLastNode$38628[ebp]
+	sub	edx, DWORD PTR _iFrom$38591[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	sub	edx, DWORD PTR [eax+24]
-	mov	DWORD PTR _c$38643[ebp], edx
+	mov	DWORD PTR _c$38644[ebp], edx
 
 ; 3134 : 								if (-128 <= a && a <= 127)
 
-	cmp	DWORD PTR _a$38641[ebp], -128		; ffffff80H
-	jl	SHORT $L38644
-	cmp	DWORD PTR _a$38641[ebp], 127		; 0000007fH
-	jg	SHORT $L38644
+	cmp	DWORD PTR _a$38642[ebp], -128		; ffffff80H
+	jl	SHORT $L38645
+	cmp	DWORD PTR _a$38642[ebp], 127		; 0000007fH
+	jg	SHORT $L38645
 
 ; 3136 : 									*p++ = a;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
-	mov	dl, BYTE PTR _a$38641[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
+	mov	dl, BYTE PTR _a$38642[ebp]
 	mov	BYTE PTR [ecx], dl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3138 : 								else if (-128 <= b && b <= 127)
 
-	jmp	SHORT $L38649
-$L38644:
-	cmp	DWORD PTR _b$38642[ebp], -128		; ffffff80H
-	jl	SHORT $L38646
-	cmp	DWORD PTR _b$38642[ebp], 127		; 0000007fH
-	jg	SHORT $L38646
+	jmp	SHORT $L38650
+$L38645:
+	cmp	DWORD PTR _b$38643[ebp], -128		; ffffff80H
+	jl	SHORT $L38647
+	cmp	DWORD PTR _b$38643[ebp], 127		; 0000007fH
+	jg	SHORT $L38647
 
 ; 3140 : 									*p++ = b;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
-	mov	dl, BYTE PTR _b$38642[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
+	mov	dl, BYTE PTR _b$38643[ebp]
 	mov	BYTE PTR [ecx], dl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3142 : 								else if (-128 <= c && c <= 127)
 
-	jmp	SHORT $L38649
-$L38646:
-	cmp	DWORD PTR _c$38643[ebp], -128		; ffffff80H
-	jl	SHORT $L38648
-	cmp	DWORD PTR _c$38643[ebp], 127		; 0000007fH
-	jg	SHORT $L38648
+	jmp	SHORT $L38650
+$L38647:
+	cmp	DWORD PTR _c$38644[ebp], -128		; ffffff80H
+	jl	SHORT $L38649
+	cmp	DWORD PTR _c$38644[ebp], 127		; 0000007fH
+	jg	SHORT $L38649
 
 ; 3144 : 									*p++ = c;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
-	mov	dl, BYTE PTR _c$38643[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
+	mov	dl, BYTE PTR _c$38644[ebp]
 	mov	BYTE PTR [ecx], dl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3146 : 								else
 
-	jmp	SHORT $L38649
-$L38648:
+	jmp	SHORT $L38650
+$L38649:
 
 ; 3148 : 									ALERT( at_aiconsole, "Nodes need sorting (%d,%d)!\n", iLastNode, iFrom);
 
-	mov	ecx, DWORD PTR _iFrom$38590[ebp]
+	mov	ecx, DWORD PTR _iFrom$38591[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iLastNode$38627[ebp]
+	mov	edx, DWORD PTR _iLastNode$38628[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_0BN@CKJO@Nodes?5need?5sorting?5?$CI?$CFd?0?$CFd?$CJ?$CB?6?$AA@ ; `string'
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 16					; 00000010H
-$L38649:
+$L38650:
 
 ; 3150 : 								cRepeats = 0;
 
-	mov	DWORD PTR _cRepeats$38629[ebp], 0
+	mov	DWORD PTR _cRepeats$38630[ebp], 0
 
 ; 3151 : 
 ; 3152 : 								if (CanSequence)
 
-	cmp	DWORD PTR _CanSequence$38637[ebp], 0
-	je	SHORT $L38651
+	cmp	DWORD PTR _CanSequence$38638[ebp], 0
+	je	SHORT $L38652
 
 ; 3154 : 									// Start a sequence.
 ; 3155 : 									//
 ; 3156 : 									cSequence++;
 
-	mov	eax, DWORD PTR _cSequence$38628[ebp]
+	mov	eax, DWORD PTR _cSequence$38629[ebp]
 	add	eax, 1
-	mov	DWORD PTR _cSequence$38628[ebp], eax
+	mov	DWORD PTR _cSequence$38629[ebp], eax
 
 ; 3158 : 								else
 
-	jmp	SHORT $L38652
-$L38651:
+	jmp	SHORT $L38653
+$L38652:
 
 ; 3160 : 									// Start another repeat.
 ; 3161 : 									//
 ; 3162 : 									cRepeats++;
 
-	mov	ecx, DWORD PTR _cRepeats$38629[ebp]
+	mov	ecx, DWORD PTR _cRepeats$38630[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _cRepeats$38629[ebp], ecx
-$L38652:
+	mov	DWORD PTR _cRepeats$38630[ebp], ecx
+$L38653:
 
 ; 3166 : 						else if (cSequence)
 
-	jmp	SHORT $L38661
-$L38638:
-	cmp	DWORD PTR _cSequence$38628[ebp], 0
-	je	SHORT $L38654
+	jmp	SHORT $L38662
+$L38639:
+	cmp	DWORD PTR _cSequence$38629[ebp], 0
+	je	SHORT $L38655
 
 ; 3168 : 							if (CanSequence)
 
-	cmp	DWORD PTR _CanSequence$38637[ebp], 0
-	je	SHORT $L38655
+	cmp	DWORD PTR _CanSequence$38638[ebp], 0
+	je	SHORT $L38656
 
 ; 3170 : 								cSequence++;
 
-	mov	edx, DWORD PTR _cSequence$38628[ebp]
+	mov	edx, DWORD PTR _cSequence$38629[ebp]
 	add	edx, 1
-	mov	DWORD PTR _cSequence$38628[ebp], edx
+	mov	DWORD PTR _cSequence$38629[ebp], edx
 
 ; 3172 : 							else
 
-	jmp	SHORT $L38658
-$L38655:
+	jmp	SHORT $L38659
+$L38656:
 
 ; 3174 : 								// It may be advantageous to combine
 ; 3175 : 								// a single-entry sequence phrase with the
@@ -20189,125 +20189,125 @@ $L38655:
 ; 3177 : 								//
 ; 3178 : 								if (cSequence == 1 && CanRepeat)
 
-	cmp	DWORD PTR _cSequence$38628[ebp], 1
-	jne	SHORT $L38657
-	cmp	DWORD PTR _CanRepeat$38636[ebp], 0
-	je	SHORT $L38657
+	cmp	DWORD PTR _cSequence$38629[ebp], 1
+	jne	SHORT $L38658
+	cmp	DWORD PTR _CanRepeat$38637[ebp], 0
+	je	SHORT $L38658
 
 ; 3180 : 									// Combine with repeat phrase.
 ; 3181 : 									//
 ; 3182 : 									cRepeats = 2;
 
-	mov	DWORD PTR _cRepeats$38629[ebp], 2
+	mov	DWORD PTR _cRepeats$38630[ebp], 2
 
 ; 3183 : 									cSequence = 0;
 
-	mov	DWORD PTR _cSequence$38628[ebp], 0
+	mov	DWORD PTR _cSequence$38629[ebp], 0
 
 ; 3185 : 								else
 
-	jmp	SHORT $L38658
-$L38657:
+	jmp	SHORT $L38659
+$L38658:
 
 ; 3187 : 									// Emit the sequence phrase.
 ; 3188 : 									//
 ; 3189 : 									CompressedSize += 1; // (-count)
 
-	mov	eax, DWORD PTR _CompressedSize$38630[ebp]
+	mov	eax, DWORD PTR _CompressedSize$38631[ebp]
 	add	eax, 1
-	mov	DWORD PTR _CompressedSize$38630[ebp], eax
+	mov	DWORD PTR _CompressedSize$38631[ebp], eax
 
 ; 3190 : 									*p++ = -cSequence;
 
-	mov	ecx, DWORD PTR _cSequence$38628[ebp]
+	mov	ecx, DWORD PTR _cSequence$38629[ebp]
 	neg	ecx
-	mov	edx, DWORD PTR _p$38631[ebp]
+	mov	edx, DWORD PTR _p$38632[ebp]
 	mov	BYTE PTR [edx], cl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3191 : 									cSequence = 0;
 
-	mov	DWORD PTR _cSequence$38628[ebp], 0
+	mov	DWORD PTR _cSequence$38629[ebp], 0
 
 ; 3192 : 
 ; 3193 : 									// Start a repeat sequence.
 ; 3194 : 									//
 ; 3195 : 									cRepeats++;
 
-	mov	ecx, DWORD PTR _cRepeats$38629[ebp]
+	mov	ecx, DWORD PTR _cRepeats$38630[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _cRepeats$38629[ebp], ecx
-$L38658:
+	mov	DWORD PTR _cRepeats$38630[ebp], ecx
+$L38659:
 
 ; 3199 : 						else
 
-	jmp	SHORT $L38661
-$L38654:
+	jmp	SHORT $L38662
+$L38655:
 
 ; 3201 : 							if (CanSequence)
 
-	cmp	DWORD PTR _CanSequence$38637[ebp], 0
-	je	SHORT $L38660
+	cmp	DWORD PTR _CanSequence$38638[ebp], 0
+	je	SHORT $L38661
 
 ; 3203 : 								// Start a sequence phrase.
 ; 3204 : 								//
 ; 3205 : 								cSequence++;
 
-	mov	edx, DWORD PTR _cSequence$38628[ebp]
+	mov	edx, DWORD PTR _cSequence$38629[ebp]
 	add	edx, 1
-	mov	DWORD PTR _cSequence$38628[ebp], edx
+	mov	DWORD PTR _cSequence$38629[ebp], edx
 
 ; 3207 : 							else
 
-	jmp	SHORT $L38661
-$L38660:
+	jmp	SHORT $L38662
+$L38661:
 
 ; 3209 : 								// Start a repeat sequence.
 ; 3210 : 								//
 ; 3211 : 								cRepeats++;
 
-	mov	eax, DWORD PTR _cRepeats$38629[ebp]
+	mov	eax, DWORD PTR _cRepeats$38630[ebp]
 	add	eax, 1
-	mov	DWORD PTR _cRepeats$38629[ebp], eax
-$L38661:
+	mov	DWORD PTR _cRepeats$38630[ebp], eax
+$L38662:
 
 ; 3214 : 						iLastNode = BestNextNodes[i];
 
-	mov	ecx, DWORD PTR _i$38632[ebp]
+	mov	ecx, DWORD PTR _i$38633[ebp]
 	mov	edx, DWORD PTR _BestNextNodes$[ebp]
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+ecx*2]
-	mov	DWORD PTR _iLastNode$38627[ebp], eax
+	mov	DWORD PTR _iLastNode$38628[ebp], eax
 
 ; 3215 : 					}
 
-	jmp	$L38634
-$L38635:
+	jmp	$L38635
+$L38636:
 
 ; 3216 : 					if (cRepeats)
 
-	cmp	DWORD PTR _cRepeats$38629[ebp], 0
-	je	$L38671
+	cmp	DWORD PTR _cRepeats$38630[ebp], 0
+	je	$L38672
 
 ; 3218 : 						// Emit the repeat phrase.
 ; 3219 : 						//
 ; 3220 : 						CompressedSize += 2;
 
-	mov	ecx, DWORD PTR _CompressedSize$38630[ebp]
+	mov	ecx, DWORD PTR _CompressedSize$38631[ebp]
 	add	ecx, 2
-	mov	DWORD PTR _CompressedSize$38630[ebp], ecx
+	mov	DWORD PTR _CompressedSize$38631[ebp], ecx
 
 ; 3221 : 						*p++ = cRepeats - 1;
 
-	mov	edx, DWORD PTR _cRepeats$38629[ebp]
+	mov	edx, DWORD PTR _cRepeats$38630[ebp]
 	sub	edx, 1
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	mov	BYTE PTR [eax], dl
-	mov	ecx, DWORD PTR _p$38631[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _p$38631[ebp], ecx
+	mov	DWORD PTR _p$38632[ebp], ecx
 
 ; 3222 : #if 0
 ; 3223 : 						iLastNode = iFrom + *pRoute;
@@ -20316,210 +20316,210 @@ $L38635:
 ; 3226 : #endif
 ; 3227 : 						int a = iLastNode - iFrom;
 
-	mov	edx, DWORD PTR _iLastNode$38627[ebp]
-	sub	edx, DWORD PTR _iFrom$38590[ebp]
-	mov	DWORD PTR _a$38663[ebp], edx
+	mov	edx, DWORD PTR _iLastNode$38628[ebp]
+	sub	edx, DWORD PTR _iFrom$38591[ebp]
+	mov	DWORD PTR _a$38664[ebp], edx
 
 ; 3228 : 						int b = iLastNode - iFrom + m_cNodes;
 
-	mov	eax, DWORD PTR _iLastNode$38627[ebp]
-	sub	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iLastNode$38628[ebp]
+	sub	eax, DWORD PTR _iFrom$38591[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	eax, DWORD PTR [ecx+24]
-	mov	DWORD PTR _b$38664[ebp], eax
+	mov	DWORD PTR _b$38665[ebp], eax
 
 ; 3229 : 						int c = iLastNode - iFrom - m_cNodes;
 
-	mov	edx, DWORD PTR _iLastNode$38627[ebp]
-	sub	edx, DWORD PTR _iFrom$38590[ebp]
+	mov	edx, DWORD PTR _iLastNode$38628[ebp]
+	sub	edx, DWORD PTR _iFrom$38591[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	sub	edx, DWORD PTR [eax+24]
-	mov	DWORD PTR _c$38665[ebp], edx
+	mov	DWORD PTR _c$38666[ebp], edx
 
 ; 3230 : 						if (-128 <= a && a <= 127)
 
-	cmp	DWORD PTR _a$38663[ebp], -128		; ffffff80H
-	jl	SHORT $L38666
-	cmp	DWORD PTR _a$38663[ebp], 127		; 0000007fH
-	jg	SHORT $L38666
+	cmp	DWORD PTR _a$38664[ebp], -128		; ffffff80H
+	jl	SHORT $L38667
+	cmp	DWORD PTR _a$38664[ebp], 127		; 0000007fH
+	jg	SHORT $L38667
 
 ; 3232 : 							*p++ = a;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
-	mov	dl, BYTE PTR _a$38663[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
+	mov	dl, BYTE PTR _a$38664[ebp]
 	mov	BYTE PTR [ecx], dl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3234 : 						else if (-128 <= b && b <= 127)
 
-	jmp	SHORT $L38671
-$L38666:
-	cmp	DWORD PTR _b$38664[ebp], -128		; ffffff80H
-	jl	SHORT $L38668
-	cmp	DWORD PTR _b$38664[ebp], 127		; 0000007fH
-	jg	SHORT $L38668
+	jmp	SHORT $L38672
+$L38667:
+	cmp	DWORD PTR _b$38665[ebp], -128		; ffffff80H
+	jl	SHORT $L38669
+	cmp	DWORD PTR _b$38665[ebp], 127		; 0000007fH
+	jg	SHORT $L38669
 
 ; 3236 : 							*p++ = b;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
-	mov	dl, BYTE PTR _b$38664[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
+	mov	dl, BYTE PTR _b$38665[ebp]
 	mov	BYTE PTR [ecx], dl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3238 : 						else if (-128 <= c && c <= 127)
 
-	jmp	SHORT $L38671
-$L38668:
-	cmp	DWORD PTR _c$38665[ebp], -128		; ffffff80H
-	jl	SHORT $L38670
-	cmp	DWORD PTR _c$38665[ebp], 127		; 0000007fH
-	jg	SHORT $L38670
+	jmp	SHORT $L38672
+$L38669:
+	cmp	DWORD PTR _c$38666[ebp], -128		; ffffff80H
+	jl	SHORT $L38671
+	cmp	DWORD PTR _c$38666[ebp], 127		; 0000007fH
+	jg	SHORT $L38671
 
 ; 3240 : 							*p++ = c;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
-	mov	dl, BYTE PTR _c$38665[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
+	mov	dl, BYTE PTR _c$38666[ebp]
 	mov	BYTE PTR [ecx], dl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
+	mov	DWORD PTR _p$38632[ebp], eax
 
 ; 3242 : 						else
 
-	jmp	SHORT $L38671
-$L38670:
+	jmp	SHORT $L38672
+$L38671:
 
 ; 3244 : 							ALERT( at_aiconsole, "Nodes need sorting (%d,%d)!\n", iLastNode, iFrom);
 
-	mov	ecx, DWORD PTR _iFrom$38590[ebp]
+	mov	ecx, DWORD PTR _iFrom$38591[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iLastNode$38627[ebp]
+	mov	edx, DWORD PTR _iLastNode$38628[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_0BN@CKJO@Nodes?5need?5sorting?5?$CI?$CFd?0?$CFd?$CJ?$CB?6?$AA@ ; `string'
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 16					; 00000010H
-$L38671:
+$L38672:
 
 ; 3247 : 					if (cSequence)
 
-	cmp	DWORD PTR _cSequence$38628[ebp], 0
-	je	SHORT $L38672
+	cmp	DWORD PTR _cSequence$38629[ebp], 0
+	je	SHORT $L38673
 
 ; 3249 : 						// Emit the Sequence phrase.
 ; 3250 : 						//
 ; 3251 : 						CompressedSize += 1;
 
-	mov	eax, DWORD PTR _CompressedSize$38630[ebp]
+	mov	eax, DWORD PTR _CompressedSize$38631[ebp]
 	add	eax, 1
-	mov	DWORD PTR _CompressedSize$38630[ebp], eax
+	mov	DWORD PTR _CompressedSize$38631[ebp], eax
 
 ; 3252 : 						*p++ = -cSequence;
 
-	mov	ecx, DWORD PTR _cSequence$38628[ebp]
+	mov	ecx, DWORD PTR _cSequence$38629[ebp]
 	neg	ecx
-	mov	edx, DWORD PTR _p$38631[ebp]
+	mov	edx, DWORD PTR _p$38632[ebp]
 	mov	BYTE PTR [edx], cl
-	mov	eax, DWORD PTR _p$38631[ebp]
+	mov	eax, DWORD PTR _p$38632[ebp]
 	add	eax, 1
-	mov	DWORD PTR _p$38631[ebp], eax
-$L38672:
+	mov	DWORD PTR _p$38632[ebp], eax
+$L38673:
 
 ; 3254 : 
 ; 3255 : 					// Go find a place to store this thing and point to it.
 ; 3256 : 					//
 ; 3257 : 					int nRoute = p - pRoute;
 
-	mov	ecx, DWORD PTR _p$38631[ebp]
+	mov	ecx, DWORD PTR _p$38632[ebp]
 	sub	ecx, DWORD PTR _pRoute$[ebp]
-	mov	DWORD PTR _nRoute$38673[ebp], ecx
+	mov	DWORD PTR _nRoute$38674[ebp], ecx
 
 ; 3258 : 					if (m_pRouteInfo)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+20], 0
-	je	$L38674
+	je	$L38675
 
 ; 3260 : 						for (int i = 0; i < m_nRouteInfo - nRoute; i++)
 
-	mov	DWORD PTR _i$38675[ebp], 0
-	jmp	SHORT $L38676
-$L38677:
-	mov	eax, DWORD PTR _i$38675[ebp]
+	mov	DWORD PTR _i$38676[ebp], 0
+	jmp	SHORT $L38677
+$L38678:
+	mov	eax, DWORD PTR _i$38676[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$38675[ebp], eax
-$L38676:
+	mov	DWORD PTR _i$38676[ebp], eax
+$L38677:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+32]
-	sub	edx, DWORD PTR _nRoute$38673[ebp]
-	cmp	DWORD PTR _i$38675[ebp], edx
-	jge	SHORT $L38678
+	sub	edx, DWORD PTR _nRoute$38674[ebp]
+	cmp	DWORD PTR _i$38676[ebp], edx
+	jge	SHORT $L38679
 
 ; 3262 : 							if (memcmp(m_pRouteInfo + i, pRoute, nRoute) == 0)
 
-	mov	eax, DWORD PTR _nRoute$38673[ebp]
+	mov	eax, DWORD PTR _nRoute$38674[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pRoute$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+20]
-	add	eax, DWORD PTR _i$38675[ebp]
+	add	eax, DWORD PTR _i$38676[ebp]
 	push	eax
 	call	_memcmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38679
+	jne	SHORT $L38680
 
 ; 3264 : 								break;
 
-	jmp	SHORT $L38678
-$L38679:
+	jmp	SHORT $L38679
+$L38680:
 
 ; 3266 : 						}
 
-	jmp	SHORT $L38677
-$L38678:
+	jmp	SHORT $L38678
+$L38679:
 
 ; 3267 : 						if (i < m_nRouteInfo - nRoute)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+32]
-	sub	edx, DWORD PTR _nRoute$38673[ebp]
-	cmp	DWORD PTR _i$38675[ebp], edx
-	jge	SHORT $L38680
+	sub	edx, DWORD PTR _nRoute$38674[ebp]
+	cmp	DWORD PTR _i$38676[ebp], edx
+	jge	SHORT $L38681
 
 ; 3269 : 							m_pNodes[ iFrom ].m_pNextBestNode[iHull][iCap] = i;
 
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	add	edx, eax
-	mov	eax, DWORD PTR _iHull$38575[ebp]
+	mov	eax, DWORD PTR _iHull$38576[ebp]
 	lea	ecx, DWORD PTR [edx+eax*8+40]
-	mov	edx, DWORD PTR _iCap$38579[ebp]
-	mov	eax, DWORD PTR _i$38675[ebp]
+	mov	edx, DWORD PTR _iCap$38580[ebp]
+	mov	eax, DWORD PTR _i$38676[ebp]
 	mov	DWORD PTR [ecx+edx*4], eax
 
 ; 3271 : 						else
 
-	jmp	$L38681
-$L38680:
+	jmp	$L38682
+$L38681:
 
 ; 3273 : 							char *Tmp = (char *)calloc(sizeof(char), (m_nRouteInfo + nRoute));
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+32]
-	add	edx, DWORD PTR _nRoute$38673[ebp]
+	add	edx, DWORD PTR _nRoute$38674[ebp]
 	push	edx
 	push	1
 	call	_calloc
 	add	esp, 8
-	mov	DWORD PTR _Tmp$38682[ebp], eax
+	mov	DWORD PTR _Tmp$38683[ebp], eax
 
 ; 3274 : 							memcpy(Tmp, m_pRouteInfo, m_nRouteInfo);
 
@@ -20529,7 +20529,7 @@ $L38680:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+20]
 	push	eax
-	mov	ecx, DWORD PTR _Tmp$38682[ebp]
+	mov	ecx, DWORD PTR _Tmp$38683[ebp]
 	push	ecx
 	call	_memcpy
 	add	esp, 12					; 0000000cH
@@ -20545,12 +20545,12 @@ $L38680:
 ; 3276 : 							m_pRouteInfo = Tmp;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _Tmp$38682[ebp]
+	mov	edx, DWORD PTR _Tmp$38683[ebp]
 	mov	DWORD PTR [ecx+20], edx
 
 ; 3277 : 							memcpy(m_pRouteInfo + m_nRouteInfo, pRoute, nRoute);
 
-	mov	eax, DWORD PTR _nRoute$38673[ebp]
+	mov	eax, DWORD PTR _nRoute$38674[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pRoute$[ebp]
 	push	ecx
@@ -20564,14 +20564,14 @@ $L38680:
 
 ; 3278 : 							m_pNodes[ iFrom ].m_pNextBestNode[iHull][iCap] = m_nRouteInfo;
 
-	mov	edx, DWORD PTR _iFrom$38590[ebp]
+	mov	edx, DWORD PTR _iFrom$38591[ebp]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	add	ecx, edx
-	mov	edx, DWORD PTR _iHull$38575[ebp]
+	mov	edx, DWORD PTR _iHull$38576[ebp]
 	lea	eax, DWORD PTR [ecx+edx*8+40]
-	mov	ecx, DWORD PTR _iCap$38579[ebp]
+	mov	ecx, DWORD PTR _iCap$38580[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [edx+32]
 	mov	DWORD PTR [eax+ecx*4], edx
@@ -20580,31 +20580,31 @@ $L38680:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+32]
-	add	ecx, DWORD PTR _nRoute$38673[ebp]
+	add	ecx, DWORD PTR _nRoute$38674[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+32], ecx
 
 ; 3280 : 							nTotalCompressedSize += CompressedSize;
 
-	mov	eax, DWORD PTR _nTotalCompressedSize$38574[ebp]
-	add	eax, DWORD PTR _CompressedSize$38630[ebp]
-	mov	DWORD PTR _nTotalCompressedSize$38574[ebp], eax
-$L38681:
+	mov	eax, DWORD PTR _nTotalCompressedSize$38575[ebp]
+	add	eax, DWORD PTR _CompressedSize$38631[ebp]
+	mov	DWORD PTR _nTotalCompressedSize$38575[ebp], eax
+$L38682:
 
 ; 3283 : 					else
 
-	jmp	SHORT $L38685
-$L38674:
+	jmp	SHORT $L38686
+$L38675:
 
 ; 3285 : 						m_nRouteInfo = nRoute;
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _nRoute$38673[ebp]
+	mov	edx, DWORD PTR _nRoute$38674[ebp]
 	mov	DWORD PTR [ecx+32], edx
 
 ; 3286 : 						m_pRouteInfo = (char *)calloc(sizeof(char), nRoute);
 
-	mov	eax, DWORD PTR _nRoute$38673[ebp]
+	mov	eax, DWORD PTR _nRoute$38674[ebp]
 	push	eax
 	push	1
 	call	_calloc
@@ -20614,7 +20614,7 @@ $L38674:
 
 ; 3287 : 						memcpy(m_pRouteInfo, pRoute, nRoute);
 
-	mov	edx, DWORD PTR _nRoute$38673[ebp]
+	mov	edx, DWORD PTR _nRoute$38674[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pRoute$[ebp]
 	push	eax
@@ -20626,95 +20626,95 @@ $L38674:
 
 ; 3288 : 						m_pNodes[ iFrom ].m_pNextBestNode[iHull][iCap] = 0;
 
-	mov	eax, DWORD PTR _iFrom$38590[ebp]
+	mov	eax, DWORD PTR _iFrom$38591[ebp]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	add	edx, eax
-	mov	eax, DWORD PTR _iHull$38575[ebp]
+	mov	eax, DWORD PTR _iHull$38576[ebp]
 	lea	ecx, DWORD PTR [edx+eax*8+40]
-	mov	edx, DWORD PTR _iCap$38579[ebp]
+	mov	edx, DWORD PTR _iCap$38580[ebp]
 	mov	DWORD PTR [ecx+edx*4], 0
 
 ; 3289 : 						nTotalCompressedSize += CompressedSize;
 
-	mov	eax, DWORD PTR _nTotalCompressedSize$38574[ebp]
-	add	eax, DWORD PTR _CompressedSize$38630[ebp]
-	mov	DWORD PTR _nTotalCompressedSize$38574[ebp], eax
-$L38685:
+	mov	eax, DWORD PTR _nTotalCompressedSize$38575[ebp]
+	add	eax, DWORD PTR _CompressedSize$38631[ebp]
+	mov	DWORD PTR _nTotalCompressedSize$38575[ebp], eax
+$L38686:
 
 ; 3291 : 				}
 
-	jmp	$L38621
-$L38622:
+	jmp	$L38622
+$L38623:
 
 ; 3292 : 			}
 
-	jmp	$L38581
-$L38582:
+	jmp	$L38582
+$L38583:
 
 ; 3293 : 		}		
 
-	jmp	$L38577
-$L38578:
+	jmp	$L38578
+$L38579:
 
 ; 3294 : 		ALERT( at_aiconsole, "Size of Routes = %d\n", nTotalCompressedSize);
 
-	mov	ecx, DWORD PTR _nTotalCompressedSize$38574[ebp]
+	mov	ecx, DWORD PTR _nTotalCompressedSize$38575[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0BF@KDEG@Size?5of?5Routes?5?$DN?5?$CFd?6?$AA@ ; `string'
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L38573:
+$L38574:
 
 ; 3296 : 	if (Routes) delete Routes;
 
 	cmp	DWORD PTR _Routes$[ebp], 0
-	je	SHORT $L38689
+	je	SHORT $L38690
 	mov	edx, DWORD PTR _Routes$[ebp]
-	mov	DWORD PTR $T40205[ebp], edx
-	mov	eax, DWORD PTR $T40205[ebp]
+	mov	DWORD PTR $T40206[ebp], edx
+	mov	eax, DWORD PTR $T40206[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38689:
+$L38690:
 
 ; 3297 : 	if (BestNextNodes) delete BestNextNodes;
 
 	cmp	DWORD PTR _BestNextNodes$[ebp], 0
-	je	SHORT $L38691
+	je	SHORT $L38692
 	mov	ecx, DWORD PTR _BestNextNodes$[ebp]
-	mov	DWORD PTR $T40206[ebp], ecx
-	mov	edx, DWORD PTR $T40206[ebp]
+	mov	DWORD PTR $T40207[ebp], ecx
+	mov	edx, DWORD PTR $T40207[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38691:
+$L38692:
 
 ; 3298 : 	if (pRoute) delete pRoute;
 
 	cmp	DWORD PTR _pRoute$[ebp], 0
-	je	SHORT $L38693
+	je	SHORT $L38694
 	mov	eax, DWORD PTR _pRoute$[ebp]
-	mov	DWORD PTR $T40207[ebp], eax
-	mov	ecx, DWORD PTR $T40207[ebp]
+	mov	DWORD PTR $T40208[ebp], eax
+	mov	ecx, DWORD PTR $T40208[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38693:
+$L38694:
 
 ; 3299 : 	if (pMyPath) delete pMyPath;
 
 	cmp	DWORD PTR _pMyPath$[ebp], 0
-	je	SHORT $L38695
+	je	SHORT $L38696
 	mov	edx, DWORD PTR _pMyPath$[ebp]
-	mov	DWORD PTR $T40208[ebp], edx
-	mov	eax, DWORD PTR $T40208[ebp]
+	mov	DWORD PTR $T40209[ebp], edx
+	mov	eax, DWORD PTR $T40209[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38695:
+$L38696:
 
 ; 3300 : 	Routes = 0;
 
@@ -20784,30 +20784,30 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?TestRoutingTables@CGraph@@QAEXXZ
 _TEXT	SEGMENT
-$T40211 = -84
-$T40212 = -88
-$T40213 = -92
-$T40214 = -96
+$T40212 = -84
+$T40213 = -88
+$T40214 = -92
+$T40215 = -96
 _this$ = -4
 _pMyPath$ = -8
 _pMyPath2$ = -12
-_iHull$38708 = -16
-_iCap$38712 = -20
-_iCapMask$38716 = -24
-_iFrom$38723 = -28
-_iTo$38727 = -32
-_cPathSize1$38731 = -36
-_cPathSize2$38732 = -40
-_flDistance1$38734 = -44
-_i$38735 = -48
-_iVisitNode$38740 = -52
-_bFound$38741 = -56
-_iLink$38742 = -60
-_flDistance2$38749 = -64
-_iVisitNode$38754 = -68
-_bFound$38755 = -72
-_iLink$38756 = -76
-_i$38765 = -80
+_iHull$38709 = -16
+_iCap$38713 = -20
+_iCapMask$38717 = -24
+_iFrom$38724 = -28
+_iTo$38728 = -32
+_cPathSize1$38732 = -36
+_cPathSize2$38733 = -40
+_flDistance1$38735 = -44
+_i$38736 = -48
+_iVisitNode$38741 = -52
+_bFound$38742 = -56
+_iLink$38743 = -60
+_flDistance2$38750 = -64
+_iVisitNode$38755 = -68
+_bFound$38756 = -72
+_iLink$38757 = -76
+_i$38766 = -80
 ?TestRoutingTables@CGraph@@QAEXXZ PROC NEAR		; CGraph::TestRoutingTables, COMDAT
 
 ; 3314 : {
@@ -20828,8 +20828,8 @@ _i$38765 = -80
 	push	ecx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40211[ebp], eax
-	mov	edx, DWORD PTR $T40211[ebp]
+	mov	DWORD PTR $T40212[ebp], eax
+	mov	edx, DWORD PTR $T40212[ebp]
 	mov	DWORD PTR _pMyPath$[ebp], edx
 
 ; 3316 : 	int *pMyPath2 = new int[m_cNodes];
@@ -20840,97 +20840,97 @@ _i$38765 = -80
 	push	ecx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T40212[ebp], eax
-	mov	edx, DWORD PTR $T40212[ebp]
+	mov	DWORD PTR $T40213[ebp], eax
+	mov	edx, DWORD PTR $T40213[ebp]
 	mov	DWORD PTR _pMyPath2$[ebp], edx
 
 ; 3317 : 	if (pMyPath && pMyPath2)
 
 	cmp	DWORD PTR _pMyPath$[ebp], 0
-	je	$EnoughSaid$38774
+	je	$EnoughSaid$38775
 	cmp	DWORD PTR _pMyPath2$[ebp], 0
-	je	$EnoughSaid$38774
+	je	$EnoughSaid$38775
 
 ; 3319 : 		for (int iHull = 0; iHull < MAX_NODE_HULLS; iHull++)
 
-	mov	DWORD PTR _iHull$38708[ebp], 0
-	jmp	SHORT $L38709
-$L38710:
-	mov	eax, DWORD PTR _iHull$38708[ebp]
+	mov	DWORD PTR _iHull$38709[ebp], 0
+	jmp	SHORT $L38710
+$L38711:
+	mov	eax, DWORD PTR _iHull$38709[ebp]
 	add	eax, 1
-	mov	DWORD PTR _iHull$38708[ebp], eax
-$L38709:
-	cmp	DWORD PTR _iHull$38708[ebp], 4
-	jge	$EnoughSaid$38774
+	mov	DWORD PTR _iHull$38709[ebp], eax
+$L38710:
+	cmp	DWORD PTR _iHull$38709[ebp], 4
+	jge	$EnoughSaid$38775
 
 ; 3321 : 			for (int iCap = 0; iCap < 2; iCap++)
 
-	mov	DWORD PTR _iCap$38712[ebp], 0
-	jmp	SHORT $L38713
-$L38714:
-	mov	ecx, DWORD PTR _iCap$38712[ebp]
+	mov	DWORD PTR _iCap$38713[ebp], 0
+	jmp	SHORT $L38714
+$L38715:
+	mov	ecx, DWORD PTR _iCap$38713[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _iCap$38712[ebp], ecx
-$L38713:
-	cmp	DWORD PTR _iCap$38712[ebp], 2
-	jge	$L38715
+	mov	DWORD PTR _iCap$38713[ebp], ecx
+$L38714:
+	cmp	DWORD PTR _iCap$38713[ebp], 2
+	jge	$L38716
 
 ; 3325 : 				{
 
-	mov	edx, DWORD PTR _iCap$38712[ebp]
+	mov	edx, DWORD PTR _iCap$38713[ebp]
 	mov	DWORD PTR -100+[ebp], edx
 	cmp	DWORD PTR -100+[ebp], 0
-	je	SHORT $L38721
-	cmp	DWORD PTR -100+[ebp], 1
 	je	SHORT $L38722
-	jmp	SHORT $L38718
-$L38721:
+	cmp	DWORD PTR -100+[ebp], 1
+	je	SHORT $L38723
+	jmp	SHORT $L38719
+$L38722:
 
 ; 3326 : 				case 0:
 ; 3327 : 					iCapMask = 0;
 
-	mov	DWORD PTR _iCapMask$38716[ebp], 0
+	mov	DWORD PTR _iCapMask$38717[ebp], 0
 
 ; 3328 : 					break;
 
-	jmp	SHORT $L38718
-$L38722:
+	jmp	SHORT $L38719
+$L38723:
 
 ; 3329 : 
 ; 3330 : 				case 1:
 ; 3331 : 					iCapMask = bits_CAP_OPEN_DOORS | bits_CAP_AUTO_DOORS | bits_CAP_USE;
 
-	mov	DWORD PTR _iCapMask$38716[ebp], 832	; 00000340H
-$L38718:
+	mov	DWORD PTR _iCapMask$38717[ebp], 832	; 00000340H
+$L38719:
 
 ; 3334 : 
 ; 3335 : 				for (int iFrom = 0; iFrom < m_cNodes; iFrom++)
 
-	mov	DWORD PTR _iFrom$38723[ebp], 0
-	jmp	SHORT $L38724
-$L38725:
-	mov	eax, DWORD PTR _iFrom$38723[ebp]
+	mov	DWORD PTR _iFrom$38724[ebp], 0
+	jmp	SHORT $L38725
+$L38726:
+	mov	eax, DWORD PTR _iFrom$38724[ebp]
 	add	eax, 1
-	mov	DWORD PTR _iFrom$38723[ebp], eax
-$L38724:
+	mov	DWORD PTR _iFrom$38724[ebp], eax
+$L38725:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _iFrom$38723[ebp]
+	mov	edx, DWORD PTR _iFrom$38724[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L38726
+	jge	$L38727
 
 ; 3337 : 					for (int iTo = 0; iTo < m_cNodes; iTo++)
 
-	mov	DWORD PTR _iTo$38727[ebp], 0
-	jmp	SHORT $L38728
-$L38729:
-	mov	eax, DWORD PTR _iTo$38727[ebp]
+	mov	DWORD PTR _iTo$38728[ebp], 0
+	jmp	SHORT $L38729
+$L38730:
+	mov	eax, DWORD PTR _iTo$38728[ebp]
 	add	eax, 1
-	mov	DWORD PTR _iTo$38727[ebp], eax
-$L38728:
+	mov	DWORD PTR _iTo$38728[ebp], eax
+$L38729:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _iTo$38727[ebp]
+	mov	edx, DWORD PTR _iTo$38728[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	$L38730
+	jge	$L38731
 
 ; 3339 : 						m_fRoutingComplete = FALSE;
 
@@ -20939,19 +20939,19 @@ $L38728:
 
 ; 3340 : 						int cPathSize1 = FindShortestPath(pMyPath, iFrom, iTo, iHull, iCapMask);
 
-	mov	ecx, DWORD PTR _iCapMask$38716[ebp]
+	mov	ecx, DWORD PTR _iCapMask$38717[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iHull$38708[ebp]
+	mov	edx, DWORD PTR _iHull$38709[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iTo$38727[ebp]
+	mov	eax, DWORD PTR _iTo$38728[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iFrom$38723[ebp]
+	mov	ecx, DWORD PTR _iFrom$38724[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pMyPath$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FindShortestPath@CGraph@@QAEHPAHHHHH@Z	; CGraph::FindShortestPath
-	mov	DWORD PTR _cPathSize1$38731[ebp], eax
+	mov	DWORD PTR _cPathSize1$38732[ebp], eax
 
 ; 3341 : 						m_fRoutingComplete = TRUE;
 
@@ -20960,29 +20960,29 @@ $L38728:
 
 ; 3342 : 						int cPathSize2 = FindShortestPath(pMyPath2, iFrom, iTo, iHull, iCapMask);
 
-	mov	ecx, DWORD PTR _iCapMask$38716[ebp]
+	mov	ecx, DWORD PTR _iCapMask$38717[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iHull$38708[ebp]
+	mov	edx, DWORD PTR _iHull$38709[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iTo$38727[ebp]
+	mov	eax, DWORD PTR _iTo$38728[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iFrom$38723[ebp]
+	mov	ecx, DWORD PTR _iFrom$38724[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pMyPath2$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FindShortestPath@CGraph@@QAEHPAHHHHH@Z	; CGraph::FindShortestPath
-	mov	DWORD PTR _cPathSize2$38732[ebp], eax
+	mov	DWORD PTR _cPathSize2$38733[ebp], eax
 
 ; 3343 : 
 ; 3344 : 						// Unless we can look at the entire path, we can verify that it's correct.
 ; 3345 : 						//
 ; 3346 : 						if (cPathSize2 == MAX_PATH_SIZE) continue;
 
-	cmp	DWORD PTR _cPathSize2$38732[ebp], 10	; 0000000aH
-	jne	SHORT $L38733
-	jmp	SHORT $L38729
-$L38733:
+	cmp	DWORD PTR _cPathSize2$38733[ebp], 10	; 0000000aH
+	jne	SHORT $L38734
+	jmp	SHORT $L38730
+$L38734:
 
 ; 3347 : 
 ; 3348 : 						// Compare distances.
@@ -20990,114 +20990,114 @@ $L38733:
 ; 3350 : #if 1
 ; 3351 : 						float flDistance1 = 0.0;
 
-	mov	DWORD PTR _flDistance1$38734[ebp], 0
+	mov	DWORD PTR _flDistance1$38735[ebp], 0
 
 ; 3352 : 						for (int i = 0; i < cPathSize1-1; i++)
 
-	mov	DWORD PTR _i$38735[ebp], 0
-	jmp	SHORT $L38736
-$L38737:
-	mov	eax, DWORD PTR _i$38735[ebp]
+	mov	DWORD PTR _i$38736[ebp], 0
+	jmp	SHORT $L38737
+$L38738:
+	mov	eax, DWORD PTR _i$38736[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$38735[ebp], eax
-$L38736:
-	mov	ecx, DWORD PTR _cPathSize1$38731[ebp]
+	mov	DWORD PTR _i$38736[ebp], eax
+$L38737:
+	mov	ecx, DWORD PTR _cPathSize1$38732[ebp]
 	sub	ecx, 1
-	cmp	DWORD PTR _i$38735[ebp], ecx
-	jge	$L38738
+	cmp	DWORD PTR _i$38736[ebp], ecx
+	jge	$L38739
 
 ; 3354 : 							// Find the link from pMyPath[i] to pMyPath[i+1]
 ; 3355 : 							//
 ; 3356 : 							if (pMyPath[i] == pMyPath[i+1]) continue;
 
-	mov	edx, DWORD PTR _i$38735[ebp]
+	mov	edx, DWORD PTR _i$38736[ebp]
 	mov	eax, DWORD PTR _pMyPath$[ebp]
-	mov	ecx, DWORD PTR _i$38735[ebp]
+	mov	ecx, DWORD PTR _i$38736[ebp]
 	mov	esi, DWORD PTR _pMyPath$[ebp]
 	mov	edx, DWORD PTR [eax+edx*4]
 	cmp	edx, DWORD PTR [esi+ecx*4+4]
-	jne	SHORT $L38739
-	jmp	SHORT $L38737
-$L38739:
+	jne	SHORT $L38740
+	jmp	SHORT $L38738
+$L38740:
 
 ; 3358 : 							BOOL bFound = FALSE;
 
-	mov	DWORD PTR _bFound$38741[ebp], 0
+	mov	DWORD PTR _bFound$38742[ebp], 0
 
 ; 3359 : 							for (int iLink = 0; iLink < m_pNodes[pMyPath[i]].m_cNumLinks; iLink++)
 
-	mov	DWORD PTR _iLink$38742[ebp], 0
-	jmp	SHORT $L38743
-$L38744:
-	mov	eax, DWORD PTR _iLink$38742[ebp]
+	mov	DWORD PTR _iLink$38743[ebp], 0
+	jmp	SHORT $L38744
+$L38745:
+	mov	eax, DWORD PTR _iLink$38743[ebp]
 	add	eax, 1
-	mov	DWORD PTR _iLink$38742[ebp], eax
-$L38743:
-	mov	ecx, DWORD PTR _i$38735[ebp]
+	mov	DWORD PTR _iLink$38743[ebp], eax
+$L38744:
+	mov	ecx, DWORD PTR _i$38736[ebp]
 	mov	edx, DWORD PTR _pMyPath$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
 	imul	eax, 88					; 00000058H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
-	mov	ecx, DWORD PTR _iLink$38742[ebp]
+	mov	ecx, DWORD PTR _iLink$38743[ebp]
 	cmp	ecx, DWORD PTR [edx+eax+32]
-	jge	SHORT $L38745
+	jge	SHORT $L38746
 
 ; 3361 : 								iVisitNode = INodeLink ( pMyPath[i], iLink );
 
-	mov	edx, DWORD PTR _iLink$38742[ebp]
+	mov	edx, DWORD PTR _iLink$38743[ebp]
 	push	edx
-	mov	eax, DWORD PTR _i$38735[ebp]
+	mov	eax, DWORD PTR _i$38736[ebp]
 	mov	ecx, DWORD PTR _pMyPath$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?INodeLink@CGraph@@QAEHHH@Z		; CGraph::INodeLink
-	mov	DWORD PTR _iVisitNode$38740[ebp], eax
+	mov	DWORD PTR _iVisitNode$38741[ebp], eax
 
 ; 3362 : 								if (iVisitNode == pMyPath[i+1])
 
-	mov	eax, DWORD PTR _i$38735[ebp]
+	mov	eax, DWORD PTR _i$38736[ebp]
 	mov	ecx, DWORD PTR _pMyPath$[ebp]
-	mov	edx, DWORD PTR _iVisitNode$38740[ebp]
+	mov	edx, DWORD PTR _iVisitNode$38741[ebp]
 	cmp	edx, DWORD PTR [ecx+eax*4+4]
-	jne	SHORT $L38746
+	jne	SHORT $L38747
 
 ; 3364 : 									flDistance1 += m_pLinkPool[ m_pNodes[ pMyPath[i] ].m_iFirstLink + iLink].m_flWeight;
 
-	mov	eax, DWORD PTR _i$38735[ebp]
+	mov	eax, DWORD PTR _i$38736[ebp]
 	mov	ecx, DWORD PTR _pMyPath$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	edx, DWORD PTR [ecx+edx+36]
-	add	edx, DWORD PTR _iLink$38742[ebp]
+	add	edx, DWORD PTR _iLink$38743[ebp]
 	imul	edx, 24					; 00000018H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+16]
-	fld	DWORD PTR _flDistance1$38734[ebp]
+	fld	DWORD PTR _flDistance1$38735[ebp]
 	fadd	DWORD PTR [ecx+edx+20]
-	fstp	DWORD PTR _flDistance1$38734[ebp]
+	fstp	DWORD PTR _flDistance1$38735[ebp]
 
 ; 3365 : 									bFound = TRUE;
 
-	mov	DWORD PTR _bFound$38741[ebp], 1
+	mov	DWORD PTR _bFound$38742[ebp], 1
 
 ; 3366 : 									break;
 
-	jmp	SHORT $L38745
-$L38746:
+	jmp	SHORT $L38746
+$L38747:
 
 ; 3368 : 							}
 
-	jmp	$L38744
-$L38745:
+	jmp	$L38745
+$L38746:
 
 ; 3369 : 							if (!bFound)
 
-	cmp	DWORD PTR _bFound$38741[ebp], 0
-	jne	SHORT $L38747
+	cmp	DWORD PTR _bFound$38742[ebp], 0
+	jne	SHORT $L38748
 
 ; 3371 : 								ALERT(at_aiconsole, "No link.\n");
 
@@ -21105,124 +21105,124 @@ $L38745:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L38747:
+$L38748:
 
 ; 3373 : 						}
 
-	jmp	$L38737
-$L38738:
+	jmp	$L38738
+$L38739:
 
 ; 3374 : 
 ; 3375 : 						float flDistance2 = 0.0;
 
-	mov	DWORD PTR _flDistance2$38749[ebp], 0
+	mov	DWORD PTR _flDistance2$38750[ebp], 0
 
 ; 3376 : 						for (i = 0; i < cPathSize2-1; i++)
 
-	mov	DWORD PTR _i$38735[ebp], 0
-	jmp	SHORT $L38750
-$L38751:
-	mov	edx, DWORD PTR _i$38735[ebp]
+	mov	DWORD PTR _i$38736[ebp], 0
+	jmp	SHORT $L38751
+$L38752:
+	mov	edx, DWORD PTR _i$38736[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38735[ebp], edx
-$L38750:
-	mov	eax, DWORD PTR _cPathSize2$38732[ebp]
+	mov	DWORD PTR _i$38736[ebp], edx
+$L38751:
+	mov	eax, DWORD PTR _cPathSize2$38733[ebp]
 	sub	eax, 1
-	cmp	DWORD PTR _i$38735[ebp], eax
-	jge	$L38752
+	cmp	DWORD PTR _i$38736[ebp], eax
+	jge	$L38753
 
 ; 3378 : 							// Find the link from pMyPath2[i] to pMyPath2[i+1]
 ; 3379 : 							//
 ; 3380 : 							if (pMyPath2[i] == pMyPath2[i+1]) continue;
 
-	mov	ecx, DWORD PTR _i$38735[ebp]
+	mov	ecx, DWORD PTR _i$38736[ebp]
 	mov	edx, DWORD PTR _pMyPath2$[ebp]
-	mov	eax, DWORD PTR _i$38735[ebp]
+	mov	eax, DWORD PTR _i$38736[ebp]
 	mov	esi, DWORD PTR _pMyPath2$[ebp]
 	mov	ecx, DWORD PTR [edx+ecx*4]
 	cmp	ecx, DWORD PTR [esi+eax*4+4]
-	jne	SHORT $L38753
-	jmp	SHORT $L38751
-$L38753:
+	jne	SHORT $L38754
+	jmp	SHORT $L38752
+$L38754:
 
 ; 3382 : 							BOOL bFound = FALSE;
 
-	mov	DWORD PTR _bFound$38755[ebp], 0
+	mov	DWORD PTR _bFound$38756[ebp], 0
 
 ; 3383 : 							for (int iLink = 0; iLink < m_pNodes[pMyPath2[i]].m_cNumLinks; iLink++)
 
-	mov	DWORD PTR _iLink$38756[ebp], 0
-	jmp	SHORT $L38757
-$L38758:
-	mov	edx, DWORD PTR _iLink$38756[ebp]
+	mov	DWORD PTR _iLink$38757[ebp], 0
+	jmp	SHORT $L38758
+$L38759:
+	mov	edx, DWORD PTR _iLink$38757[ebp]
 	add	edx, 1
-	mov	DWORD PTR _iLink$38756[ebp], edx
-$L38757:
-	mov	eax, DWORD PTR _i$38735[ebp]
+	mov	DWORD PTR _iLink$38757[ebp], edx
+$L38758:
+	mov	eax, DWORD PTR _i$38736[ebp]
 	mov	ecx, DWORD PTR _pMyPath2$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4]
 	imul	edx, 88					; 00000058H
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
-	mov	eax, DWORD PTR _iLink$38756[ebp]
+	mov	eax, DWORD PTR _iLink$38757[ebp]
 	cmp	eax, DWORD PTR [ecx+edx+32]
-	jge	SHORT $L38759
+	jge	SHORT $L38760
 
 ; 3385 : 								iVisitNode = INodeLink ( pMyPath2[i], iLink );
 
-	mov	ecx, DWORD PTR _iLink$38756[ebp]
+	mov	ecx, DWORD PTR _iLink$38757[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _i$38735[ebp]
+	mov	edx, DWORD PTR _i$38736[ebp]
 	mov	eax, DWORD PTR _pMyPath2$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?INodeLink@CGraph@@QAEHHH@Z		; CGraph::INodeLink
-	mov	DWORD PTR _iVisitNode$38754[ebp], eax
+	mov	DWORD PTR _iVisitNode$38755[ebp], eax
 
 ; 3386 : 								if (iVisitNode == pMyPath2[i+1])
 
-	mov	edx, DWORD PTR _i$38735[ebp]
+	mov	edx, DWORD PTR _i$38736[ebp]
 	mov	eax, DWORD PTR _pMyPath2$[ebp]
-	mov	ecx, DWORD PTR _iVisitNode$38754[ebp]
+	mov	ecx, DWORD PTR _iVisitNode$38755[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+4]
-	jne	SHORT $L38760
+	jne	SHORT $L38761
 
 ; 3388 : 									flDistance2 += m_pLinkPool[ m_pNodes[ pMyPath2[i] ].m_iFirstLink + iLink].m_flWeight;
 
-	mov	edx, DWORD PTR _i$38735[ebp]
+	mov	edx, DWORD PTR _i$38736[ebp]
 	mov	eax, DWORD PTR _pMyPath2$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4]
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	ecx, DWORD PTR [eax+ecx+36]
-	add	ecx, DWORD PTR _iLink$38756[ebp]
+	add	ecx, DWORD PTR _iLink$38757[ebp]
 	imul	ecx, 24					; 00000018H
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+16]
-	fld	DWORD PTR _flDistance2$38749[ebp]
+	fld	DWORD PTR _flDistance2$38750[ebp]
 	fadd	DWORD PTR [eax+ecx+20]
-	fstp	DWORD PTR _flDistance2$38749[ebp]
+	fstp	DWORD PTR _flDistance2$38750[ebp]
 
 ; 3389 : 									bFound = TRUE;
 
-	mov	DWORD PTR _bFound$38755[ebp], 1
+	mov	DWORD PTR _bFound$38756[ebp], 1
 
 ; 3390 : 									break;
 
-	jmp	SHORT $L38759
-$L38760:
+	jmp	SHORT $L38760
+$L38761:
 
 ; 3392 : 							}
 
-	jmp	$L38758
-$L38759:
+	jmp	$L38759
+$L38760:
 
 ; 3393 : 							if (!bFound)
 
-	cmp	DWORD PTR _bFound$38755[ebp], 0
-	jne	SHORT $L38761
+	cmp	DWORD PTR _bFound$38756[ebp], 0
+	jne	SHORT $L38762
 
 ; 3395 : 								ALERT(at_aiconsole, "No link.\n");
 
@@ -21230,17 +21230,17 @@ $L38759:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L38761:
+$L38762:
 
 ; 3397 : 						}
 
-	jmp	$L38751
-$L38752:
+	jmp	$L38752
+$L38753:
 
 ; 3398 : 						if (fabs(flDistance1 - flDistance2) > 0.10)
 
-	fld	DWORD PTR _flDistance1$38734[ebp]
-	fsub	DWORD PTR _flDistance2$38749[ebp]
+	fld	DWORD PTR _flDistance1$38735[ebp]
+	fsub	DWORD PTR _flDistance2$38750[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	call	_fabs
@@ -21248,7 +21248,7 @@ $L38752:
 	fcomp	QWORD PTR __real@8@3ffbccccccccccccd000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	$L38762
+	jne	$L38763
 
 ; 3400 : #else
 ; 3401 : 						if (cPathSize1 != cPathSize2 || memcmp(pMyPath, pMyPath2, sizeof(int)*cPathSize1) != 0)
@@ -21263,13 +21263,13 @@ $L38752:
 
 ; 3405 : 							ALERT(at_aiconsole, "(%d to %d |%d/%d)1:", iFrom, iTo, iHull, iCap);
 
-	mov	ecx, DWORD PTR _iCap$38712[ebp]
+	mov	ecx, DWORD PTR _iCap$38713[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iHull$38708[ebp]
+	mov	edx, DWORD PTR _iHull$38709[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iTo$38727[ebp]
+	mov	eax, DWORD PTR _iTo$38728[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iFrom$38723[ebp]
+	mov	ecx, DWORD PTR _iFrom$38724[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0BE@MINJ@?$CI?$CFd?5to?5?$CFd?5?$HM?$CFd?1?$CFd?$CJ1?3?$AA@ ; `string'
 	push	2
@@ -21278,20 +21278,20 @@ $L38752:
 
 ; 3406 : 							for (int i = 0; i < cPathSize1; i++)
 
-	mov	DWORD PTR _i$38765[ebp], 0
-	jmp	SHORT $L38766
-$L38767:
-	mov	edx, DWORD PTR _i$38765[ebp]
+	mov	DWORD PTR _i$38766[ebp], 0
+	jmp	SHORT $L38767
+$L38768:
+	mov	edx, DWORD PTR _i$38766[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38765[ebp], edx
-$L38766:
-	mov	eax, DWORD PTR _i$38765[ebp]
-	cmp	eax, DWORD PTR _cPathSize1$38731[ebp]
-	jge	SHORT $L38768
+	mov	DWORD PTR _i$38766[ebp], edx
+$L38767:
+	mov	eax, DWORD PTR _i$38766[ebp]
+	cmp	eax, DWORD PTR _cPathSize1$38732[ebp]
+	jge	SHORT $L38769
 
 ; 3408 : 								ALERT(at_aiconsole, "%d ", pMyPath[i]);
 
-	mov	ecx, DWORD PTR _i$38765[ebp]
+	mov	ecx, DWORD PTR _i$38766[ebp]
 	mov	edx, DWORD PTR _pMyPath$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
 	push	eax
@@ -21302,18 +21302,18 @@ $L38766:
 
 ; 3409 : 							}
 
-	jmp	SHORT $L38767
-$L38768:
+	jmp	SHORT $L38768
+$L38769:
 
 ; 3410 : 							ALERT(at_aiconsole, "\n(%d to %d |%d/%d)2:", iFrom, iTo, iHull, iCap);
 
-	mov	ecx, DWORD PTR _iCap$38712[ebp]
+	mov	ecx, DWORD PTR _iCap$38713[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iHull$38708[ebp]
+	mov	edx, DWORD PTR _iHull$38709[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iTo$38727[ebp]
+	mov	eax, DWORD PTR _iTo$38728[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iFrom$38723[ebp]
+	mov	ecx, DWORD PTR _iFrom$38724[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0BF@GLCK@?6?$CI?$CFd?5to?5?$CFd?5?$HM?$CFd?1?$CFd?$CJ2?3?$AA@ ; `string'
 	push	2
@@ -21322,20 +21322,20 @@ $L38768:
 
 ; 3411 : 							for (i = 0; i < cPathSize2; i++)
 
-	mov	DWORD PTR _i$38765[ebp], 0
-	jmp	SHORT $L38771
-$L38772:
-	mov	edx, DWORD PTR _i$38765[ebp]
+	mov	DWORD PTR _i$38766[ebp], 0
+	jmp	SHORT $L38772
+$L38773:
+	mov	edx, DWORD PTR _i$38766[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38765[ebp], edx
-$L38771:
-	mov	eax, DWORD PTR _i$38765[ebp]
-	cmp	eax, DWORD PTR _cPathSize2$38732[ebp]
-	jge	SHORT $L38773
+	mov	DWORD PTR _i$38766[ebp], edx
+$L38772:
+	mov	eax, DWORD PTR _i$38766[ebp]
+	cmp	eax, DWORD PTR _cPathSize2$38733[ebp]
+	jge	SHORT $L38774
 
 ; 3413 : 								ALERT(at_aiconsole, "%d ", pMyPath2[i]);
 
-	mov	ecx, DWORD PTR _i$38765[ebp]
+	mov	ecx, DWORD PTR _i$38766[ebp]
 	mov	edx, DWORD PTR _pMyPath2$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
 	push	eax
@@ -21346,8 +21346,8 @@ $L38771:
 
 ; 3414 : 							}
 
-	jmp	SHORT $L38772
-$L38773:
+	jmp	SHORT $L38773
+$L38774:
 
 ; 3415 : 							ALERT(at_aiconsole, "\n");
 
@@ -21363,19 +21363,19 @@ $L38773:
 
 ; 3417 : 							cPathSize1 = FindShortestPath(pMyPath, iFrom, iTo, iHull, iCapMask);
 
-	mov	edx, DWORD PTR _iCapMask$38716[ebp]
+	mov	edx, DWORD PTR _iCapMask$38717[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iHull$38708[ebp]
+	mov	eax, DWORD PTR _iHull$38709[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iTo$38727[ebp]
+	mov	ecx, DWORD PTR _iTo$38728[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iFrom$38723[ebp]
+	mov	edx, DWORD PTR _iFrom$38724[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pMyPath$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FindShortestPath@CGraph@@QAEHPAHHHHH@Z	; CGraph::FindShortestPath
-	mov	DWORD PTR _cPathSize1$38731[ebp], eax
+	mov	DWORD PTR _cPathSize1$38732[ebp], eax
 
 ; 3418 : 							m_fRoutingComplete = TRUE;
 
@@ -21384,69 +21384,69 @@ $L38773:
 
 ; 3419 : 							cPathSize2 = FindShortestPath(pMyPath2, iFrom, iTo, iHull, iCapMask);
 
-	mov	edx, DWORD PTR _iCapMask$38716[ebp]
+	mov	edx, DWORD PTR _iCapMask$38717[ebp]
 	push	edx
-	mov	eax, DWORD PTR _iHull$38708[ebp]
+	mov	eax, DWORD PTR _iHull$38709[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _iTo$38727[ebp]
+	mov	ecx, DWORD PTR _iTo$38728[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _iFrom$38723[ebp]
+	mov	edx, DWORD PTR _iFrom$38724[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pMyPath2$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FindShortestPath@CGraph@@QAEHPAHHHHH@Z	; CGraph::FindShortestPath
-	mov	DWORD PTR _cPathSize2$38732[ebp], eax
+	mov	DWORD PTR _cPathSize2$38733[ebp], eax
 
 ; 3420 : 							goto EnoughSaid;
 
-	jmp	SHORT $L38775
-$L38762:
+	jmp	SHORT $L38776
+$L38763:
 
 ; 3422 : 					}
 
-	jmp	$L38729
-$L38730:
+	jmp	$L38730
+$L38731:
 
 ; 3423 : 				}
 
-	jmp	$L38725
-$L38726:
+	jmp	$L38726
+$L38727:
 
 ; 3424 : 			}
 
-	jmp	$L38714
-$L38715:
+	jmp	$L38715
+$L38716:
 
 ; 3425 : 		}
 
-	jmp	$L38710
-$EnoughSaid$38774:
+	jmp	$L38711
+$EnoughSaid$38775:
 
 ; 3429 : 
 ; 3430 : 	if (pMyPath) delete pMyPath;
 
 	cmp	DWORD PTR _pMyPath$[ebp], 0
-	je	SHORT $L38776
+	je	SHORT $L38777
 	mov	ecx, DWORD PTR _pMyPath$[ebp]
-	mov	DWORD PTR $T40213[ebp], ecx
-	mov	edx, DWORD PTR $T40213[ebp]
+	mov	DWORD PTR $T40214[ebp], ecx
+	mov	edx, DWORD PTR $T40214[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38776:
+$L38777:
 
 ; 3431 : 	if (pMyPath2) delete pMyPath2;
 
 	cmp	DWORD PTR _pMyPath2$[ebp], 0
-	je	SHORT $L38778
+	je	SHORT $L38779
 	mov	eax, DWORD PTR _pMyPath2$[ebp]
-	mov	DWORD PTR $T40214[ebp], eax
-	mov	ecx, DWORD PTR $T40214[ebp]
+	mov	DWORD PTR $T40215[ebp], eax
+	mov	ecx, DWORD PTR $T40215[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38778:
+$L38779:
 
 ; 3432 : 	pMyPath = 0;
 
@@ -21458,10 +21458,10 @@ $L38778:
 
 ; 3434 : }
 
-	jmp	SHORT $L38700
-$L38775:
-	jmp	SHORT $EnoughSaid$38774
-$L38700:
+	jmp	SHORT $L38701
+$L38776:
+	jmp	SHORT $EnoughSaid$38775
+$L38701:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -21796,7 +21796,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S54@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L38910
+	jne	SHORT $L38911
 	mov	cl, BYTE PTR _?$S54@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S54@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4EA, cl
@@ -21806,7 +21806,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E55
 	call	_atexit
 	add	esp, 4
-$L38910:
+$L38911:
 	call	?GetBaseMap@CNodeViewer@@SAPAUdatamap_s@@XZ ; CNodeViewer::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CNodeViewer@@2Udatamap_s@@A+12, eax
 
@@ -21816,7 +21816,7 @@ $L38910:
 	mov	dl, BYTE PTR _?$S54@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4EA
 	and	edx, 2
 	test	edx, edx
-	jne	SHORT $L38914
+	jne	SHORT $L38915
 	mov	al, BYTE PTR _?$S54@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4EA
 	or	al, 2
 	mov	BYTE PTR _?$S54@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4EA, al
@@ -21829,20 +21829,20 @@ $L38910:
 	mov	WORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4PAUtypedescription_s@@A+38, 8
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4PAUtypedescription_s@@A+40, 0
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4PAUtypedescription_s@@A+44, OFFSET FLAT:?DrawThink@CNodeViewer@@QAEXXZ ; CNodeViewer::DrawThink
-$L38914:
+$L38915:
 
 ; 3479 : END_DATADESC()
 
 	mov	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L38918
+	je	SHORT $L38919
 	mov	DWORD PTR ?m_DataMap@CNodeViewer@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CNodeViewer@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L38919
-$L38918:
+	jmp	SHORT $L38920
+$L38919:
 	mov	DWORD PTR ?m_DataMap@CNodeViewer@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CNodeViewer@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCNodeViewer@@@Z@4PAUtypedescription_s@@A
-$L38919:
+$L38920:
 	mov	eax, OFFSET FLAT:?m_DataMap@CNodeViewer@@2Udatamap_s@@A ; CNodeViewer::m_DataMap
 	pop	edi
 	pop	esi
@@ -21894,12 +21894,12 @@ CONST	ENDS
 ;	COMDAT ?Spawn@CNodeViewer@@UAEXXZ
 _TEXT	SEGMENT
 _this$ = -4
-_i$38937 = -8
-_start$38942 = -12
-_end$38943 = -16
-$T40245 = -28
-$T40246 = -40
-$T40247 = -52
+_i$38938 = -8
+_start$38943 = -12
+_end$38944 = -16
+$T40246 = -28
+$T40247 = -40
+$T40248 = -52
 ?Spawn@CNodeViewer@@UAEXXZ PROC NEAR			; CNodeViewer::Spawn, COMDAT
 
 ; 3483 : {
@@ -21915,10 +21915,10 @@ $T40247 = -52
 ; 3484 : 	if ( !WorldGraph.m_fGraphPresent || !WorldGraph.m_fGraphPointersSet )
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A, 0
-	je	SHORT $L38925
+	je	SHORT $L38926
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+4, 0
-	jne	SHORT $L38924
-$L38925:
+	jne	SHORT $L38925
+$L38926:
 
 ; 3486 : 		ALERT ( at_console, "Graph not ready!\n" );
 
@@ -21936,8 +21936,8 @@ $L38925:
 
 ; 3488 : 		return;
 
-	jmp	$L38923
-$L38924:
+	jmp	$L38924
+$L38925:
 
 ; 3490 : 
 ; 3491 : 
@@ -21950,7 +21950,7 @@ $L38924:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38926
+	je	SHORT $L38927
 
 ; 3494 : 		m_iHull = NODE_FLY_HULL;
 
@@ -21967,7 +21967,7 @@ $L38924:
 	push	1132396544				; 437f0000H
 	push	1120403456				; 42c80000H
 	push	1126170624				; 43200000H
-	lea	ecx, DWORD PTR $T40245[ebp]
+	lea	ecx, DWORD PTR $T40246[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 2808				; 00000af8H
@@ -21980,8 +21980,8 @@ $L38924:
 
 ; 3498 : 	else if (FClassnameIs( pev, "node_viewer_large"))
 
-	jmp	$L38931
-$L38926:
+	jmp	$L38932
+$L38927:
 	push	OFFSET FLAT:??_C@_0BC@BACI@node_viewer_large?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -21989,7 +21989,7 @@ $L38926:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38929
+	je	SHORT $L38930
 
 ; 3500 : 		m_iHull = NODE_LARGE_HULL;
 
@@ -22006,7 +22006,7 @@ $L38926:
 	push	1126170624				; 43200000H
 	push	1132396544				; 437f0000H
 	push	1120403456				; 42c80000H
-	lea	ecx, DWORD PTR $T40246[ebp]
+	lea	ecx, DWORD PTR $T40247[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 2808				; 00000af8H
@@ -22019,8 +22019,8 @@ $L38926:
 
 ; 3504 : 	else
 
-	jmp	SHORT $L38931
-$L38929:
+	jmp	SHORT $L38932
+$L38930:
 
 ; 3506 : 		m_iHull = NODE_HUMAN_HULL;
 
@@ -22037,7 +22037,7 @@ $L38929:
 	push	1120403456				; 42c80000H
 	push	1126170624				; 43200000H
 	push	1132396544				; 437f0000H
-	lea	ecx, DWORD PTR $T40247[ebp]
+	lea	ecx, DWORD PTR $T40248[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2808				; 00000af8H
@@ -22047,7 +22047,7 @@ $L38929:
 	mov	DWORD PTR [ecx+4], edx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [ecx+8], eax
-$L38931:
+$L38932:
 
 ; 3510 : 
 ; 3511 : 
@@ -22069,7 +22069,7 @@ $L38931:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1764], 0
-	jge	SHORT $L38933
+	jge	SHORT $L38934
 
 ; 3516 : 		ALERT( at_console, "No nearby node\n" );
 
@@ -22080,8 +22080,8 @@ $L38931:
 
 ; 3517 : 		return;
 
-	jmp	$L38923
-$L38933:
+	jmp	$L38924
+$L38934:
 
 ; 3519 : 
 ; 3520 : 	m_nVisited = 0;
@@ -22104,20 +22104,20 @@ $L38933:
 ; 3524 : 	if (WorldGraph.m_cNodes < 128)
 
 	cmp	DWORD PTR ?WorldGraph@@3VCGraph@@A+24, 128 ; 00000080H
-	jge	SHORT $L38936
+	jge	SHORT $L38937
 
 ; 3526 : 		for (int i = 0; i < WorldGraph.m_cNodes; i++)
 
-	mov	DWORD PTR _i$38937[ebp], 0
-	jmp	SHORT $L38938
-$L38939:
-	mov	eax, DWORD PTR _i$38937[ebp]
+	mov	DWORD PTR _i$38938[ebp], 0
+	jmp	SHORT $L38939
+$L38940:
+	mov	eax, DWORD PTR _i$38938[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$38937[ebp], eax
-$L38938:
-	mov	ecx, DWORD PTR _i$38937[ebp]
+	mov	DWORD PTR _i$38938[ebp], eax
+$L38939:
+	mov	ecx, DWORD PTR _i$38938[ebp]
 	cmp	ecx, DWORD PTR ?WorldGraph@@3VCGraph@@A+24
-	jge	SHORT $L38940
+	jge	SHORT $L38941
 
 ; 3528 : 			AddNode( i, WorldGraph.NextNodeInRoute( i, m_iBaseNode, m_iHull, 0 ));
 
@@ -22128,25 +22128,25 @@ $L38938:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+1764]
 	push	edx
-	mov	eax, DWORD PTR _i$38937[ebp]
+	mov	eax, DWORD PTR _i$38938[ebp]
 	push	eax
 	mov	ecx, OFFSET FLAT:?WorldGraph@@3VCGraph@@A
 	call	?NextNodeInRoute@CGraph@@QAEHHHHH@Z	; CGraph::NextNodeInRoute
 	push	eax
-	mov	ecx, DWORD PTR _i$38937[ebp]
+	mov	ecx, DWORD PTR _i$38938[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AddNode@CNodeViewer@@QAEXHH@Z		; CNodeViewer::AddNode
 
 ; 3529 : 		}
 
-	jmp	SHORT $L38939
-$L38940:
+	jmp	SHORT $L38940
+$L38941:
 
 ; 3531 : 	else
 
-	jmp	$L38946
-$L38936:
+	jmp	$L38947
+$L38937:
 
 ; 3533 : 		// do a depth traversal
 ; 3534 : 		FindNodeConnections( m_iBaseNode );
@@ -22160,34 +22160,34 @@ $L38936:
 ; 3535 : 
 ; 3536 : 		int start = 0;
 
-	mov	DWORD PTR _start$38942[ebp], 0
-$L38944:
+	mov	DWORD PTR _start$38943[ebp], 0
+$L38945:
 
 ; 3539 : 			end = m_nVisited;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+1772]
-	mov	DWORD PTR _end$38943[ebp], edx
+	mov	DWORD PTR _end$38944[ebp], edx
 
 ; 3540 : 			// ALERT( at_console, "%d :", m_nVisited );
 ; 3541 : 			for (end = m_nVisited; start < end; start++)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1772]
-	mov	DWORD PTR _end$38943[ebp], ecx
-	jmp	SHORT $L38947
-$L38948:
-	mov	edx, DWORD PTR _start$38942[ebp]
+	mov	DWORD PTR _end$38944[ebp], ecx
+	jmp	SHORT $L38948
+$L38949:
+	mov	edx, DWORD PTR _start$38943[ebp]
 	add	edx, 1
-	mov	DWORD PTR _start$38942[ebp], edx
-$L38947:
-	mov	eax, DWORD PTR _start$38942[ebp]
-	cmp	eax, DWORD PTR _end$38943[ebp]
-	jge	SHORT $L38949
+	mov	DWORD PTR _start$38943[ebp], edx
+$L38948:
+	mov	eax, DWORD PTR _start$38943[ebp]
+	cmp	eax, DWORD PTR _end$38944[ebp]
+	jge	SHORT $L38950
 
 ; 3543 : 				FindNodeConnections( m_aFrom[start] );
 
-	mov	ecx, DWORD PTR _start$38942[ebp]
+	mov	ecx, DWORD PTR _start$38943[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+1776]
 	push	eax
@@ -22196,7 +22196,7 @@ $L38947:
 
 ; 3544 : 				FindNodeConnections( m_aTo[start] );
 
-	mov	ecx, DWORD PTR _start$38942[ebp]
+	mov	ecx, DWORD PTR _start$38943[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+2288]
 	push	eax
@@ -22205,16 +22205,16 @@ $L38947:
 
 ; 3545 : 			}
 
-	jmp	SHORT $L38948
-$L38949:
+	jmp	SHORT $L38949
+$L38950:
 
 ; 3546 : 		} while (end != m_nVisited);
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _end$38943[ebp]
+	mov	edx, DWORD PTR _end$38944[ebp]
 	cmp	edx, DWORD PTR [ecx+1772]
-	jne	SHORT $L38944
-$L38946:
+	jne	SHORT $L38945
+$L38947:
 
 ; 3548 : 
 ; 3549 : 	ALERT( at_aiconsole, "%d nodes\n", m_nVisited );
@@ -22247,7 +22247,7 @@ $L38946:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR [ecx+260], eax
-$L38923:
+$L38924:
 
 ; 3554 : }
 
@@ -22264,7 +22264,7 @@ _TEXT	SEGMENT
 _iNode$ = 8
 _this$ = -4
 _i$ = -8
-_pToLink$38961 = -12
+_pToLink$38962 = -12
 ?FindNodeConnections@CNodeViewer@@QAEXH@Z PROC NEAR	; CNodeViewer::FindNodeConnections, COMDAT
 
 ; 3558 : {
@@ -22299,18 +22299,18 @@ _pToLink$38961 = -12
 ; 3560 : 	for ( int i = 0 ; i < WorldGraph.m_pNodes[ iNode ].m_cNumLinks ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38958
-$L38959:
+	jmp	SHORT $L38959
+$L38960:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38958:
+$L38959:
 	mov	ecx, DWORD PTR _iNode$[ebp]
 	imul	ecx, 88					; 00000058H
 	mov	edx, DWORD PTR ?WorldGraph@@3VCGraph@@A+12
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+ecx+32]
-	jge	SHORT $L38960
+	jge	SHORT $L38961
 
 ; 3562 : 		CLink *pToLink = &WorldGraph.NodeLink( iNode, i);
 
@@ -22320,7 +22320,7 @@ $L38958:
 	push	edx
 	mov	ecx, OFFSET FLAT:?WorldGraph@@3VCGraph@@A
 	call	?NodeLink@CGraph@@QAEAAVCLink@@HH@Z	; CGraph::NodeLink
-	mov	DWORD PTR _pToLink$38961[ebp], eax
+	mov	DWORD PTR _pToLink$38962[ebp], eax
 
 ; 3563 : 		AddNode( pToLink->m_iDestNode, WorldGraph.NextNodeInRoute( pToLink->m_iDestNode, m_iBaseNode, m_iHull, 0 ));
 
@@ -22331,13 +22331,13 @@ $L38958:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+1764]
 	push	eax
-	mov	ecx, DWORD PTR _pToLink$38961[ebp]
+	mov	ecx, DWORD PTR _pToLink$38962[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	push	edx
 	mov	ecx, OFFSET FLAT:?WorldGraph@@3VCGraph@@A
 	call	?NextNodeInRoute@CGraph@@QAEHHHHH@Z	; CGraph::NextNodeInRoute
 	push	eax
-	mov	eax, DWORD PTR _pToLink$38961[ebp]
+	mov	eax, DWORD PTR _pToLink$38962[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -22345,8 +22345,8 @@ $L38958:
 
 ; 3564 : 	}
 
-	jmp	SHORT $L38959
-$L38960:
+	jmp	SHORT $L38960
+$L38961:
 
 ; 3565 : }
 
@@ -22363,7 +22363,7 @@ _TEXT	SEGMENT
 _iFrom$ = 8
 _iTo$ = 12
 _this$ = -4
-_i$38970 = -8
+_i$38971 = -8
 ?AddNode@CNodeViewer@@QAEXHH@Z PROC NEAR		; CNodeViewer::AddNode, COMDAT
 
 ; 3568 : {
@@ -22380,79 +22380,79 @@ _i$38970 = -8
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1772], 128		; 00000080H
-	jl	SHORT $L38967
+	jl	SHORT $L38968
 
 ; 3571 : 		return;
 
-	jmp	$L38966
-$L38967:
+	jmp	$L38967
+$L38968:
 
 ; 3575 : 		if (iFrom == iTo)
 
 	mov	ecx, DWORD PTR _iFrom$[ebp]
 	cmp	ecx, DWORD PTR _iTo$[ebp]
-	jne	SHORT $L38969
+	jne	SHORT $L38970
 
 ; 3576 : 			return;
 
-	jmp	$L38966
-$L38969:
+	jmp	$L38967
+$L38970:
 
 ; 3577 : 
 ; 3578 : 		for (int i = 0; i < m_nVisited; i++)
 
-	mov	DWORD PTR _i$38970[ebp], 0
-	jmp	SHORT $L38971
-$L38972:
-	mov	edx, DWORD PTR _i$38970[ebp]
+	mov	DWORD PTR _i$38971[ebp], 0
+	jmp	SHORT $L38972
+$L38973:
+	mov	edx, DWORD PTR _i$38971[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38970[ebp], edx
-$L38971:
+	mov	DWORD PTR _i$38971[ebp], edx
+$L38972:
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _i$38970[ebp]
+	mov	ecx, DWORD PTR _i$38971[ebp]
 	cmp	ecx, DWORD PTR [eax+1772]
-	jge	SHORT $L38973
+	jge	SHORT $L38974
 
 ; 3580 : 			if (m_aFrom[i] == iFrom && m_aTo[i] == iTo)
 
-	mov	edx, DWORD PTR _i$38970[ebp]
+	mov	edx, DWORD PTR _i$38971[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+1776]
 	cmp	ecx, DWORD PTR _iFrom$[ebp]
-	jne	SHORT $L38974
-	mov	edx, DWORD PTR _i$38970[ebp]
+	jne	SHORT $L38975
+	mov	edx, DWORD PTR _i$38971[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+2288]
 	cmp	ecx, DWORD PTR _iTo$[ebp]
-	jne	SHORT $L38974
+	jne	SHORT $L38975
 
 ; 3581 : 				return;
 
-	jmp	SHORT $L38966
-$L38974:
+	jmp	SHORT $L38967
+$L38975:
 
 ; 3582 : 			if (m_aFrom[i] == iTo && m_aTo[i] == iFrom)
 
-	mov	edx, DWORD PTR _i$38970[ebp]
+	mov	edx, DWORD PTR _i$38971[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+1776]
 	cmp	ecx, DWORD PTR _iTo$[ebp]
-	jne	SHORT $L38975
-	mov	edx, DWORD PTR _i$38970[ebp]
+	jne	SHORT $L38976
+	mov	edx, DWORD PTR _i$38971[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4+2288]
 	cmp	ecx, DWORD PTR _iFrom$[ebp]
-	jne	SHORT $L38975
+	jne	SHORT $L38976
 
 ; 3583 : 				return;
 
-	jmp	SHORT $L38966
-$L38975:
+	jmp	SHORT $L38967
+$L38976:
 
 ; 3584 : 		}
 
-	jmp	SHORT $L38972
-$L38973:
+	jmp	SHORT $L38973
+$L38974:
 
 ; 3585 : 		m_aFrom[m_nVisited] = iFrom;
 
@@ -22477,7 +22477,7 @@ $L38973:
 	add	edx, 1
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+1772], edx
-$L38966:
+$L38967:
 
 ; 3589 : }
 
@@ -22518,14 +22518,14 @@ _i$ = -8
 ; 3596 : 	for (int i = 0; i < 10; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38981
-$L38982:
+	jmp	SHORT $L38982
+$L38983:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38981:
+$L38982:
 	cmp	DWORD PTR _i$[ebp], 10			; 0000000aH
-	jge	$L38983
+	jge	$L38984
 
 ; 3598 : 		if (m_iDraw == m_nVisited)
 
@@ -22533,7 +22533,7 @@ $L38981:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+1768]
 	cmp	ecx, DWORD PTR [eax+1772]
-	jne	SHORT $L38984
+	jne	SHORT $L38985
 
 ; 3600 : 			UTIL_Remove( this );
 
@@ -22544,8 +22544,8 @@ $L38981:
 
 ; 3601 : 			return;
 
-	jmp	$L38979
-$L38984:
+	jmp	$L38980
+$L38985:
 
 ; 3605 : 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 
@@ -22736,9 +22736,9 @@ $L38984:
 
 ; 3628 : 	}
 
-	jmp	$L38982
-$L38983:
-$L38979:
+	jmp	$L38983
+$L38984:
+$L38980:
 
 ; 3629 : }
 
@@ -23509,11 +23509,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	test	eax, eax
-	je	SHORT $L40304
+	je	SHORT $L40305
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	cmp	DWORD PTR _src$[ebp], eax
-	jb	SHORT $L40304
+	jb	SHORT $L40305
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	mov	esi, eax
@@ -23521,13 +23521,13 @@ _this$ = -4
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	lea	eax, DWORD PTR [esi+eax*4]
 	cmp	DWORD PTR _src$[ebp], eax
-	jae	SHORT $L40304
+	jae	SHORT $L40305
 	push	519					; 00000207H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40304:
+$L40305:
 
 ; 520  : 	return InsertBefore( m_Size, src );
 
@@ -23598,8 +23598,8 @@ xdata$x	ENDS
 _TEXT	SEGMENT
 _a$ = 8
 _pev$ = -16
-$T40309 = -20
-$T40310 = -24
+$T40310 = -20
+$T40311 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCTestHull@@PAV1@@Z PROC NEAR		; GetClassPtr, COMDAT
 
@@ -23627,7 +23627,7 @@ __$EHRec$ = -12
 ; 1077 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39062
+	jne	SHORT $L39063
 
 ; 1078 : 		pev = VARS(CREATE_ENTITY());
 
@@ -23636,7 +23636,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39062:
+$L39063:
 
 ; 1079 : 
 ; 1080 : 	// get the private data
@@ -23655,7 +23655,7 @@ $L39062:
 ; 1083 : 	if (a == NULL) 
 
 	cmp	DWORD PTR _a$[ebp], 0
-	jne	SHORT $L39064
+	jne	SHORT $L39065
 
 ; 1085 : 		// allocate private data 
 ; 1086 : 		a = new(pev) T;
@@ -23665,21 +23665,21 @@ $L39062:
 	push	2408					; 00000968H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40310[ebp], eax
+	mov	DWORD PTR $T40311[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40310[ebp], 0
-	je	SHORT $L40311
-	mov	ecx, DWORD PTR $T40310[ebp]
+	cmp	DWORD PTR $T40311[ebp], 0
+	je	SHORT $L40312
+	mov	ecx, DWORD PTR $T40311[ebp]
 	call	??0CTestHull@@QAE@XZ			; CTestHull::CTestHull
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40312
-$L40311:
-	mov	DWORD PTR -28+[ebp], 0
+	jmp	SHORT $L40313
 $L40312:
+	mov	DWORD PTR -28+[ebp], 0
+$L40313:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40309[ebp], eax
+	mov	DWORD PTR $T40310[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40309[ebp]
+	mov	ecx, DWORD PTR $T40310[ebp]
 	mov	DWORD PTR _a$[ebp], ecx
 
 ; 1087 : 		a->pev = pev;
@@ -23687,7 +23687,7 @@ $L40312:
 	mov	edx, DWORD PTR _a$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39064:
+$L39065:
 
 ; 1089 : 	return a;
 
@@ -23709,7 +23709,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCTestHull@@PAV1@@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40310[ebp]
+	mov	ecx, DWORD PTR $T40311[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -23837,8 +23837,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T40328 = -20
-$T40329 = -24
+$T40329 = -20
+$T40330 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCNodeEnt@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -23866,7 +23866,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39074
+	jne	SHORT $L39075
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -23875,7 +23875,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39074:
+$L39075:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -23894,7 +23894,7 @@ $L39074:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39076
+	jne	SHORT $L39077
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -23904,21 +23904,21 @@ $L39074:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40329[ebp], eax
+	mov	DWORD PTR $T40330[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40329[ebp], 0
-	je	SHORT $L40330
-	mov	ecx, DWORD PTR $T40329[ebp]
+	cmp	DWORD PTR $T40330[ebp], 0
+	je	SHORT $L40331
+	mov	ecx, DWORD PTR $T40330[ebp]
 	call	??0CNodeEnt@@QAE@XZ			; CNodeEnt::CNodeEnt
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40331
-$L40330:
-	mov	DWORD PTR -28+[ebp], 0
+	jmp	SHORT $L40332
 $L40331:
+	mov	DWORD PTR -28+[ebp], 0
+$L40332:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40328[ebp], eax
+	mov	DWORD PTR $T40329[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40328[ebp]
+	mov	ecx, DWORD PTR $T40329[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -23926,7 +23926,7 @@ $L40331:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39076:
+$L39077:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -23956,7 +23956,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCNodeEnt@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40329[ebp]
+	mov	ecx, DWORD PTR $T40330[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -24013,8 +24013,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T40343 = -20
-$T40344 = -24
+$T40344 = -20
+$T40345 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCTestHull@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -24042,7 +24042,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39085
+	jne	SHORT $L39086
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -24051,7 +24051,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39085:
+$L39086:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -24070,7 +24070,7 @@ $L39085:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39087
+	jne	SHORT $L39088
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -24080,21 +24080,21 @@ $L39085:
 	push	2408					; 00000968H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40344[ebp], eax
+	mov	DWORD PTR $T40345[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40344[ebp], 0
-	je	SHORT $L40345
-	mov	ecx, DWORD PTR $T40344[ebp]
+	cmp	DWORD PTR $T40345[ebp], 0
+	je	SHORT $L40346
+	mov	ecx, DWORD PTR $T40345[ebp]
 	call	??0CTestHull@@QAE@XZ			; CTestHull::CTestHull
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40346
-$L40345:
-	mov	DWORD PTR -28+[ebp], 0
+	jmp	SHORT $L40347
 $L40346:
+	mov	DWORD PTR -28+[ebp], 0
+$L40347:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40343[ebp], eax
+	mov	DWORD PTR $T40344[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40343[ebp]
+	mov	ecx, DWORD PTR $T40344[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -24102,7 +24102,7 @@ $L40346:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39087:
+$L39088:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -24132,7 +24132,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCTestHull@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40344[ebp]
+	mov	ecx, DWORD PTR $T40345[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -24160,8 +24160,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T40356 = -20
-$T40357 = -24
+$T40357 = -20
+$T40358 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCNodeViewer@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -24189,7 +24189,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39096
+	jne	SHORT $L39097
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -24198,7 +24198,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39096:
+$L39097:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -24217,7 +24217,7 @@ $L39096:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39098
+	jne	SHORT $L39099
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -24227,21 +24227,21 @@ $L39096:
 	push	2820					; 00000b04H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40357[ebp], eax
+	mov	DWORD PTR $T40358[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40357[ebp], 0
-	je	SHORT $L40358
-	mov	ecx, DWORD PTR $T40357[ebp]
+	cmp	DWORD PTR $T40358[ebp], 0
+	je	SHORT $L40359
+	mov	ecx, DWORD PTR $T40358[ebp]
 	call	??0CNodeViewer@@QAE@XZ			; CNodeViewer::CNodeViewer
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40359
-$L40358:
-	mov	DWORD PTR -28+[ebp], 0
+	jmp	SHORT $L40360
 $L40359:
+	mov	DWORD PTR -28+[ebp], 0
+$L40360:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40356[ebp], eax
+	mov	DWORD PTR $T40357[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40356[ebp]
+	mov	ecx, DWORD PTR $T40357[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -24249,7 +24249,7 @@ $L40359:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39098:
+$L39099:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -24279,7 +24279,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCNodeViewer@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40357[ebp]
+	mov	ecx, DWORD PTR $T40358[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -25397,26 +25397,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L40440
+	jne	SHORT $L40441
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L40441
-$L40440:
+	je	SHORT $L40442
+$L40441:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40441
+	je	SHORT $L40442
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40442
-$L40441:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40443
 $L40442:
+	mov	DWORD PTR -8+[ebp], 0
+$L40443:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -26115,8 +26115,8 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40487 = -16
-$T40488 = -28
+$T40488 = -16
+$T40489 = -28
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
 
 ; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
@@ -26129,13 +26129,13 @@ $T40488 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T40488[ebp]
+	lea	eax, DWORD PTR $T40489[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T40487[ebp]
+	lea	eax, DWORD PTR $T40488[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -26159,7 +26159,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40491 = -16
+$T40492 = -16
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
 
 ; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
@@ -26175,7 +26175,7 @@ $T40491 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40491[ebp]
+	lea	edx, DWORD PTR $T40492[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -26197,7 +26197,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40494 = -16
+$T40495 = -16
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
 
 ; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
@@ -26213,7 +26213,7 @@ $T40494 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40494[ebp]
+	lea	edx, DWORD PTR $T40495[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -26355,14 +26355,14 @@ _this$ = -4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L40505
+	je	SHORT $L40506
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2388]
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L40506
-$L40505:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40507
 $L40506:
+	mov	DWORD PTR -8+[ebp], 0
+$L40507:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -26690,11 +26690,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40537 = -16
-$T40538 = -28
-$T40539 = -40
-$T40540 = -52
-$T40541 = -64
+$T40538 = -16
+$T40539 = -28
+$T40540 = -40
+$T40541 = -52
+$T40542 = -64
 ?BodyTarget@CBaseMonster@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseMonster::BodyTarget, COMDAT
 
 ; 318  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ) * 0.75 + EyePosition() * 0.25; };		// position to shoot at
@@ -26707,9 +26707,9 @@ $T40541 = -64
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1048576000				; 3e800000H
-	lea	eax, DWORD PTR $T40540[ebp]
+	lea	eax, DWORD PTR $T40541[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40539[ebp]
+	lea	ecx, DWORD PTR $T40540[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -26718,12 +26718,12 @@ $T40541 = -64
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40541[ebp]
+	lea	ecx, DWORD PTR $T40542[ebp]
 	push	ecx
 	push	1061158912				; 3f400000H
-	lea	edx, DWORD PTR $T40538[ebp]
+	lea	edx, DWORD PTR $T40539[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T40537[ebp]
+	lea	eax, DWORD PTR $T40538[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -27278,19 +27278,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L40579
+	jne	SHORT $L40580
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L40579
+	jne	SHORT $L40580
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40580
-$L40579:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40581
 $L40580:
+	mov	DWORD PTR -8+[ebp], 0
+$L40581:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -27356,7 +27356,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40587 = -16
+$T40588 = -16
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
 
 ; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
@@ -27368,7 +27368,7 @@ $T40587 = -16
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T40587[ebp]
+	lea	eax, DWORD PTR $T40588[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -28649,11 +28649,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	test	eax, eax
-	je	SHORT $L40659
+	je	SHORT $L40660
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	cmp	DWORD PTR _src$[ebp], eax
-	jb	SHORT $L40659
+	jb	SHORT $L40660
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	mov	esi, eax
@@ -28661,13 +28661,13 @@ _this$ = -4
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	lea	eax, DWORD PTR [esi+eax*4]
 	cmp	DWORD PTR _src$[ebp], eax
-	jae	SHORT $L40659
+	jae	SHORT $L40660
 	push	535					; 00000217H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40659:
+$L40660:
 
 ; 536  : 
 ; 537  : 	// Can insert at the end
@@ -28676,20 +28676,20 @@ $L40659:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	cmp	DWORD PTR _elem$[ebp], eax
-	je	SHORT $L40660
+	je	SHORT $L40661
 	mov	edx, DWORD PTR _elem$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::IsValidIndex
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40660
+	jne	SHORT $L40661
 	push	538					; 0000021aH
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0CI@IOBG@?$CIelem?5?$DN?$DN?5Count?$CI?$CJ?$CJ?5?$HM?$HM?5IsValidInde@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40660:
+$L40661:
 
 ; 539  : 
 ; 540  : 	GrowVector();
@@ -28821,19 +28821,19 @@ _this$ = -4
 ; 297  : 	assert( nGrowSize >= 0 );
 
 	cmp	DWORD PTR _nGrowSize$[ebp], 0
-	jge	SHORT $L40665
+	jge	SHORT $L40666
 	push	297					; 00000129H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40665:
+$L40666:
 
 ; 298  : 	if (m_nAllocationCount)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L39162
+	je	SHORT $L39163
 
 ; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -28845,7 +28845,7 @@ $L40665:
 	add	esp, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L39162:
+$L39163:
 
 ; 302  : }
 
@@ -28923,13 +28923,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40670
+	je	SHORT $L40671
 	push	424					; 000001a8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40670:
+$L40671:
 
 ; 425  : 	assert( IsIdxValid(i) );
 
@@ -28939,13 +28939,13 @@ $L40670:
 	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40671
+	jne	SHORT $L40672
 	push	425					; 000001a9H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40671:
+$L40672:
 
 ; 426  : 	return m_pMemory[i];
 
@@ -28985,13 +28985,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40674
+	je	SHORT $L40675
 	push	488					; 000001e8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40674:
+$L40675:
 
 ; 489  : 	return m_pMemory;
 
@@ -29096,16 +29096,16 @@ _this$ = -4
 ; 355  : 	return (i >= 0) && (i < m_Size);
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40681
+	jl	SHORT $L40682
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+12]
-	jge	SHORT $L40681
+	jge	SHORT $L40682
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40682
-$L40681:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40683
 $L40682:
+	mov	DWORD PTR -8+[ebp], 0
+$L40683:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 356  : }
@@ -29140,12 +29140,12 @@ _i$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _i$[ebp], ecx
-$L39195:
+$L39196:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L39196
+	jl	SHORT $L39197
 
 ; 729  : 		Destruct(&Element(i));
 
@@ -29159,8 +29159,8 @@ $L39195:
 
 ; 730  : 	}
 
-	jmp	SHORT $L39195
-$L39196:
+	jmp	SHORT $L39196
+$L39197:
 
 ; 731  : 
 ; 732  : 	m_Size = 0;
@@ -29204,7 +29204,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?NumAllocated@?$CUtlMemory@PADH@@QBEHXZ	; CUtlMemory<char *,int>::NumAllocated
 	cmp	esi, eax
-	jle	SHORT $L39205
+	jle	SHORT $L39206
 
 ; 377  : 		m_Memory.Grow( m_Size + num - m_Memory.NumAllocated() );
 
@@ -29217,7 +29217,7 @@ _this$ = -4
 	push	esi
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Grow@?$CUtlMemory@PADH@@QAEXH@Z	; CUtlMemory<char *,int>::Grow
-$L39205:
+$L39206:
 
 ; 379  : 
 ; 380  : 	m_Size += num;
@@ -29277,18 +29277,18 @@ _numToMove$ = -8
 	call	?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::IsValidIndex
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40689
+	jne	SHORT $L40690
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+12], 0
-	je	SHORT $L40689
+	je	SHORT $L40690
 	cmp	DWORD PTR _num$[ebp], 0
-	je	SHORT $L40689
+	je	SHORT $L40690
 	push	448					; 000001c0H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0DG@DBGD@IsValidIndex?$CIelem?$CJ?5?$HM?$HM?5?$CI?5m_Size?5?$DN@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40689:
+$L40690:
 
 ; 449  : 	int numToMove = m_Size - elem - num;
 
@@ -29301,9 +29301,9 @@ $L40689:
 ; 450  : 	if ((numToMove > 0) && (num > 0))
 
 	cmp	DWORD PTR _numToMove$[ebp], 0
-	jle	SHORT $L39214
+	jle	SHORT $L39215
 	cmp	DWORD PTR _num$[ebp], 0
-	jle	SHORT $L39214
+	jle	SHORT $L39215
 
 ; 451  : 		memmove( &Element(elem+num), &Element(elem), numToMove * sizeof(T) );
 
@@ -29323,7 +29323,7 @@ $L40689:
 	push	eax
 	call	_memmove
 	add	esp, 12					; 0000000cH
-$L39214:
+$L39215:
 
 ; 452  : }
 
@@ -29340,7 +29340,7 @@ PUBLIC	??2@YAPAXIPAX@Z					; operator new
 _TEXT	SEGMENT
 _pMemory$ = 8
 _src$ = 12
-$T40692 = -4
+$T40693 = -4
 ?CopyConstruct@@YAXPAPADABQAD@Z PROC NEAR		; CopyConstruct, COMDAT
 
 ; 43   : {
@@ -29359,19 +29359,19 @@ $T40692 = -4
 	push	4
 	call	??2@YAPAXIPAX@Z				; operator new
 	add	esp, 8
-	mov	DWORD PTR $T40692[ebp], eax
-	cmp	DWORD PTR $T40692[ebp], 0
-	je	SHORT $L40693
-	mov	ecx, DWORD PTR $T40692[ebp]
+	mov	DWORD PTR $T40693[ebp], eax
+	cmp	DWORD PTR $T40693[ebp], 0
+	je	SHORT $L40694
+	mov	ecx, DWORD PTR $T40693[ebp]
 	mov	edx, DWORD PTR _src$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR [ecx], eax
-	mov	ecx, DWORD PTR $T40692[ebp]
+	mov	ecx, DWORD PTR $T40693[ebp]
 	mov	DWORD PTR -8+[ebp], ecx
-	jmp	SHORT $L40694
-$L40693:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40695
 $L40694:
+	mov	DWORD PTR -8+[ebp], 0
+$L40695:
 
 ; 45   : }
 
@@ -29424,16 +29424,16 @@ _this$ = -4
 ; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40699
+	jl	SHORT $L40700
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jge	SHORT $L40699
+	jge	SHORT $L40700
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40700
-$L40699:
-	mov	DWORD PTR -8+[ebp], 0
+	jmp	SHORT $L40701
 $L40700:
+	mov	DWORD PTR -8+[ebp], 0
+$L40701:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 522  : }
@@ -29468,13 +29468,13 @@ _this$ = -4
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L39228
+	jne	SHORT $L39229
 
 ; 648  : 		if (m_pMemory)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L39229
+	je	SHORT $L39230
 
 ; 650  : 			free( (void*)m_pMemory );
 
@@ -29488,13 +29488,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], 0
-$L39229:
+$L39230:
 
 ; 653  : 		m_nAllocationCount = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+4], 0
-$L39228:
+$L39229:
 
 ; 655  : }
 
@@ -29606,13 +29606,13 @@ _nAllocationRequested$ = -8
 ; 561  : 	assert( num > 0 );
 
 	cmp	DWORD PTR _num$[ebp], 0
-	jg	SHORT $L40709
+	jg	SHORT $L40710
 	push	561					; 00000231H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_07BGLK@num?5?$DO?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40709:
+$L40710:
 
 ; 562  : 
 ; 563  : 	if ( IsExternallyAllocated() )
@@ -29621,25 +29621,25 @@ $L40709:
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L39243
+	je	SHORT $L39244
 
 ; 565  : 		// Can't grow a buffer whose memory was externally allocated 
 ; 566  : 		assert(0);
 
 	xor	ecx, ecx
 	test	ecx, ecx
-	jne	SHORT $L40710
+	jne	SHORT $L40711
 	push	566					; 00000236H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_01PLJA@0?$AA@		; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40710:
+$L40711:
 
 ; 567  : 		return;
 
-	jmp	$L39240
-$L39243:
+	jmp	$L39241
+$L39244:
 
 ; 569  : 
 ; 570  : 	// Make sure we have at least numallocated + num allocations.
@@ -29675,18 +29675,18 @@ $L39243:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	eax, DWORD PTR _nAllocationRequested$[ebp]
-	jge	SHORT $L39263
+	jge	SHORT $L39264
 
 ; 579  : 		if ( ( int )( I )m_nAllocationCount == 0 && ( int )( I )( m_nAllocationCount - 1 ) >= nAllocationRequested )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L39255
+	jne	SHORT $L39256
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	sub	eax, 1
 	cmp	eax, DWORD PTR _nAllocationRequested$[ebp]
-	jl	SHORT $L39255
+	jl	SHORT $L39256
 
 ; 581  : 			--m_nAllocationCount; // deal w/ the common case of m_nAllocationCount == MAX_USHORT + 1
 
@@ -29698,39 +29698,39 @@ $L39243:
 
 ; 583  : 		else
 
-	jmp	SHORT $L39263
-$L39255:
+	jmp	SHORT $L39264
+$L39256:
 
 ; 585  : 			if ( ( int )( I )nAllocationRequested != nAllocationRequested )
 
 	mov	ecx, DWORD PTR _nAllocationRequested$[ebp]
 	cmp	ecx, DWORD PTR _nAllocationRequested$[ebp]
-	je	SHORT $L39259
+	je	SHORT $L39260
 
 ; 587  : 				// we've been asked to grow memory to a size s.t. the index type can't address the requested amount of memory
 ; 588  : 				assert( 0 );
 
 	xor	edx, edx
 	test	edx, edx
-	jne	SHORT $L40711
+	jne	SHORT $L40712
 	push	588					; 0000024cH
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_01PLJA@0?$AA@		; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40711:
+$L40712:
 
 ; 589  : 				return;
 
-	jmp	$L39240
-$L39259:
+	jmp	$L39241
+$L39260:
 
 ; 591  : 			while ( ( int )( I )m_nAllocationCount < nAllocationRequested )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	edx, DWORD PTR _nAllocationRequested$[ebp]
-	jge	SHORT $L39263
+	jge	SHORT $L39264
 
 ; 593  : 				m_nAllocationCount = ( m_nAllocationCount + nAllocationRequested ) / 2;
 
@@ -29745,15 +29745,15 @@ $L39259:
 
 ; 594  : 			}
 
-	jmp	SHORT $L39259
-$L39263:
+	jmp	SHORT $L39260
+$L39264:
 
 ; 597  : 
 ; 598  : 	if (m_pMemory)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	je	SHORT $L39266
+	je	SHORT $L39267
 
 ; 600  : 		m_pMemory = (T*)realloc( m_pMemory, m_nAllocationCount * sizeof(T) );
 
@@ -29773,18 +29773,18 @@ $L39263:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L40712
+	jne	SHORT $L40713
 	push	601					; 00000259H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_09JCKE@m_pMemory?$AA@	; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40712:
+$L40713:
 
 ; 603  : 	else
 
-	jmp	SHORT $L40713
-$L39266:
+	jmp	SHORT $L40714
+$L39267:
 
 ; 605  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -29801,14 +29801,14 @@ $L39266:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L40713
+	jne	SHORT $L40714
 	push	606					; 0000025eH
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_09JCKE@m_pMemory?$AA@	; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40713:
-$L39240:
+$L40714:
+$L39241:
 
 ; 608  : }
 

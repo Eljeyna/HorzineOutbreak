@@ -231,6 +231,9 @@ CONST	ENDS
 ;	COMDAT ??_C@_0P@PCLE@sk_plr_crowbar?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
+;	COMDAT ??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
 ;	COMDAT ??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
@@ -776,7 +779,7 @@ _iAmmoIndex$ = -8
 ; 44   : 	if ( pszAmmoName )
 
 	cmp	DWORD PTR _pszAmmoName$[ebp], 0
-	je	SHORT $L38528
+	je	SHORT $L38529
 
 ; 46   : 		iAmmoIndex = pPlayer->GetAmmoIndex( pszAmmoName );
 
@@ -790,7 +793,7 @@ _iAmmoIndex$ = -8
 ; 48   : 		if ( iAmmoIndex > -1 )
 
 	cmp	DWORD PTR _iAmmoIndex$[ebp], -1
-	jle	SHORT $L38528
+	jle	SHORT $L38529
 
 ; 50   : 			if ( pPlayer->AmmoInventory( iAmmoIndex ) < iMaxCarry )
 
@@ -799,20 +802,20 @@ _iAmmoIndex$ = -8
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?AmmoInventory@CBasePlayer@@QAEHH@Z	; CBasePlayer::AmmoInventory
 	cmp	eax, DWORD PTR _iMaxCarry$[ebp]
-	jge	SHORT $L38528
+	jge	SHORT $L38529
 
 ; 52   : 				// player has room for more of this type of ammo
 ; 53   : 				return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38524
-$L38528:
+	jmp	SHORT $L38525
+$L38529:
 
 ; 57   : 
 ; 58   : 	return FALSE;
 
 	xor	eax, eax
-$L38524:
+$L38525:
 
 ; 59   : }
 
@@ -839,8 +842,8 @@ EXTRN	?g_vecZero@@3VVector@@B:BYTE			; g_vecZero
 EXTRN	?EntSelectSpawnPoint@@YAPAUedict_s@@PAVCBaseEntity@@@Z:NEAR ; EntSelectSpawnPoint
 ;	COMDAT ?GetPlayerSpawnSpot@CGameRules@@UAEPAUedict_s@@PAVCBasePlayer@@@Z
 _TEXT	SEGMENT
-$T39073 = -24
-$T39074 = -36
+$T39076 = -24
+$T39077 = -36
 _pPlayer$ = 8
 _this$ = -4
 _pentSpawnSpot$ = -8
@@ -879,10 +882,10 @@ _pSpawnSpot$ = -12
 	push	1065353216				; 3f800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T39073[ebp]
+	lea	ecx, DWORD PTR $T39076[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	edx, DWORD PTR $T39074[ebp]
+	lea	edx, DWORD PTR $T39077[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _pSpawnSpot$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -944,16 +947,16 @@ _pSpawnSpot$ = -12
 	mov	ecx, DWORD PTR [eax+416]
 	and	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L38537
+	je	SHORT $L38538
 
 ; 77   : 		pPlayer->AddWeapon( WEAPON_SUIT );
 
 	push	63					; 0000003fH
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?AddWeapon@CBaseMonster@@QAEXH@Z	; CBaseMonster::AddWeapon
-$L38537:
+$L38538:
 
-; 79   : 	
+; 79   : 
 ; 80   : 	return pentSpawnSpot;
 
 	mov	eax, DWORD PTR _pentSpawnSpot$[ebp]
@@ -1007,7 +1010,7 @@ PUBLIC	??0Vector@@QAE@ABV0@@Z				; Vector::Vector
 ;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
 _v$ = 12
-$T39080 = -16
+$T39083 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
@@ -1039,7 +1042,7 @@ _this$ = -4
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39080[ebp]
+	lea	ecx, DWORD PTR $T39083[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1272,13 +1275,13 @@ _this$ = -4
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	je	SHORT $L38543
+	je	SHORT $L38544
 
 ; 89   : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38542
-$L38543:
+	jmp	SHORT $L38543
+$L38544:
 
 ; 90   : 
 ; 91   : 	if ( pWeapon->pszAmmo1() )
@@ -1286,7 +1289,7 @@ $L38543:
 	mov	ecx, DWORD PTR _pWeapon$[ebp]
 	call	?pszAmmo1@CBasePlayerItem@@QAEPBDXZ	; CBasePlayerItem::pszAmmo1
 	test	eax, eax
-	je	SHORT $L38544
+	je	SHORT $L38545
 
 ; 93   : 		if ( !CanHaveAmmo( pPlayer, pWeapon->pszAmmo1(), pWeapon->iMaxAmmo1() ) )
 
@@ -1303,9 +1306,9 @@ $L38543:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+160]
 	test	eax, eax
-	jne	SHORT $L38546
+	jne	SHORT $L38547
 
-; 95   : 			// we can't carry anymore ammo for this gun. We can only 
+; 95   : 			// we can't carry anymore ammo for this gun. We can only
 ; 96   : 			// have the gun if we aren't already carrying one of this type
 ; 97   : 			if ( pPlayer->HasPlayerItem( pWeapon ) )
 
@@ -1314,18 +1317,18 @@ $L38543:
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?HasPlayerItem@CBasePlayer@@QAEHPAVCBasePlayerItem@@@Z ; CBasePlayer::HasPlayerItem
 	test	eax, eax
-	je	SHORT $L38546
+	je	SHORT $L38547
 
 ; 99   : 				return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38542
-$L38546:
+	jmp	SHORT $L38543
+$L38547:
 
 ; 103  : 	else
 
-	jmp	SHORT $L38548
-$L38544:
+	jmp	SHORT $L38549
+$L38545:
 
 ; 105  : 		// weapon doesn't use ammo, don't take another if you already have it.
 ; 106  : 		if ( pPlayer->HasPlayerItem( pWeapon ) )
@@ -1335,20 +1338,20 @@ $L38544:
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?HasPlayerItem@CBasePlayer@@QAEHPAVCBasePlayerItem@@@Z ; CBasePlayer::HasPlayerItem
 	test	eax, eax
-	je	SHORT $L38548
+	je	SHORT $L38549
 
 ; 108  : 			return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38542
-$L38548:
+	jmp	SHORT $L38543
+$L38549:
 
 ; 111  : 
 ; 112  : 	// note: will fall through to here if GetItemInfo doesn't fill the struct!
 ; 113  : 	return TRUE;
 
 	mov	eax, 1
-$L38542:
+$L38543:
 
 ; 114  : }
 
@@ -1366,7 +1369,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?pszAmmo1@CBasePlayerItem@@QAEPBDXZ PROC NEAR		; CBasePlayerItem::pszAmmo1, COMDAT
 
-; 268  : 	const char	*pszAmmo1( void )	{ return ItemInfoArray[ m_iId ].pszAmmo1; }
+; 276  : 	const char	*pszAmmo1( void )	{ return ItemInfoArray[ m_iId ].pszAmmo1; }
 
 	push	ebp
 	mov	ebp, esp
@@ -1392,7 +1395,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?iMaxAmmo1@CBasePlayerItem@@QAEHXZ PROC NEAR		; CBasePlayerItem::iMaxAmmo1, COMDAT
 
-; 269  : 	int		iMaxAmmo1( void )	{ return ItemInfoArray[ m_iId ].iMaxAmmo1; }
+; 277  : 	int		iMaxAmmo1( void )	{ return ItemInfoArray[ m_iId ].iMaxAmmo1; }
 
 	push	ebp
 	mov	ebp, esp
@@ -1465,6 +1468,7 @@ PUBLIC	??_C@_0BB@FBCH@sk_turret_health?$AA@		; `string'
 PUBLIC	??_C@_0BF@CFFB@sk_miniturret_health?$AA@	; `string'
 PUBLIC	??_C@_0BB@NCE@sk_sentry_health?$AA@		; `string'
 PUBLIC	??_C@_0P@PCLE@sk_plr_crowbar?$AA@		; `string'
+PUBLIC	??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@		; `string'
 PUBLIC	??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@		; `string'
 PUBLIC	??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@		; `string'
 PUBLIC	??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@		; `string'
@@ -1716,6 +1720,10 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0P@PCLE@sk_plr_crowbar?$AA@ DB 'sk_plr_crowbar', 00H ; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@
+CONST	SEGMENT
+??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@ DB 'sk_plr_crowbar_stab', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@
 CONST	SEGMENT
 ??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@ DB 'sk_plr_9mm_bullet', 00H ; `string'
@@ -1884,7 +1892,7 @@ _iSkill$ = -8
 ; 126  : 	if ( iSkill < 1 )
 
 	cmp	DWORD PTR _iSkill$[ebp], 1
-	jge	SHORT $L38556
+	jge	SHORT $L38557
 
 ; 128  : 		iSkill = 1;
 
@@ -1892,15 +1900,15 @@ _iSkill$ = -8
 
 ; 130  : 	else if ( iSkill > 3 )
 
-	jmp	SHORT $L38558
-$L38556:
+	jmp	SHORT $L38559
+$L38557:
 	cmp	DWORD PTR _iSkill$[ebp], 3
-	jle	SHORT $L38558
+	jle	SHORT $L38559
 
-; 132  : 		iSkill = 3; 
+; 132  : 		iSkill = 3;
 
 	mov	DWORD PTR _iSkill$[ebp], 3
-$L38558:
+$L38559:
 
 ; 134  : 
 ; 135  : 	gSkillData.iSkillLevel = iSkill;
@@ -1919,7 +1927,7 @@ $L38558:
 	add	esp, 12					; 0000000cH
 
 ; 138  : 
-; 139  : 	//Agrunt		
+; 139  : 	//Agrunt
 ; 140  : 	gSkillData.agruntHealth = GetSkillCvar( "sk_agrunt_health" );
 
 	push	OFFSET FLAT:??_C@_0BB@KNII@sk_agrunt_health?$AA@ ; `string'
@@ -1935,7 +1943,7 @@ $L38558:
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+8
 
 ; 142  : 
-; 143  : 	// Apache 
+; 143  : 	// Apache
 ; 144  : 	gSkillData.apacheHealth = GetSkillCvar( "sk_apache_health");
 
 	push	OFFSET FLAT:??_C@_0BB@HOAH@sk_apache_health?$AA@ ; `string'
@@ -2068,7 +2076,7 @@ $L38558:
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+76
 
 ; 173  : 
-; 174  : 	// Hgrunt 
+; 174  : 	// Hgrunt
 ; 175  : 	gSkillData.hgruntHealth = GetSkillCvar( "sk_hgrunt_health");
 
 	push	OFFSET FLAT:??_C@_0BB@HHIK@sk_hgrunt_health?$AA@ ; `string'
@@ -2295,7 +2303,7 @@ $L38558:
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+192
 
-; 227  : 	
+; 227  : 
 ; 228  : 	// Sentry Turret
 ; 229  : 	gSkillData.sentryHealth = GetSkillCvar( "sk_sentry_health");
 
@@ -2316,283 +2324,292 @@ $L38558:
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+200
 
 ; 235  : 
-; 236  : 	// Glock Round
-; 237  : 	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
+; 236  : 	// Crowbar stab
+; 237  : 	gSkillData.plrDmgCrowbarStab = GetSkillCvar( "sk_plr_crowbar_stab" );
 
-	push	OFFSET FLAT:??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+204
 
 ; 238  : 
-; 239  : 	// 357 Round
-; 240  : 	gSkillData.plrDmg357 = GetSkillCvar( "sk_plr_357_bullet");
+; 239  : 	// Glock Round
+; 240  : 	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
 
-	push	OFFSET FLAT:??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+208
 
 ; 241  : 
-; 242  : 	// MP5 Round
-; 243  : 	gSkillData.plrDmgMP5 = GetSkillCvar( "sk_plr_9mmAR_bullet");
+; 242  : 	// 357 Round
+; 243  : 	gSkillData.plrDmg357 = GetSkillCvar( "sk_plr_357_bullet");
 
-	push	OFFSET FLAT:??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+212
 
 ; 244  : 
-; 245  : 	// M203 grenade
-; 246  : 	gSkillData.plrDmgM203Grenade = GetSkillCvar( "sk_plr_9mmAR_grenade");
+; 245  : 	// MP5 Round
+; 246  : 	gSkillData.plrDmgMP5 = GetSkillCvar( "sk_plr_9mmAR_bullet");
 
-	push	OFFSET FLAT:??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+216
 
 ; 247  : 
-; 248  : 	// Shotgun buckshot
-; 249  : 	gSkillData.plrDmgBuckshot = GetSkillCvar( "sk_plr_buckshot");
+; 248  : 	// M203 grenade
+; 249  : 	gSkillData.plrDmgM203Grenade = GetSkillCvar( "sk_plr_9mmAR_grenade");
 
-	push	OFFSET FLAT:??_C@_0BA@NOHO@sk_plr_buckshot?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+220
 
 ; 250  : 
-; 251  : 	// Crossbow
-; 252  : 	gSkillData.plrDmgCrossbowClient = GetSkillCvar( "sk_plr_xbow_bolt_client");
+; 251  : 	// Shotgun buckshot
+; 252  : 	gSkillData.plrDmgBuckshot = GetSkillCvar( "sk_plr_buckshot");
 
-	push	OFFSET FLAT:??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BA@NOHO@sk_plr_buckshot?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+224
 
-; 253  : 	gSkillData.plrDmgCrossbowMonster = GetSkillCvar( "sk_plr_xbow_bolt_monster");
+; 253  : 
+; 254  : 	// Crossbow
+; 255  : 	gSkillData.plrDmgCrossbowClient = GetSkillCvar( "sk_plr_xbow_bolt_client");
 
-	push	OFFSET FLAT:??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+228
 
-; 254  : 
-; 255  : 	// RPG
-; 256  : 	gSkillData.plrDmgRPG = GetSkillCvar( "sk_plr_rpg");
+; 256  : 	gSkillData.plrDmgCrossbowMonster = GetSkillCvar( "sk_plr_xbow_bolt_monster");
 
-	push	OFFSET FLAT:??_C@_0L@JBN@sk_plr_rpg?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+232
 
 ; 257  : 
-; 258  : 	// Gauss gun
-; 259  : 	gSkillData.plrDmgGauss = GetSkillCvar( "sk_plr_gauss");
+; 258  : 	// RPG
+; 259  : 	gSkillData.plrDmgRPG = GetSkillCvar( "sk_plr_rpg");
 
-	push	OFFSET FLAT:??_C@_0N@KBK@sk_plr_gauss?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0L@JBN@sk_plr_rpg?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+236
 
 ; 260  : 
-; 261  : 	// Egon Gun
-; 262  : 	gSkillData.plrDmgEgonNarrow = GetSkillCvar( "sk_plr_egon_narrow");
+; 261  : 	// Gauss gun
+; 262  : 	gSkillData.plrDmgGauss = GetSkillCvar( "sk_plr_gauss");
 
-	push	OFFSET FLAT:??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0N@KBK@sk_plr_gauss?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+240
 
-; 263  : 	gSkillData.plrDmgEgonWide = GetSkillCvar( "sk_plr_egon_wide");
+; 263  : 
+; 264  : 	// Egon Gun
+; 265  : 	gSkillData.plrDmgEgonNarrow = GetSkillCvar( "sk_plr_egon_narrow");
 
-	push	OFFSET FLAT:??_C@_0BB@LGG@sk_plr_egon_wide?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+244
 
-; 264  : 
-; 265  : 	// Hand Grendade
-; 266  : 	gSkillData.plrDmgHandGrenade = GetSkillCvar( "sk_plr_hand_grenade");
+; 266  : 	gSkillData.plrDmgEgonWide = GetSkillCvar( "sk_plr_egon_wide");
 
-	push	OFFSET FLAT:??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BB@LGG@sk_plr_egon_wide?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
-	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+252
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+248
 
 ; 267  : 
-; 268  : 	// Satchel Charge
-; 269  : 	gSkillData.plrDmgSatchel = GetSkillCvar( "sk_plr_satchel");
+; 268  : 	// Hand Grendade
+; 269  : 	gSkillData.plrDmgHandGrenade = GetSkillCvar( "sk_plr_hand_grenade");
 
-	push	OFFSET FLAT:??_C@_0P@LAPN@sk_plr_satchel?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+256
 
 ; 270  : 
-; 271  : 	// Tripmine
-; 272  : 	gSkillData.plrDmgTripmine = GetSkillCvar( "sk_plr_tripmine");
+; 271  : 	// Satchel Charge
+; 272  : 	gSkillData.plrDmgSatchel = GetSkillCvar( "sk_plr_satchel");
 
-	push	OFFSET FLAT:??_C@_0BA@KHMP@sk_plr_tripmine?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0P@LAPN@sk_plr_satchel?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+260
 
 ; 273  : 
-; 274  : 	// MONSTER WEAPONS
-; 275  : 	gSkillData.monDmg12MM = GetSkillCvar( "sk_12mm_bullet");
+; 274  : 	// Tripmine
+; 275  : 	gSkillData.plrDmgTripmine = GetSkillCvar( "sk_plr_tripmine");
 
-	push	OFFSET FLAT:??_C@_0P@KCMA@sk_12mm_bullet?$AA@ ; `string'
-	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
-	add	esp, 4
-	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+272
-
-; 276  : 	gSkillData.monDmgMP5 = GetSkillCvar ("sk_9mmAR_bullet" );
-
-	push	OFFSET FLAT:??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@ ; `string'
-	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
-	add	esp, 4
-	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+268
-
-; 277  : 	gSkillData.monDmg9MM = GetSkillCvar( "sk_9mm_bullet");
-
-	push	OFFSET FLAT:??_C@_0O@CHLD@sk_9mm_bullet?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BA@KHMP@sk_plr_tripmine?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+264
 
-; 278  : 
-; 279  : 	// MONSTER HORNET
-; 280  : 	gSkillData.monDmgHornet = GetSkillCvar( "sk_hornet_dmg");
+; 276  : 
+; 277  : 	// MONSTER WEAPONS
+; 278  : 	gSkillData.monDmg12MM = GetSkillCvar( "sk_12mm_bullet");
 
-	push	OFFSET FLAT:??_C@_0O@KFIA@sk_hornet_dmg?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0P@KCMA@sk_12mm_bullet?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+276
 
+; 279  : 	gSkillData.monDmgMP5 = GetSkillCvar ("sk_9mmAR_bullet" );
+
+	push	OFFSET FLAT:??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+272
+
+; 280  : 	gSkillData.monDmg9MM = GetSkillCvar( "sk_9mm_bullet");
+
+	push	OFFSET FLAT:??_C@_0O@CHLD@sk_9mm_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+268
+
 ; 281  : 
-; 282  : 	// PLAYER HORNET
-; 283  : // Up to this point, player hornet damage and monster hornet damage were both using
-; 284  : // monDmgHornet to determine how much damage to do. In tuning the hivehand, we now need
-; 285  : // to separate player damage and monster hivehand damage. Since it's so late in the project, we've
-; 286  : // added plrDmgHornet to the SKILLDATA struct, but not to the engine CVar list, so it's inaccesible
-; 287  : // via SKILLS.CFG. Any player hivehand tuning must take place in the code. (sjb)
-; 288  : 	gSkillData.plrDmgHornet = 7;
+; 282  : 	// MONSTER HORNET
+; 283  : 	gSkillData.monDmgHornet = GetSkillCvar( "sk_hornet_dmg");
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+248, 1088421888 ; 40e00000H
-
-; 289  : 
-; 290  : 
-; 291  : 	// HEALTH/CHARGE
-; 292  : 	gSkillData.suitchargerCapacity = GetSkillCvar( "sk_suitcharger" );
-
-	push	OFFSET FLAT:??_C@_0P@MBFE@sk_suitcharger?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0O@KFIA@sk_hornet_dmg?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+280
 
-; 293  : 	gSkillData.batteryCapacity = GetSkillCvar( "sk_battery" );
+; 284  : 
+; 285  : 	// PLAYER HORNET
+; 286  : // Up to this point, player hornet damage and monster hornet damage were both using
+; 287  : // monDmgHornet to determine how much damage to do. In tuning the hivehand, we now need
+; 288  : // to separate player damage and monster hivehand damage. Since it's so late in the project, we've
+; 289  : // added plrDmgHornet to the SKILLDATA struct, but not to the engine CVar list, so it's inaccesible
+; 290  : // via SKILLS.CFG. Any player hivehand tuning must take place in the code. (sjb)
+; 291  : 	gSkillData.plrDmgHornet = 7;
 
-	push	OFFSET FLAT:??_C@_0L@EMFC@sk_battery?$AA@ ; `string'
+	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+252, 1088421888 ; 40e00000H
+
+; 292  : 
+; 293  : 
+; 294  : 	// HEALTH/CHARGE
+; 295  : 	gSkillData.suitchargerCapacity = GetSkillCvar( "sk_suitcharger" );
+
+	push	OFFSET FLAT:??_C@_0P@MBFE@sk_suitcharger?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+284
 
-; 294  : 	gSkillData.healthchargerCapacity = GetSkillCvar ( "sk_healthcharger" );
+; 296  : 	gSkillData.batteryCapacity = GetSkillCvar( "sk_battery" );
 
-	push	OFFSET FLAT:??_C@_0BB@JKIP@sk_healthcharger?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0L@EMFC@sk_battery?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+288
 
-; 295  : 	gSkillData.healthkitCapacity = GetSkillCvar ( "sk_healthkit" );
+; 297  : 	gSkillData.healthchargerCapacity = GetSkillCvar ( "sk_healthcharger" );
 
-	push	OFFSET FLAT:??_C@_0N@OIJM@sk_healthkit?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BB@JKIP@sk_healthcharger?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+292
 
-; 296  : 	gSkillData.scientistHeal = GetSkillCvar ( "sk_scientist_heal" );
+; 298  : 	gSkillData.healthkitCapacity = GetSkillCvar ( "sk_healthkit" );
 
-	push	OFFSET FLAT:??_C@_0BC@LMKC@sk_scientist_heal?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0N@OIJM@sk_healthkit?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+296
 
-; 297  : 
-; 298  : 	// monster damage adj
-; 299  : 	gSkillData.monHead = GetSkillCvar( "sk_monster_head" );
+; 299  : 	gSkillData.scientistHeal = GetSkillCvar ( "sk_scientist_heal" );
 
-	push	OFFSET FLAT:??_C@_0BA@GPA@sk_monster_head?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BC@LMKC@sk_scientist_heal?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+300
 
-; 300  : 	gSkillData.monChest = GetSkillCvar( "sk_monster_chest" );
+; 300  : 
+; 301  : 	// monster damage adj
+; 302  : 	gSkillData.monHead = GetSkillCvar( "sk_monster_head" );
 
-	push	OFFSET FLAT:??_C@_0BB@NGD@sk_monster_chest?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BA@GPA@sk_monster_head?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+304
 
-; 301  : 	gSkillData.monStomach = GetSkillCvar( "sk_monster_stomach" );
+; 303  : 	gSkillData.monChest = GetSkillCvar( "sk_monster_chest" );
 
-	push	OFFSET FLAT:??_C@_0BD@LJOA@sk_monster_stomach?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BB@NGD@sk_monster_chest?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+308
 
-; 302  : 	gSkillData.monLeg = GetSkillCvar( "sk_monster_leg" );
+; 304  : 	gSkillData.monStomach = GetSkillCvar( "sk_monster_stomach" );
 
-	push	OFFSET FLAT:??_C@_0P@DLCB@sk_monster_leg?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BD@LJOA@sk_monster_stomach?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+312
 
-; 303  : 	gSkillData.monArm = GetSkillCvar( "sk_monster_arm" );
+; 305  : 	gSkillData.monLeg = GetSkillCvar( "sk_monster_leg" );
 
-	push	OFFSET FLAT:??_C@_0P@LLLC@sk_monster_arm?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0P@DLCB@sk_monster_leg?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+316
 
-; 304  : 
-; 305  : 	// player damage adj
-; 306  : 	gSkillData.plrHead = GetSkillCvar( "sk_player_head" );
+; 306  : 	gSkillData.monArm = GetSkillCvar( "sk_monster_arm" );
 
-	push	OFFSET FLAT:??_C@_0P@KJDF@sk_player_head?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0P@LLLC@sk_monster_arm?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+320
 
-; 307  : 	gSkillData.plrChest = GetSkillCvar( "sk_player_chest" );
+; 307  : 
+; 308  : 	// player damage adj
+; 309  : 	gSkillData.plrHead = GetSkillCvar( "sk_player_head" );
 
-	push	OFFSET FLAT:??_C@_0BA@EMMM@sk_player_chest?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0P@KJDF@sk_player_head?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+324
 
-; 308  : 	gSkillData.plrStomach = GetSkillCvar( "sk_player_stomach" );
+; 310  : 	gSkillData.plrChest = GetSkillCvar( "sk_player_chest" );
 
-	push	OFFSET FLAT:??_C@_0BC@HFFI@sk_player_stomach?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BA@EMMM@sk_player_chest?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+328
 
-; 309  : 	gSkillData.plrLeg = GetSkillCvar( "sk_player_leg" );
+; 311  : 	gSkillData.plrStomach = GetSkillCvar( "sk_player_stomach" );
 
-	push	OFFSET FLAT:??_C@_0O@POHI@sk_player_leg?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0BC@HFFI@sk_player_stomach?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+332
 
-; 310  : 	gSkillData.plrArm = GetSkillCvar( "sk_player_arm" );
+; 312  : 	gSkillData.plrLeg = GetSkillCvar( "sk_player_leg" );
 
-	push	OFFSET FLAT:??_C@_0O@HOOL@sk_player_arm?$AA@ ; `string'
+	push	OFFSET FLAT:??_C@_0O@POHI@sk_player_leg?$AA@ ; `string'
 	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
 	add	esp, 4
 	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+336
 
-; 311  : }
+; 313  : 	gSkillData.plrArm = GetSkillCvar( "sk_player_arm" );
+
+	push	OFFSET FLAT:??_C@_0O@HOOL@sk_player_arm?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+340
+
+; 314  : }
 
 	pop	edi
 	pop	esi
@@ -2642,18 +2659,18 @@ __unwindtable$?InstallGameRules@@YAPAVCGameRules@@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?InstallGameRules@@YAPAVCGameRules@@XZ
 _TEXT	SEGMENT
-$T39102 = -16
-$T39103 = -20
-$T39106 = -24
-$T39107 = -28
-$T39110 = -32
-$T39111 = -36
-$T39114 = -40
-$T39115 = -44
+$T39105 = -16
+$T39106 = -20
+$T39109 = -24
+$T39110 = -28
+$T39113 = -32
+$T39114 = -36
+$T39117 = -40
+$T39118 = -44
 __$EHRec$ = -12
 ?InstallGameRules@@YAPAVCGameRules@@XZ PROC NEAR	; InstallGameRules, COMDAT
 
-; 318  : {
+; 321  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2667,155 +2684,155 @@ __$EHRec$ = -12
 	push	esi
 	push	edi
 
-; 319  : 	SERVER_COMMAND( "exec game.cfg\n" );
+; 322  : 	SERVER_COMMAND( "exec game.cfg\n" );
 
 	push	OFFSET FLAT:??_C@_0P@MGBF@exec?5game?4cfg?6?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+156
 	add	esp, 4
 
-; 320  : 	COMMAND_EXECUTE( );
+; 323  : 	COMMAND_EXECUTE( );
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+160
 
-; 321  : 
-; 322  : 	if ( !gpGlobals->deathmatch )
+; 324  : 
+; 325  : 	if ( !gpGlobals->deathmatch )
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax+20]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38647
+	je	SHORT $L38649
 
-; 324  : 		// generic half-life
-; 325  : 		g_teamplay = 0;
+; 327  : 		// generic half-life
+; 328  : 		g_teamplay = 0;
 
 	mov	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
 
-; 326  : 		return new CHalfLifeRules;
+; 329  : 		return new CHalfLifeRules;
 
 	push	4
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39103[ebp], eax
+	mov	DWORD PTR $T39106[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39103[ebp], 0
-	je	SHORT $L39104
-	mov	ecx, DWORD PTR $T39103[ebp]
+	cmp	DWORD PTR $T39106[ebp], 0
+	je	SHORT $L39107
+	mov	ecx, DWORD PTR $T39106[ebp]
 	call	??0CHalfLifeRules@@QAE@XZ		; CHalfLifeRules::CHalfLifeRules
 	mov	DWORD PTR -48+[ebp], eax
-	jmp	SHORT $L39105
-$L39104:
+	jmp	SHORT $L39108
+$L39107:
 	mov	DWORD PTR -48+[ebp], 0
-$L39105:
+$L39108:
 	mov	ecx, DWORD PTR -48+[ebp]
-	mov	DWORD PTR $T39102[ebp], ecx
+	mov	DWORD PTR $T39105[ebp], ecx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	eax, DWORD PTR $T39102[ebp]
-	jmp	$L38664
-$L38647:
+	mov	eax, DWORD PTR $T39105[ebp]
+	jmp	$L38666
+$L38649:
 
-; 330  : 		if ( teamplay.value > 0 )
+; 333  : 		if ( teamplay.value > 0 )
 
 	fld	DWORD PTR ?teamplay@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38653
+	jne	SHORT $L38655
 
-; 332  : 			// teamplay
-; 333  : 
-; 334  : 			g_teamplay = 1;
+; 335  : 			// teamplay
+; 336  : 
+; 337  : 			g_teamplay = 1;
 
 	mov	DWORD PTR ?g_teamplay@@3HA, 1		; g_teamplay
 
-; 335  : 			return new CHalfLifeTeamplay;
+; 338  : 			return new CHalfLifeTeamplay;
 
 	push	536					; 00000218H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39107[ebp], eax
+	mov	DWORD PTR $T39110[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	cmp	DWORD PTR $T39107[ebp], 0
-	je	SHORT $L39108
-	mov	ecx, DWORD PTR $T39107[ebp]
+	cmp	DWORD PTR $T39110[ebp], 0
+	je	SHORT $L39111
+	mov	ecx, DWORD PTR $T39110[ebp]
 	call	??0CHalfLifeTeamplay@@QAE@XZ		; CHalfLifeTeamplay::CHalfLifeTeamplay
 	mov	DWORD PTR -52+[ebp], eax
-	jmp	SHORT $L39109
-$L39108:
+	jmp	SHORT $L39112
+$L39111:
 	mov	DWORD PTR -52+[ebp], 0
-$L39109:
+$L39112:
 	mov	edx, DWORD PTR -52+[ebp]
-	mov	DWORD PTR $T39106[ebp], edx
+	mov	DWORD PTR $T39109[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	eax, DWORD PTR $T39106[ebp]
-	jmp	$L38664
-$L38653:
+	mov	eax, DWORD PTR $T39109[ebp]
+	jmp	$L38666
+$L38655:
 
-; 337  : 		if ((int)gpGlobals->deathmatch == 1)
+; 340  : 		if ((int)gpGlobals->deathmatch == 1)
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax+20]
 	call	__ftol
 	cmp	eax, 1
-	jne	SHORT $L38659
+	jne	SHORT $L38661
 
-; 339  : 			// vanilla deathmatch
-; 340  : 			g_teamplay = 0;
+; 342  : 			// vanilla deathmatch
+; 343  : 			g_teamplay = 0;
 
 	mov	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
 
-; 341  : 			return new CHalfLifeMultiplay;
+; 344  : 			return new CHalfLifeMultiplay;
 
 	push	12					; 0000000cH
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39111[ebp], eax
+	mov	DWORD PTR $T39114[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
-	cmp	DWORD PTR $T39111[ebp], 0
-	je	SHORT $L39112
-	mov	ecx, DWORD PTR $T39111[ebp]
+	cmp	DWORD PTR $T39114[ebp], 0
+	je	SHORT $L39115
+	mov	ecx, DWORD PTR $T39114[ebp]
 	call	??0CHalfLifeMultiplay@@QAE@XZ		; CHalfLifeMultiplay::CHalfLifeMultiplay
 	mov	DWORD PTR -56+[ebp], eax
-	jmp	SHORT $L39113
-$L39112:
+	jmp	SHORT $L39116
+$L39115:
 	mov	DWORD PTR -56+[ebp], 0
-$L39113:
+$L39116:
 	mov	ecx, DWORD PTR -56+[ebp]
-	mov	DWORD PTR $T39110[ebp], ecx
+	mov	DWORD PTR $T39113[ebp], ecx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	eax, DWORD PTR $T39110[ebp]
-	jmp	SHORT $L38664
-$L38659:
+	mov	eax, DWORD PTR $T39113[ebp]
+	jmp	SHORT $L38666
+$L38661:
 
-; 345  : 			// vanilla deathmatch??
-; 346  : 			g_teamplay = 0;
+; 348  : 			// vanilla deathmatch??
+; 349  : 			g_teamplay = 0;
 
 	mov	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
 
-; 347  : 			return new CHalfLifeMultiplay;
+; 350  : 			return new CHalfLifeMultiplay;
 
 	push	12					; 0000000cH
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39115[ebp], eax
+	mov	DWORD PTR $T39118[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 3
-	cmp	DWORD PTR $T39115[ebp], 0
-	je	SHORT $L39116
-	mov	ecx, DWORD PTR $T39115[ebp]
+	cmp	DWORD PTR $T39118[ebp], 0
+	je	SHORT $L39119
+	mov	ecx, DWORD PTR $T39118[ebp]
 	call	??0CHalfLifeMultiplay@@QAE@XZ		; CHalfLifeMultiplay::CHalfLifeMultiplay
 	mov	DWORD PTR -60+[ebp], eax
-	jmp	SHORT $L39117
-$L39116:
+	jmp	SHORT $L39120
+$L39119:
 	mov	DWORD PTR -60+[ebp], 0
-$L39117:
+$L39120:
 	mov	edx, DWORD PTR -60+[ebp]
-	mov	DWORD PTR $T39114[ebp], edx
+	mov	DWORD PTR $T39117[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	eax, DWORD PTR $T39114[ebp]
-$L38664:
+	mov	eax, DWORD PTR $T39117[ebp]
+$L38666:
 
-; 350  : }
+; 353  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
@@ -2829,25 +2846,25 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?InstallGameRules@@YAPAVCGameRules@@XZ$0:
-	mov	eax, DWORD PTR $T39103[ebp]
+	mov	eax, DWORD PTR $T39106[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?InstallGameRules@@YAPAVCGameRules@@XZ$1:
-	mov	eax, DWORD PTR $T39107[ebp]
+	mov	eax, DWORD PTR $T39110[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?InstallGameRules@@YAPAVCGameRules@@XZ$2:
-	mov	eax, DWORD PTR $T39111[ebp]
+	mov	eax, DWORD PTR $T39114[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?InstallGameRules@@YAPAVCGameRules@@XZ$3:
-	mov	eax, DWORD PTR $T39115[ebp]
+	mov	eax, DWORD PTR $T39118[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx

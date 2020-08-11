@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -21,7 +21,7 @@
 #include	"player.h"
 #include	"weapons.h"
 #include	"gamerules.h"
- 
+
 #include	"skill.h"
 #include	"game.h"
 #include	"items.h"
@@ -51,9 +51,9 @@ CHalfLifeMultiplay :: CHalfLifeMultiplay()
 	RefreshSkillData();
 	m_flIntermissionEndTime = 0;
 	g_flIntermissionStartTime = 0;
-	
+
 	// 11/8/98
-	// Modified by YWB:  Server .cfg file is now a cvar, so that 
+	// Modified by YWB:  Server .cfg file is now a cvar, so that
 	//  server ops can run multiple game servers, with different server .cfg files,
 	//  from a single installed directory.
 	// Mapcyclefile is already a cvar.
@@ -69,7 +69,7 @@ CHalfLifeMultiplay :: CHalfLifeMultiplay()
 		if ( servercfgfile && servercfgfile[0] )
 		{
 			char szCommand[256];
-			
+
 			ALERT( at_console, "Executing dedicated server config file\n" );
 			sprintf( szCommand, "exec %s\n", servercfgfile );
 			SERVER_COMMAND( szCommand );
@@ -83,7 +83,7 @@ CHalfLifeMultiplay :: CHalfLifeMultiplay()
 		if ( lservercfgfile && lservercfgfile[0] )
 		{
 			char szCommand[256];
-			
+
 			ALERT( at_console, "Executing listen server config file\n" );
 			sprintf( szCommand, "exec %s\n", lservercfgfile );
 			SERVER_COMMAND( szCommand );
@@ -98,7 +98,7 @@ BOOL CHalfLifeMultiplay::ClientCommand( CBasePlayer *pPlayer, const char *pcmd )
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay::RefreshSkillData( void )
+/*void CHalfLifeMultiplay::RefreshSkillData( void )
 {
 // load all default values
 	CGameRules::RefreshSkillData();
@@ -147,6 +147,204 @@ void CHalfLifeMultiplay::RefreshSkillData( void )
 
 	// hornet
 	gSkillData.plrDmgHornet = 10;
+}*/
+
+void CHalfLifeMultiplay::RefreshSkillData( void )
+{
+	int	iSkill;
+
+	iSkill = (int)CVAR_GET_FLOAT("skill");
+	g_iSkillLevel = iSkill;
+
+	if ( iSkill < 1 )
+	{
+		iSkill = 1;
+	}
+	else if ( iSkill > 3 )
+	{
+		iSkill = 3;
+	}
+
+	gSkillData.iSkillLevel = iSkill;
+
+	ALERT ( at_console, "\nGAME SKILL LEVEL:%d\n",iSkill );
+
+	//Agrunt
+	gSkillData.agruntHealth = GetSkillCvar( "sk_agrunt_health" );
+	gSkillData.agruntDmgPunch = GetSkillCvar( "sk_agrunt_dmg_punch");
+
+	// Apache
+	gSkillData.apacheHealth = GetSkillCvar( "sk_apache_health");
+
+	// Barney
+	gSkillData.barneyHealth = GetSkillCvar( "sk_barney_health");
+
+	// Big Momma
+	gSkillData.bigmommaHealthFactor = GetSkillCvar( "sk_bigmomma_health_factor" );
+	gSkillData.bigmommaDmgSlash = GetSkillCvar( "sk_bigmomma_dmg_slash" );
+	gSkillData.bigmommaDmgBlast = GetSkillCvar( "sk_bigmomma_dmg_blast" );
+	gSkillData.bigmommaRadiusBlast = GetSkillCvar( "sk_bigmomma_radius_blast" );
+
+	// Bullsquid
+	gSkillData.bullsquidHealth = GetSkillCvar( "sk_bullsquid_health");
+	gSkillData.bullsquidDmgBite = GetSkillCvar( "sk_bullsquid_dmg_bite");
+	gSkillData.bullsquidDmgWhip = GetSkillCvar( "sk_bullsquid_dmg_whip");
+	gSkillData.bullsquidDmgSpit = GetSkillCvar( "sk_bullsquid_dmg_spit");
+
+	// Gargantua
+	gSkillData.gargantuaHealth = GetSkillCvar( "sk_gargantua_health");
+	gSkillData.gargantuaDmgSlash = GetSkillCvar( "sk_gargantua_dmg_slash");
+	gSkillData.gargantuaDmgFire = GetSkillCvar( "sk_gargantua_dmg_fire");
+	gSkillData.gargantuaDmgStomp = GetSkillCvar( "sk_gargantua_dmg_stomp");
+
+	// Hassassin
+	gSkillData.hassassinHealth = GetSkillCvar( "sk_hassassin_health");
+
+	// Headcrab
+	gSkillData.headcrabHealth = GetSkillCvar( "sk_headcrab_health");
+	gSkillData.headcrabDmgBite = GetSkillCvar( "sk_headcrab_dmg_bite");
+
+	// Hgrunt
+	gSkillData.hgruntHealth = GetSkillCvar( "sk_hgrunt_health");
+	gSkillData.hgruntDmgKick = GetSkillCvar( "sk_hgrunt_kick");
+	gSkillData.hgruntShotgunPellets = GetSkillCvar( "sk_hgrunt_pellets");
+	gSkillData.hgruntGrenadeSpeed = GetSkillCvar( "sk_hgrunt_gspeed");
+
+	// Houndeye
+	gSkillData.houndeyeHealth = GetSkillCvar( "sk_houndeye_health");
+	gSkillData.houndeyeDmgBlast = GetSkillCvar( "sk_houndeye_dmg_blast");
+
+	// ISlave
+	gSkillData.slaveHealth = GetSkillCvar( "sk_islave_health");
+	gSkillData.slaveDmgClaw = GetSkillCvar( "sk_islave_dmg_claw");
+	gSkillData.slaveDmgClawrake = GetSkillCvar( "sk_islave_dmg_clawrake");
+	gSkillData.slaveDmgZap = GetSkillCvar( "sk_islave_dmg_zap");
+
+	// Icthyosaur
+	gSkillData.ichthyosaurHealth = GetSkillCvar( "sk_ichthyosaur_health");
+	gSkillData.ichthyosaurDmgShake = GetSkillCvar( "sk_ichthyosaur_shake");
+
+	// Leech
+	gSkillData.leechHealth = GetSkillCvar( "sk_leech_health");
+
+	gSkillData.leechDmgBite = GetSkillCvar( "sk_leech_dmg_bite");
+
+	// Controller
+	gSkillData.controllerHealth = GetSkillCvar( "sk_controller_health");
+	gSkillData.controllerDmgZap = GetSkillCvar( "sk_controller_dmgzap");
+	gSkillData.controllerSpeedBall = GetSkillCvar( "sk_controller_speedball");
+	gSkillData.controllerDmgBall = GetSkillCvar( "sk_controller_dmgball");
+
+	// Nihilanth
+	gSkillData.nihilanthHealth = GetSkillCvar( "sk_nihilanth_health");
+	gSkillData.nihilanthZap = GetSkillCvar( "sk_nihilanth_zap");
+
+	// Scientist
+	gSkillData.scientistHealth = GetSkillCvar( "sk_scientist_health");
+
+	// Snark
+	gSkillData.snarkHealth = GetSkillCvar( "sk_snark_health");
+	gSkillData.snarkDmgBite = GetSkillCvar( "sk_snark_dmg_bite");
+	gSkillData.snarkDmgPop = GetSkillCvar( "sk_snark_dmg_pop");
+
+	// Zombie
+	gSkillData.zombieHealth = GetSkillCvar( "sk_zombie_health");
+	gSkillData.zombieDmgOneSlash = GetSkillCvar( "sk_zombie_dmg_one_slash");
+	gSkillData.zombieDmgBothSlash = GetSkillCvar( "sk_zombie_dmg_both_slash");
+
+	//Turret
+	gSkillData.turretHealth = GetSkillCvar( "sk_turret_health");
+
+	// MiniTurret
+	gSkillData.miniturretHealth = GetSkillCvar( "sk_miniturret_health");
+
+	// Sentry Turret
+	gSkillData.sentryHealth = GetSkillCvar( "sk_sentry_health");
+
+// PLAYER WEAPONS
+
+	// Crowbar whack
+	gSkillData.plrDmgCrowbar = GetSkillCvar( "sk_plr_crowbar");
+
+	// Crowbar stab
+  //gSkillData.plrDmgCrowbarStab = GetSkillCvar( "sk_plr_crowbar_stab" );
+	gSkillData.plrDmgCrowbarStab = 35;
+
+	// Glock Round
+	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
+
+	// 357 Round
+	gSkillData.plrDmg357 = GetSkillCvar( "sk_plr_357_bullet");
+
+	// MP5 Round
+	gSkillData.plrDmgMP5 = GetSkillCvar( "sk_plr_9mmAR_bullet");
+
+	// M203 grenade
+	gSkillData.plrDmgM203Grenade = GetSkillCvar( "sk_plr_9mmAR_grenade");
+
+	// Shotgun buckshot
+	gSkillData.plrDmgBuckshot = GetSkillCvar( "sk_plr_buckshot");
+
+	// Crossbow
+	gSkillData.plrDmgCrossbowClient = GetSkillCvar( "sk_plr_xbow_bolt_client");
+	gSkillData.plrDmgCrossbowMonster = GetSkillCvar( "sk_plr_xbow_bolt_monster");
+
+	// RPG
+	gSkillData.plrDmgRPG = GetSkillCvar( "sk_plr_rpg");
+
+	// Gauss gun
+	gSkillData.plrDmgGauss = GetSkillCvar( "sk_plr_gauss");
+
+	// Egon Gun
+	gSkillData.plrDmgEgonNarrow = GetSkillCvar( "sk_plr_egon_narrow");
+	gSkillData.plrDmgEgonWide = GetSkillCvar( "sk_plr_egon_wide");
+
+	// Hand Grendade
+	gSkillData.plrDmgHandGrenade = GetSkillCvar( "sk_plr_hand_grenade");
+
+	// Satchel Charge
+	gSkillData.plrDmgSatchel = GetSkillCvar( "sk_plr_satchel");
+
+	// Tripmine
+	gSkillData.plrDmgTripmine = GetSkillCvar( "sk_plr_tripmine");
+
+	// MONSTER WEAPONS
+	gSkillData.monDmg12MM = GetSkillCvar( "sk_12mm_bullet");
+	gSkillData.monDmgMP5 = GetSkillCvar ("sk_9mmAR_bullet" );
+	gSkillData.monDmg9MM = GetSkillCvar( "sk_9mm_bullet");
+
+	// MONSTER HORNET
+	gSkillData.monDmgHornet = GetSkillCvar( "sk_hornet_dmg");
+
+	// PLAYER HORNET
+// Up to this point, player hornet damage and monster hornet damage were both using
+// monDmgHornet to determine how much damage to do. In tuning the hivehand, we now need
+// to separate player damage and monster hivehand damage. Since it's so late in the project, we've
+// added plrDmgHornet to the SKILLDATA struct, but not to the engine CVar list, so it's inaccesible
+// via SKILLS.CFG. Any player hivehand tuning must take place in the code. (sjb)
+	gSkillData.plrDmgHornet = 7;
+
+
+	// HEALTH/CHARGE
+	gSkillData.suitchargerCapacity = GetSkillCvar( "sk_suitcharger" );
+	gSkillData.batteryCapacity = GetSkillCvar( "sk_battery" );
+	gSkillData.healthchargerCapacity = GetSkillCvar ( "sk_healthcharger" );
+	gSkillData.healthkitCapacity = GetSkillCvar ( "sk_healthkit" );
+	gSkillData.scientistHeal = GetSkillCvar ( "sk_scientist_heal" );
+
+	// monster damage adj
+	gSkillData.monHead = GetSkillCvar( "sk_monster_head" );
+	gSkillData.monChest = GetSkillCvar( "sk_monster_chest" );
+	gSkillData.monStomach = GetSkillCvar( "sk_monster_stomach" );
+	gSkillData.monLeg = GetSkillCvar( "sk_monster_leg" );
+	gSkillData.monArm = GetSkillCvar( "sk_monster_arm" );
+
+	// player damage adj
+	gSkillData.plrHead = GetSkillCvar( "sk_player_head" );
+	gSkillData.plrChest = GetSkillCvar( "sk_player_chest" );
+	gSkillData.plrStomach = GetSkillCvar( "sk_player_stomach" );
+	gSkillData.plrLeg = GetSkillCvar( "sk_player_leg" );
+	gSkillData.plrArm = GetSkillCvar( "sk_player_arm" );
 }
 
 // longest the intermission can last, in seconds
@@ -182,7 +380,7 @@ void CHalfLifeMultiplay :: Think ( void )
 		if ( m_flIntermissionEndTime < gpGlobals->time )
 		{
 			if ( m_iEndIntermissionButtonHit  // check that someone has pressed a key, or the max intermission time is over
-				|| ( ( g_flIntermissionStartTime + MAX_INTERMISSION_TIME ) < gpGlobals->time) ) 
+				|| ( ( g_flIntermissionStartTime + MAX_INTERMISSION_TIME ) < gpGlobals->time) )
 				ChangeLevel(); // intermission is over
 		}
 
@@ -193,7 +391,7 @@ void CHalfLifeMultiplay :: Think ( void )
 	float flFragLimit = fraglimit.value;
 
 	time_remaining = (int)(flTimeLimit ? ( flTimeLimit - gpGlobals->time ) : 0);
-	
+
 	if ( flTimeLimit != 0 && gpGlobals->time >= flTimeLimit )
 	{
 		GoToIntermission();
@@ -322,7 +520,7 @@ BOOL CHalfLifeMultiplay :: GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerI
 		{
 			if ( pCheck->iWeight() > -1 && pCheck->iWeight() == pCurrentWeapon->iWeight() && pCheck != pCurrentWeapon )
 			{
-				// this weapon is from the same category. 
+				// this weapon is from the same category.
 				if ( pCheck->CanDeploy() )
 				{
 					if ( pPlayer->SwitchWeapon( pCheck ) )
@@ -335,8 +533,8 @@ BOOL CHalfLifeMultiplay :: GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerI
 			{
 				//ALERT ( at_console, "Considering %s\n", STRING( pCheck->pev->classname ) );
 				// we keep updating the 'best' weapon just in case we can't find a weapon of the same weight
-				// that the player was using. This will end up leaving the player with his heaviest-weighted 
-				// weapon. 
+				// that the player was using. This will end up leaving the player with his heaviest-weighted
+				// weapon.
 				if ( pCheck->CanDeploy() )
 				{
 					// if this weapon is useable, flag it as the best
@@ -349,10 +547,10 @@ BOOL CHalfLifeMultiplay :: GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerI
 		}
 	}
 
-	// if we make it here, we've checked all the weapons and found no useable 
-	// weapon in the same catagory as the current weapon. 
-	
-	// if pBest is null, we didn't find ANYTHING. Shouldn't be possible- should always 
+	// if we make it here, we've checked all the weapons and found no useable
+	// weapon in the same catagory as the current weapon.
+
+	// if pBest is null, we didn't find ANYTHING. Shouldn't be possible- should always
 	// at least get the crowbar, but ya never know.
 	if ( !pBest )
 	{
@@ -384,22 +582,22 @@ void CHalfLifeMultiplay :: UpdateGameMode( CBasePlayer *pPlayer )
 void CHalfLifeMultiplay :: InitHUD( CBasePlayer *pl )
 {
 	// notify other clients of player joining the game
-	UTIL_ClientPrintAll( HUD_PRINTNOTIFY, UTIL_VarArgs( "%s has joined the game\n", 
+	UTIL_ClientPrintAll( HUD_PRINTNOTIFY, UTIL_VarArgs( "%s has joined the game\n",
 		( pl->pev->netname && STRING(pl->pev->netname)[0] != 0 ) ? STRING(pl->pev->netname) : "unconnected" ) );
 
 	// team match?
 	if ( g_teamplay )
 	{
-		UTIL_LogPrintf( "\"%s<%i><%s><%s>\" entered the game\n",  
-			STRING( pl->pev->netname ), 
+		UTIL_LogPrintf( "\"%s<%i><%s><%s>\" entered the game\n",
+			STRING( pl->pev->netname ),
 			GETPLAYERUSERID( pl->edict() ),
 			GETPLAYERAUTHID( pl->edict() ),
 			g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pl->edict() ), "model" ) );
 	}
 	else
 	{
-		UTIL_LogPrintf( "\"%s<%i><%s><%i>\" entered the game\n",  
-			STRING( pl->pev->netname ), 
+		UTIL_LogPrintf( "\"%s<%i><%s><%i>\" entered the game\n",
+			STRING( pl->pev->netname ),
 			GETPLAYERUSERID( pl->edict() ),
 			GETPLAYERAUTHID( pl->edict() ),
 			GETPLAYERUSERID( pl->edict() ) );
@@ -458,16 +656,16 @@ void CHalfLifeMultiplay :: ClientDisconnected( edict_t *pClient )
 			// team match?
 			if ( g_teamplay )
 			{
-				UTIL_LogPrintf( "\"%s<%i><%s><%s>\" disconnected\n",  
-					STRING( pPlayer->pev->netname ), 
+				UTIL_LogPrintf( "\"%s<%i><%s><%s>\" disconnected\n",
+					STRING( pPlayer->pev->netname ),
 					GETPLAYERUSERID( pPlayer->edict() ),
 					GETPLAYERAUTHID( pPlayer->edict() ),
 					g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model" ) );
 			}
 			else
 			{
-				UTIL_LogPrintf( "\"%s<%i><%s><%i>\" disconnected\n",  
-					STRING( pPlayer->pev->netname ), 
+				UTIL_LogPrintf( "\"%s<%i><%s><%i>\" disconnected\n",
+					STRING( pPlayer->pev->netname ),
 					GETPLAYERUSERID( pPlayer->edict() ),
 					GETPLAYERAUTHID( pPlayer->edict() ),
 					GETPLAYERUSERID( pPlayer->edict() ) );
@@ -495,7 +693,7 @@ float CHalfLifeMultiplay :: FlPlayerFallDamage( CBasePlayer *pPlayer )
 		return 10;
 		break;
 	}
-} 
+}
 
 //=========================================================
 //=========================================================
@@ -529,7 +727,7 @@ void CHalfLifeMultiplay :: PlayerSpawn( CBasePlayer *pPlayer )
 	CBaseEntity	*pWeaponEntity = NULL;
 
 	pPlayer->AddWeapon( WEAPON_SUIT );
-	
+
 	addDefault = TRUE;
 
 	while ( pWeaponEntity = UTIL_FindEntityByClassname( pWeaponEntity, "game_player_equip" ))
@@ -591,7 +789,7 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 	if ( ktmp && (ktmp->Classify() == CLASS_PLAYER) )
 		peKiller = (CBasePlayer*)ktmp;
 
-	if ( pVictim->pev == pKiller )  
+	if ( pVictim->pev == pKiller )
 	{  // killed self
 		pKiller->frags -= 1;
 	}
@@ -599,7 +797,7 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 	{
 		// if a player dies in a deathmatch game and the killer is a client, award the killer some points
 		pKiller->frags += IPointsForKill( peKiller, pVictim );
-		
+
 		UTIL_FireTargets( "game_playerkill", ktmp, ktmp, USE_TOGGLE, 0 );
 	}
 	else
@@ -642,7 +840,7 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 }
 
 //=========================================================
-// Deathnotice. 
+// Deathnotice.
 //=========================================================
 void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, entvars_t *pevInflictor )
 {
@@ -651,7 +849,7 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 
 	const char *killer_weapon_name = "world";		// by default, the player is killed by the world
 	int killer_index = 0;
-	
+
 	// Hack to fix name change
 	char *tau = "tau_cannon";
 	char *gluon = "gluon gun";
@@ -659,14 +857,14 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 	if ( pKiller->flags & FL_CLIENT )
 	{
 		killer_index = ENTINDEX(ENT(pKiller));
-		
+
 		if ( pevInflictor )
 		{
 			if ( pevInflictor == pKiller )
 			{
 				// If the inflictor is the killer,  then it must be their current weapon doing the damage
 				CBasePlayer *pPlayer = (CBasePlayer*)CBaseEntity::Instance( pKiller );
-				
+
 				if ( pPlayer->m_pActiveItem )
 				{
 					killer_weapon_name = pPlayer->m_pActiveItem->pszName();
@@ -703,28 +901,28 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 	else if ( !strcmp( killer_weapon_name, "gauss" ) )
 		killer_weapon_name = tau;
 
-	if ( pVictim->pev == pKiller )  
+	if ( pVictim->pev == pKiller )
 	{
 		// killed self
 
 		// team match?
 		if ( g_teamplay )
 		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\"\n",  
-				STRING( pVictim->pev->netname ), 
+			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\"\n",
+				STRING( pVictim->pev->netname ),
 				GETPLAYERUSERID( pVictim->edict() ),
 				GETPLAYERAUTHID( pVictim->edict() ),
 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-				killer_weapon_name );		
+				killer_weapon_name );
 		}
 		else
 		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\"\n",  
-				STRING( pVictim->pev->netname ), 
+			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\"\n",
+				STRING( pVictim->pev->netname ),
 				GETPLAYERUSERID( pVictim->edict() ),
 				GETPLAYERAUTHID( pVictim->edict() ),
 				GETPLAYERUSERID( pVictim->edict() ),
-				killer_weapon_name );		
+				killer_weapon_name );
 		}
 	}
 	else if ( pKiller->flags & FL_CLIENT )
@@ -732,7 +930,7 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 		// team match?
 		if ( g_teamplay )
 		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" killed \"%s<%i><%s><%s>\" with \"%s\"\n",  
+			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" killed \"%s<%i><%s><%s>\" with \"%s\"\n",
 				STRING( pKiller->netname ),
 				GETPLAYERUSERID( ENT(pKiller) ),
 				GETPLAYERAUTHID( ENT(pKiller) ),
@@ -745,7 +943,7 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 		}
 		else
 		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" killed \"%s<%i><%s><%i>\" with \"%s\"\n",  
+			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" killed \"%s<%i><%s><%i>\" with \"%s\"\n",
 				STRING( pKiller->netname ),
 				GETPLAYERUSERID( ENT(pKiller) ),
 				GETPLAYERAUTHID( ENT(pKiller) ),
@@ -758,27 +956,27 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 		}
 	}
 	else
-	{ 
+	{
 		// killed by the world
 
 		// team match?
 		if ( g_teamplay )
 		{
 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\" (world)\n",
-				STRING( pVictim->pev->netname ), 
-				GETPLAYERUSERID( pVictim->edict() ), 
+				STRING( pVictim->pev->netname ),
+				GETPLAYERUSERID( pVictim->edict() ),
 				GETPLAYERAUTHID( pVictim->edict() ),
 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-				killer_weapon_name );		
+				killer_weapon_name );
 		}
 		else
 		{
 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\" (world)\n",
-				STRING( pVictim->pev->netname ), 
-				GETPLAYERUSERID( pVictim->edict() ), 
+				STRING( pVictim->pev->netname ),
+				GETPLAYERUSERID( pVictim->edict() ),
 				GETPLAYERAUTHID( pVictim->edict() ),
 				GETPLAYERUSERID( pVictim->edict() ),
-				killer_weapon_name );		
+				killer_weapon_name );
 		}
 	}
 
@@ -869,12 +1067,12 @@ float CHalfLifeMultiplay :: FlWeaponRespawnTime( CBasePlayerItem *pWeapon )
 	return gpGlobals->time + WEAPON_RESPAWN_TIME;
 }
 
-// when we are within this close to running out of entities,  items 
+// when we are within this close to running out of entities,  items
 // marked with the ITEM_FLAG_LIMITINWORLD will delay their respawn
 #define ENTITY_INTOLERANCE	100
 
 //=========================================================
-// FlWeaponRespawnTime - Returns 0 if the weapon can respawn 
+// FlWeaponRespawnTime - Returns 0 if the weapon can respawn
 // now,  otherwise it returns the time at which it can try
 // to spawn again.
 //=========================================================
@@ -1060,7 +1258,7 @@ int CHalfLifeMultiplay::DeadPlayerAmmo( CBasePlayer *pPlayer )
 
 edict_t *CHalfLifeMultiplay::GetPlayerSpawnSpot( CBasePlayer *pPlayer )
 {
-	edict_t *pentSpawnSpot = CGameRules::GetPlayerSpawnSpot( pPlayer );	
+	edict_t *pentSpawnSpot = CGameRules::GetPlayerSpawnSpot( pPlayer );
 	if ( IsMultiplayer() && pentSpawnSpot->v.target )
 	{
 		UTIL_FireTargets( STRING(pentSpawnSpot->v.target), pPlayer, pPlayer, USE_TOGGLE, 0 );
@@ -1089,9 +1287,9 @@ BOOL CHalfLifeMultiplay :: PlayFootstepSounds( CBasePlayer *pl, float fvol )
 	return FALSE;
 }
 
-BOOL CHalfLifeMultiplay :: FAllowFlashlight( void ) 
-{ 
-	return flashlight.value != 0; 
+BOOL CHalfLifeMultiplay :: FAllowFlashlight( void )
+{
+	return flashlight.value != 0;
 }
 
 //=========================================================
@@ -1165,7 +1363,7 @@ void DestroyMapCycle( mapcycle_t *cycle )
 			delete p;
 			p = n;
 		}
-		
+
 		delete cycle->items;
 	}
 	cycle->items = NULL;
@@ -1294,7 +1492,7 @@ int ReloadMapCycleFile( char *filename, mapcycle_t *cycle )
 		item = item->next;
 	}
 	item->next = cycle->items;
-	
+
 	cycle->next_item = item->next;
 
 	return 1;
@@ -1339,7 +1537,7 @@ void ExtractCommandString( char *s, char *szCommand )
 	char	value[512];	// use two buffers so compares
 								// work without stomping on each other
 	char	*o;
-	
+
 	if ( *s == '\\' )
 		s++;
 
@@ -1477,8 +1675,8 @@ void CHalfLifeMultiplay :: ChangeLevel( void )
 		if ( !found )
 		{
 			item = mapcycle.next_item;
-		}			
-		
+		}
+
 		// Increment next item pointer
 		mapcycle.next_item = item->next;
 
@@ -1505,7 +1703,7 @@ void CHalfLifeMultiplay :: ChangeLevel( void )
 	{
 		ALERT( at_console, "RULES:  %s\n", szRules );
 	}
-	
+
 	CHANGE_LEVEL( szNextMap, NULL );
 	if ( strlen( szCommands ) > 0 )
 	{
@@ -1534,7 +1732,7 @@ void CHalfLifeMultiplay :: SendMOTDToClient( edict_t *client )
 	while ( pFileList && *pFileList && char_count < MAX_MOTD_LENGTH )
 	{
 		char chunk[MAX_MOTD_CHUNK+1];
-		
+
 		if ( strlen( pFileList ) < MAX_MOTD_CHUNK )
 		{
 			strcpy( chunk, pFileList );
@@ -1547,7 +1745,7 @@ void CHalfLifeMultiplay :: SendMOTDToClient( edict_t *client )
 
 		char_count += strlen( chunk );
 		if ( char_count < MAX_MOTD_LENGTH )
-			pFileList = aFileList + char_count; 
+			pFileList = aFileList + char_count;
 		else
 			*pFileList = 0;
 
@@ -1559,5 +1757,3 @@ void CHalfLifeMultiplay :: SendMOTDToClient( edict_t *client )
 
 	FREE_FILE( aFileList );
 }
-	
-

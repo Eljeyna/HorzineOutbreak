@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -76,7 +76,7 @@ edict_t *CGameRules :: GetPlayerSpawnSpot( CBasePlayer *pPlayer )
 	{
 		pPlayer->AddWeapon( WEAPON_SUIT );
 	}
-	
+
 	return pentSpawnSpot;
 }
 
@@ -92,7 +92,7 @@ BOOL CGameRules::CanHavePlayerItem( CBasePlayer *pPlayer, CBasePlayerItem *pWeap
 	{
 		if ( !CanHaveAmmo( pPlayer, pWeapon->pszAmmo1(), pWeapon->iMaxAmmo1() ) )
 		{
-			// we can't carry anymore ammo for this gun. We can only 
+			// we can't carry anymore ammo for this gun. We can only
 			// have the gun if we aren't already carrying one of this type
 			if ( pPlayer->HasPlayerItem( pWeapon ) )
 			{
@@ -129,18 +129,18 @@ void CGameRules::RefreshSkillData ( void )
 	}
 	else if ( iSkill > 3 )
 	{
-		iSkill = 3; 
+		iSkill = 3;
 	}
 
 	gSkillData.iSkillLevel = iSkill;
 
 	ALERT ( at_console, "\nGAME SKILL LEVEL:%d\n",iSkill );
 
-	//Agrunt		
+	//Agrunt
 	gSkillData.agruntHealth = GetSkillCvar( "sk_agrunt_health" );
 	gSkillData.agruntDmgPunch = GetSkillCvar( "sk_agrunt_dmg_punch");
 
-	// Apache 
+	// Apache
 	gSkillData.apacheHealth = GetSkillCvar( "sk_apache_health");
 
 	// Barney
@@ -171,7 +171,7 @@ void CGameRules::RefreshSkillData ( void )
 	gSkillData.headcrabHealth = GetSkillCvar( "sk_headcrab_health");
 	gSkillData.headcrabDmgBite = GetSkillCvar( "sk_headcrab_dmg_bite");
 
-	// Hgrunt 
+	// Hgrunt
 	gSkillData.hgruntHealth = GetSkillCvar( "sk_hgrunt_health");
 	gSkillData.hgruntDmgKick = GetSkillCvar( "sk_hgrunt_kick");
 	gSkillData.hgruntShotgunPellets = GetSkillCvar( "sk_hgrunt_pellets");
@@ -224,7 +224,7 @@ void CGameRules::RefreshSkillData ( void )
 
 	// MiniTurret
 	gSkillData.miniturretHealth = GetSkillCvar( "sk_miniturret_health");
-	
+
 	// Sentry Turret
 	gSkillData.sentryHealth = GetSkillCvar( "sk_sentry_health");
 
@@ -232,6 +232,10 @@ void CGameRules::RefreshSkillData ( void )
 
 	// Crowbar whack
 	gSkillData.plrDmgCrowbar = GetSkillCvar( "sk_plr_crowbar");
+
+	// Crowbar stab
+	//gSkillData.plrDmgCrowbarStab = GetSkillCvar( "sk_plr_crowbar_stab");
+	gSkillData.plrDmgCrowbarStab = 35;
 
 	// Glock Round
 	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
@@ -348,6 +352,3 @@ CGameRules *InstallGameRules( void )
 		}
 	}
 }
-
-
-

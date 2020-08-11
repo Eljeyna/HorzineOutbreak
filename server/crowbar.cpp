@@ -24,6 +24,7 @@
 
 #define CROWBAR_BODYHIT_VOLUME	128
 #define CROWBAR_WALLHIT_VOLUME	512
+#define CROWBAR_STAB_DELAY 			0.75
 
 enum crowbar_e
 {
@@ -35,7 +36,10 @@ enum crowbar_e
 	CROWBAR_ATTACK2MISS,
 	CROWBAR_ATTACK2HIT,
 	CROWBAR_ATTACK3MISS,
-	CROWBAR_ATTACK3HIT
+	CROWBAR_ATTACK3HIT,
+	CROWBAR_IDLE2,
+	CROWBAR_IDLE3,
+	CROWBAR_STAB
 };
 
 class CCrowbar : public CBasePlayerWeapon
@@ -53,7 +57,9 @@ public:
 
 	void PrimaryAttack( void );
 	float crowbar_reload;
+	bool crowbar_stab_attack;
 	void SecondaryAttack( void );
+	void WeaponIdle( void );
 	int Swing( int fFirst );
 	BOOL Deploy( void );
 	void Holster( void );
@@ -74,6 +80,7 @@ void CCrowbar::Spawn( void )
 	m_iId = WEAPON_CROWBAR;
 	SET_MODEL(ENT(pev), "models/w_crowbar.mdl");
 	m_iClip = -1;
+	crowbar_stab_attack = false;
 
 	FallInit();// get ready to fall down.
 }
@@ -174,12 +181,10 @@ void CCrowbar::PrimaryAttack( void )
 
 void CCrowbar::SecondaryAttack( void )
 {
-	crowbar_reload = 1.1;
-	if (! Swing( 1 ))
-	{
-		SetThink( SwingAgain );
-		pev->nextthink = gpGlobals->time + 0.1;
-	}
+	crowbar_stab_attack = true;
+	SendWeaponAnim( CROWBAR_STAB );
+	m_flTimeWeaponIdle = gpGlobals->time + CROWBAR_STAB_DELAY;
+	m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
 }
 
 void CCrowbar::Smack( void )
@@ -223,18 +228,25 @@ int CCrowbar::Swing( int fFirst )
 		if( fFirst )
 		{
 			// miss
-			switch( (m_iSwing++) % 3 )
+			if (crowbar_stab_attack)
 			{
-			case 0:
-				SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
-			case 1:
-				SendWeaponAnim( CROWBAR_ATTACK2MISS ); break;
-			case 2:
-				SendWeaponAnim( CROWBAR_ATTACK3MISS ); break;
+				crowbar_stab_attack = false;
+				m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + (crowbar_reload - CROWBAR_STAB_DELAY);
+			}
+			else
+			{
+				switch( (m_iSwing++) % 3 )
+				{
+				case 0:
+					SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
+				case 1:
+					SendWeaponAnim( CROWBAR_ATTACK2MISS ); break;
+				case 2:
+					SendWeaponAnim( CROWBAR_ATTACK3MISS ); break;
+				}
+				m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
 			}
 			//m_flNextPrimaryAttack = gpGlobals->time + 0.45;
-			m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
-			m_flNextSecondaryAttack = gpGlobals->time + crowbar_reload;
 			// play wiff or swish sound
 			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
@@ -249,14 +261,17 @@ int CCrowbar::Swing( int fFirst )
 
 		CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);
 
-		switch( ((m_iSwing++) % 2) + 1 )
+		if (!crowbar_stab_attack)
 		{
-		case 0:
-			SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
-		case 1:
-			SendWeaponAnim( CROWBAR_ATTACK2HIT ); break;
-		case 2:
-			SendWeaponAnim( CROWBAR_ATTACK3HIT ); break;
+			switch( ((m_iSwing++) % 2) + 1 )
+			{
+			case 0:
+				SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
+			case 1:
+				SendWeaponAnim( CROWBAR_ATTACK2HIT ); break;
+			case 2:
+				SendWeaponAnim( CROWBAR_ATTACK3HIT ); break;
+			}
 		}
 
 		// player "shoot" animation
@@ -274,22 +289,21 @@ int CCrowbar::Swing( int fFirst )
 			// subsequent swings do half
 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar / 2, gpGlobals->v_forward, &tr, DMG_CLUB );
 		}*/
-
-		if (crowbar_reload <= 0.45)
+		if (crowbar_stab_attack)
 		{
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbarStab, gpGlobals->v_forward, &tr, DMG_CLUB );
+			m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + (crowbar_reload - CROWBAR_STAB_DELAY);
+			crowbar_stab_attack = false;
 		}
 		else
 		{
-			//SendWeaponAnim( CROWBAR_ATTACK4HIT ); break;
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar + 15, gpGlobals->v_forward, &tr, DMG_CLUB );
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
+			m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
 		}
 
 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
 
 		//m_flNextPrimaryAttack = gpGlobals->time + 0.45;
-		m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
-		m_flNextSecondaryAttack = gpGlobals->time + crowbar_reload;
 
 		// play thwack, smack, or dong sound
 		float flVol = 1.0;
@@ -354,4 +368,22 @@ int CCrowbar::Swing( int fFirst )
 		m_pPlayer->m_iWeaponVolume = flVol * CROWBAR_WALLHIT_VOLUME;
 	}
 	return fDidHit;
+}
+
+void CCrowbar::WeaponIdle( void )
+{
+	ResetEmptySound( );
+
+	if (m_flTimeWeaponIdle > gpGlobals->time)
+		return;
+
+	if (crowbar_stab_attack)
+	{
+		crowbar_reload = 1.1;
+		if (! Swing( 1 ))
+		{
+			SetThink( SwingAgain );
+			pev->nextthink = gpGlobals->time + 0.1;
+		}
+	}
 }
