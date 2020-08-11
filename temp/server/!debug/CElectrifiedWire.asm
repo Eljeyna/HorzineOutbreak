@@ -1,0 +1,6633 @@
+	TITLE	Z:\XashXTSRC\server\ropes\CElectrifiedWire.cpp
+	.386P
+include listing.inc
+if @Version gt 510
+.model FLAT
+else
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+_DATA	SEGMENT DWORD USE32 PUBLIC 'DATA'
+_DATA	ENDS
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+_BSS	SEGMENT PARA USE32 PUBLIC 'BSS'
+_BSS	ENDS
+$$SYMBOLS	SEGMENT BYTE USE32 'DEBSYM'
+$$SYMBOLS	ENDS
+$$TYPES	SEGMENT BYTE USE32 'DEBTYP'
+$$TYPES	ENDS
+_TLS	SEGMENT DWORD USE32 PUBLIC 'TLS'
+_TLS	ENDS
+;	COMDAT ??_C@_04NHIK@?$CFs?3?3?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_09JDJH@classname?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0L@PMO@targetname?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_06CCPD@target?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@KILF@Bad?5ent?5in?5OFFSET?$CI?$CJ?6?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@BH@Bad?5pev?5in?5OFFSET?$CI?$CJ?6?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_04GOCP@null?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_06FOPF@parent?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_08IDGH@movewith?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0M@FCIN@parentflags?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_05JCDO@style?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0L@MCHI@reflection?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0N@DCCA@vlight_cache?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_00A@?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0CH@JICI@FUNCTION?5NOT?5IN?5TABLE?$CB?3?5?$CFs?3?$CFs?5?$CI?$CF@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@NMBB@CElectrifiedWire?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0M@DFHE@m_bIsActive?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HAEI@m_iTipSparkFrequency?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@PANH@m_iBodySparkFrequency?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@PINM@m_iLightningFrequency?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@NBOE@m_iXJoltForce?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@FOCG@m_iYJoltForce?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@MOGA@m_iZJoltForce?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BK@CBMA@m_iNumUninsulatedSegments?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@JCEL@m_iUninsulatedSegments?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HFHP@m_flLastSparkTime?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@BODO@env_electrified_wire?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@NMDH@sparkfrequency?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@BLLP@bodysparkfrequency?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@BJJJ@lightningfrequency?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_06DJBN@xforce?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_06KMLN@yforce?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_06BCFN@zforce?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@GFBO@sprites?1lgtning?4spr?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0CI@IOBG@?$CIelem?5?$DN?$DN?5Count?$CI?$CJ?$CJ?5?$HM?$HM?5IsValidInde@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0DG@DBGD@IsValidIndex?$CIelem?$CJ?5?$HM?$HM?5?$CI?5m_Size?5?$DN@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_07BGLK@num?5?$DO?50?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_01PLJA@0?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_09JCKE@m_pMemory?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+CRT$XCA	SEGMENT DWORD USE32 PUBLIC 'DATA'
+CRT$XCA	ENDS
+CRT$XCU	SEGMENT DWORD USE32 PUBLIC 'DATA'
+CRT$XCU	ENDS
+CRT$XCL	SEGMENT DWORD USE32 PUBLIC 'DATA'
+CRT$XCL	ENDS
+CRT$XCC	SEGMENT DWORD USE32 PUBLIC 'DATA'
+CRT$XCC	ENDS
+CRT$XCZ	SEGMENT DWORD USE32 PUBLIC 'DATA'
+CRT$XCZ	ENDS
+;	COMDAT ?SinCos@@YAXMPAM0@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector2D@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector2D@@QAE@MM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??DVector2D@@QBE?AV0@M@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Length@Vector2D@@QBEMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector@@QAE@MMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector@@QAE@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??8Vector@@QBEHABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??9Vector@@QBEHABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??GVector@@QBE?AV0@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??DVector@@QBE?AV0@M@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Length@Vector@@QBEMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BVector@@QAEPAMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BVector@@QBEPBMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector4D@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector4D@@QAE@MMMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Vector4D@@QAE@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BVector4D@@QAEPAMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BVector4D@@QBEPBMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BVector4D@@QAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BVector4D@@QBE?BVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Length@Vector4D@@QBEMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??8Vector4D@@QBE_NABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0Radian@@QAE@MMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BRadian@@QBEPBMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??8Radian@@QBEHABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix3x3@@QAE@MMMMMMMMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??Amatrix3x3@@QBEPBMH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??8matrix3x3@@QBEHABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetAngles@matrix3x3@@QAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??_H@YGXPAXIHP6EX0@Z@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix3x3@@QAE@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix3x4@@QAE@MMMMMMMMMMMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??Amatrix3x4@@QBEPBMH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??8matrix3x4@@QBEHABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetAngles@matrix3x4@@QAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix3x4@@QAE@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix4x4@@QAE@MMMMMMMMMMMMMMMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix4x4@@QAE@ABVVector@@0M@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??Amatrix4x4@@QBEPBMH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??8matrix4x4@@QBEHABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetAngles@matrix4x4@@QAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0matrix4x4@@QAE@ABV0@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?SimpleSpline@@YAMM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GET_PRIVATE@@YAPAXPAUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??2@YAPAXIPAX@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?UtlMemory_CalcNewAllocationCount@@YAHHHHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0CDatadescGeneratedNameHolder@@QAE@PBD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?StringLessThan@@YA_NABQBD0@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ENT@@YAPAUedict_s@@H@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OFFSET@@YAHPBUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OFFSET@@YAHPAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ENTINDEX@@YAHPAUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?FNullEnt@@YAHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?FNullEnt@@YAHPBUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?FNullEnt@@YAHPAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?FStrEq@@YAHPBD0@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Get@EHANDLE@@QAEPAUedict_s@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??BEHANDLE@@QAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??CEHANDLE@@QAEPAVCBaseEntity@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetClassname@CBaseEntity@@QAEPBDXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetTargetname@CBaseEntity@@QAEPBDXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?SetClassname@CBaseEntity@@QAEXPBD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ObjectCaps@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Activate@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OnChangeLevel@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OnTeleport@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?PortalSleep@CBaseEntity@@UAEXM@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetPosition@CBaseEntity@@UAEMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OnChangeParent@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OnClearParent@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OnRemove@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Classify@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsRigidBody@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetState@CBaseEntity@@UAE?AW4STATE@@PAV1@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?BloodColor@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsTriggered@CBaseEntity@@UAEHPAV1@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?MyMonsterPointer@CBaseEntity@@UAEPAVCBaseMonster@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?MySquadMonsterPointer@CBaseEntity@@UAEPAVCSquadMonster@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetVehicleDriver@CBaseEntity@@UAEPAV1@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetToggleState@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?AddPoints@CBaseEntity@@UAEXHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?AddPointsToTeam@CBaseEntity@@UAEXHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?AddPlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?RemovePlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GiveAmmo@CBaseEntity@@UAEHHPADH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetDelay@CBaseEntity@@UAEMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsMoving@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OverrideReset@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?TransferReset@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?SetToggleState@CBaseEntity@@UAEXH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?StartSneaking@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?StopSneaking@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?OnControls@CBaseEntity@@UAEHPAV1@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsSneaking@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsAlive@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsBSPModel@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsCustomModel@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ReflectGauss@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?HasTarget@CBaseEntity@@UAEHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsPlayer@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsNetClient@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsMonster@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsPushable@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsProjectile@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsFuncScreen@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsPortal@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsTank@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsMover@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsBreakable@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?TeamID@CBaseEntity@@UAEPBDXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Touch@CBaseEntity@@UAEXPAV1@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Blocked@CBaseEntity@@UAEXPAV1@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?MoveDone@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Respawn@CBaseEntity@@UAEPAV1@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?FunctionCheck@CBaseEntity@@QAEXPAXPAD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ClearGroundEntity@CBaseEntity@@QAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetModelType@CBaseEntity@@QAE?AW4modtype_t@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?UpdateOwner@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?FBecomeProne@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?edict@CBaseEntity@@QAEPAUedict_s@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?entindex@CBaseEntity@@QAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Center@CBaseEntity@@UAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsPointSized@CBaseEntity@@UBEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Illumination@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?EntityToWorldTransform@CBaseEntity@@QBEABVmatrix4x4@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetLocalTime@CBaseEntity@@QBEMXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetState@CBaseDelay@@UAE?AW4STATE@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?SetConditions@CBaseMonster@@QAEXH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?HasConditions@CBaseMonster@@QAEHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetNumSegments@CRope@@QBEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsSimulateBones@CRope@@QAE_NXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?SetSoundAllowed@CRope@@QAEX_N@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsActive@CElectrifiedWire@@QBE_NXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetDataDescMap@CElectrifiedWire@@UAEPAUdatamap_s@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetBaseMap@CElectrifiedWire@@SAPAUdatamap_s@@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT _$E22
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT _$E23
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT _$E26
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT _$E27
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT _$E28
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0CElectrifiedWire@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??1CRope@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??1CBaseDelay@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??1CBaseEntity@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?KeyValue@CElectrifiedWire@@UAEXPAUKeyValueData_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Precache@CElectrifiedWire@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Spawn@CElectrifiedWire@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Think@CElectrifiedWire@@UAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Use@CElectrifiedWire@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?DoSpark@CElectrifiedWire@@QAEXH_N@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?DoLightning@CElectrifiedWire@@QAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0?$CEntityFactory@VCElectrifiedWire@@@@QAE@PBD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Create@?$CEntityFactory@VCElectrifiedWire@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Destroy@?$CEntityFactory@VCElectrifiedWire@@@@UAEXPAVCBaseEntity@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetEntitySize@?$CEntityFactory@VCElectrifiedWire@@@@UAEIXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0IEntityFactory@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?AddToTail@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEHABQAD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?DataMapAccess@@YAXPAVCRope@@PAPAUdatamap_s@@@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?InsertBefore@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEHHABQAD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Purge@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??0?$CUtlMemory@PADH@@QAE@HH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??1?$CUtlMemory@PADH@@QAE@XZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??A?$CUtlMemory@PADH@@QAEAAPADH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Base@?$CUtlMemory@PADH@@QAEPAPADXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ValidateGrowSize@?$CUtlMemory@PADH@@IAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Element@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?RemoveAll@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?GrowVector@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?ShiftElementsRight@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXHH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?CopyConstruct@@YAXPAPADABQAD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Purge@?$CUtlMemory@PADH@@QAEXXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?NumAllocated@?$CUtlMemory@PADH@@QBEHXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Grow@?$CUtlMemory@PADH@@QAEXH@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ?Destruct@@YAXPAPAD@Z
+_TEXT	SEGMENT PARA USE32 PUBLIC 'CODE'
+_TEXT	ENDS
+;	COMDAT ??_7CElectrifiedWire@@6B@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_7?$CEntityFactory@VCElectrifiedWire@@@@6B@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_7IEntityFactory@@6B@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+FLAT	GROUP _DATA, CONST, _BSS, CRT$XCA, CRT$XCU, CRT$XCL, CRT$XCC, CRT$XCZ
+	ASSUME	CS: FLAT, DS: FLAT, SS: FLAT
+endif
+PUBLIC	?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A	; CElectrifiedWire::m_DataMap
+PUBLIC	??_C@_0BB@NMBB@CElectrifiedWire?$AA@		; `string'
+PUBLIC	?g_DataMapHolder@CElectrifiedWire_DataDescInit@@3PAUdatamap_s@@A ; CElectrifiedWire_DataDescInit::g_DataMapHolder
+PUBLIC	??_C@_0M@DFHE@m_bIsActive?$AA@			; `string'
+PUBLIC	??_C@_0BF@HAEI@m_iTipSparkFrequency?$AA@	; `string'
+PUBLIC	??_C@_0BG@PANH@m_iBodySparkFrequency?$AA@	; `string'
+PUBLIC	??_C@_0BG@PINM@m_iLightningFrequency?$AA@	; `string'
+PUBLIC	??_C@_0O@NBOE@m_iXJoltForce?$AA@		; `string'
+PUBLIC	??_C@_0O@FOCG@m_iYJoltForce?$AA@		; `string'
+PUBLIC	??_C@_0O@MOGA@m_iZJoltForce?$AA@		; `string'
+PUBLIC	??_C@_0BK@CBMA@m_iNumUninsulatedSegments?$AA@	; `string'
+PUBLIC	??_C@_0BH@JCEL@m_iUninsulatedSegments?$AA@	; `string'
+PUBLIC	??_C@_0BC@HFHP@m_flLastSparkTime?$AA@		; `string'
+_BSS	SEGMENT
+?g_DataMapHolder@CElectrifiedWire_DataDescInit@@3PAUdatamap_s@@A DD 01H DUP (?) ; CElectrifiedWire_DataDescInit::g_DataMapHolder
+_BSS	ENDS
+_DATA	SEGMENT
+?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A DD 00H	; CElectrifiedWire::m_DataMap
+	DD	00H
+	DD	FLAT:??_C@_0BB@NMBB@CElectrifiedWire?$AA@
+	DD	00H
+_DATA	ENDS
+CRT$XCU	SEGMENT
+_$S24	DD	FLAT:_$E23
+CRT$XCU	ENDS
+_DATA	SEGMENT
+_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4PAUtypedescription_s@@A DD 012H
+	DD	00H
+	DD	00H
+	DW	00H
+	DW	00H
+	DD	00H
+	DD	00H
+	DD	0cH
+	DD	FLAT:??_C@_0M@DFHE@m_bIsActive?$AA@
+	DD	0840H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0BF@HAEI@m_iTipSparkFrequency?$AA@
+	DD	0844H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0BG@PANH@m_iBodySparkFrequency?$AA@
+	DD	0848H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0BG@PINM@m_iLightningFrequency?$AA@
+	DD	084cH
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0O@NBOE@m_iXJoltForce?$AA@
+	DD	0850H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0O@FOCG@m_iYJoltForce?$AA@
+	DD	0854H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0O@MOGA@m_iZJoltForce?$AA@
+	DD	0858H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0BK@CBMA@m_iNumUninsulatedSegments?$AA@
+	DD	085cH
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0aH
+	DD	FLAT:??_C@_0BH@JCEL@m_iUninsulatedSegments?$AA@
+	DD	0860H
+	DW	040H
+	DW	02H
+	DD	00H
+	DD	00H
+	DD	0fH
+	DD	FLAT:??_C@_0BC@HFHP@m_flLastSparkTime?$AA@
+	DD	0964H
+	DW	01H
+	DW	02H
+	DD	00H
+	DD	00H
+_DATA	ENDS
+CRT$XCU	SEGMENT
+_$S29	DD	FLAT:_$E28
+CRT$XCU	ENDS
+;	COMDAT ??_C@_0BB@NMBB@CElectrifiedWire?$AA@
+CONST	SEGMENT
+??_C@_0BB@NMBB@CElectrifiedWire?$AA@ DB 'CElectrifiedWire', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0M@DFHE@m_bIsActive?$AA@
+CONST	SEGMENT
+??_C@_0M@DFHE@m_bIsActive?$AA@ DB 'm_bIsActive', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HAEI@m_iTipSparkFrequency?$AA@
+CONST	SEGMENT
+??_C@_0BF@HAEI@m_iTipSparkFrequency?$AA@ DB 'm_iTipSparkFrequency', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@PANH@m_iBodySparkFrequency?$AA@
+CONST	SEGMENT
+??_C@_0BG@PANH@m_iBodySparkFrequency?$AA@ DB 'm_iBodySparkFrequency', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@PINM@m_iLightningFrequency?$AA@
+CONST	SEGMENT
+??_C@_0BG@PINM@m_iLightningFrequency?$AA@ DB 'm_iLightningFrequency', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@NBOE@m_iXJoltForce?$AA@
+CONST	SEGMENT
+??_C@_0O@NBOE@m_iXJoltForce?$AA@ DB 'm_iXJoltForce', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@FOCG@m_iYJoltForce?$AA@
+CONST	SEGMENT
+??_C@_0O@FOCG@m_iYJoltForce?$AA@ DB 'm_iYJoltForce', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@MOGA@m_iZJoltForce?$AA@
+CONST	SEGMENT
+??_C@_0O@MOGA@m_iZJoltForce?$AA@ DB 'm_iZJoltForce', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BK@CBMA@m_iNumUninsulatedSegments?$AA@
+CONST	SEGMENT
+??_C@_0BK@CBMA@m_iNumUninsulatedSegments?$AA@ DB 'm_iNumUninsulatedSegmen'
+	DB	'ts', 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@JCEL@m_iUninsulatedSegments?$AA@
+CONST	SEGMENT
+??_C@_0BH@JCEL@m_iUninsulatedSegments?$AA@ DB 'm_iUninsulatedSegments', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HFHP@m_flLastSparkTime?$AA@
+CONST	SEGMENT
+??_C@_0BC@HFHP@m_flLastSparkTime?$AA@ DB 'm_flLastSparkTime', 00H ; `string'
+CONST	ENDS
+PUBLIC	??_H@YGXPAXIHP6EX0@Z@Z				; `vector constructor iterator'
+;	COMDAT ??_H@YGXPAXIHP6EX0@Z@Z
+_TEXT	SEGMENT
+___t$ = 8
+___s$ = 12
+___n$ = 16
+___f$ = 20
+??_H@YGXPAXIHP6EX0@Z@Z PROC NEAR			; `vector constructor iterator', COMDAT
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+$L25385:
+	mov	eax, DWORD PTR ___n$[ebp]
+	sub	eax, 1
+	mov	DWORD PTR ___n$[ebp], eax
+	cmp	DWORD PTR ___n$[ebp], 0
+	jl	SHORT $L25386
+	mov	ecx, DWORD PTR ___t$[ebp]
+	call	DWORD PTR ___f$[ebp]
+	mov	ecx, DWORD PTR ___t$[ebp]
+	add	ecx, DWORD PTR ___s$[ebp]
+	mov	DWORD PTR ___t$[ebp], ecx
+	jmp	SHORT $L25385
+$L25386:
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	16					; 00000010H
+??_H@YGXPAXIHP6EX0@Z@Z ENDP				; `vector constructor iterator'
+_TEXT	ENDS
+PUBLIC	?GetDataDescMap@CElectrifiedWire@@UAEPAUdatamap_s@@XZ ; CElectrifiedWire::GetDataDescMap
+;	COMDAT ?GetDataDescMap@CElectrifiedWire@@UAEPAUdatamap_s@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetDataDescMap@CElectrifiedWire@@UAEPAUdatamap_s@@XZ PROC NEAR ; CElectrifiedWire::GetDataDescMap, COMDAT
+
+; 23   : BEGIN_DATADESC( CElectrifiedWire )
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, OFFSET FLAT:?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A ; CElectrifiedWire::m_DataMap
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetDataDescMap@CElectrifiedWire@@UAEPAUdatamap_s@@XZ ENDP ; CElectrifiedWire::GetDataDescMap
+_TEXT	ENDS
+PUBLIC	?GetBaseMap@CElectrifiedWire@@SAPAUdatamap_s@@XZ ; CElectrifiedWire::GetBaseMap
+PUBLIC	?DataMapAccess@@YAXPAVCRope@@PAPAUdatamap_s@@@Z	; DataMapAccess
+;	COMDAT ?GetBaseMap@CElectrifiedWire@@SAPAUdatamap_s@@XZ
+_TEXT	SEGMENT
+_pResult$ = -4
+?GetBaseMap@CElectrifiedWire@@SAPAUdatamap_s@@XZ PROC NEAR ; CElectrifiedWire::GetBaseMap, COMDAT
+
+; 23   : BEGIN_DATADESC( CElectrifiedWire )
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	lea	eax, DWORD PTR _pResult$[ebp]
+	push	eax
+	push	0
+	call	?DataMapAccess@@YAXPAVCRope@@PAPAUdatamap_s@@@Z ; DataMapAccess
+	add	esp, 8
+	mov	eax, DWORD PTR _pResult$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetBaseMap@CElectrifiedWire@@SAPAUdatamap_s@@XZ ENDP	; CElectrifiedWire::GetBaseMap
+_TEXT	ENDS
+;	COMDAT _$E23
+_TEXT	SEGMENT
+_$E23	PROC NEAR					; COMDAT
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	call	_$E22
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_$E23	ENDP
+_TEXT	ENDS
+PUBLIC	?DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z ; DataMapInit
+;	COMDAT _$E22
+_TEXT	SEGMENT
+_$E22	PROC NEAR					; COMDAT
+
+; 23   : BEGIN_DATADESC( CElectrifiedWire )
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	push	0
+	call	?DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z ; DataMapInit
+	add	esp, 4
+	mov	DWORD PTR ?g_DataMapHolder@CElectrifiedWire_DataDescInit@@3PAUdatamap_s@@A, eax ; CElectrifiedWire_DataDescInit::g_DataMapHolder
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_$E22	ENDP
+_TEXT	ENDS
+PUBLIC	??0CDatadescGeneratedNameHolder@@QAE@PBD@Z	; CDatadescGeneratedNameHolder::CDatadescGeneratedNameHolder
+EXTRN	_atexit:NEAR
+_BSS	SEGMENT
+_?nameHolder@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4VCDatadescGeneratedNameHolder@@A DB 01cH DUP (?)
+_?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4EA DB 01H DUP (?)
+_BSS	ENDS
+;	COMDAT ?DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z
+_TEXT	SEGMENT
+?DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z PROC NEAR ; DataMapInit, COMDAT
+
+; 23   : BEGIN_DATADESC( CElectrifiedWire )
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	xor	eax, eax
+	mov	al, BYTE PTR _?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4EA
+	and	eax, 1
+	test	eax, eax
+	jne	SHORT $L36504
+	mov	cl, BYTE PTR _?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4EA
+	or	cl, 1
+	mov	BYTE PTR _?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4EA, cl
+	push	OFFSET FLAT:??_C@_0BB@NMBB@CElectrifiedWire?$AA@ ; `string'
+	mov	ecx, OFFSET FLAT:_?nameHolder@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4VCDatadescGeneratedNameHolder@@A
+	call	??0CDatadescGeneratedNameHolder@@QAE@PBD@Z ; CDatadescGeneratedNameHolder::CDatadescGeneratedNameHolder
+	push	OFFSET FLAT:_$E26
+	call	_atexit
+	add	esp, 4
+$L36504:
+	call	?GetBaseMap@CElectrifiedWire@@SAPAUdatamap_s@@XZ ; CElectrifiedWire::GetBaseMap
+	mov	DWORD PTR ?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A+12, eax
+
+; 24   : 	DEFINE_FIELD( m_bIsActive, FIELD_BOOLEAN ),
+; 25   : 
+; 26   : 	DEFINE_FIELD( m_iTipSparkFrequency, FIELD_INTEGER ),
+; 27   : 	DEFINE_FIELD( m_iBodySparkFrequency, FIELD_INTEGER ),
+; 28   : 	DEFINE_FIELD( m_iLightningFrequency, FIELD_INTEGER ),
+; 29   : 	
+; 30   : 	DEFINE_FIELD( m_iXJoltForce, FIELD_INTEGER ),
+; 31   : 	DEFINE_FIELD( m_iYJoltForce, FIELD_INTEGER ),
+; 32   : 	DEFINE_FIELD( m_iZJoltForce, FIELD_INTEGER ),
+; 33   : 	
+; 34   : 	DEFINE_FIELD( m_iNumUninsulatedSegments, FIELD_INTEGER ),
+; 35   : 	DEFINE_ARRAY( m_iUninsulatedSegments, FIELD_INTEGER, MAX_SEGMENTS ),
+; 36   : 	
+; 37   : 	//DEFINE_FIELD( m_iLightningSprite, FIELD_INTEGER ), //Not restored, reset in Precache. - Solokiller
+; 38   : 	
+; 39   : 	DEFINE_FIELD( m_flLastSparkTime, FIELD_TIME ),
+; 40   : END_DATADESC()
+
+	mov	edx, 1
+	test	edx, edx
+	je	SHORT $L36538
+	mov	DWORD PTR ?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A+4, 10 ; 0000000aH
+	mov	DWORD PTR ?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4PAUtypedescription_s@@A+24
+	jmp	SHORT $L36539
+$L36538:
+	mov	DWORD PTR ?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A+4, 1
+	mov	DWORD PTR ?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4PAUtypedescription_s@@A
+$L36539:
+	mov	eax, OFFSET FLAT:?m_DataMap@CElectrifiedWire@@2Udatamap_s@@A ; CElectrifiedWire::m_DataMap
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z ENDP ; DataMapInit
+_TEXT	ENDS
+PUBLIC	??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::CUtlArray<char *,CUtlMemory<char *,int> >
+EXTRN	_strlen:NEAR
+;	COMDAT ??0CDatadescGeneratedNameHolder@@QAE@PBD@Z
+_TEXT	SEGMENT
+_pszBase$ = 8
+_this$ = -4
+??0CDatadescGeneratedNameHolder@@QAE@PBD@Z PROC NEAR	; CDatadescGeneratedNameHolder::CDatadescGeneratedNameHolder, COMDAT
+
+; 192  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _pszBase$[ebp]
+	mov	DWORD PTR [eax], ecx
+	push	0
+	push	0
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 8
+	call	??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::CUtlArray<char *,CUtlMemory<char *,int> >
+
+; 193  : 		m_nLenBase = strlen( m_pszBase ) + 2;
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx]
+	push	eax
+	call	_strlen
+	add	esp, 4
+	add	eax, 2
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+4], eax
+
+; 194  : 	}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??0CDatadescGeneratedNameHolder@@QAE@PBD@Z ENDP		; CDatadescGeneratedNameHolder::CDatadescGeneratedNameHolder
+_TEXT	ENDS
+PUBLIC	??1CDatadescGeneratedNameHolder@@QAE@XZ		; CDatadescGeneratedNameHolder::~CDatadescGeneratedNameHolder
+;	COMDAT _$E26
+_TEXT	SEGMENT
+_$E26	PROC NEAR					; COMDAT
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	mov	ecx, OFFSET FLAT:_?nameHolder@?1??DataMapInit@@YAPAUdatamap_s@@PAVCElectrifiedWire@@@Z@4VCDatadescGeneratedNameHolder@@A
+	call	??1CDatadescGeneratedNameHolder@@QAE@XZ	; CDatadescGeneratedNameHolder::~CDatadescGeneratedNameHolder
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_$E26	ENDP
+_TEXT	ENDS
+PUBLIC	??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ	; CUtlArray<char *,CUtlMemory<char *,int> >::~CUtlArray<char *,CUtlMemory<char *,int> >
+PUBLIC	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
+PUBLIC	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
+EXTRN	??3@YAXPAX@Z:NEAR				; operator delete
+EXTRN	__except_list:DWORD
+EXTRN	___CxxFrameHandler:NEAR
+;	COMDAT xdata$x
+; File z:\xashxtsrc\common\datamap.h
+xdata$x	SEGMENT
+__ehfuncinfo$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 019930520H
+	DD	01H
+	DD	FLAT:__unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	ORG $+4
+__unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$??1CDatadescGeneratedNameHolder@@QAE@XZ$0
+xdata$x	ENDS
+;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
+_TEXT	SEGMENT
+$T37146 = -24
+__$EHRec$ = -12
+_this$ = -16
+_i$ = -20
+??1CDatadescGeneratedNameHolder@@QAE@XZ PROC NEAR	; CDatadescGeneratedNameHolder::~CDatadescGeneratedNameHolder, COMDAT
+
+; 197  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$??1CDatadescGeneratedNameHolder@@QAE@XZ
+	mov	eax, DWORD PTR fs:__except_list
+	push	eax
+	mov	DWORD PTR fs:__except_list, esp
+	sub	esp, 76					; 0000004cH
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+
+; 198  : 		for( int i = 0; i < m_Names.Count(); i++ )
+
+	mov	DWORD PTR _i$[ebp], 0
+	jmp	SHORT $L30214
+$L30215:
+	mov	eax, DWORD PTR _i$[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$[ebp], eax
+$L30214:
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 8
+	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
+	cmp	DWORD PTR _i$[ebp], eax
+	jge	SHORT $L30216
+
+; 200  : 			delete m_Names[i];
+
+	mov	ecx, DWORD PTR _i$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 8
+	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR $T37146[ebp], edx
+	mov	eax, DWORD PTR $T37146[ebp]
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+
+; 201  : 		}
+
+	jmp	SHORT $L30215
+$L30216:
+
+; 202  : 	}
+
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 8
+	call	??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ ; CUtlArray<char *,CUtlMemory<char *,int> >::~CUtlArray<char *,CUtlMemory<char *,int> >
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:__except_list, ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$??1CDatadescGeneratedNameHolder@@QAE@XZ$0:
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 8
+	call	??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ ; CUtlArray<char *,CUtlMemory<char *,int> >::~CUtlArray<char *,CUtlMemory<char *,int> >
+	ret	0
+__ehhandler$??1CDatadescGeneratedNameHolder@@QAE@XZ:
+	mov	eax, OFFSET FLAT:__ehfuncinfo$??1CDatadescGeneratedNameHolder@@QAE@XZ
+	jmp	___CxxFrameHandler
+text$x	ENDS
+??1CDatadescGeneratedNameHolder@@QAE@XZ ENDP		; CDatadescGeneratedNameHolder::~CDatadescGeneratedNameHolder
+;	COMDAT _$E28
+_TEXT	SEGMENT
+_$E28	PROC NEAR					; COMDAT
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	call	_$E27
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_$E28	ENDP
+_TEXT	ENDS
+PUBLIC	??0?$CEntityFactory@VCElectrifiedWire@@@@QAE@PBD@Z ; CEntityFactory<CElectrifiedWire>::CEntityFactory<CElectrifiedWire>
+PUBLIC	??_C@_0BF@BODO@env_electrified_wire?$AA@	; `string'
+_BSS	SEGMENT
+	ALIGN	4
+
+_env_electrified_wire DD 01H DUP (?)
+_BSS	ENDS
+;	COMDAT ??_C@_0BF@BODO@env_electrified_wire?$AA@
+; File z:\xashxtsrc\server\ropes\celectrifiedwire.cpp
+CONST	SEGMENT
+??_C@_0BF@BODO@env_electrified_wire?$AA@ DB 'env_electrified_wire', 00H ; `string'
+CONST	ENDS
+;	COMDAT _$E27
+_TEXT	SEGMENT
+_$E27	PROC NEAR					; COMDAT
+
+; 42   : LINK_ENTITY_TO_CLASS( env_electrified_wire, CElectrifiedWire );
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	push	OFFSET FLAT:??_C@_0BF@BODO@env_electrified_wire?$AA@ ; `string'
+	mov	ecx, OFFSET FLAT:_env_electrified_wire
+	call	??0?$CEntityFactory@VCElectrifiedWire@@@@QAE@PBD@Z ; CEntityFactory<CElectrifiedWire>::CEntityFactory<CElectrifiedWire>
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_$E27	ENDP
+_TEXT	ENDS
+PUBLIC	?EarPosition@CBaseEntity@@UAE?AVVector@@XZ	; CBaseEntity::EarPosition
+PUBLIC	?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z	; CBaseEntity::BodyTarget
+PUBLIC	?IsPointSized@CBaseEntity@@UBEHXZ		; CBaseEntity::IsPointSized
+PUBLIC	?Illumination@CBaseEntity@@UAEHXZ		; CBaseEntity::Illumination
+PUBLIC	?GetState@CBaseDelay@@UAE?AW4STATE@@XZ		; CBaseDelay::GetState
+PUBLIC	??0CElectrifiedWire@@QAE@XZ			; CElectrifiedWire::CElectrifiedWire
+PUBLIC	?KeyValue@CElectrifiedWire@@UAEXPAUKeyValueData_s@@@Z ; CElectrifiedWire::KeyValue
+PUBLIC	?Precache@CElectrifiedWire@@UAEXXZ		; CElectrifiedWire::Precache
+PUBLIC	?Spawn@CElectrifiedWire@@UAEXXZ			; CElectrifiedWire::Spawn
+PUBLIC	?Think@CElectrifiedWire@@UAEXXZ			; CElectrifiedWire::Think
+PUBLIC	?Use@CElectrifiedWire@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z ; CElectrifiedWire::Use
+PUBLIC	??_7CElectrifiedWire@@6B@			; CElectrifiedWire::`vftable'
+PUBLIC	?ObjectCaps@CBaseEntity@@UAEHXZ			; CBaseEntity::ObjectCaps
+PUBLIC	?Activate@CBaseEntity@@UAEXXZ			; CBaseEntity::Activate
+PUBLIC	?OnChangeLevel@CBaseEntity@@UAEXXZ		; CBaseEntity::OnChangeLevel
+PUBLIC	?OnTeleport@CBaseEntity@@UAEXXZ			; CBaseEntity::OnTeleport
+PUBLIC	?PortalSleep@CBaseEntity@@UAEXM@Z		; CBaseEntity::PortalSleep
+PUBLIC	?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z ; CBaseEntity::StartMessage
+PUBLIC	?GetPosition@CBaseEntity@@UAEMXZ		; CBaseEntity::GetPosition
+PUBLIC	?OnChangeParent@CBaseEntity@@UAEXXZ		; CBaseEntity::OnChangeParent
+PUBLIC	?OnClearParent@CBaseEntity@@UAEXXZ		; CBaseEntity::OnClearParent
+PUBLIC	?OnRemove@CBaseEntity@@UAEXXZ			; CBaseEntity::OnRemove
+PUBLIC	?Classify@CBaseEntity@@UAEHXZ			; CBaseEntity::Classify
+PUBLIC	?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z	; CBaseEntity::DeathNotice
+PUBLIC	?IsRigidBody@CBaseEntity@@UAEHXZ		; CBaseEntity::IsRigidBody
+PUBLIC	?GetState@CBaseEntity@@UAE?AW4STATE@@PAV1@@Z	; CBaseEntity::GetState
+PUBLIC	?BloodColor@CBaseEntity@@UAEHXZ			; CBaseEntity::BloodColor
+PUBLIC	?IsTriggered@CBaseEntity@@UAEHPAV1@@Z		; CBaseEntity::IsTriggered
+PUBLIC	?MyMonsterPointer@CBaseEntity@@UAEPAVCBaseMonster@@XZ ; CBaseEntity::MyMonsterPointer
+PUBLIC	?MySquadMonsterPointer@CBaseEntity@@UAEPAVCSquadMonster@@XZ ; CBaseEntity::MySquadMonsterPointer
+PUBLIC	?GetVehicleDriver@CBaseEntity@@UAEPAV1@XZ	; CBaseEntity::GetVehicleDriver
+PUBLIC	?GetToggleState@CBaseEntity@@UAEHXZ		; CBaseEntity::GetToggleState
+PUBLIC	?AddPoints@CBaseEntity@@UAEXHH@Z		; CBaseEntity::AddPoints
+PUBLIC	?AddPointsToTeam@CBaseEntity@@UAEXHH@Z		; CBaseEntity::AddPointsToTeam
+PUBLIC	?AddPlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z ; CBaseEntity::AddPlayerItem
+PUBLIC	?RemovePlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z ; CBaseEntity::RemovePlayerItem
+PUBLIC	?GiveAmmo@CBaseEntity@@UAEHHPADH@Z		; CBaseEntity::GiveAmmo
+PUBLIC	?GetDelay@CBaseEntity@@UAEMXZ			; CBaseEntity::GetDelay
+PUBLIC	?IsMoving@CBaseEntity@@UAEHXZ			; CBaseEntity::IsMoving
+PUBLIC	?OverrideReset@CBaseEntity@@UAEXXZ		; CBaseEntity::OverrideReset
+PUBLIC	?TransferReset@CBaseEntity@@UAEXXZ		; CBaseEntity::TransferReset
+PUBLIC	?SetToggleState@CBaseEntity@@UAEXH@Z		; CBaseEntity::SetToggleState
+PUBLIC	?StartSneaking@CBaseEntity@@UAEXXZ		; CBaseEntity::StartSneaking
+PUBLIC	?StopSneaking@CBaseEntity@@UAEXXZ		; CBaseEntity::StopSneaking
+PUBLIC	?OnControls@CBaseEntity@@UAEHPAV1@@Z		; CBaseEntity::OnControls
+PUBLIC	?IsSneaking@CBaseEntity@@UAEHXZ			; CBaseEntity::IsSneaking
+PUBLIC	?IsAlive@CBaseEntity@@UAEHXZ			; CBaseEntity::IsAlive
+PUBLIC	?IsBSPModel@CBaseEntity@@UAEHXZ			; CBaseEntity::IsBSPModel
+PUBLIC	?IsCustomModel@CBaseEntity@@UAEHXZ		; CBaseEntity::IsCustomModel
+PUBLIC	?ReflectGauss@CBaseEntity@@UAEHXZ		; CBaseEntity::ReflectGauss
+PUBLIC	?HasTarget@CBaseEntity@@UAEHH@Z			; CBaseEntity::HasTarget
+PUBLIC	?IsPlayer@CBaseEntity@@UAEHXZ			; CBaseEntity::IsPlayer
+PUBLIC	?IsNetClient@CBaseEntity@@UAEHXZ		; CBaseEntity::IsNetClient
+PUBLIC	?IsMonster@CBaseEntity@@UAEHXZ			; CBaseEntity::IsMonster
+PUBLIC	?IsPushable@CBaseEntity@@UAEHXZ			; CBaseEntity::IsPushable
+PUBLIC	?IsProjectile@CBaseEntity@@UAEHXZ		; CBaseEntity::IsProjectile
+PUBLIC	?IsFuncScreen@CBaseEntity@@UAEHXZ		; CBaseEntity::IsFuncScreen
+PUBLIC	?IsPortal@CBaseEntity@@UAEHXZ			; CBaseEntity::IsPortal
+PUBLIC	?IsTank@CBaseEntity@@UAEHXZ			; CBaseEntity::IsTank
+PUBLIC	?IsMover@CBaseEntity@@UAEHXZ			; CBaseEntity::IsMover
+PUBLIC	?IsBreakable@CBaseEntity@@UAEHXZ		; CBaseEntity::IsBreakable
+PUBLIC	?TeamID@CBaseEntity@@UAEPBDXZ			; CBaseEntity::TeamID
+PUBLIC	?Touch@CBaseEntity@@UAEXPAV1@@Z			; CBaseEntity::Touch
+PUBLIC	?Blocked@CBaseEntity@@UAEXPAV1@@Z		; CBaseEntity::Blocked
+PUBLIC	?MoveDone@CBaseEntity@@UAEXXZ			; CBaseEntity::MoveDone
+PUBLIC	?Respawn@CBaseEntity@@UAEPAV1@XZ		; CBaseEntity::Respawn
+PUBLIC	?UpdateOwner@CBaseEntity@@UAEXXZ		; CBaseEntity::UpdateOwner
+PUBLIC	?FBecomeProne@CBaseEntity@@UAEHXZ		; CBaseEntity::FBecomeProne
+PUBLIC	?Center@CBaseEntity@@UAE?AVVector@@XZ		; CBaseEntity::Center
+PUBLIC	?EyePosition@CBaseEntity@@UAE?AVVector@@XZ	; CBaseEntity::EyePosition
+EXTRN	?FVisible@CBaseEntity@@UAEHPAV1@@Z:NEAR		; CBaseEntity::FVisible
+EXTRN	?FVisible@CBaseEntity@@UAEHABVVector@@@Z:NEAR	; CBaseEntity::FVisible
+EXTRN	?ShouldCollide@CBaseEntity@@UAEHPAV1@@Z:NEAR	; CBaseEntity::ShouldCollide
+EXTRN	??0CRope@@QAE@XZ:NEAR				; CRope::CRope
+EXTRN	?Save@CBaseEntity@@UAEHAAVCSave@@@Z:NEAR	; CBaseEntity::Save
+EXTRN	?Restore@CBaseEntity@@UAEHAAVCRestore@@@Z:NEAR	; CBaseEntity::Restore
+EXTRN	?SetObjectCollisionBox@CBaseEntity@@UAEXXZ:NEAR	; CBaseEntity::SetObjectCollisionBox
+EXTRN	?SetNextThink@CBaseEntity@@UAEXM@Z:NEAR		; CBaseEntity::SetNextThink
+EXTRN	?TraceAttack@CBaseEntity@@UAEXPAUentvars_s@@MVVector@@PAUgametrace_s@@H@Z:NEAR ; CBaseEntity::TraceAttack
+EXTRN	?TakeDamage@CBaseEntity@@UAEHPAUentvars_s@@0MH@Z:NEAR ; CBaseEntity::TakeDamage
+EXTRN	?TakeHealth@CBaseEntity@@UAEHMH@Z:NEAR		; CBaseEntity::TakeHealth
+EXTRN	?TakeArmor@CBaseEntity@@UAEHMH@Z:NEAR		; CBaseEntity::TakeArmor
+EXTRN	?Killed@CBaseEntity@@UAEXPAUentvars_s@@H@Z:NEAR	; CBaseEntity::Killed
+EXTRN	?TraceBleed@CBaseEntity@@UAEXMVVector@@PAUgametrace_s@@H@Z:NEAR ; CBaseEntity::TraceBleed
+EXTRN	?DamageDecal@CBaseEntity@@UAEHH@Z:NEAR		; CBaseEntity::DamageDecal
+EXTRN	?IsInWorld@CBaseEntity@@UAEHH@Z:NEAR		; CBaseEntity::IsInWorld
+EXTRN	?GetNextTarget@CBaseEntity@@UAEPAV1@XZ:NEAR	; CBaseEntity::GetNextTarget
+;	COMDAT ??_7CElectrifiedWire@@6B@
+; File z:\xashxtsrc\server\ropes\celectrifiedwire.cpp
+CONST	SEGMENT
+??_7CElectrifiedWire@@6B@ DD FLAT:?GetDataDescMap@CElectrifiedWire@@UAEPAUdatamap_s@@XZ ; CElectrifiedWire::`vftable'
+	DD	FLAT:?Spawn@CElectrifiedWire@@UAEXXZ
+	DD	FLAT:?Precache@CElectrifiedWire@@UAEXXZ
+	DD	FLAT:?KeyValue@CElectrifiedWire@@UAEXPAUKeyValueData_s@@@Z
+	DD	FLAT:?Save@CBaseEntity@@UAEHAAVCSave@@@Z
+	DD	FLAT:?Restore@CBaseEntity@@UAEHAAVCRestore@@@Z
+	DD	FLAT:?ObjectCaps@CBaseEntity@@UAEHXZ
+	DD	FLAT:?Activate@CBaseEntity@@UAEXXZ
+	DD	FLAT:?OnChangeLevel@CBaseEntity@@UAEXXZ
+	DD	FLAT:?OnTeleport@CBaseEntity@@UAEXXZ
+	DD	FLAT:?PortalSleep@CBaseEntity@@UAEXM@Z
+	DD	FLAT:?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z
+	DD	FLAT:?GetPosition@CBaseEntity@@UAEMXZ
+	DD	FLAT:?OnChangeParent@CBaseEntity@@UAEXXZ
+	DD	FLAT:?OnClearParent@CBaseEntity@@UAEXXZ
+	DD	FLAT:?OnRemove@CBaseEntity@@UAEXXZ
+	DD	FLAT:?SetObjectCollisionBox@CBaseEntity@@UAEXXZ
+	DD	FLAT:?Classify@CBaseEntity@@UAEHXZ
+	DD	FLAT:?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z
+	DD	FLAT:?IsRigidBody@CBaseEntity@@UAEHXZ
+	DD	FLAT:?SetNextThink@CBaseEntity@@UAEXM@Z
+	DD	FLAT:?GetState@CBaseEntity@@UAE?AW4STATE@@PAV1@@Z
+	DD	FLAT:?GetState@CBaseDelay@@UAE?AW4STATE@@XZ
+	DD	FLAT:?TraceAttack@CBaseEntity@@UAEXPAUentvars_s@@MVVector@@PAUgametrace_s@@H@Z
+	DD	FLAT:?TakeDamage@CBaseEntity@@UAEHPAUentvars_s@@0MH@Z
+	DD	FLAT:?TakeHealth@CBaseEntity@@UAEHMH@Z
+	DD	FLAT:?TakeArmor@CBaseEntity@@UAEHMH@Z
+	DD	FLAT:?Killed@CBaseEntity@@UAEXPAUentvars_s@@H@Z
+	DD	FLAT:?BloodColor@CBaseEntity@@UAEHXZ
+	DD	FLAT:?TraceBleed@CBaseEntity@@UAEXMVVector@@PAUgametrace_s@@H@Z
+	DD	FLAT:?IsTriggered@CBaseEntity@@UAEHPAV1@@Z
+	DD	FLAT:?MyMonsterPointer@CBaseEntity@@UAEPAVCBaseMonster@@XZ
+	DD	FLAT:?MySquadMonsterPointer@CBaseEntity@@UAEPAVCSquadMonster@@XZ
+	DD	FLAT:?GetVehicleDriver@CBaseEntity@@UAEPAV1@XZ
+	DD	FLAT:?GetToggleState@CBaseEntity@@UAEHXZ
+	DD	FLAT:?AddPoints@CBaseEntity@@UAEXHH@Z
+	DD	FLAT:?AddPointsToTeam@CBaseEntity@@UAEXHH@Z
+	DD	FLAT:?AddPlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z
+	DD	FLAT:?RemovePlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z
+	DD	FLAT:?GiveAmmo@CBaseEntity@@UAEHHPADH@Z
+	DD	FLAT:?GetDelay@CBaseEntity@@UAEMXZ
+	DD	FLAT:?IsMoving@CBaseEntity@@UAEHXZ
+	DD	FLAT:?OverrideReset@CBaseEntity@@UAEXXZ
+	DD	FLAT:?TransferReset@CBaseEntity@@UAEXXZ
+	DD	FLAT:?DamageDecal@CBaseEntity@@UAEHH@Z
+	DD	FLAT:?SetToggleState@CBaseEntity@@UAEXH@Z
+	DD	FLAT:?StartSneaking@CBaseEntity@@UAEXXZ
+	DD	FLAT:?StopSneaking@CBaseEntity@@UAEXXZ
+	DD	FLAT:?OnControls@CBaseEntity@@UAEHPAV1@@Z
+	DD	FLAT:?IsSneaking@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsAlive@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsBSPModel@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsCustomModel@CBaseEntity@@UAEHXZ
+	DD	FLAT:?ReflectGauss@CBaseEntity@@UAEHXZ
+	DD	FLAT:?HasTarget@CBaseEntity@@UAEHH@Z
+	DD	FLAT:?IsInWorld@CBaseEntity@@UAEHH@Z
+	DD	FLAT:?IsPlayer@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsNetClient@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsMonster@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsPushable@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsProjectile@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsFuncScreen@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsPortal@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsTank@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsMover@CBaseEntity@@UAEHXZ
+	DD	FLAT:?IsBreakable@CBaseEntity@@UAEHXZ
+	DD	FLAT:?TeamID@CBaseEntity@@UAEPBDXZ
+	DD	FLAT:?GetNextTarget@CBaseEntity@@UAEPAV1@XZ
+	DD	FLAT:?Think@CElectrifiedWire@@UAEXXZ
+	DD	FLAT:?Use@CElectrifiedWire@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z
+	DD	FLAT:?Touch@CBaseEntity@@UAEXPAV1@@Z
+	DD	FLAT:?Blocked@CBaseEntity@@UAEXPAV1@@Z
+	DD	FLAT:?MoveDone@CBaseEntity@@UAEXXZ
+	DD	FLAT:?Respawn@CBaseEntity@@UAEPAV1@XZ
+	DD	FLAT:?UpdateOwner@CBaseEntity@@UAEXXZ
+	DD	FLAT:?FBecomeProne@CBaseEntity@@UAEHXZ
+	DD	FLAT:?Center@CBaseEntity@@UAE?AVVector@@XZ
+	DD	FLAT:?EyePosition@CBaseEntity@@UAE?AVVector@@XZ
+	DD	FLAT:?EarPosition@CBaseEntity@@UAE?AVVector@@XZ
+	DD	FLAT:?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z
+	DD	FLAT:?IsPointSized@CBaseEntity@@UBEHXZ
+	DD	FLAT:?Illumination@CBaseEntity@@UAEHXZ
+	DD	FLAT:?FVisible@CBaseEntity@@UAEHABVVector@@@Z
+	DD	FLAT:?FVisible@CBaseEntity@@UAEHPAV1@@Z
+	DD	FLAT:?ShouldCollide@CBaseEntity@@UAEHPAV1@@Z
+CONST	ENDS
+;	COMDAT ??0CElectrifiedWire@@QAE@XZ
+_TEXT	SEGMENT
+_this$ = -4
+??0CElectrifiedWire@@QAE@XZ PROC NEAR			; CElectrifiedWire::CElectrifiedWire, COMDAT
+
+; 53   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0CRope@@QAE@XZ			; CRope::CRope
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	BYTE PTR [eax+2112], 1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2116], 3
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx+2120], 100		; 00000064H
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax+2124], 150		; 00000096H
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2128], 0
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx+2132], 0
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax+2136], 0
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2140], 0
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx], OFFSET FLAT:??_7CElectrifiedWire@@6B@ ; CElectrifiedWire::`vftable'
+
+; 54   : }
+
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??0CElectrifiedWire@@QAE@XZ ENDP			; CElectrifiedWire::CElectrifiedWire
+_TEXT	ENDS
+;	COMDAT ?ObjectCaps@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?ObjectCaps@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::ObjectCaps, COMDAT
+
+; 364  : 	virtual int	ObjectCaps( void ) { return FCAP_ACROSS_TRANSITION; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, 2
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ObjectCaps@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::ObjectCaps
+_TEXT	ENDS
+;	COMDAT ?Activate@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Activate@CBaseEntity@@UAEXXZ PROC NEAR			; CBaseEntity::Activate, COMDAT
+
+; 365  : 	virtual void	Activate( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Activate@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::Activate
+_TEXT	ENDS
+;	COMDAT ?OnChangeLevel@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?OnChangeLevel@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::OnChangeLevel, COMDAT
+
+; 366  : 	virtual void	OnChangeLevel( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?OnChangeLevel@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::OnChangeLevel
+_TEXT	ENDS
+;	COMDAT ?OnTeleport@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?OnTeleport@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::OnTeleport, COMDAT
+
+; 367  : 	virtual void	OnTeleport( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?OnTeleport@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::OnTeleport
+_TEXT	ENDS
+;	COMDAT ?PortalSleep@CBaseEntity@@UAEXM@Z
+_TEXT	SEGMENT
+_this$ = -4
+?PortalSleep@CBaseEntity@@UAEXM@Z PROC NEAR		; CBaseEntity::PortalSleep, COMDAT
+
+; 368  : 	virtual void	PortalSleep( float seconds ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?PortalSleep@CBaseEntity@@UAEXM@Z ENDP			; CBaseEntity::PortalSleep
+_TEXT	ENDS
+;	COMDAT ?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z PROC NEAR ; CBaseEntity::StartMessage, COMDAT
+
+; 369  :           virtual void	StartMessage( CBasePlayer *pPlayer ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z ENDP	; CBaseEntity::StartMessage
+_TEXT	ENDS
+PUBLIC	__real@4@00000000000000000000
+EXTRN	__fltused:NEAR
+;	COMDAT __real@4@00000000000000000000
+; File z:\xashxtsrc\server\cbase.h
+CONST	SEGMENT
+__real@4@00000000000000000000 DD 000000000r	; 0
+CONST	ENDS
+;	COMDAT ?GetPosition@CBaseEntity@@UAEMXZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetPosition@CBaseEntity@@UAEMXZ PROC NEAR		; CBaseEntity::GetPosition, COMDAT
+
+; 370  : 	virtual float	GetPosition( void ) { return 0.0f; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	fld	DWORD PTR __real@4@00000000000000000000
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetPosition@CBaseEntity@@UAEMXZ ENDP			; CBaseEntity::GetPosition
+_TEXT	ENDS
+;	COMDAT ?OnChangeParent@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?OnChangeParent@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::OnChangeParent, COMDAT
+
+; 371  : 	virtual void	OnChangeParent( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?OnChangeParent@CBaseEntity@@UAEXXZ ENDP		; CBaseEntity::OnChangeParent
+_TEXT	ENDS
+;	COMDAT ?OnClearParent@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?OnClearParent@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::OnClearParent, COMDAT
+
+; 372  : 	virtual void	OnClearParent( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?OnClearParent@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::OnClearParent
+_TEXT	ENDS
+;	COMDAT ?OnRemove@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?OnRemove@CBaseEntity@@UAEXXZ PROC NEAR			; CBaseEntity::OnRemove, COMDAT
+
+; 373  : 	virtual void	OnRemove( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?OnRemove@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::OnRemove
+_TEXT	ENDS
+;	COMDAT ?Classify@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Classify@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::Classify, COMDAT
+
+; 385  : 	virtual int Classify ( void ) { return CLASS_NONE; };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Classify@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::Classify
+_TEXT	ENDS
+;	COMDAT ?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z PROC NEAR ; CBaseEntity::DeathNotice, COMDAT
+
+; 386  : 	virtual void DeathNotice ( entvars_t *pevChild ) { } // monster maker children use this to tell the monster maker that they have died.
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z ENDP	; CBaseEntity::DeathNotice
+_TEXT	ENDS
+;	COMDAT ?IsRigidBody@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsRigidBody@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsRigidBody, COMDAT
+
+; 387  : 	virtual BOOL IsRigidBody( void ) { return (m_iActorType == ACTOR_DYNAMIC); } 
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	xor	ecx, ecx
+	mov	cl, BYTE PTR [eax+1604]
+	mov	eax, ecx
+	sub	eax, 1
+	neg	eax
+	sbb	eax, eax
+	inc	eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsRigidBody@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsRigidBody
+_TEXT	ENDS
+;	COMDAT ?GetState@CBaseEntity@@UAE?AW4STATE@@PAV1@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?GetState@CBaseEntity@@UAE?AW4STATE@@PAV1@@Z PROC NEAR	; CBaseEntity::GetState, COMDAT
+
+; 401  : 	virtual STATE GetState ( CBaseEntity* pEnt ) { return GetState(); };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+88]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?GetState@CBaseEntity@@UAE?AW4STATE@@PAV1@@Z ENDP	; CBaseEntity::GetState
+_TEXT	ENDS
+;	COMDAT ?BloodColor@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?BloodColor@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::BloodColor, COMDAT
+
+; 408  : 	virtual int	BloodColor( void ) { return DONT_BLEED; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	or	eax, -1
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?BloodColor@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::BloodColor
+_TEXT	ENDS
+;	COMDAT ?IsTriggered@CBaseEntity@@UAEHPAV1@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?IsTriggered@CBaseEntity@@UAEHPAV1@@Z PROC NEAR		; CBaseEntity::IsTriggered, COMDAT
+
+; 410  : 	virtual BOOL	IsTriggered( CBaseEntity *pActivator ) {return TRUE;}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, 1
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?IsTriggered@CBaseEntity@@UAEHPAV1@@Z ENDP		; CBaseEntity::IsTriggered
+_TEXT	ENDS
+;	COMDAT ?MyMonsterPointer@CBaseEntity@@UAEPAVCBaseMonster@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?MyMonsterPointer@CBaseEntity@@UAEPAVCBaseMonster@@XZ PROC NEAR ; CBaseEntity::MyMonsterPointer, COMDAT
+
+; 411  : 	virtual CBaseMonster *MyMonsterPointer( void ) { return NULL;}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?MyMonsterPointer@CBaseEntity@@UAEPAVCBaseMonster@@XZ ENDP ; CBaseEntity::MyMonsterPointer
+_TEXT	ENDS
+;	COMDAT ?MySquadMonsterPointer@CBaseEntity@@UAEPAVCSquadMonster@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?MySquadMonsterPointer@CBaseEntity@@UAEPAVCSquadMonster@@XZ PROC NEAR ; CBaseEntity::MySquadMonsterPointer, COMDAT
+
+; 412  : 	virtual CSquadMonster *MySquadMonsterPointer( void ) { return NULL;}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?MySquadMonsterPointer@CBaseEntity@@UAEPAVCSquadMonster@@XZ ENDP ; CBaseEntity::MySquadMonsterPointer
+_TEXT	ENDS
+;	COMDAT ?GetVehicleDriver@CBaseEntity@@UAEPAV1@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetVehicleDriver@CBaseEntity@@UAEPAV1@XZ PROC NEAR	; CBaseEntity::GetVehicleDriver, COMDAT
+
+; 413  : 	virtual CBaseEntity *GetVehicleDriver( void ) { return NULL; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetVehicleDriver@CBaseEntity@@UAEPAV1@XZ ENDP		; CBaseEntity::GetVehicleDriver
+_TEXT	ENDS
+;	COMDAT ?GetToggleState@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetToggleState@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::GetToggleState, COMDAT
+
+; 414  : 	virtual int	GetToggleState( void ) { return TS_AT_TOP; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetToggleState@CBaseEntity@@UAEHXZ ENDP		; CBaseEntity::GetToggleState
+_TEXT	ENDS
+;	COMDAT ?AddPoints@CBaseEntity@@UAEXHH@Z
+_TEXT	SEGMENT
+_this$ = -4
+?AddPoints@CBaseEntity@@UAEXHH@Z PROC NEAR		; CBaseEntity::AddPoints, COMDAT
+
+; 415  : 	virtual void	AddPoints( int score, BOOL bAllowNegativeScore ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?AddPoints@CBaseEntity@@UAEXHH@Z ENDP			; CBaseEntity::AddPoints
+_TEXT	ENDS
+;	COMDAT ?AddPointsToTeam@CBaseEntity@@UAEXHH@Z
+_TEXT	SEGMENT
+_this$ = -4
+?AddPointsToTeam@CBaseEntity@@UAEXHH@Z PROC NEAR	; CBaseEntity::AddPointsToTeam, COMDAT
+
+; 416  : 	virtual void	AddPointsToTeam( int score, BOOL bAllowNegativeScore ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?AddPointsToTeam@CBaseEntity@@UAEXHH@Z ENDP		; CBaseEntity::AddPointsToTeam
+_TEXT	ENDS
+;	COMDAT ?AddPlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?AddPlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z PROC NEAR ; CBaseEntity::AddPlayerItem, COMDAT
+
+; 417  : 	virtual BOOL	AddPlayerItem( CBasePlayerItem *pItem ) { return 0; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z ENDP ; CBaseEntity::AddPlayerItem
+_TEXT	ENDS
+;	COMDAT ?RemovePlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?RemovePlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z PROC NEAR ; CBaseEntity::RemovePlayerItem, COMDAT
+
+; 418  : 	virtual BOOL	RemovePlayerItem( CBasePlayerItem *pItem ) { return 0; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?RemovePlayerItem@CBaseEntity@@UAEHPAVCBasePlayerItem@@@Z ENDP ; CBaseEntity::RemovePlayerItem
+_TEXT	ENDS
+;	COMDAT ?GiveAmmo@CBaseEntity@@UAEHHPADH@Z
+_TEXT	SEGMENT
+_this$ = -4
+?GiveAmmo@CBaseEntity@@UAEHHPADH@Z PROC NEAR		; CBaseEntity::GiveAmmo, COMDAT
+
+; 419  : 	virtual int 	GiveAmmo( int iAmount, char *szName, int iMax ) { return -1; };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	or	eax, -1
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	12					; 0000000cH
+?GiveAmmo@CBaseEntity@@UAEHHPADH@Z ENDP			; CBaseEntity::GiveAmmo
+_TEXT	ENDS
+;	COMDAT ?GetDelay@CBaseEntity@@UAEMXZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetDelay@CBaseEntity@@UAEMXZ PROC NEAR			; CBaseEntity::GetDelay, COMDAT
+
+; 420  : 	virtual float	GetDelay( void ) { return 0; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	fld	DWORD PTR __real@4@00000000000000000000
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetDelay@CBaseEntity@@UAEMXZ ENDP			; CBaseEntity::GetDelay
+_TEXT	ENDS
+PUBLIC	??9Vector@@QBEHABV0@@Z				; Vector::operator!=
+EXTRN	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsVelocity
+EXTRN	?g_vecZero@@3VVector@@B:BYTE			; g_vecZero
+;	COMDAT ?IsMoving@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsMoving@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::IsMoving, COMDAT
+
+; 421  : 	virtual int	IsMoving( void ) { return GetAbsVelocity() != g_vecZero; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
+	mov	ecx, eax
+	call	??9Vector@@QBEHABV0@@Z			; Vector::operator!=
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsMoving@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsMoving
+_TEXT	ENDS
+PUBLIC	??8Vector@@QBEHABV0@@Z				; Vector::operator==
+;	COMDAT ??9Vector@@QBEHABV0@@Z
+_TEXT	SEGMENT
+_v$ = 8
+_this$ = -4
+??9Vector@@QBEHABV0@@Z PROC NEAR			; Vector::operator!=, COMDAT
+
+; 148  : 	inline int operator!=(const Vector& v) const	{ return !(*this==v);		   }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _v$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
+	neg	eax
+	sbb	eax, eax
+	inc	eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??9Vector@@QBEHABV0@@Z ENDP				; Vector::operator!=
+_TEXT	ENDS
+;	COMDAT ??8Vector@@QBEHABV0@@Z
+_TEXT	SEGMENT
+_v$ = 8
+_this$ = -4
+??8Vector@@QBEHABV0@@Z PROC NEAR			; Vector::operator==, COMDAT
+
+; 147  : 	inline int operator==(const Vector& v) const	{ return x==v.x && y==v.y && z==v.z;	   }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _v$[ebp]
+	fld	DWORD PTR [eax]
+	fcomp	DWORD PTR [ecx]
+	fnstsw	ax
+	test	ah, 64					; 00000040H
+	je	SHORT $L37226
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _v$[ebp]
+	fld	DWORD PTR [edx+4]
+	fcomp	DWORD PTR [eax+4]
+	fnstsw	ax
+	test	ah, 64					; 00000040H
+	je	SHORT $L37226
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _v$[ebp]
+	fld	DWORD PTR [ecx+8]
+	fcomp	DWORD PTR [edx+8]
+	fnstsw	ax
+	test	ah, 64					; 00000040H
+	je	SHORT $L37226
+	mov	DWORD PTR -8+[ebp], 1
+	jmp	SHORT $L37227
+$L37226:
+	mov	DWORD PTR -8+[ebp], 0
+$L37227:
+	mov	eax, DWORD PTR -8+[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??8Vector@@QBEHABV0@@Z ENDP				; Vector::operator==
+_TEXT	ENDS
+;	COMDAT ?OverrideReset@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?OverrideReset@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::OverrideReset, COMDAT
+
+; 422  : 	virtual void	OverrideReset( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?OverrideReset@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::OverrideReset
+_TEXT	ENDS
+;	COMDAT ?TransferReset@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?TransferReset@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::TransferReset, COMDAT
+
+; 423  : 	virtual void	TransferReset( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?TransferReset@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::TransferReset
+_TEXT	ENDS
+;	COMDAT ?SetToggleState@CBaseEntity@@UAEXH@Z
+_TEXT	SEGMENT
+_this$ = -4
+?SetToggleState@CBaseEntity@@UAEXH@Z PROC NEAR		; CBaseEntity::SetToggleState, COMDAT
+
+; 426  : 	virtual void	SetToggleState( int state ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?SetToggleState@CBaseEntity@@UAEXH@Z ENDP		; CBaseEntity::SetToggleState
+_TEXT	ENDS
+;	COMDAT ?StartSneaking@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?StartSneaking@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::StartSneaking, COMDAT
+
+; 427  : 	virtual void	StartSneaking( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?StartSneaking@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::StartSneaking
+_TEXT	ENDS
+;	COMDAT ?StopSneaking@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?StopSneaking@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::StopSneaking, COMDAT
+
+; 428  : 	virtual void	StopSneaking( void ) {}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?StopSneaking@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::StopSneaking
+_TEXT	ENDS
+;	COMDAT ?OnControls@CBaseEntity@@UAEHPAV1@@Z
+_TEXT	SEGMENT
+_this$ = -4
+?OnControls@CBaseEntity@@UAEHPAV1@@Z PROC NEAR		; CBaseEntity::OnControls, COMDAT
+
+; 429  : 	virtual BOOL	OnControls( CBaseEntity *pTest ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?OnControls@CBaseEntity@@UAEHPAV1@@Z ENDP		; CBaseEntity::OnControls
+_TEXT	ENDS
+;	COMDAT ?IsSneaking@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsSneaking@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsSneaking, COMDAT
+
+; 430  : 	virtual BOOL	IsSneaking( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsSneaking@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsSneaking
+_TEXT	ENDS
+;	COMDAT ?IsAlive@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsAlive@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::IsAlive, COMDAT
+
+; 431  : 	virtual BOOL	IsAlive( void ) { return (pev->deadflag == DEAD_NO) && pev->health > 0; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	cmp	DWORD PTR [ecx+368], 0
+	jne	SHORT $L37244
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+4]
+	fld	DWORD PTR [eax+352]
+	fcomp	DWORD PTR __real@4@00000000000000000000
+	fnstsw	ax
+	test	ah, 65					; 00000041H
+	jne	SHORT $L37244
+	mov	DWORD PTR -8+[ebp], 1
+	jmp	SHORT $L37245
+$L37244:
+	mov	DWORD PTR -8+[ebp], 0
+$L37245:
+	mov	eax, DWORD PTR -8+[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsAlive@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsAlive
+_TEXT	ENDS
+EXTRN	?UTIL_GetModelType@@YA?AW4modtype_t@@H@Z:NEAR	; UTIL_GetModelType
+;	COMDAT ?IsBSPModel@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsBSPModel@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsBSPModel, COMDAT
+
+; 432  : 	virtual BOOL	IsBSPModel( void ) { return UTIL_GetModelType( pev->modelindex ) == mod_brush; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	mov	edx, DWORD PTR [ecx+180]
+	push	edx
+	call	?UTIL_GetModelType@@YA?AW4modtype_t@@H@Z ; UTIL_GetModelType
+	add	esp, 4
+	neg	eax
+	sbb	eax, eax
+	inc	eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsBSPModel@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsBSPModel
+_TEXT	ENDS
+;	COMDAT ?IsCustomModel@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsCustomModel@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsCustomModel, COMDAT
+
+; 433  : 	virtual BOOL	IsCustomModel( void ) { return pev->solid == SOLID_CUSTOM; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	xor	eax, eax
+	cmp	DWORD PTR [ecx+268], 5
+	sete	al
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsCustomModel@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsCustomModel
+_TEXT	ENDS
+;	COMDAT ?ReflectGauss@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?ReflectGauss@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::ReflectGauss, COMDAT
+
+; 434  : 	virtual BOOL	ReflectGauss( void ) { return (( IsBSPModel() || IsCustomModel()) && !pev->takedamage ); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+204]
+	test	eax, eax
+	jne	SHORT $L37252
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+208]
+	test	eax, eax
+	je	SHORT $L37253
+$L37252:
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	fld	DWORD PTR [ecx+364]
+	fcomp	DWORD PTR __real@4@00000000000000000000
+	fnstsw	ax
+	test	ah, 64					; 00000040H
+	je	SHORT $L37253
+	mov	DWORD PTR -8+[ebp], 1
+	jmp	SHORT $L37254
+$L37253:
+	mov	DWORD PTR -8+[ebp], 0
+$L37254:
+	mov	eax, DWORD PTR -8+[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ReflectGauss@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::ReflectGauss
+_TEXT	ENDS
+PUBLIC	?FStrEq@@YAHPBD0@Z				; FStrEq
+EXTRN	?g_engfuncs@@3Uenginefuncs_s@@A:BYTE		; g_engfuncs
+;	COMDAT ?HasTarget@CBaseEntity@@UAEHH@Z
+_TEXT	SEGMENT
+_this$ = -4
+_targetname$ = 8
+?HasTarget@CBaseEntity@@UAEHH@Z PROC NEAR		; CBaseEntity::HasTarget, COMDAT
+
+; 435  : 	virtual BOOL	HasTarget( string_t targetname ) { return FStrEq(STRING(targetname), STRING(pev->targetname) ); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	mov	edx, DWORD PTR [ecx+460]
+	push	edx
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
+	add	esp, 4
+	push	eax
+	mov	eax, DWORD PTR _targetname$[ebp]
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
+	add	esp, 4
+	push	eax
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?HasTarget@CBaseEntity@@UAEHH@Z ENDP			; CBaseEntity::HasTarget
+_TEXT	ENDS
+EXTRN	?Q_strncmp@@YAHPBD0H@Z:NEAR			; Q_strncmp
+;	COMDAT ?FStrEq@@YAHPBD0@Z
+_TEXT	SEGMENT
+_sz1$ = 8
+_sz2$ = 12
+?FStrEq@@YAHPBD0@Z PROC NEAR				; FStrEq, COMDAT
+
+; 286  : 	{ return (Q_strcmp( sz1, sz2 ) == 0); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	push	99999					; 0001869fH
+	mov	eax, DWORD PTR _sz2$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _sz1$[ebp]
+	push	ecx
+	call	?Q_strncmp@@YAHPBD0H@Z			; Q_strncmp
+	add	esp, 12					; 0000000cH
+	neg	eax
+	sbb	eax, eax
+	inc	eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?FStrEq@@YAHPBD0@Z ENDP					; FStrEq
+_TEXT	ENDS
+;	COMDAT ?IsPlayer@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsPlayer@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::IsPlayer, COMDAT
+
+; 437  : 	virtual BOOL	IsPlayer( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsPlayer@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsPlayer
+_TEXT	ENDS
+;	COMDAT ?IsNetClient@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsNetClient@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsNetClient, COMDAT
+
+; 438  : 	virtual BOOL	IsNetClient( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsNetClient@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsNetClient
+_TEXT	ENDS
+;	COMDAT ?IsMonster@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsMonster@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsMonster, COMDAT
+
+; 439  : 	virtual BOOL	IsMonster( void ) { return (pev->flags & FL_MONSTER ? TRUE : FALSE); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	mov	eax, DWORD PTR [ecx+420]
+	and	eax, 32					; 00000020H
+	neg	eax
+	sbb	eax, eax
+	neg	eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsMonster@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsMonster
+_TEXT	ENDS
+;	COMDAT ?IsPushable@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsPushable@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsPushable, COMDAT
+
+; 440  : 	virtual BOOL	IsPushable( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsPushable@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsPushable
+_TEXT	ENDS
+;	COMDAT ?IsProjectile@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsProjectile@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsProjectile, COMDAT
+
+; 441  : 	virtual BOOL	IsProjectile( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsProjectile@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsProjectile
+_TEXT	ENDS
+;	COMDAT ?IsFuncScreen@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsFuncScreen@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsFuncScreen, COMDAT
+
+; 442  : 	virtual BOOL	IsFuncScreen( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsFuncScreen@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsFuncScreen
+_TEXT	ENDS
+;	COMDAT ?IsPortal@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsPortal@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::IsPortal, COMDAT
+
+; 443  : 	virtual BOOL	IsPortal( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsPortal@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsPortal
+_TEXT	ENDS
+;	COMDAT ?IsTank@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsTank@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::IsTank, COMDAT
+
+; 444  : 	virtual BOOL	IsTank( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsTank@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsTank
+_TEXT	ENDS
+;	COMDAT ?IsMover@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsMover@CBaseEntity@@UAEHXZ PROC NEAR			; CBaseEntity::IsMover, COMDAT
+
+; 445  : 	virtual BOOL	IsMover( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsMover@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsMover
+_TEXT	ENDS
+;	COMDAT ?IsBreakable@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsBreakable@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::IsBreakable, COMDAT
+
+; 446  : 	virtual BOOL	IsBreakable( void ) { return FALSE; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsBreakable@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::IsBreakable
+_TEXT	ENDS
+PUBLIC	??_C@_00A@?$AA@					; `string'
+;	COMDAT ??_C@_00A@?$AA@
+; File z:\xashxtsrc\server\cbase.h
+CONST	SEGMENT
+??_C@_00A@?$AA@ DB 00H					; `string'
+CONST	ENDS
+;	COMDAT ?TeamID@CBaseEntity@@UAEPBDXZ
+_TEXT	SEGMENT
+_this$ = -4
+?TeamID@CBaseEntity@@UAEPBDXZ PROC NEAR			; CBaseEntity::TeamID, COMDAT
+
+; 447  : 	virtual const char	*TeamID( void ) { return ""; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, OFFSET FLAT:??_C@_00A@?$AA@	; `string'
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?TeamID@CBaseEntity@@UAEPBDXZ ENDP			; CBaseEntity::TeamID
+_TEXT	ENDS
+PUBLIC	??BEHANDLE@@QAEHXZ				; EHANDLE::operator int
+PUBLIC	??CEHANDLE@@QAEPAVCBaseEntity@@XZ		; EHANDLE::operator->
+;	COMDAT ?Touch@CBaseEntity@@UAEXPAV1@@Z
+_TEXT	SEGMENT
+_this$ = -4
+_pOther$ = 8
+?Touch@CBaseEntity@@UAEXPAV1@@Z PROC NEAR		; CBaseEntity::Touch, COMDAT
+
+; 466  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 467  : 		if( m_pfnTouch )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+1748], 0
+	je	SHORT $L35012
+
+; 468  : 			(this->*m_pfnTouch)( pOther );
+
+	mov	ecx, DWORD PTR _pOther$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+1748]
+$L35012:
+
+; 469  : 
+; 470  : 		// forward the blocked event to our parent, if any.
+; 471  : 		if( m_hParent != NULL && !m_isChaining )
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 148				; 00000094H
+	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
+	test	eax, eax
+	je	SHORT $L35013
+	mov	eax, DWORD PTR _this$[ebp]
+	xor	ecx, ecx
+	mov	cl, BYTE PTR [eax+1628]
+	test	ecx, ecx
+	jne	SHORT $L35013
+
+; 472  : 			m_hParent->Touch( pOther );
+
+	mov	edx, DWORD PTR _pOther$[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 148				; 00000094H
+	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
+	mov	DWORD PTR -8+[ebp], eax
+	mov	eax, DWORD PTR -8+[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR -8+[ebp]
+	call	DWORD PTR [edx+280]
+$L35013:
+
+; 473  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Touch@CBaseEntity@@UAEXPAV1@@Z ENDP			; CBaseEntity::Touch
+_TEXT	ENDS
+PUBLIC	?Get@EHANDLE@@QAEPAUedict_s@@XZ			; EHANDLE::Get
+;	COMDAT ??BEHANDLE@@QAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+??BEHANDLE@@QAEHXZ PROC NEAR				; EHANDLE::operator int, COMDAT
+
+; 85   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 86   : 	return Get() != NULL;
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Get@EHANDLE@@QAEPAUedict_s@@XZ		; EHANDLE::Get
+	neg	eax
+	sbb	eax, eax
+	neg	eax
+
+; 87   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??BEHANDLE@@QAEHXZ ENDP					; EHANDLE::operator int
+_TEXT	ENDS
+;	COMDAT ?Get@EHANDLE@@QAEPAUedict_s@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?Get@EHANDLE@@QAEPAUedict_s@@XZ PROC NEAR		; EHANDLE::Get, COMDAT
+
+; 40   : { 
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 41   : 	if( m_pent )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax], 0
+	je	SHORT $L34265
+
+; 43   : #if 0
+; 44   : 		// keep client entity always in actual state
+; 45   : 		if( ENTINDEX( m_pent ) == 1 )
+; 46   : 			m_serialnumber = m_pent->serialnumber;
+; 47   : #endif
+; 48   : 		if( m_pent->serialnumber == m_serialnumber ) 
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [edx+4]
+	cmp	ecx, DWORD PTR [eax+4]
+	jne	SHORT $L34265
+
+; 49   : 			return m_pent; 
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx]
+	jmp	SHORT $L34263
+$L34265:
+
+; 51   : 
+; 52   : 	return NULL; 
+
+	xor	eax, eax
+$L34263:
+
+; 53   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Get@EHANDLE@@QAEPAUedict_s@@XZ ENDP			; EHANDLE::Get
+_TEXT	ENDS
+PUBLIC	?GET_PRIVATE@@YAPAXPAUedict_s@@@Z		; GET_PRIVATE
+;	COMDAT ??CEHANDLE@@QAEPAVCBaseEntity@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+??CEHANDLE@@QAEPAVCBaseEntity@@XZ PROC NEAR		; EHANDLE::operator->, COMDAT
+
+; 90   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 91   : 	return (CBaseEntity *)GET_PRIVATE( Get( ) ); 
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Get@EHANDLE@@QAEPAUedict_s@@XZ		; EHANDLE::Get
+	push	eax
+	call	?GET_PRIVATE@@YAPAXPAUedict_s@@@Z	; GET_PRIVATE
+	add	esp, 4
+
+; 92   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??CEHANDLE@@QAEPAVCBaseEntity@@XZ ENDP			; EHANDLE::operator->
+_TEXT	ENDS
+;	COMDAT ?GET_PRIVATE@@YAPAXPAUedict_s@@@Z
+_TEXT	SEGMENT
+_pent$ = 8
+?GET_PRIVATE@@YAPAXPAUedict_s@@@Z PROC NEAR		; GET_PRIVATE, COMDAT
+
+; 101  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 102  : 	if ( pent )
+
+	cmp	DWORD PTR _pent$[ebp], 0
+	je	SHORT $L28281
+
+; 103  : 		return pent->pvPrivateData;
+
+	mov	eax, DWORD PTR _pent$[ebp]
+	mov	eax, DWORD PTR [eax+124]
+	jmp	SHORT $L28280
+$L28281:
+
+; 104  : 	return NULL;
+
+	xor	eax, eax
+$L28280:
+
+; 105  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GET_PRIVATE@@YAPAXPAUedict_s@@@Z ENDP			; GET_PRIVATE
+_TEXT	ENDS
+;	COMDAT ?Blocked@CBaseEntity@@UAEXPAV1@@Z
+_TEXT	SEGMENT
+_this$ = -4
+_pOther$ = 8
+?Blocked@CBaseEntity@@UAEXPAV1@@Z PROC NEAR		; CBaseEntity::Blocked, COMDAT
+
+; 476  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 477  : 		if( m_pfnBlocked )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+1756], 0
+	je	SHORT $L35016
+
+; 478  : 			(this->*m_pfnBlocked)( pOther );
+
+	mov	ecx, DWORD PTR _pOther$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+1756]
+$L35016:
+
+; 479  : 
+; 480  : 		// forward the blocked event to our parent, if any.
+; 481  : 		if( m_hParent != NULL )
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 148				; 00000094H
+	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
+	test	eax, eax
+	je	SHORT $L35017
+
+; 482  : 			m_hParent->Blocked( pOther );
+
+	mov	eax, DWORD PTR _pOther$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 148				; 00000094H
+	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
+	mov	DWORD PTR -8+[ebp], eax
+	mov	ecx, DWORD PTR -8+[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	ecx, DWORD PTR -8+[ebp]
+	call	DWORD PTR [edx+284]
+$L35017:
+
+; 483  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Blocked@CBaseEntity@@UAEXPAV1@@Z ENDP			; CBaseEntity::Blocked
+_TEXT	ENDS
+;	COMDAT ?MoveDone@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?MoveDone@CBaseEntity@@UAEXXZ PROC NEAR			; CBaseEntity::MoveDone, COMDAT
+
+; 485  : 	virtual void MoveDone( void ) { if( m_pfnMoveDone )(this->*m_pfnMoveDone)(); };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+1760], 0
+	je	SHORT $L35020
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+1760]
+$L35020:
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?MoveDone@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::MoveDone
+_TEXT	ENDS
+;	COMDAT ?Respawn@CBaseEntity@@UAEPAV1@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?Respawn@CBaseEntity@@UAEPAV1@XZ PROC NEAR		; CBaseEntity::Respawn, COMDAT
+
+; 513  : 	virtual CBaseEntity *Respawn( void ) { return NULL; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Respawn@CBaseEntity@@UAEPAV1@XZ ENDP			; CBaseEntity::Respawn
+_TEXT	ENDS
+;	COMDAT ?UpdateOwner@CBaseEntity@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?UpdateOwner@CBaseEntity@@UAEXXZ PROC NEAR		; CBaseEntity::UpdateOwner, COMDAT
+
+; 705  : 	virtual	void UpdateOwner( void ) { return; };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?UpdateOwner@CBaseEntity@@UAEXXZ ENDP			; CBaseEntity::UpdateOwner
+_TEXT	ENDS
+;	COMDAT ?FBecomeProne@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?FBecomeProne@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::FBecomeProne, COMDAT
+
+; 709  : 	virtual BOOL FBecomeProne( void ) {return FALSE;};
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	eax, eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?FBecomeProne@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::FBecomeProne
+_TEXT	ENDS
+PUBLIC	??0Vector@@QAE@ABV0@@Z				; Vector::Vector
+PUBLIC	??HVector@@QBE?AV0@ABV0@@Z			; Vector::operator+
+PUBLIC	??DVector@@QBE?AV0@M@Z				; Vector::operator*
+;	COMDAT ?Center@CBaseEntity@@UAE?AVVector@@XZ
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8
+_this$ = -4
+$T37303 = -16
+$T37304 = -28
+?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
+
+; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 92					; 0000005cH
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	push	1056964608				; 3f000000H
+	lea	eax, DWORD PTR $T37304[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx+4]
+	add	edx, 196				; 000000c4H
+	push	edx
+	lea	eax, DWORD PTR $T37303[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [ecx+4]
+	add	ecx, 208				; 000000d0H
+	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
+	mov	ecx, eax
+	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
+	push	eax
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Center@CBaseEntity@@UAE?AVVector@@XZ ENDP		; CBaseEntity::Center
+_TEXT	ENDS
+;	COMDAT ??0Vector@@QAE@ABV0@@Z
+_TEXT	SEGMENT
+_v$ = 8
+_this$ = -4
+??0Vector@@QAE@ABV0@@Z PROC NEAR			; Vector::Vector, COMDAT
+
+; 136  : 	inline Vector(const Vector& v)		{ x = v.x; y = v.y; z = v.z;		   }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _v$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	DWORD PTR [eax], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _v$[ebp]
+	mov	edx, DWORD PTR [ecx+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _v$[ebp]
+	mov	edx, DWORD PTR [ecx+8]
+	mov	DWORD PTR [eax+8], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??0Vector@@QAE@ABV0@@Z ENDP				; Vector::Vector
+_TEXT	ENDS
+PUBLIC	??0Vector@@QAE@MMM@Z				; Vector::Vector
+;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
+_TEXT	SEGMENT
+_v$ = 12
+___$ReturnUdt$ = 8
+_this$ = -4
+$T37309 = -16
+??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
+
+; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _v$[ebp]
+	fld	DWORD PTR [eax+8]
+	fadd	DWORD PTR [ecx+8]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _v$[ebp]
+	fld	DWORD PTR [edx+4]
+	fadd	DWORD PTR [eax+4]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _v$[ebp]
+	fld	DWORD PTR [ecx]
+	fadd	DWORD PTR [edx]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	lea	ecx, DWORD PTR $T37309[ebp]
+	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
+	push	eax
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??HVector@@QBE?AV0@ABV0@@Z ENDP				; Vector::operator+
+_TEXT	ENDS
+;	COMDAT ??0Vector@@QAE@MMM@Z
+_TEXT	SEGMENT
+_X$ = 8
+_Y$ = 12
+_Z$ = 16
+_this$ = -4
+??0Vector@@QAE@MMM@Z PROC NEAR				; Vector::Vector, COMDAT
+
+; 135  : 	inline Vector(float X, float Y, float Z)	{ x = X; y = Y; z = Z;                     }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _X$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _Y$[ebp]
+	mov	DWORD PTR [edx+4], eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _Z$[ebp]
+	mov	DWORD PTR [ecx+8], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	12					; 0000000cH
+??0Vector@@QAE@MMM@Z ENDP				; Vector::Vector
+_TEXT	ENDS
+;	COMDAT ??DVector@@QBE?AV0@M@Z
+_TEXT	SEGMENT
+_fl$ = 12
+___$ReturnUdt$ = 8
+_this$ = -4
+$T37314 = -16
+??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
+
+; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	fld	DWORD PTR _fl$[ebp]
+	fmul	DWORD PTR [eax+8]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	ecx, DWORD PTR _this$[ebp]
+	fld	DWORD PTR _fl$[ebp]
+	fmul	DWORD PTR [ecx+4]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	edx, DWORD PTR _this$[ebp]
+	fld	DWORD PTR _fl$[ebp]
+	fmul	DWORD PTR [edx]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	lea	ecx, DWORD PTR $T37314[ebp]
+	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
+	push	eax
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??DVector@@QBE?AV0@M@Z ENDP				; Vector::operator*
+_TEXT	ENDS
+EXTRN	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsOrigin
+;	COMDAT ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8
+_this$ = -4
+$T37317 = -16
+?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
+
+; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	add	ecx, 372				; 00000174H
+	push	ecx
+	lea	edx, DWORD PTR $T37317[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	ecx, eax
+	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
+	push	eax
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?EyePosition@CBaseEntity@@UAE?AVVector@@XZ ENDP		; CBaseEntity::EyePosition
+_TEXT	ENDS
+;	COMDAT ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8
+_this$ = -4
+$T37320 = -16
+?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
+
+; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	add	ecx, 372				; 00000174H
+	push	ecx
+	lea	edx, DWORD PTR $T37320[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	ecx, eax
+	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
+	push	eax
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?EarPosition@CBaseEntity@@UAE?AVVector@@XZ ENDP		; CBaseEntity::EarPosition
+_TEXT	ENDS
+;	COMDAT ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8
+_this$ = -4
+$T37323 = -16
+?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
+
+; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	lea	eax, DWORD PTR $T37323[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	DWORD PTR [edx+304]
+	push	eax
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z ENDP	; CBaseEntity::BodyTarget
+_TEXT	ENDS
+;	COMDAT ?IsPointSized@CBaseEntity@@UBEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsPointSized@CBaseEntity@@UBEHXZ PROC NEAR		; CBaseEntity::IsPointSized, COMDAT
+
+; 718  : 	virtual BOOL IsPointSized() const { return (pev->size == g_vecZero) ? true : false; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	add	ecx, 244				; 000000f4H
+	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
+	test	eax, eax
+	setne	al
+	and	eax, 255				; 000000ffH
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsPointSized@CBaseEntity@@UBEHXZ ENDP			; CBaseEntity::IsPointSized
+_TEXT	ENDS
+PUBLIC	?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z		; ENT
+;	COMDAT ?Illumination@CBaseEntity@@UAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Illumination@CBaseEntity@@UAEHXZ PROC NEAR		; CBaseEntity::Illumination, COMDAT
+
+; 720  : 	virtual int Illumination( ) { return GETENTITYILLUM( ENT( pev ) ); };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z	; ENT
+	add	esp, 4
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+60
+	add	esp, 4
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Illumination@CBaseEntity@@UAEHXZ ENDP			; CBaseEntity::Illumination
+_TEXT	ENDS
+EXTRN	?DBG_EntOfVars@@YAPAUedict_s@@PBUentvars_s@@@Z:NEAR ; DBG_EntOfVars
+;	COMDAT ?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z
+_TEXT	SEGMENT
+_pev$ = 8
+?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z PROC NEAR		; ENT, COMDAT
+
+; 151  : 	inline edict_t *ENT(const entvars_t *pev)	{ return DBG_EntOfVars(pev); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	mov	eax, DWORD PTR _pev$[ebp]
+	push	eax
+	call	?DBG_EntOfVars@@YAPAUedict_s@@PBUentvars_s@@@Z ; DBG_EntOfVars
+	add	esp, 4
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z ENDP		; ENT
+_TEXT	ENDS
+;	COMDAT ?GetState@CBaseDelay@@UAE?AW4STATE@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetState@CBaseDelay@@UAE?AW4STATE@@XZ PROC NEAR	; CBaseDelay::GetState, COMDAT
+
+; 881  : 	virtual STATE GetState( void ) { return m_iState; };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [eax+1788]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetState@CBaseDelay@@UAE?AW4STATE@@XZ ENDP		; CBaseDelay::GetState
+_TEXT	ENDS
+PUBLIC	??_C@_0P@NMDH@sparkfrequency?$AA@		; `string'
+PUBLIC	??_C@_0BD@BLLP@bodysparkfrequency?$AA@		; `string'
+PUBLIC	??_C@_0BD@BJJJ@lightningfrequency?$AA@		; `string'
+PUBLIC	??_C@_06DJBN@xforce?$AA@			; `string'
+PUBLIC	??_C@_06KMLN@yforce?$AA@			; `string'
+PUBLIC	??_C@_06BCFN@zforce?$AA@			; `string'
+EXTRN	_atoi:NEAR
+EXTRN	?KeyValue@CRope@@UAEXPAUKeyValueData_s@@@Z:NEAR	; CRope::KeyValue
+;	COMDAT ??_C@_0P@NMDH@sparkfrequency?$AA@
+; File z:\xashxtsrc\server\ropes\celectrifiedwire.cpp
+CONST	SEGMENT
+??_C@_0P@NMDH@sparkfrequency?$AA@ DB 'sparkfrequency', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@BLLP@bodysparkfrequency?$AA@
+CONST	SEGMENT
+??_C@_0BD@BLLP@bodysparkfrequency?$AA@ DB 'bodysparkfrequency', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@BJJJ@lightningfrequency?$AA@
+CONST	SEGMENT
+??_C@_0BD@BJJJ@lightningfrequency?$AA@ DB 'lightningfrequency', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_06DJBN@xforce?$AA@
+CONST	SEGMENT
+??_C@_06DJBN@xforce?$AA@ DB 'xforce', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_06KMLN@yforce?$AA@
+CONST	SEGMENT
+??_C@_06KMLN@yforce?$AA@ DB 'yforce', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_06BCFN@zforce?$AA@
+CONST	SEGMENT
+??_C@_06BCFN@zforce?$AA@ DB 'zforce', 00H		; `string'
+CONST	ENDS
+;	COMDAT ?KeyValue@CElectrifiedWire@@UAEXPAUKeyValueData_s@@@Z
+_TEXT	SEGMENT
+_pkvd$ = 8
+_this$ = -4
+?KeyValue@CElectrifiedWire@@UAEXPAUKeyValueData_s@@@Z PROC NEAR ; CElectrifiedWire::KeyValue, COMDAT
+
+; 57   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 58   : 	if( FStrEq( pkvd->szKeyName, "sparkfrequency" ))
+
+	push	OFFSET FLAT:??_C@_0P@NMDH@sparkfrequency?$AA@ ; `string'
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $L36579
+
+; 60   : 		m_iTipSparkFrequency = atoi( pkvd->szValue );
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	call	_atoi
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2116], eax
+
+; 61   : 
+; 62   : 		pkvd->fHandled = true;
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	DWORD PTR [edx+12], 1
+
+; 64   : 	else if( FStrEq( pkvd->szKeyName, "bodysparkfrequency" ))
+
+	jmp	$L36596
+$L36579:
+	push	OFFSET FLAT:??_C@_0BD@BLLP@bodysparkfrequency?$AA@ ; `string'
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $L36582
+
+; 66   : 		m_iBodySparkFrequency = atoi( pkvd->szValue );
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	call	_atoi
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2120], eax
+
+; 67   : 
+; 68   : 		pkvd->fHandled = true;
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	DWORD PTR [edx+12], 1
+
+; 70   : 	else if( FStrEq( pkvd->szKeyName, "lightningfrequency" ))
+
+	jmp	$L36596
+$L36582:
+	push	OFFSET FLAT:??_C@_0BD@BJJJ@lightningfrequency?$AA@ ; `string'
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $L36585
+
+; 72   : 		m_iLightningFrequency = atoi( pkvd->szValue );
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	call	_atoi
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2124], eax
+
+; 73   : 
+; 74   : 		pkvd->fHandled = true;
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	DWORD PTR [edx+12], 1
+
+; 76   : 	else if( FStrEq( pkvd->szKeyName, "xforce" ))
+
+	jmp	$L36596
+$L36585:
+	push	OFFSET FLAT:??_C@_06DJBN@xforce?$AA@	; `string'
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $L36588
+
+; 78   : 		m_iXJoltForce = atoi( pkvd->szValue );
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	call	_atoi
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2128], eax
+
+; 79   : 
+; 80   : 		pkvd->fHandled = true;
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	DWORD PTR [edx+12], 1
+
+; 82   : 	else if( FStrEq( pkvd->szKeyName, "yforce" ))
+
+	jmp	$L36596
+$L36588:
+	push	OFFSET FLAT:??_C@_06KMLN@yforce?$AA@	; `string'
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $L36591
+
+; 84   : 		m_iYJoltForce = atoi( pkvd->szValue );
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	call	_atoi
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2132], eax
+
+; 85   : 
+; 86   : 		pkvd->fHandled = true;
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	DWORD PTR [edx+12], 1
+
+; 88   : 	else if( FStrEq( pkvd->szKeyName, "zforce" ))
+
+	jmp	SHORT $L36596
+$L36591:
+	push	OFFSET FLAT:??_C@_06BCFN@zforce?$AA@	; `string'
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?FStrEq@@YAHPBD0@Z			; FStrEq
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $L36594
+
+; 90   : 		m_iZJoltForce = atoi( pkvd->szValue );
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	call	_atoi
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2136], eax
+
+; 91   : 
+; 92   : 		pkvd->fHandled = true;
+
+	mov	edx, DWORD PTR _pkvd$[ebp]
+	mov	DWORD PTR [edx+12], 1
+
+; 94   : 	else
+
+	jmp	SHORT $L36596
+$L36594:
+
+; 95   : 		BaseClass::KeyValue( pkvd );
+
+	mov	eax, DWORD PTR _pkvd$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?KeyValue@CRope@@UAEXPAUKeyValueData_s@@@Z ; CRope::KeyValue
+$L36596:
+
+; 96   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?KeyValue@CElectrifiedWire@@UAEXPAUKeyValueData_s@@@Z ENDP ; CElectrifiedWire::KeyValue
+_TEXT	ENDS
+PUBLIC	??_C@_0BE@GFBO@sprites?1lgtning?4spr?$AA@	; `string'
+EXTRN	?Precache@CRope@@UAEXXZ:NEAR			; CRope::Precache
+;	COMDAT ??_C@_0BE@GFBO@sprites?1lgtning?4spr?$AA@
+; File z:\xashxtsrc\server\ropes\celectrifiedwire.cpp
+CONST	SEGMENT
+??_C@_0BE@GFBO@sprites?1lgtning?4spr?$AA@ DB 'sprites/lgtning.spr', 00H ; `string'
+CONST	ENDS
+;	COMDAT ?Precache@CElectrifiedWire@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Precache@CElectrifiedWire@@UAEXXZ PROC NEAR		; CElectrifiedWire::Precache, COMDAT
+
+; 99   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 100  : 	BaseClass::Precache();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Precache@CRope@@UAEXXZ			; CRope::Precache
+
+; 101  : 
+; 102  : 	m_iLightningSprite = PRECACHE_MODEL( "sprites/lgtning.spr" );
+
+	push	OFFSET FLAT:??_C@_0BE@GFBO@sprites?1lgtning?4spr?$AA@ ; `string'
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2400], eax
+
+; 103  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Precache@CElectrifiedWire@@UAEXXZ ENDP			; CElectrifiedWire::Precache
+_TEXT	ENDS
+PUBLIC	?GetNumSegments@CRope@@QBEHXZ			; CRope::GetNumSegments
+PUBLIC	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ	; CRope::GetSegments
+PUBLIC	?SetSoundAllowed@CRope@@QAEX_N@Z		; CRope::SetSoundAllowed
+EXTRN	?SetCauseDamageOnTouch@CRopeSegment@@QAEX_N@Z:NEAR ; CRopeSegment::SetCauseDamageOnTouch
+EXTRN	?Spawn@CRope@@UAEXXZ:NEAR			; CRope::Spawn
+EXTRN	?IsValidSegmentIndex@CRope@@QBE_NH@Z:NEAR	; CRope::IsValidSegmentIndex
+EXTRN	?gpGlobals@@3PAUglobalvars_t@@A:DWORD		; gpGlobals
+;	COMDAT ?Spawn@CElectrifiedWire@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+_i$36608 = -8
+_i$36614 = -12
+?Spawn@CElectrifiedWire@@UAEXXZ PROC NEAR		; CElectrifiedWire::Spawn, COMDAT
+
+; 106  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 76					; 0000004cH
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 107  : 	if( !pev->dmg )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	fld	DWORD PTR [ecx+480]
+	fcomp	DWORD PTR __real@4@00000000000000000000
+	fnstsw	ax
+	test	ah, 64					; 00000040H
+	je	SHORT $L36606
+
+; 108  : 		pev->dmg = 1;
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+4]
+	mov	DWORD PTR [eax+480], 1065353216		; 3f800000H
+$L36606:
+
+; 109  : 
+; 110  : 	BaseClass::Spawn();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Spawn@CRope@@UAEXXZ			; CRope::Spawn
+
+; 111  : 
+; 112  : 	m_iNumUninsulatedSegments = 0;
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+2140], 0
+
+; 113  : 	m_bIsActive = true;
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	BYTE PTR [edx+2112], 1
+
+; 114  : 
+; 115  : 	if( m_iBodySparkFrequency > 0 )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+2120], 0
+	jle	SHORT $L36611
+
+; 117  : 		for( int i = 0; i < GetNumSegments(); i++ )
+
+	mov	DWORD PTR _i$36608[ebp], 0
+	jmp	SHORT $L36609
+$L36610:
+	mov	ecx, DWORD PTR _i$36608[ebp]
+	add	ecx, 1
+	mov	DWORD PTR _i$36608[ebp], ecx
+$L36609:
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetNumSegments@CRope@@QBEHXZ		; CRope::GetNumSegments
+	cmp	DWORD PTR _i$36608[ebp], eax
+	jge	SHORT $L36611
+
+; 119  : 			if( IsValidSegmentIndex( i ))
+
+	mov	edx, DWORD PTR _i$36608[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsValidSegmentIndex@CRope@@QBE_NH@Z	; CRope::IsValidSegmentIndex
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	SHORT $L36612
+
+; 121  : 				m_iUninsulatedSegments[m_iNumUninsulatedSegments++] = i;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+2140]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _i$36608[ebp]
+	mov	DWORD PTR [edx+ecx*4+2144], eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx+2140]
+	add	edx, 1
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax+2140], edx
+$L36612:
+
+; 123  : 		}
+
+	jmp	SHORT $L36610
+$L36611:
+
+; 125  : 
+; 126  : 	if( m_iNumUninsulatedSegments > 0 )
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [ecx+2140], 0
+	jle	SHORT $L36617
+
+; 128  : 		for( int i = 0; i < m_iNumUninsulatedSegments; i++ )
+
+	mov	DWORD PTR _i$36614[ebp], 0
+	jmp	SHORT $L36615
+$L36616:
+	mov	edx, DWORD PTR _i$36614[ebp]
+	add	edx, 1
+	mov	DWORD PTR _i$36614[ebp], edx
+$L36615:
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _i$36614[ebp]
+	cmp	ecx, DWORD PTR [eax+2140]
+	jge	SHORT $L36617
+
+; 130  : 			GetSegments()[i]->SetCauseDamageOnTouch( m_bIsActive );
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	al, BYTE PTR [edx+2112]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ; CRope::GetSegments
+	mov	ecx, DWORD PTR _i$36614[ebp]
+	mov	ecx, DWORD PTR [eax+ecx*4]
+	call	?SetCauseDamageOnTouch@CRopeSegment@@QAEX_N@Z ; CRopeSegment::SetCauseDamageOnTouch
+
+; 131  : 		}
+
+	jmp	SHORT $L36616
+$L36617:
+
+; 133  : 
+; 134  : 	if( m_iTipSparkFrequency > 0 )
+
+	mov	edx, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [edx+2116], 0
+	jle	SHORT $L36618
+
+; 136  : 		GetSegments()[GetNumSegments() - 1]->SetCauseDamageOnTouch( m_bIsActive );
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	cl, BYTE PTR [eax+2112]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ; CRope::GetSegments
+	mov	esi, eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetNumSegments@CRope@@QBEHXZ		; CRope::GetNumSegments
+	mov	ecx, DWORD PTR [esi+eax*4-4]
+	call	?SetCauseDamageOnTouch@CRopeSegment@@QAEX_N@Z ; CRopeSegment::SetCauseDamageOnTouch
+$L36618:
+
+; 138  : 
+; 139  : 	m_flLastSparkTime = gpGlobals->time;
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
+	mov	ecx, DWORD PTR [eax]
+	mov	DWORD PTR [edx+2404], ecx
+
+; 140  : 
+; 141  : 	SetSoundAllowed( false );
+
+	push	0
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetSoundAllowed@CRope@@QAEX_N@Z	; CRope::SetSoundAllowed
+
+; 142  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Spawn@CElectrifiedWire@@UAEXXZ ENDP			; CElectrifiedWire::Spawn
+_TEXT	ENDS
+;	COMDAT ?GetNumSegments@CRope@@QBEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetNumSegments@CRope@@QBEHXZ PROC NEAR			; CRope::GetNumSegments, COMDAT
+
+; 61   : 	int GetNumSegments() const { return m_iSegments; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [eax+1792]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetNumSegments@CRope@@QBEHXZ ENDP			; CRope::GetNumSegments
+_TEXT	ENDS
+;	COMDAT ?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ PROC NEAR	; CRope::GetSegments, COMDAT
+
+; 62   : 	CRopeSegment** GetSegments() { return m_pSegments; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	add	eax, 1824				; 00000720H
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ENDP	; CRope::GetSegments
+_TEXT	ENDS
+;	COMDAT ?SetSoundAllowed@CRope@@QAEX_N@Z
+_TEXT	SEGMENT
+_bAllowed$ = 8
+_this$ = -4
+?SetSoundAllowed@CRope@@QAEX_N@Z PROC NEAR		; CRope::SetSoundAllowed, COMDAT
+
+; 66   : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 67   : 		m_bMakeSound = bAllowed;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	cl, BYTE PTR _bAllowed$[ebp]
+	mov	BYTE PTR [eax+2109], cl
+
+; 68   : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?SetSoundAllowed@CRope@@QAEX_N@Z ENDP			; CRope::SetSoundAllowed
+_TEXT	ENDS
+PUBLIC	__real@8@3ffbccccccccccccd000
+PUBLIC	?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z	; CElectrifiedWire::ShouldDoEffect
+PUBLIC	?DoSpark@CElectrifiedWire@@QAEXH_N@Z		; CElectrifiedWire::DoSpark
+PUBLIC	?DoLightning@CElectrifiedWire@@QAEXXZ		; CElectrifiedWire::DoLightning
+EXTRN	?Think@CRope@@UAEXXZ:NEAR			; CRope::Think
+;	COMDAT __real@8@3ffbccccccccccccd000
+; File z:\xashxtsrc\server\ropes\celectrifiedwire.cpp
+CONST	SEGMENT
+__real@8@3ffbccccccccccccd000 DQ 03fb999999999999ar ; 0.1
+CONST	ENDS
+;	COMDAT ?Think@CElectrifiedWire@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+_i$36625 = -8
+?Think@CElectrifiedWire@@UAEXXZ PROC NEAR		; CElectrifiedWire::Think, COMDAT
+
+; 145  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 146  : 	if( gpGlobals->time - m_flLastSparkTime > 0.1 )
+
+	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
+	mov	ecx, DWORD PTR _this$[ebp]
+	fld	DWORD PTR [eax]
+	fsub	DWORD PTR [ecx+2404]
+	fcomp	QWORD PTR __real@8@3ffbccccccccccccd000
+	fnstsw	ax
+	test	ah, 65					; 00000041H
+	jne	$L36631
+
+; 148  : 		m_flLastSparkTime = gpGlobals->time;
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
+	mov	ecx, DWORD PTR [eax]
+	mov	DWORD PTR [edx+2404], ecx
+
+; 149  : 
+; 150  : 		if( m_iNumUninsulatedSegments > 0 )
+
+	mov	edx, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [edx+2140], 0
+	jle	SHORT $L36628
+
+; 152  : 			for( int i = 0; i < m_iNumUninsulatedSegments; i++ )
+
+	mov	DWORD PTR _i$36625[ebp], 0
+	jmp	SHORT $L36626
+$L36627:
+	mov	eax, DWORD PTR _i$36625[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$36625[ebp], eax
+$L36626:
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _i$36625[ebp]
+	cmp	edx, DWORD PTR [ecx+2140]
+	jge	SHORT $L36628
+
+; 154  : 				if( ShouldDoEffect( m_iBodySparkFrequency ))
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+2120]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z ; CElectrifiedWire::ShouldDoEffect
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	SHORT $L36629
+
+; 156  : 					DoSpark( m_iUninsulatedSegments[i], false );
+
+	push	0
+	mov	edx, DWORD PTR _i$36625[ebp]
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+edx*4+2144]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?DoSpark@CElectrifiedWire@@QAEXH_N@Z	; CElectrifiedWire::DoSpark
+$L36629:
+
+; 158  : 			}
+
+	jmp	SHORT $L36627
+$L36628:
+
+; 160  : 
+; 161  : 		if( ShouldDoEffect( m_iTipSparkFrequency ) )
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+2116]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z ; CElectrifiedWire::ShouldDoEffect
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	SHORT $L36630
+
+; 163  : 			DoSpark( GetNumSegments() - 1, true );
+
+	push	1
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetNumSegments@CRope@@QBEHXZ		; CRope::GetNumSegments
+	sub	eax, 1
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?DoSpark@CElectrifiedWire@@QAEXH_N@Z	; CElectrifiedWire::DoSpark
+$L36630:
+
+; 165  : 
+; 166  : 		if( ShouldDoEffect( m_iLightningFrequency ) )
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx+2124]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z ; CElectrifiedWire::ShouldDoEffect
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	SHORT $L36631
+
+; 167  : 			DoLightning();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?DoLightning@CElectrifiedWire@@QAEXXZ	; CElectrifiedWire::DoLightning
+$L36631:
+
+; 169  : 
+; 170  : 	BaseClass::Think();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Think@CRope@@UAEXXZ			; CRope::Think
+
+; 171  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Think@CElectrifiedWire@@UAEXXZ ENDP			; CElectrifiedWire::Think
+_TEXT	ENDS
+;	COMDAT ?Use@CElectrifiedWire@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z
+_TEXT	SEGMENT
+_this$ = -4
+_i$36640 = -8
+?Use@CElectrifiedWire@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z PROC NEAR ; CElectrifiedWire::Use, COMDAT
+
+; 174  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 175  : 	m_bIsActive = !m_bIsActive;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xor	ecx, ecx
+	mov	cl, BYTE PTR [eax+2112]
+	neg	ecx
+	sbb	ecx, ecx
+	inc	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	BYTE PTR [edx+2112], cl
+
+; 176  : 
+; 177  : 	if( m_iNumUninsulatedSegments > 0 )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+2140], 0
+	jle	SHORT $L36643
+
+; 179  : 		for( int i = 0; i < m_iNumUninsulatedSegments; i++ )
+
+	mov	DWORD PTR _i$36640[ebp], 0
+	jmp	SHORT $L36641
+$L36642:
+	mov	ecx, DWORD PTR _i$36640[ebp]
+	add	ecx, 1
+	mov	DWORD PTR _i$36640[ebp], ecx
+$L36641:
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _i$36640[ebp]
+	cmp	eax, DWORD PTR [edx+2140]
+	jge	SHORT $L36643
+
+; 181  : 			GetSegments()[m_iUninsulatedSegments[i]]->SetCauseDamageOnTouch( m_bIsActive );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	dl, BYTE PTR [ecx+2112]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ; CRope::GetSegments
+	mov	ecx, DWORD PTR _i$36640[ebp]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [edx+ecx*4+2144]
+	mov	ecx, DWORD PTR [eax+ecx*4]
+	call	?SetCauseDamageOnTouch@CRopeSegment@@QAEX_N@Z ; CRopeSegment::SetCauseDamageOnTouch
+
+; 182  : 		}
+
+	jmp	SHORT $L36642
+$L36643:
+
+; 184  : 
+; 185  : 	if( m_iTipSparkFrequency > 0 )
+
+	mov	edx, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [edx+2116], 0
+	jle	SHORT $L36644
+
+; 187  : 		GetSegments()[GetNumSegments() - 1]->SetCauseDamageOnTouch( m_bIsActive );
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	cl, BYTE PTR [eax+2112]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ; CRope::GetSegments
+	mov	esi, eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetNumSegments@CRope@@QBEHXZ		; CRope::GetNumSegments
+	mov	ecx, DWORD PTR [esi+eax*4-4]
+	call	?SetCauseDamageOnTouch@CRopeSegment@@QAEX_N@Z ; CRopeSegment::SetCauseDamageOnTouch
+$L36644:
+
+; 189  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	16					; 00000010H
+?Use@CElectrifiedWire@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z ENDP ; CElectrifiedWire::Use
+_TEXT	ENDS
+PUBLIC	?IsActive@CElectrifiedWire@@QBE_NXZ		; CElectrifiedWire::IsActive
+;	COMDAT ?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z
+_TEXT	SEGMENT
+_iFrequency$ = 8
+_this$ = -4
+?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z PROC NEAR	; CElectrifiedWire::ShouldDoEffect, COMDAT
+
+; 192  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 193  : 	if( iFrequency <= 0 )
+
+	cmp	DWORD PTR _iFrequency$[ebp], 0
+	jg	SHORT $L36649
+
+; 194  : 		return false;
+
+	xor	al, al
+	jmp	SHORT $L36648
+$L36649:
+
+; 195  : 
+; 196  : 	if( !IsActive() )
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsActive@CElectrifiedWire@@QBE_NXZ	; CElectrifiedWire::IsActive
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	jne	SHORT $L36650
+
+; 197  : 		return false;
+
+	xor	al, al
+	jmp	SHORT $L36648
+$L36650:
+
+; 198  : 
+; 199  : 	return RANDOM_LONG( 1, iFrequency ) == 1;
+
+	mov	eax, DWORD PTR _iFrequency$[ebp]
+	push	eax
+	push	1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
+	add	esp, 8
+	sub	eax, 1
+	neg	eax
+	sbb	eax, eax
+	inc	eax
+$L36648:
+
+; 200  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?ShouldDoEffect@CElectrifiedWire@@QAE_NH@Z ENDP		; CElectrifiedWire::ShouldDoEffect
+_TEXT	ENDS
+;	COMDAT ?IsActive@CElectrifiedWire@@QBE_NXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsActive@CElectrifiedWire@@QBE_NXZ PROC NEAR		; CElectrifiedWire::IsActive, COMDAT
+
+; 41   : 	bool IsActive() const { return m_bIsActive; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	al, BYTE PTR [eax+2112]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsActive@CElectrifiedWire@@QBE_NXZ ENDP		; CElectrifiedWire::IsActive
+_TEXT	ENDS
+EXTRN	?UTIL_Sparks@@YAXABVVector@@@Z:NEAR		; UTIL_Sparks
+EXTRN	?ApplyForceToSegment@CRope@@QAEXABVVector@@H@Z:NEAR ; CRope::ApplyForceToSegment
+EXTRN	?GetSegmentAttachmentPoint@CRope@@QBE?AVVector@@H@Z:NEAR ; CRope::GetSegmentAttachmentPoint
+;	COMDAT ?DoSpark@CElectrifiedWire@@QAEXH_N@Z
+_TEXT	SEGMENT
+$T37356 = -40
+_iSegment$ = 8
+_bExertForce$ = 12
+_this$ = -4
+_vecOrigin$ = -16
+_vecSparkForce$36659 = -28
+?DoSpark@CElectrifiedWire@@QAEXH_N@Z PROC NEAR		; CElectrifiedWire::DoSpark, COMDAT
+
+; 203  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 116				; 00000074H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 204  : 	const Vector vecOrigin = GetSegmentAttachmentPoint( iSegment );
+
+	mov	eax, DWORD PTR _iSegment$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR $T37356[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegmentAttachmentPoint@CRope@@QBE?AVVector@@H@Z ; CRope::GetSegmentAttachmentPoint
+	push	eax
+	lea	ecx, DWORD PTR _vecOrigin$[ebp]
+	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
+
+; 205  : 
+; 206  : 	UTIL_Sparks( vecOrigin );
+
+	lea	edx, DWORD PTR _vecOrigin$[ebp]
+	push	edx
+	call	?UTIL_Sparks@@YAXABVVector@@@Z		; UTIL_Sparks
+	add	esp, 4
+
+; 207  : 
+; 208  : 	if( bExertForce )
+
+	mov	eax, DWORD PTR _bExertForce$[ebp]
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	$L36658
+
+; 210  : 		const Vector vecSparkForce(
+; 211  : 			RANDOM_FLOAT( -m_iXJoltForce, m_iXJoltForce ),
+; 212  : 			RANDOM_FLOAT( -m_iYJoltForce, m_iYJoltForce ),
+; 213  : 			RANDOM_FLOAT( -m_iZJoltForce, m_iZJoltForce )
+; 214  : 		);
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	fild	DWORD PTR [ecx+2136]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+2136]
+	neg	eax
+	mov	DWORD PTR -44+[ebp], eax
+	fild	DWORD PTR -44+[ebp]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
+	add	esp, 4
+	fstp	DWORD PTR [esp]
+	mov	ecx, DWORD PTR _this$[ebp]
+	fild	DWORD PTR [ecx+2132]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+2132]
+	neg	eax
+	mov	DWORD PTR -48+[ebp], eax
+	fild	DWORD PTR -48+[ebp]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
+	add	esp, 4
+	fstp	DWORD PTR [esp]
+	mov	ecx, DWORD PTR _this$[ebp]
+	fild	DWORD PTR [ecx+2128]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+2128]
+	neg	eax
+	mov	DWORD PTR -52+[ebp], eax
+	fild	DWORD PTR -52+[ebp]
+	push	ecx
+	fstp	DWORD PTR [esp]
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
+	add	esp, 4
+	fstp	DWORD PTR [esp]
+	lea	ecx, DWORD PTR _vecSparkForce$36659[ebp]
+	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
+
+; 215  : 
+; 216  : 		ApplyForceToSegment( vecSparkForce, iSegment );
+
+	mov	ecx, DWORD PTR _iSegment$[ebp]
+	push	ecx
+	lea	edx, DWORD PTR _vecSparkForce$36659[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ApplyForceToSegment@CRope@@QAEXABVVector@@H@Z ; CRope::ApplyForceToSegment
+$L36658:
+
+; 218  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?DoSpark@CElectrifiedWire@@QAEXH_N@Z ENDP		; CElectrifiedWire::DoSpark
+_TEXT	ENDS
+PUBLIC	?IsSimulateBones@CRope@@QAE_NXZ			; CRope::IsSimulateBones
+PUBLIC	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z		; MESSAGE_BEGIN
+PUBLIC	?entindex@CBaseEntity@@QAEHXZ			; CBaseEntity::entindex
+;	COMDAT ?DoLightning@CElectrifiedWire@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+_iSegment1$ = -8
+_iSegment2$ = -12
+_i$ = -16
+_pSegment1$ = -20
+_pSegment2$ = -24
+?DoLightning@CElectrifiedWire@@QAEXXZ PROC NEAR		; CElectrifiedWire::DoLightning, COMDAT
+
+; 221  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 88					; 00000058H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 222  : 	const int iSegment1 = RANDOM_LONG( 0, GetNumSegments() - 1 );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetNumSegments@CRope@@QBEHXZ		; CRope::GetNumSegments
+	sub	eax, 1
+	push	eax
+	push	0
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
+	add	esp, 8
+	mov	DWORD PTR _iSegment1$[ebp], eax
+
+; 223  : 
+; 224  : 	int iSegment2, i;
+; 225  : 
+; 226  : 	// Try to get a random segment.
+; 227  : 	for( i = 0; i < 10; i++ )
+
+	mov	DWORD PTR _i$[ebp], 0
+	jmp	SHORT $L36667
+$L36668:
+	mov	eax, DWORD PTR _i$[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$[ebp], eax
+$L36667:
+	cmp	DWORD PTR _i$[ebp], 10			; 0000000aH
+	jge	SHORT $L36669
+
+; 229  : 		iSegment2 = RANDOM_LONG( 0, GetNumSegments() - 1 );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetNumSegments@CRope@@QBEHXZ		; CRope::GetNumSegments
+	sub	eax, 1
+	push	eax
+	push	0
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
+	add	esp, 8
+	mov	DWORD PTR _iSegment2$[ebp], eax
+
+; 230  : 
+; 231  : 		if( iSegment2 != iSegment1 )
+
+	mov	ecx, DWORD PTR _iSegment2$[ebp]
+	cmp	ecx, DWORD PTR _iSegment1$[ebp]
+	je	SHORT $L36670
+
+; 232  : 			break;
+
+	jmp	SHORT $L36669
+$L36670:
+
+; 233  : 	}
+
+	jmp	SHORT $L36668
+$L36669:
+
+; 234  : 
+; 235  : 	if( i >= 10 ) return;
+
+	cmp	DWORD PTR _i$[ebp], 10			; 0000000aH
+	jl	SHORT $L36671
+	jmp	$L36663
+$L36671:
+
+; 236  : 
+; 237  : 	CRopeSegment* pSegment1 = GetSegments()[iSegment1];
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ; CRope::GetSegments
+	mov	edx, DWORD PTR _iSegment1$[ebp]
+	mov	eax, DWORD PTR [eax+edx*4]
+	mov	DWORD PTR _pSegment1$[ebp], eax
+
+; 238  : 	CRopeSegment* pSegment2 = GetSegments()[iSegment2];
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetSegments@CRope@@QAEPAPAVCRopeSegment@@XZ ; CRope::GetSegments
+	mov	ecx, DWORD PTR _iSegment2$[ebp]
+	mov	edx, DWORD PTR [eax+ecx*4]
+	mov	DWORD PTR _pSegment2$[ebp], edx
+
+; 239  : 
+; 240  : 	MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
+
+	push	0
+	push	0
+	push	23					; 00000017H
+	push	0
+	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
+	add	esp, 16					; 00000010H
+
+; 241  : 
+; 242  : 		if( IsSimulateBones( ))
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsSimulateBones@CRope@@QAE_NXZ		; CRope::IsSimulateBones
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	$L36674
+
+; 244  : 			WRITE_BYTE( TE_BEAMPOINTS);
+
+	push	0
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 245  : 			WRITE_COORD( pSegment1->GetAbsOrigin().x);
+
+	mov	ecx, DWORD PTR _pSegment1$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	eax, DWORD PTR [eax]
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+212
+	add	esp, 4
+
+; 246  : 			WRITE_COORD( pSegment1->GetAbsOrigin().y);
+
+	mov	ecx, DWORD PTR _pSegment1$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+212
+	add	esp, 4
+
+; 247  : 			WRITE_COORD( pSegment1->GetAbsOrigin().z);
+
+	mov	ecx, DWORD PTR _pSegment1$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	edx, DWORD PTR [eax+8]
+	push	edx
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+212
+	add	esp, 4
+
+; 248  : 			WRITE_COORD( pSegment2->GetAbsOrigin().x);
+
+	mov	ecx, DWORD PTR _pSegment2$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	eax, DWORD PTR [eax]
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+212
+	add	esp, 4
+
+; 249  : 			WRITE_COORD( pSegment2->GetAbsOrigin().y);
+
+	mov	ecx, DWORD PTR _pSegment2$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+212
+	add	esp, 4
+
+; 250  : 			WRITE_COORD( pSegment2->GetAbsOrigin().z);
+
+	mov	ecx, DWORD PTR _pSegment2$[ebp]
+	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
+	mov	edx, DWORD PTR [eax+8]
+	push	edx
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+212
+	add	esp, 4
+
+; 252  : 		else
+
+	jmp	SHORT $L36675
+$L36674:
+
+; 254  : 			WRITE_BYTE( TE_BEAMENTS );
+
+	push	8
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 255  : 			WRITE_SHORT( pSegment1->entindex() );
+
+	mov	ecx, DWORD PTR _pSegment1$[ebp]
+	call	?entindex@CBaseEntity@@QAEHXZ		; CBaseEntity::entindex
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
+	add	esp, 4
+
+; 256  : 			WRITE_SHORT( pSegment2->entindex() );
+
+	mov	ecx, DWORD PTR _pSegment2$[ebp]
+	call	?entindex@CBaseEntity@@QAEHXZ		; CBaseEntity::entindex
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
+	add	esp, 4
+$L36675:
+
+; 258  : 		WRITE_SHORT( m_iLightningSprite );
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+2400]
+	push	ecx
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
+	add	esp, 4
+
+; 259  : 		WRITE_BYTE( 0 );
+
+	push	0
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 260  : 		WRITE_BYTE( 0 );
+
+	push	0
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 261  : 		WRITE_BYTE( 1 );
+
+	push	1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 262  : 		WRITE_BYTE( 10 );
+
+	push	10					; 0000000aH
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 263  : 		WRITE_BYTE( 80 );
+
+	push	80					; 00000050H
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 264  : 		WRITE_BYTE( 255 );
+
+	push	255					; 000000ffH
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 265  : 		WRITE_BYTE( 255 );
+
+	push	255					; 000000ffH
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 266  : 		WRITE_BYTE( 255 );
+
+	push	255					; 000000ffH
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 267  : 		WRITE_BYTE( 255 );
+
+	push	255					; 000000ffH
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 268  : 		WRITE_BYTE( 255 );
+
+	push	255					; 000000ffH
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
+	add	esp, 4
+
+; 269  : 	MESSAGE_END();
+
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
+$L36663:
+
+; 270  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?DoLightning@CElectrifiedWire@@QAEXXZ ENDP		; CElectrifiedWire::DoLightning
+_TEXT	ENDS
+;	COMDAT ?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z
+_TEXT	SEGMENT
+_msg_dest$ = 8
+_msg_type$ = 12
+_pOrigin$ = 16
+_ed$ = 20
+?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z PROC NEAR	; MESSAGE_BEGIN, COMDAT
+
+; 72   : inline void MESSAGE_BEGIN( int msg_dest, int msg_type, const float *pOrigin = NULL, edict_t *ed = NULL ) {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 73   : 	(*g_engfuncs.pfnMessageBegin)(msg_dest, msg_type, pOrigin, ed);
+
+	mov	eax, DWORD PTR _ed$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _pOrigin$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _msg_type$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _msg_dest$[ebp]
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+184
+	add	esp, 16					; 00000010H
+
+; 74   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z ENDP		; MESSAGE_BEGIN
+_TEXT	ENDS
+PUBLIC	?ENTINDEX@@YAHPAUedict_s@@@Z			; ENTINDEX
+PUBLIC	?edict@CBaseEntity@@QAEPAUedict_s@@XZ		; CBaseEntity::edict
+;	COMDAT ?entindex@CBaseEntity@@QAEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?entindex@CBaseEntity@@QAEHXZ PROC NEAR			; CBaseEntity::entindex, COMDAT
+
+; 712  : 	int entindex( ) { return ENTINDEX( edict() ); };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
+	push	eax
+	call	?ENTINDEX@@YAHPAUedict_s@@@Z		; ENTINDEX
+	add	esp, 4
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?entindex@CBaseEntity@@QAEHXZ ENDP			; CBaseEntity::entindex
+_TEXT	ENDS
+;	COMDAT ?ENTINDEX@@YAHPAUedict_s@@@Z
+_TEXT	SEGMENT
+_pEdict$ = 8
+?ENTINDEX@@YAHPAUedict_s@@@Z PROC NEAR			; ENTINDEX, COMDAT
+
+; 186  : inline int	  ENTINDEX(edict_t *pEdict)			{ return (*g_engfuncs.pfnIndexOfEdict)(pEdict); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+	mov	eax, DWORD PTR _pEdict$[ebp]
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+284
+	add	esp, 4
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ENTINDEX@@YAHPAUedict_s@@@Z ENDP			; ENTINDEX
+_TEXT	ENDS
+;	COMDAT ?edict@CBaseEntity@@QAEPAUedict_s@@XZ
+_TEXT	SEGMENT
+_this$ = -4
+?edict@CBaseEntity@@QAEPAUedict_s@@XZ PROC NEAR		; CBaseEntity::edict, COMDAT
+
+; 710  : 	edict_t *edict() { return ENT( pev ); };
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	call	?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z	; ENT
+	add	esp, 4
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?edict@CBaseEntity@@QAEPAUedict_s@@XZ ENDP		; CBaseEntity::edict
+_TEXT	ENDS
+;	COMDAT ?IsSimulateBones@CRope@@QAE_NXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsSimulateBones@CRope@@QAE_NXZ PROC NEAR		; CRope::IsSimulateBones, COMDAT
+
+; 63   : 	bool IsSimulateBones() { return m_bSimulateBones; }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	al, BYTE PTR [eax+2108]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsSimulateBones@CRope@@QAE_NXZ ENDP			; CRope::IsSimulateBones
+_TEXT	ENDS
+PUBLIC	??0IEntityFactory@@QAE@XZ			; IEntityFactory::IEntityFactory
+PUBLIC	?Create@?$CEntityFactory@VCElectrifiedWire@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CEntityFactory<CElectrifiedWire>::Create
+PUBLIC	?Destroy@?$CEntityFactory@VCElectrifiedWire@@@@UAEXPAVCBaseEntity@@@Z ; CEntityFactory<CElectrifiedWire>::Destroy
+PUBLIC	?GetEntitySize@?$CEntityFactory@VCElectrifiedWire@@@@UAEIXZ ; CEntityFactory<CElectrifiedWire>::GetEntitySize
+PUBLIC	??_7?$CEntityFactory@VCElectrifiedWire@@@@6B@	; CEntityFactory<CElectrifiedWire>::`vftable'
+EXTRN	?EntityFactoryDictionary@@YAPAVIEntityFactoryDictionary@@XZ:NEAR ; EntityFactoryDictionary
+;	COMDAT ??_7?$CEntityFactory@VCElectrifiedWire@@@@6B@
+; File z:\xashxtsrc\server\util.h
+CONST	SEGMENT
+??_7?$CEntityFactory@VCElectrifiedWire@@@@6B@ DD FLAT:?Create@?$CEntityFactory@VCElectrifiedWire@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CEntityFactory<CElectrifiedWire>::`vftable'
+	DD	FLAT:?Destroy@?$CEntityFactory@VCElectrifiedWire@@@@UAEXPAVCBaseEntity@@@Z
+	DD	FLAT:?GetEntitySize@?$CEntityFactory@VCElectrifiedWire@@@@UAEIXZ
+CONST	ENDS
+;	COMDAT ??0?$CEntityFactory@VCElectrifiedWire@@@@QAE@PBD@Z
+_TEXT	SEGMENT
+_pClassName$ = 8
+_this$ = -4
+??0?$CEntityFactory@VCElectrifiedWire@@@@QAE@PBD@Z PROC NEAR ; CEntityFactory<CElectrifiedWire>::CEntityFactory<CElectrifiedWire>, COMDAT
+
+; 86   : 	CEntityFactory( const char *pClassName )
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0IEntityFactory@@QAE@XZ		; IEntityFactory::IEntityFactory
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], OFFSET FLAT:??_7?$CEntityFactory@VCElectrifiedWire@@@@6B@ ; CEntityFactory<CElectrifiedWire>::`vftable'
+
+; 87   : 	{
+; 88   : 		EntityFactoryDictionary()->InstallFactory( this, pClassName );
+
+	mov	ecx, DWORD PTR _pClassName$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	push	edx
+	call	?EntityFactoryDictionary@@YAPAVIEntityFactoryDictionary@@XZ ; EntityFactoryDictionary
+	mov	DWORD PTR -8+[ebp], eax
+	mov	eax, DWORD PTR -8+[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR -8+[ebp]
+	call	DWORD PTR [edx]
+
+; 89   : 	}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??0?$CEntityFactory@VCElectrifiedWire@@@@QAE@PBD@Z ENDP	; CEntityFactory<CElectrifiedWire>::CEntityFactory<CElectrifiedWire>
+_TEXT	ENDS
+PUBLIC	?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z	; GetClassPtr
+;	COMDAT ?Create@?$CEntityFactory@VCElectrifiedWire@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z
+_TEXT	SEGMENT
+_pClassName$ = 8
+_pev$ = 12
+_this$ = -4
+_pEnt$ = -8
+?Create@?$CEntityFactory@VCElectrifiedWire@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z PROC NEAR ; CEntityFactory<CElectrifiedWire>::Create, COMDAT
+
+; 92   : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 93   : 		T* pEnt = GetClassPtr((T*)pev, pClassName);
+
+	mov	eax, DWORD PTR _pClassName$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _pev$[ebp]
+	push	ecx
+	call	?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z ; GetClassPtr
+	add	esp, 8
+	mov	DWORD PTR _pEnt$[ebp], eax
+
+; 94   : 		return pEnt;
+
+	mov	eax, DWORD PTR _pEnt$[ebp]
+
+; 95   : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?Create@?$CEntityFactory@VCElectrifiedWire@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z ENDP ; CEntityFactory<CElectrifiedWire>::Create
+_TEXT	ENDS
+EXTRN	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z:NEAR	; UTIL_Remove
+;	COMDAT ?Destroy@?$CEntityFactory@VCElectrifiedWire@@@@UAEXPAVCBaseEntity@@@Z
+_TEXT	SEGMENT
+_pEntity$ = 8
+_this$ = -4
+?Destroy@?$CEntityFactory@VCElectrifiedWire@@@@UAEXPAVCBaseEntity@@@Z PROC NEAR ; CEntityFactory<CElectrifiedWire>::Destroy, COMDAT
+
+; 98   : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 99   : 		UTIL_Remove( pEntity );
+
+	mov	eax, DWORD PTR _pEntity$[ebp]
+	push	eax
+	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
+	add	esp, 4
+
+; 100  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Destroy@?$CEntityFactory@VCElectrifiedWire@@@@UAEXPAVCBaseEntity@@@Z ENDP ; CEntityFactory<CElectrifiedWire>::Destroy
+_TEXT	ENDS
+;	COMDAT ?GetEntitySize@?$CEntityFactory@VCElectrifiedWire@@@@UAEIXZ
+_TEXT	SEGMENT
+_this$ = -4
+?GetEntitySize@?$CEntityFactory@VCElectrifiedWire@@@@UAEIXZ PROC NEAR ; CEntityFactory<CElectrifiedWire>::GetEntitySize, COMDAT
+
+; 103  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 104  : 		return sizeof(T);
+
+	mov	eax, 2408				; 00000968H
+
+; 105  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetEntitySize@?$CEntityFactory@VCElectrifiedWire@@@@UAEIXZ ENDP ; CEntityFactory<CElectrifiedWire>::GetEntitySize
+_TEXT	ENDS
+PUBLIC	??_7IEntityFactory@@6B@				; IEntityFactory::`vftable'
+EXTRN	__purecall:NEAR
+;	COMDAT ??_7IEntityFactory@@6B@
+CONST	SEGMENT
+??_7IEntityFactory@@6B@ DD FLAT:__purecall		; IEntityFactory::`vftable'
+	DD	FLAT:__purecall
+	DD	FLAT:__purecall
+CONST	ENDS
+;	COMDAT ??0IEntityFactory@@QAE@XZ
+_TEXT	SEGMENT
+_this$ = -4
+??0IEntityFactory@@QAE@XZ PROC NEAR			; IEntityFactory::IEntityFactory, COMDAT
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], OFFSET FLAT:??_7IEntityFactory@@6B@ ; IEntityFactory::`vftable'
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??0IEntityFactory@@QAE@XZ ENDP				; IEntityFactory::IEntityFactory
+_TEXT	ENDS
+PUBLIC	??0?$CUtlMemory@PADH@@QAE@HH@Z			; CUtlMemory<char *,int>::CUtlMemory<char *,int>
+PUBLIC	??1?$CUtlMemory@PADH@@QAE@XZ			; CUtlMemory<char *,int>::~CUtlMemory<char *,int>
+PUBLIC	?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::ResetDbgInfo
+;	COMDAT xdata$x
+; File z:\xashxtsrc\game_shared\utlarray.h
+xdata$x	SEGMENT
+__ehfuncinfo$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z DD 019930520H
+	DD	01H
+	DD	FLAT:__unwindtable$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	ORG $+4
+__unwindtable$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z$0
+xdata$x	ENDS
+;	COMDAT ??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z
+_TEXT	SEGMENT
+__$EHRec$ = -12
+_growSize$ = 8
+_initSize$ = 12
+_this$ = -16
+??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::CUtlArray<char *,CUtlMemory<char *,int> >, COMDAT
+
+; 247  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z
+	mov	eax, DWORD PTR fs:__except_list
+	push	eax
+	mov	DWORD PTR fs:__except_list, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _initSize$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _growSize$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0?$CUtlMemory@PADH@@QAE@HH@Z		; CUtlMemory<char *,int>::CUtlMemory<char *,int>
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx+12], 0
+
+; 248  : 	ResetDbgInfo();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::ResetDbgInfo
+
+; 249  : }
+
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:__except_list, ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z$0:
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1?$CUtlMemory@PADH@@QAE@XZ		; CUtlMemory<char *,int>::~CUtlMemory<char *,int>
+	ret	0
+__ehhandler$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z:
+	mov	eax, OFFSET FLAT:__ehfuncinfo$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z
+	jmp	___CxxFrameHandler
+text$x	ENDS
+??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z ENDP	; CUtlArray<char *,CUtlMemory<char *,int> >::CUtlArray<char *,CUtlMemory<char *,int> >
+PUBLIC	?Purge@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Purge
+;	COMDAT xdata$x
+; File z:\xashxtsrc\game_shared\utlarray.h
+xdata$x	SEGMENT
+__ehfuncinfo$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ DD 019930520H
+	DD	01H
+	DD	FLAT:__unwindtable$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	ORG $+4
+__unwindtable$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ$0
+xdata$x	ENDS
+;	COMDAT ??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ
+_TEXT	SEGMENT
+__$EHRec$ = -12
+_this$ = -16
+??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::~CUtlArray<char *,CUtlMemory<char *,int> >, COMDAT
+
+; 260  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ
+	mov	eax, DWORD PTR fs:__except_list
+	push	eax
+	mov	DWORD PTR fs:__except_list, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+
+; 261  : 	Purge();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Purge@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Purge
+
+; 262  : }
+
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1?$CUtlMemory@PADH@@QAE@XZ		; CUtlMemory<char *,int>::~CUtlMemory<char *,int>
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:__except_list, ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ$0:
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1?$CUtlMemory@PADH@@QAE@XZ		; CUtlMemory<char *,int>::~CUtlMemory<char *,int>
+	ret	0
+__ehhandler$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ:
+	mov	eax, OFFSET FLAT:__ehfuncinfo$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ
+	jmp	___CxxFrameHandler
+text$x	ENDS
+??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ ENDP	; CUtlArray<char *,CUtlMemory<char *,int> >::~CUtlArray<char *,CUtlMemory<char *,int> >
+PUBLIC	??A?$CUtlMemory@PADH@@QAEAAPADH@Z		; CUtlMemory<char *,int>::operator[]
+;	COMDAT ??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z
+_TEXT	SEGMENT
+_i$ = 8
+_this$ = -4
+??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[], COMDAT
+
+; 282  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 283  : 	return m_Memory[ i ];
+
+	mov	eax, DWORD PTR _i$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??A?$CUtlMemory@PADH@@QAEAAPADH@Z	; CUtlMemory<char *,int>::operator[]
+
+; 284  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ENDP ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
+_TEXT	ENDS
+;	COMDAT ?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::Count, COMDAT
+
+; 344  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 345  : 	return m_Size;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [eax+12]
+
+; 346  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ENDP	; CUtlArray<char *,CUtlMemory<char *,int> >::Count
+_TEXT	ENDS
+EXTRN	?m_DataMap@CRope@@2Udatamap_s@@A:BYTE		; CRope::m_DataMap
+;	COMDAT ?DataMapAccess@@YAXPAVCRope@@PAPAUdatamap_s@@@Z
+_TEXT	SEGMENT
+_p$ = 12
+?DataMapAccess@@YAXPAVCRope@@PAPAUdatamap_s@@@Z PROC NEAR ; DataMapAccess, COMDAT
+
+; 182  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 183  : 	*p = &T::m_DataMap;
+
+	mov	eax, DWORD PTR _p$[ebp]
+	mov	DWORD PTR [eax], OFFSET FLAT:?m_DataMap@CRope@@2Udatamap_s@@A ; CRope::m_DataMap
+
+; 184  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?DataMapAccess@@YAXPAVCRope@@PAPAUdatamap_s@@@Z ENDP	; DataMapAccess
+_TEXT	ENDS
+PUBLIC	?SetClassname@CBaseEntity@@QAEXPBD@Z		; CBaseEntity::SetClassname
+PUBLIC	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z		; VARS
+PUBLIC	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z		; CBaseEntity::operator new
+PUBLIC	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z		; CBaseEntity::operator delete
+;	COMDAT xdata$x
+; File z:\xashxtsrc\server\cbase.h
+xdata$x	SEGMENT
+__ehfuncinfo$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z DD 019930520H
+	DD	01H
+	DD	FLAT:__unwindtable$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	ORG $+4
+__unwindtable$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z$0
+xdata$x	ENDS
+;	COMDAT ?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z
+_TEXT	SEGMENT
+$T37405 = -20
+$T37406 = -24
+__$EHRec$ = -12
+_newEnt$ = 8
+_className$ = 12
+_pev$ = -16
+?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
+
+; 1093 : {
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z
+	mov	eax, DWORD PTR fs:__except_list
+	push	eax
+	mov	DWORD PTR fs:__except_list, esp
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+
+; 1094 : 	entvars_t *pev = (entvars_t *)newEnt;
+
+	mov	eax, DWORD PTR _newEnt$[ebp]
+	mov	DWORD PTR _pev$[ebp], eax
+
+; 1095 : 
+; 1096 : 	// allocate entity if necessary
+; 1097 : 	if (pev == NULL)
+
+	cmp	DWORD PTR _pev$[ebp], 0
+	jne	SHORT $L36720
+
+; 1098 : 		pev = VARS(CREATE_ENTITY());
+
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+84
+	push	eax
+	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
+	add	esp, 4
+	mov	DWORD PTR _pev$[ebp], eax
+$L36720:
+
+; 1099 : 
+; 1100 : 	// get the private data
+; 1101 : 	newEnt = (T *)GET_PRIVATE(ENT(pev));
+
+	mov	ecx, DWORD PTR _pev$[ebp]
+	push	ecx
+	call	?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z	; ENT
+	add	esp, 4
+	push	eax
+	call	?GET_PRIVATE@@YAPAXPAUedict_s@@@Z	; GET_PRIVATE
+	add	esp, 4
+	mov	DWORD PTR _newEnt$[ebp], eax
+
+; 1102 : 
+; 1103 : 	if (newEnt == NULL) 
+
+	cmp	DWORD PTR _newEnt$[ebp], 0
+	jne	SHORT $L36722
+
+; 1105 : 		// allocate private data 
+; 1106 : 		newEnt = new(pev) T;
+
+	mov	edx, DWORD PTR _pev$[ebp]
+	push	edx
+	push	2408					; 00000968H
+	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
+	add	esp, 8
+	mov	DWORD PTR $T37406[ebp], eax
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	cmp	DWORD PTR $T37406[ebp], 0
+	je	SHORT $L37407
+	mov	ecx, DWORD PTR $T37406[ebp]
+	call	??0CElectrifiedWire@@QAE@XZ		; CElectrifiedWire::CElectrifiedWire
+	mov	DWORD PTR -28+[ebp], eax
+	jmp	SHORT $L37408
+$L37407:
+	mov	DWORD PTR -28+[ebp], 0
+$L37408:
+	mov	eax, DWORD PTR -28+[ebp]
+	mov	DWORD PTR $T37405[ebp], eax
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	ecx, DWORD PTR $T37405[ebp]
+	mov	DWORD PTR _newEnt$[ebp], ecx
+
+; 1107 : 		newEnt->pev = pev;
+
+	mov	edx, DWORD PTR _newEnt$[ebp]
+	mov	eax, DWORD PTR _pev$[ebp]
+	mov	DWORD PTR [edx+4], eax
+$L36722:
+
+; 1109 : 	newEnt->SetClassname( className );
+
+	mov	ecx, DWORD PTR _className$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _newEnt$[ebp]
+	call	?SetClassname@CBaseEntity@@QAEXPBD@Z	; CBaseEntity::SetClassname
+
+; 1110 : 
+; 1111 : 	return newEnt;
+
+	mov	eax, DWORD PTR _newEnt$[ebp]
+
+; 1112 : }
+
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:__except_list, ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z$0:
+	mov	eax, DWORD PTR _pev$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR $T37406[ebp]
+	push	ecx
+	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
+	add	esp, 8
+	ret	0
+__ehhandler$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z:
+	mov	eax, OFFSET FLAT:__ehfuncinfo$?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z
+	jmp	___CxxFrameHandler
+text$x	ENDS
+?GetClassPtr@@YAPAVCElectrifiedWire@@PAV1@PBD@Z ENDP	; GetClassPtr
+;	COMDAT ?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z
+_TEXT	SEGMENT
+_pent$ = 8
+?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z PROC NEAR		; VARS, COMDAT
+
+; 178  : { 
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 179  : 	if ( !pent )
+
+	cmp	DWORD PTR _pent$[ebp], 0
+	jne	SHORT $L32448
+
+; 180  : 		return NULL;
+
+	xor	eax, eax
+	jmp	SHORT $L32447
+$L32448:
+
+; 181  : 
+; 182  : 	return &pent->v; 
+
+	mov	eax, DWORD PTR _pent$[ebp]
+	add	eax, 128				; 00000080H
+$L32447:
+
+; 183  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z ENDP		; VARS
+_TEXT	ENDS
+;	COMDAT ?SetClassname@CBaseEntity@@QAEXPBD@Z
+_TEXT	SEGMENT
+_this$ = -4
+_pszClassName$ = 8
+?SetClassname@CBaseEntity@@QAEXPBD@Z PROC NEAR		; CBaseEntity::SetClassname, COMDAT
+
+; 302  : 	void		SetClassname( const char *pszClassName ) { pev->classname = MAKE_STRING( pszClassName ); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _pszClassName$[ebp]
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+268
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx+4]
+	mov	DWORD PTR [edx], eax
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?SetClassname@CBaseEntity@@QAEXPBD@Z ENDP		; CBaseEntity::SetClassname
+_TEXT	ENDS
+;	COMDAT ??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z
+_TEXT	SEGMENT
+_stAllocateBlock$ = 8
+_pev$ = 12
+??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z PROC NEAR	; CBaseEntity::operator new, COMDAT
+
+; 489  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 490  : 		return (void *)ALLOC_PRIVATE(ENT(pev), stAllocateBlock);
+
+	mov	eax, DWORD PTR _stAllocateBlock$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _pev$[ebp]
+	push	ecx
+	call	?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z	; ENT
+	add	esp, 4
+	push	eax
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+252
+	add	esp, 8
+
+; 491  : 	};
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z ENDP		; CBaseEntity::operator new
+_TEXT	ENDS
+;	COMDAT ??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z
+_TEXT	SEGMENT
+_pev$ = 12
+??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z PROC NEAR	; CBaseEntity::operator delete, COMDAT
+
+; 496  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 497  : 		pev->flags |= FL_KILLME;
+
+	mov	eax, DWORD PTR _pev$[ebp]
+	mov	ecx, DWORD PTR [eax+420]
+	or	ecx, 1073741824				; 40000000H
+	mov	edx, DWORD PTR _pev$[ebp]
+	mov	DWORD PTR [edx+420], ecx
+
+; 498  : 	};
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z ENDP		; CBaseEntity::operator delete
+_TEXT	ENDS
+PUBLIC	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
+;	COMDAT ?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::ResetDbgInfo, COMDAT
+
+; 160  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 161  : 		m_pElements = Base();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+16], eax
+
+; 162  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ ENDP ; CUtlArray<char *,CUtlMemory<char *,int> >::ResetDbgInfo
+_TEXT	ENDS
+PUBLIC	?Base@?$CUtlMemory@PADH@@QAEPAPADXZ		; CUtlMemory<char *,int>::Base
+;	COMDAT ?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::Base, COMDAT
+
+; 60   : 	T* Base()								{ return m_Memory.Base(); }
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Base@?$CUtlMemory@PADH@@QAEPAPADXZ	; CUtlMemory<char *,int>::Base
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ENDP ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
+_TEXT	ENDS
+PUBLIC	?RemoveAll@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::RemoveAll
+PUBLIC	?Purge@?$CUtlMemory@PADH@@QAEXXZ		; CUtlMemory<char *,int>::Purge
+;	COMDAT ?Purge@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Purge@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::Purge, COMDAT
+
+; 742  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 743  : 	RemoveAll();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?RemoveAll@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::RemoveAll
+
+; 744  : 	m_Memory.Purge();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Purge@?$CUtlMemory@PADH@@QAEXXZ	; CUtlMemory<char *,int>::Purge
+
+; 745  : 	ResetDbgInfo();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ResetDbgInfo@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@IAEXXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::ResetDbgInfo
+
+; 746  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Purge@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ ENDP	; CUtlArray<char *,CUtlMemory<char *,int> >::Purge
+_TEXT	ENDS
+PUBLIC	?ValidateGrowSize@?$CUtlMemory@PADH@@IAEXXZ	; CUtlMemory<char *,int>::ValidateGrowSize
+PUBLIC	??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
+PUBLIC	??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@	; `string'
+EXTRN	_malloc:NEAR
+EXTRN	__assert:NEAR
+;	COMDAT ??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@
+; File z:\xashxtsrc\game_shared\utlmemory.h
+CONST	SEGMENT
+??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ DB 'z:\xashxtsrc\gam'
+	DB	'e_shared\utlmemory.h', 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@
+CONST	SEGMENT
+??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ DB 'nGrowSize >= 0', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??0?$CUtlMemory@PADH@@QAE@HH@Z
+_TEXT	SEGMENT
+_nGrowSize$ = 8
+_nInitAllocationCount$ = 12
+_this$ = -4
+??0?$CUtlMemory@PADH@@QAE@HH@Z PROC NEAR		; CUtlMemory<char *,int>::CUtlMemory<char *,int>, COMDAT
+
+; 295  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], 0
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _nInitAllocationCount$[ebp]
+	mov	DWORD PTR [ecx+4], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _nGrowSize$[ebp]
+	mov	DWORD PTR [eax+8], ecx
+
+; 296  : 	ValidateGrowSize();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?ValidateGrowSize@?$CUtlMemory@PADH@@IAEXXZ ; CUtlMemory<char *,int>::ValidateGrowSize
+
+; 297  : 	assert( nGrowSize >= 0 );
+
+	cmp	DWORD PTR _nGrowSize$[ebp], 0
+	jge	SHORT $L37432
+	push	297					; 00000129H
+	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
+	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
+	call	__assert
+	add	esp, 12					; 0000000cH
+$L37432:
+
+; 298  : 	if (m_nAllocationCount)
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+4], 0
+	je	SHORT $L36756
+
+; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx+4]
+	shl	edx, 2
+	push	edx
+	call	_malloc
+	add	esp, 4
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx], eax
+$L36756:
+
+; 302  : }
+
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??0?$CUtlMemory@PADH@@QAE@HH@Z ENDP			; CUtlMemory<char *,int>::CUtlMemory<char *,int>
+_TEXT	ENDS
+;	COMDAT ??1?$CUtlMemory@PADH@@QAE@XZ
+_TEXT	SEGMENT
+_this$ = -4
+??1?$CUtlMemory@PADH@@QAE@XZ PROC NEAR			; CUtlMemory<char *,int>::~CUtlMemory<char *,int>, COMDAT
+
+; 322  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 323  : 	Purge();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Purge@?$CUtlMemory@PADH@@QAEXXZ	; CUtlMemory<char *,int>::Purge
+
+; 324  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??1?$CUtlMemory@PADH@@QAE@XZ ENDP			; CUtlMemory<char *,int>::~CUtlMemory<char *,int>
+_TEXT	ENDS
+PUBLIC	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z		; CUtlMemory<char *,int>::IsIdxValid
+PUBLIC	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ		; CUtlMemory<char *,int>::IsReadOnly
+PUBLIC	??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@	; `string'
+PUBLIC	??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@		; `string'
+;	COMDAT ??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@
+; File z:\xashxtsrc\game_shared\utlmemory.h
+CONST	SEGMENT
+??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ DB '!IsReadOnly()', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@
+CONST	SEGMENT
+??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ DB 'IsIdxValid(i)', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??A?$CUtlMemory@PADH@@QAEAAPADH@Z
+_TEXT	SEGMENT
+_i$ = 8
+_this$ = -4
+??A?$CUtlMemory@PADH@@QAEAAPADH@Z PROC NEAR		; CUtlMemory<char *,int>::operator[], COMDAT
+
+; 423  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 424  : 	assert( !IsReadOnly() );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	SHORT $L37437
+	push	424					; 000001a8H
+	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
+	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
+	call	__assert
+	add	esp, 12					; 0000000cH
+$L37437:
+
+; 425  : 	assert( IsIdxValid(i) );
+
+	mov	ecx, DWORD PTR _i$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	jne	SHORT $L37438
+	push	425					; 000001a9H
+	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
+	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
+	call	__assert
+	add	esp, 12					; 0000000cH
+$L37438:
+
+; 426  : 	return m_pMemory[i];
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	mov	edx, DWORD PTR _i$[ebp]
+	lea	eax, DWORD PTR [ecx+edx*4]
+
+; 427  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??A?$CUtlMemory@PADH@@QAEAAPADH@Z ENDP			; CUtlMemory<char *,int>::operator[]
+_TEXT	ENDS
+;	COMDAT ?Base@?$CUtlMemory@PADH@@QAEPAPADXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Base@?$CUtlMemory@PADH@@QAEPAPADXZ PROC NEAR		; CUtlMemory<char *,int>::Base, COMDAT
+
+; 487  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 488  : 	assert( !IsReadOnly() );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	je	SHORT $L37441
+	push	488					; 000001e8H
+	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
+	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
+	call	__assert
+	add	esp, 12					; 0000000cH
+$L37441:
+
+; 489  : 	return m_pMemory;
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [ecx]
+
+; 490  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Base@?$CUtlMemory@PADH@@QAEPAPADXZ ENDP		; CUtlMemory<char *,int>::Base
+_TEXT	ENDS
+;	COMDAT ?ValidateGrowSize@?$CUtlMemory@PADH@@IAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?ValidateGrowSize@?$CUtlMemory@PADH@@IAEXXZ PROC NEAR	; CUtlMemory<char *,int>::ValidateGrowSize, COMDAT
+
+; 148  : 	{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 149  : #ifdef _X360
+; 150  : 		if ( m_nGrowSize && m_nGrowSize != EXTERNAL_BUFFER_MARKER )
+; 151  : 		{
+; 152  : 			// Max grow size at 128 bytes on XBOX
+; 153  : 			const int MAX_GROW = 128;
+; 154  : 			if ( m_nGrowSize * sizeof(T) > MAX_GROW )
+; 155  : 			{
+; 156  : 				m_nGrowSize = max( 1, MAX_GROW / sizeof(T) );
+; 157  : 			}
+; 158  : 		}
+; 159  : #endif
+; 160  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ValidateGrowSize@?$CUtlMemory@PADH@@IAEXXZ ENDP	; CUtlMemory<char *,int>::ValidateGrowSize
+_TEXT	ENDS
+PUBLIC	?Element@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::Element
+PUBLIC	?Destruct@@YAXPAPAD@Z				; Destruct
+;	COMDAT ?RemoveAll@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+_i$ = -8
+?RemoveAll@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::RemoveAll, COMDAT
+
+; 726  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 727  : 	for (int i = m_Size; --i >= 0; )
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+12]
+	mov	DWORD PTR _i$[ebp], ecx
+$L36789:
+	mov	edx, DWORD PTR _i$[ebp]
+	sub	edx, 1
+	mov	DWORD PTR _i$[ebp], edx
+	cmp	DWORD PTR _i$[ebp], 0
+	jl	SHORT $L36790
+
+; 729  : 		Destruct(&Element(i));
+
+	mov	eax, DWORD PTR _i$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Element@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::Element
+	push	eax
+	call	?Destruct@@YAXPAPAD@Z			; Destruct
+	add	esp, 4
+
+; 730  : 	}
+
+	jmp	SHORT $L36789
+$L36790:
+
+; 731  : 
+; 732  : 	m_Size = 0;
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+12], 0
+
+; 733  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?RemoveAll@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEXXZ ENDP ; CUtlArray<char *,CUtlMemory<char *,int> >::RemoveAll
+_TEXT	ENDS
+;	COMDAT ?Element@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z
+_TEXT	SEGMENT
+_i$ = 8
+_this$ = -4
+?Element@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::Element, COMDAT
+
+; 294  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 295  : 	return m_Memory[ i ];
+
+	mov	eax, DWORD PTR _i$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??A?$CUtlMemory@PADH@@QAEAAPADH@Z	; CUtlMemory<char *,int>::operator[]
+
+; 296  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Element@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ENDP ; CUtlArray<char *,CUtlMemory<char *,int> >::Element
+_TEXT	ENDS
+;	COMDAT ?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z
+_TEXT	SEGMENT
+_i$ = 8
+_this$ = -4
+?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z PROC NEAR	; CUtlMemory<char *,int>::IsIdxValid, COMDAT
+
+; 520  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 72					; 00000048H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
+
+	cmp	DWORD PTR _i$[ebp], 0
+	jl	SHORT $L37450
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _i$[ebp]
+	cmp	ecx, DWORD PTR [eax+4]
+	jge	SHORT $L37450
+	mov	DWORD PTR -8+[ebp], 1
+	jmp	SHORT $L37451
+$L37450:
+	mov	DWORD PTR -8+[ebp], 0
+$L37451:
+	mov	al, BYTE PTR -8+[ebp]
+
+; 522  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z ENDP		; CUtlMemory<char *,int>::IsIdxValid
+_TEXT	ENDS
+PUBLIC	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
+EXTRN	_free:NEAR
+;	COMDAT ?Purge@?$CUtlMemory@PADH@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4
+?Purge@?$CUtlMemory@PADH@@QAEXXZ PROC NEAR		; CUtlMemory<char *,int>::Purge, COMDAT
+
+; 645  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 646  : 	if ( !IsExternallyAllocated() )
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
+	and	eax, 255				; 000000ffH
+	test	eax, eax
+	jne	SHORT $L36822
+
+; 648  : 		if (m_pMemory)
+
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax], 0
+	je	SHORT $L36823
+
+; 650  : 			free( (void*)m_pMemory );
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	push	edx
+	call	_free
+	add	esp, 4
+
+; 651  : 			m_pMemory = 0;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], 0
+$L36823:
+
+; 653  : 		m_nAllocationCount = 0;
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx+4], 0
+$L36822:
+
+; 655  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Purge@?$CUtlMemory@PADH@@QAEXXZ ENDP			; CUtlMemory<char *,int>::Purge
+_TEXT	ENDS
+;	COMDAT ?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ PROC NEAR	; CUtlMemory<char *,int>::IsReadOnly, COMDAT
+
+; 467  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 468  : 	return (m_nGrowSize == EXTERNAL_CONST_BUFFER_MARKER);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xor	ecx, ecx
+	cmp	DWORD PTR [eax+8], -2			; fffffffeH
+	sete	cl
+	mov	al, cl
+
+; 469  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ ENDP		; CUtlMemory<char *,int>::IsReadOnly
+_TEXT	ENDS
+;	COMDAT ?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ
+_TEXT	SEGMENT
+_this$ = -4
+?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ PROC NEAR ; CUtlMemory<char *,int>::IsExternallyAllocated, COMDAT
+
+; 457  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 458  : 	return (m_nGrowSize < 0);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xor	ecx, ecx
+	cmp	DWORD PTR [eax+8], 0
+	setl	cl
+	mov	al, cl
+
+; 459  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ENDP	; CUtlMemory<char *,int>::IsExternallyAllocated
+_TEXT	ENDS
+EXTRN	_memset:NEAR
+;	COMDAT ?Destruct@@YAXPAPAD@Z
+_TEXT	SEGMENT
+_pMemory$ = 8
+?Destruct@@YAXPAPAD@Z PROC NEAR				; Destruct, COMDAT
+
+; 49   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	ebx
+	push	esi
+	push	edi
+
+; 50   : 	pMemory->~T();
+; 51   : 
+; 52   : #ifdef _DEBUG
+; 53   : 	memset( pMemory, 0xDD, sizeof(T) );
+
+	push	4
+	push	221					; 000000ddH
+	mov	eax, DWORD PTR _pMemory$[ebp]
+	push	eax
+	call	_memset
+	add	esp, 12					; 0000000cH
+
+; 54   : #endif
+; 55   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Destruct@@YAXPAPAD@Z ENDP				; Destruct
+_TEXT	ENDS
+END
