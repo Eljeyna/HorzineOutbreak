@@ -121,6 +121,7 @@ BOOL CAxe::Deploy( )
 void CAxe::Holster( void )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
+	axe_reload = 0;
 	SendWeaponAnim( AXE_HOLSTER );
 }
 

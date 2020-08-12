@@ -132,9 +132,6 @@ CONST	ENDS
 ;	COMDAT ??_C@_03IOOK@556?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
-;	COMDAT ??_C@_0L@GNNC@ARgrenades?$AA@
-CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
-CONST	ENDS
 ;	COMDAT ??_C@_03KDID@mp5?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
@@ -1465,15 +1462,10 @@ _this$ = -4
 _TEXT	ENDS
 PUBLIC	?GetItemInfo@CMP5@@UAEHPAUItemInfo@@@Z		; CMP5::GetItemInfo
 PUBLIC	??_C@_03IOOK@556?$AA@				; `string'
-PUBLIC	??_C@_0L@GNNC@ARgrenades?$AA@			; `string'
 ;	COMDAT ??_C@_03IOOK@556?$AA@
 ; File z:\xashxtsrc\server\mp5.cpp
 CONST	SEGMENT
 ??_C@_03IOOK@556?$AA@ DB '556', 00H			; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0L@GNNC@ARgrenades?$AA@
-CONST	SEGMENT
-??_C@_0L@GNNC@ARgrenades?$AA@ DB 'ARgrenades', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?GetItemInfo@CMP5@@UAEHPAUItemInfo@@@Z
 _TEXT	SEGMENT
@@ -1512,54 +1504,56 @@ _this$ = -4
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax+12], 400			; 00000190H
 
-; 113  : 	p->pszAmmo2 = "ARgrenades";
+; 113  : 	/*p->pszAmmo2 = "ARgrenades";
+; 114  : 	p->iMaxAmmo2 = M203_GRENADE_MAX_CARRY;*/
+; 115  : 	p->pszAmmo2 = NULL;
 
 	mov	ecx, DWORD PTR _p$[ebp]
-	mov	DWORD PTR [ecx+16], OFFSET FLAT:??_C@_0L@GNNC@ARgrenades?$AA@ ; `string'
+	mov	DWORD PTR [ecx+16], 0
 
-; 114  : 	p->iMaxAmmo2 = M203_GRENADE_MAX_CARRY;
+; 116  : 	p->iMaxAmmo2 = -1;
 
 	mov	edx, DWORD PTR _p$[ebp]
-	mov	DWORD PTR [edx+20], 10			; 0000000aH
+	mov	DWORD PTR [edx+20], -1
 
-; 115  : 	p->iMaxClip = MP5_MAX_CLIP;
+; 117  : 	p->iMaxClip = MP5_MAX_CLIP;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax+28], 40			; 00000028H
 
-; 116  : 	p->iSlot = 2;
+; 118  : 	p->iSlot = 2;
 
 	mov	ecx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [ecx], 2
 
-; 117  : 	p->iPosition = 0;
+; 119  : 	p->iPosition = 0;
 
 	mov	edx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [edx+4], 0
 
-; 118  : 	p->iFlags = 0;
+; 120  : 	p->iFlags = 0;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax+36], 0
 
-; 119  : 	p->iId = m_iId = WEAPON_MP5;
+; 121  : 	p->iId = m_iId = WEAPON_MP5;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1824], 4
 	mov	edx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [edx+32], 4
 
-; 120  : 	p->iWeight = MP5_WEIGHT;
+; 122  : 	p->iWeight = MP5_WEIGHT;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax+40], 15			; 0000000fH
 
-; 121  : 
-; 122  : 	return 1;
+; 123  : 
+; 124  : 	return 1;
 
 	mov	eax, 1
 
-; 123  : }
+; 125  : }
 
 	pop	edi
 	pop	esi
@@ -1579,7 +1573,7 @@ _pPlayer$ = 8
 _this$ = -4
 ?AddToPlayer@CMP5@@UAEHPAVCBasePlayer@@@Z PROC NEAR	; CMP5::AddToPlayer, COMDAT
 
-; 126  : {
+; 128  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1589,16 +1583,16 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 127  : 	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
+; 129  : 	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AddToPlayer@CBasePlayerWeapon@@UAEHPAVCBasePlayer@@@Z ; CBasePlayerWeapon::AddToPlayer
 	test	eax, eax
-	je	SHORT $L39180
+	je	SHORT $L39179
 
-; 129  : 		MESSAGE_BEGIN( MSG_ONE, gmsgWeapPickup, NULL, pPlayer->pev );
+; 131  : 		MESSAGE_BEGIN( MSG_ONE, gmsgWeapPickup, NULL, pPlayer->pev );
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -1610,7 +1604,7 @@ _this$ = -4
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUentvars_s@@@Z ; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 130  : 			WRITE_BYTE( m_iId );
+; 132  : 			WRITE_BYTE( m_iId );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+1824]
@@ -1618,22 +1612,22 @@ _this$ = -4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 131  : 		MESSAGE_END();
+; 133  : 		MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 132  : 		return TRUE;
+; 134  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L39179
-$L39180:
-
-; 134  : 	return FALSE;
-
-	xor	eax, eax
+	jmp	SHORT $L39178
 $L39179:
 
-; 135  : }
+; 136  : 	return FALSE;
+
+	xor	eax, eax
+$L39178:
+
+; 137  : }
 
 	pop	edi
 	pop	esi
@@ -1699,7 +1693,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Deploy@CMP5@@UAEHXZ PROC NEAR				; CMP5::Deploy, COMDAT
 
-; 138  : {
+; 140  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1709,7 +1703,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 139  : 	return DefaultDeploy( "models/v_9mmAR.mdl", "models/p_9mmAR.mdl", MP5_DEPLOY, "mp5" );
+; 141  : 	return DefaultDeploy( "models/v_9mmAR.mdl", "models/p_9mmAR.mdl", MP5_DEPLOY, "mp5" );
 
 	push	0
 	push	0
@@ -1720,7 +1714,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DefaultDeploy@CBasePlayerWeapon@@QAEHPAD0H0HH@Z ; CBasePlayerWeapon::DefaultDeploy
 
-; 140  : }
+; 142  : }
 
 	pop	edi
 	pop	esi
@@ -1754,31 +1748,31 @@ __real@8@3ffbccccccccccccd000 DQ 03fb999999999999ar ; 0.1
 CONST	ENDS
 ;	COMDAT ?PrimaryAttack@CMP5@@UAEXXZ
 _TEXT	SEGMENT
-$T40003 = -52
-$T40004 = -64
-$T40005 = -76
-$T40006 = -88
-$T40007 = -100
-$T40008 = -112
-$T40009 = -124
-$T40010 = -136
-$T40011 = -148
-$T40012 = -160
-$T40013 = -172
-$T40014 = -184
-$T40015 = -196
-$T40016 = -208
-$T40017 = -220
-$T40018 = -232
-$T40020 = -248
-$T40024 = -272
+$T40001 = -52
+$T40002 = -64
+$T40003 = -76
+$T40004 = -88
+$T40005 = -100
+$T40006 = -112
+$T40007 = -124
+$T40008 = -136
+$T40009 = -148
+$T40010 = -160
+$T40011 = -172
+$T40012 = -184
+$T40013 = -196
+$T40014 = -208
+$T40015 = -220
+$T40016 = -232
+$T40018 = -248
+$T40022 = -272
 _this$ = -4
 _vecShellVelocity$ = -16
 _vecSrc$ = -28
 _vecAiming$ = -40
 ?PrimaryAttack@CMP5@@UAEXXZ PROC NEAR			; CMP5::PrimaryAttack, COMDAT
 
-; 143  : {
+; 145  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1788,23 +1782,23 @@ _vecAiming$ = -40
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 144  : 	// don't fire underwater
-; 145  : 	if (m_pPlayer->pev->waterlevel == 3)
+; 146  : 	// don't fire underwater
+; 147  : 	if (m_pPlayer->pev->waterlevel == 3)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+448], 3
-	jne	SHORT $L39188
+	jne	SHORT $L39187
 
-; 147  : 		PlayEmptySound( );
+; 149  : 		PlayEmptySound( );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+428]
 
-; 148  : 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
+; 150  : 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
@@ -1812,26 +1806,26 @@ _vecAiming$ = -40
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+1844]
 
-; 149  : 		return;
+; 151  : 		return;
 
-	jmp	$L39187
-$L39188:
+	jmp	$L39186
+$L39187:
 
-; 151  : 
-; 152  : 	if (m_iClip <= 0)
+; 153  : 
+; 154  : 	if (m_iClip <= 0)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1864], 0
-	jg	SHORT $L39189
+	jg	SHORT $L39188
 
-; 154  : 		PlayEmptySound();
+; 156  : 		PlayEmptySound();
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+428]
 
-; 155  : 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
+; 157  : 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
@@ -1839,26 +1833,26 @@ $L39188:
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+1844]
 
-; 156  : 		return;
+; 158  : 		return;
 
-	jmp	$L39187
-$L39189:
+	jmp	$L39186
+$L39188:
 
-; 158  : 
-; 159  : 	m_pPlayer->m_iWeaponVolume = NORMAL_GUN_VOLUME;
+; 160  : 
+; 161  : 	m_pPlayer->m_iWeaponVolume = NORMAL_GUN_VOLUME;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+1816]
 	mov	DWORD PTR [eax+2408], 600		; 00000258H
 
-; 160  : 	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
+; 162  : 	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+1816]
 	mov	DWORD PTR [edx+2416], 256		; 00000100H
 
-; 161  : 
-; 162  : 	m_iClip--;
+; 163  : 
+; 164  : 	m_iClip--;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1864]
@@ -1866,8 +1860,8 @@ $L39189:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+1864], ecx
 
-; 163  : 
-; 164  : 	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
+; 165  : 
+; 166  : 	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
@@ -1879,8 +1873,8 @@ $L39189:
 	mov	ecx, DWORD PTR [edx+4]
 	mov	DWORD PTR [ecx+280], eax
 
-; 165  : 
-; 166  : 	SendWeaponAnim( MP5_FIRE1 + RANDOM_LONG(0,2));
+; 167  : 
+; 168  : 	SendWeaponAnim( MP5_FIRE1 + RANDOM_LONG(0,2));
 
 	push	0
 	push	1
@@ -1895,7 +1889,7 @@ $L39189:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+436]
 
-; 167  : 	m_flNextAnimTime = gpGlobals->time + 0.1;
+; 169  : 	m_flNextAnimTime = gpGlobals->time + 0.1;
 
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [ecx]
@@ -1903,16 +1897,16 @@ $L39189:
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+1884]
 
-; 168  : 
-; 169  : 	// player "shoot" animation
-; 170  : 	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
+; 170  : 
+; 171  : 	// player "shoot" animation
+; 172  : 	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	push	5
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
 	call	?SetAnimation@CBasePlayer@@QAEXW4PLAYER_ANIM@@@Z ; CBasePlayer::SetAnimation
 
-; 173  : 	{
+; 175  : 	{
 
 	push	1
 	push	0
@@ -1920,14 +1914,14 @@ $L39189:
 	add	esp, 8
 	mov	DWORD PTR -284+[ebp], eax
 	cmp	DWORD PTR -284+[ebp], 0
-	je	SHORT $L39195
+	je	SHORT $L39194
 	cmp	DWORD PTR -284+[ebp], 1
-	je	SHORT $L39197
-	jmp	$L39192
-$L39195:
+	je	SHORT $L39196
+	jmp	$L39191
+$L39194:
 
-; 174  : 	case 0:
-; 175  : 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/hks1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf));
+; 176  : 	case 0:
+; 177  : 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/hks1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf));
 
 	push	15					; 0000000fH
 	push	0
@@ -1950,13 +1944,13 @@ $L39195:
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
 
-; 176  : 		break;
+; 178  : 		break;
 
-	jmp	SHORT $L39192
-$L39197:
+	jmp	SHORT $L39191
+$L39196:
 
-; 177  : 	case 1:
-; 178  : 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/hks2.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf));
+; 179  : 	case 1:
+; 180  : 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/hks2.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf));
 
 	push	15					; 0000000fH
 	push	0
@@ -1978,17 +1972,17 @@ $L39197:
 	push	eax
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
-$L39192:
+$L39191:
 
-; 182  : 
-; 183  : 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
+; 184  : 
+; 185  : 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+1816]
 	mov	eax, DWORD PTR [edx+4]
 	add	eax, 104				; 00000068H
 	push	eax
-	lea	ecx, DWORD PTR $T40003[ebp]
+	lea	ecx, DWORD PTR $T40001[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+1816]
@@ -1999,46 +1993,46 @@ $L39192:
 	call	?UTIL_MakeVectors@@YAXABVVector@@@Z	; UTIL_MakeVectors
 	add	esp, 4
 
-; 184  : 
-; 185  : 	Vector	vecShellVelocity = m_pPlayer->GetAbsVelocity()
-; 186  : 							 + gpGlobals->v_right * RANDOM_FLOAT(50,70)
-; 187  : 							 + gpGlobals->v_up * RANDOM_FLOAT(100,150)
-; 188  : 							 + gpGlobals->v_forward * 25;
+; 186  : 
+; 187  : 	Vector	vecShellVelocity = m_pPlayer->GetAbsVelocity()
+; 188  : 							 + gpGlobals->v_right * RANDOM_FLOAT(50,70)
+; 189  : 							 + gpGlobals->v_up * RANDOM_FLOAT(100,150)
+; 190  : 							 + gpGlobals->v_forward * 25;
 
 	push	1103626240				; 41c80000H
-	lea	ecx, DWORD PTR $T40008[ebp]
+	lea	ecx, DWORD PTR $T40006[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40009[ebp]
+	lea	edx, DWORD PTR $T40007[ebp]
 	push	edx
 	push	1125515264				; 43160000H
 	push	1120403456				; 42c80000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T40006[ebp]
+	lea	eax, DWORD PTR $T40004[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 52					; 00000034H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40007[ebp]
+	lea	ecx, DWORD PTR $T40005[ebp]
 	push	ecx
 	push	1116471296				; 428c0000H
 	push	1112014848				; 42480000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	edx, DWORD PTR $T40004[ebp]
+	lea	edx, DWORD PTR $T40002[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40005[ebp]
+	lea	eax, DWORD PTR $T40003[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+1816]
@@ -2053,11 +2047,11 @@ $L39192:
 	lea	ecx, DWORD PTR _vecShellVelocity$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 189  : 	EjectBrass ( m_pPlayer->EyePosition()
-; 190  : 					+ gpGlobals->v_up * -12
-; 191  : 					+ gpGlobals->v_forward * 20
-; 192  : 					+ gpGlobals->v_right * 4, vecShellVelocity,
-; 193  : 					m_pPlayer->GetAbsAngles().y, m_iShell, TE_BOUNCE_SHELL);
+; 191  : 	EjectBrass ( m_pPlayer->EyePosition()
+; 192  : 					+ gpGlobals->v_up * -12
+; 193  : 					+ gpGlobals->v_forward * 20
+; 194  : 					+ gpGlobals->v_right * 4, vecShellVelocity,
+; 195  : 					m_pPlayer->GetAbsAngles().y, m_iShell, TE_BOUNCE_SHELL);
 
 	push	1
 	mov	edx, DWORD PTR _this$[ebp]
@@ -2071,33 +2065,33 @@ $L39192:
 	lea	eax, DWORD PTR _vecShellVelocity$[ebp]
 	push	eax
 	push	1082130432				; 40800000H
-	lea	ecx, DWORD PTR $T40015[ebp]
+	lea	ecx, DWORD PTR $T40013[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40016[ebp]
+	lea	edx, DWORD PTR $T40014[ebp]
 	push	edx
 	push	1101004800				; 41a00000H
-	lea	eax, DWORD PTR $T40013[ebp]
+	lea	eax, DWORD PTR $T40011[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40014[ebp]
+	lea	ecx, DWORD PTR $T40012[ebp]
 	push	ecx
 	push	-1052770304				; c1400000H
-	lea	edx, DWORD PTR $T40011[ebp]
+	lea	edx, DWORD PTR $T40009[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 52					; 00000034H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40012[ebp]
+	lea	eax, DWORD PTR $T40010[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40010[ebp]
+	lea	ecx, DWORD PTR $T40008[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+1816]
@@ -2115,10 +2109,10 @@ $L39192:
 	call	?EjectBrass@@YAXABVVector@@0MHH@Z	; EjectBrass
 	add	esp, 20					; 00000014H
 
-; 194  : 
-; 195  : 	Vector vecSrc = m_pPlayer->GetGunPosition( );
+; 196  : 
+; 197  : 	Vector vecSrc = m_pPlayer->GetGunPosition( );
 
-	lea	ecx, DWORD PTR $T40017[ebp]
+	lea	ecx, DWORD PTR $T40015[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+1816]
@@ -2130,10 +2124,10 @@ $L39192:
 	lea	ecx, DWORD PTR _vecSrc$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 196  : 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
+; 198  : 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
 	push	1035108022				; 3db27eb6H
-	lea	ecx, DWORD PTR $T40018[ebp]
+	lea	ecx, DWORD PTR $T40016[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+1816]
@@ -2142,18 +2136,18 @@ $L39192:
 	lea	ecx, DWORD PTR _vecAiming$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 197  : 
-; 198  : 	if ( g_pGameRules->IsDeathmatch() )
+; 199  : 
+; 200  : 	if ( g_pGameRules->IsDeathmatch() )
 
 	mov	eax, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	call	DWORD PTR [edx+28]
 	test	eax, eax
-	je	SHORT $L39218
+	je	SHORT $L39217
 
-; 200  : 		// optimized multiplayer. Widened to make it easier to hit a moving player
-; 201  : 		m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_6DEGREES, 8192, BULLET_PLAYER_MP5, 2 );
+; 202  : 		// optimized multiplayer. Widened to make it easier to hit a moving player
+; 203  : 		m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_6DEGREES, 8192, BULLET_PLAYER_MP5, 2 );
 
 	push	0
 	push	0
@@ -2163,7 +2157,7 @@ $L39192:
 	push	1029071480				; 3d566278H
 	push	1029071480				; 3d566278H
 	push	1029071480				; 3d566278H
-	lea	ecx, DWORD PTR $T40020[ebp]
+	lea	ecx, DWORD PTR $T40018[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -2184,13 +2178,13 @@ $L39192:
 	mov	ecx, DWORD PTR [eax+1816]
 	call	?FireBullets@CBaseEntity@@QAEXKVVector@@00MHHHPAUentvars_s@@@Z ; CBaseEntity::FireBullets
 
-; 203  : 	else
+; 205  : 	else
 
-	jmp	SHORT $L39223
-$L39218:
+	jmp	SHORT $L39222
+$L39217:
 
-; 205  : 		// single player spread
-; 206  : 		m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_3DEGREES, 8192, BULLET_PLAYER_MP5, 2 );
+; 207  : 		// single player spread
+; 208  : 		m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_3DEGREES, 8192, BULLET_PLAYER_MP5, 2 );
 
 	push	0
 	push	0
@@ -2200,7 +2194,7 @@ $L39218:
 	push	1020688240				; 3cd67770H
 	push	1020688240				; 3cd67770H
 	push	1020688240				; 3cd67770H
-	lea	ecx, DWORD PTR $T40024[ebp]
+	lea	ecx, DWORD PTR $T40022[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -2220,14 +2214,14 @@ $L39218:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+1816]
 	call	?FireBullets@CBaseEntity@@QAEXKVVector@@00MHHHPAUentvars_s@@@Z ; CBaseEntity::FireBullets
-$L39223:
+$L39222:
 
-; 208  : 
-; 209  : 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
-; 210  : 		// HEV suit - indicate out of ammo condition
-; 211  : 		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);*/
-; 212  : 
-; 213  : 	m_flNextPrimaryAttack = m_flNextPrimaryAttack + 0.1;
+; 210  : 
+; 211  : 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
+; 212  : 		// HEV suit - indicate out of ammo condition
+; 213  : 		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);*/
+; 214  : 
+; 215  : 	m_flNextPrimaryAttack = m_flNextPrimaryAttack + 0.1;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [edx+1844]
@@ -2235,7 +2229,7 @@ $L39223:
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+1844]
 
-; 214  : 	if (m_flNextPrimaryAttack < gpGlobals->time)
+; 216  : 	if (m_flNextPrimaryAttack < gpGlobals->time)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -2243,19 +2237,19 @@ $L39223:
 	fcomp	DWORD PTR [edx]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L39228
+	je	SHORT $L39227
 
-; 215  : 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
+; 217  : 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
 	fadd	QWORD PTR __real@8@3ffbccccccccccccd000
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+1844]
-$L39228:
+$L39227:
 
-; 216  : 
-; 217  : 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
+; 218  : 
+; 219  : 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 
 	push	1097859072				; 41700000H
 	push	1092616192				; 41200000H
@@ -2266,8 +2260,8 @@ $L39228:
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+1852]
 
-; 218  : 
-; 219  : 	m_pPlayer->pev->punchangle.x = RANDOM_FLOAT( -2, 2 );
+; 220  : 
+; 221  : 	m_pPlayer->pev->punchangle.x = RANDOM_FLOAT( -2, 2 );
 
 	push	1073741824				; 40000000H
 	push	-1073741824				; c0000000H
@@ -2277,9 +2271,9 @@ $L39228:
 	mov	edx, DWORD PTR [ecx+1816]
 	mov	eax, DWORD PTR [edx+4]
 	fstp	DWORD PTR [eax+104]
-$L39187:
+$L39186:
 
-; 220  : }
+; 222  : }
 
 	pop	edi
 	pop	esi
@@ -2362,7 +2356,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
-$T40036 = -16
+$T40034 = -16
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -2395,7 +2389,7 @@ _this$ = -4
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40036[ebp]
+	lea	ecx, DWORD PTR $T40034[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -2411,7 +2405,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ??DVector@@QBE?AV0@M@Z
 _TEXT	SEGMENT
-$T40039 = -16
+$T40037 = -16
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -2441,7 +2435,7 @@ _this$ = -4
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40039[ebp]
+	lea	ecx, DWORD PTR $T40037[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -2462,7 +2456,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Reload@CMP5@@UAEXXZ PROC NEAR				; CMP5::Reload, COMDAT
 
-; 279  : {
+; 281  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2472,7 +2466,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 280  : 	DefaultReload( MP5_MAX_CLIP, MP5_RELOAD, 1.75 );
+; 282  : 	DefaultReload( MP5_MAX_CLIP, MP5_RELOAD, 1.75 );
 
 	push	0
 	push	1071644672				; 3fe00000H
@@ -2481,7 +2475,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DefaultReload@CBasePlayerWeapon@@QAEHHHMH@Z ; CBasePlayerWeapon::DefaultReload
 
-; 281  : }
+; 283  : }
 
 	pop	edi
 	pop	esi
@@ -2494,12 +2488,12 @@ _TEXT	ENDS
 PUBLIC	?WeaponIdle@CMP5@@UAEXXZ			; CMP5::WeaponIdle
 ;	COMDAT ?WeaponIdle@CMP5@@UAEXXZ
 _TEXT	SEGMENT
-$T40044 = -20
+$T40042 = -20
 _this$ = -4
 _iAnim$ = -8
 ?WeaponIdle@CMP5@@UAEXXZ PROC NEAR			; CMP5::WeaponIdle, COMDAT
 
-; 284  : {
+; 286  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2509,25 +2503,25 @@ _iAnim$ = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 285  : 	ResetEmptySound( );
+; 287  : 	ResetEmptySound( );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+432]
 
-; 286  : 
-; 287  : 	m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
+; 288  : 
+; 289  : 	m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
 	push	1035108022				; 3db27eb6H
-	lea	eax, DWORD PTR $T40044[ebp]
+	lea	eax, DWORD PTR $T40042[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+1816]
 	call	?GetAutoaimVector@CBasePlayer@@QAE?AVVector@@M@Z ; CBasePlayer::GetAutoaimVector
 
-; 288  : 
-; 289  : 	if (m_flTimeWeaponIdle > gpGlobals->time)
+; 290  : 
+; 291  : 	if (m_flTimeWeaponIdle > gpGlobals->time)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -2535,14 +2529,14 @@ _iAnim$ = -8
 	fcomp	DWORD PTR [eax]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39238
+	jne	SHORT $L39237
 
-; 290  : 		return;
+; 292  : 		return;
 
-	jmp	SHORT $L39236
-$L39238:
+	jmp	SHORT $L39235
+$L39237:
 
-; 294  : 	{
+; 296  : 	{
 
 	push	1
 	push	0
@@ -2550,30 +2544,30 @@ $L39238:
 	add	esp, 8
 	mov	DWORD PTR -24+[ebp], eax
 	cmp	DWORD PTR -24+[ebp], 0
-	je	SHORT $L39244
-	jmp	SHORT $L39245
-$L39244:
+	je	SHORT $L39243
+	jmp	SHORT $L39244
+$L39243:
 
-; 295  : 	case 0:
-; 296  : 		iAnim = MP5_LONGIDLE;
+; 297  : 	case 0:
+; 298  : 		iAnim = MP5_LONGIDLE;
 
 	mov	DWORD PTR _iAnim$[ebp], 0
 
-; 297  : 		break;
+; 299  : 		break;
 
-	jmp	SHORT $L39241
-$L39245:
+	jmp	SHORT $L39240
+$L39244:
 
-; 298  : 
-; 299  : 	default:
-; 300  : 	case 1:
-; 301  : 		iAnim = MP5_IDLE1;
+; 300  : 
+; 301  : 	default:
+; 302  : 	case 1:
+; 303  : 		iAnim = MP5_IDLE1;
 
 	mov	DWORD PTR _iAnim$[ebp], 1
-$L39241:
+$L39240:
 
-; 304  : 
-; 305  : 	SendWeaponAnim( iAnim );
+; 306  : 
+; 307  : 	SendWeaponAnim( iAnim );
 
 	push	0
 	push	1
@@ -2584,8 +2578,8 @@ $L39241:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+436]
 
-; 306  : 
-; 307  : 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
+; 308  : 
+; 309  : 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
 
 	push	1097859072				; 41700000H
 	push	1092616192				; 41200000H
@@ -2595,9 +2589,9 @@ $L39241:
 	fadd	DWORD PTR [ecx]
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+1852]
-$L39236:
+$L39235:
 
-; 308  : }
+; 310  : }
 
 	pop	edi
 	pop	esi
@@ -2639,7 +2633,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _$E39	PROC NEAR					; COMDAT
 
-; 336  : LINK_ENTITY_TO_CLASS( ammo_mp5clip, CMP5AmmoClip );
+; 338  : LINK_ENTITY_TO_CLASS( ammo_mp5clip, CMP5AmmoClip );
 
 	push	ebp
 	mov	ebp, esp
@@ -2689,7 +2683,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _$E42	PROC NEAR					; COMDAT
 
-; 337  : LINK_ENTITY_TO_CLASS( ammo_9mmAR, CMP5AmmoClip );
+; 339  : LINK_ENTITY_TO_CLASS( ammo_9mmAR, CMP5AmmoClip );
 
 	push	ebp
 	mov	ebp, esp
@@ -2740,7 +2734,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _$E45	PROC NEAR					; COMDAT
 
-; 366  : LINK_ENTITY_TO_CLASS( ammo_9mmbox, CMP5Chainammo );
+; 368  : LINK_ENTITY_TO_CLASS( ammo_9mmbox, CMP5Chainammo );
 
 	push	ebp
 	mov	ebp, esp
@@ -3297,8 +3291,8 @@ __unwindtable$?GetClassPtr@@YAPAVCMP5@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCMP5@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T40085 = -20
-$T40086 = -24
+$T40083 = -20
+$T40084 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -3329,7 +3323,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39441
+	jne	SHORT $L39440
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -3338,7 +3332,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39441:
+$L39440:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -3357,7 +3351,7 @@ $L39441:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39443
+	jne	SHORT $L39442
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -3367,21 +3361,21 @@ $L39441:
 	push	1892					; 00000764H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40086[ebp], eax
+	mov	DWORD PTR $T40084[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40086[ebp], 0
-	je	SHORT $L40087
-	mov	ecx, DWORD PTR $T40086[ebp]
+	cmp	DWORD PTR $T40084[ebp], 0
+	je	SHORT $L40085
+	mov	ecx, DWORD PTR $T40084[ebp]
 	call	??0CMP5@@QAE@XZ				; CMP5::CMP5
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40088
-$L40087:
+	jmp	SHORT $L40086
+$L40085:
 	mov	DWORD PTR -28+[ebp], 0
-$L40088:
+$L40086:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40085[ebp], eax
+	mov	DWORD PTR $T40083[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40085[ebp]
+	mov	ecx, DWORD PTR $T40083[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -3389,7 +3383,7 @@ $L40088:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39443:
+$L39442:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -3419,7 +3413,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCMP5@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40086[ebp]
+	mov	ecx, DWORD PTR $T40084[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -3626,8 +3620,8 @@ __unwindtable$?GetClassPtr@@YAPAVCMP5AmmoClip@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCMP5AmmoClip@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T40112 = -20
-$T40113 = -24
+$T40110 = -20
+$T40111 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -3658,7 +3652,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39452
+	jne	SHORT $L39451
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -3667,7 +3661,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39452:
+$L39451:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -3686,7 +3680,7 @@ $L39452:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39454
+	jne	SHORT $L39453
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -3696,21 +3690,21 @@ $L39452:
 	push	1764					; 000006e4H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40113[ebp], eax
+	mov	DWORD PTR $T40111[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40113[ebp], 0
-	je	SHORT $L40114
-	mov	ecx, DWORD PTR $T40113[ebp]
+	cmp	DWORD PTR $T40111[ebp], 0
+	je	SHORT $L40112
+	mov	ecx, DWORD PTR $T40111[ebp]
 	call	??0CMP5AmmoClip@@QAE@XZ			; CMP5AmmoClip::CMP5AmmoClip
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40115
-$L40114:
+	jmp	SHORT $L40113
+$L40112:
 	mov	DWORD PTR -28+[ebp], 0
-$L40115:
+$L40113:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40112[ebp], eax
+	mov	DWORD PTR $T40110[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40112[ebp]
+	mov	ecx, DWORD PTR $T40110[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -3718,7 +3712,7 @@ $L40115:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39454:
+$L39453:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -3748,7 +3742,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCMP5AmmoClip@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40113[ebp]
+	mov	ecx, DWORD PTR $T40111[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -3773,8 +3767,8 @@ __unwindtable$?GetClassPtr@@YAPAVCMP5Chainammo@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCMP5Chainammo@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T40125 = -20
-$T40126 = -24
+$T40123 = -20
+$T40124 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -3805,7 +3799,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39463
+	jne	SHORT $L39462
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -3814,7 +3808,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39463:
+$L39462:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -3833,7 +3827,7 @@ $L39463:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39465
+	jne	SHORT $L39464
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -3843,21 +3837,21 @@ $L39463:
 	push	1764					; 000006e4H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40126[ebp], eax
+	mov	DWORD PTR $T40124[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40126[ebp], 0
-	je	SHORT $L40127
-	mov	ecx, DWORD PTR $T40126[ebp]
+	cmp	DWORD PTR $T40124[ebp], 0
+	je	SHORT $L40125
+	mov	ecx, DWORD PTR $T40124[ebp]
 	call	??0CMP5Chainammo@@QAE@XZ		; CMP5Chainammo::CMP5Chainammo
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40128
-$L40127:
+	jmp	SHORT $L40126
+$L40125:
 	mov	DWORD PTR -28+[ebp], 0
-$L40128:
+$L40126:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40125[ebp], eax
+	mov	DWORD PTR $T40123[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40125[ebp]
+	mov	ecx, DWORD PTR $T40123[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -3865,7 +3859,7 @@ $L40128:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39465:
+$L39464:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -3895,7 +3889,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCMP5Chainammo@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40126[ebp]
+	mov	ecx, DWORD PTR $T40124[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -4846,26 +4840,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40199
+	je	SHORT $L40197
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40199
+	je	SHORT $L40197
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40199
+	je	SHORT $L40197
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40200
-$L40199:
+	jmp	SHORT $L40198
+$L40197:
 	mov	DWORD PTR -8+[ebp], 0
-$L40200:
+$L40198:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -5048,19 +5042,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L40217
+	jne	SHORT $L40215
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L40217
+	jne	SHORT $L40215
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40218
-$L40217:
+	jmp	SHORT $L40216
+$L40215:
 	mov	DWORD PTR -8+[ebp], 0
-$L40218:
+$L40216:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -5148,26 +5142,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L40225
+	jne	SHORT $L40223
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L40226
-$L40225:
+	je	SHORT $L40224
+$L40223:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40226
+	je	SHORT $L40224
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40227
-$L40226:
+	jmp	SHORT $L40225
+$L40224:
 	mov	DWORD PTR -8+[ebp], 0
-$L40227:
+$L40225:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -5929,8 +5923,8 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40276 = -16
-$T40277 = -28
+$T40274 = -16
+$T40275 = -28
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
 
 ; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
@@ -5943,13 +5937,13 @@ $T40277 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T40277[ebp]
+	lea	eax, DWORD PTR $T40275[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T40276[ebp]
+	lea	eax, DWORD PTR $T40274[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -5974,7 +5968,7 @@ EXTRN	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsOrig
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40280 = -16
+$T40278 = -16
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
 
 ; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
@@ -5990,7 +5984,7 @@ $T40280 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40280[ebp]
+	lea	edx, DWORD PTR $T40278[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -6012,7 +6006,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40283 = -16
+$T40281 = -16
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
 
 ; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
@@ -6028,7 +6022,7 @@ $T40283 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40283[ebp]
+	lea	edx, DWORD PTR $T40281[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -6050,7 +6044,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40286 = -16
+$T40284 = -16
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
 
 ; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
@@ -6062,7 +6056,7 @@ $T40286 = -16
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T40286[ebp]
+	lea	eax, DWORD PTR $T40284[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -6792,7 +6786,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Spawn@CMP5AmmoClip@@EAEXXZ PROC NEAR			; CMP5AmmoClip::Spawn, COMDAT
 
-; 315  : 	{
+; 317  : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -6802,14 +6796,14 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 316  : 		Precache( );
+; 318  : 		Precache( );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+8]
 
-; 317  : 		SET_MODEL(ENT(pev), "models/w_9mmARclip.mdl");
+; 319  : 		SET_MODEL(ENT(pev), "models/w_9mmARclip.mdl");
 
 	push	OFFSET FLAT:??_C@_0BH@GGOB@models?1w_9mmARclip?4mdl?$AA@ ; `string'
 	mov	eax, DWORD PTR _this$[ebp]
@@ -6821,12 +6815,12 @@ _this$ = -4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+8
 	add	esp, 8
 
-; 318  : 		CBasePlayerAmmo::Spawn( );
+; 320  : 		CBasePlayerAmmo::Spawn( );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Spawn@CBasePlayerAmmo@@UAEXXZ		; CBasePlayerAmmo::Spawn
 
-; 319  : 	}
+; 321  : 	}
 
 	pop	edi
 	pop	esi
@@ -6841,7 +6835,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Precache@CMP5AmmoClip@@EAEXXZ PROC NEAR		; CMP5AmmoClip::Precache, COMDAT
 
-; 321  : 	{
+; 323  : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -6851,19 +6845,19 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 322  : 		PRECACHE_MODEL ("models/w_9mmARclip.mdl");
+; 324  : 		PRECACHE_MODEL ("models/w_9mmARclip.mdl");
 
 	push	OFFSET FLAT:??_C@_0BH@GGOB@models?1w_9mmARclip?4mdl?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A
 	add	esp, 4
 
-; 323  : 		PRECACHE_SOUND("items/9mmclip1.wav");
+; 325  : 		PRECACHE_SOUND("items/9mmclip1.wav");
 
 	push	OFFSET FLAT:??_C@_0BD@DCKL@items?19mmclip1?4wav?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
 
-; 324  : 	}
+; 326  : 	}
 
 	pop	edi
 	pop	esi
@@ -6881,7 +6875,7 @@ _this$ = -4
 _bResult$ = -8
 ?AddAmmo@CMP5AmmoClip@@EAEHPAVCBaseEntity@@@Z PROC NEAR	; CMP5AmmoClip::AddAmmo, COMDAT
 
-; 326  : 	{
+; 328  : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -6891,7 +6885,7 @@ _bResult$ = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 327  : 		int bResult = (pOther->GiveAmmo( AMMO_MP5CLIP_GIVE, "556", _556_MAX_CARRY) != -1);
+; 329  : 		int bResult = (pOther->GiveAmmo( AMMO_MP5CLIP_GIVE, "556", _556_MAX_CARRY) != -1);
 
 	push	400					; 00000190H
 	push	OFFSET FLAT:??_C@_03IOOK@556?$AA@	; `string'
@@ -6905,12 +6899,12 @@ _bResult$ = -8
 	setne	cl
 	mov	DWORD PTR _bResult$[ebp], ecx
 
-; 328  : 		if (bResult)
+; 330  : 		if (bResult)
 
 	cmp	DWORD PTR _bResult$[ebp], 0
-	je	SHORT $L39275
+	je	SHORT $L39274
 
-; 330  : 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+; 332  : 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
 
 	push	1061997773				; 3f4ccccdH
 	push	1065353216				; 3f800000H
@@ -6924,13 +6918,13 @@ _bResult$ = -8
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L39275:
+$L39274:
 
-; 332  : 		return bResult;
+; 334  : 		return bResult;
 
 	mov	eax, DWORD PTR _bResult$[ebp]
 
-; 333  : 	}
+; 335  : 	}
 
 	pop	edi
 	pop	esi
@@ -7113,7 +7107,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Spawn@CMP5Chainammo@@EAEXXZ PROC NEAR			; CMP5Chainammo::Spawn, COMDAT
 
-; 345  : 	{
+; 347  : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -7123,14 +7117,14 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 346  : 		Precache( );
+; 348  : 		Precache( );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+8]
 
-; 347  : 		SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
+; 349  : 		SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
 
 	push	OFFSET FLAT:??_C@_0BH@FNIA@models?1w_chainammo?4mdl?$AA@ ; `string'
 	mov	eax, DWORD PTR _this$[ebp]
@@ -7142,12 +7136,12 @@ _this$ = -4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+8
 	add	esp, 8
 
-; 348  : 		CBasePlayerAmmo::Spawn( );
+; 350  : 		CBasePlayerAmmo::Spawn( );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Spawn@CBasePlayerAmmo@@UAEXXZ		; CBasePlayerAmmo::Spawn
 
-; 349  : 	}
+; 351  : 	}
 
 	pop	edi
 	pop	esi
@@ -7162,7 +7156,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Precache@CMP5Chainammo@@EAEXXZ PROC NEAR		; CMP5Chainammo::Precache, COMDAT
 
-; 351  : 	{
+; 353  : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -7172,19 +7166,19 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 352  : 		PRECACHE_MODEL ("models/w_chainammo.mdl");
+; 354  : 		PRECACHE_MODEL ("models/w_chainammo.mdl");
 
 	push	OFFSET FLAT:??_C@_0BH@FNIA@models?1w_chainammo?4mdl?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A
 	add	esp, 4
 
-; 353  : 		PRECACHE_SOUND("items/9mmclip1.wav");
+; 355  : 		PRECACHE_SOUND("items/9mmclip1.wav");
 
 	push	OFFSET FLAT:??_C@_0BD@DCKL@items?19mmclip1?4wav?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
 
-; 354  : 	}
+; 356  : 	}
 
 	pop	edi
 	pop	esi
@@ -7201,7 +7195,7 @@ _this$ = -4
 _bResult$ = -8
 ?AddAmmo@CMP5Chainammo@@EAEHPAVCBaseEntity@@@Z PROC NEAR ; CMP5Chainammo::AddAmmo, COMDAT
 
-; 356  : 	{
+; 358  : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -7211,7 +7205,7 @@ _bResult$ = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 357  : 		int bResult = (pOther->GiveAmmo( AMMO_CHAINBOX_GIVE, "556", _556_MAX_CARRY) != -1);
+; 359  : 		int bResult = (pOther->GiveAmmo( AMMO_CHAINBOX_GIVE, "556", _556_MAX_CARRY) != -1);
 
 	push	400					; 00000190H
 	push	OFFSET FLAT:??_C@_03IOOK@556?$AA@	; `string'
@@ -7225,12 +7219,12 @@ _bResult$ = -8
 	setne	cl
 	mov	DWORD PTR _bResult$[ebp], ecx
 
-; 358  : 		if (bResult)
+; 360  : 		if (bResult)
 
 	cmp	DWORD PTR _bResult$[ebp], 0
-	je	SHORT $L39339
+	je	SHORT $L39338
 
-; 360  : 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+; 362  : 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
 
 	push	1061997773				; 3f4ccccdH
 	push	1065353216				; 3f800000H
@@ -7244,13 +7238,13 @@ _bResult$ = -8
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L39339:
+$L39338:
 
-; 362  : 		return bResult;
+; 364  : 		return bResult;
 
 	mov	eax, DWORD PTR _bResult$[ebp]
 
-; 363  : 	}
+; 365  : 	}
 
 	pop	edi
 	pop	esi

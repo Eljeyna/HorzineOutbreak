@@ -3894,6 +3894,27 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		//GiveNamedItem( "weapon_snark" );
 		//GiveNamedItem( "weapon_hornetgun" );
 		gEvilImpulse101 = FALSE;
+		/*hudtextparms_t	m_textParms;
+
+		m_textParms.channel = 0;
+		m_textParms.x = -1;
+		m_textParms.y = -0.25;
+		m_textParms.effect = 0;
+
+		m_textParms.r1 = 255;
+		m_textParms.g1 = 255;
+		m_textParms.b1 = 255;
+		m_textParms.a1 = 200;
+
+		m_textParms.r2 = 255;
+		m_textParms.g2 = 160;
+		m_textParms.b2 = 0;
+		m_textParms.a2 = 200;
+		m_textParms.fadeinTime = 3;
+		m_textParms.fadeoutTime = 3;
+		m_textParms.holdTime = 10;
+		m_textParms.fxTime = 0.25;
+		UTIL_HudMessage( this, m_textParms, "Wake up" );*/
 		break;
 	case 102:
 		// Gibbage!!!

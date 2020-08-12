@@ -110,8 +110,10 @@ int CMP5::GetItemInfo(ItemInfo *p)
 	p->pszName = STRING(pev->classname);
 	p->pszAmmo1 = "556";
 	p->iMaxAmmo1 = _556_MAX_CARRY;
-	p->pszAmmo2 = "ARgrenades";
-	p->iMaxAmmo2 = M203_GRENADE_MAX_CARRY;
+	/*p->pszAmmo2 = "ARgrenades";
+	p->iMaxAmmo2 = M203_GRENADE_MAX_CARRY;*/
+	p->pszAmmo2 = NULL;
+	p->iMaxAmmo2 = -1;
 	p->iMaxClip = MP5_MAX_CLIP;
 	p->iSlot = 2;
 	p->iPosition = 0;

@@ -122,6 +122,7 @@ BOOL CCrowbar::Deploy( )
 void CCrowbar::Holster( void )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
+	crowbar_stab_attack = false;
 	SendWeaponAnim( CROWBAR_HOLSTER );
 }
 

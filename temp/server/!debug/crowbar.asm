@@ -1871,17 +1871,22 @@ _this$ = -4
 	mov	edx, DWORD PTR [ecx+1816]
 	fstp	DWORD PTR [edx+2308]
 
-; 125  : 	SendWeaponAnim( CROWBAR_HOLSTER );
+; 125  : 	crowbar_stab_attack = false;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	BYTE PTR [eax+1888], 0
+
+; 126  : 	SendWeaponAnim( CROWBAR_HOLSTER );
 
 	push	0
 	push	1
 	push	2
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+436]
 
-; 126  : }
+; 127  : }
 
 	pop	edi
 	pop	esi
@@ -1928,7 +1933,7 @@ $T39855 = -144
 $T39856 = -156
 ?FindHullIntersection@@YAXABVVector@@AAUgametrace_s@@PAM2PAUedict_s@@@Z PROC NEAR ; FindHullIntersection, COMDAT
 
-; 129  : {
+; 130  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1937,21 +1942,21 @@ $T39856 = -156
 	push	esi
 	push	edi
 
-; 130  : 	int			i, j, k;
-; 131  : 	float		distance;
-; 132  : 	float		*minmaxs[2] = {mins, maxs};
+; 131  : 	int			i, j, k;
+; 132  : 	float		distance;
+; 133  : 	float		*minmaxs[2] = {mins, maxs};
 
 	mov	eax, DWORD PTR _mins$[ebp]
 	mov	DWORD PTR _minmaxs$[ebp], eax
 	mov	ecx, DWORD PTR _maxs$[ebp]
 	mov	DWORD PTR _minmaxs$[ebp+4], ecx
 
-; 133  : 	TraceResult tmpTrace;
+; 134  : 	TraceResult tmpTrace;
 
 	lea	ecx, DWORD PTR _tmpTrace$[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
-; 134  : 	Vector		vecHullEnd = tr.vecEndPos;
+; 135  : 	Vector		vecHullEnd = tr.vecEndPos;
 
 	mov	edx, DWORD PTR _tr$[ebp]
 	add	edx, 20					; 00000014H
@@ -1959,18 +1964,18 @@ $T39856 = -156
 	lea	ecx, DWORD PTR _vecHullEnd$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 135  : 	Vector		vecEnd;
+; 136  : 	Vector		vecEnd;
 
 	lea	ecx, DWORD PTR _vecEnd$[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
-; 136  : 
-; 137  : 	distance = 1e6f;
+; 137  : 
+; 138  : 	distance = 1e6f;
 
 	mov	DWORD PTR _distance$[ebp], 1232348160	; 49742400H
 
-; 138  : 
-; 139  : 	vecHullEnd = vecSrc + ((vecHullEnd - vecSrc)*2);
+; 139  : 
+; 140  : 	vecHullEnd = vecSrc + ((vecHullEnd - vecSrc)*2);
 
 	push	1073741824				; 40000000H
 	lea	eax, DWORD PTR $T39854[ebp]
@@ -1995,7 +2000,7 @@ $T39856 = -156
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR _vecHullEnd$[ebp+8], eax
 
-; 140  : 	UTIL_TraceLine( vecSrc, vecHullEnd, dont_ignore_monsters, pEntity, &tmpTrace );
+; 141  : 	UTIL_TraceLine( vecSrc, vecHullEnd, dont_ignore_monsters, pEntity, &tmpTrace );
 
 	lea	ecx, DWORD PTR _tmpTrace$[ebp]
 	push	ecx
@@ -2009,7 +2014,7 @@ $T39856 = -156
 	call	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@PAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceLine
 	add	esp, 20					; 00000014H
 
-; 141  : 	if ( tmpTrace.flFraction < 1.0 )
+; 142  : 	if ( tmpTrace.flFraction < 1.0 )
 
 	fld	DWORD PTR _tmpTrace$[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
@@ -2017,20 +2022,20 @@ $T39856 = -156
 	test	ah, 1
 	je	SHORT $L39167
 
-; 143  : 		tr = tmpTrace;
+; 144  : 		tr = tmpTrace;
 
 	mov	ecx, 14					; 0000000eH
 	lea	esi, DWORD PTR _tmpTrace$[ebp]
 	mov	edi, DWORD PTR _tr$[ebp]
 	rep movsd
 
-; 144  : 		return;
+; 145  : 		return;
 
 	jmp	$L39155
 $L39167:
 
-; 146  : 
-; 147  : 	for ( i = 0; i < 2; i++ )
+; 147  : 
+; 148  : 	for ( i = 0; i < 2; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
 	jmp	SHORT $L39168
@@ -2042,7 +2047,7 @@ $L39168:
 	cmp	DWORD PTR _i$[ebp], 2
 	jge	$L39170
 
-; 149  : 		for ( j = 0; j < 2; j++ )
+; 150  : 		for ( j = 0; j < 2; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
 	jmp	SHORT $L39171
@@ -2054,7 +2059,7 @@ $L39171:
 	cmp	DWORD PTR _j$[ebp], 2
 	jge	$L39173
 
-; 151  : 			for ( k = 0; k < 2; k++ )
+; 152  : 			for ( k = 0; k < 2; k++ )
 
 	mov	DWORD PTR _k$[ebp], 0
 	jmp	SHORT $L39174
@@ -2066,7 +2071,7 @@ $L39174:
 	cmp	DWORD PTR _k$[ebp], 2
 	jge	$L39176
 
-; 153  : 				vecEnd.x = vecHullEnd.x + minmaxs[i][0];
+; 154  : 				vecEnd.x = vecHullEnd.x + minmaxs[i][0];
 
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _minmaxs$[ebp+edx*4]
@@ -2074,7 +2079,7 @@ $L39174:
 	fadd	DWORD PTR [eax]
 	fstp	DWORD PTR _vecEnd$[ebp]
 
-; 154  : 				vecEnd.y = vecHullEnd.y + minmaxs[j][1];
+; 155  : 				vecEnd.y = vecHullEnd.y + minmaxs[j][1];
 
 	mov	ecx, DWORD PTR _j$[ebp]
 	mov	edx, DWORD PTR _minmaxs$[ebp+ecx*4]
@@ -2082,7 +2087,7 @@ $L39174:
 	fadd	DWORD PTR [edx+4]
 	fstp	DWORD PTR _vecEnd$[ebp+4]
 
-; 155  : 				vecEnd.z = vecHullEnd.z + minmaxs[k][2];
+; 156  : 				vecEnd.z = vecHullEnd.z + minmaxs[k][2];
 
 	mov	eax, DWORD PTR _k$[ebp]
 	mov	ecx, DWORD PTR _minmaxs$[ebp+eax*4]
@@ -2090,8 +2095,8 @@ $L39174:
 	fadd	DWORD PTR [ecx+8]
 	fstp	DWORD PTR _vecEnd$[ebp+8]
 
-; 156  : 
-; 157  : 				UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, pEntity, &tmpTrace );
+; 157  : 
+; 158  : 				UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, pEntity, &tmpTrace );
 
 	lea	edx, DWORD PTR _tmpTrace$[ebp]
 	push	edx
@@ -2105,7 +2110,7 @@ $L39174:
 	call	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@PAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceLine
 	add	esp, 20					; 00000014H
 
-; 158  : 				if ( tmpTrace.flFraction < 1.0 )
+; 159  : 				if ( tmpTrace.flFraction < 1.0 )
 
 	fld	DWORD PTR _tmpTrace$[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
@@ -2113,7 +2118,7 @@ $L39174:
 	test	ah, 1
 	je	SHORT $L39180
 
-; 160  : 					float thisDistance = (tmpTrace.vecEndPos - vecSrc).Length();
+; 161  : 					float thisDistance = (tmpTrace.vecEndPos - vecSrc).Length();
 
 	mov	eax, DWORD PTR _vecSrc$[ebp]
 	push	eax
@@ -2125,7 +2130,7 @@ $L39174:
 	call	?Length@Vector@@QBEMXZ			; Vector::Length
 	fstp	DWORD PTR _thisDistance$39178[ebp]
 
-; 161  : 					if ( thisDistance < distance )
+; 162  : 					if ( thisDistance < distance )
 
 	fld	DWORD PTR _thisDistance$39178[ebp]
 	fcomp	DWORD PTR _distance$[ebp]
@@ -2133,36 +2138,36 @@ $L39174:
 	test	ah, 1
 	je	SHORT $L39180
 
-; 163  : 						tr = tmpTrace;
+; 164  : 						tr = tmpTrace;
 
 	mov	ecx, 14					; 0000000eH
 	lea	esi, DWORD PTR _tmpTrace$[ebp]
 	mov	edi, DWORD PTR _tr$[ebp]
 	rep movsd
 
-; 164  : 						distance = thisDistance;
+; 165  : 						distance = thisDistance;
 
 	mov	edx, DWORD PTR _thisDistance$39178[ebp]
 	mov	DWORD PTR _distance$[ebp], edx
 $L39180:
 
-; 167  : 			}
+; 168  : 			}
 
 	jmp	$L39175
 $L39176:
 
-; 168  : 		}
+; 169  : 		}
 
 	jmp	$L39172
 $L39173:
 
-; 169  : 	}
+; 170  : 	}
 
 	jmp	$L39169
 $L39170:
 $L39155:
 
-; 170  : }
+; 171  : }
 
 	pop	edi
 	pop	esi
@@ -2486,7 +2491,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PrimaryAttack@CCrowbar@@UAEXXZ PROC NEAR		; CCrowbar::PrimaryAttack, COMDAT
 
-; 174  : {
+; 175  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2496,7 +2501,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 175  : 	if (crowbar_stab_attack)
+; 176  : 	if (crowbar_stab_attack)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	xor	ecx, ecx
@@ -2504,35 +2509,35 @@ _this$ = -4
 	test	ecx, ecx
 	je	SHORT $L39187
 
-; 177  : 		WeaponIdle();
+; 178  : 		WeaponIdle();
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+456]
 
-; 178  : 		return;
+; 179  : 		return;
 
 	jmp	SHORT $L39186
 $L39187:
 
-; 180  : 	crowbar_reload = 0.55;
+; 181  : 	crowbar_reload = 0.55;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1884], 1057803469	; 3f0ccccdH
 
-; 181  : 	Swing();
+; 182  : 	Swing();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Swing@CCrowbar@@QAEXXZ			; CCrowbar::Swing
 $L39186:
 
-; 182  : 	/*if (! Swing( 1 ))
-; 183  : 	{
-; 184  : 		SetThink( SwingAgain );
-; 185  : 		pev->nextthink = gpGlobals->time + 0.1;
-; 186  : 	}*/
-; 187  : }
+; 183  : 	/*if (! Swing( 1 ))
+; 184  : 	{
+; 185  : 		SetThink( SwingAgain );
+; 186  : 		pev->nextthink = gpGlobals->time + 0.1;
+; 187  : 	}*/
+; 188  : }
 
 	pop	edi
 	pop	esi
@@ -2554,7 +2559,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?SecondaryAttack@CCrowbar@@UAEXXZ PROC NEAR		; CCrowbar::SecondaryAttack, COMDAT
 
-; 190  : {
+; 191  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2564,7 +2569,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 191  : 	if (crowbar_stab_attack)
+; 192  : 	if (crowbar_stab_attack)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	xor	ecx, ecx
@@ -2572,29 +2577,29 @@ _this$ = -4
 	test	ecx, ecx
 	je	SHORT $L39192
 
-; 193  : 		WeaponIdle();
+; 194  : 		WeaponIdle();
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+456]
 
-; 194  : 		return;
+; 195  : 		return;
 
 	jmp	SHORT $L39191
 $L39192:
 
-; 196  : 	crowbar_reload = 1;
+; 197  : 	crowbar_reload = 1;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1884], 1065353216	; 3f800000H
 
-; 197  : 	crowbar_stab_attack = true;
+; 198  : 	crowbar_stab_attack = true;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	BYTE PTR [edx+1888], 1
 
-; 198  : 	m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + CROWBAR_STAB_DELAY;
+; 199  : 	m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + CROWBAR_STAB_DELAY;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
@@ -2607,7 +2612,7 @@ $L39192:
 	mov	edx, DWORD PTR [ecx+1852]
 	mov	DWORD PTR [eax+2308], edx
 
-; 199  : 	SendWeaponAnim( CROWBAR_STAB );
+; 200  : 	SendWeaponAnim( CROWBAR_STAB );
 
 	push	0
 	push	1
@@ -2618,7 +2623,7 @@ $L39192:
 	call	DWORD PTR [edx+436]
 $L39191:
 
-; 200  : }
+; 201  : }
 
 	pop	edi
 	pop	esi
@@ -2634,7 +2639,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?Smack@CCrowbar@@QAEXXZ PROC NEAR			; CCrowbar::Smack, COMDAT
 
-; 203  : {
+; 204  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2644,7 +2649,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 204  : 	DecalGunshot( &m_trHit, BULLET_PLAYER_CROWBAR );
+; 205  : 	DecalGunshot( &m_trHit, BULLET_PLAYER_CROWBAR );
 
 	push	5
 	mov	eax, DWORD PTR _this$[ebp]
@@ -2653,7 +2658,7 @@ _this$ = -4
 	call	?DecalGunshot@@YAXPAUgametrace_s@@H@Z	; DecalGunshot
 	add	esp, 8
 
-; 205  : }
+; 206  : }
 
 	pop	edi
 	pop	esi
@@ -2711,7 +2716,7 @@ $T39897 = -204
 $T39898 = -216
 ?Swing@CCrowbar@@QAEXXZ PROC NEAR			; CCrowbar::Swing, COMDAT
 
-; 214  : {
+; 215  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2721,18 +2726,18 @@ $T39898 = -216
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 215  : 	int fDidHit = FALSE;
+; 216  : 	int fDidHit = FALSE;
 
 	mov	DWORD PTR _fDidHit$[ebp], 0
 
-; 216  : 
-; 217  : 	TraceResult tr;
+; 217  : 
+; 218  : 	TraceResult tr;
 
 	lea	ecx, DWORD PTR _tr$[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
-; 218  : 
-; 219  : 	UTIL_MakeVectors (m_pPlayer->pev->v_angle);
+; 219  : 
+; 220  : 	UTIL_MakeVectors (m_pPlayer->pev->v_angle);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
@@ -2742,7 +2747,7 @@ $T39898 = -216
 	call	?UTIL_MakeVectors@@YAXABVVector@@@Z	; UTIL_MakeVectors
 	add	esp, 4
 
-; 220  : 	Vector vecSrc	= m_pPlayer->GetGunPosition( );
+; 221  : 	Vector vecSrc	= m_pPlayer->GetGunPosition( );
 
 	lea	eax, DWORD PTR $T39888[ebp]
 	push	eax
@@ -2756,7 +2761,7 @@ $T39898 = -216
 	lea	ecx, DWORD PTR _vecSrc$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 221  : 	Vector vecEnd	= vecSrc + gpGlobals->v_forward * 32;
+; 222  : 	Vector vecEnd	= vecSrc + gpGlobals->v_forward * 32;
 
 	push	1107296256				; 42000000H
 	lea	eax, DWORD PTR $T39889[ebp]
@@ -2773,8 +2778,8 @@ $T39898 = -216
 	lea	ecx, DWORD PTR _vecEnd$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 222  : 
-; 223  : 	UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, ENT( m_pPlayer->pev ), &tr );
+; 223  : 
+; 224  : 	UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, ENT( m_pPlayer->pev ), &tr );
 
 	lea	edx, DWORD PTR _tr$[ebp]
 	push	edx
@@ -2793,8 +2798,8 @@ $T39898 = -216
 	call	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@PAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceLine
 	add	esp, 20					; 00000014H
 
-; 224  : 
-; 225  : 	if ( tr.flFraction >= 1.0 )
+; 225  : 
+; 226  : 	if ( tr.flFraction >= 1.0 )
 
 	fld	DWORD PTR _tr$[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
@@ -2802,7 +2807,7 @@ $T39898 = -216
 	test	ah, 1
 	jne	$L39209
 
-; 227  : 		UTIL_TraceHull( vecSrc, vecEnd, dont_ignore_monsters, head_hull, ENT( m_pPlayer->pev ), &tr );
+; 228  : 		UTIL_TraceHull( vecSrc, vecEnd, dont_ignore_monsters, head_hull, ENT( m_pPlayer->pev ), &tr );
 
 	lea	edx, DWORD PTR _tr$[ebp]
 	push	edx
@@ -2822,7 +2827,7 @@ $T39898 = -216
 	call	?UTIL_TraceHull@@YAXABVVector@@0W4IGNORE_MONSTERS@@HPAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceHull
 	add	esp, 24					; 00000018H
 
-; 228  : 		if ( tr.flFraction < 1.0 )
+; 229  : 		if ( tr.flFraction < 1.0 )
 
 	fld	DWORD PTR _tr$[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
@@ -2830,9 +2835,9 @@ $T39898 = -216
 	test	ah, 1
 	je	$L39209
 
-; 230  : 			// Calculate the point of intersection of the line (or hull) and the object we hit
-; 231  : 			// This is and approximation of the "best" intersection
-; 232  : 			CBaseEntity *pHit = CBaseEntity::Instance( tr.pHit );
+; 231  : 			// Calculate the point of intersection of the line (or hull) and the object we hit
+; 232  : 			// This is and approximation of the "best" intersection
+; 233  : 			CBaseEntity *pHit = CBaseEntity::Instance( tr.pHit );
 
 	mov	edx, DWORD PTR _tr$[ebp+48]
 	push	edx
@@ -2840,7 +2845,7 @@ $T39898 = -216
 	add	esp, 4
 	mov	DWORD PTR _pHit$39210[ebp], eax
 
-; 233  : 			if ( !pHit || pHit->IsBSPModel() )
+; 234  : 			if ( !pHit || pHit->IsBSPModel() )
 
 	cmp	DWORD PTR _pHit$39210[ebp], 0
 	je	SHORT $L39212
@@ -2852,7 +2857,7 @@ $T39898 = -216
 	je	SHORT $L39211
 $L39212:
 
-; 234  : 				FindHullIntersection( vecSrc, tr, VEC_DUCK_HULL_MIN, VEC_DUCK_HULL_MAX, m_pPlayer->edict() );
+; 235  : 				FindHullIntersection( vecSrc, tr, VEC_DUCK_HULL_MIN, VEC_DUCK_HULL_MAX, m_pPlayer->edict() );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
@@ -2882,7 +2887,7 @@ $L39212:
 	add	esp, 20					; 00000014H
 $L39211:
 
-; 235  : 			vecEnd = tr.vecEndPos;	// This is the point on the actual surface (the hull could have hit space)
+; 236  : 			vecEnd = tr.vecEndPos;	// This is the point on the actual surface (the hull could have hit space)
 
 	mov	eax, DWORD PTR _tr$[ebp+20]
 	mov	DWORD PTR _vecEnd$[ebp], eax
@@ -2892,8 +2897,8 @@ $L39211:
 	mov	DWORD PTR _vecEnd$[ebp+8], edx
 $L39209:
 
-; 238  : 
-; 239  : 	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+; 239  : 
+; 240  : 	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
 	push	15					; 0000000fH
 	push	0
@@ -2916,8 +2921,8 @@ $L39209:
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
 
-; 240  : 
-; 241  : 	if( tr.flFraction >= 1.0 )
+; 241  : 
+; 242  : 	if( tr.flFraction >= 1.0 )
 
 	fld	DWORD PTR _tr$[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
@@ -2925,29 +2930,29 @@ $L39209:
 	test	ah, 1
 	jne	$L39216
 
-; 243  : 		/*if( fFirst )
-; 244  : 		{
-; 245  : 			// miss
-; 246  : 			if (!crowbar_stab_attack)
-; 247  : 			{
-; 248  : 				switch( (m_iSwing++) % 3 )
-; 249  : 				{
-; 250  : 				case 0:
-; 251  : 					SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
-; 252  : 				case 1:
-; 253  : 					SendWeaponAnim( CROWBAR_ATTACK2MISS ); break;
-; 254  : 				case 2:
-; 255  : 					SendWeaponAnim( CROWBAR_ATTACK3MISS ); break;
-; 256  : 				}
-; 257  : 			}
-; 258  : 			//m_flNextPrimaryAttack = gpGlobals->time + 0.45;
-; 259  : 			// play wiff or swish sound
-; 260  : 			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
-; 261  : 
-; 262  : 			// player "shoot" animation
-; 263  : 			m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
-; 264  : 		}*/
-; 265  : 		if (!crowbar_stab_attack)
+; 244  : 		/*if( fFirst )
+; 245  : 		{
+; 246  : 			// miss
+; 247  : 			if (!crowbar_stab_attack)
+; 248  : 			{
+; 249  : 				switch( (m_iSwing++) % 3 )
+; 250  : 				{
+; 251  : 				case 0:
+; 252  : 					SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
+; 253  : 				case 1:
+; 254  : 					SendWeaponAnim( CROWBAR_ATTACK2MISS ); break;
+; 255  : 				case 2:
+; 256  : 					SendWeaponAnim( CROWBAR_ATTACK3MISS ); break;
+; 257  : 				}
+; 258  : 			}
+; 259  : 			//m_flNextPrimaryAttack = gpGlobals->time + 0.45;
+; 260  : 			// play wiff or swish sound
+; 261  : 			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+; 262  : 
+; 263  : 			// player "shoot" animation
+; 264  : 			m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
+; 265  : 		}*/
+; 266  : 		if (!crowbar_stab_attack)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	xor	ecx, ecx
@@ -2955,7 +2960,7 @@ $L39209:
 	test	ecx, ecx
 	jne	$L39219
 
-; 268  : 			{
+; 269  : 			{
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+1892]
@@ -2979,8 +2984,8 @@ $L39209:
 	jmp	SHORT $L39219
 $L39222:
 
-; 269  : 			case 0:
-; 270  : 				SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
+; 270  : 			case 0:
+; 271  : 				SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
 
 	push	0
 	push	1
@@ -2992,8 +2997,8 @@ $L39222:
 	jmp	SHORT $L39219
 $L39223:
 
-; 271  : 			case 1:
-; 272  : 				SendWeaponAnim( CROWBAR_ATTACK2MISS ); break;
+; 272  : 			case 1:
+; 273  : 				SendWeaponAnim( CROWBAR_ATTACK2MISS ); break;
 
 	push	0
 	push	1
@@ -3005,8 +3010,8 @@ $L39223:
 	jmp	SHORT $L39219
 $L39224:
 
-; 273  : 			case 2:
-; 274  : 				SendWeaponAnim( CROWBAR_ATTACK3MISS ); break;
+; 274  : 			case 2:
+; 275  : 				SendWeaponAnim( CROWBAR_ATTACK3MISS ); break;
 
 	push	0
 	push	1
@@ -3017,8 +3022,8 @@ $L39224:
 	call	DWORD PTR [edx+436]
 $L39219:
 
-; 277  : 
-; 278  : 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
+; 278  : 
+; 279  : 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -3031,8 +3036,8 @@ $L39219:
 	mov	edx, DWORD PTR [ecx+1844]
 	mov	DWORD PTR [eax+1848], edx
 
-; 279  : 		// play wiff or swish sound
-; 280  : 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+; 280  : 		// play wiff or swish sound
+; 281  : 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
 	push	15					; 0000000fH
 	push	0
@@ -3055,27 +3060,27 @@ $L39219:
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
 
-; 281  : 
-; 282  : 		// player "shoot" animation
-; 283  : 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
+; 282  : 
+; 283  : 		// player "shoot" animation
+; 284  : 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	push	5
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
 	call	?SetAnimation@CBasePlayer@@QAEXW4PLAYER_ANIM@@@Z ; CBasePlayer::SetAnimation
 
-; 285  : 	else
+; 286  : 	else
 
 	jmp	$L39226
 $L39216:
 
-; 287  : 		// hit
-; 288  : 		fDidHit = TRUE;
+; 288  : 		// hit
+; 289  : 		fDidHit = TRUE;
 
 	mov	DWORD PTR _fDidHit$[ebp], 1
 
-; 289  : 
-; 290  : 		CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);
+; 290  : 
+; 291  : 		CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);
 
 	mov	ecx, DWORD PTR _tr$[ebp+48]
 	push	ecx
@@ -3083,8 +3088,8 @@ $L39216:
 	add	esp, 4
 	mov	DWORD PTR _pEntity$39227[ebp], eax
 
-; 291  : 
-; 292  : 		if (!crowbar_stab_attack)
+; 292  : 
+; 293  : 		if (!crowbar_stab_attack)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	xor	eax, eax
@@ -3092,7 +3097,7 @@ $L39216:
 	test	eax, eax
 	jne	$L39230
 
-; 295  : 			{
+; 296  : 			{
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+1892]
@@ -3120,8 +3125,8 @@ $L39905:
 	jmp	SHORT $L39230
 $L39233:
 
-; 296  : 			case 0:
-; 297  : 				SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
+; 297  : 			case 0:
+; 298  : 				SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
 
 	push	0
 	push	1
@@ -3133,8 +3138,8 @@ $L39233:
 	jmp	SHORT $L39230
 $L39234:
 
-; 298  : 			case 1:
-; 299  : 				SendWeaponAnim( CROWBAR_ATTACK2HIT ); break;
+; 299  : 			case 1:
+; 300  : 				SendWeaponAnim( CROWBAR_ATTACK2HIT ); break;
 
 	push	0
 	push	1
@@ -3146,8 +3151,8 @@ $L39234:
 	jmp	SHORT $L39230
 $L39235:
 
-; 300  : 			case 2:
-; 301  : 				SendWeaponAnim( CROWBAR_ATTACK3HIT ); break;
+; 301  : 			case 2:
+; 302  : 				SendWeaponAnim( CROWBAR_ATTACK3HIT ); break;
 
 	push	0
 	push	1
@@ -3158,32 +3163,32 @@ $L39235:
 	call	DWORD PTR [edx+436]
 $L39230:
 
-; 304  : 
-; 305  : 		// player "shoot" animation
-; 306  : 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
+; 305  : 
+; 306  : 		// player "shoot" animation
+; 307  : 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	push	5
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
 	call	?SetAnimation@CBasePlayer@@QAEXW4PLAYER_ANIM@@@Z ; CBasePlayer::SetAnimation
 
-; 307  : 
-; 308  : 		ClearMultiDamage( );
+; 308  : 
+; 309  : 		ClearMultiDamage( );
 
 	call	?ClearMultiDamage@@YAXXZ		; ClearMultiDamage
 
-; 309  : 
-; 310  : 		/*if ( (m_flNextPrimaryAttack + 1 < gpGlobals->time ) || g_pGameRules->IsMultiplayer() )
-; 311  : 		{
-; 312  : 			// first swing does full damage
-; 313  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
-; 314  : 		}
-; 315  : 		else
-; 316  : 		{
-; 317  : 			// subsequent swings do half
-; 318  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar / 2, gpGlobals->v_forward, &tr, DMG_CLUB );
-; 319  : 		}*/
-; 320  : 		if (crowbar_stab_attack)
+; 310  : 
+; 311  : 		/*if ( (m_flNextPrimaryAttack + 1 < gpGlobals->time ) || g_pGameRules->IsMultiplayer() )
+; 312  : 		{
+; 313  : 			// first swing does full damage
+; 314  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
+; 315  : 		}
+; 316  : 		else
+; 317  : 		{
+; 318  : 			// subsequent swings do half
+; 319  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar / 2, gpGlobals->v_forward, &tr, DMG_CLUB );
+; 320  : 		}*/
+; 321  : 		if (crowbar_stab_attack)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	xor	edx, edx
@@ -3191,7 +3196,7 @@ $L39230:
 	test	edx, edx
 	je	SHORT $L39236
 
-; 322  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbarStab, gpGlobals->v_forward, &tr, DMG_CLUB );
+; 323  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbarStab, gpGlobals->v_forward, &tr, DMG_CLUB );
 
 	push	128					; 00000080H
 	lea	eax, DWORD PTR _tr$[ebp]
@@ -3214,12 +3219,12 @@ $L39230:
 	mov	ecx, DWORD PTR _pEntity$39227[ebp]
 	call	DWORD PTR [edx+92]
 
-; 324  : 		else
+; 325  : 		else
 
 	jmp	SHORT $L39238
 $L39236:
 
-; 326  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
+; 327  : 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
 
 	push	128					; 00000080H
 	lea	eax, DWORD PTR _tr$[ebp]
@@ -3243,8 +3248,8 @@ $L39236:
 	call	DWORD PTR [edx+92]
 $L39238:
 
-; 328  : 
-; 329  : 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
+; 329  : 
+; 330  : 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
@@ -3257,9 +3262,9 @@ $L39238:
 	call	?ApplyMultiDamage@@YAXPAUentvars_s@@0@Z	; ApplyMultiDamage
 	add	esp, 8
 
-; 330  : 
-; 331  : 		//m_flNextPrimaryAttack = gpGlobals->time + 0.45;
-; 332  : 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
+; 331  : 
+; 332  : 		//m_flNextPrimaryAttack = gpGlobals->time + 0.45;
+; 333  : 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + crowbar_reload;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -3272,23 +3277,23 @@ $L39238:
 	mov	edx, DWORD PTR [ecx+1844]
 	mov	DWORD PTR [eax+1848], edx
 
-; 333  : 
-; 334  : 		// play thwack, smack, or dong sound
-; 335  : 		float flVol = 1.0;
+; 334  : 
+; 335  : 		// play thwack, smack, or dong sound
+; 336  : 		float flVol = 1.0;
 
 	mov	DWORD PTR _flVol$39240[ebp], 1065353216	; 3f800000H
 
-; 336  : 		int fHitWorld = TRUE;
+; 337  : 		int fHitWorld = TRUE;
 
 	mov	DWORD PTR _fHitWorld$39241[ebp], 1
 
-; 337  : 
-; 338  : 		if (pEntity)
+; 338  : 
+; 339  : 		if (pEntity)
 
 	cmp	DWORD PTR _pEntity$39227[ebp], 0
 	je	$L39243
 
-; 340  : 			if ( pEntity->Classify() != CLASS_NONE && pEntity->Classify() != CLASS_MACHINE )
+; 341  : 			if ( pEntity->Classify() != CLASS_NONE && pEntity->Classify() != CLASS_MACHINE )
 
 	mov	eax, DWORD PTR _pEntity$39227[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -3303,7 +3308,7 @@ $L39238:
 	cmp	eax, 1
 	je	$L39243
 
-; 344  : 				{
+; 345  : 				{
 
 	push	2
 	push	0
@@ -3319,8 +3324,8 @@ $L39238:
 	jmp	$L39245
 $L39248:
 
-; 345  : 				case 0:
-; 346  : 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod1.wav", 1, ATTN_NORM); break;
+; 346  : 				case 0:
+; 347  : 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod1.wav", 1, ATTN_NORM); break;
 
 	push	1061997773				; 3f4ccccdH
 	push	1065353216				; 3f800000H
@@ -3338,8 +3343,8 @@ $L39248:
 	jmp	SHORT $L39245
 $L39250:
 
-; 347  : 				case 1:
-; 348  : 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod2.wav", 1, ATTN_NORM); break;
+; 348  : 				case 1:
+; 349  : 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod2.wav", 1, ATTN_NORM); break;
 
 	push	1061997773				; 3f4ccccdH
 	push	1065353216				; 3f800000H
@@ -3357,8 +3362,8 @@ $L39250:
 	jmp	SHORT $L39245
 $L39252:
 
-; 349  : 				case 2:
-; 350  : 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod3.wav", 1, ATTN_NORM); break;
+; 350  : 				case 2:
+; 351  : 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod3.wav", 1, ATTN_NORM); break;
 
 	push	1061997773				; 3f4ccccdH
 	push	1065353216				; 3f800000H
@@ -3375,13 +3380,13 @@ $L39252:
 	add	esp, 20					; 00000014H
 $L39245:
 
-; 352  : 				m_pPlayer->m_iWeaponVolume = CROWBAR_BODYHIT_VOLUME;
+; 353  : 				m_pPlayer->m_iWeaponVolume = CROWBAR_BODYHIT_VOLUME;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1816]
 	mov	DWORD PTR [ecx+2408], 128		; 00000080H
 
-; 353  : 				if ( !pEntity->IsAlive() )
+; 354  : 				if ( !pEntity->IsAlive() )
 
 	mov	edx, DWORD PTR _pEntity$39227[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -3390,32 +3395,32 @@ $L39245:
 	test	eax, eax
 	jne	SHORT $L39254
 
-; 354  : 					  //return TRUE;
-; 355  : 						return;
+; 355  : 					  //return TRUE;
+; 356  : 						return;
 
 	jmp	$L39200
 $L39254:
 
-; 357  : 					  flVol = 0.1;
+; 358  : 					  flVol = 0.1;
 
 	mov	DWORD PTR _flVol$39240[ebp], 1036831949	; 3dcccccdH
 
-; 358  : 
-; 359  : 				fHitWorld = FALSE;
+; 359  : 
+; 360  : 				fHitWorld = FALSE;
 
 	mov	DWORD PTR _fHitWorld$39241[ebp], 0
 $L39243:
 
-; 362  : 
-; 363  : 		// play texture hit sound
-; 364  : 		// UNDONE: Calculate the correct point of intersection when we hit with the hull instead of the line
-; 365  : 
-; 366  : 		if (fHitWorld)
+; 363  : 
+; 364  : 		// play texture hit sound
+; 365  : 		// UNDONE: Calculate the correct point of intersection when we hit with the hull instead of the line
+; 366  : 
+; 367  : 		if (fHitWorld)
 
 	cmp	DWORD PTR _fHitWorld$39241[ebp], 0
 	je	$L39265
 
-; 368  : 			float fvolbar = TEXTURETYPE_PlaySound(&tr, vecSrc, vecSrc + (vecEnd-vecSrc)*2, BULLET_PLAYER_CROWBAR);
+; 369  : 			float fvolbar = TEXTURETYPE_PlaySound(&tr, vecSrc, vecSrc + (vecEnd-vecSrc)*2, BULLET_PLAYER_CROWBAR);
 
 	push	5
 	push	1073741824				; 40000000H
@@ -3449,8 +3454,8 @@ $L39243:
 	add	esp, 32					; 00000020H
 	fstp	DWORD PTR _fvolbar$39257[ebp]
 
-; 369  : 
-; 370  : 			if ( g_pGameRules->IsMultiplayer() )
+; 370  : 
+; 371  : 			if ( g_pGameRules->IsMultiplayer() )
 
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	mov	edx, DWORD PTR [ecx]
@@ -3459,15 +3464,15 @@ $L39243:
 	test	eax, eax
 	je	SHORT $L39263
 
-; 372  : 				// override the volume here, cause we don't play texture sounds in multiplayer,
-; 373  : 				// and fvolbar is going to be 0 from the above call.
-; 374  : 
-; 375  : 				fvolbar = 1;
+; 373  : 				// override the volume here, cause we don't play texture sounds in multiplayer,
+; 374  : 				// and fvolbar is going to be 0 from the above call.
+; 375  : 
+; 376  : 				fvolbar = 1;
 
 	mov	DWORD PTR _fvolbar$39257[ebp], 1065353216 ; 3f800000H
 $L39263:
 
-; 380  : 			{
+; 381  : 			{
 
 	push	1
 	push	0
@@ -3481,8 +3486,8 @@ $L39263:
 	jmp	SHORT $L39265
 $L39268:
 
-; 381  : 			case 0:
-; 382  : 				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit1.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+; 382  : 			case 0:
+; 383  : 				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit1.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
 
 	push	3
 	push	0
@@ -3503,13 +3508,13 @@ $L39268:
 	call	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z ; EMIT_SOUND_DYN
 	add	esp, 28					; 0000001cH
 
-; 383  : 				break;
+; 384  : 				break;
 
 	jmp	SHORT $L39265
 $L39270:
 
-; 384  : 			case 1:
-; 385  : 				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit2.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+; 385  : 			case 1:
+; 386  : 				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit2.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
 
 	push	3
 	push	0
@@ -3531,9 +3536,9 @@ $L39270:
 	add	esp, 28					; 0000001cH
 $L39265:
 
-; 389  : 
-; 390  : 		// delay the decal a bit
-; 391  : 		m_trHit = tr;
+; 390  : 
+; 391  : 		// delay the decal a bit
+; 392  : 		m_trHit = tr;
 
 	mov	edi, DWORD PTR _this$[ebp]
 	add	edi, 1896				; 00000768H
@@ -3541,14 +3546,14 @@ $L39265:
 	lea	esi, DWORD PTR _tr$[ebp]
 	rep movsd
 
-; 392  : 		SetThink( Smack );
+; 393  : 		SetThink( Smack );
 
 	push	OFFSET FLAT:??_C@_05CGD@Smack?$AA@	; `string'
 	push	OFFSET FLAT:?Smack@CCrowbar@@QAEXXZ	; CCrowbar::Smack
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ThinkSet@CBaseEntity@@QAEP81@AEXXZP81@AEXXZPAD@Z ; CBaseEntity::ThinkSet
 
-; 393  : 		pev->nextthink = gpGlobals->time + 0.2;
+; 394  : 		pev->nextthink = gpGlobals->time + 0.2;
 
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [ecx]
@@ -3558,8 +3563,8 @@ $L39265:
 	mov	eax, DWORD PTR [edx+4]
 	fstp	DWORD PTR [eax+260]
 
-; 394  : 
-; 395  : 		m_pPlayer->m_iWeaponVolume = flVol * CROWBAR_WALLHIT_VOLUME;
+; 395  : 
+; 396  : 		m_pPlayer->m_iWeaponVolume = flVol * CROWBAR_WALLHIT_VOLUME;
 
 	fld	DWORD PTR _flVol$39240[ebp]
 	fmul	DWORD PTR __real@4@40088000000000000000
@@ -3570,8 +3575,8 @@ $L39265:
 $L39226:
 $L39200:
 
-; 397  : 	//return fDidHit;
-; 398  : }
+; 398  : 	//return fDidHit;
+; 399  : }
 
 	pop	edi
 	pop	esi
@@ -3943,7 +3948,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?WeaponIdle@CCrowbar@@UAEXXZ PROC NEAR			; CCrowbar::WeaponIdle, COMDAT
 
-; 401  : {
+; 402  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3953,15 +3958,15 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 402  : 	ResetEmptySound( );
+; 403  : 	ResetEmptySound( );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+432]
 
-; 403  : 
-; 404  : 	if (m_flTimeWeaponIdle > gpGlobals->time)
+; 404  : 
+; 405  : 	if (m_flTimeWeaponIdle > gpGlobals->time)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -3971,13 +3976,13 @@ _this$ = -4
 	test	ah, 65					; 00000041H
 	jne	SHORT $L39278
 
-; 405  : 		return;
+; 406  : 		return;
 
 	jmp	SHORT $L39277
 $L39278:
 
-; 406  : 
-; 407  : 	if (crowbar_stab_attack)
+; 407  : 
+; 408  : 	if (crowbar_stab_attack)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	xor	eax, eax
@@ -3985,19 +3990,19 @@ $L39278:
 	test	eax, eax
 	je	SHORT $L39279
 
-; 409  : 		Swing();
+; 410  : 		Swing();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Swing@CCrowbar@@QAEXXZ			; CCrowbar::Swing
 
-; 410  : 		crowbar_stab_attack = false;
+; 411  : 		crowbar_stab_attack = false;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	BYTE PTR [ecx+1888], 0
 $L39279:
 $L39277:
 
-; 412  : }
+; 413  : }
 
 	pop	edi
 	pop	esi

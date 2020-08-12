@@ -2802,7 +2802,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 139  : 	Precache( );    
+; 139  : 	Precache( );
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -2837,7 +2837,7 @@ $L36564:
 	mov	DWORD PTR [eax+364], 1065353216		; 3f800000H
 $L36565:
 
-; 145  :   
+; 145  : 
 ; 146  : 	pev->solid = SOLID_BSP;
 
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -3441,8 +3441,8 @@ $L36608:
 	jmp	SHORT $L36601
 $L36609:
 
-; 249  : 	
-; 250  : 	
+; 249  : 
+; 250  : 
 ; 251  : 	case matCeilingTile:
 ; 252  : 	case matNone:
 ; 253  : 	default:
@@ -3812,7 +3812,7 @@ $L36637:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BE@NDKF@models?1woodgibs?4mdl?$AA@ ; `string'
 
-; 294  : 		
+; 294  : 
 ; 295  : 		PRECACHE_SOUND("debris/bustcrate1.wav");
 
 	push	OFFSET FLAT:??_C@_0BG@PIOM@debris?1bustcrate1?4wav?$AA@ ; `string'
@@ -3835,7 +3835,7 @@ $L36641:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BF@PHBF@models?1fleshgibs?4mdl?$AA@ ; `string'
 
-; 300  : 		
+; 300  : 
 ; 301  : 		PRECACHE_SOUND("debris/bustflesh1.wav");
 
 	push	OFFSET FLAT:??_C@_0BG@HECH@debris?1bustflesh1?4wav?$AA@ ; `string'
@@ -3870,7 +3870,7 @@ $L36645:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BI@JHBE@models?1computergibs?4mdl?$AA@ ; `string'
 
-; 308  : 		
+; 308  : 
 ; 309  : 		PRECACHE_SOUND("debris/bustmetal1.wav");
 
 	push	OFFSET FLAT:??_C@_0BG@GCEM@debris?1bustmetal1?4wav?$AA@ ; `string'
@@ -3895,7 +3895,7 @@ $L36651:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BF@HMFM@models?1glassgibs?4mdl?$AA@ ; `string'
 
-; 316  : 		
+; 316  : 
 ; 317  : 		PRECACHE_SOUND("debris/bustglass1.wav");
 
 	push	OFFSET FLAT:??_C@_0BG@JCLM@debris?1bustglass1?4wav?$AA@ ; `string'
@@ -3918,7 +3918,7 @@ $L36655:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BK@LCEG@models?1metalplategibs?4mdl?$AA@ ; `string'
 
-; 322  : 		
+; 322  : 
 ; 323  : 		PRECACHE_SOUND("debris/bustmetal1.wav");
 
 	push	OFFSET FLAT:??_C@_0BG@GCEM@debris?1bustmetal1?4wav?$AA@ ; `string'
@@ -3941,7 +3941,7 @@ $L36657:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BG@BGML@models?1cindergibs?4mdl?$AA@ ; `string'
 
-; 328  : 		
+; 328  : 
 ; 329  : 		PRECACHE_SOUND("debris/bustconcrete1.wav");
 
 	push	OFFSET FLAT:??_C@_0BJ@IOOJ@debris?1bustconcrete1?4wav?$AA@ ; `string'
@@ -3964,7 +3964,7 @@ $L36661:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BE@BFEH@models?1rockgibs?4mdl?$AA@ ; `string'
 
-; 334  : 		
+; 334  : 
 ; 335  : 		PRECACHE_SOUND("debris/bustconcrete1.wav");
 
 	push	OFFSET FLAT:??_C@_0BJ@IOOJ@debris?1bustconcrete1?4wav?$AA@ ; `string'
@@ -3987,8 +3987,8 @@ $L36663:
 
 	mov	DWORD PTR _pGibName$[ebp], OFFSET FLAT:??_C@_0BH@EJAK@models?1ceilinggibs?4mdl?$AA@ ; `string'
 
-; 340  : 		
-; 341  : 		PRECACHE_SOUND ("debris/bustceiling.wav");  
+; 340  : 
+; 341  : 		PRECACHE_SOUND ("debris/bustceiling.wav");
 
 	push	OFFSET FLAT:??_C@_0BH@JMCA@debris?1bustceiling?4wav?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
@@ -4405,7 +4405,7 @@ _pevToucher$ = -12
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR _pevToucher$[ebp], ecx
 
-; 435  : 	
+; 435  : 
 ; 436  : 	// only players can break these right now
 ; 437  : 	if ( !pOther->IsPlayer() || !IsBreakable() )
 
@@ -4518,7 +4518,7 @@ $L36703:
 	test	ah, 65					; 00000041H
 	je	SHORT $L36706
 
-; 458  : 		
+; 458  : 
 ; 459  : 		// play creaking sound here.
 ; 460  : 		DamageSound();
 
@@ -4540,7 +4540,7 @@ $L36703:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TouchSet@CBaseEntity@@QAEP81@AEXPAV1@@ZP81@AEX0@ZPAD@Z ; CBaseEntity::TouchSet
 
-; 464  : 		
+; 464  : 
 ; 465  : 		if ( m_flDelay == 0 )
 
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -4908,7 +4908,7 @@ $L36737:
 	jmp	SHORT $L36731
 $L36744:
 
-; 513  : 			
+; 513  : 
 ; 514  : 			case matUnbreakableGlass:
 ; 515  : 				UTIL_Ricochet( ptr->vecEndPos, RANDOM_FLOAT(0.5,1.5) );
 
@@ -4999,8 +4999,8 @@ _vecTemp$ = -16
 
 ; 531  : 
 ; 532  : 	// if Attacker == Inflictor, the attack was a melee or other instant-hit attack.
-; 533  : 	// (that is, no actual entity projectile was involved in the attack so use the shooter's origin). 
-; 534  : 	if ( pevAttacker == pevInflictor )	
+; 533  : 	// (that is, no actual entity projectile was involved in the attack so use the shooter's origin).
+; 534  : 	if ( pevAttacker == pevInflictor )
 
 	mov	eax, DWORD PTR _pevAttacker$[ebp]
 	cmp	eax, DWORD PTR _pevInflictor$[ebp]
@@ -5096,7 +5096,7 @@ $L36754:
 	mov	DWORD PTR _vecTemp$[ebp+8], eax
 $L36759:
 
-; 548  : 	
+; 548  : 
 ; 549  : 	if (!IsBreakable())
 
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -5159,7 +5159,7 @@ $L36765:
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR ?g_vecAttackDir@@3VVector@@A+8, eax
 
-; 562  : 		
+; 562  : 
 ; 563  : // do the damage
 ; 564  : 	pev->health -= flDamage;
 
@@ -5614,7 +5614,7 @@ _i$36847 = -1108
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+368], 2
 
-; 591  : 	
+; 591  : 
 ; 592  : 	pitch = 95 + RANDOM_LONG(0,29);
 
 	push	29					; 0000001dH
@@ -5700,7 +5700,7 @@ $L36784:
 	jmp	SHORT $L36786
 $L36789:
 
-; 611  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustglass1.wav", fvol, ATTN_NORM, 0, pitch);	
+; 611  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustglass1.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	eax, DWORD PTR _pitch$[ebp]
 	push	eax
@@ -5724,7 +5724,7 @@ $L36789:
 	jmp	SHORT $L36786
 $L36791:
 
-; 613  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustglass2.wav", fvol, ATTN_NORM, 0, pitch);	
+; 613  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustglass2.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	ecx, DWORD PTR _pitch$[ebp]
 	push	ecx
@@ -5767,7 +5767,7 @@ $L36793:
 	jmp	SHORT $L36795
 $L36798:
 
-; 622  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustcrate1.wav", fvol, ATTN_NORM, 0, pitch);	
+; 622  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustcrate1.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	edx, DWORD PTR _pitch$[ebp]
 	push	edx
@@ -5791,7 +5791,7 @@ $L36798:
 	jmp	SHORT $L36795
 $L36800:
 
-; 624  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustcrate2.wav", fvol, ATTN_NORM, 0, pitch);	
+; 624  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustcrate2.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	eax, DWORD PTR _pitch$[ebp]
 	push	eax
@@ -5834,7 +5834,7 @@ $L36802:
 	jmp	SHORT $L36804
 $L36807:
 
-; 634  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustmetal1.wav", fvol, ATTN_NORM, 0, pitch);	
+; 634  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustmetal1.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	ecx, DWORD PTR _pitch$[ebp]
 	push	ecx
@@ -5858,7 +5858,7 @@ $L36807:
 	jmp	SHORT $L36804
 $L36809:
 
-; 636  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustmetal2.wav", fvol, ATTN_NORM, 0, pitch);	
+; 636  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustmetal2.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	edx, DWORD PTR _pitch$[ebp]
 	push	edx
@@ -5901,7 +5901,7 @@ $L36811:
 	jmp	SHORT $L36813
 $L36816:
 
-; 645  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustflesh1.wav", fvol, ATTN_NORM, 0, pitch);	
+; 645  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustflesh1.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	eax, DWORD PTR _pitch$[ebp]
 	push	eax
@@ -5925,7 +5925,7 @@ $L36816:
 	jmp	SHORT $L36813
 $L36818:
 
-; 647  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustflesh2.wav", fvol, ATTN_NORM, 0, pitch);	
+; 647  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustflesh2.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	ecx, DWORD PTR _pitch$[ebp]
 	push	ecx
@@ -5968,7 +5968,7 @@ $L36820:
 	jmp	SHORT $L36822
 $L36825:
 
-; 657  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustconcrete1.wav", fvol, ATTN_NORM, 0, pitch);	
+; 657  : 		case 0:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustconcrete1.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	edx, DWORD PTR _pitch$[ebp]
 	push	edx
@@ -5992,7 +5992,7 @@ $L36825:
 	jmp	SHORT $L36822
 $L36827:
 
-; 659  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustconcrete2.wav", fvol, ATTN_NORM, 0, pitch);	
+; 659  : 		case 1:	EMIT_SOUND_DYN(ENT(pev), CHAN_VOICE, "debris/bustconcrete2.wav", fvol, ATTN_NORM, 0, pitch);
 
 	mov	eax, DWORD PTR _pitch$[ebp]
 	push	eax
@@ -6071,7 +6071,7 @@ $L36781:
 	call	DWORD PTR [edx+72]
 $L36832:
 
-; 676  : 		
+; 676  : 
 ; 677  : 	if( m_Explosion == expDirected )
 
 	mov	eax, DWORD PTR _this$[ebp]
@@ -6213,7 +6213,7 @@ $L36835:
 
 ; 701  : 
 ; 702  : 		// velocity
-; 703  : 		WRITE_COORD( vecVelocity.x ); 
+; 703  : 		WRITE_COORD( vecVelocity.x );
 
 	mov	ecx, DWORD PTR _vecVelocity$[ebp]
 	push	ecx
@@ -6236,7 +6236,7 @@ $L36835:
 
 ; 706  : 
 ; 707  : 		// randomization
-; 708  : 		WRITE_BYTE( 10 ); 
+; 708  : 		WRITE_BYTE( 10 );
 
 	push	10					; 0000000aH
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
@@ -6784,7 +6784,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IsBreakable@CBreakable@@UAEHXZ PROC NEAR		; CBreakable::IsBreakable, COMDAT
 
-; 769  : { 
+; 769  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7188,7 +7188,7 @@ $L37027:
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+268], 4
 
-; 843  : 	else 
+; 843  : 	else
 
 	jmp	SHORT $L37029
 $L37028:
@@ -8124,7 +8124,7 @@ $L37106:
 	mov	DWORD PTR _factor$[ebp], 1065353216	; 3f800000H
 $L37109:
 
-; 990  : 	else 
+; 990  : 	else
 
 	jmp	SHORT $L37110
 $L37105:
@@ -9324,7 +9324,7 @@ $L37328:
 	je	SHORT $L37329
 $L37330:
 
-; 1153 : 		// set altitude. Now that I'm activated, any breakables, etc should be out from under me. 
+; 1153 : 		// set altitude. Now that I'm activated, any breakables, etc should be out from under me.
 ; 1154 : 		TraceResult tr;
 
 	lea	ecx, DWORD PTR _tr$37331[ebp]
@@ -9528,7 +9528,7 @@ $L37342:
 	jmp	$L37327
 $L37347:
 
-; 1190 : 	
+; 1190 : 
 ; 1191 : 	CPushable *pBox = (CPushable *)CreateEntityByName( "func_pushable" );
 
 	push	0
@@ -9544,7 +9544,7 @@ $L37347:
 	jmp	$L37327
 $L37351:
 
-; 1193 : 	
+; 1193 : 
 ; 1194 : 	// If I have a target, fire!
 ; 1195 : 	if( !FStringNull( pev->target ))
 
