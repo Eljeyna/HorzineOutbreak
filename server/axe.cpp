@@ -115,7 +115,7 @@ int CAxe::GetItemInfo(ItemInfo *p)
 
 BOOL CAxe::Deploy( )
 {
-	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "axe" );
+	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "crowbar" );
 }
 
 void CAxe::Holster( void )
