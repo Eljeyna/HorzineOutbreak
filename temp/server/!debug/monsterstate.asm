@@ -522,9 +522,9 @@ _this$ = -4
 	mov	eax, DWORD PTR _State$[ebp]
 	mov	DWORD PTR -8+[ebp], eax
 	cmp	DWORD PTR -8+[ebp], 1
-	je	SHORT $L37054
-	jmp	SHORT $L37051
-$L37054:
+	je	SHORT $L37058
+	jmp	SHORT $L37055
+$L37058:
 
 ; 43   : 	
 ; 44   : 	// Drop enemy pointers when going to idle
@@ -536,7 +536,7 @@ $L37054:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L37055
+	je	SHORT $L37059
 
 ; 49   : 			m_hEnemy = NULL;// not allowed to have an enemy anymore.
 
@@ -551,8 +551,8 @@ $L37054:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
+$L37059:
 $L37055:
-$L37051:
 
 ; 54   : 
 ; 55   : 	m_MonsterState = State;
@@ -779,23 +779,23 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2080], 1
-	je	SHORT $L37062
+	je	SHORT $L37066
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2080], 3
-	jne	SHORT $L37061
-$L37062:
+	jne	SHORT $L37065
+$L37066:
 	push	99					; 00000063H
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L37061
+	jne	SHORT $L37065
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 2
 	test	ecx, ecx
-	jne	SHORT $L37061
+	jne	SHORT $L37065
 
 ; 71   : 		IdleSound();
 
@@ -803,20 +803,20 @@ $L37062:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+600]
-$L37061:
+$L37065:
 
 ; 75   : 		 m_MonsterState != MONSTERSTATE_PRONE   && 
 ; 76   : 		 m_MonsterState != MONSTERSTATE_DEAD )// don't bother with this crap if monster is prone. 
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2080], 0
-	je	$L37063
+	je	$L37067
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+2080], 5
-	je	$L37063
+	je	$L37067
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2080], 8
-	je	$L37063
+	je	$L37067
 
 ; 78   : 		// collect some sensory Condition information.
 ; 79   : 		// don't let monsters outside of the player's PVS act up, or most of the interesting
@@ -834,11 +834,11 @@ $L37061:
 	call	?FNullEnt@@YAHPBUedict_s@@@Z		; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L37065
+	je	SHORT $L37069
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2080], 2
-	jne	SHORT $L37064
-$L37065:
+	jne	SHORT $L37068
+$L37069:
 
 ; 85   : 			Look( m_flDistLook );
 
@@ -873,7 +873,7 @@ $L37065:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetEnemy@CBaseMonster@@QAEHXZ		; CBaseMonster::GetEnemy
-$L37064:
+$L37068:
 
 ; 93   : 
 ; 94   : 		// do these calculations if monster has an enemy.
@@ -883,7 +883,7 @@ $L37064:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L37066
+	je	SHORT $L37070
 
 ; 97   : 			CheckEnemy( m_hEnemy );
 
@@ -895,7 +895,7 @@ $L37064:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+492]
-$L37066:
+$L37070:
 
 ; 99   : 
 ; 100  : 		CheckAmmo();
@@ -904,7 +904,7 @@ $L37066:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+524]
-$L37063:
+$L37067:
 
 ; 102  : 
 ; 103  : 	FCheckAITrigger();
@@ -964,7 +964,7 @@ _pent$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L37438
+	je	SHORT $L37442
 	mov	eax, DWORD PTR _pent$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPBUedict_s@@@Z		; OFFSET
@@ -973,12 +973,12 @@ _pent$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L37438
+	jne	SHORT $L37442
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L37439
-$L37438:
+	jmp	SHORT $L37443
+$L37442:
 	mov	DWORD PTR -4+[ebp], 1
-$L37439:
+$L37443:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -1257,8 +1257,8 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _iConditions$ = -8
-_pSound$37086 = -12
-_pSound$37099 = -16
+_pSound$37090 = -12
+_pSound$37103 = -16
 ?GetIdealState@CBaseMonster@@UAE?AW4MONSTERSTATE@@XZ PROC NEAR ; CBaseMonster::GetIdealState, COMDAT
 
 ; 120  : {
@@ -1288,17 +1288,17 @@ _pSound$37099 = -16
 	sub	edx, 1
 	mov	DWORD PTR -36+[ebp], edx
 	cmp	DWORD PTR -36+[ebp], 7
-	ja	$L37073
+	ja	$L37077
 	mov	eax, DWORD PTR -36+[ebp]
-	jmp	DWORD PTR $L37460[eax*4]
-$L37076:
+	jmp	DWORD PTR $L37464[eax*4]
+$L37080:
 
 ; 138  : 			if ( iConditions & bits_COND_NEW_ENEMY )			
 
 	mov	ecx, DWORD PTR _iConditions$[ebp]
 	and	ecx, 65536				; 00010000H
 	test	ecx, ecx
-	je	SHORT $L37077
+	je	SHORT $L37081
 
 ; 140  : 				// new enemy! This means an idle monster has seen someone it dislikes, or 
 ; 141  : 				// that a monster in combat has found a more suitable target to attack
@@ -1309,12 +1309,12 @@ $L37076:
 
 ; 144  : 			else if ( iConditions & bits_COND_LIGHT_DAMAGE )
 
-	jmp	$L37094
-$L37077:
+	jmp	$L37098
+$L37081:
 	mov	eax, DWORD PTR _iConditions$[ebp]
 	and	eax, 256				; 00000100H
 	test	eax, eax
-	je	SHORT $L37079
+	je	SHORT $L37083
 
 ; 146  : 				MakeIdealYaw ( m_vecEnemyLKP );
 
@@ -1335,12 +1335,12 @@ $L37077:
 
 ; 149  : 			else if ( iConditions & bits_COND_HEAVY_DAMAGE )
 
-	jmp	$L37094
-$L37079:
+	jmp	$L37098
+$L37083:
 	mov	ecx, DWORD PTR _iConditions$[ebp]
 	and	ecx, 512				; 00000200H
 	test	ecx, ecx
-	je	SHORT $L37082
+	je	SHORT $L37086
 
 ; 151  : 				MakeIdealYaw ( m_vecEnemyLKP );
 
@@ -1360,12 +1360,12 @@ $L37079:
 
 ; 154  : 			else if ( iConditions & bits_COND_HEAR_SOUND )
 
-	jmp	$L37094
-$L37082:
+	jmp	$L37098
+$L37086:
 	mov	ecx, DWORD PTR _iConditions$[ebp]
 	and	ecx, 131072				; 00020000H
 	test	ecx, ecx
-	je	SHORT $L37085
+	je	SHORT $L37089
 
 ; 156  : 				CSound *pSound;
 ; 157  : 				
@@ -1375,7 +1375,7 @@ $L37082:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+544]
-	mov	DWORD PTR _pSound$37086[ebp], eax
+	mov	DWORD PTR _pSound$37090[ebp], eax
 
 ; 159  : 				ASSERT( pSound != NULL );
 
@@ -1386,7 +1386,7 @@ $L37082:
 	push	OFFSET FLAT:??_C@_0CO@KMCC@z?3?2xashxtsrc?2server?2monsters?2mon@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@OOBL@pSound?5?$CB?$DN?5NULL?$AA@ ; `string'
 	xor	edx, edx
-	cmp	DWORD PTR _pSound$37086[ebp], 0
+	cmp	DWORD PTR _pSound$37090[ebp], 0
 	setne	dl
 	push	edx
 	call	?DBG_AssertFunction@@YAXHPBD0H0@Z	; DBG_AssertFunction
@@ -1394,14 +1394,14 @@ $L37082:
 
 ; 160  : 				if ( pSound )
 
-	cmp	DWORD PTR _pSound$37086[ebp], 0
-	je	SHORT $L37092
+	cmp	DWORD PTR _pSound$37090[ebp], 0
+	je	SHORT $L37096
 
 ; 162  : 					MakeIdealYaw ( pSound->m_vecOrigin );
 
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
-	mov	eax, DWORD PTR _pSound$37086[ebp]
+	mov	eax, DWORD PTR _pSound$37090[ebp]
 	push	eax
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -1409,45 +1409,45 @@ $L37082:
 
 ; 163  : 					if ( pSound->m_iType & (bits_SOUND_COMBAT|bits_SOUND_DANGER) )
 
-	mov	ecx, DWORD PTR _pSound$37086[ebp]
+	mov	ecx, DWORD PTR _pSound$37090[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	and	edx, 33					; 00000021H
 	test	edx, edx
-	je	SHORT $L37092
+	je	SHORT $L37096
 
 ; 164  : 						m_IdealMonsterState = MONSTERSTATE_ALERT;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2084], 3
-$L37092:
+$L37096:
 
 ; 167  : 			else if ( iConditions & (bits_COND_SMELL | bits_COND_SMELL_FOOD) )
 
-	jmp	SHORT $L37094
-$L37085:
+	jmp	SHORT $L37098
+$L37089:
 	mov	ecx, DWORD PTR _iConditions$[ebp]
 	and	ecx, 262208				; 00040040H
 	test	ecx, ecx
-	je	SHORT $L37094
+	je	SHORT $L37098
 
 ; 169  : 				m_IdealMonsterState = MONSTERSTATE_ALERT;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2084], 3
-$L37094:
+$L37098:
 
 ; 171  : 
 ; 172  : 			break;
 
-	jmp	$L37073
-$L37095:
+	jmp	$L37077
+$L37099:
 
 ; 181  : 			if ( iConditions & (bits_COND_NEW_ENEMY|bits_COND_SEE_ENEMY) )			
 
 	mov	eax, DWORD PTR _iConditions$[ebp]
 	and	eax, 65552				; 00010010H
 	test	eax, eax
-	je	SHORT $L37096
+	je	SHORT $L37100
 
 ; 183  : 				// see an enemy we MUST attack
 ; 184  : 				m_IdealMonsterState = MONSTERSTATE_COMBAT;
@@ -1457,12 +1457,12 @@ $L37095:
 
 ; 186  : 			else if ( iConditions & bits_COND_HEAR_SOUND )
 
-	jmp	SHORT $L37100
-$L37096:
+	jmp	SHORT $L37104
+$L37100:
 	mov	edx, DWORD PTR _iConditions$[ebp]
 	and	edx, 131072				; 00020000H
 	test	edx, edx
-	je	SHORT $L37100
+	je	SHORT $L37104
 
 ; 188  : 				m_IdealMonsterState = MONSTERSTATE_ALERT;
 
@@ -1475,7 +1475,7 @@ $L37096:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+544]
-	mov	DWORD PTR _pSound$37099[ebp], eax
+	mov	DWORD PTR _pSound$37103[ebp], eax
 
 ; 190  : 				ASSERT( pSound != NULL );
 
@@ -1486,7 +1486,7 @@ $L37096:
 	push	OFFSET FLAT:??_C@_0CO@KMCC@z?3?2xashxtsrc?2server?2monsters?2mon@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@OOBL@pSound?5?$CB?$DN?5NULL?$AA@ ; `string'
 	xor	ecx, ecx
-	cmp	DWORD PTR _pSound$37099[ebp], 0
+	cmp	DWORD PTR _pSound$37103[ebp], 0
 	setne	cl
 	push	ecx
 	call	?DBG_AssertFunction@@YAXHPBD0H0@Z	; DBG_AssertFunction
@@ -1494,24 +1494,24 @@ $L37096:
 
 ; 191  : 				if ( pSound )
 
-	cmp	DWORD PTR _pSound$37099[ebp], 0
-	je	SHORT $L37100
+	cmp	DWORD PTR _pSound$37103[ebp], 0
+	je	SHORT $L37104
 
 ; 192  : 					MakeIdealYaw ( pSound->m_vecOrigin );
 
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
-	mov	edx, DWORD PTR _pSound$37099[ebp]
+	mov	edx, DWORD PTR _pSound$37103[ebp]
 	push	edx
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?MakeIdealYaw@CBaseMonster@@QAEXVVector@@@Z ; CBaseMonster::MakeIdealYaw
-$L37100:
+$L37104:
 
 ; 194  : 			break;
 
-	jmp	SHORT $L37073
-$L37102:
+	jmp	SHORT $L37077
+$L37106:
 
 ; 202  : 			if ( m_hEnemy == NULL )
 
@@ -1519,7 +1519,7 @@ $L37102:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	jne	SHORT $L37103
+	jne	SHORT $L37107
 
 ; 204  : 				m_IdealMonsterState = MONSTERSTATE_ALERT;
 
@@ -1533,12 +1533,12 @@ $L37102:
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L37103:
+$L37107:
 
 ; 208  : 			break;
 
-	jmp	SHORT $L37073
-$L37106:
+	jmp	SHORT $L37077
+$L37110:
 
 ; 220  : 	case MONSTERSTATE_SCRIPT:
 ; 221  : 		if ( iConditions & (bits_COND_TASK_FAILED|bits_COND_LIGHT_DAMAGE|bits_COND_HEAVY_DAMAGE) )
@@ -1546,18 +1546,18 @@ $L37106:
 	mov	ecx, DWORD PTR _iConditions$[ebp]
 	and	ecx, 1073742592				; 40000300H
 	test	ecx, ecx
-	je	SHORT $L37107
+	je	SHORT $L37111
 
 ; 223  : 			ExitScriptedSequence();	// This will set the ideal state
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ExitScriptedSequence@CBaseMonster@@QAEHXZ ; CBaseMonster::ExitScriptedSequence
-$L37107:
+$L37111:
 
 ; 225  : 		break;
 
-	jmp	SHORT $L37073
-$L37108:
+	jmp	SHORT $L37077
+$L37112:
 
 ; 226  : 
 ; 227  : 	case MONSTERSTATE_DEAD:
@@ -1565,7 +1565,7 @@ $L37108:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2084], 8
-$L37073:
+$L37077:
 
 ; 231  : 
 ; 232  : 	return m_IdealMonsterState;
@@ -1581,15 +1581,15 @@ $L37073:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L37460:
-	DD	$L37076
-	DD	$L37102
-	DD	$L37095
-	DD	$L37073
-	DD	$L37073
+$L37464:
+	DD	$L37080
 	DD	$L37106
-	DD	$L37073
-	DD	$L37108
+	DD	$L37099
+	DD	$L37077
+	DD	$L37077
+	DD	$L37110
+	DD	$L37077
+	DD	$L37112
 ?GetIdealState@CBaseMonster@@UAE?AW4MONSTERSTATE@@XZ ENDP ; CBaseMonster::GetIdealState
 _TEXT	ENDS
 EXTRN	__fltused:NEAR

@@ -269,6 +269,12 @@ void CHalfLifeMultiplay::RefreshSkillData( void )
 	// Crowbar stab
   gSkillData.plrDmgCrowbarStab = GetSkillCvar( "sk_plr_crowbar_stab" );
 
+	// Axe primary
+	gSkillData.plrDmgAxe = GetSkillCvar( "sk_plr_axe");
+
+	// Axe secondary
+	gSkillData.plrDmgAxeSec = GetSkillCvar( "sk_plr_axe_sec");
+
 	// Glock Round
 	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
 

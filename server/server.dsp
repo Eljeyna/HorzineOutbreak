@@ -57,8 +57,8 @@ LINK32=link.exe
 # ADD LINK32 msvcrt.lib /nologo /subsystem:windows /dll /pdb:none /machine:I386 /nodefaultlib:"libc.lib" /def:".\server.def"
 # SUBTRACT LINK32 /profile /map /debug
 # Begin Custom Build - Custom Build in progress
-TargetDir=\Xash3D\xash\src_main\temp\server\!release
-InputPath=\Xash3D\xash\src_main\temp\server\!release\server.dll
+TargetDir=\XashXTSRC\temp\server\!release
+InputPath=\XashXTSRC\temp\server\!release\server.dll
 SOURCE="$(InputPath)"
 
 "Z:\server.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
@@ -97,8 +97,8 @@ LINK32=link.exe
 # ADD LINK32 msvcrt.lib /nologo /subsystem:windows /dll /incremental:yes /debug /machine:I386 /nodefaultlib:"libc.lib" /def:".\server.def"
 # SUBTRACT LINK32 /profile /map
 # Begin Custom Build - Custom Build in progress
-TargetDir=\Xash3D\xash\src_main\temp\server\!debug
-InputPath=\Xash3D\xash\src_main\temp\server\!debug\server.dll
+TargetDir=\XashXTSRC\temp\server\!debug
+InputPath=\XashXTSRC\temp\server\!debug\server.dll
 SOURCE="$(InputPath)"
 
 "Z:\server.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
@@ -138,6 +138,10 @@ SOURCE=.\monsters\animation.cpp
 # Begin Source File
 
 SOURCE=.\monsters\apache.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\axe.cpp
 # End Source File
 # Begin Source File
 

@@ -32,8 +32,8 @@ enum rpg_e
 	RPG_DRAW1,	// loaded
 	RPG_HOLSTER2,	// unloaded
 	RPG_DRAW_UL,	// unloaded
-	RPG_IDLE_UL,	// unloaded idle
-	RPG_FIDGET_UL,	// unloaded fidget
+	/*RPG_IDLE_UL,	// unloaded idle
+	RPG_FIDGET_UL,	// unloaded fidget*/
 };
 
 class CRpg : public CBasePlayerWeapon
@@ -50,25 +50,25 @@ public:
 	DECLARE_DATADESC();
 
 	BOOL Deploy( void );
-	BOOL CanHolster( void );
+	//BOOL CanHolster( void );
 	void Holster( void );
 
 	void PrimaryAttack( void );
 	//void SecondaryAttack( void );
 	void WeaponIdle( void );
 
-	void UpdateSpot( void );
+	//void UpdateSpot( void );
 	BOOL ShouldWeaponIdle( void ) { return TRUE; };	// laser spot give updates from WeaponIdle
 
-	CLaserSpot *m_pSpot;
+	//CLaserSpot *m_pSpot;
 	int m_cActiveRockets;// how many missiles in flight from this launcher right now?
-	int m_fSpotActive;
+	//int m_fSpotActive;
 };
 
 LINK_ENTITY_TO_CLASS( weapon_rpg, CRpg );
 
 BEGIN_DATADESC( CRpg )
-	DEFINE_FIELD( m_fSpotActive, FIELD_INTEGER ),
+	//DEFINE_FIELD( m_fSpotActive, FIELD_INTEGER ),
 	DEFINE_FIELD( m_cActiveRockets, FIELD_INTEGER ),
 END_DATADESC()
 
@@ -307,7 +307,7 @@ void CRpg::Spawn( void )
 	m_iId = WEAPON_RPG;
 
 	SET_MODEL(ENT(pev), "models/w_rpg.mdl");
-	m_fSpotActive = 0;
+	//m_fSpotActive = 0;
 
 	if ( g_pGameRules->IsMultiplayer() )
 	{
@@ -377,7 +377,7 @@ BOOL CRpg::Deploy( )
 }
 
 
-BOOL CRpg::CanHolster( void )
+/*BOOL CRpg::CanHolster( void )
 {
 	if ( m_fSpotActive && m_cActiveRockets )
 	{
@@ -386,7 +386,7 @@ BOOL CRpg::CanHolster( void )
 	}
 
 	return TRUE;
-}
+}*/
 
 void CRpg::Holster( void )
 {
@@ -395,11 +395,11 @@ void CRpg::Holster( void )
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 	// m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 	SendWeaponAnim( RPG_HOLSTER1 );
-	if (m_pSpot)
+	/*if (m_pSpot)
 	{
 		m_pSpot->Killed( NULL, GIB_NEVER );
 		m_pSpot = NULL;
-	}
+	}*/
 }
 
 void CRpg::PrimaryAttack()
@@ -429,8 +429,10 @@ void CRpg::PrimaryAttack()
 
 		m_iClip--;
 
-		m_flNextPrimaryAttack = gpGlobals->time + 1.5;
-		m_flTimeWeaponIdle = gpGlobals->time + 1.5;
+		//m_flNextPrimaryAttack = gpGlobals->time + 1.5;
+		//m_flTimeWeaponIdle = gpGlobals->time + 1.5;
+		m_flNextPrimaryAttack = gpGlobals->time + 0.2;
+		m_flTimeWeaponIdle = gpGlobals->time + 0.2;
 		m_pPlayer->pev->punchangle.x -= 5;
 	}
 	else
@@ -438,7 +440,7 @@ void CRpg::PrimaryAttack()
 		PlayEmptySound( );
 		m_flNextPrimaryAttack = gpGlobals->time + 0.2;
 	}
-	UpdateSpot( );
+	//UpdateSpot( );
 }
 
 /*void CRpg::SecondaryAttack()
@@ -474,9 +476,10 @@ void CRpg::Reload( void )
 	// Set the next attack time into the future so that WeaponIdle will get called more often
 	// than reload, allowing the RPG LTD to be updated
 
-	m_flNextPrimaryAttack = gpGlobals->time + 0.5;
+	//m_flNextPrimaryAttack = gpGlobals->time + 0.5;
+	m_flNextPrimaryAttack = gpGlobals->time + 0.2;
 
-	if ( m_cActiveRockets && m_fSpotActive )
+	/*if ( m_cActiveRockets && m_fSpotActive )
 	{
 		// no reloading when there are active missiles tracking the designator.
 		// ward off future autoreload attempts by setting next attack time into the future for a bit.
@@ -487,7 +490,7 @@ void CRpg::Reload( void )
 	{
 		m_pSpot->Suspend( 2.1 );
 		m_flNextSecondaryAttack = gpGlobals->time + 2.1;
-	}
+	}*/
 
 	if (m_iClip == 0)
 	{
@@ -502,7 +505,7 @@ void CRpg::Reload( void )
 
 void CRpg::WeaponIdle( void )
 {
-	UpdateSpot( );
+	//UpdateSpot( );
 
 	ResetEmptySound( );
 
@@ -513,21 +516,24 @@ void CRpg::WeaponIdle( void )
 	{
 		int iAnim;
 		float flRand = RANDOM_FLOAT(0, 1);
-		if (flRand <= 0.75 || m_fSpotActive)
+		//if (flRand <= 0.75 || m_fSpotActive)
+		if (flRand <= 0.75)
 		{
-			if ( m_iClip == 0 )
+			/*if ( m_iClip == 0 )
 				iAnim = RPG_IDLE_UL;
 			else
-				iAnim = RPG_IDLE;
+				iAnim = RPG_IDLE;*/
+			iAnim = RPG_IDLE;
 
 			m_flTimeWeaponIdle = gpGlobals->time + 90.0 / 15.0;
 		}
 		else
 		{
-			if ( m_iClip == 0 )
+			/*if ( m_iClip == 0 )
 				iAnim = RPG_FIDGET_UL;
 			else
-				iAnim = RPG_FIDGET;
+				iAnim = RPG_FIDGET;*/
+			iAnim = RPG_FIDGET;
 
 			m_flTimeWeaponIdle = gpGlobals->time + 3.0;
 		}
@@ -540,7 +546,7 @@ void CRpg::WeaponIdle( void )
 	}
 }
 
-void CRpg::UpdateSpot( void )
+/*void CRpg::UpdateSpot( void )
 {
 	if (m_fSpotActive)
 	{
@@ -557,7 +563,7 @@ void CRpg::UpdateSpot( void )
 		UTIL_TraceLine ( vecSrc, vecSrc + vecAiming * 8192, dont_ignore_monsters, ENT(m_pPlayer->pev), &tr );
 		UTIL_SetOrigin( m_pSpot, tr.vecEndPos );
 	}
-}
+}*/
 
 class CRpgAmmo : public CBasePlayerAmmo
 {

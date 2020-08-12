@@ -3745,7 +3745,7 @@ void CBasePlayer::ImpulseCommands( )
 	switch (iImpulse)
 	{
 	case 70:
-		//кидание гранаты для теста
+		//кидание гранаты на "G"
 		if ( m_rgpPlayerItems[5] != NULL )
 		{
 			CBasePlayerWeapon *grenade = (CBasePlayerWeapon *)m_rgpPlayerItems[5];
@@ -3870,7 +3870,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "item_suit" );
 		GiveNamedItem( "item_battery" );
 		GiveNamedItem( "weapon_crowbar" );
-		//GiveNamedItem( "weapon_axe" );
+		GiveNamedItem( "weapon_axe" );
 		//GiveNamedItem( "weapon_chainsaw" );
 		GiveNamedItem( "weapon_9mmhandgun" );
 		GiveNamedItem( "ammo_9mmclip" );

@@ -746,7 +746,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _pWorld$ = -8
-_pTeamList$38422 = -12
+_pTeamList$38425 = -12
 ??0CHalfLifeTeamplay@@QAE@XZ PROC NEAR			; CHalfLifeTeamplay::CHalfLifeTeamplay, COMDAT
 
 ; 34   : {
@@ -825,10 +825,10 @@ _pTeamList$38422 = -12
 ; 49   : 	if ( pWorld && pWorld->v.team )
 
 	cmp	DWORD PTR _pWorld$[ebp], 0
-	je	SHORT $L38423
+	je	SHORT $L38426
 	mov	eax, DWORD PTR _pWorld$[ebp]
 	cmp	DWORD PTR [eax+556], 0
-	je	SHORT $L38423
+	je	SHORT $L38426
 
 ; 51   : 		if ( teamoverride.value )
 
@@ -836,7 +836,7 @@ _pTeamList$38422 = -12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38423
+	jne	SHORT $L38426
 
 ; 53   : 			const char *pTeamList = STRING(pWorld->v.team);
 
@@ -845,30 +845,30 @@ _pTeamList$38422 = -12
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
-	mov	DWORD PTR _pTeamList$38422[ebp], eax
+	mov	DWORD PTR _pTeamList$38425[ebp], eax
 
 ; 54   : 			if ( pTeamList && strlen(pTeamList) )
 
-	cmp	DWORD PTR _pTeamList$38422[ebp], 0
-	je	SHORT $L38423
-	mov	eax, DWORD PTR _pTeamList$38422[ebp]
+	cmp	DWORD PTR _pTeamList$38425[ebp], 0
+	je	SHORT $L38426
+	mov	eax, DWORD PTR _pTeamList$38425[ebp]
 	push	eax
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L38423
+	je	SHORT $L38426
 
 ; 56   : 				strncpy( m_szTeamList, pTeamList, TEAMPLAY_TEAMLISTLENGTH );
 
 	push	512					; 00000200H
-	mov	ecx, DWORD PTR _pTeamList$38422[ebp]
+	mov	ecx, DWORD PTR _pTeamList$38425[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 24					; 00000018H
 	push	edx
 	call	_strncpy
 	add	esp, 12					; 0000000cH
-$L38423:
+$L38426:
 
 ; 60   : 	// Has the server set teams
 ; 61   : 	if ( strlen( m_szTeamList ) )
@@ -879,7 +879,7 @@ $L38423:
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L38424
+	je	SHORT $L38427
 
 ; 62   : 		m_teamLimit = TRUE;
 
@@ -888,14 +888,14 @@ $L38423:
 
 ; 63   : 	else
 
-	jmp	SHORT $L38425
-$L38424:
+	jmp	SHORT $L38428
+$L38427:
 
 ; 64   : 		m_teamLimit = FALSE;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+20], 0
-$L38425:
+$L38428:
 
 ; 65   : 
 ; 66   : 	RecountTeams();
@@ -1053,9 +1053,9 @@ _frags_remaining$ = -8
 _time_remaining$ = -12
 _flTimeLimit$ = -16
 _flFragLimit$ = -20
-_bestfrags$38445 = -24
-_remain$38446 = -28
-_i$38447 = -32
+_bestfrags$38448 = -24
+_remain$38449 = -28
+_i$38450 = -32
 ?Think@CHalfLifeTeamplay@@UAEXXZ PROC NEAR		; CHalfLifeTeamplay::Think, COMDAT
 
 ; 72   : {
@@ -1084,7 +1084,7 @@ _i$38447 = -32
 ; 80   : 	if ( g_fGameOver )   // someone else quit the game already
 
 	cmp	DWORD PTR ?g_fGameOver@@3HA, 0		; g_fGameOver
-	je	SHORT $L38438
+	je	SHORT $L38441
 
 ; 82   : 		CHalfLifeMultiplay::Think();
 
@@ -1093,8 +1093,8 @@ _i$38447 = -32
 
 ; 83   : 		return;
 
-	jmp	$L38431
-$L38438:
+	jmp	$L38434
+$L38441:
 
 ; 85   : 
 ; 86   : 	float flTimeLimit = CVAR_GET_FLOAT("mp_timelimit") * 60;
@@ -1111,15 +1111,15 @@ $L38438:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L39029
+	jne	SHORT $L39032
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR _flTimeLimit$[ebp]
 	fsub	DWORD PTR [eax]
 	fstp	DWORD PTR -36+[ebp]
-	jmp	SHORT $L39030
-$L39029:
+	jmp	SHORT $L39033
+$L39032:
 	mov	DWORD PTR -36+[ebp], 0
-$L39030:
+$L39033:
 	fld	DWORD PTR -36+[ebp]
 	call	__ftol
 	mov	DWORD PTR _time_remaining$[ebp], eax
@@ -1131,13 +1131,13 @@ $L39030:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38442
+	jne	SHORT $L38445
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [ecx]
 	fcomp	DWORD PTR _flTimeLimit$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38442
+	jne	SHORT $L38445
 
 ; 92   : 		GoToIntermission();
 
@@ -1148,8 +1148,8 @@ $L39030:
 
 ; 93   : 		return;
 
-	jmp	$L38431
-$L38442:
+	jmp	$L38434
+$L38445:
 
 ; 95   : 
 ; 96   : 	float flFragLimit = fraglimit.value;
@@ -1163,36 +1163,36 @@ $L38442:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38444
+	jne	SHORT $L38447
 
 ; 99   : 		int bestfrags = 9999;
 
-	mov	DWORD PTR _bestfrags$38445[ebp], 9999	; 0000270fH
+	mov	DWORD PTR _bestfrags$38448[ebp], 9999	; 0000270fH
 
 ; 100  : 		int remain;
 ; 101  : 
 ; 102  : 		// check if any team is over the frag limit
 ; 103  : 		for ( int i = 0; i < num_teams; i++ )
 
-	mov	DWORD PTR _i$38447[ebp], 0
-	jmp	SHORT $L38448
-$L38449:
-	mov	edx, DWORD PTR _i$38447[ebp]
+	mov	DWORD PTR _i$38450[ebp], 0
+	jmp	SHORT $L38451
+$L38452:
+	mov	edx, DWORD PTR _i$38450[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38447[ebp], edx
-$L38448:
-	mov	eax, DWORD PTR _i$38447[ebp]
+	mov	DWORD PTR _i$38450[ebp], edx
+$L38451:
+	mov	eax, DWORD PTR _i$38450[ebp]
 	cmp	eax, DWORD PTR _num_teams
-	jge	SHORT $L38450
+	jge	SHORT $L38453
 
 ; 105  : 			if ( team_scores[i] >= flFragLimit )
 
-	mov	ecx, DWORD PTR _i$38447[ebp]
+	mov	ecx, DWORD PTR _i$38450[ebp]
 	fild	DWORD PTR _team_scores[ecx*4]
 	fcomp	DWORD PTR _flFragLimit$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38451
+	jne	SHORT $L38454
 
 ; 107  : 				GoToIntermission();
 
@@ -1203,40 +1203,40 @@ $L38448:
 
 ; 108  : 				return;
 
-	jmp	$L38431
-$L38451:
+	jmp	$L38434
+$L38454:
 
 ; 110  : 
 ; 111  : 			remain = flFragLimit - team_scores[i];
 
-	mov	ecx, DWORD PTR _i$38447[ebp]
+	mov	ecx, DWORD PTR _i$38450[ebp]
 	fild	DWORD PTR _team_scores[ecx*4]
 	fsubr	DWORD PTR _flFragLimit$[ebp]
 	call	__ftol
-	mov	DWORD PTR _remain$38446[ebp], eax
+	mov	DWORD PTR _remain$38449[ebp], eax
 
 ; 112  : 			if ( remain < bestfrags )
 
-	mov	edx, DWORD PTR _remain$38446[ebp]
-	cmp	edx, DWORD PTR _bestfrags$38445[ebp]
-	jge	SHORT $L38452
+	mov	edx, DWORD PTR _remain$38449[ebp]
+	cmp	edx, DWORD PTR _bestfrags$38448[ebp]
+	jge	SHORT $L38455
 
 ; 114  : 				bestfrags = remain;
 
-	mov	eax, DWORD PTR _remain$38446[ebp]
-	mov	DWORD PTR _bestfrags$38445[ebp], eax
-$L38452:
+	mov	eax, DWORD PTR _remain$38449[ebp]
+	mov	DWORD PTR _bestfrags$38448[ebp], eax
+$L38455:
 
 ; 116  : 		}
 
-	jmp	SHORT $L38449
-$L38450:
+	jmp	SHORT $L38452
+$L38453:
 
 ; 117  : 		frags_remaining = bestfrags;
 
-	mov	ecx, DWORD PTR _bestfrags$38445[ebp]
+	mov	ecx, DWORD PTR _bestfrags$38448[ebp]
 	mov	DWORD PTR _frags_remaining$[ebp], ecx
-$L38444:
+$L38447:
 
 ; 119  : 
 ; 120  : 	// Updates when frags change
@@ -1244,7 +1244,7 @@ $L38444:
 
 	mov	edx, DWORD PTR _frags_remaining$[ebp]
 	cmp	edx, DWORD PTR _?last_frags@?1??Think@CHalfLifeTeamplay@@UAEXXZ@4HA
-	je	SHORT $L38453
+	je	SHORT $L38456
 
 ; 123  : 		g_engfuncs.pfnCvar_DirectSet( &fragsleft, UTIL_VarArgs( "%i", frags_remaining ) );
 
@@ -1257,7 +1257,7 @@ $L38444:
 	push	OFFSET FLAT:?fragsleft@@3Ucvar_s@@A	; fragsleft
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+548
 	add	esp, 8
-$L38453:
+$L38456:
 
 ; 125  : 
 ; 126  : 	// Updates once per second
@@ -1267,7 +1267,7 @@ $L38453:
 	fcomp	DWORD PTR ?timeleft@@3Ucvar_s@@A+12
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38455
+	jne	SHORT $L38458
 
 ; 129  : 		g_engfuncs.pfnCvar_DirectSet( &timeleft, UTIL_VarArgs( "%i", time_remaining ) );
 
@@ -1280,7 +1280,7 @@ $L38453:
 	push	OFFSET FLAT:?timeleft@@3Ucvar_s@@A	; timeleft
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+548
 	add	esp, 8
-$L38455:
+$L38458:
 
 ; 131  : 
 ; 132  : 	last_frags = frags_remaining;
@@ -1292,7 +1292,7 @@ $L38455:
 
 	mov	eax, DWORD PTR _time_remaining$[ebp]
 	mov	DWORD PTR _?last_time@?1??Think@CHalfLifeTeamplay@@UAEXXZ@4HA, eax
-$L38431:
+$L38434:
 
 ; 134  : }
 
@@ -1316,7 +1316,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _pcmd$ = 12
 _this$ = -4
-_slot$38464 = -8
+_slot$38467 = -8
 ?ClientCommand@CHalfLifeTeamplay@@UAEHPAVCBasePlayer@@PBD@Z PROC NEAR ; CHalfLifeTeamplay::ClientCommand, COMDAT
 
 ; 142  : {
@@ -1337,19 +1337,19 @@ _slot$38464 = -8
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38461
+	je	SHORT $L38464
 
 ; 145  : 		if ( CMD_ARGC() < 2 )
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+336
 	cmp	eax, 2
-	jge	SHORT $L38463
+	jge	SHORT $L38466
 
 ; 146  : 			return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38460
-$L38463:
+	jmp	SHORT $L38463
+$L38466:
 
 ; 147  : 
 ; 148  : 		int slot = atoi( CMD_ARGV(1) );
@@ -1360,7 +1360,7 @@ $L38463:
 	push	eax
 	call	_atoi
 	add	esp, 4
-	mov	DWORD PTR _slot$38464[ebp], eax
+	mov	DWORD PTR _slot$38467[ebp], eax
 
 ; 149  : 
 ; 150  : 		// select the item from the current menu
@@ -1368,14 +1368,14 @@ $L38463:
 ; 152  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38460
-$L38461:
+	jmp	SHORT $L38463
+$L38464:
 
 ; 154  : 
 ; 155  : 	return FALSE;
 
 	xor	eax, eax
-$L38460:
+$L38463:
 
 ; 156  : }
 
@@ -1578,7 +1578,7 @@ _TEXT	SEGMENT
 _pPlayer$ = 8
 _this$ = -4
 _mdls$ = -8
-_pTeamName$38482 = -12
+_pTeamName$38485 = -12
 ?SetDefaultPlayerTeam@CHalfLifeTeamplay@@UAEPBDPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeTeamplay::SetDefaultPlayerTeam, COMDAT
 
 ; 173  : {
@@ -1630,7 +1630,7 @@ _pTeamName$38482 = -12
 	mov	edx, DWORD PTR _pPlayer$[ebp]
 	movsx	eax, BYTE PTR [edx+3804]
 	test	eax, eax
-	je	SHORT $L38481
+	je	SHORT $L38484
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	add	ecx, 3804				; 00000edcH
 	push	ecx
@@ -1639,17 +1639,17 @@ _pTeamName$38482 = -12
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+212]
 	test	eax, eax
-	je	SHORT $L38481
+	je	SHORT $L38484
 	fld	DWORD PTR ?defaultteam@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38480
-$L38481:
+	jne	SHORT $L38483
+$L38484:
 
 ; 183  : 		const char *pTeamName = NULL;
 
-	mov	DWORD PTR _pTeamName$38482[ebp], 0
+	mov	DWORD PTR _pTeamName$38485[ebp], 0
 
 ; 184  : 		
 ; 185  : 		if ( defaultteam.value )
@@ -1658,35 +1658,35 @@ $L38481:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38483
+	jne	SHORT $L38486
 
 ; 187  : 			pTeamName = team_names[0];
 
-	mov	DWORD PTR _pTeamName$38482[ebp], OFFSET FLAT:_team_names
+	mov	DWORD PTR _pTeamName$38485[ebp], OFFSET FLAT:_team_names
 
 ; 189  : 		else
 
-	jmp	SHORT $L38484
-$L38483:
+	jmp	SHORT $L38487
+$L38486:
 
 ; 191  : 			pTeamName = TeamWithFewestPlayers();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TeamWithFewestPlayers@CHalfLifeTeamplay@@AAEPBDXZ ; CHalfLifeTeamplay::TeamWithFewestPlayers
-	mov	DWORD PTR _pTeamName$38482[ebp], eax
-$L38484:
+	mov	DWORD PTR _pTeamName$38485[ebp], eax
+$L38487:
 
 ; 193  : 		strncpy( pPlayer->m_szTeamName, pTeamName, TEAM_NAME_LENGTH );
 
 	push	16					; 00000010H
-	mov	ecx, DWORD PTR _pTeamName$38482[ebp]
+	mov	ecx, DWORD PTR _pTeamName$38485[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pPlayer$[ebp]
 	add	edx, 3804				; 00000edcH
 	push	edx
 	call	_strncpy
 	add	esp, 12					; 0000000cH
-$L38480:
+$L38483:
 
 ; 195  : 
 ; 196  : 	return pPlayer->m_szTeamName;
@@ -1733,7 +1733,7 @@ _i$ = -8
 _mdls$ = -12
 _text$ = -1036
 _clientIndex$ = -1040
-_plr$38503 = -1044
+_plr$38506 = -1044
 ?InitHUD@CHalfLifeTeamplay@@UAEXPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeTeamplay::InitHUD, COMDAT
 
 ; 204  : {
@@ -1788,15 +1788,15 @@ _plr$38503 = -1044
 ; 213  : 		for ( i = 0; i < num_teams; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38490
-$L38491:
+	jmp	SHORT $L38493
+$L38494:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38490:
+$L38493:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _num_teams
-	jge	SHORT $L38492
+	jge	SHORT $L38495
 
 ; 215  : 			WRITE_STRING( team_names[ i ] );
 
@@ -1809,8 +1809,8 @@ $L38490:
 
 ; 216  : 		}
 
-	jmp	SHORT $L38491
-$L38492:
+	jmp	SHORT $L38494
+$L38495:
 
 ; 217  : 	MESSAGE_END();
 
@@ -1849,7 +1849,7 @@ $L38492:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38495
+	jne	SHORT $L38498
 
 ; 226  : 		sprintf( text, "* you are on team \'%s\'\n", pPlayer->m_szTeamName );
 
@@ -1864,8 +1864,8 @@ $L38492:
 
 ; 228  : 	else
 
-	jmp	SHORT $L38497
-$L38495:
+	jmp	SHORT $L38500
+$L38498:
 
 ; 230  : 		sprintf( text, "* assigned to team %s\n", pPlayer->m_szTeamName );
 
@@ -1877,7 +1877,7 @@ $L38495:
 	push	edx
 	call	_sprintf
 	add	esp, 12					; 0000000cH
-$L38497:
+$L38500:
 
 ; 232  : 
 ; 233  : 	ChangePlayerTeam( pPlayer, pPlayer->m_szTeamName, FALSE, FALSE );
@@ -1920,16 +1920,16 @@ $L38497:
 ; 239  : 	for ( i = 1; i <= gpGlobals->maxClients; i++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L38500
-$L38501:
+	jmp	SHORT $L38503
+$L38504:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38500:
+$L38503:
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+144]
-	jg	$L38502
+	jg	$L38505
 
 ; 241  : 		CBaseEntity *plr = UTIL_PlayerByIndex( i );
 
@@ -1937,15 +1937,15 @@ $L38500:
 	push	eax
 	call	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z ; UTIL_PlayerByIndex
 	add	esp, 4
-	mov	DWORD PTR _plr$38503[ebp], eax
+	mov	DWORD PTR _plr$38506[ebp], eax
 
 ; 242  : 		if ( plr && IsValidTeam( plr->TeamID() ) )
 
-	cmp	DWORD PTR _plr$38503[ebp], 0
-	je	SHORT $L38504
-	mov	ecx, DWORD PTR _plr$38503[ebp]
+	cmp	DWORD PTR _plr$38506[ebp], 0
+	je	SHORT $L38507
+	mov	ecx, DWORD PTR _plr$38506[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _plr$38503[ebp]
+	mov	ecx, DWORD PTR _plr$38506[ebp]
 	call	DWORD PTR [edx+264]
 	push	eax
 	mov	eax, DWORD PTR _this$[ebp]
@@ -1953,7 +1953,7 @@ $L38500:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+212]
 	test	eax, eax
-	je	SHORT $L38504
+	je	SHORT $L38507
 
 ; 244  : 			MESSAGE_BEGIN( MSG_ONE, gmsgTeamInfo, NULL, pPlayer->edict() );
 
@@ -1969,7 +1969,7 @@ $L38500:
 
 ; 245  : 				WRITE_BYTE( plr->entindex() );
 
-	mov	ecx, DWORD PTR _plr$38503[ebp]
+	mov	ecx, DWORD PTR _plr$38506[ebp]
 	call	?entindex@CBaseEntity@@QAEHXZ		; CBaseEntity::entindex
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
@@ -1977,9 +1977,9 @@ $L38500:
 
 ; 246  : 				WRITE_STRING( plr->TeamID() );
 
-	mov	ecx, DWORD PTR _plr$38503[ebp]
+	mov	ecx, DWORD PTR _plr$38506[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _plr$38503[ebp]
+	mov	ecx, DWORD PTR _plr$38506[ebp]
 	call	DWORD PTR [edx+264]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+216
@@ -1988,12 +1988,12 @@ $L38500:
 ; 247  : 			MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
-$L38504:
+$L38507:
 
 ; 249  : 	}
 
-	jmp	$L38501
-$L38502:
+	jmp	$L38504
+$L38505:
 
 ; 250  : }
 
@@ -2076,7 +2076,7 @@ _bGib$ = 20
 _this$ = -4
 _damageFlags$ = -8
 _clientIndex$ = -12
-_pevWorld$38517 = -16
+_pevWorld$38520 = -16
 ?ChangePlayerTeam@CHalfLifeTeamplay@@UAEXPAVCBasePlayer@@PBDHH@Z PROC NEAR ; CHalfLifeTeamplay::ChangePlayerTeam, COMDAT
 
 ; 254  : {
@@ -2103,7 +2103,7 @@ _pevWorld$38517 = -16
 ; 258  : 	if ( !bGib )
 
 	cmp	DWORD PTR _bGib$[ebp], 0
-	jne	SHORT $L38514
+	jne	SHORT $L38517
 
 ; 260  : 		damageFlags |= DMG_NEVERGIB;
 
@@ -2113,21 +2113,21 @@ _pevWorld$38517 = -16
 
 ; 262  : 	else
 
-	jmp	SHORT $L38515
-$L38514:
+	jmp	SHORT $L38518
+$L38517:
 
 ; 264  : 		damageFlags |= DMG_ALWAYSGIB;
 
 	mov	ecx, DWORD PTR _damageFlags$[ebp]
 	or	ch, 32					; 00000020H
 	mov	DWORD PTR _damageFlags$[ebp], ecx
-$L38515:
+$L38518:
 
 ; 266  : 
 ; 267  : 	if ( bKill )
 
 	cmp	DWORD PTR _bKill$[ebp], 0
-	je	SHORT $L38516
+	je	SHORT $L38519
 
 ; 269  : 		// kill the player,  remove a death,  and let them start on the new team
 ; 270  : 		m_DisableDeathMessages = TRUE;
@@ -2149,16 +2149,16 @@ $L38515:
 	push	eax
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
-	mov	DWORD PTR _pevWorld$38517[ebp], eax
+	mov	DWORD PTR _pevWorld$38520[ebp], eax
 
 ; 274  : 		pPlayer->TakeDamage( pevWorld, pevWorld, 900, damageFlags );
 
 	mov	ecx, DWORD PTR _damageFlags$[ebp]
 	push	ecx
 	push	1147207680				; 44610000H
-	mov	edx, DWORD PTR _pevWorld$38517[ebp]
+	mov	edx, DWORD PTR _pevWorld$38520[ebp]
 	push	edx
-	mov	eax, DWORD PTR _pevWorld$38517[ebp]
+	mov	eax, DWORD PTR _pevWorld$38520[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -2175,7 +2175,7 @@ $L38515:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+16], 0
-$L38516:
+$L38519:
 
 ; 279  : 
 ; 280  : 	// copy out the team name from the model
@@ -2409,8 +2409,8 @@ _infobuffer$ = 12
 _this$ = -4
 _text$ = -1028
 _mdls$ = -1032
-_clientIndex$38528 = -1036
-_clientIndex$38532 = -1040
+_clientIndex$38531 = -1036
+_clientIndex$38535 = -1040
 ?ClientUserInfoChanged@CHalfLifeTeamplay@@UAEXPAVCBasePlayer@@PAD@Z PROC NEAR ; CHalfLifeTeamplay::ClientUserInfoChanged, COMDAT
 
 ; 306  : {
@@ -2446,12 +2446,12 @@ _clientIndex$38532 = -1040
 	call	_stricmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38526
+	jne	SHORT $L38529
 
 ; 313  : 		return;
 
-	jmp	$L38523
-$L38526:
+	jmp	$L38526
+$L38529:
 
 ; 314  : 
 ; 315  : 	if ( defaultteam.value )
@@ -2460,13 +2460,13 @@ $L38526:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	$L38527
+	jne	$L38530
 
 ; 317  : 		int clientIndex = pPlayer->entindex();
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?entindex@CBaseEntity@@QAEHXZ		; CBaseEntity::entindex
-	mov	DWORD PTR _clientIndex$38528[ebp], eax
+	mov	DWORD PTR _clientIndex$38531[ebp], eax
 
 ; 318  : 
 ; 319  : 		g_engfuncs.pfnSetClientKeyValue( clientIndex, g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model", pPlayer->m_szTeamName );
@@ -2481,7 +2481,7 @@ $L38526:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+424
 	add	esp, 4
 	push	eax
-	mov	ecx, DWORD PTR _clientIndex$38528[ebp]
+	mov	ecx, DWORD PTR _clientIndex$38531[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+436
 	add	esp, 16					; 00000010H
@@ -2498,7 +2498,7 @@ $L38526:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+424
 	add	esp, 4
 	push	eax
-	mov	eax, DWORD PTR _clientIndex$38528[ebp]
+	mov	eax, DWORD PTR _clientIndex$38531[ebp]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+436
 	add	esp, 16					; 00000010H
@@ -2522,8 +2522,8 @@ $L38526:
 
 ; 323  : 		return;
 
-	jmp	$L38523
-$L38527:
+	jmp	$L38526
+$L38530:
 
 ; 325  : 
 ; 326  : 	if ( defaultteam.value || !IsValidTeam( mdls ) )
@@ -2532,7 +2532,7 @@ $L38527:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38531
+	je	SHORT $L38534
 	mov	ecx, DWORD PTR _mdls$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
@@ -2540,14 +2540,14 @@ $L38527:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+212]
 	test	eax, eax
-	jne	$L38530
-$L38531:
+	jne	$L38533
+$L38534:
 
 ; 328  : 		int clientIndex = pPlayer->entindex();
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?entindex@CBaseEntity@@QAEHXZ		; CBaseEntity::entindex
-	mov	DWORD PTR _clientIndex$38532[ebp], eax
+	mov	DWORD PTR _clientIndex$38535[ebp], eax
 
 ; 329  : 
 ; 330  : 		g_engfuncs.pfnSetClientKeyValue( clientIndex, g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model", pPlayer->m_szTeamName );
@@ -2562,7 +2562,7 @@ $L38531:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+424
 	add	esp, 4
 	push	eax
-	mov	edx, DWORD PTR _clientIndex$38532[ebp]
+	mov	edx, DWORD PTR _clientIndex$38535[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+436
 	add	esp, 16					; 00000010H
@@ -2608,8 +2608,8 @@ $L38531:
 
 ; 335  : 		return;
 
-	jmp	$L38523
-$L38530:
+	jmp	$L38526
+$L38533:
 
 ; 337  : 	// notify everyone of the team change
 ; 338  : 	sprintf( text, "* %s has changed to team \'%s\'\n", STRING(pPlayer->pev->netname), mdls );
@@ -2694,7 +2694,7 @@ $L38530:
 	push	1
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RecountTeams@CHalfLifeTeamplay@@AAEX_N@Z ; CHalfLifeTeamplay::RecountTeams
-$L38523:
+$L38526:
 
 ; 351  : }
 
@@ -2721,7 +2721,7 @@ _pVictim$ = 8
 _pKiller$ = 12
 _pevInflictor$ = 16
 _this$ = -4
-_pk$38546 = -8
+_pk$38549 = -8
 ?DeathNotice@CHalfLifeTeamplay@@UAEXPAVCBasePlayer@@PAUentvars_s@@1@Z PROC NEAR ; CHalfLifeTeamplay::DeathNotice, COMDAT
 
 ; 359  : {
@@ -2738,25 +2738,25 @@ _pk$38546 = -8
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+12], 0
-	je	SHORT $L38544
+	je	SHORT $L38547
 
 ; 361  : 		return;
 
-	jmp	$L38543
-$L38544:
+	jmp	$L38546
+$L38547:
 
 ; 362  : 	
 ; 363  : 	if ( pVictim && pKiller && pKiller->flags & FL_CLIENT )
 
 	cmp	DWORD PTR _pVictim$[ebp], 0
-	je	$L38549
+	je	$L38552
 	cmp	DWORD PTR _pKiller$[ebp], 0
-	je	$L38549
+	je	$L38552
 	mov	ecx, DWORD PTR _pKiller$[ebp]
 	mov	edx, DWORD PTR [ecx+420]
 	and	edx, 8
 	test	edx, edx
-	je	$L38549
+	je	$L38552
 
 ; 365  : 		CBasePlayer *pk = (CBasePlayer*) CBaseEntity::Instance( pKiller );
 
@@ -2764,20 +2764,20 @@ $L38544:
 	push	eax
 	call	?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pk$38546[ebp], eax
+	mov	DWORD PTR _pk$38549[ebp], eax
 
 ; 366  : 
 ; 367  : 		if ( pk )
 
-	cmp	DWORD PTR _pk$38546[ebp], 0
-	je	$L38549
+	cmp	DWORD PTR _pk$38549[ebp], 0
+	je	$L38552
 
 ; 369  : 			if ( (pk != pVictim) && (PlayerRelationship( pVictim, pk ) == GR_TEAMMATE) )
 
-	mov	ecx, DWORD PTR _pk$38546[ebp]
+	mov	ecx, DWORD PTR _pk$38549[ebp]
 	cmp	ecx, DWORD PTR _pVictim$[ebp]
-	je	SHORT $L38549
-	mov	edx, DWORD PTR _pk$38546[ebp]
+	je	SHORT $L38552
+	mov	edx, DWORD PTR _pk$38549[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pVictim$[ebp]
 	push	eax
@@ -2786,7 +2786,7 @@ $L38544:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+200]
 	cmp	eax, 1
-	jne	SHORT $L38549
+	jne	SHORT $L38552
 
 ; 371  : 				MESSAGE_BEGIN( MSG_ALL, gmsgDeathMsg );
 
@@ -2834,8 +2834,8 @@ $L38544:
 
 ; 376  : 				return;
 
-	jmp	SHORT $L38543
-$L38549:
+	jmp	SHORT $L38546
+$L38552:
 
 ; 380  : 
 ; 381  : 	CHalfLifeMultiplay::DeathNotice( pVictim, pKiller, pevInflictor );
@@ -2848,7 +2848,7 @@ $L38549:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DeathNotice@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@PAUentvars_s@@1@Z ; CHalfLifeMultiplay::DeathNotice
-$L38543:
+$L38546:
 
 ; 382  : }
 
@@ -3030,7 +3030,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+16], 0
-	jne	SHORT $L38557
+	jne	SHORT $L38560
 
 ; 390  : 		CHalfLifeMultiplay::PlayerKilled( pVictim, pKiller, pInflictor );
 
@@ -3048,7 +3048,7 @@ _this$ = -4
 	push	0
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RecountTeams@CHalfLifeTeamplay@@AAEX_N@Z ; CHalfLifeTeamplay::RecountTeams
-$L38557:
+$L38560:
 
 ; 393  : }
 
@@ -3111,7 +3111,7 @@ _this$ = -4
 ; 406  : 	if ( pAttacker && PlayerRelationship( pPlayer, pAttacker ) == GR_TEAMMATE )
 
 	cmp	DWORD PTR _pAttacker$[ebp], 0
-	je	SHORT $L38568
+	je	SHORT $L38571
 	mov	eax, DWORD PTR _pAttacker$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
@@ -3121,7 +3121,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+200]
 	cmp	eax, 1
-	jne	SHORT $L38568
+	jne	SHORT $L38571
 
 ; 408  : 		// my teammate hit me.
 ; 409  : 		if ( (friendlyfire.value == 0) && (pAttacker != pPlayer) )
@@ -3130,17 +3130,17 @@ _this$ = -4
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38568
+	je	SHORT $L38571
 	mov	ecx, DWORD PTR _pAttacker$[ebp]
 	cmp	ecx, DWORD PTR _pPlayer$[ebp]
-	je	SHORT $L38568
+	je	SHORT $L38571
 
 ; 411  : 			// friendly fire is off, and this hit came from someone other than myself,  then don't get hurt
 ; 412  : 			return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38566
-$L38568:
+	jmp	SHORT $L38569
+$L38571:
 
 ; 415  : 
 ; 416  : 	return CHalfLifeMultiplay::FPlayerCanTakeDamage( pPlayer, pAttacker );
@@ -3151,7 +3151,7 @@ $L38568:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FPlayerCanTakeDamage@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PAVCBaseEntity@@@Z ; CHalfLifeMultiplay::FPlayerCanTakeDamage
-$L38566:
+$L38569:
 
 ; 417  : }
 
@@ -3185,22 +3185,22 @@ _this$ = -4
 ; 425  : 	if ( !pPlayer || !pTarget || !pTarget->IsPlayer() )
 
 	cmp	DWORD PTR _pPlayer$[ebp], 0
-	je	SHORT $L38575
+	je	SHORT $L38578
 	cmp	DWORD PTR _pTarget$[ebp], 0
-	je	SHORT $L38575
+	je	SHORT $L38578
 	mov	eax, DWORD PTR _pTarget$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pTarget$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	jne	SHORT $L38574
-$L38575:
+	jne	SHORT $L38577
+$L38578:
 
 ; 426  : 		return GR_NOTTEAMMATE;
 
 	xor	eax, eax
-	jmp	SHORT $L38573
-$L38574:
+	jmp	SHORT $L38576
+$L38577:
 
 ; 427  : 
 ; 428  : 	if ( (*GetTeamID(pPlayer) != '\0') && (*GetTeamID(pTarget) != '\0') && !stricmp( GetTeamID(pPlayer), GetTeamID(pTarget) ) )
@@ -3213,7 +3213,7 @@ $L38574:
 	call	DWORD PTR [edx+196]
 	movsx	eax, BYTE PTR [eax]
 	test	eax, eax
-	je	SHORT $L38576
+	je	SHORT $L38579
 	mov	ecx, DWORD PTR _pTarget$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
@@ -3222,7 +3222,7 @@ $L38574:
 	call	DWORD PTR [eax+196]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L38576
+	je	SHORT $L38579
 	mov	edx, DWORD PTR _pTarget$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
@@ -3240,19 +3240,19 @@ $L38574:
 	call	_stricmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38576
+	jne	SHORT $L38579
 
 ; 430  : 		return GR_TEAMMATE;
 
 	mov	eax, 1
-	jmp	SHORT $L38573
-$L38576:
+	jmp	SHORT $L38576
+$L38579:
 
 ; 432  : 
 ; 433  : 	return GR_NOTTEAMMATE;
 
 	xor	eax, eax
-$L38573:
+$L38576:
 
 ; 434  : }
 
@@ -3295,13 +3295,13 @@ _pTgt$ = -8
 ; 442  : 	if ( pTgt && pTgt->IsPlayer() )
 
 	cmp	DWORD PTR _pTgt$[ebp], 0
-	je	SHORT $L38584
+	je	SHORT $L38587
 	mov	ecx, DWORD PTR _pTgt$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pTgt$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L38584
+	je	SHORT $L38587
 
 ; 444  : 		if ( PlayerRelationship( pPlayer, pTgt ) == GR_TEAMMATE )
 
@@ -3314,13 +3314,13 @@ _pTgt$ = -8
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+200]
 	cmp	eax, 1
-	jne	SHORT $L38584
+	jne	SHORT $L38587
 
 ; 445  : 			return FALSE; // don't autoaim at teammates
 
 	xor	eax, eax
-	jmp	SHORT $L38581
-$L38584:
+	jmp	SHORT $L38584
+$L38587:
 
 ; 447  : 
 ; 448  : 	return CHalfLifeMultiplay::ShouldAutoAim( pPlayer, target );
@@ -3331,7 +3331,7 @@ $L38584:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShouldAutoAim@CGameRules@@UAEHPAVCBasePlayer@@PAUedict_s@@@Z ; CGameRules::ShouldAutoAim
-$L38581:
+$L38584:
 
 ; 449  : }
 
@@ -3386,32 +3386,32 @@ _this$ = -4
 ; 455  : 	if ( !pKilled )
 
 	cmp	DWORD PTR _pKilled$[ebp], 0
-	jne	SHORT $L38590
+	jne	SHORT $L38593
 
 ; 456  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38589
-$L38590:
+	jmp	SHORT $L38592
+$L38593:
 
 ; 457  : 
 ; 458  : 	if ( !pAttacker )
 
 	cmp	DWORD PTR _pAttacker$[ebp], 0
-	jne	SHORT $L38591
+	jne	SHORT $L38594
 
 ; 459  : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L38589
-$L38591:
+	jmp	SHORT $L38592
+$L38594:
 
 ; 460  : 
 ; 461  : 	if ( pAttacker != pKilled && PlayerRelationship( pAttacker, pKilled ) == GR_TEAMMATE )
 
 	mov	eax, DWORD PTR _pAttacker$[ebp]
 	cmp	eax, DWORD PTR _pKilled$[ebp]
-	je	SHORT $L38592
+	je	SHORT $L38595
 	mov	ecx, DWORD PTR _pKilled$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pAttacker$[ebp]
@@ -3421,19 +3421,19 @@ $L38591:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+200]
 	cmp	eax, 1
-	jne	SHORT $L38592
+	jne	SHORT $L38595
 
 ; 462  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L38589
-$L38592:
+	jmp	SHORT $L38592
+$L38595:
 
 ; 463  : 
 ; 464  : 	return 1;
 
 	mov	eax, 1
-$L38589:
+$L38592:
 
 ; 465  : }
 
@@ -3470,17 +3470,17 @@ _this$ = -4
 ; 471  : 	if ( pEntity == NULL || pEntity->pev == NULL )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L38598
+	je	SHORT $L38601
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	jne	SHORT $L38597
-$L38598:
+	jne	SHORT $L38600
+$L38601:
 
 ; 472  : 		return "";
 
 	mov	eax, OFFSET FLAT:??_C@_00A@?$AA@	; `string'
-	jmp	SHORT $L38596
-$L38597:
+	jmp	SHORT $L38599
+$L38600:
 
 ; 473  : 
 ; 474  : 	// return their team name
@@ -3490,7 +3490,7 @@ $L38597:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+264]
-$L38596:
+$L38599:
 
 ; 476  : }
 
@@ -3506,7 +3506,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _pTeamName$ = 8
 _this$ = -4
-_tm$38604 = -8
+_tm$38607 = -8
 ?GetTeamIndex@CHalfLifeTeamplay@@UAEHPBD@Z PROC NEAR	; CHalfLifeTeamplay::GetTeamIndex, COMDAT
 
 ; 480  : {
@@ -3522,55 +3522,55 @@ _tm$38604 = -8
 ; 481  : 	if ( pTeamName && *pTeamName != 0 )
 
 	cmp	DWORD PTR _pTeamName$[ebp], 0
-	je	SHORT $L38607
+	je	SHORT $L38610
 	mov	eax, DWORD PTR _pTeamName$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L38607
+	je	SHORT $L38610
 
 ; 483  : 		// try to find existing team
 ; 484  : 		for ( int tm = 0; tm < num_teams; tm++ )
 
-	mov	DWORD PTR _tm$38604[ebp], 0
-	jmp	SHORT $L38605
-$L38606:
-	mov	edx, DWORD PTR _tm$38604[ebp]
+	mov	DWORD PTR _tm$38607[ebp], 0
+	jmp	SHORT $L38608
+$L38609:
+	mov	edx, DWORD PTR _tm$38607[ebp]
 	add	edx, 1
-	mov	DWORD PTR _tm$38604[ebp], edx
-$L38605:
-	mov	eax, DWORD PTR _tm$38604[ebp]
+	mov	DWORD PTR _tm$38607[ebp], edx
+$L38608:
+	mov	eax, DWORD PTR _tm$38607[ebp]
 	cmp	eax, DWORD PTR _num_teams
-	jge	SHORT $L38607
+	jge	SHORT $L38610
 
 ; 486  : 			if ( !stricmp( team_names[tm], pTeamName ) )
 
 	mov	ecx, DWORD PTR _pTeamName$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _tm$38604[ebp]
+	mov	edx, DWORD PTR _tm$38607[ebp]
 	shl	edx, 4
 	add	edx, OFFSET FLAT:_team_names
 	push	edx
 	call	_stricmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38608
+	jne	SHORT $L38611
 
 ; 487  : 				return tm;
 
-	mov	eax, DWORD PTR _tm$38604[ebp]
-	jmp	SHORT $L38602
-$L38608:
+	mov	eax, DWORD PTR _tm$38607[ebp]
+	jmp	SHORT $L38605
+$L38611:
 
 ; 488  : 		}
 
-	jmp	SHORT $L38606
-$L38607:
+	jmp	SHORT $L38609
+$L38610:
 
 ; 490  : 	
 ; 491  : 	return -1;	// No match
 
 	or	eax, -1
-$L38602:
+$L38605:
 
 ; 492  : }
 
@@ -3601,17 +3601,17 @@ _this$ = -4
 ; 497  : 	if ( teamIndex < 0 || teamIndex >= num_teams )
 
 	cmp	DWORD PTR _teamIndex$[ebp], 0
-	jl	SHORT $L38614
+	jl	SHORT $L38617
 	mov	eax, DWORD PTR _teamIndex$[ebp]
 	cmp	eax, DWORD PTR _num_teams
-	jl	SHORT $L38613
-$L38614:
+	jl	SHORT $L38616
+$L38617:
 
 ; 498  : 		return "";
 
 	mov	eax, OFFSET FLAT:??_C@_00A@?$AA@	; `string'
-	jmp	SHORT $L38612
-$L38613:
+	jmp	SHORT $L38615
+$L38616:
 
 ; 499  : 
 ; 500  : 	return team_names[ teamIndex ];
@@ -3619,7 +3619,7 @@ $L38613:
 	mov	eax, DWORD PTR _teamIndex$[ebp]
 	shl	eax, 4
 	add	eax, OFFSET FLAT:_team_names
-$L38612:
+$L38615:
 
 ; 501  : }
 
@@ -3651,13 +3651,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+20], 0
-	jne	SHORT $L38619
+	jne	SHORT $L38622
 
 ; 507  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38618
-$L38619:
+	jmp	SHORT $L38621
+$L38622:
 
 ; 508  : 
 ; 509  : 	return ( GetTeamIndex( pTeamName ) != -1 ) ? TRUE : FALSE;
@@ -3672,7 +3672,7 @@ $L38619:
 	cmp	eax, -1
 	setne	cl
 	mov	eax, ecx
-$L38618:
+$L38621:
 
 ; 510  : }
 
@@ -3691,8 +3691,8 @@ _i$ = -8
 _minPlayers$ = -12
 _teamCount$ = -140
 _pTeamName$ = -144
-_plr$38632 = -148
-_team$38634 = -152
+_plr$38635 = -148
+_team$38637 = -152
 ?TeamWithFewestPlayers@CHalfLifeTeamplay@@AAEPBDXZ PROC NEAR ; CHalfLifeTeamplay::TeamWithFewestPlayers, COMDAT
 
 ; 513  : {
@@ -3730,16 +3730,16 @@ _team$38634 = -152
 ; 522  : 	for ( i = 1; i <= gpGlobals->maxClients; i++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L38629
-$L38630:
+	jmp	SHORT $L38632
+$L38633:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38629:
+$L38632:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+144]
-	jg	SHORT $L38631
+	jg	SHORT $L38634
 
 ; 524  : 		CBaseEntity *plr = UTIL_PlayerByIndex( i );
 
@@ -3747,67 +3747,67 @@ $L38629:
 	push	ecx
 	call	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z ; UTIL_PlayerByIndex
 	add	esp, 4
-	mov	DWORD PTR _plr$38632[ebp], eax
+	mov	DWORD PTR _plr$38635[ebp], eax
 
 ; 525  : 
 ; 526  : 		if ( plr )
 
-	cmp	DWORD PTR _plr$38632[ebp], 0
-	je	SHORT $L38635
+	cmp	DWORD PTR _plr$38635[ebp], 0
+	je	SHORT $L38638
 
 ; 528  : 			int team = GetTeamIndex( plr->TeamID() );
 
-	mov	edx, DWORD PTR _plr$38632[ebp]
+	mov	edx, DWORD PTR _plr$38635[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _plr$38632[ebp]
+	mov	ecx, DWORD PTR _plr$38635[ebp]
 	call	DWORD PTR [eax+264]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
-	mov	DWORD PTR _team$38634[ebp], eax
+	mov	DWORD PTR _team$38637[ebp], eax
 
 ; 529  : 			if ( team >= 0 )
 
-	cmp	DWORD PTR _team$38634[ebp], 0
-	jl	SHORT $L38635
+	cmp	DWORD PTR _team$38637[ebp], 0
+	jl	SHORT $L38638
 
 ; 530  : 				teamCount[team] ++;
 
-	mov	eax, DWORD PTR _team$38634[ebp]
+	mov	eax, DWORD PTR _team$38637[ebp]
 	mov	ecx, DWORD PTR _teamCount$[ebp+eax*4]
 	add	ecx, 1
-	mov	edx, DWORD PTR _team$38634[ebp]
+	mov	edx, DWORD PTR _team$38637[ebp]
 	mov	DWORD PTR _teamCount$[ebp+edx*4], ecx
-$L38635:
+$L38638:
 
 ; 532  : 	}
 
-	jmp	$L38630
-$L38631:
+	jmp	$L38633
+$L38634:
 
 ; 533  : 
 ; 534  : 	// Find team with least players
 ; 535  : 	for ( i = 0; i < num_teams; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38636
-$L38637:
+	jmp	SHORT $L38639
+$L38640:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38636:
+$L38639:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _num_teams
-	jge	SHORT $L38638
+	jge	SHORT $L38641
 
 ; 537  : 		if ( teamCount[i] < minPlayers )
 
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _teamCount$[ebp+edx*4]
 	cmp	eax, DWORD PTR _minPlayers$[ebp]
-	jge	SHORT $L38639
+	jge	SHORT $L38642
 
 ; 539  : 			minPlayers = teamCount[i];
 
@@ -3821,12 +3821,12 @@ $L38636:
 	shl	eax, 4
 	add	eax, OFFSET FLAT:_team_names
 	mov	DWORD PTR _pTeamName$[ebp], eax
-$L38639:
+$L38642:
 
 ; 542  : 	}
 
-	jmp	SHORT $L38637
-$L38638:
+	jmp	SHORT $L38640
+$L38641:
 
 ; 543  : 
 ; 544  : 	return pTeamName;
@@ -3858,9 +3858,9 @@ _this$ = -4
 _pName$ = -8
 _teamlist$ = -520
 _i$ = -524
-_plr$38656 = -528
-_pTeamName$38658 = -532
-_tm$38659 = -536
+_plr$38659 = -528
+_pTeamName$38661 = -532
+_tm$38662 = -536
 ?RecountTeams@CHalfLifeTeamplay@@AAEX_N@Z PROC NEAR	; CHalfLifeTeamplay::RecountTeams, COMDAT
 
 ; 551  : {
@@ -3907,16 +3907,16 @@ _tm$38659 = -536
 	call	_strtok
 	add	esp, 8
 	mov	DWORD PTR _pName$[ebp], eax
-$L38648:
+$L38651:
 
 ; 563  : 	while ( pName != NULL && *pName )
 
 	cmp	DWORD PTR _pName$[ebp], 0
-	je	SHORT $L38649
+	je	SHORT $L38652
 	mov	ecx, DWORD PTR _pName$[ebp]
 	movsx	edx, BYTE PTR [ecx]
 	test	edx, edx
-	je	SHORT $L38649
+	je	SHORT $L38652
 
 ; 565  : 		if ( GetTeamIndex( pName ) < 0 )
 
@@ -3927,7 +3927,7 @@ $L38648:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jge	SHORT $L38650
+	jge	SHORT $L38653
 
 ; 567  : 			strcpy( team_names[num_teams], pName );
 
@@ -3945,7 +3945,7 @@ $L38648:
 	mov	edx, DWORD PTR _num_teams
 	add	edx, 1
 	mov	DWORD PTR _num_teams, edx
-$L38650:
+$L38653:
 
 ; 570  : 		pName = strtok( NULL, ";" );
 
@@ -3957,14 +3957,14 @@ $L38650:
 
 ; 571  : 	}
 
-	jmp	SHORT $L38648
-$L38649:
+	jmp	SHORT $L38651
+$L38652:
 
 ; 572  : 
 ; 573  : 	if ( num_teams < 2 )
 
 	cmp	DWORD PTR _num_teams, 2
-	jge	SHORT $L38651
+	jge	SHORT $L38654
 
 ; 575  : 		num_teams = 0;
 
@@ -3974,7 +3974,7 @@ $L38649:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+20], 0
-$L38651:
+$L38654:
 
 ; 578  : 
 ; 579  : 	// Sanity check
@@ -3991,16 +3991,16 @@ $L38651:
 ; 583  : 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L38653
-$L38654:
+	jmp	SHORT $L38656
+$L38657:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38653:
+$L38656:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+144]
-	jg	$L38655
+	jg	$L38658
 
 ; 585  : 		CBaseEntity *plr = UTIL_PlayerByIndex( i );
 
@@ -4008,50 +4008,50 @@ $L38653:
 	push	ecx
 	call	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z ; UTIL_PlayerByIndex
 	add	esp, 4
-	mov	DWORD PTR _plr$38656[ebp], eax
+	mov	DWORD PTR _plr$38659[ebp], eax
 
 ; 586  : 
 ; 587  : 		if ( plr )
 
-	cmp	DWORD PTR _plr$38656[ebp], 0
-	je	$L38664
+	cmp	DWORD PTR _plr$38659[ebp], 0
+	je	$L38667
 
 ; 589  : 			const char *pTeamName = plr->TeamID();
 
-	mov	edx, DWORD PTR _plr$38656[ebp]
+	mov	edx, DWORD PTR _plr$38659[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _plr$38656[ebp]
+	mov	ecx, DWORD PTR _plr$38659[ebp]
 	call	DWORD PTR [eax+264]
-	mov	DWORD PTR _pTeamName$38658[ebp], eax
+	mov	DWORD PTR _pTeamName$38661[ebp], eax
 
 ; 590  : 			// try add to existing team
 ; 591  : 			int tm = GetTeamIndex( pTeamName );
 
-	mov	ecx, DWORD PTR _pTeamName$38658[ebp]
+	mov	ecx, DWORD PTR _pTeamName$38661[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+204]
-	mov	DWORD PTR _tm$38659[ebp], eax
+	mov	DWORD PTR _tm$38662[ebp], eax
 
 ; 592  : 			
 ; 593  : 			if ( tm < 0 ) // no team match found
 
-	cmp	DWORD PTR _tm$38659[ebp], 0
-	jge	SHORT $L38661
+	cmp	DWORD PTR _tm$38662[ebp], 0
+	jge	SHORT $L38664
 
 ; 595  : 				if ( !m_teamLimit )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+20], 0
-	jne	SHORT $L38661
+	jne	SHORT $L38664
 
 ; 597  : 					// add to new team
 ; 598  : 					tm = num_teams;
 
 	mov	edx, DWORD PTR _num_teams
-	mov	DWORD PTR _tm$38659[ebp], edx
+	mov	DWORD PTR _tm$38662[ebp], edx
 
 ; 599  : 					num_teams++;
 
@@ -4061,39 +4061,39 @@ $L38653:
 
 ; 600  : 					team_scores[tm] = 0;
 
-	mov	ecx, DWORD PTR _tm$38659[ebp]
+	mov	ecx, DWORD PTR _tm$38662[ebp]
 	mov	DWORD PTR _team_scores[ecx*4], 0
 
 ; 601  : 					strncpy( team_names[tm], pTeamName, MAX_TEAMNAME_LENGTH );
 
 	push	16					; 00000010H
-	mov	edx, DWORD PTR _pTeamName$38658[ebp]
+	mov	edx, DWORD PTR _pTeamName$38661[ebp]
 	push	edx
-	mov	eax, DWORD PTR _tm$38659[ebp]
+	mov	eax, DWORD PTR _tm$38662[ebp]
 	shl	eax, 4
 	add	eax, OFFSET FLAT:_team_names
 	push	eax
 	call	_strncpy
 	add	esp, 12					; 0000000cH
-$L38661:
+$L38664:
 
 ; 604  : 
 ; 605  : 			if ( tm >= 0 )
 
-	cmp	DWORD PTR _tm$38659[ebp], 0
-	jl	SHORT $L38662
+	cmp	DWORD PTR _tm$38662[ebp], 0
+	jl	SHORT $L38665
 
 ; 607  : 				team_scores[tm] += plr->pev->frags;
 
-	mov	ecx, DWORD PTR _tm$38659[ebp]
+	mov	ecx, DWORD PTR _tm$38662[ebp]
 	fild	DWORD PTR _team_scores[ecx*4]
-	mov	edx, DWORD PTR _plr$38656[ebp]
+	mov	edx, DWORD PTR _plr$38659[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fadd	DWORD PTR [eax+356]
 	call	__ftol
-	mov	ecx, DWORD PTR _tm$38659[ebp]
+	mov	ecx, DWORD PTR _tm$38662[ebp]
 	mov	DWORD PTR _team_scores[ecx*4], eax
-$L38662:
+$L38665:
 
 ; 609  : 
 ; 610  : 			if ( bResendInfo ) //Someone's info changed, let's send the team info again.
@@ -4101,15 +4101,15 @@ $L38662:
 	mov	edx, DWORD PTR _bResendInfo$[ebp]
 	and	edx, 255				; 000000ffH
 	test	edx, edx
-	je	SHORT $L38664
+	je	SHORT $L38667
 
 ; 612  : 				if ( plr && IsValidTeam( plr->TeamID() ) )
 
-	cmp	DWORD PTR _plr$38656[ebp], 0
-	je	SHORT $L38664
-	mov	eax, DWORD PTR _plr$38656[ebp]
+	cmp	DWORD PTR _plr$38659[ebp], 0
+	je	SHORT $L38667
+	mov	eax, DWORD PTR _plr$38659[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _plr$38656[ebp]
+	mov	ecx, DWORD PTR _plr$38659[ebp]
 	call	DWORD PTR [edx+264]
 	push	eax
 	mov	eax, DWORD PTR _this$[ebp]
@@ -4117,7 +4117,7 @@ $L38662:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+212]
 	test	eax, eax
-	je	SHORT $L38664
+	je	SHORT $L38667
 
 ; 614  : 					MESSAGE_BEGIN( MSG_ALL, gmsgTeamInfo, NULL );
 
@@ -4131,7 +4131,7 @@ $L38662:
 
 ; 615  : 						WRITE_BYTE( plr->entindex() );
 
-	mov	ecx, DWORD PTR _plr$38656[ebp]
+	mov	ecx, DWORD PTR _plr$38659[ebp]
 	call	?entindex@CBaseEntity@@QAEHXZ		; CBaseEntity::entindex
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
@@ -4139,9 +4139,9 @@ $L38662:
 
 ; 616  : 						WRITE_STRING( plr->TeamID() );
 
-	mov	ecx, DWORD PTR _plr$38656[ebp]
+	mov	ecx, DWORD PTR _plr$38659[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _plr$38656[ebp]
+	mov	ecx, DWORD PTR _plr$38659[ebp]
 	call	DWORD PTR [edx+264]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+216
@@ -4150,12 +4150,12 @@ $L38662:
 ; 617  : 					MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
-$L38664:
+$L38667:
 
 ; 621  : 	}
 
-	jmp	$L38654
-$L38655:
+	jmp	$L38657
+$L38658:
 
 ; 622  : }
 

@@ -1528,7 +1528,7 @@ _i$ = -8
 ; 1033 : 	if ( !pName )
 
 	cmp	DWORD PTR _pName$[ebp], 0
-	jne	SHORT $L37351
+	jne	SHORT $L37355
 
 ; 1035 : 		ALERT( at_console, "%s set to unnamed schedule!\n", STRING(pev->classname) );
 
@@ -1547,23 +1547,23 @@ _i$ = -8
 ; 1036 : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L37349
-$L37351:
+	jmp	SHORT $L37353
+$L37355:
 
 ; 1038 : 
 ; 1039 : 
 ; 1040 : 	for ( i = 0; i < listCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37353
-$L37354:
+	jmp	SHORT $L37357
+$L37358:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L37353:
+$L37357:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _listCount$[ebp]
-	jge	SHORT $L37355
+	jge	SHORT $L37359
 
 ; 1042 : 		if ( !pList[i]->pName )
 
@@ -1571,7 +1571,7 @@ $L37353:
 	mov	eax, DWORD PTR _pList$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4]
 	cmp	DWORD PTR [ecx+16], 0
-	jne	SHORT $L37356
+	jne	SHORT $L37360
 
 ; 1044 : 			ALERT( at_console, "Unnamed schedule!\n" );
 
@@ -1582,8 +1582,8 @@ $L37353:
 
 ; 1045 : 			continue;
 
-	jmp	SHORT $L37354
-$L37356:
+	jmp	SHORT $L37358
+$L37360:
 
 ; 1047 : 		if ( stricmp( pName, pList[i]->pName ) == 0 )
 
@@ -1597,25 +1597,25 @@ $L37356:
 	call	_stricmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L37358
+	jne	SHORT $L37362
 
 ; 1048 : 			return pList[i];
 
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR _pList$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
-	jmp	SHORT $L37349
-$L37358:
+	jmp	SHORT $L37353
+$L37362:
 
 ; 1049 : 	}
 
-	jmp	SHORT $L37354
-$L37355:
+	jmp	SHORT $L37358
+$L37359:
 
 ; 1050 : 	return NULL;
 
 	xor	eax, eax
-$L37349:
+$L37353:
 
 ; 1051 : }
 
@@ -1683,10 +1683,10 @@ _this$ = -4
 	sub	ecx, 1
 	mov	DWORD PTR -8+[ebp], ecx
 	cmp	DWORD PTR -8+[ebp], 40			; 00000028H
-	ja	$L37414
+	ja	$L37418
 	mov	edx, DWORD PTR -8+[ebp]
-	jmp	DWORD PTR $L37775[edx*4]
-$L37367:
+	jmp	DWORD PTR $L37779[edx*4]
+$L37371:
 
 ; 1065 : 			ASSERT( m_pCine != NULL );
 
@@ -1708,7 +1708,7 @@ $L37367:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2384], 0
-	jne	SHORT $L37371
+	jne	SHORT $L37375
 
 ; 1068 : 				ALERT( at_aiconsole, "Script failed for %s\n", STRING(pev->classname) );
 
@@ -1736,8 +1736,8 @@ $L37367:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L37362
-$L37371:
+	jmp	$L37366
+$L37375:
 
 ; 1076 : 			{
 
@@ -1746,44 +1746,44 @@ $L37371:
 	mov	edx, DWORD PTR [ecx+2408]
 	mov	DWORD PTR -12+[ebp], edx
 	cmp	DWORD PTR -12+[ebp], 5
-	ja	SHORT $L37374
+	ja	SHORT $L37378
 	mov	eax, DWORD PTR -12+[ebp]
-	jmp	DWORD PTR $L37776[eax*4]
-$L37377:
+	jmp	DWORD PTR $L37780[eax*4]
+$L37381:
 
 ; 1077 : 				case 0: 
 ; 1078 : 				case 4: 
 ; 1079 : 					return slWaitScript;
 
 	mov	eax, OFFSET FLAT:?slWaitScript@@3PAUSchedule_t@@A ; slWaitScript
-	jmp	$L37362
-$L37378:
+	jmp	$L37366
+$L37382:
 
 ; 1080 : 				case 1: 
 ; 1081 : 					return slWalkToScript;
 
 	mov	eax, OFFSET FLAT:?slWalkToScript@@3PAUSchedule_t@@A ; slWalkToScript
-	jmp	$L37362
-$L37379:
+	jmp	$L37366
+$L37383:
 
 ; 1082 : 				case 2: 
 ; 1083 : 					return slRunToScript;
 
 	mov	eax, OFFSET FLAT:?slRunToScript@@3PAUSchedule_t@@A ; slRunToScript
-	jmp	$L37362
-$L37380:
+	jmp	$L37366
+$L37384:
 
 ; 1084 : 				case 5:
 ; 1085 : 					return slFaceScript;
 
 	mov	eax, OFFSET FLAT:?slFaceScript@@3PAUSchedule_t@@A ; slFaceScript
-	jmp	$L37362
-$L37374:
+	jmp	$L37366
+$L37378:
 
 ; 1087 : 			break;
 
-	jmp	$L37364
-$L37381:
+	jmp	$L37368
+$L37385:
 
 ; 1091 : 			if ( RANDOM_LONG(0,14) == 0 && FCanActiveIdle() )
 
@@ -1792,212 +1792,212 @@ $L37381:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L37382
+	jne	SHORT $L37386
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+536]
 	test	eax, eax
-	je	SHORT $L37382
+	je	SHORT $L37386
 
 ; 1093 : 				return &slActiveIdle[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slActiveIdle@@3PAUSchedule_t@@A ; slActiveIdle
-	jmp	$L37362
-$L37382:
+	jmp	$L37366
+$L37386:
 
 ; 1095 : 
 ; 1096 : 			return &slIdleStand[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slIdleStand@@3PAUSchedule_t@@A ; slIdleStand
-	jmp	$L37362
-$L37383:
+	jmp	$L37366
+$L37387:
 
 ; 1100 : 			return &slIdleWalk[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slIdleWalk@@3PAUSchedule_t@@A ; slIdleWalk
-	jmp	$L37362
-$L37384:
+	jmp	$L37366
+$L37388:
 
 ; 1104 : 			return &slIdleTrigger[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slIdleTrigger@@3PAUSchedule_t@@A ; slIdleTrigger
-	jmp	$L37362
-$L37385:
+	jmp	$L37366
+$L37389:
 
 ; 1108 : 			return &slWakeAngry[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slWakeAngry@@3PAUSchedule_t@@A ; slWakeAngry
-	jmp	$L37362
-$L37386:
+	jmp	$L37366
+$L37390:
 
 ; 1112 : 			return &slAlertFace[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slAlertFace@@3PAUSchedule_t@@A ; slAlertFace
-	jmp	$L37362
-$L37387:
+	jmp	$L37366
+$L37391:
 
 ; 1116 : 			return &slAlertStand[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slAlertStand@@3PAUSchedule_t@@A ; slAlertStand
-	jmp	$L37362
-$L37388:
+	jmp	$L37366
+$L37392:
 
 ; 1120 : 			return &slCombatStand[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slCombatStand@@3PAUSchedule_t@@A ; slCombatStand
-	jmp	$L37362
-$L37389:
+	jmp	$L37366
+$L37393:
 
 ; 1124 : 			return &slCombatFace[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slCombatFace@@3PAUSchedule_t@@A ; slCombatFace
-	jmp	$L37362
-$L37390:
+	jmp	$L37366
+$L37394:
 
 ; 1128 : 			return &slChaseEnemy[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slChaseEnemy@@3PAUSchedule_t@@A ; slChaseEnemy
-	jmp	$L37362
-$L37391:
+	jmp	$L37366
+$L37395:
 
 ; 1132 : 			return &slFail[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slFail@@3PAUSchedule_t@@A ; slFail
-	jmp	$L37362
-$L37392:
+	jmp	$L37366
+$L37396:
 
 ; 1136 : 			return &slSmallFlinch[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slSmallFlinch@@3PAUSchedule_t@@A ; slSmallFlinch
-	jmp	$L37362
-$L37393:
+	jmp	$L37366
+$L37397:
 
 ; 1140 : 			return &slAlertSmallFlinch[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slAlertSmallFlinch@@3PAUSchedule_t@@A ; slAlertSmallFlinch
-	jmp	$L37362
-$L37394:
+	jmp	$L37366
+$L37398:
 
 ; 1144 : 			return &slReload[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slReload@@3PAUSchedule_t@@A ; slReload
-	jmp	$L37362
-$L37395:
+	jmp	$L37366
+$L37399:
 
 ; 1148 : 			return &slArmWeapon[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slArmWeapon@@3PAUSchedule_t@@A ; slArmWeapon
-	jmp	$L37362
-$L37396:
+	jmp	$L37366
+$L37400:
 
 ; 1152 : 			return &slStandoff[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slStandoff@@3PAUSchedule_t@@A ; slStandoff
-	jmp	$L37362
-$L37397:
+	jmp	$L37366
+$L37401:
 
 ; 1156 : 			return &slRangeAttack1[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slRangeAttack1@@3PAUSchedule_t@@A ; slRangeAttack1
-	jmp	$L37362
-$L37398:
+	jmp	$L37366
+$L37402:
 
 ; 1160 : 			return &slRangeAttack2[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slRangeAttack2@@3PAUSchedule_t@@A ; slRangeAttack2
-	jmp	$L37362
-$L37399:
+	jmp	$L37366
+$L37403:
 
 ; 1164 : 			return &slPrimaryMeleeAttack[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slPrimaryMeleeAttack@@3PAUSchedule_t@@A ; slPrimaryMeleeAttack
-	jmp	SHORT $L37362
-$L37400:
+	jmp	SHORT $L37366
+$L37404:
 
 ; 1168 : 			return &slSecondaryMeleeAttack[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slSecondaryMeleeAttack@@3PAUSchedule_t@@A ; slSecondaryMeleeAttack
-	jmp	SHORT $L37362
-$L37401:
+	jmp	SHORT $L37366
+$L37405:
 
 ; 1172 : 			return &slSpecialAttack1[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slSpecialAttack1@@3PAUSchedule_t@@A ; slSpecialAttack1
-	jmp	SHORT $L37362
-$L37402:
+	jmp	SHORT $L37366
+$L37406:
 
 ; 1176 : 			return &slSpecialAttack2[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slSpecialAttack2@@3PAUSchedule_t@@A ; slSpecialAttack2
-	jmp	SHORT $L37362
-$L37403:
+	jmp	SHORT $L37366
+$L37407:
 
 ; 1180 : 			return &slTakeCoverFromBestSound[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slTakeCoverFromBestSound@@3PAUSchedule_t@@A ; slTakeCoverFromBestSound
-	jmp	SHORT $L37362
-$L37404:
+	jmp	SHORT $L37366
+$L37408:
 
 ; 1184 : 			return &slTakeCoverFromEnemy[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slTakeCoverFromEnemy@@3PAUSchedule_t@@A ; slTakeCoverFromEnemy
-	jmp	SHORT $L37362
-$L37405:
+	jmp	SHORT $L37366
+$L37409:
 
 ; 1188 : 			return &slCower[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slCower@@3PAUSchedule_t@@A ; slCower
-	jmp	SHORT $L37362
-$L37406:
+	jmp	SHORT $L37366
+$L37410:
 
 ; 1192 : 			return &slAmbush[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slAmbush@@3PAUSchedule_t@@A ; slAmbush
-	jmp	SHORT $L37362
-$L37407:
+	jmp	SHORT $L37366
+$L37411:
 
 ; 1196 : 			return &slBarnacleVictimGrab[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slBarnacleVictimGrab@@3PAUSchedule_t@@A ; slBarnacleVictimGrab
-	jmp	SHORT $L37362
-$L37408:
+	jmp	SHORT $L37366
+$L37412:
 
 ; 1200 : 			return &slBarnacleVictimChomp[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slBarnacleVictimChomp@@3PAUSchedule_t@@A ; slBarnacleVictimChomp
-	jmp	SHORT $L37362
-$L37409:
+	jmp	SHORT $L37366
+$L37413:
 
 ; 1204 : 			return &slInvestigateSound[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slInvestigateSound@@3PAUSchedule_t@@A ; slInvestigateSound
-	jmp	SHORT $L37362
-$L37410:
+	jmp	SHORT $L37366
+$L37414:
 
 ; 1208 : 			return &slDie[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slDie@@3PAUSchedule_t@@A ; slDie
-	jmp	SHORT $L37362
-$L37411:
+	jmp	SHORT $L37366
+$L37415:
 
 ; 1212 : 			return &slTakeCoverFromOrigin[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slTakeCoverFromOrigin@@3PAUSchedule_t@@A ; slTakeCoverFromOrigin
-	jmp	SHORT $L37362
-$L37412:
+	jmp	SHORT $L37366
+$L37416:
 
 ; 1216 : 			return &slVictoryDance[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slVictoryDance@@3PAUSchedule_t@@A ; slVictoryDance
-	jmp	SHORT $L37362
-$L37413:
+	jmp	SHORT $L37366
+$L37417:
 
 ; 1220 : 			return slFail;
 
 	mov	eax, OFFSET FLAT:?slFail@@3PAUSchedule_t@@A ; slFail
-	jmp	SHORT $L37362
-$L37414:
+	jmp	SHORT $L37366
+$L37418:
 
 ; 1224 : 			ALERT ( at_console, "GetScheduleOfType()\nNo CASE for Schedule Type %d!\n", Type );
 
@@ -2012,14 +2012,14 @@ $L37414:
 ; 1226 : 			return &slIdleStand[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slIdleStand@@3PAUSchedule_t@@A ; slIdleStand
-	jmp	SHORT $L37362
-$L37364:
+	jmp	SHORT $L37366
+$L37368:
 
 ; 1230 : 
 ; 1231 : 	return NULL;
 
 	xor	eax, eax
-$L37362:
+$L37366:
 
 ; 1232 : }
 
@@ -2029,55 +2029,55 @@ $L37362:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L37775:
-	DD	$L37381
-	DD	$L37383
+$L37779:
 	DD	$L37385
-	DD	$L37414
-	DD	$L37386
-	DD	$L37393
-	DD	$L37414
 	DD	$L37387
-	DD	$L37409
 	DD	$L37389
-	DD	$L37388
+	DD	$L37418
 	DD	$L37390
-	DD	$L37391
-	DD	$L37412
-	DD	$L37414
-	DD	$L37414
-	DD	$L37392
-	DD	$L37404
-	DD	$L37403
-	DD	$L37411
-	DD	$L37405
-	DD	$L37399
-	DD	$L37400
 	DD	$L37397
-	DD	$L37398
+	DD	$L37418
+	DD	$L37391
+	DD	$L37413
+	DD	$L37393
+	DD	$L37392
+	DD	$L37394
+	DD	$L37395
+	DD	$L37416
+	DD	$L37418
+	DD	$L37418
+	DD	$L37396
+	DD	$L37408
+	DD	$L37407
+	DD	$L37415
+	DD	$L37409
+	DD	$L37403
+	DD	$L37404
 	DD	$L37401
 	DD	$L37402
-	DD	$L37396
-	DD	$L37395
-	DD	$L37394
-	DD	$L37414
+	DD	$L37405
 	DD	$L37406
+	DD	$L37400
+	DD	$L37399
+	DD	$L37398
+	DD	$L37418
 	DD	$L37410
-	DD	$L37384
 	DD	$L37414
-	DD	$L37414
-	DD	$L37414
-	DD	$L37407
-	DD	$L37408
-	DD	$L37367
-	DD	$L37413
-$L37776:
-	DD	$L37377
+	DD	$L37388
+	DD	$L37418
+	DD	$L37418
+	DD	$L37418
+	DD	$L37411
+	DD	$L37412
+	DD	$L37371
+	DD	$L37417
+$L37780:
+	DD	$L37381
+	DD	$L37382
+	DD	$L37383
 	DD	$L37378
-	DD	$L37379
-	DD	$L37374
-	DD	$L37377
-	DD	$L37380
+	DD	$L37381
+	DD	$L37384
 ?GetScheduleOfType@CBaseMonster@@UAEPAUSchedule_t@@H@Z ENDP ; CBaseMonster::GetScheduleOfType
 _TEXT	ENDS
 END

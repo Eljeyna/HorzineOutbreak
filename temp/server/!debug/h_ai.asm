@@ -478,7 +478,7 @@ __real@8@3fff8000000000000000 DQ 03ff0000000000000r ; 1
 CONST	ENDS
 ;	COMDAT ?FBoxVisible@@YAHPAUentvars_s@@0AAVVector@@M@Z
 _TEXT	SEGMENT
-$T36878 = -96
+$T36882 = -96
 _pevLooker$ = 8
 _pevTarget$ = 12
 _vecTargetOrigin$ = 16
@@ -486,7 +486,7 @@ _flSize$ = 20
 _tr$ = -56
 _vecLookerOrigin$ = -68
 _i$ = -72
-_vecTarget$36509 = -84
+_vecTarget$36513 = -84
 ?FBoxVisible@@YAHPAUentvars_s@@0AAVVector@@M@Z PROC NEAR ; FBoxVisible, COMDAT
 
 ; 49   : {
@@ -502,24 +502,24 @@ _vecTarget$36509 = -84
 
 	mov	eax, DWORD PTR _pevLooker$[ebp]
 	cmp	DWORD PTR [eax+448], 3
-	je	SHORT $L36501
+	je	SHORT $L36505
 	mov	ecx, DWORD PTR _pevTarget$[ebp]
 	cmp	DWORD PTR [ecx+448], 3
-	je	SHORT $L36500
-$L36501:
+	je	SHORT $L36504
+$L36505:
 	mov	edx, DWORD PTR _pevLooker$[ebp]
 	cmp	DWORD PTR [edx+448], 3
-	jne	SHORT $L36499
+	jne	SHORT $L36503
 	mov	eax, DWORD PTR _pevTarget$[ebp]
 	cmp	DWORD PTR [eax+448], 0
-	jne	SHORT $L36499
-$L36500:
+	jne	SHORT $L36503
+$L36504:
 
 ; 53   : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L36498
-$L36499:
+	jmp	$L36502
+$L36503:
 
 ; 54   : 
 ; 55   : 	TraceResult tr;
@@ -532,7 +532,7 @@ $L36499:
 	mov	ecx, DWORD PTR _pevLooker$[ebp]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T36878[ebp]
+	lea	edx, DWORD PTR $T36882[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _pevLooker$[ebp]
 	add	ecx, 8
@@ -544,21 +544,21 @@ $L36499:
 ; 57   : 	for (int i = 0; i < 5; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36506
-$L36507:
+	jmp	SHORT $L36510
+$L36511:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36506:
+$L36510:
 	cmp	DWORD PTR _i$[ebp], 5
-	jge	$L36508
+	jge	$L36512
 
 ; 59   : 		Vector vecTarget = pevTarget->origin;
 
 	mov	ecx, DWORD PTR _pevTarget$[ebp]
 	add	ecx, 8
 	push	ecx
-	lea	ecx, DWORD PTR _vecTarget$36509[ebp]
+	lea	ecx, DWORD PTR _vecTarget$36513[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 60   : 		vecTarget.x += RANDOM_FLOAT( pevTarget->mins.x + flSize, pevTarget->maxs.x - flSize);
@@ -575,8 +575,8 @@ $L36506:
 	fstp	DWORD PTR [esp]
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fadd	DWORD PTR _vecTarget$36509[ebp]
-	fstp	DWORD PTR _vecTarget$36509[ebp]
+	fadd	DWORD PTR _vecTarget$36513[ebp]
+	fstp	DWORD PTR _vecTarget$36513[ebp]
 
 ; 61   : 		vecTarget.y += RANDOM_FLOAT( pevTarget->mins.y + flSize, pevTarget->maxs.y - flSize);
 
@@ -592,8 +592,8 @@ $L36506:
 	fstp	DWORD PTR [esp]
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fadd	DWORD PTR _vecTarget$36509[ebp+4]
-	fstp	DWORD PTR _vecTarget$36509[ebp+4]
+	fadd	DWORD PTR _vecTarget$36513[ebp+4]
+	fstp	DWORD PTR _vecTarget$36513[ebp+4]
 
 ; 62   : 		vecTarget.z += RANDOM_FLOAT( pevTarget->mins.z + flSize, pevTarget->maxs.z - flSize);
 
@@ -609,8 +609,8 @@ $L36506:
 	fstp	DWORD PTR [esp]
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fadd	DWORD PTR _vecTarget$36509[ebp+8]
-	fstp	DWORD PTR _vecTarget$36509[ebp+8]
+	fadd	DWORD PTR _vecTarget$36513[ebp+8]
+	fstp	DWORD PTR _vecTarget$36513[ebp+8]
 
 ; 63   : 
 ; 64   : 		UTIL_TraceLine(vecLookerOrigin, vecTarget, ignore_monsters, ignore_glass, ENT(pevLooker)/*pentIgnore*/, &tr);
@@ -624,7 +624,7 @@ $L36506:
 	push	eax
 	push	1
 	push	1
-	lea	ecx, DWORD PTR _vecTarget$36509[ebp]
+	lea	ecx, DWORD PTR _vecTarget$36513[ebp]
 	push	ecx
 	lea	edx, DWORD PTR _vecLookerOrigin$[ebp]
 	push	edx
@@ -638,33 +638,33 @@ $L36506:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36510
+	je	SHORT $L36514
 
 ; 68   : 			vecTargetOrigin = vecTarget;
 
 	mov	eax, DWORD PTR _vecTargetOrigin$[ebp]
-	mov	ecx, DWORD PTR _vecTarget$36509[ebp]
+	mov	ecx, DWORD PTR _vecTarget$36513[ebp]
 	mov	DWORD PTR [eax], ecx
-	mov	edx, DWORD PTR _vecTarget$36509[ebp+4]
+	mov	edx, DWORD PTR _vecTarget$36513[ebp+4]
 	mov	DWORD PTR [eax+4], edx
-	mov	ecx, DWORD PTR _vecTarget$36509[ebp+8]
+	mov	ecx, DWORD PTR _vecTarget$36513[ebp+8]
 	mov	DWORD PTR [eax+8], ecx
 
 ; 69   : 			return TRUE;// line of sight is valid.
 
 	mov	eax, 1
-	jmp	SHORT $L36498
-$L36510:
+	jmp	SHORT $L36502
+$L36514:
 
 ; 71   : 	}
 
-	jmp	$L36507
-$L36508:
+	jmp	$L36511
+$L36512:
 
 ; 72   : 	return FALSE;// Line of sight is not established
 
 	xor	eax, eax
-$L36498:
+$L36502:
 
 ; 73   : }
 
@@ -715,7 +715,7 @@ _TEXT	ENDS
 PUBLIC	??0Vector@@QAE@MMM@Z				; Vector::Vector
 ;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
-$T36886 = -16
+$T36890 = -16
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -748,7 +748,7 @@ _this$ = -4
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36886[ebp]
+	lea	ecx, DWORD PTR $T36890[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -908,19 +908,19 @@ __real@8@3ffbccccccccccccd000 DQ 03fb999999999999ar ; 0.1
 CONST	ENDS
 ;	COMDAT ?VecCheckToss@@YA?AVVector@@PAUentvars_s@@ABV1@V1@M@Z
 _TEXT	SEGMENT
-$T36897 = -152
-$T36898 = -164
-$T36899 = -176
-$T36900 = -188
-$T36901 = -200
-$T36902 = -212
-$T36903 = -224
-$T36904 = -236
-$T36905 = -248
-$T36906 = -260
-$T36907 = -272
-$T36908 = -284
-$T36909 = -296
+$T36901 = -152
+$T36902 = -164
+$T36903 = -176
+$T36904 = -188
+$T36905 = -200
+$T36906 = -212
+$T36907 = -224
+$T36908 = -236
+$T36909 = -248
+$T36910 = -260
+$T36911 = -272
+$T36912 = -284
+$T36913 = -296
 _pev$ = 12
 _vecSpot1$ = 16
 _vecSpot2$ = 20
@@ -995,7 +995,7 @@ _time2$ = -140
 	fcomp	DWORD PTR __real@4@4007fa00000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L36527
+	jne	SHORT $L36531
 
 ; 91   : 		// to high, fail
 ; 92   : 		return g_vecZero;
@@ -1004,8 +1004,8 @@ _time2$ = -140
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	$L36519
-$L36527:
+	jmp	$L36523
+$L36531:
 
 ; 94   : 
 ; 95   : 	CBaseEntity *pEnt = CBaseEntity::Instance(pev);
@@ -1041,13 +1041,13 @@ $L36527:
 	fadd	DWORD PTR -300+[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T36897[ebp]
+	lea	eax, DWORD PTR $T36901[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T36898[ebp]
+	lea	ecx, DWORD PTR $T36902[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vecSpot2$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1072,13 +1072,13 @@ $L36527:
 	fadd	DWORD PTR -304+[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T36899[ebp]
+	lea	eax, DWORD PTR $T36903[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T36900[ebp]
+	lea	ecx, DWORD PTR $T36904[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vecSpot2$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1099,18 +1099,18 @@ $L36527:
 ; 109  : 	vecMidPoint = vecSpot1 + (vecSpot2 - vecSpot1) * 0.5;
 
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T36902[ebp]
+	lea	eax, DWORD PTR $T36906[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _vecSpot1$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T36901[ebp]
+	lea	edx, DWORD PTR $T36905[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecSpot2$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T36903[ebp]
+	lea	eax, DWORD PTR $T36907[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _vecSpot1$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1134,10 +1134,10 @@ $L36527:
 	push	1140457472				; 43fa0000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T36904[ebp]
+	lea	ecx, DWORD PTR $T36908[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T36905[ebp]
+	lea	eax, DWORD PTR $T36909[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecMidPoint$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1171,13 +1171,13 @@ $L36527:
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L36539
+	jne	SHORT $L36543
 	fld	DWORD PTR _vecMidPoint$[ebp+8]
 	fcomp	DWORD PTR _vecSpot2$[ebp+8]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L36538
-$L36539:
+	je	SHORT $L36542
+$L36543:
 
 ; 117  : 		// to not enough space, fail
 ; 118  : 		return g_vecZero;
@@ -1186,8 +1186,8 @@ $L36539:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	$L36519
-$L36538:
+	jmp	$L36523
+$L36542:
 
 ; 120  : 
 ; 121  : 	// How high should the grenade travel to reach the apex
@@ -1237,7 +1237,7 @@ $L36538:
 	fcomp	QWORD PTR __real@8@3ffbccccccccccccd000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L36544
+	je	SHORT $L36548
 
 ; 131  : 		// too close
 ; 132  : 		return g_vecZero;
@@ -1246,8 +1246,8 @@ $L36538:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	$L36519
-$L36544:
+	jmp	$L36523
+$L36548:
 
 ; 134  : 
 ; 135  : 	// how hard to throw sideways to get there in time.
@@ -1257,11 +1257,11 @@ $L36544:
 	fadd	DWORD PTR _time2$[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36907[ebp]
+	lea	ecx, DWORD PTR $T36911[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _vecSpot1$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T36906[ebp]
+	lea	eax, DWORD PTR $T36910[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecSpot2$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -1287,12 +1287,12 @@ $L36544:
 
 	mov	ecx, DWORD PTR _time1$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T36908[ebp]
+	lea	edx, DWORD PTR $T36912[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecGrenadeVel$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T36909[ebp]
+	lea	eax, DWORD PTR $T36913[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _vecSpot1$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1332,7 +1332,7 @@ $L36544:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L36549
+	jne	SHORT $L36553
 
 ; 147  : 		// fail!
 ; 148  : 		return g_vecZero;
@@ -1341,8 +1341,8 @@ $L36544:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	SHORT $L36519
-$L36549:
+	jmp	SHORT $L36523
+$L36553:
 
 ; 150  : 
 ; 151  : 	// UNDONE: either ignore monsters or change it to not care if we hit our enemy
@@ -1369,7 +1369,7 @@ $L36549:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L36550
+	jne	SHORT $L36554
 
 ; 155  : 		// fail!
 ; 156  : 		return g_vecZero;
@@ -1378,8 +1378,8 @@ $L36549:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	SHORT $L36519
-$L36550:
+	jmp	SHORT $L36523
+$L36554:
 
 ; 158  : 	
 ; 159  : 	return vecGrenadeVel;
@@ -1389,7 +1389,7 @@ $L36550:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-$L36519:
+$L36523:
 
 ; 160  : }
 
@@ -1403,7 +1403,7 @@ $L36519:
 _TEXT	ENDS
 ;	COMDAT ??GVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
-$T36920 = -16
+$T36924 = -16
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -1436,7 +1436,7 @@ _this$ = -4
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36920[ebp]
+	lea	ecx, DWORD PTR $T36924[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1452,7 +1452,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ??DVector@@QBE?AV0@M@Z
 _TEXT	SEGMENT
-$T36923 = -16
+$T36927 = -16
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -1482,7 +1482,7 @@ _this$ = -4
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36923[ebp]
+	lea	ecx, DWORD PTR $T36927[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1498,7 +1498,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ??KVector@@QBE?AV0@M@Z
 _TEXT	SEGMENT
-$T36926 = -16
+$T36930 = -16
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -1528,7 +1528,7 @@ _this$ = -4
 	fdiv	DWORD PTR _fl$[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36926[ebp]
+	lea	ecx, DWORD PTR $T36930[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1693,11 +1693,11 @@ PUBLIC	?Length@Vector@@QBEMXZ				; Vector::Length
 PUBLIC	?VecCheckThrow@@YA?AVVector@@PAUentvars_s@@ABV1@V1@MM@Z ; VecCheckThrow
 ;	COMDAT ?VecCheckThrow@@YA?AVVector@@PAUentvars_s@@ABV1@V1@MM@Z
 _TEXT	SEGMENT
-$T36937 = -100
-$T36938 = -112
-$T36939 = -124
-$T36940 = -136
-$T36941 = -148
+$T36941 = -100
+$T36942 = -112
+$T36943 = -124
+$T36944 = -136
+$T36945 = -148
 _pev$ = 12
 _vecSpot1$ = 16
 _vecSpot2$ = 20
@@ -1732,7 +1732,7 @@ _tr$ = -88
 
 	mov	ecx, DWORD PTR _vecSpot1$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T36937[ebp]
+	lea	edx, DWORD PTR $T36941[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecSpot2$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -1756,7 +1756,7 @@ _tr$ = -88
 	fst	DWORD PTR -152+[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T36938[ebp]
+	lea	eax, DWORD PTR $T36942[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecGrenadeVel$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -1782,18 +1782,18 @@ _tr$ = -88
 ; 180  : 	Vector vecApex = vecSpot1 + (vecSpot2 - vecSpot1) * 0.5;
 
 	push	1056964608				; 3f000000H
-	lea	ecx, DWORD PTR $T36940[ebp]
+	lea	ecx, DWORD PTR $T36944[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _vecSpot1$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T36939[ebp]
+	lea	eax, DWORD PTR $T36943[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecSpot2$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T36941[ebp]
+	lea	ecx, DWORD PTR $T36945[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _vecSpot1$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1844,7 +1844,7 @@ _tr$ = -88
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L36569
+	jne	SHORT $L36573
 
 ; 187  : 		// fail!
 ; 188  : 		return g_vecZero;
@@ -1853,8 +1853,8 @@ _tr$ = -88
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	SHORT $L36558
-$L36569:
+	jmp	SHORT $L36562
+$L36573:
 
 ; 190  : 
 ; 191  : 	UTIL_TraceLine(vecSpot2, vecApex, ignore_monsters, ENT(pev), &tr);
@@ -1880,7 +1880,7 @@ $L36569:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L36570
+	jne	SHORT $L36574
 
 ; 194  : 		// fail!
 ; 195  : 		return g_vecZero;
@@ -1889,8 +1889,8 @@ $L36569:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	SHORT $L36558
-$L36570:
+	jmp	SHORT $L36562
+$L36574:
 
 ; 197  : 
 ; 198  : 	return vecGrenadeVel;
@@ -1900,7 +1900,7 @@ $L36570:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-$L36558:
+$L36562:
 
 ; 199  : }
 

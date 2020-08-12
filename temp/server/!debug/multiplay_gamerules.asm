@@ -87,6 +87,270 @@ CONST	ENDS
 ;	COMDAT ??_C@_0CF@DHKO@Executing?5listen?5server?5config?5f@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
+;	COMDAT ??_C@_05MIHE@skill?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@FNFM@?6GAME?5SKILL?5LEVEL?3?$CFd?6?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@KNII@sk_agrunt_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@LLDA@sk_agrunt_dmg_punch?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@HOAH@sk_apache_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@FNEI@sk_barney_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BK@LPOK@sk_bigmomma_health_factor?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@INHK@sk_bigmomma_dmg_slash?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@HIJO@sk_bigmomma_dmg_blast?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BJ@FEOL@sk_bigmomma_radius_blast?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@BKEM@sk_bullsquid_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@MOEH@sk_bullsquid_dmg_bite?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@EDCM@sk_bullsquid_dmg_whip?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@MNOH@sk_bullsquid_dmg_spit?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@JGEG@sk_gargantua_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@KEPN@sk_gargantua_dmg_slash?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@JNIF@sk_gargantua_dmg_fire?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@PCEE@sk_gargantua_dmg_stomp?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@BLAF@sk_hassassin_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@LBHD@sk_headcrab_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@FFL@sk_headcrab_dmg_bite?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@HHIK@sk_hgrunt_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@FJLF@sk_hgrunt_kick?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@MHNI@sk_hgrunt_pellets?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@MAFG@sk_hgrunt_gspeed?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@BMHM@sk_houndeye_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@HGHG@sk_houndeye_dmg_blast?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@PDGO@sk_islave_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@KLHK@sk_islave_dmg_claw?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@IGMG@sk_islave_dmg_clawrake?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@NGCP@sk_islave_dmg_zap?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@KKHJ@sk_ichthyosaur_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@PKNO@sk_ichthyosaur_shake?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@FPBC@sk_leech_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HAPP@sk_leech_dmg_bite?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@ECCG@sk_controller_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HBBN@sk_controller_dmgzap?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@JMOH@sk_controller_speedball?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@IBFD@sk_controller_dmgball?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@KFMK@sk_nihilanth_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@OAID@sk_nihilanth_zap?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@NPPP@sk_scientist_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@IFCF@sk_snark_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@LJC@sk_snark_dmg_bite?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@CBGK@sk_snark_dmg_pop?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@BDKC@sk_zombie_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@BPLA@sk_zombie_dmg_one_slash?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BJ@MNBI@sk_zombie_dmg_both_slash?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@FBCH@sk_turret_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@CFFB@sk_miniturret_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@NCE@sk_sentry_health?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@PCLE@sk_plr_crowbar?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0L@DODG@sk_plr_axe?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@MCFN@sk_plr_axe_sec?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@NOHO@sk_plr_buckshot?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0L@JBN@sk_plr_rpg?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0N@KBK@sk_plr_gauss?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@LGG@sk_plr_egon_wide?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@LAPN@sk_plr_satchel?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@KHMP@sk_plr_tripmine?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@KCMA@sk_12mm_bullet?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@CHLD@sk_9mm_bullet?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@KFIA@sk_hornet_dmg?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@MBFE@sk_suitcharger?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0L@EMFC@sk_battery?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@JKIP@sk_healthcharger?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0N@OIJM@sk_healthkit?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@LMKC@sk_scientist_heal?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@GPA@sk_monster_head?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@NGD@sk_monster_chest?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@LJOA@sk_monster_stomach?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@DLCB@sk_monster_leg?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@LLLC@sk_monster_arm?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0P@KJDF@sk_player_head?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@EMMM@sk_player_chest?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HFFI@sk_player_stomach?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@POHI@sk_player_leg?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0O@HOOL@sk_player_arm?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
 ;	COMDAT ??_C@_0M@KANF@mp_chattime?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
@@ -1040,10 +1304,10 @@ CONST	ENDS
 ;	COMDAT ??0CHalfLifeMultiplay@@QAE@XZ
 _TEXT	SEGMENT
 _this$ = -4
-_servercfgfile$38532 = -8
-_szCommand$38536 = -264
-_lservercfgfile$38540 = -268
-_szCommand$38544 = -524
+_servercfgfile$38539 = -8
+_szCommand$38543 = -264
+_lservercfgfile$38547 = -268
+_szCommand$38551 = -524
 ??0CHalfLifeMultiplay@@QAE@XZ PROC NEAR			; CHalfLifeMultiplay::CHalfLifeMultiplay, COMDAT
 
 ; 50   : {
@@ -1074,9 +1338,9 @@ _szCommand$38544 = -524
 
 	mov	DWORD PTR ?g_flIntermissionStartTime@@3MA, 0
 
-; 54   : 	
+; 54   : 
 ; 55   : 	// 11/8/98
-; 56   : 	// Modified by YWB:  Server .cfg file is now a cvar, so that 
+; 56   : 	// Modified by YWB:  Server .cfg file is now a cvar, so that
 ; 57   : 	//  server ops can run multiple game servers, with different server .cfg files,
 ; 58   : 	//  from a single installed directory.
 ; 59   : 	// Mapcyclefile is already a cvar.
@@ -1088,7 +1352,7 @@ _szCommand$38544 = -524
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+460
 	test	eax, eax
-	je	SHORT $L38531
+	je	SHORT $L38538
 
 ; 66   : 		// dedicated server
 ; 67   : 		char *servercfgfile = (char *)CVAR_GET_STRING( "servercfgfile" );
@@ -1096,20 +1360,20 @@ _szCommand$38544 = -524
 	push	OFFSET FLAT:??_C@_0O@FCJP@servercfgfile?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+232
 	add	esp, 4
-	mov	DWORD PTR _servercfgfile$38532[ebp], eax
+	mov	DWORD PTR _servercfgfile$38539[ebp], eax
 
 ; 68   : 
 ; 69   : 		if ( servercfgfile && servercfgfile[0] )
 
-	cmp	DWORD PTR _servercfgfile$38532[ebp], 0
-	je	SHORT $L38535
-	mov	edx, DWORD PTR _servercfgfile$38532[ebp]
+	cmp	DWORD PTR _servercfgfile$38539[ebp], 0
+	je	SHORT $L38542
+	mov	edx, DWORD PTR _servercfgfile$38539[ebp]
 	movsx	eax, BYTE PTR [edx]
 	test	eax, eax
-	je	SHORT $L38535
+	je	SHORT $L38542
 
 ; 71   : 			char szCommand[256];
-; 72   : 			
+; 72   : 
 ; 73   : 			ALERT( at_console, "Executing dedicated server config file\n" );
 
 	push	OFFSET FLAT:??_C@_0CI@DPHH@Executing?5dedicated?5server?5confi@ ; `string'
@@ -1119,26 +1383,26 @@ _szCommand$38544 = -524
 
 ; 74   : 			sprintf( szCommand, "exec %s\n", servercfgfile );
 
-	mov	ecx, DWORD PTR _servercfgfile$38532[ebp]
+	mov	ecx, DWORD PTR _servercfgfile$38539[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_08KDJI@exec?5?$CFs?6?$AA@ ; `string'
-	lea	edx, DWORD PTR _szCommand$38536[ebp]
+	lea	edx, DWORD PTR _szCommand$38543[ebp]
 	push	edx
 	call	_sprintf
 	add	esp, 12					; 0000000cH
 
 ; 75   : 			SERVER_COMMAND( szCommand );
 
-	lea	eax, DWORD PTR _szCommand$38536[ebp]
+	lea	eax, DWORD PTR _szCommand$38543[ebp]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+156
 	add	esp, 4
-$L38535:
+$L38542:
 
 ; 78   : 	else
 
-	jmp	SHORT $L38543
-$L38531:
+	jmp	SHORT $L38550
+$L38538:
 
 ; 80   : 		// listen server
 ; 81   : 		char *lservercfgfile = (char *)CVAR_GET_STRING( "lservercfgfile" );
@@ -1146,20 +1410,20 @@ $L38531:
 	push	OFFSET FLAT:??_C@_0P@MPCH@lservercfgfile?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+232
 	add	esp, 4
-	mov	DWORD PTR _lservercfgfile$38540[ebp], eax
+	mov	DWORD PTR _lservercfgfile$38547[ebp], eax
 
 ; 82   : 
 ; 83   : 		if ( lservercfgfile && lservercfgfile[0] )
 
-	cmp	DWORD PTR _lservercfgfile$38540[ebp], 0
-	je	SHORT $L38543
-	mov	ecx, DWORD PTR _lservercfgfile$38540[ebp]
+	cmp	DWORD PTR _lservercfgfile$38547[ebp], 0
+	je	SHORT $L38550
+	mov	ecx, DWORD PTR _lservercfgfile$38547[ebp]
 	movsx	edx, BYTE PTR [ecx]
 	test	edx, edx
-	je	SHORT $L38543
+	je	SHORT $L38550
 
 ; 85   : 			char szCommand[256];
-; 86   : 			
+; 86   : 
 ; 87   : 			ALERT( at_console, "Executing listen server config file\n" );
 
 	push	OFFSET FLAT:??_C@_0CF@DHKO@Executing?5listen?5server?5config?5f@ ; `string'
@@ -1169,21 +1433,21 @@ $L38531:
 
 ; 88   : 			sprintf( szCommand, "exec %s\n", lservercfgfile );
 
-	mov	eax, DWORD PTR _lservercfgfile$38540[ebp]
+	mov	eax, DWORD PTR _lservercfgfile$38547[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_08KDJI@exec?5?$CFs?6?$AA@ ; `string'
-	lea	ecx, DWORD PTR _szCommand$38544[ebp]
+	lea	ecx, DWORD PTR _szCommand$38551[ebp]
 	push	ecx
 	call	_sprintf
 	add	esp, 12					; 0000000cH
 
 ; 89   : 			SERVER_COMMAND( szCommand );
 
-	lea	edx, DWORD PTR _szCommand$38544[ebp]
+	lea	edx, DWORD PTR _szCommand$38551[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+156
 	add	esp, 4
-$L38543:
+$L38550:
 
 ; 92   : }
 
@@ -1807,119 +2071,1227 @@ _this$ = -4
 	ret	8
 ?ClientCommand@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PBD@Z ENDP ; CHalfLifeMultiplay::ClientCommand
 _TEXT	ENDS
+PUBLIC	??_C@_05MIHE@skill?$AA@				; `string'
+PUBLIC	??_C@_0BG@FNFM@?6GAME?5SKILL?5LEVEL?3?$CFd?6?$AA@ ; `string'
+PUBLIC	??_C@_0BB@KNII@sk_agrunt_health?$AA@		; `string'
+PUBLIC	??_C@_0BE@LLDA@sk_agrunt_dmg_punch?$AA@		; `string'
+PUBLIC	??_C@_0BB@HOAH@sk_apache_health?$AA@		; `string'
+PUBLIC	??_C@_0BB@FNEI@sk_barney_health?$AA@		; `string'
+PUBLIC	??_C@_0BK@LPOK@sk_bigmomma_health_factor?$AA@	; `string'
+PUBLIC	??_C@_0BG@INHK@sk_bigmomma_dmg_slash?$AA@	; `string'
+PUBLIC	??_C@_0BG@HIJO@sk_bigmomma_dmg_blast?$AA@	; `string'
+PUBLIC	??_C@_0BJ@FEOL@sk_bigmomma_radius_blast?$AA@	; `string'
+PUBLIC	??_C@_0BE@BKEM@sk_bullsquid_health?$AA@		; `string'
+PUBLIC	??_C@_0BG@MOEH@sk_bullsquid_dmg_bite?$AA@	; `string'
+PUBLIC	??_C@_0BG@EDCM@sk_bullsquid_dmg_whip?$AA@	; `string'
+PUBLIC	??_C@_0BG@MNOH@sk_bullsquid_dmg_spit?$AA@	; `string'
+PUBLIC	??_C@_0BE@JGEG@sk_gargantua_health?$AA@		; `string'
+PUBLIC	??_C@_0BH@KEPN@sk_gargantua_dmg_slash?$AA@	; `string'
+PUBLIC	??_C@_0BG@JNIF@sk_gargantua_dmg_fire?$AA@	; `string'
+PUBLIC	??_C@_0BH@PCEE@sk_gargantua_dmg_stomp?$AA@	; `string'
+PUBLIC	??_C@_0BE@BLAF@sk_hassassin_health?$AA@		; `string'
+PUBLIC	??_C@_0BD@LBHD@sk_headcrab_health?$AA@		; `string'
+PUBLIC	??_C@_0BF@FFL@sk_headcrab_dmg_bite?$AA@		; `string'
+PUBLIC	??_C@_0BB@HHIK@sk_hgrunt_health?$AA@		; `string'
+PUBLIC	??_C@_0P@FJLF@sk_hgrunt_kick?$AA@		; `string'
+PUBLIC	??_C@_0BC@MHNI@sk_hgrunt_pellets?$AA@		; `string'
+PUBLIC	??_C@_0BB@MAFG@sk_hgrunt_gspeed?$AA@		; `string'
+PUBLIC	??_C@_0BD@BMHM@sk_houndeye_health?$AA@		; `string'
+PUBLIC	??_C@_0BG@HGHG@sk_houndeye_dmg_blast?$AA@	; `string'
+PUBLIC	??_C@_0BB@PDGO@sk_islave_health?$AA@		; `string'
+PUBLIC	??_C@_0BD@KLHK@sk_islave_dmg_claw?$AA@		; `string'
+PUBLIC	??_C@_0BH@IGMG@sk_islave_dmg_clawrake?$AA@	; `string'
+PUBLIC	??_C@_0BC@NGCP@sk_islave_dmg_zap?$AA@		; `string'
+PUBLIC	??_C@_0BG@KKHJ@sk_ichthyosaur_health?$AA@	; `string'
+PUBLIC	??_C@_0BF@PKNO@sk_ichthyosaur_shake?$AA@	; `string'
+PUBLIC	??_C@_0BA@FPBC@sk_leech_health?$AA@		; `string'
+PUBLIC	??_C@_0BC@HAPP@sk_leech_dmg_bite?$AA@		; `string'
+PUBLIC	??_C@_0BF@ECCG@sk_controller_health?$AA@	; `string'
+PUBLIC	??_C@_0BF@HBBN@sk_controller_dmgzap?$AA@	; `string'
+PUBLIC	??_C@_0BI@JMOH@sk_controller_speedball?$AA@	; `string'
+PUBLIC	??_C@_0BG@IBFD@sk_controller_dmgball?$AA@	; `string'
+PUBLIC	??_C@_0BE@KFMK@sk_nihilanth_health?$AA@		; `string'
+PUBLIC	??_C@_0BB@OAID@sk_nihilanth_zap?$AA@		; `string'
+PUBLIC	??_C@_0BE@NPPP@sk_scientist_health?$AA@		; `string'
+PUBLIC	??_C@_0BA@IFCF@sk_snark_health?$AA@		; `string'
+PUBLIC	??_C@_0BC@LJC@sk_snark_dmg_bite?$AA@		; `string'
+PUBLIC	??_C@_0BB@CBGK@sk_snark_dmg_pop?$AA@		; `string'
+PUBLIC	??_C@_0BB@BDKC@sk_zombie_health?$AA@		; `string'
+PUBLIC	??_C@_0BI@BPLA@sk_zombie_dmg_one_slash?$AA@	; `string'
+PUBLIC	??_C@_0BJ@MNBI@sk_zombie_dmg_both_slash?$AA@	; `string'
+PUBLIC	??_C@_0BB@FBCH@sk_turret_health?$AA@		; `string'
+PUBLIC	??_C@_0BF@CFFB@sk_miniturret_health?$AA@	; `string'
+PUBLIC	??_C@_0BB@NCE@sk_sentry_health?$AA@		; `string'
+PUBLIC	??_C@_0P@PCLE@sk_plr_crowbar?$AA@		; `string'
+PUBLIC	??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@		; `string'
+PUBLIC	??_C@_0L@DODG@sk_plr_axe?$AA@			; `string'
+PUBLIC	??_C@_0P@MCFN@sk_plr_axe_sec?$AA@		; `string'
+PUBLIC	??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@		; `string'
+PUBLIC	??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@		; `string'
+PUBLIC	??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@		; `string'
+PUBLIC	??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@	; `string'
+PUBLIC	??_C@_0BA@NOHO@sk_plr_buckshot?$AA@		; `string'
+PUBLIC	??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@	; `string'
+PUBLIC	??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@	; `string'
+PUBLIC	??_C@_0L@JBN@sk_plr_rpg?$AA@			; `string'
+PUBLIC	??_C@_0N@KBK@sk_plr_gauss?$AA@			; `string'
+PUBLIC	??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@		; `string'
+PUBLIC	??_C@_0BB@LGG@sk_plr_egon_wide?$AA@		; `string'
+PUBLIC	??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@		; `string'
+PUBLIC	??_C@_0P@LAPN@sk_plr_satchel?$AA@		; `string'
+PUBLIC	??_C@_0BA@KHMP@sk_plr_tripmine?$AA@		; `string'
+PUBLIC	??_C@_0P@KCMA@sk_12mm_bullet?$AA@		; `string'
+PUBLIC	??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@		; `string'
+PUBLIC	??_C@_0O@CHLD@sk_9mm_bullet?$AA@		; `string'
+PUBLIC	??_C@_0O@KFIA@sk_hornet_dmg?$AA@		; `string'
+PUBLIC	??_C@_0P@MBFE@sk_suitcharger?$AA@		; `string'
+PUBLIC	??_C@_0L@EMFC@sk_battery?$AA@			; `string'
+PUBLIC	??_C@_0BB@JKIP@sk_healthcharger?$AA@		; `string'
+PUBLIC	??_C@_0N@OIJM@sk_healthkit?$AA@			; `string'
+PUBLIC	??_C@_0BC@LMKC@sk_scientist_heal?$AA@		; `string'
+PUBLIC	??_C@_0BA@GPA@sk_monster_head?$AA@		; `string'
+PUBLIC	??_C@_0BB@NGD@sk_monster_chest?$AA@		; `string'
+PUBLIC	??_C@_0BD@LJOA@sk_monster_stomach?$AA@		; `string'
+PUBLIC	??_C@_0P@DLCB@sk_monster_leg?$AA@		; `string'
+PUBLIC	??_C@_0P@LLLC@sk_monster_arm?$AA@		; `string'
+PUBLIC	??_C@_0P@KJDF@sk_player_head?$AA@		; `string'
+PUBLIC	??_C@_0BA@EMMM@sk_player_chest?$AA@		; `string'
+PUBLIC	??_C@_0BC@HFFI@sk_player_stomach?$AA@		; `string'
+PUBLIC	??_C@_0O@POHI@sk_player_leg?$AA@		; `string'
+PUBLIC	??_C@_0O@HOOL@sk_player_arm?$AA@		; `string'
 EXTRN	?gSkillData@@3Uskilldata_t@@A:BYTE		; gSkillData
+EXTRN	?GetSkillCvar@@YAMPAD@Z:NEAR			; GetSkillCvar
+EXTRN	?g_iSkillLevel@@3HA:DWORD			; g_iSkillLevel
+EXTRN	__ftol:NEAR
+;	COMDAT ??_C@_05MIHE@skill?$AA@
+; File z:\xashxtsrc\server\multiplay_gamerules.cpp
+CONST	SEGMENT
+??_C@_05MIHE@skill?$AA@ DB 'skill', 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@FNFM@?6GAME?5SKILL?5LEVEL?3?$CFd?6?$AA@
+CONST	SEGMENT
+??_C@_0BG@FNFM@?6GAME?5SKILL?5LEVEL?3?$CFd?6?$AA@ DB 0aH, 'GAME SKILL LEV'
+	DB	'EL:%d', 0aH, 00H				; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@KNII@sk_agrunt_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@KNII@sk_agrunt_health?$AA@ DB 'sk_agrunt_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@LLDA@sk_agrunt_dmg_punch?$AA@
+CONST	SEGMENT
+??_C@_0BE@LLDA@sk_agrunt_dmg_punch?$AA@ DB 'sk_agrunt_dmg_punch', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@HOAH@sk_apache_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@HOAH@sk_apache_health?$AA@ DB 'sk_apache_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@FNEI@sk_barney_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@FNEI@sk_barney_health?$AA@ DB 'sk_barney_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BK@LPOK@sk_bigmomma_health_factor?$AA@
+CONST	SEGMENT
+??_C@_0BK@LPOK@sk_bigmomma_health_factor?$AA@ DB 'sk_bigmomma_health_fact'
+	DB	'or', 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@INHK@sk_bigmomma_dmg_slash?$AA@
+CONST	SEGMENT
+??_C@_0BG@INHK@sk_bigmomma_dmg_slash?$AA@ DB 'sk_bigmomma_dmg_slash', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@HIJO@sk_bigmomma_dmg_blast?$AA@
+CONST	SEGMENT
+??_C@_0BG@HIJO@sk_bigmomma_dmg_blast?$AA@ DB 'sk_bigmomma_dmg_blast', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BJ@FEOL@sk_bigmomma_radius_blast?$AA@
+CONST	SEGMENT
+??_C@_0BJ@FEOL@sk_bigmomma_radius_blast?$AA@ DB 'sk_bigmomma_radius_blast'
+	DB	00H						; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@BKEM@sk_bullsquid_health?$AA@
+CONST	SEGMENT
+??_C@_0BE@BKEM@sk_bullsquid_health?$AA@ DB 'sk_bullsquid_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@MOEH@sk_bullsquid_dmg_bite?$AA@
+CONST	SEGMENT
+??_C@_0BG@MOEH@sk_bullsquid_dmg_bite?$AA@ DB 'sk_bullsquid_dmg_bite', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@EDCM@sk_bullsquid_dmg_whip?$AA@
+CONST	SEGMENT
+??_C@_0BG@EDCM@sk_bullsquid_dmg_whip?$AA@ DB 'sk_bullsquid_dmg_whip', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@MNOH@sk_bullsquid_dmg_spit?$AA@
+CONST	SEGMENT
+??_C@_0BG@MNOH@sk_bullsquid_dmg_spit?$AA@ DB 'sk_bullsquid_dmg_spit', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@JGEG@sk_gargantua_health?$AA@
+CONST	SEGMENT
+??_C@_0BE@JGEG@sk_gargantua_health?$AA@ DB 'sk_gargantua_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@KEPN@sk_gargantua_dmg_slash?$AA@
+CONST	SEGMENT
+??_C@_0BH@KEPN@sk_gargantua_dmg_slash?$AA@ DB 'sk_gargantua_dmg_slash', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@JNIF@sk_gargantua_dmg_fire?$AA@
+CONST	SEGMENT
+??_C@_0BG@JNIF@sk_gargantua_dmg_fire?$AA@ DB 'sk_gargantua_dmg_fire', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@PCEE@sk_gargantua_dmg_stomp?$AA@
+CONST	SEGMENT
+??_C@_0BH@PCEE@sk_gargantua_dmg_stomp?$AA@ DB 'sk_gargantua_dmg_stomp', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@BLAF@sk_hassassin_health?$AA@
+CONST	SEGMENT
+??_C@_0BE@BLAF@sk_hassassin_health?$AA@ DB 'sk_hassassin_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@LBHD@sk_headcrab_health?$AA@
+CONST	SEGMENT
+??_C@_0BD@LBHD@sk_headcrab_health?$AA@ DB 'sk_headcrab_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@FFL@sk_headcrab_dmg_bite?$AA@
+CONST	SEGMENT
+??_C@_0BF@FFL@sk_headcrab_dmg_bite?$AA@ DB 'sk_headcrab_dmg_bite', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@HHIK@sk_hgrunt_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@HHIK@sk_hgrunt_health?$AA@ DB 'sk_hgrunt_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@FJLF@sk_hgrunt_kick?$AA@
+CONST	SEGMENT
+??_C@_0P@FJLF@sk_hgrunt_kick?$AA@ DB 'sk_hgrunt_kick', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@MHNI@sk_hgrunt_pellets?$AA@
+CONST	SEGMENT
+??_C@_0BC@MHNI@sk_hgrunt_pellets?$AA@ DB 'sk_hgrunt_pellets', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@MAFG@sk_hgrunt_gspeed?$AA@
+CONST	SEGMENT
+??_C@_0BB@MAFG@sk_hgrunt_gspeed?$AA@ DB 'sk_hgrunt_gspeed', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@BMHM@sk_houndeye_health?$AA@
+CONST	SEGMENT
+??_C@_0BD@BMHM@sk_houndeye_health?$AA@ DB 'sk_houndeye_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@HGHG@sk_houndeye_dmg_blast?$AA@
+CONST	SEGMENT
+??_C@_0BG@HGHG@sk_houndeye_dmg_blast?$AA@ DB 'sk_houndeye_dmg_blast', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@PDGO@sk_islave_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@PDGO@sk_islave_health?$AA@ DB 'sk_islave_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@KLHK@sk_islave_dmg_claw?$AA@
+CONST	SEGMENT
+??_C@_0BD@KLHK@sk_islave_dmg_claw?$AA@ DB 'sk_islave_dmg_claw', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BH@IGMG@sk_islave_dmg_clawrake?$AA@
+CONST	SEGMENT
+??_C@_0BH@IGMG@sk_islave_dmg_clawrake?$AA@ DB 'sk_islave_dmg_clawrake', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@NGCP@sk_islave_dmg_zap?$AA@
+CONST	SEGMENT
+??_C@_0BC@NGCP@sk_islave_dmg_zap?$AA@ DB 'sk_islave_dmg_zap', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@KKHJ@sk_ichthyosaur_health?$AA@
+CONST	SEGMENT
+??_C@_0BG@KKHJ@sk_ichthyosaur_health?$AA@ DB 'sk_ichthyosaur_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@PKNO@sk_ichthyosaur_shake?$AA@
+CONST	SEGMENT
+??_C@_0BF@PKNO@sk_ichthyosaur_shake?$AA@ DB 'sk_ichthyosaur_shake', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@FPBC@sk_leech_health?$AA@
+CONST	SEGMENT
+??_C@_0BA@FPBC@sk_leech_health?$AA@ DB 'sk_leech_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HAPP@sk_leech_dmg_bite?$AA@
+CONST	SEGMENT
+??_C@_0BC@HAPP@sk_leech_dmg_bite?$AA@ DB 'sk_leech_dmg_bite', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@ECCG@sk_controller_health?$AA@
+CONST	SEGMENT
+??_C@_0BF@ECCG@sk_controller_health?$AA@ DB 'sk_controller_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HBBN@sk_controller_dmgzap?$AA@
+CONST	SEGMENT
+??_C@_0BF@HBBN@sk_controller_dmgzap?$AA@ DB 'sk_controller_dmgzap', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@JMOH@sk_controller_speedball?$AA@
+CONST	SEGMENT
+??_C@_0BI@JMOH@sk_controller_speedball?$AA@ DB 'sk_controller_speedball', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BG@IBFD@sk_controller_dmgball?$AA@
+CONST	SEGMENT
+??_C@_0BG@IBFD@sk_controller_dmgball?$AA@ DB 'sk_controller_dmgball', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@KFMK@sk_nihilanth_health?$AA@
+CONST	SEGMENT
+??_C@_0BE@KFMK@sk_nihilanth_health?$AA@ DB 'sk_nihilanth_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@OAID@sk_nihilanth_zap?$AA@
+CONST	SEGMENT
+??_C@_0BB@OAID@sk_nihilanth_zap?$AA@ DB 'sk_nihilanth_zap', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@NPPP@sk_scientist_health?$AA@
+CONST	SEGMENT
+??_C@_0BE@NPPP@sk_scientist_health?$AA@ DB 'sk_scientist_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@IFCF@sk_snark_health?$AA@
+CONST	SEGMENT
+??_C@_0BA@IFCF@sk_snark_health?$AA@ DB 'sk_snark_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@LJC@sk_snark_dmg_bite?$AA@
+CONST	SEGMENT
+??_C@_0BC@LJC@sk_snark_dmg_bite?$AA@ DB 'sk_snark_dmg_bite', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@CBGK@sk_snark_dmg_pop?$AA@
+CONST	SEGMENT
+??_C@_0BB@CBGK@sk_snark_dmg_pop?$AA@ DB 'sk_snark_dmg_pop', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@BDKC@sk_zombie_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@BDKC@sk_zombie_health?$AA@ DB 'sk_zombie_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@BPLA@sk_zombie_dmg_one_slash?$AA@
+CONST	SEGMENT
+??_C@_0BI@BPLA@sk_zombie_dmg_one_slash?$AA@ DB 'sk_zombie_dmg_one_slash', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BJ@MNBI@sk_zombie_dmg_both_slash?$AA@
+CONST	SEGMENT
+??_C@_0BJ@MNBI@sk_zombie_dmg_both_slash?$AA@ DB 'sk_zombie_dmg_both_slash'
+	DB	00H						; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@FBCH@sk_turret_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@FBCH@sk_turret_health?$AA@ DB 'sk_turret_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@CFFB@sk_miniturret_health?$AA@
+CONST	SEGMENT
+??_C@_0BF@CFFB@sk_miniturret_health?$AA@ DB 'sk_miniturret_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@NCE@sk_sentry_health?$AA@
+CONST	SEGMENT
+??_C@_0BB@NCE@sk_sentry_health?$AA@ DB 'sk_sentry_health', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@PCLE@sk_plr_crowbar?$AA@
+CONST	SEGMENT
+??_C@_0P@PCLE@sk_plr_crowbar?$AA@ DB 'sk_plr_crowbar', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@
+CONST	SEGMENT
+??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@ DB 'sk_plr_crowbar_stab', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@DODG@sk_plr_axe?$AA@
+CONST	SEGMENT
+??_C@_0L@DODG@sk_plr_axe?$AA@ DB 'sk_plr_axe', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@MCFN@sk_plr_axe_sec?$AA@
+CONST	SEGMENT
+??_C@_0P@MCFN@sk_plr_axe_sec?$AA@ DB 'sk_plr_axe_sec', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@
+CONST	SEGMENT
+??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@ DB 'sk_plr_9mm_bullet', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@
+CONST	SEGMENT
+??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@ DB 'sk_plr_357_bullet', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@
+CONST	SEGMENT
+??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@ DB 'sk_plr_9mmAR_bullet', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@
+CONST	SEGMENT
+??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@ DB 'sk_plr_9mmAR_grenade', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@NOHO@sk_plr_buckshot?$AA@
+CONST	SEGMENT
+??_C@_0BA@NOHO@sk_plr_buckshot?$AA@ DB 'sk_plr_buckshot', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@
+CONST	SEGMENT
+??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@ DB 'sk_plr_xbow_bolt_client', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@
+CONST	SEGMENT
+??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@ DB 'sk_plr_xbow_bolt_monster'
+	DB	00H						; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@JBN@sk_plr_rpg?$AA@
+CONST	SEGMENT
+??_C@_0L@JBN@sk_plr_rpg?$AA@ DB 'sk_plr_rpg', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0N@KBK@sk_plr_gauss?$AA@
+CONST	SEGMENT
+??_C@_0N@KBK@sk_plr_gauss?$AA@ DB 'sk_plr_gauss', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@
+CONST	SEGMENT
+??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@ DB 'sk_plr_egon_narrow', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@LGG@sk_plr_egon_wide?$AA@
+CONST	SEGMENT
+??_C@_0BB@LGG@sk_plr_egon_wide?$AA@ DB 'sk_plr_egon_wide', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@
+CONST	SEGMENT
+??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@ DB 'sk_plr_hand_grenade', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@LAPN@sk_plr_satchel?$AA@
+CONST	SEGMENT
+??_C@_0P@LAPN@sk_plr_satchel?$AA@ DB 'sk_plr_satchel', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@KHMP@sk_plr_tripmine?$AA@
+CONST	SEGMENT
+??_C@_0BA@KHMP@sk_plr_tripmine?$AA@ DB 'sk_plr_tripmine', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@KCMA@sk_12mm_bullet?$AA@
+CONST	SEGMENT
+??_C@_0P@KCMA@sk_12mm_bullet?$AA@ DB 'sk_12mm_bullet', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@
+CONST	SEGMENT
+??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@ DB 'sk_9mmAR_bullet', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@CHLD@sk_9mm_bullet?$AA@
+CONST	SEGMENT
+??_C@_0O@CHLD@sk_9mm_bullet?$AA@ DB 'sk_9mm_bullet', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@KFIA@sk_hornet_dmg?$AA@
+CONST	SEGMENT
+??_C@_0O@KFIA@sk_hornet_dmg?$AA@ DB 'sk_hornet_dmg', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@MBFE@sk_suitcharger?$AA@
+CONST	SEGMENT
+??_C@_0P@MBFE@sk_suitcharger?$AA@ DB 'sk_suitcharger', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@EMFC@sk_battery?$AA@
+CONST	SEGMENT
+??_C@_0L@EMFC@sk_battery?$AA@ DB 'sk_battery', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@JKIP@sk_healthcharger?$AA@
+CONST	SEGMENT
+??_C@_0BB@JKIP@sk_healthcharger?$AA@ DB 'sk_healthcharger', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0N@OIJM@sk_healthkit?$AA@
+CONST	SEGMENT
+??_C@_0N@OIJM@sk_healthkit?$AA@ DB 'sk_healthkit', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@LMKC@sk_scientist_heal?$AA@
+CONST	SEGMENT
+??_C@_0BC@LMKC@sk_scientist_heal?$AA@ DB 'sk_scientist_heal', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@GPA@sk_monster_head?$AA@
+CONST	SEGMENT
+??_C@_0BA@GPA@sk_monster_head?$AA@ DB 'sk_monster_head', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@NGD@sk_monster_chest?$AA@
+CONST	SEGMENT
+??_C@_0BB@NGD@sk_monster_chest?$AA@ DB 'sk_monster_chest', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@LJOA@sk_monster_stomach?$AA@
+CONST	SEGMENT
+??_C@_0BD@LJOA@sk_monster_stomach?$AA@ DB 'sk_monster_stomach', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@DLCB@sk_monster_leg?$AA@
+CONST	SEGMENT
+??_C@_0P@DLCB@sk_monster_leg?$AA@ DB 'sk_monster_leg', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@LLLC@sk_monster_arm?$AA@
+CONST	SEGMENT
+??_C@_0P@LLLC@sk_monster_arm?$AA@ DB 'sk_monster_arm', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0P@KJDF@sk_player_head?$AA@
+CONST	SEGMENT
+??_C@_0P@KJDF@sk_player_head?$AA@ DB 'sk_player_head', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@EMMM@sk_player_chest?$AA@
+CONST	SEGMENT
+??_C@_0BA@EMMM@sk_player_chest?$AA@ DB 'sk_player_chest', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BC@HFFI@sk_player_stomach?$AA@
+CONST	SEGMENT
+??_C@_0BC@HFFI@sk_player_stomach?$AA@ DB 'sk_player_stomach', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@POHI@sk_player_leg?$AA@
+CONST	SEGMENT
+??_C@_0O@POHI@sk_player_leg?$AA@ DB 'sk_player_leg', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@HOOL@sk_player_arm?$AA@
+CONST	SEGMENT
+??_C@_0O@HOOL@sk_player_arm?$AA@ DB 'sk_player_arm', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ?RefreshSkillData@CHalfLifeMultiplay@@UAEXXZ
 _TEXT	SEGMENT
 _this$ = -4
+_iSkill$ = -8
 ?RefreshSkillData@CHalfLifeMultiplay@@UAEXXZ PROC NEAR	; CHalfLifeMultiplay::RefreshSkillData, COMDAT
 
-; 102  : {
+; 153  : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 68					; 00000044H
+	sub	esp, 72					; 00000048H
 	push	ebx
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 103  : // load all default values
-; 104  : 	CGameRules::RefreshSkillData();
+; 154  : 	int	iSkill;
+; 155  : 
+; 156  : 	iSkill = (int)CVAR_GET_FLOAT("skill");
 
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?RefreshSkillData@CGameRules@@UAEXXZ	; CGameRules::RefreshSkillData
+	push	OFFSET FLAT:??_C@_05MIHE@skill?$AA@	; `string'
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+228
+	add	esp, 4
+	call	__ftol
+	mov	DWORD PTR _iSkill$[ebp], eax
 
-; 105  : 
-; 106  : // override some values for multiplay.
-; 107  : 
-; 108  : 	// suitcharger
-; 109  : 	gSkillData.suitchargerCapacity = 30;
+; 157  : 	g_iSkillLevel = iSkill;
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+284, 1106247680 ; 41f00000H
+	mov	eax, DWORD PTR _iSkill$[ebp]
+	mov	DWORD PTR ?g_iSkillLevel@@3HA, eax	; g_iSkillLevel
 
-; 110  : 
-; 111  : 	// Crowbar whack
-; 112  : 	gSkillData.plrDmgCrowbar = 25;
+; 158  : 
+; 159  : 	if ( iSkill < 1 )
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+200, 1103626240 ; 41c80000H
+	cmp	DWORD PTR _iSkill$[ebp], 1
+	jge	SHORT $L38567
 
-; 113  : 
-; 114  : 	// Glock Round
-; 115  : 	gSkillData.plrDmg9MM = 12;
+; 161  : 		iSkill = 1;
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+208, 1094713344 ; 41400000H
+	mov	DWORD PTR _iSkill$[ebp], 1
 
-; 116  : 
-; 117  : 	// 357 Round
-; 118  : 	gSkillData.plrDmg357 = 40;
+; 163  : 	else if ( iSkill > 3 )
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+212, 1109393408 ; 42200000H
+	jmp	SHORT $L38569
+$L38567:
+	cmp	DWORD PTR _iSkill$[ebp], 3
+	jle	SHORT $L38569
 
-; 119  : 
-; 120  : 	// MP5 Round
-; 121  : 	gSkillData.plrDmgMP5 = 12;
+; 165  : 		iSkill = 3;
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+216, 1094713344 ; 41400000H
+	mov	DWORD PTR _iSkill$[ebp], 3
+$L38569:
 
-; 122  : 
-; 123  : 	// M203 grenade
-; 124  : 	gSkillData.plrDmgM203Grenade = 100;
+; 167  : 
+; 168  : 	gSkillData.iSkillLevel = iSkill;
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+220, 1120403456 ; 42c80000H
+	mov	ecx, DWORD PTR _iSkill$[ebp]
+	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A, ecx
 
-; 125  : 
-; 126  : 	// Shotgun buckshot
-; 127  : 	gSkillData.plrDmgBuckshot = 20;// fewer pellets in deathmatch
+; 169  : 
+; 170  : 	ALERT ( at_console, "\nGAME SKILL LEVEL:%d\n",iSkill );
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+224, 1101004800 ; 41a00000H
+	mov	edx, DWORD PTR _iSkill$[ebp]
+	push	edx
+	push	OFFSET FLAT:??_C@_0BG@FNFM@?6GAME?5SKILL?5LEVEL?3?$CFd?6?$AA@ ; `string'
+	push	1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
+	add	esp, 12					; 0000000cH
 
-; 128  : 
-; 129  : 	// Crossbow
-; 130  : 	gSkillData.plrDmgCrossbowClient = 20;
+; 171  : 
+; 172  : 	//Agrunt
+; 173  : 	gSkillData.agruntHealth = GetSkillCvar( "sk_agrunt_health" );
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+228, 1101004800 ; 41a00000H
+	push	OFFSET FLAT:??_C@_0BB@KNII@sk_agrunt_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+4
 
-; 131  : 
-; 132  : 	// RPG
-; 133  : 	gSkillData.plrDmgRPG = 120;
+; 174  : 	gSkillData.agruntDmgPunch = GetSkillCvar( "sk_agrunt_dmg_punch");
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+236, 1123024896 ; 42f00000H
+	push	OFFSET FLAT:??_C@_0BE@LLDA@sk_agrunt_dmg_punch?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+8
 
-; 134  : 
-; 135  : 	// Egon
-; 136  : 	gSkillData.plrDmgEgonWide = 20;
+; 175  : 
+; 176  : 	// Apache
+; 177  : 	gSkillData.apacheHealth = GetSkillCvar( "sk_apache_health");
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+248, 1101004800 ; 41a00000H
+	push	OFFSET FLAT:??_C@_0BB@HOAH@sk_apache_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+12
 
-; 137  : 	gSkillData.plrDmgEgonNarrow = 10;
+; 178  : 
+; 179  : 	// Barney
+; 180  : 	gSkillData.barneyHealth = GetSkillCvar( "sk_barney_health");
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+244, 1092616192 ; 41200000H
+	push	OFFSET FLAT:??_C@_0BB@FNEI@sk_barney_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+16
 
-; 138  : 
-; 139  : 	// Hand Grendade
-; 140  : 	gSkillData.plrDmgHandGrenade = 100;
+; 181  : 
+; 182  : 	// Big Momma
+; 183  : 	gSkillData.bigmommaHealthFactor = GetSkillCvar( "sk_bigmomma_health_factor" );
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+256, 1120403456 ; 42c80000H
+	push	OFFSET FLAT:??_C@_0BK@LPOK@sk_bigmomma_health_factor?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+20
 
-; 141  : 
-; 142  : 	// Satchel Charge
-; 143  : 	gSkillData.plrDmgSatchel = 120;
+; 184  : 	gSkillData.bigmommaDmgSlash = GetSkillCvar( "sk_bigmomma_dmg_slash" );
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+260, 1123024896 ; 42f00000H
+	push	OFFSET FLAT:??_C@_0BG@INHK@sk_bigmomma_dmg_slash?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+24
 
-; 144  : 
-; 145  : 	// Tripmine
-; 146  : 	gSkillData.plrDmgTripmine = 150;
+; 185  : 	gSkillData.bigmommaDmgBlast = GetSkillCvar( "sk_bigmomma_dmg_blast" );
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+264, 1125515264 ; 43160000H
+	push	OFFSET FLAT:??_C@_0BG@HIJO@sk_bigmomma_dmg_blast?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+28
 
-; 147  : 
-; 148  : 	// hornet
-; 149  : 	gSkillData.plrDmgHornet = 10;
+; 186  : 	gSkillData.bigmommaRadiusBlast = GetSkillCvar( "sk_bigmomma_radius_blast" );
 
-	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+252, 1092616192 ; 41200000H
+	push	OFFSET FLAT:??_C@_0BJ@FEOL@sk_bigmomma_radius_blast?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+32
 
-; 150  : }
+; 187  : 
+; 188  : 	// Bullsquid
+; 189  : 	gSkillData.bullsquidHealth = GetSkillCvar( "sk_bullsquid_health");
+
+	push	OFFSET FLAT:??_C@_0BE@BKEM@sk_bullsquid_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+36
+
+; 190  : 	gSkillData.bullsquidDmgBite = GetSkillCvar( "sk_bullsquid_dmg_bite");
+
+	push	OFFSET FLAT:??_C@_0BG@MOEH@sk_bullsquid_dmg_bite?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+40
+
+; 191  : 	gSkillData.bullsquidDmgWhip = GetSkillCvar( "sk_bullsquid_dmg_whip");
+
+	push	OFFSET FLAT:??_C@_0BG@EDCM@sk_bullsquid_dmg_whip?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+44
+
+; 192  : 	gSkillData.bullsquidDmgSpit = GetSkillCvar( "sk_bullsquid_dmg_spit");
+
+	push	OFFSET FLAT:??_C@_0BG@MNOH@sk_bullsquid_dmg_spit?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+48
+
+; 193  : 
+; 194  : 	// Gargantua
+; 195  : 	gSkillData.gargantuaHealth = GetSkillCvar( "sk_gargantua_health");
+
+	push	OFFSET FLAT:??_C@_0BE@JGEG@sk_gargantua_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+52
+
+; 196  : 	gSkillData.gargantuaDmgSlash = GetSkillCvar( "sk_gargantua_dmg_slash");
+
+	push	OFFSET FLAT:??_C@_0BH@KEPN@sk_gargantua_dmg_slash?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+56
+
+; 197  : 	gSkillData.gargantuaDmgFire = GetSkillCvar( "sk_gargantua_dmg_fire");
+
+	push	OFFSET FLAT:??_C@_0BG@JNIF@sk_gargantua_dmg_fire?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+60
+
+; 198  : 	gSkillData.gargantuaDmgStomp = GetSkillCvar( "sk_gargantua_dmg_stomp");
+
+	push	OFFSET FLAT:??_C@_0BH@PCEE@sk_gargantua_dmg_stomp?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+64
+
+; 199  : 
+; 200  : 	// Hassassin
+; 201  : 	gSkillData.hassassinHealth = GetSkillCvar( "sk_hassassin_health");
+
+	push	OFFSET FLAT:??_C@_0BE@BLAF@sk_hassassin_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+68
+
+; 202  : 
+; 203  : 	// Headcrab
+; 204  : 	gSkillData.headcrabHealth = GetSkillCvar( "sk_headcrab_health");
+
+	push	OFFSET FLAT:??_C@_0BD@LBHD@sk_headcrab_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+72
+
+; 205  : 	gSkillData.headcrabDmgBite = GetSkillCvar( "sk_headcrab_dmg_bite");
+
+	push	OFFSET FLAT:??_C@_0BF@FFL@sk_headcrab_dmg_bite?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+76
+
+; 206  : 
+; 207  : 	// Hgrunt
+; 208  : 	gSkillData.hgruntHealth = GetSkillCvar( "sk_hgrunt_health");
+
+	push	OFFSET FLAT:??_C@_0BB@HHIK@sk_hgrunt_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+80
+
+; 209  : 	gSkillData.hgruntDmgKick = GetSkillCvar( "sk_hgrunt_kick");
+
+	push	OFFSET FLAT:??_C@_0P@FJLF@sk_hgrunt_kick?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+84
+
+; 210  : 	gSkillData.hgruntShotgunPellets = GetSkillCvar( "sk_hgrunt_pellets");
+
+	push	OFFSET FLAT:??_C@_0BC@MHNI@sk_hgrunt_pellets?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+88
+
+; 211  : 	gSkillData.hgruntGrenadeSpeed = GetSkillCvar( "sk_hgrunt_gspeed");
+
+	push	OFFSET FLAT:??_C@_0BB@MAFG@sk_hgrunt_gspeed?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+92
+
+; 212  : 
+; 213  : 	// Houndeye
+; 214  : 	gSkillData.houndeyeHealth = GetSkillCvar( "sk_houndeye_health");
+
+	push	OFFSET FLAT:??_C@_0BD@BMHM@sk_houndeye_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+96
+
+; 215  : 	gSkillData.houndeyeDmgBlast = GetSkillCvar( "sk_houndeye_dmg_blast");
+
+	push	OFFSET FLAT:??_C@_0BG@HGHG@sk_houndeye_dmg_blast?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+100
+
+; 216  : 
+; 217  : 	// ISlave
+; 218  : 	gSkillData.slaveHealth = GetSkillCvar( "sk_islave_health");
+
+	push	OFFSET FLAT:??_C@_0BB@PDGO@sk_islave_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+104
+
+; 219  : 	gSkillData.slaveDmgClaw = GetSkillCvar( "sk_islave_dmg_claw");
+
+	push	OFFSET FLAT:??_C@_0BD@KLHK@sk_islave_dmg_claw?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+108
+
+; 220  : 	gSkillData.slaveDmgClawrake = GetSkillCvar( "sk_islave_dmg_clawrake");
+
+	push	OFFSET FLAT:??_C@_0BH@IGMG@sk_islave_dmg_clawrake?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+112
+
+; 221  : 	gSkillData.slaveDmgZap = GetSkillCvar( "sk_islave_dmg_zap");
+
+	push	OFFSET FLAT:??_C@_0BC@NGCP@sk_islave_dmg_zap?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+116
+
+; 222  : 
+; 223  : 	// Icthyosaur
+; 224  : 	gSkillData.ichthyosaurHealth = GetSkillCvar( "sk_ichthyosaur_health");
+
+	push	OFFSET FLAT:??_C@_0BG@KKHJ@sk_ichthyosaur_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+120
+
+; 225  : 	gSkillData.ichthyosaurDmgShake = GetSkillCvar( "sk_ichthyosaur_shake");
+
+	push	OFFSET FLAT:??_C@_0BF@PKNO@sk_ichthyosaur_shake?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+124
+
+; 226  : 
+; 227  : 	// Leech
+; 228  : 	gSkillData.leechHealth = GetSkillCvar( "sk_leech_health");
+
+	push	OFFSET FLAT:??_C@_0BA@FPBC@sk_leech_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+128
+
+; 229  : 
+; 230  : 	gSkillData.leechDmgBite = GetSkillCvar( "sk_leech_dmg_bite");
+
+	push	OFFSET FLAT:??_C@_0BC@HAPP@sk_leech_dmg_bite?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+132
+
+; 231  : 
+; 232  : 	// Controller
+; 233  : 	gSkillData.controllerHealth = GetSkillCvar( "sk_controller_health");
+
+	push	OFFSET FLAT:??_C@_0BF@ECCG@sk_controller_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+136
+
+; 234  : 	gSkillData.controllerDmgZap = GetSkillCvar( "sk_controller_dmgzap");
+
+	push	OFFSET FLAT:??_C@_0BF@HBBN@sk_controller_dmgzap?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+140
+
+; 235  : 	gSkillData.controllerSpeedBall = GetSkillCvar( "sk_controller_speedball");
+
+	push	OFFSET FLAT:??_C@_0BI@JMOH@sk_controller_speedball?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+144
+
+; 236  : 	gSkillData.controllerDmgBall = GetSkillCvar( "sk_controller_dmgball");
+
+	push	OFFSET FLAT:??_C@_0BG@IBFD@sk_controller_dmgball?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+148
+
+; 237  : 
+; 238  : 	// Nihilanth
+; 239  : 	gSkillData.nihilanthHealth = GetSkillCvar( "sk_nihilanth_health");
+
+	push	OFFSET FLAT:??_C@_0BE@KFMK@sk_nihilanth_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+152
+
+; 240  : 	gSkillData.nihilanthZap = GetSkillCvar( "sk_nihilanth_zap");
+
+	push	OFFSET FLAT:??_C@_0BB@OAID@sk_nihilanth_zap?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+156
+
+; 241  : 
+; 242  : 	// Scientist
+; 243  : 	gSkillData.scientistHealth = GetSkillCvar( "sk_scientist_health");
+
+	push	OFFSET FLAT:??_C@_0BE@NPPP@sk_scientist_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+160
+
+; 244  : 
+; 245  : 	// Snark
+; 246  : 	gSkillData.snarkHealth = GetSkillCvar( "sk_snark_health");
+
+	push	OFFSET FLAT:??_C@_0BA@IFCF@sk_snark_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+164
+
+; 247  : 	gSkillData.snarkDmgBite = GetSkillCvar( "sk_snark_dmg_bite");
+
+	push	OFFSET FLAT:??_C@_0BC@LJC@sk_snark_dmg_bite?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+168
+
+; 248  : 	gSkillData.snarkDmgPop = GetSkillCvar( "sk_snark_dmg_pop");
+
+	push	OFFSET FLAT:??_C@_0BB@CBGK@sk_snark_dmg_pop?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+172
+
+; 249  : 
+; 250  : 	// Zombie
+; 251  : 	gSkillData.zombieHealth = GetSkillCvar( "sk_zombie_health");
+
+	push	OFFSET FLAT:??_C@_0BB@BDKC@sk_zombie_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+176
+
+; 252  : 	gSkillData.zombieDmgOneSlash = GetSkillCvar( "sk_zombie_dmg_one_slash");
+
+	push	OFFSET FLAT:??_C@_0BI@BPLA@sk_zombie_dmg_one_slash?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+180
+
+; 253  : 	gSkillData.zombieDmgBothSlash = GetSkillCvar( "sk_zombie_dmg_both_slash");
+
+	push	OFFSET FLAT:??_C@_0BJ@MNBI@sk_zombie_dmg_both_slash?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+184
+
+; 254  : 
+; 255  : 	//Turret
+; 256  : 	gSkillData.turretHealth = GetSkillCvar( "sk_turret_health");
+
+	push	OFFSET FLAT:??_C@_0BB@FBCH@sk_turret_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+188
+
+; 257  : 
+; 258  : 	// MiniTurret
+; 259  : 	gSkillData.miniturretHealth = GetSkillCvar( "sk_miniturret_health");
+
+	push	OFFSET FLAT:??_C@_0BF@CFFB@sk_miniturret_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+192
+
+; 260  : 
+; 261  : 	// Sentry Turret
+; 262  : 	gSkillData.sentryHealth = GetSkillCvar( "sk_sentry_health");
+
+	push	OFFSET FLAT:??_C@_0BB@NCE@sk_sentry_health?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+196
+
+; 263  : 
+; 264  : // PLAYER WEAPONS
+; 265  : 
+; 266  : 	// Crowbar whack
+; 267  : 	gSkillData.plrDmgCrowbar = GetSkillCvar( "sk_plr_crowbar");
+
+	push	OFFSET FLAT:??_C@_0P@PCLE@sk_plr_crowbar?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+200
+
+; 268  : 
+; 269  : 	// Crowbar stab
+; 270  :   gSkillData.plrDmgCrowbarStab = GetSkillCvar( "sk_plr_crowbar_stab" );
+
+	push	OFFSET FLAT:??_C@_0BE@HLHC@sk_plr_crowbar_stab?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+204
+
+; 271  : 
+; 272  : 	// Axe primary
+; 273  : 	gSkillData.plrDmgAxe = GetSkillCvar( "sk_plr_axe");
+
+	push	OFFSET FLAT:??_C@_0L@DODG@sk_plr_axe?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+208
+
+; 274  : 
+; 275  : 	// Axe secondary
+; 276  : 	gSkillData.plrDmgAxeSec = GetSkillCvar( "sk_plr_axe_sec");
+
+	push	OFFSET FLAT:??_C@_0P@MCFN@sk_plr_axe_sec?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+212
+
+; 277  : 
+; 278  : 	// Glock Round
+; 279  : 	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
+
+	push	OFFSET FLAT:??_C@_0BC@OHJP@sk_plr_9mm_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+224
+
+; 280  : 
+; 281  : 	// 357 Round
+; 282  : 	gSkillData.plrDmg357 = GetSkillCvar( "sk_plr_357_bullet");
+
+	push	OFFSET FLAT:??_C@_0BC@HKKE@sk_plr_357_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+228
+
+; 283  : 
+; 284  : 	// MP5 Round
+; 285  : 	gSkillData.plrDmgMP5 = GetSkillCvar( "sk_plr_9mmAR_bullet");
+
+	push	OFFSET FLAT:??_C@_0BE@PFND@sk_plr_9mmAR_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+232
+
+; 286  : 
+; 287  : 	// M203 grenade
+; 288  : 	gSkillData.plrDmgM203Grenade = GetSkillCvar( "sk_plr_9mmAR_grenade");
+
+	push	OFFSET FLAT:??_C@_0BF@HOOF@sk_plr_9mmAR_grenade?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+236
+
+; 289  : 
+; 290  : 	// Shotgun buckshot
+; 291  : 	gSkillData.plrDmgBuckshot = GetSkillCvar( "sk_plr_buckshot");
+
+	push	OFFSET FLAT:??_C@_0BA@NOHO@sk_plr_buckshot?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+240
+
+; 292  : 
+; 293  : 	// Crossbow
+; 294  : 	gSkillData.plrDmgCrossbowClient = GetSkillCvar( "sk_plr_xbow_bolt_client");
+
+	push	OFFSET FLAT:??_C@_0BI@HEFB@sk_plr_xbow_bolt_client?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+244
+
+; 295  : 	gSkillData.plrDmgCrossbowMonster = GetSkillCvar( "sk_plr_xbow_bolt_monster");
+
+	push	OFFSET FLAT:??_C@_0BJ@NOPM@sk_plr_xbow_bolt_monster?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+248
+
+; 296  : 
+; 297  : 	// RPG
+; 298  : 	gSkillData.plrDmgRPG = GetSkillCvar( "sk_plr_rpg");
+
+	push	OFFSET FLAT:??_C@_0L@JBN@sk_plr_rpg?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+252
+
+; 299  : 
+; 300  : 	// Gauss gun
+; 301  : 	gSkillData.plrDmgGauss = GetSkillCvar( "sk_plr_gauss");
+
+	push	OFFSET FLAT:??_C@_0N@KBK@sk_plr_gauss?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+256
+
+; 302  : 
+; 303  : 	// Egon Gun
+; 304  : 	gSkillData.plrDmgEgonNarrow = GetSkillCvar( "sk_plr_egon_narrow");
+
+	push	OFFSET FLAT:??_C@_0BD@GIKB@sk_plr_egon_narrow?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+260
+
+; 305  : 	gSkillData.plrDmgEgonWide = GetSkillCvar( "sk_plr_egon_wide");
+
+	push	OFFSET FLAT:??_C@_0BB@LGG@sk_plr_egon_wide?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+264
+
+; 306  : 
+; 307  : 	// Hand Grendade
+; 308  : 	gSkillData.plrDmgHandGrenade = GetSkillCvar( "sk_plr_hand_grenade");
+
+	push	OFFSET FLAT:??_C@_0BE@DLLM@sk_plr_hand_grenade?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+272
+
+; 309  : 
+; 310  : 	// Satchel Charge
+; 311  : 	gSkillData.plrDmgSatchel = GetSkillCvar( "sk_plr_satchel");
+
+	push	OFFSET FLAT:??_C@_0P@LAPN@sk_plr_satchel?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+276
+
+; 312  : 
+; 313  : 	// Tripmine
+; 314  : 	gSkillData.plrDmgTripmine = GetSkillCvar( "sk_plr_tripmine");
+
+	push	OFFSET FLAT:??_C@_0BA@KHMP@sk_plr_tripmine?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+280
+
+; 315  : 
+; 316  : 	// MONSTER WEAPONS
+; 317  : 	gSkillData.monDmg12MM = GetSkillCvar( "sk_12mm_bullet");
+
+	push	OFFSET FLAT:??_C@_0P@KCMA@sk_12mm_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+292
+
+; 318  : 	gSkillData.monDmgMP5 = GetSkillCvar ("sk_9mmAR_bullet" );
+
+	push	OFFSET FLAT:??_C@_0BA@KFLL@sk_9mmAR_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+288
+
+; 319  : 	gSkillData.monDmg9MM = GetSkillCvar( "sk_9mm_bullet");
+
+	push	OFFSET FLAT:??_C@_0O@CHLD@sk_9mm_bullet?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+284
+
+; 320  : 
+; 321  : 	// MONSTER HORNET
+; 322  : 	gSkillData.monDmgHornet = GetSkillCvar( "sk_hornet_dmg");
+
+	push	OFFSET FLAT:??_C@_0O@KFIA@sk_hornet_dmg?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+296
+
+; 323  : 
+; 324  : 	// PLAYER HORNET
+; 325  : // Up to this point, player hornet damage and monster hornet damage were both using
+; 326  : // monDmgHornet to determine how much damage to do. In tuning the hivehand, we now need
+; 327  : // to separate player damage and monster hivehand damage. Since it's so late in the project, we've
+; 328  : // added plrDmgHornet to the SKILLDATA struct, but not to the engine CVar list, so it's inaccesible
+; 329  : // via SKILLS.CFG. Any player hivehand tuning must take place in the code. (sjb)
+; 330  : 	gSkillData.plrDmgHornet = 7;
+
+	mov	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+268, 1088421888 ; 40e00000H
+
+; 331  : 
+; 332  : 
+; 333  : 	// HEALTH/CHARGE
+; 334  : 	gSkillData.suitchargerCapacity = GetSkillCvar( "sk_suitcharger" );
+
+	push	OFFSET FLAT:??_C@_0P@MBFE@sk_suitcharger?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+300
+
+; 335  : 	gSkillData.batteryCapacity = GetSkillCvar( "sk_battery" );
+
+	push	OFFSET FLAT:??_C@_0L@EMFC@sk_battery?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+304
+
+; 336  : 	gSkillData.healthchargerCapacity = GetSkillCvar ( "sk_healthcharger" );
+
+	push	OFFSET FLAT:??_C@_0BB@JKIP@sk_healthcharger?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+308
+
+; 337  : 	gSkillData.healthkitCapacity = GetSkillCvar ( "sk_healthkit" );
+
+	push	OFFSET FLAT:??_C@_0N@OIJM@sk_healthkit?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+312
+
+; 338  : 	gSkillData.scientistHeal = GetSkillCvar ( "sk_scientist_heal" );
+
+	push	OFFSET FLAT:??_C@_0BC@LMKC@sk_scientist_heal?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+316
+
+; 339  : 
+; 340  : 	// monster damage adj
+; 341  : 	gSkillData.monHead = GetSkillCvar( "sk_monster_head" );
+
+	push	OFFSET FLAT:??_C@_0BA@GPA@sk_monster_head?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+320
+
+; 342  : 	gSkillData.monChest = GetSkillCvar( "sk_monster_chest" );
+
+	push	OFFSET FLAT:??_C@_0BB@NGD@sk_monster_chest?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+324
+
+; 343  : 	gSkillData.monStomach = GetSkillCvar( "sk_monster_stomach" );
+
+	push	OFFSET FLAT:??_C@_0BD@LJOA@sk_monster_stomach?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+328
+
+; 344  : 	gSkillData.monLeg = GetSkillCvar( "sk_monster_leg" );
+
+	push	OFFSET FLAT:??_C@_0P@DLCB@sk_monster_leg?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+332
+
+; 345  : 	gSkillData.monArm = GetSkillCvar( "sk_monster_arm" );
+
+	push	OFFSET FLAT:??_C@_0P@LLLC@sk_monster_arm?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+336
+
+; 346  : 
+; 347  : 	// player damage adj
+; 348  : 	gSkillData.plrHead = GetSkillCvar( "sk_player_head" );
+
+	push	OFFSET FLAT:??_C@_0P@KJDF@sk_player_head?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+340
+
+; 349  : 	gSkillData.plrChest = GetSkillCvar( "sk_player_chest" );
+
+	push	OFFSET FLAT:??_C@_0BA@EMMM@sk_player_chest?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+344
+
+; 350  : 	gSkillData.plrStomach = GetSkillCvar( "sk_player_stomach" );
+
+	push	OFFSET FLAT:??_C@_0BC@HFFI@sk_player_stomach?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+348
+
+; 351  : 	gSkillData.plrLeg = GetSkillCvar( "sk_player_leg" );
+
+	push	OFFSET FLAT:??_C@_0O@POHI@sk_player_leg?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+352
+
+; 352  : 	gSkillData.plrArm = GetSkillCvar( "sk_player_arm" );
+
+	push	OFFSET FLAT:??_C@_0O@HOOL@sk_player_arm?$AA@ ; `string'
+	call	?GetSkillCvar@@YAMPAD@Z			; GetSkillCvar
+	add	esp, 4
+	fstp	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+356
+
+; 353  : }
 
 	pop	edi
 	pop	esi
@@ -1943,7 +3315,6 @@ EXTRN	?g_fGameOver@@3HA:DWORD				; g_fGameOver
 EXTRN	?timeleft@@3Ucvar_s@@A:BYTE			; timeleft
 EXTRN	?fragsleft@@3Ucvar_s@@A:BYTE			; fragsleft
 EXTRN	?mp_chattime@@3Ucvar_s@@A:BYTE			; mp_chattime
-EXTRN	__ftol:NEAR
 EXTRN	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z:NEAR	; UTIL_PlayerByIndex
 _BSS	SEGMENT
 _?last_frags@?1??Think@CHalfLifeMultiplay@@UAEXXZ@4HA DD 01H DUP (?)
@@ -1975,16 +3346,16 @@ _TEXT	SEGMENT
 _this$ = -4
 _frags_remaining$ = -8
 _time_remaining$ = -12
-_time$38572 = -16
+_time$38672 = -16
 _flTimeLimit$ = -20
 _flFragLimit$ = -24
-_bestfrags$38587 = -28
-_remain$38588 = -32
-_i$38589 = -36
-_pPlayer$38593 = -40
+_bestfrags$38687 = -28
+_remain$38688 = -32
+_i$38689 = -36
+_pPlayer$38693 = -40
 ?Think@CHalfLifeMultiplay@@UAEXXZ PROC NEAR		; CHalfLifeMultiplay::Think, COMDAT
 
-; 162  : {
+; 365  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1994,53 +3365,53 @@ _pPlayer$38593 = -40
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 163  : 	///// Check game rules /////
-; 164  : 	static int last_frags;
-; 165  : 	static int last_time;
-; 166  : 
-; 167  : 	int frags_remaining = 0;
+; 366  : 	///// Check game rules /////
+; 367  : 	static int last_frags;
+; 368  : 	static int last_time;
+; 369  : 
+; 370  : 	int frags_remaining = 0;
 
 	mov	DWORD PTR _frags_remaining$[ebp], 0
 
-; 168  : 	int time_remaining = 0;
+; 371  : 	int time_remaining = 0;
 
 	mov	DWORD PTR _time_remaining$[ebp], 0
 
-; 169  : 
-; 170  : 	if ( g_fGameOver )   // someone else quit the game already
+; 372  : 
+; 373  : 	if ( g_fGameOver )   // someone else quit the game already
 
 	cmp	DWORD PTR ?g_fGameOver@@3HA, 0		; g_fGameOver
-	je	$L38571
+	je	$L38671
 
-; 172  : 		// bounds check
-; 173  : 		int time = (int)CVAR_GET_FLOAT( "mp_chattime" );
+; 375  : 		// bounds check
+; 376  : 		int time = (int)CVAR_GET_FLOAT( "mp_chattime" );
 
 	push	OFFSET FLAT:??_C@_0M@KANF@mp_chattime?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+228
 	add	esp, 4
 	call	__ftol
-	mov	DWORD PTR _time$38572[ebp], eax
+	mov	DWORD PTR _time$38672[ebp], eax
 
-; 174  : 		if ( time < 1 )
+; 377  : 		if ( time < 1 )
 
-	cmp	DWORD PTR _time$38572[ebp], 1
-	jge	SHORT $L38575
+	cmp	DWORD PTR _time$38672[ebp], 1
+	jge	SHORT $L38675
 
-; 175  : 			CVAR_SET_STRING( "mp_chattime", "1" );
+; 378  : 			CVAR_SET_STRING( "mp_chattime", "1" );
 
 	push	OFFSET FLAT:??_C@_01FBAH@1?$AA@		; `string'
 	push	OFFSET FLAT:??_C@_0M@KANF@mp_chattime?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+240
 	add	esp, 8
 
-; 176  : 		else if ( time > MAX_INTERMISSION_TIME )
+; 379  : 		else if ( time > MAX_INTERMISSION_TIME )
 
-	jmp	SHORT $L38578
-$L38575:
-	cmp	DWORD PTR _time$38572[ebp], 120		; 00000078H
-	jle	SHORT $L38578
+	jmp	SHORT $L38678
+$L38675:
+	cmp	DWORD PTR _time$38672[ebp], 120		; 00000078H
+	jle	SHORT $L38678
 
-; 177  : 			CVAR_SET_STRING( "mp_chattime", UTIL_dtos1( MAX_INTERMISSION_TIME ) );
+; 380  : 			CVAR_SET_STRING( "mp_chattime", UTIL_dtos1( MAX_INTERMISSION_TIME ) );
 
 	push	120					; 00000078H
 	call	?UTIL_dtos1@@YAPADH@Z			; UTIL_dtos1
@@ -2049,19 +3420,19 @@ $L38575:
 	push	OFFSET FLAT:??_C@_0M@KANF@mp_chattime?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+240
 	add	esp, 8
-$L38578:
+$L38678:
 
-; 178  : 
-; 179  : 		m_flIntermissionEndTime = g_flIntermissionStartTime + mp_chattime.value;
+; 381  : 
+; 382  : 		m_flIntermissionEndTime = g_flIntermissionStartTime + mp_chattime.value;
 
 	fld	DWORD PTR ?g_flIntermissionStartTime@@3MA ; g_flIntermissionStartTime
 	fadd	DWORD PTR ?mp_chattime@@3Ucvar_s@@A+12
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+4]
 
-; 180  : 
-; 181  : 		// check to see if we should change levels now
-; 182  : 		if ( m_flIntermissionEndTime < gpGlobals->time )
+; 383  : 
+; 384  : 		// check to see if we should change levels now
+; 385  : 		if ( m_flIntermissionEndTime < gpGlobals->time )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -2069,207 +3440,207 @@ $L38578:
 	fcomp	DWORD PTR [edx]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38580
+	je	SHORT $L38680
 
-; 185  : 				|| ( ( g_flIntermissionStartTime + MAX_INTERMISSION_TIME ) < gpGlobals->time) ) 
+; 388  : 				|| ( ( g_flIntermissionStartTime + MAX_INTERMISSION_TIME ) < gpGlobals->time) )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
-	jne	SHORT $L38581
+	jne	SHORT $L38681
 	fld	DWORD PTR ?g_flIntermissionStartTime@@3MA ; g_flIntermissionStartTime
 	fadd	DWORD PTR __real@4@4005f000000000000000
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38580
-$L38581:
+	je	SHORT $L38680
+$L38681:
 
-; 186  : 				ChangeLevel(); // intermission is over
+; 389  : 				ChangeLevel(); // intermission is over
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+240]
-$L38580:
+$L38680:
 
-; 188  : 
-; 189  : 		return;
+; 391  : 
+; 392  : 		return;
 
-	jmp	$L38564
-$L38571:
+	jmp	$L38664
+$L38671:
 
-; 191  : 
-; 192  : 	float flTimeLimit = timelimit.value * 60;
+; 394  : 
+; 395  : 	float flTimeLimit = timelimit.value * 60;
 
 	fld	DWORD PTR ?timelimit@@3Ucvar_s@@A+12
 	fmul	DWORD PTR __real@4@4004f000000000000000
 	fstp	DWORD PTR _flTimeLimit$[ebp]
 
-; 193  : 	float flFragLimit = fraglimit.value;
+; 396  : 	float flFragLimit = fraglimit.value;
 
 	mov	ecx, DWORD PTR ?fraglimit@@3Ucvar_s@@A+12
 	mov	DWORD PTR _flFragLimit$[ebp], ecx
 
-; 194  : 
-; 195  : 	time_remaining = (int)(flTimeLimit ? ( flTimeLimit - gpGlobals->time ) : 0);
+; 397  : 
+; 398  : 	time_remaining = (int)(flTimeLimit ? ( flTimeLimit - gpGlobals->time ) : 0);
 
 	fld	DWORD PTR _flTimeLimit$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L39646
+	jne	SHORT $L39835
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR _flTimeLimit$[ebp]
 	fsub	DWORD PTR [edx]
 	fstp	DWORD PTR -44+[ebp]
-	jmp	SHORT $L39647
-$L39646:
+	jmp	SHORT $L39836
+$L39835:
 	mov	DWORD PTR -44+[ebp], 0
-$L39647:
+$L39836:
 	fld	DWORD PTR -44+[ebp]
 	call	__ftol
 	mov	DWORD PTR _time_remaining$[ebp], eax
 
-; 196  : 	
-; 197  : 	if ( flTimeLimit != 0 && gpGlobals->time >= flTimeLimit )
+; 399  : 
+; 400  : 	if ( flTimeLimit != 0 && gpGlobals->time >= flTimeLimit )
 
 	fld	DWORD PTR _flTimeLimit$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38585
+	jne	SHORT $L38685
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
 	fcomp	DWORD PTR _flTimeLimit$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38585
+	jne	SHORT $L38685
 
-; 199  : 		GoToIntermission();
+; 402  : 		GoToIntermission();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+244]
 
-; 200  : 		return;
+; 403  : 		return;
 
-	jmp	$L38564
-$L38585:
+	jmp	$L38664
+$L38685:
 
-; 202  : 
-; 203  : 	if ( flFragLimit )
+; 405  : 
+; 406  : 	if ( flFragLimit )
 
 	fld	DWORD PTR _flFragLimit$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	$L38586
+	jne	$L38686
 
-; 205  : 		int bestfrags = 9999;
+; 408  : 		int bestfrags = 9999;
 
-	mov	DWORD PTR _bestfrags$38587[ebp], 9999	; 0000270fH
+	mov	DWORD PTR _bestfrags$38687[ebp], 9999	; 0000270fH
 
-; 206  : 		int remain;
-; 207  : 
-; 208  : 		// check if any player is over the frag limit
-; 209  : 		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+; 409  : 		int remain;
+; 410  : 
+; 411  : 		// check if any player is over the frag limit
+; 412  : 		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 
-	mov	DWORD PTR _i$38589[ebp], 1
-	jmp	SHORT $L38590
-$L38591:
-	mov	eax, DWORD PTR _i$38589[ebp]
+	mov	DWORD PTR _i$38689[ebp], 1
+	jmp	SHORT $L38690
+$L38691:
+	mov	eax, DWORD PTR _i$38689[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$38589[ebp], eax
-$L38590:
+	mov	DWORD PTR _i$38689[ebp], eax
+$L38690:
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
-	mov	edx, DWORD PTR _i$38589[ebp]
+	mov	edx, DWORD PTR _i$38689[ebp]
 	cmp	edx, DWORD PTR [ecx+144]
-	jg	SHORT $L38592
+	jg	SHORT $L38692
 
-; 211  : 			CBaseEntity *pPlayer = UTIL_PlayerByIndex( i );
+; 414  : 			CBaseEntity *pPlayer = UTIL_PlayerByIndex( i );
 
-	mov	eax, DWORD PTR _i$38589[ebp]
+	mov	eax, DWORD PTR _i$38689[ebp]
 	push	eax
 	call	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z ; UTIL_PlayerByIndex
 	add	esp, 4
-	mov	DWORD PTR _pPlayer$38593[ebp], eax
+	mov	DWORD PTR _pPlayer$38693[ebp], eax
 
-; 212  : 
-; 213  : 			if ( pPlayer && pPlayer->pev->frags >= flFragLimit )
+; 415  : 
+; 416  : 			if ( pPlayer && pPlayer->pev->frags >= flFragLimit )
 
-	cmp	DWORD PTR _pPlayer$38593[ebp], 0
-	je	SHORT $L38594
-	mov	ecx, DWORD PTR _pPlayer$38593[ebp]
+	cmp	DWORD PTR _pPlayer$38693[ebp], 0
+	je	SHORT $L38694
+	mov	ecx, DWORD PTR _pPlayer$38693[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	fld	DWORD PTR [edx+356]
 	fcomp	DWORD PTR _flFragLimit$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38594
+	jne	SHORT $L38694
 
-; 215  : 				GoToIntermission();
+; 418  : 				GoToIntermission();
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+244]
 
-; 216  : 				return;
+; 419  : 				return;
 
-	jmp	$L38564
-$L38594:
+	jmp	$L38664
+$L38694:
 
-; 218  : 
-; 219  : 
-; 220  : 			if ( pPlayer )
+; 421  : 
+; 422  : 
+; 423  : 			if ( pPlayer )
 
-	cmp	DWORD PTR _pPlayer$38593[ebp], 0
-	je	SHORT $L38596
+	cmp	DWORD PTR _pPlayer$38693[ebp], 0
+	je	SHORT $L38696
 
-; 222  : 				remain = flFragLimit - pPlayer->pev->frags;
+; 425  : 				remain = flFragLimit - pPlayer->pev->frags;
 
-	mov	eax, DWORD PTR _pPlayer$38593[ebp]
+	mov	eax, DWORD PTR _pPlayer$38693[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR _flFragLimit$[ebp]
 	fsub	DWORD PTR [ecx+356]
 	call	__ftol
-	mov	DWORD PTR _remain$38588[ebp], eax
+	mov	DWORD PTR _remain$38688[ebp], eax
 
-; 223  : 				if ( remain < bestfrags )
+; 426  : 				if ( remain < bestfrags )
 
-	mov	edx, DWORD PTR _remain$38588[ebp]
-	cmp	edx, DWORD PTR _bestfrags$38587[ebp]
-	jge	SHORT $L38596
+	mov	edx, DWORD PTR _remain$38688[ebp]
+	cmp	edx, DWORD PTR _bestfrags$38687[ebp]
+	jge	SHORT $L38696
 
-; 225  : 					bestfrags = remain;
+; 428  : 					bestfrags = remain;
 
-	mov	eax, DWORD PTR _remain$38588[ebp]
-	mov	DWORD PTR _bestfrags$38587[ebp], eax
-$L38596:
+	mov	eax, DWORD PTR _remain$38688[ebp]
+	mov	DWORD PTR _bestfrags$38687[ebp], eax
+$L38696:
 
-; 228  : 
-; 229  : 		}
+; 431  : 
+; 432  : 		}
 
-	jmp	$L38591
-$L38592:
+	jmp	$L38691
+$L38692:
 
-; 230  : 		frags_remaining = bestfrags;
+; 433  : 		frags_remaining = bestfrags;
 
-	mov	ecx, DWORD PTR _bestfrags$38587[ebp]
+	mov	ecx, DWORD PTR _bestfrags$38687[ebp]
 	mov	DWORD PTR _frags_remaining$[ebp], ecx
-$L38586:
+$L38686:
 
-; 232  : 
-; 233  : 	// Updates when frags change
-; 234  : 	if ( frags_remaining != last_frags )
+; 435  : 
+; 436  : 	// Updates when frags change
+; 437  : 	if ( frags_remaining != last_frags )
 
 	mov	edx, DWORD PTR _frags_remaining$[ebp]
 	cmp	edx, DWORD PTR _?last_frags@?1??Think@CHalfLifeMultiplay@@UAEXXZ@4HA
-	je	SHORT $L38597
+	je	SHORT $L38697
 
-; 236  : 		g_engfuncs.pfnCvar_DirectSet( &fragsleft, UTIL_VarArgs( "%i", frags_remaining ) );
+; 439  : 		g_engfuncs.pfnCvar_DirectSet( &fragsleft, UTIL_VarArgs( "%i", frags_remaining ) );
 
 	mov	eax, DWORD PTR _frags_remaining$[ebp]
 	push	eax
@@ -2280,19 +3651,19 @@ $L38586:
 	push	OFFSET FLAT:?fragsleft@@3Ucvar_s@@A	; fragsleft
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+548
 	add	esp, 8
-$L38597:
+$L38697:
 
-; 238  : 
-; 239  : 	// Updates once per second
-; 240  : 	if ( timeleft.value != last_time )
+; 441  : 
+; 442  : 	// Updates once per second
+; 443  : 	if ( timeleft.value != last_time )
 
 	fild	DWORD PTR _?last_time@?1??Think@CHalfLifeMultiplay@@UAEXXZ@4HA
 	fcomp	DWORD PTR ?timeleft@@3Ucvar_s@@A+12
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38599
+	jne	SHORT $L38699
 
-; 242  : 		g_engfuncs.pfnCvar_DirectSet( &timeleft, UTIL_VarArgs( "%i", time_remaining ) );
+; 445  : 		g_engfuncs.pfnCvar_DirectSet( &timeleft, UTIL_VarArgs( "%i", time_remaining ) );
 
 	mov	ecx, DWORD PTR _time_remaining$[ebp]
 	push	ecx
@@ -2303,21 +3674,21 @@ $L38597:
 	push	OFFSET FLAT:?timeleft@@3Ucvar_s@@A	; timeleft
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+548
 	add	esp, 8
-$L38599:
+$L38699:
 
-; 244  : 
-; 245  : 	last_frags = frags_remaining;
+; 447  : 
+; 448  : 	last_frags = frags_remaining;
 
 	mov	edx, DWORD PTR _frags_remaining$[ebp]
 	mov	DWORD PTR _?last_frags@?1??Think@CHalfLifeMultiplay@@UAEXXZ@4HA, edx
 
-; 246  : 	last_time  = time_remaining;
+; 449  : 	last_time  = time_remaining;
 
 	mov	eax, DWORD PTR _time_remaining$[ebp]
 	mov	DWORD PTR _?last_time@?1??Think@CHalfLifeMultiplay@@UAEXXZ@4HA, eax
-$L38564:
+$L38664:
 
-; 247  : }
+; 450  : }
 
 	pop	edi
 	pop	esi
@@ -2332,7 +3703,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IsMultiplayer@CHalfLifeMultiplay@@UAEHXZ PROC NEAR	; CHalfLifeMultiplay::IsMultiplayer, COMDAT
 
-; 253  : {
+; 456  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2342,11 +3713,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 254  : 	return TRUE;
+; 457  : 	return TRUE;
 
 	mov	eax, 1
 
-; 255  : }
+; 458  : }
 
 	pop	edi
 	pop	esi
@@ -2361,7 +3732,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IsDeathmatch@CHalfLifeMultiplay@@UAEHXZ PROC NEAR	; CHalfLifeMultiplay::IsDeathmatch, COMDAT
 
-; 260  : {
+; 463  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2371,11 +3742,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 261  : 	return TRUE;
+; 464  : 	return TRUE;
 
 	mov	eax, 1
 
-; 262  : }
+; 465  : }
 
 	pop	edi
 	pop	esi
@@ -2390,7 +3761,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IsCoOp@CHalfLifeMultiplay@@UAEHXZ PROC NEAR		; CHalfLifeMultiplay::IsCoOp, COMDAT
 
-; 267  : {
+; 470  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2400,13 +3771,13 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 268  : 	return gpGlobals->coop;
+; 471  : 	return gpGlobals->coop;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax+24]
 	call	__ftol
 
-; 269  : }
+; 472  : }
 
 	pop	edi
 	pop	esi
@@ -2424,7 +3795,7 @@ _pWeapon$ = 12
 _this$ = -4
 ?FShouldSwitchWeapon@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::FShouldSwitchWeapon, COMDAT
 
-; 274  : {
+; 477  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2434,38 +3805,38 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 275  : 	if ( !pWeapon->CanDeploy() )
+; 478  : 	if ( !pWeapon->CanDeploy() )
 
 	mov	eax, DWORD PTR _pWeapon$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pWeapon$[ebp]
 	call	DWORD PTR [edx+356]
 	test	eax, eax
-	jne	SHORT $L38617
+	jne	SHORT $L38717
 
-; 277  : 		// that weapon can't deploy anyway.
-; 278  : 		return FALSE;
+; 480  : 		// that weapon can't deploy anyway.
+; 481  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38616
-$L38617:
+	jmp	SHORT $L38716
+$L38717:
 
-; 280  : 
-; 281  : 	if ( !pPlayer->m_pActiveItem )
+; 483  : 
+; 484  : 	if ( !pPlayer->m_pActiveItem )
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	cmp	DWORD PTR [eax+2980], 0
-	jne	SHORT $L38618
+	jne	SHORT $L38718
 
-; 283  : 		// player doesn't have an active item!
-; 284  : 		return TRUE;
+; 486  : 		// player doesn't have an active item!
+; 487  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38616
-$L38618:
+	jmp	SHORT $L38716
+$L38718:
 
-; 286  : 
-; 287  : 	if ( !pPlayer->m_pActiveItem->CanHolster() )
+; 489  : 
+; 490  : 	if ( !pPlayer->m_pActiveItem->CanHolster() )
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	mov	ecx, DWORD PTR [ecx+2980]
@@ -2474,17 +3845,17 @@ $L38618:
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+364]
 	test	eax, eax
-	jne	SHORT $L38619
+	jne	SHORT $L38719
 
-; 289  : 		// can't put away the active item.
-; 290  : 		return FALSE;
+; 492  : 		// can't put away the active item.
+; 493  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38616
-$L38619:
+	jmp	SHORT $L38716
+$L38719:
 
-; 292  : 
-; 293  : 	if ( pWeapon->iWeight() > pPlayer->m_pActiveItem->iWeight() )
+; 495  : 
+; 496  : 	if ( pWeapon->iWeight() > pPlayer->m_pActiveItem->iWeight() )
 
 	mov	ecx, DWORD PTR _pWeapon$[ebp]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
@@ -2493,21 +3864,21 @@ $L38619:
 	mov	ecx, DWORD PTR [eax+2980]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
 	cmp	esi, eax
-	jle	SHORT $L38620
+	jle	SHORT $L38720
 
-; 295  : 		return TRUE;
+; 498  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38616
-$L38620:
+	jmp	SHORT $L38716
+$L38720:
 
-; 297  : 
-; 298  : 	return FALSE;
+; 500  : 
+; 501  : 	return FALSE;
 
 	xor	eax, eax
-$L38616:
+$L38716:
 
-; 299  : }
+; 502  : }
 
 	pop	edi
 	pop	esi
@@ -2556,7 +3927,7 @@ _iBestWeight$ = -16
 _i$ = -20
 ?GetNextBestWeapon@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::GetNextBestWeapon, COMDAT
 
-; 302  : {
+; 505  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2566,192 +3937,192 @@ _i$ = -20
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 303  : 	CBasePlayerItem *pCheck;
-; 304  : 	CBasePlayerItem *pBest;// this will be used in the event that we don't find a weapon in the same category.
-; 305  : 	int iBestWeight;
-; 306  : 	int i;
-; 307  : 
-; 308  : 	iBestWeight = -1;// no weapon lower than -1 can be autoswitched to
+; 506  : 	CBasePlayerItem *pCheck;
+; 507  : 	CBasePlayerItem *pBest;// this will be used in the event that we don't find a weapon in the same category.
+; 508  : 	int iBestWeight;
+; 509  : 	int i;
+; 510  : 
+; 511  : 	iBestWeight = -1;// no weapon lower than -1 can be autoswitched to
 
 	mov	DWORD PTR _iBestWeight$[ebp], -1
 
-; 309  : 	pBest = NULL;
+; 512  : 	pBest = NULL;
 
 	mov	DWORD PTR _pBest$[ebp], 0
 
-; 310  : 
-; 311  : 	if ( !pCurrentWeapon->CanHolster() )
+; 513  : 
+; 514  : 	if ( !pCurrentWeapon->CanHolster() )
 
 	mov	eax, DWORD PTR _pCurrentWeapon$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pCurrentWeapon$[ebp]
 	call	DWORD PTR [edx+364]
 	test	eax, eax
-	jne	SHORT $L38630
+	jne	SHORT $L38730
 
-; 313  : 		// can't put this gun away right now, so can't switch.
-; 314  : 		return FALSE;
+; 516  : 		// can't put this gun away right now, so can't switch.
+; 517  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L38625
-$L38630:
+	jmp	$L38725
+$L38730:
 
-; 316  : 
-; 317  : 	for ( i = 0 ; i < MAX_ITEM_TYPES ; i++ )
+; 519  : 
+; 520  : 	for ( i = 0 ; i < MAX_ITEM_TYPES ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38631
-$L38632:
+	jmp	SHORT $L38731
+$L38732:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38631:
+$L38731:
 	cmp	DWORD PTR _i$[ebp], 6
-	jge	$L38633
+	jge	$L38733
 
-; 319  : 		pCheck = pPlayer->m_rgpPlayerItems[ i ];
+; 522  : 		pCheck = pPlayer->m_rgpPlayerItems[ i ];
 
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR _pPlayer$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+2956]
 	mov	DWORD PTR _pCheck$[ebp], eax
-$L38635:
+$L38735:
 
-; 320  : 
-; 321  : 		while ( pCheck )
+; 523  : 
+; 524  : 		while ( pCheck )
 
 	cmp	DWORD PTR _pCheck$[ebp], 0
-	je	$L38636
+	je	$L38736
 
-; 323  : 			if ( pCheck->iWeight() > -1 && pCheck->iWeight() == pCurrentWeapon->iWeight() && pCheck != pCurrentWeapon )
+; 526  : 			if ( pCheck->iWeight() > -1 && pCheck->iWeight() == pCurrentWeapon->iWeight() && pCheck != pCurrentWeapon )
 
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
 	cmp	eax, -1
-	jle	SHORT $L38637
+	jle	SHORT $L38737
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
 	mov	esi, eax
 	mov	ecx, DWORD PTR _pCurrentWeapon$[ebp]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
 	cmp	esi, eax
-	jne	SHORT $L38637
+	jne	SHORT $L38737
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	cmp	ecx, DWORD PTR _pCurrentWeapon$[ebp]
-	je	SHORT $L38637
+	je	SHORT $L38737
 
-; 325  : 				// this weapon is from the same category. 
-; 326  : 				if ( pCheck->CanDeploy() )
+; 528  : 				// this weapon is from the same category.
+; 529  : 				if ( pCheck->CanDeploy() )
 
 	mov	edx, DWORD PTR _pCheck$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	call	DWORD PTR [eax+356]
 	test	eax, eax
-	je	SHORT $L38639
+	je	SHORT $L38739
 
-; 328  : 					if ( pPlayer->SwitchWeapon( pCheck ) )
+; 531  : 					if ( pPlayer->SwitchWeapon( pCheck ) )
 
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?SwitchWeapon@CBasePlayer@@QAEHPAVCBasePlayerItem@@@Z ; CBasePlayer::SwitchWeapon
 	test	eax, eax
-	je	SHORT $L38639
+	je	SHORT $L38739
 
-; 330  : 						return TRUE;
+; 533  : 						return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38625
-$L38639:
+	jmp	SHORT $L38725
+$L38739:
 
-; 334  : 			else if ( pCheck->iWeight() > iBestWeight && pCheck != pCurrentWeapon )// don't reselect the weapon we're trying to get rid of
+; 537  : 			else if ( pCheck->iWeight() > iBestWeight && pCheck != pCurrentWeapon )// don't reselect the weapon we're trying to get rid of
 
-	jmp	SHORT $L38642
-$L38637:
+	jmp	SHORT $L38742
+$L38737:
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
 	cmp	eax, DWORD PTR _iBestWeight$[ebp]
-	jle	SHORT $L38642
+	jle	SHORT $L38742
 	mov	edx, DWORD PTR _pCheck$[ebp]
 	cmp	edx, DWORD PTR _pCurrentWeapon$[ebp]
-	je	SHORT $L38642
+	je	SHORT $L38742
 
-; 336  : 				//ALERT ( at_console, "Considering %s\n", STRING( pCheck->pev->classname ) );
-; 337  : 				// we keep updating the 'best' weapon just in case we can't find a weapon of the same weight
-; 338  : 				// that the player was using. This will end up leaving the player with his heaviest-weighted 
-; 339  : 				// weapon. 
-; 340  : 				if ( pCheck->CanDeploy() )
+; 539  : 				//ALERT ( at_console, "Considering %s\n", STRING( pCheck->pev->classname ) );
+; 540  : 				// we keep updating the 'best' weapon just in case we can't find a weapon of the same weight
+; 541  : 				// that the player was using. This will end up leaving the player with his heaviest-weighted
+; 542  : 				// weapon.
+; 543  : 				if ( pCheck->CanDeploy() )
 
 	mov	eax, DWORD PTR _pCheck$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	call	DWORD PTR [edx+356]
 	test	eax, eax
-	je	SHORT $L38642
+	je	SHORT $L38742
 
-; 342  : 					// if this weapon is useable, flag it as the best
-; 343  : 					iBestWeight = pCheck->iWeight();
+; 545  : 					// if this weapon is useable, flag it as the best
+; 546  : 					iBestWeight = pCheck->iWeight();
 
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	call	?iWeight@CBasePlayerItem@@QAEHXZ	; CBasePlayerItem::iWeight
 	mov	DWORD PTR _iBestWeight$[ebp], eax
 
-; 344  : 					pBest = pCheck;
+; 547  : 					pBest = pCheck;
 
 	mov	eax, DWORD PTR _pCheck$[ebp]
 	mov	DWORD PTR _pBest$[ebp], eax
-$L38642:
+$L38742:
 
-; 347  : 
-; 348  : 			pCheck = pCheck->m_pNext;
+; 550  : 
+; 551  : 			pCheck = pCheck->m_pNext;
 
 	mov	ecx, DWORD PTR _pCheck$[ebp]
 	mov	edx, DWORD PTR [ecx+1820]
 	mov	DWORD PTR _pCheck$[ebp], edx
 
-; 349  : 		}
+; 552  : 		}
 
-	jmp	$L38635
-$L38636:
+	jmp	$L38735
+$L38736:
 
-; 350  : 	}
+; 553  : 	}
 
-	jmp	$L38632
-$L38633:
+	jmp	$L38732
+$L38733:
 
-; 351  : 
-; 352  : 	// if we make it here, we've checked all the weapons and found no useable 
-; 353  : 	// weapon in the same catagory as the current weapon. 
-; 354  : 	
-; 355  : 	// if pBest is null, we didn't find ANYTHING. Shouldn't be possible- should always 
-; 356  : 	// at least get the crowbar, but ya never know.
-; 357  : 	if ( !pBest )
+; 554  : 
+; 555  : 	// if we make it here, we've checked all the weapons and found no useable
+; 556  : 	// weapon in the same catagory as the current weapon.
+; 557  : 
+; 558  : 	// if pBest is null, we didn't find ANYTHING. Shouldn't be possible- should always
+; 559  : 	// at least get the crowbar, but ya never know.
+; 560  : 	if ( !pBest )
 
 	cmp	DWORD PTR _pBest$[ebp], 0
-	jne	SHORT $L38643
+	jne	SHORT $L38743
 
-; 359  : 		return FALSE;
+; 562  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38625
-$L38643:
+	jmp	SHORT $L38725
+$L38743:
 
-; 361  : 
-; 362  : 	pPlayer->SwitchWeapon( pBest );
+; 564  : 
+; 565  : 	pPlayer->SwitchWeapon( pBest );
 
 	mov	eax, DWORD PTR _pBest$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?SwitchWeapon@CBasePlayer@@QAEHPAVCBasePlayerItem@@@Z ; CBasePlayer::SwitchWeapon
 
-; 363  : 
-; 364  : 	return TRUE;
+; 566  : 
+; 567  : 	return TRUE;
 
 	mov	eax, 1
-$L38625:
+$L38725:
 
-; 365  : }
+; 568  : }
 
 	pop	edi
 	pop	esi
@@ -2766,7 +4137,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?ClientConnected@CHalfLifeMultiplay@@UAEHPAUedict_s@@PBD1QAD@Z PROC NEAR ; CHalfLifeMultiplay::ClientConnected, COMDAT
 
-; 370  : {
+; 573  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2776,11 +4147,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 371  : 	return TRUE;
+; 574  : 	return TRUE;
 
 	mov	eax, 1
 
-; 372  : }
+; 575  : }
 
 	pop	edi
 	pop	esi
@@ -2799,7 +4170,7 @@ _pPlayer$ = 8
 _this$ = -4
 ?UpdateGameMode@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::UpdateGameMode, COMDAT
 
-; 378  : {
+; 581  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2809,7 +4180,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 379  : 	MESSAGE_BEGIN( MSG_ONE, gmsgGameMode, NULL, pPlayer->edict() );
+; 582  : 	MESSAGE_BEGIN( MSG_ONE, gmsgGameMode, NULL, pPlayer->edict() );
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -2821,17 +4192,17 @@ _this$ = -4
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 380  : 		WRITE_BYTE( 0 );  // game mode none
+; 583  : 		WRITE_BYTE( 0 );  // game mode none
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 381  : 	MESSAGE_END();
+; 584  : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 382  : }
+; 585  : }
 
 	pop	edi
 	pop	esi
@@ -2975,10 +4346,10 @@ _TEXT	SEGMENT
 _pl$ = 8
 _this$ = -4
 _i$ = -8
-_plr$38672 = -12
+_plr$38772 = -12
 ?InitHUD@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::InitHUD, COMDAT
 
-; 385  : {
+; 588  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2988,14 +4359,14 @@ _plr$38672 = -12
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 386  : 	// notify other clients of player joining the game
-; 387  : 	UTIL_ClientPrintAll( HUD_PRINTNOTIFY, UTIL_VarArgs( "%s has joined the game\n", 
-; 388  : 		( pl->pev->netname && STRING(pl->pev->netname)[0] != 0 ) ? STRING(pl->pev->netname) : "unconnected" ) );
+; 589  : 	// notify other clients of player joining the game
+; 590  : 	UTIL_ClientPrintAll( HUD_PRINTNOTIFY, UTIL_VarArgs( "%s has joined the game\n",
+; 591  : 		( pl->pev->netname && STRING(pl->pev->netname)[0] != 0 ) ? STRING(pl->pev->netname) : "unconnected" ) );
 
 	mov	eax, DWORD PTR _pl$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+464], 0
-	je	SHORT $L39677
+	je	SHORT $L39865
 	mov	edx, DWORD PTR _pl$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR [eax+464]
@@ -3004,7 +4375,7 @@ _plr$38672 = -12
 	add	esp, 4
 	movsx	edx, BYTE PTR [eax]
 	test	edx, edx
-	je	SHORT $L39677
+	je	SHORT $L39865
 	mov	eax, DWORD PTR _pl$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+464]
@@ -3012,10 +4383,10 @@ _plr$38672 = -12
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
 	mov	DWORD PTR -16+[ebp], eax
-	jmp	SHORT $L39678
-$L39677:
+	jmp	SHORT $L39866
+$L39865:
 	mov	DWORD PTR -16+[ebp], OFFSET FLAT:??_C@_0M@PCGH@unconnected?$AA@ ; `string'
-$L39678:
+$L39866:
 	push	0
 	push	0
 	push	0
@@ -3030,18 +4401,18 @@ $L39678:
 	call	?UTIL_ClientPrintAll@@YAXHPBD0000@Z	; UTIL_ClientPrintAll
 	add	esp, 24					; 00000018H
 
-; 389  : 
-; 390  : 	// team match?
-; 391  : 	if ( g_teamplay )
+; 592  : 
+; 593  : 	// team match?
+; 594  : 	if ( g_teamplay )
 
 	cmp	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
-	je	SHORT $L38663
+	je	SHORT $L38763
 
-; 393  : 		UTIL_LogPrintf( "\"%s<%i><%s><%s>\" entered the game\n",  
-; 394  : 			STRING( pl->pev->netname ), 
-; 395  : 			GETPLAYERUSERID( pl->edict() ),
-; 396  : 			GETPLAYERAUTHID( pl->edict() ),
-; 397  : 			g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pl->edict() ), "model" ) );
+; 596  : 		UTIL_LogPrintf( "\"%s<%i><%s><%s>\" entered the game\n",
+; 597  : 			STRING( pl->pev->netname ),
+; 598  : 			GETPLAYERUSERID( pl->edict() ),
+; 599  : 			GETPLAYERAUTHID( pl->edict() ),
+; 600  : 			g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pl->edict() ), "model" ) );
 
 	push	OFFSET FLAT:??_C@_05LHJL@model?$AA@	; `string'
 	mov	ecx, DWORD PTR _pl$[ebp]
@@ -3076,16 +4447,16 @@ $L39678:
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 20					; 00000014H
 
-; 399  : 	else
+; 602  : 	else
 
-	jmp	SHORT $L38666
-$L38663:
+	jmp	SHORT $L38766
+$L38763:
 
-; 401  : 		UTIL_LogPrintf( "\"%s<%i><%s><%i>\" entered the game\n",  
-; 402  : 			STRING( pl->pev->netname ), 
-; 403  : 			GETPLAYERUSERID( pl->edict() ),
-; 404  : 			GETPLAYERAUTHID( pl->edict() ),
-; 405  : 			GETPLAYERUSERID( pl->edict() ) );
+; 604  : 		UTIL_LogPrintf( "\"%s<%i><%s><%i>\" entered the game\n",
+; 605  : 			STRING( pl->pev->netname ),
+; 606  : 			GETPLAYERUSERID( pl->edict() ),
+; 607  : 			GETPLAYERAUTHID( pl->edict() ),
+; 608  : 			GETPLAYERUSERID( pl->edict() ) );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -3115,10 +4486,10 @@ $L38663:
 	push	OFFSET FLAT:??_C@_0CD@MOM@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5entered?5the?5gam@ ; `string'
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 20					; 00000014H
-$L38666:
+$L38766:
 
-; 407  : 
-; 408  : 	UpdateGameMode( pl );
+; 610  : 
+; 611  : 	UpdateGameMode( pl );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	push	ecx
@@ -3127,10 +4498,10 @@ $L38666:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+56]
 
-; 409  : 
-; 410  : 	// sending just one score makes the hud scoreboard active;  otherwise
-; 411  : 	// it is just disabled for single play
-; 412  : 	MESSAGE_BEGIN( MSG_ONE, gmsgScoreInfo, NULL, pl->edict() );
+; 612  : 
+; 613  : 	// sending just one score makes the hud scoreboard active;  otherwise
+; 614  : 	// it is just disabled for single play
+; 615  : 	MESSAGE_BEGIN( MSG_ONE, gmsgScoreInfo, NULL, pl->edict() );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -3142,7 +4513,7 @@ $L38666:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 413  : 		WRITE_BYTE( ENTINDEX(pl->edict()) );
+; 616  : 		WRITE_BYTE( ENTINDEX(pl->edict()) );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -3153,36 +4524,36 @@ $L38666:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 414  : 		WRITE_SHORT( 0 );
+; 617  : 		WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 415  : 		WRITE_SHORT( 0 );
+; 618  : 		WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 416  : 		WRITE_SHORT( 0 );
+; 619  : 		WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 417  : 		WRITE_SHORT( 0 );
+; 620  : 		WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 418  : 	MESSAGE_END();
+; 621  : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 419  : 
-; 420  : 	SendMOTDToClient( pl->edict() );
+; 622  : 
+; 623  : 	SendMOTDToClient( pl->edict() );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -3190,37 +4561,37 @@ $L38666:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SendMOTDToClient@CHalfLifeMultiplay@@IAEXPAUedict_s@@@Z ; CHalfLifeMultiplay::SendMOTDToClient
 
-; 421  : 
-; 422  : 	// loop through all active players and send their score info to the new client
-; 423  : 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+; 624  : 
+; 625  : 	// loop through all active players and send their score info to the new client
+; 626  : 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L38669
-$L38670:
+	jmp	SHORT $L38769
+$L38770:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L38669:
+$L38769:
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+144]
-	jg	$L38671
+	jg	$L38771
 
-; 425  : 		CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+; 628  : 		CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
 	mov	edx, DWORD PTR _i$[ebp]
 	push	edx
 	call	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z ; UTIL_PlayerByIndex
 	add	esp, 4
-	mov	DWORD PTR _plr$38672[ebp], eax
+	mov	DWORD PTR _plr$38772[ebp], eax
 
-; 426  : 
-; 427  : 		if( plr )
+; 629  : 
+; 630  : 		if( plr )
 
-	cmp	DWORD PTR _plr$38672[ebp], 0
-	je	$L38674
+	cmp	DWORD PTR _plr$38772[ebp], 0
+	je	$L38774
 
-; 429  : 			MESSAGE_BEGIN( MSG_ONE, gmsgScoreInfo, NULL, pl->edict() );
+; 632  : 			MESSAGE_BEGIN( MSG_ONE, gmsgScoreInfo, NULL, pl->edict() );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -3232,16 +4603,16 @@ $L38669:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 430  : 				WRITE_BYTE( i ); // client number
+; 633  : 				WRITE_BYTE( i ); // client number
 
 	mov	ecx, DWORD PTR _i$[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 431  : 				WRITE_SHORT( plr->pev->frags );
+; 634  : 				WRITE_SHORT( plr->pev->frags );
 
-	mov	edx, DWORD PTR _plr$38672[ebp]
+	mov	edx, DWORD PTR _plr$38772[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+356]
 	call	__ftol
@@ -3249,23 +4620,23 @@ $L38669:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 432  : 				WRITE_SHORT( plr->m_iDeaths );
+; 635  : 				WRITE_SHORT( plr->m_iDeaths );
 
-	mov	ecx, DWORD PTR _plr$38672[ebp]
+	mov	ecx, DWORD PTR _plr$38772[ebp]
 	mov	edx, DWORD PTR [ecx+3780]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 433  : 				WRITE_SHORT( 0 );
+; 636  : 				WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 434  : 				WRITE_SHORT( GetTeamIndex( plr->m_szTeamName ) + 1 );
+; 637  : 				WRITE_SHORT( GetTeamIndex( plr->m_szTeamName ) + 1 );
 
-	mov	eax, DWORD PTR _plr$38672[ebp]
+	mov	eax, DWORD PTR _plr$38772[ebp]
 	add	eax, 3804				; 00000edcH
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -3277,23 +4648,23 @@ $L38669:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 435  : 			MESSAGE_END();
+; 638  : 			MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
-$L38674:
+$L38774:
 
-; 437  : 	}
+; 640  : 	}
 
-	jmp	$L38670
-$L38671:
+	jmp	$L38770
+$L38771:
 
-; 438  : 
-; 439  : 	if ( g_fGameOver )
+; 641  : 
+; 642  : 	if ( g_fGameOver )
 
 	cmp	DWORD PTR ?g_fGameOver@@3HA, 0		; g_fGameOver
-	je	SHORT $L38675
+	je	SHORT $L38775
 
-; 441  : 		MESSAGE_BEGIN( MSG_ONE, SVC_INTERMISSION, NULL, pl->edict() );
+; 644  : 		MESSAGE_BEGIN( MSG_ONE, SVC_INTERMISSION, NULL, pl->edict() );
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -3304,12 +4675,12 @@ $L38671:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 442  : 		MESSAGE_END();
+; 645  : 		MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
-$L38675:
+$L38775:
 
-; 444  : }
+; 647  : }
 
 	pop	edi
 	pop	esi
@@ -3369,10 +4740,10 @@ CONST	ENDS
 _TEXT	SEGMENT
 _pClient$ = 8
 _this$ = -4
-_pPlayer$38681 = -8
+_pPlayer$38781 = -8
 ?ClientDisconnected@CHalfLifeMultiplay@@UAEXPAUedict_s@@@Z PROC NEAR ; CHalfLifeMultiplay::ClientDisconnected, COMDAT
 
-; 449  : {
+; 652  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3382,52 +4753,52 @@ _pPlayer$38681 = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 450  : 	if ( pClient )
+; 653  : 	if ( pClient )
 
 	cmp	DWORD PTR _pClient$[ebp], 0
-	je	$L38683
+	je	$L38783
 
-; 452  : 		CBasePlayer *pPlayer = (CBasePlayer *)CBaseEntity::Instance( pClient );
+; 655  : 		CBasePlayer *pPlayer = (CBasePlayer *)CBaseEntity::Instance( pClient );
 
 	mov	eax, DWORD PTR _pClient$[ebp]
 	push	eax
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pPlayer$38681[ebp], eax
+	mov	DWORD PTR _pPlayer$38781[ebp], eax
 
-; 453  : 
-; 454  : 		if ( pPlayer )
+; 656  : 
+; 657  : 		if ( pPlayer )
 
-	cmp	DWORD PTR _pPlayer$38681[ebp], 0
-	je	$L38683
+	cmp	DWORD PTR _pPlayer$38781[ebp], 0
+	je	$L38783
 
-; 456  : 			UTIL_FireTargets( "game_playerleave", pPlayer, pPlayer, USE_TOGGLE, 0 );
+; 659  : 			UTIL_FireTargets( "game_playerleave", pPlayer, pPlayer, USE_TOGGLE, 0 );
 
 	push	0
 	push	3
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _pPlayer$38681[ebp]
+	mov	edx, DWORD PTR _pPlayer$38781[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_0BB@FGI@game_playerleave?$AA@ ; `string'
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
 
-; 457  : 
-; 458  : 			// team match?
-; 459  : 			if ( g_teamplay )
+; 660  : 
+; 661  : 			// team match?
+; 662  : 			if ( g_teamplay )
 
 	cmp	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
-	je	SHORT $L38685
+	je	SHORT $L38785
 
-; 461  : 				UTIL_LogPrintf( "\"%s<%i><%s><%s>\" disconnected\n",  
-; 462  : 					STRING( pPlayer->pev->netname ), 
-; 463  : 					GETPLAYERUSERID( pPlayer->edict() ),
-; 464  : 					GETPLAYERAUTHID( pPlayer->edict() ),
-; 465  : 					g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model" ) );
+; 664  : 				UTIL_LogPrintf( "\"%s<%i><%s><%s>\" disconnected\n",
+; 665  : 					STRING( pPlayer->pev->netname ),
+; 666  : 					GETPLAYERUSERID( pPlayer->edict() ),
+; 667  : 					GETPLAYERAUTHID( pPlayer->edict() ),
+; 668  : 					g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model" ) );
 
 	push	OFFSET FLAT:??_C@_05LHJL@model?$AA@	; `string'
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+424
@@ -3436,19 +4807,19 @@ _pPlayer$38681 = -8
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+428
 	add	esp, 8
 	push	eax
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+572
 	add	esp, 4
 	push	eax
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+452
 	add	esp, 4
 	push	eax
-	mov	eax, DWORD PTR _pPlayer$38681[ebp]
+	mov	eax, DWORD PTR _pPlayer$38781[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+464]
 	push	edx
@@ -3459,36 +4830,36 @@ _pPlayer$38681 = -8
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 20					; 00000014H
 
-; 467  : 			else
+; 670  : 			else
 
-	jmp	SHORT $L38687
-$L38685:
+	jmp	SHORT $L38787
+$L38785:
 
-; 469  : 				UTIL_LogPrintf( "\"%s<%i><%s><%i>\" disconnected\n",  
-; 470  : 					STRING( pPlayer->pev->netname ), 
-; 471  : 					GETPLAYERUSERID( pPlayer->edict() ),
-; 472  : 					GETPLAYERAUTHID( pPlayer->edict() ),
-; 473  : 					GETPLAYERUSERID( pPlayer->edict() ) );
+; 672  : 				UTIL_LogPrintf( "\"%s<%i><%s><%i>\" disconnected\n",
+; 673  : 					STRING( pPlayer->pev->netname ),
+; 674  : 					GETPLAYERUSERID( pPlayer->edict() ),
+; 675  : 					GETPLAYERAUTHID( pPlayer->edict() ),
+; 676  : 					GETPLAYERUSERID( pPlayer->edict() ) );
 
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+452
 	add	esp, 4
 	push	eax
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+572
 	add	esp, 4
 	push	eax
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+452
 	add	esp, 4
 	push	eax
-	mov	eax, DWORD PTR _pPlayer$38681[ebp]
+	mov	eax, DWORD PTR _pPlayer$38781[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+464]
 	push	edx
@@ -3498,18 +4869,18 @@ $L38685:
 	push	OFFSET FLAT:??_C@_0BP@KABK@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5disconnected?6?$AA@ ; `string'
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 20					; 00000014H
-$L38687:
+$L38787:
 
-; 475  : 
-; 476  : 			pPlayer->RemoveAllItems( TRUE );// destroy all of the players weapons and items
+; 678  : 
+; 679  : 			pPlayer->RemoveAllItems( TRUE );// destroy all of the players weapons and items
 
 	push	1
 	push	1
-	mov	ecx, DWORD PTR _pPlayer$38681[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38781[ebp]
 	call	?RemoveAllItems@CBasePlayer@@QAEXHH@Z	; CBasePlayer::RemoveAllItems
-$L38683:
+$L38783:
 
-; 479  : }
+; 682  : }
 
 	pop	edi
 	pop	esi
@@ -3666,7 +5037,7 @@ _this$ = -4
 _iFallDamage$ = -8
 ?FlPlayerFallDamage@CHalfLifeMultiplay@@UAEMPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::FlPlayerFallDamage, COMDAT
 
-; 484  : {
+; 687  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3676,23 +5047,23 @@ _iFallDamage$ = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 485  : 	int iFallDamage = (int)falldamage.value;
+; 688  : 	int iFallDamage = (int)falldamage.value;
 
 	fld	DWORD PTR ?falldamage@@3Ucvar_s@@A+12
 	call	__ftol
 	mov	DWORD PTR _iFallDamage$[ebp], eax
 
-; 488  : 	{
+; 691  : 	{
 
 	mov	eax, DWORD PTR _iFallDamage$[ebp]
 	mov	DWORD PTR -12+[ebp], eax
 	cmp	DWORD PTR -12+[ebp], 1
-	je	SHORT $L38699
-	jmp	SHORT $L38701
-$L38699:
+	je	SHORT $L38799
+	jmp	SHORT $L38801
+$L38799:
 
-; 489  : 	case 1://progressive
-; 490  : 		pPlayer->m_flFallVelocity -= PLAYER_MAX_SAFE_FALL_SPEED;
+; 692  : 	case 1://progressive
+; 693  : 		pPlayer->m_flFallVelocity -= PLAYER_MAX_SAFE_FALL_SPEED;
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	fld	DWORD PTR [ecx+2456]
@@ -3700,24 +5071,24 @@ $L38699:
 	mov	edx, DWORD PTR _pPlayer$[ebp]
 	fstp	DWORD PTR [edx+2456]
 
-; 491  : 		return pPlayer->m_flFallVelocity * DAMAGE_FOR_FALL_SPEED;
+; 694  : 		return pPlayer->m_flFallVelocity * DAMAGE_FOR_FALL_SPEED;
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	fld	DWORD PTR [eax+2456]
 	fmul	DWORD PTR __real@4@4005c800000000000000
 	fdiv	DWORD PTR __real@4@4007de00000000000000
-	jmp	SHORT $L38696
-$L38701:
+	jmp	SHORT $L38796
+$L38801:
 
-; 492  : 		break;
-; 493  : 	default:
-; 494  : 	case 0:// fixed
-; 495  : 		return 10;
+; 695  : 		break;
+; 696  : 	default:
+; 697  : 	case 0:// fixed
+; 698  : 		return 10;
 
 	fld	DWORD PTR __real@4@4002a000000000000000
-$L38696:
+$L38796:
 
-; 498  : } 
+; 701  : }
 
 	pop	edi
 	pop	esi
@@ -3732,7 +5103,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FPlayerCanTakeDamage@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PAVCBaseEntity@@@Z PROC NEAR ; CHalfLifeMultiplay::FPlayerCanTakeDamage, COMDAT
 
-; 503  : {
+; 706  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3742,11 +5113,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 504  : 	return TRUE;
+; 707  : 	return TRUE;
 
 	mov	eax, 1
 
-; 505  : }
+; 708  : }
 
 	pop	edi
 	pop	esi
@@ -3762,7 +5133,7 @@ _pPlayer$ = 8
 _this$ = -4
 ?PlayerThink@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::PlayerThink, COMDAT
 
-; 510  : {
+; 713  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3772,46 +5143,46 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 511  : 	if ( g_fGameOver )
+; 714  : 	if ( g_fGameOver )
 
 	cmp	DWORD PTR ?g_fGameOver@@3HA, 0		; g_fGameOver
-	je	SHORT $L38711
+	je	SHORT $L38811
 
-; 513  : 		// check for button presses
-; 514  : 		if ( pPlayer->m_afButtonPressed & ( IN_DUCK | IN_ATTACK | IN_ATTACK2 | IN_USE | IN_JUMP ) )
+; 716  : 		// check for button presses
+; 717  : 		if ( pPlayer->m_afButtonPressed & ( IN_DUCK | IN_ATTACK | IN_ATTACK2 | IN_USE | IN_JUMP ) )
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	mov	ecx, DWORD PTR [eax+2436]
 	and	ecx, 2087				; 00000827H
 	test	ecx, ecx
-	je	SHORT $L38712
+	je	SHORT $L38812
 
-; 515  : 			m_iEndIntermissionButtonHit = TRUE;
+; 718  : 			m_iEndIntermissionButtonHit = TRUE;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+8], 1
-$L38712:
+$L38812:
 
-; 516  : 
-; 517  : 		// clear attack/use commands from player
-; 518  : 		pPlayer->m_afButtonPressed = 0;
+; 719  : 
+; 720  : 		// clear attack/use commands from player
+; 721  : 		pPlayer->m_afButtonPressed = 0;
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	mov	DWORD PTR [eax+2436], 0
 
-; 519  : 		pPlayer->pev->button = 0;
+; 722  : 		pPlayer->pev->button = 0;
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	DWORD PTR [edx+384], 0
 
-; 520  : 		pPlayer->m_afButtonReleased = 0;
+; 723  : 		pPlayer->m_afButtonReleased = 0;
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	mov	DWORD PTR [eax+2440], 0
-$L38711:
+$L38811:
 
-; 522  : }
+; 725  : }
 
 	pop	edi
 	pop	esi
@@ -3821,11 +5192,11 @@ $L38711:
 	ret	4
 ?PlayerThink@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@@Z ENDP ; CHalfLifeMultiplay::PlayerThink
 _TEXT	ENDS
+PUBLIC	?AddWeapon@CBaseMonster@@QAEXH@Z		; CBaseMonster::AddWeapon
 PUBLIC	??_C@_0BC@PFFH@game_player_equip?$AA@		; `string'
 PUBLIC	??_C@_0P@NAIF@weapon_crowbar?$AA@		; `string'
 PUBLIC	??_C@_0BC@MNAJ@weapon_9mmhandgun?$AA@		; `string'
 PUBLIC	??_C@_03IEOM@9mm?$AA@				; `string'
-PUBLIC	?AddWeapon@CBaseMonster@@QAEXH@Z		; CBaseMonster::AddWeapon
 EXTRN	?GiveNamedItem@CBasePlayer@@QAEXPBD@Z:NEAR	; CBasePlayer::GiveNamedItem
 EXTRN	?UTIL_FindEntityByClassname@@YAPAVCBaseEntity@@PAV1@PBD@Z:NEAR ; UTIL_FindEntityByClassname
 ;	COMDAT ??_C@_0BC@PFFH@game_player_equip?$AA@
@@ -3853,7 +5224,7 @@ _addDefault$ = -8
 _pWeaponEntity$ = -12
 ?PlayerSpawn@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::PlayerSpawn, COMDAT
 
-; 527  : {
+; 730  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3863,26 +5234,26 @@ _pWeaponEntity$ = -12
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 528  : 	BOOL		addDefault;
-; 529  : 	CBaseEntity	*pWeaponEntity = NULL;
+; 731  : 	BOOL		addDefault;
+; 732  : 	CBaseEntity	*pWeaponEntity = NULL;
 
 	mov	DWORD PTR _pWeaponEntity$[ebp], 0
 
-; 530  : 
-; 531  : 	pPlayer->AddWeapon( WEAPON_SUIT );
+; 733  : 
+; 734  : 	pPlayer->AddWeapon( WEAPON_SUIT );
 
 	push	63					; 0000003fH
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?AddWeapon@CBaseMonster@@QAEXH@Z	; CBaseMonster::AddWeapon
 
-; 532  : 	
-; 533  : 	addDefault = TRUE;
+; 735  : 
+; 736  : 	addDefault = TRUE;
 
 	mov	DWORD PTR _addDefault$[ebp], 1
-$L38720:
+$L38820:
 
-; 534  : 
-; 535  : 	while ( pWeaponEntity = UTIL_FindEntityByClassname( pWeaponEntity, "game_player_equip" ))
+; 737  : 
+; 738  : 	while ( pWeaponEntity = UTIL_FindEntityByClassname( pWeaponEntity, "game_player_equip" ))
 
 	push	OFFSET FLAT:??_C@_0BC@PFFH@game_player_equip?$AA@ ; `string'
 	mov	eax, DWORD PTR _pWeaponEntity$[ebp]
@@ -3891,9 +5262,9 @@ $L38720:
 	add	esp, 8
 	mov	DWORD PTR _pWeaponEntity$[ebp], eax
 	cmp	DWORD PTR _pWeaponEntity$[ebp], 0
-	je	SHORT $L38721
+	je	SHORT $L38821
 
-; 537  : 		pWeaponEntity->Touch( pPlayer );
+; 740  : 		pWeaponEntity->Touch( pPlayer );
 
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	push	ecx
@@ -3902,34 +5273,34 @@ $L38720:
 	mov	ecx, DWORD PTR _pWeaponEntity$[ebp]
 	call	DWORD PTR [eax+280]
 
-; 538  : 		addDefault = FALSE;
+; 741  : 		addDefault = FALSE;
 
 	mov	DWORD PTR _addDefault$[ebp], 0
 
-; 539  : 	}
+; 742  : 	}
 
-	jmp	SHORT $L38720
-$L38721:
+	jmp	SHORT $L38820
+$L38821:
 
-; 540  : 
-; 541  : 	if ( addDefault )
+; 743  : 
+; 744  : 	if ( addDefault )
 
 	cmp	DWORD PTR _addDefault$[ebp], 0
-	je	SHORT $L38723
+	je	SHORT $L38823
 
-; 543  : 		pPlayer->GiveNamedItem( "weapon_crowbar" );
+; 746  : 		pPlayer->GiveNamedItem( "weapon_crowbar" );
 
 	push	OFFSET FLAT:??_C@_0P@NAIF@weapon_crowbar?$AA@ ; `string'
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?GiveNamedItem@CBasePlayer@@QAEXPBD@Z	; CBasePlayer::GiveNamedItem
 
-; 544  : 		pPlayer->GiveNamedItem( "weapon_9mmhandgun" );
+; 747  : 		pPlayer->GiveNamedItem( "weapon_9mmhandgun" );
 
 	push	OFFSET FLAT:??_C@_0BC@MNAJ@weapon_9mmhandgun?$AA@ ; `string'
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?GiveNamedItem@CBasePlayer@@QAEXPBD@Z	; CBasePlayer::GiveNamedItem
 
-; 545  : 		pPlayer->GiveAmmo( 68, "9mm", _9MM_MAX_CARRY );// 4 full reloads
+; 748  : 		pPlayer->GiveAmmo( 68, "9mm", _9MM_MAX_CARRY );// 4 full reloads
 
 	push	240					; 000000f0H
 	push	OFFSET FLAT:??_C@_03IEOM@9mm?$AA@	; `string'
@@ -3938,9 +5309,9 @@ $L38721:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	DWORD PTR [edx+156]
-$L38723:
+$L38823:
 
-; 547  : }
+; 750  : }
 
 	pop	edi
 	pop	esi
@@ -3992,7 +5363,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FPlayerCanRespawn@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::FPlayerCanRespawn, COMDAT
 
-; 552  : {
+; 755  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4002,11 +5373,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 553  : 	return TRUE;
+; 756  : 	return TRUE;
 
 	mov	eax, 1
 
-; 554  : }
+; 757  : }
 
 	pop	edi
 	pop	esi
@@ -4021,7 +5392,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FlPlayerSpawnTime@CHalfLifeMultiplay@@UAEMPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::FlPlayerSpawnTime, COMDAT
 
-; 559  : {
+; 762  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4031,12 +5402,12 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 560  : 	return gpGlobals->time;//now!
+; 763  : 	return gpGlobals->time;//now!
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
 
-; 561  : }
+; 764  : }
 
 	pop	edi
 	pop	esi
@@ -4052,7 +5423,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?AllowAutoTargetCrosshair@CHalfLifeMultiplay@@UAEHXZ PROC NEAR ; CHalfLifeMultiplay::AllowAutoTargetCrosshair, COMDAT
 
-; 564  : {
+; 767  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4062,21 +5433,21 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 565  : 	return ( aimcrosshair.value != 0 );
+; 768  : 	return ( aimcrosshair.value != 0 );
 
 	fld	DWORD PTR ?aimcrosshair@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L39713
+	jne	SHORT $L39901
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39714
-$L39713:
+	jmp	SHORT $L39902
+$L39901:
 	mov	DWORD PTR -8+[ebp], 0
-$L39714:
+$L39902:
 	mov	eax, DWORD PTR -8+[ebp]
 
-; 566  : }
+; 769  : }
 
 	pop	edi
 	pop	esi
@@ -4091,7 +5462,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IPointsForKill@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@0@Z PROC NEAR ; CHalfLifeMultiplay::IPointsForKill, COMDAT
 
-; 573  : {
+; 776  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4101,11 +5472,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 574  : 	return 1;
+; 777  : 	return 1;
 
 	mov	eax, 1
 
-; 575  : }
+; 778  : }
 
 	pop	edi
 	pop	esi
@@ -4115,11 +5486,11 @@ _this$ = -4
 	ret	8
 ?IPointsForKill@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@0@Z ENDP ; CHalfLifeMultiplay::IPointsForKill
 _TEXT	ENDS
-PUBLIC	__real@4@3fff8000000000000000
+PUBLIC	?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z	; CBaseEntity::Instance
 PUBLIC	??_C@_0P@FKMG@game_playerdie?$AA@		; `string'
 PUBLIC	??_C@_0BA@PAEO@game_playerkill?$AA@		; `string'
 PUBLIC	??_C@_0P@JCMM@weapon_satchel?$AA@		; `string'
-PUBLIC	?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z	; CBaseEntity::Instance
+PUBLIC	__real@4@3fff8000000000000000
 EXTRN	?DeactivateSatchels@@YAXPAVCBasePlayer@@@Z:NEAR	; DeactivateSatchels
 EXTRN	?HasNamedPlayerItem@CBasePlayer@@QAEHPBD@Z:NEAR	; CBasePlayer::HasNamedPlayerItem
 ;	COMDAT ??_C@_0P@FKMG@game_playerdie?$AA@
@@ -4148,10 +5519,10 @@ _this$ = -4
 _peKiller$ = -8
 _ktmp$ = -12
 _ep$ = -16
-_PK$38762 = -20
+_PK$38862 = -20
 ?PlayerKilled@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@PAUentvars_s@@1@Z PROC NEAR ; CHalfLifeMultiplay::PlayerKilled, COMDAT
 
-; 582  : {
+; 785  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4161,7 +5532,7 @@ _PK$38762 = -20
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 583  : 	DeathNotice( pVictim, pKiller, pInflictor );
+; 786  : 	DeathNotice( pVictim, pKiller, pInflictor );
 
 	mov	eax, DWORD PTR _pInflictor$[ebp]
 	push	eax
@@ -4174,8 +5545,8 @@ _PK$38762 = -20
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+112]
 
-; 584  : 
-; 585  : 	pVictim->m_iDeaths += 1;
+; 787  : 
+; 788  : 	pVictim->m_iDeaths += 1;
 
 	mov	eax, DWORD PTR _pVictim$[ebp]
 	mov	ecx, DWORD PTR [eax+3780]
@@ -4183,9 +5554,9 @@ _PK$38762 = -20
 	mov	edx, DWORD PTR _pVictim$[ebp]
 	mov	DWORD PTR [edx+3780], ecx
 
-; 586  : 
-; 587  : 
-; 588  : 	UTIL_FireTargets( "game_playerdie", pVictim, pVictim, USE_TOGGLE, 0 );
+; 789  : 
+; 790  : 
+; 791  : 	UTIL_FireTargets( "game_playerdie", pVictim, pVictim, USE_TOGGLE, 0 );
 
 	push	0
 	push	3
@@ -4197,11 +5568,11 @@ _PK$38762 = -20
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
 
-; 589  : 	CBasePlayer *peKiller = NULL;
+; 792  : 	CBasePlayer *peKiller = NULL;
 
 	mov	DWORD PTR _peKiller$[ebp], 0
 
-; 590  : 	CBaseEntity *ktmp = CBaseEntity::Instance( pKiller );
+; 793  : 	CBaseEntity *ktmp = CBaseEntity::Instance( pKiller );
 
 	mov	edx, DWORD PTR _pKiller$[ebp]
 	push	edx
@@ -4209,32 +5580,32 @@ _PK$38762 = -20
 	add	esp, 4
 	mov	DWORD PTR _ktmp$[ebp], eax
 
-; 591  : 	if ( ktmp && (ktmp->Classify() == CLASS_PLAYER) )
+; 794  : 	if ( ktmp && (ktmp->Classify() == CLASS_PLAYER) )
 
 	cmp	DWORD PTR _ktmp$[ebp], 0
-	je	SHORT $L38753
+	je	SHORT $L38853
 	mov	eax, DWORD PTR _ktmp$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _ktmp$[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 2
-	jne	SHORT $L38753
+	jne	SHORT $L38853
 
-; 592  : 		peKiller = (CBasePlayer*)ktmp;
+; 795  : 		peKiller = (CBasePlayer*)ktmp;
 
 	mov	eax, DWORD PTR _ktmp$[ebp]
 	mov	DWORD PTR _peKiller$[ebp], eax
-$L38753:
+$L38853:
 
-; 593  : 
-; 594  : 	if ( pVictim->pev == pKiller )  
+; 796  : 
+; 797  : 	if ( pVictim->pev == pKiller )
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	edx, DWORD PTR _pKiller$[ebp]
-	jne	SHORT $L38755
+	jne	SHORT $L38855
 
-; 596  : 		pKiller->frags -= 1;
+; 799  : 		pKiller->frags -= 1;
 
 	mov	eax, DWORD PTR _pKiller$[ebp]
 	fld	DWORD PTR [eax+356]
@@ -4242,21 +5613,21 @@ $L38753:
 	mov	ecx, DWORD PTR _pKiller$[ebp]
 	fstp	DWORD PTR [ecx+356]
 
-; 598  : 	else if ( ktmp && ktmp->IsPlayer() )
+; 801  : 	else if ( ktmp && ktmp->IsPlayer() )
 
-	jmp	SHORT $L38759
-$L38755:
+	jmp	SHORT $L38859
+$L38855:
 	cmp	DWORD PTR _ktmp$[ebp], 0
-	je	SHORT $L38757
+	je	SHORT $L38857
 	mov	edx, DWORD PTR _ktmp$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _ktmp$[ebp]
 	call	DWORD PTR [eax+224]
 	test	eax, eax
-	je	SHORT $L38757
+	je	SHORT $L38857
 
-; 600  : 		// if a player dies in a deathmatch game and the killer is a client, award the killer some points
-; 601  : 		pKiller->frags += IPointsForKill( peKiller, pVictim );
+; 803  : 		// if a player dies in a deathmatch game and the killer is a client, award the killer some points
+; 804  : 		pKiller->frags += IPointsForKill( peKiller, pVictim );
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	push	ecx
@@ -4273,8 +5644,8 @@ $L38755:
 	mov	ecx, DWORD PTR _pKiller$[ebp]
 	fstp	DWORD PTR [ecx+356]
 
-; 602  : 		
-; 603  : 		UTIL_FireTargets( "game_playerkill", ktmp, ktmp, USE_TOGGLE, 0 );
+; 805  : 
+; 806  : 		UTIL_FireTargets( "game_playerkill", ktmp, ktmp, USE_TOGGLE, 0 );
 
 	push	0
 	push	3
@@ -4286,24 +5657,24 @@ $L38755:
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
 
-; 605  : 	else
+; 808  : 	else
 
-	jmp	SHORT $L38759
-$L38757:
+	jmp	SHORT $L38859
+$L38857:
 
-; 607  : 		pKiller->frags -= 1;
+; 810  : 		pKiller->frags -= 1;
 
 	mov	ecx, DWORD PTR _pKiller$[ebp]
 	fld	DWORD PTR [ecx+356]
 	fsub	DWORD PTR __real@4@3fff8000000000000000
 	mov	edx, DWORD PTR _pKiller$[ebp]
 	fstp	DWORD PTR [edx+356]
-$L38759:
+$L38859:
 
-; 609  : 
-; 610  : 	// update the scores
-; 611  : 	// killed scores
-; 612  : 	MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
+; 812  : 
+; 813  : 	// update the scores
+; 814  : 	// killed scores
+; 815  : 	MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
 
 	push	0
 	push	0
@@ -4313,7 +5684,7 @@ $L38759:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 613  : 		WRITE_BYTE( ENTINDEX(pVictim->edict()) );
+; 816  : 		WRITE_BYTE( ENTINDEX(pVictim->edict()) );
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -4324,7 +5695,7 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 614  : 		WRITE_SHORT( pVictim->pev->frags );
+; 817  : 		WRITE_SHORT( pVictim->pev->frags );
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -4334,7 +5705,7 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 615  : 		WRITE_SHORT( pVictim->m_iDeaths );
+; 818  : 		WRITE_SHORT( pVictim->m_iDeaths );
 
 	mov	eax, DWORD PTR _pVictim$[ebp]
 	mov	ecx, DWORD PTR [eax+3780]
@@ -4342,13 +5713,13 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 616  : 		WRITE_SHORT( 0 );
+; 819  : 		WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 617  : 		WRITE_SHORT( GetTeamIndex( pVictim->m_szTeamName ) + 1 );
+; 820  : 		WRITE_SHORT( GetTeamIndex( pVictim->m_szTeamName ) + 1 );
 
 	mov	edx, DWORD PTR _pVictim$[ebp]
 	add	edx, 3804				; 00000edcH
@@ -4362,13 +5733,13 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 618  : 	MESSAGE_END();
+; 821  : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 619  : 
-; 620  : 	// killers score, if it's a player
-; 621  : 	CBaseEntity *ep = CBaseEntity::Instance( pKiller );
+; 822  : 
+; 823  : 	// killers score, if it's a player
+; 824  : 	CBaseEntity *ep = CBaseEntity::Instance( pKiller );
 
 	mov	eax, DWORD PTR _pKiller$[ebp]
 	push	eax
@@ -4376,24 +5747,24 @@ $L38759:
 	add	esp, 4
 	mov	DWORD PTR _ep$[ebp], eax
 
-; 622  : 	if ( ep && ep->Classify() == CLASS_PLAYER )
+; 825  : 	if ( ep && ep->Classify() == CLASS_PLAYER )
 
 	cmp	DWORD PTR _ep$[ebp], 0
-	je	$L38761
+	je	$L38861
 	mov	ecx, DWORD PTR _ep$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _ep$[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 2
-	jne	$L38761
+	jne	$L38861
 
-; 624  : 		CBasePlayer *PK = (CBasePlayer*)ep;
+; 827  : 		CBasePlayer *PK = (CBasePlayer*)ep;
 
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	DWORD PTR _PK$38762[ebp], eax
+	mov	DWORD PTR _PK$38862[ebp], eax
 
-; 625  : 
-; 626  : 		MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
+; 828  : 
+; 829  : 		MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
 
 	push	0
 	push	0
@@ -4403,9 +5774,9 @@ $L38759:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 627  : 			WRITE_BYTE( ENTINDEX(PK->edict()) );
+; 830  : 			WRITE_BYTE( ENTINDEX(PK->edict()) );
 
-	mov	ecx, DWORD PTR _PK$38762[ebp]
+	mov	ecx, DWORD PTR _PK$38862[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	?ENTINDEX@@YAHPAUedict_s@@@Z		; ENTINDEX
@@ -4414,9 +5785,9 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 628  : 			WRITE_SHORT( PK->pev->frags );
+; 831  : 			WRITE_SHORT( PK->pev->frags );
 
-	mov	edx, DWORD PTR _PK$38762[ebp]
+	mov	edx, DWORD PTR _PK$38862[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+356]
 	call	__ftol
@@ -4424,23 +5795,23 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 629  : 			WRITE_SHORT( PK->m_iDeaths );
+; 832  : 			WRITE_SHORT( PK->m_iDeaths );
 
-	mov	ecx, DWORD PTR _PK$38762[ebp]
+	mov	ecx, DWORD PTR _PK$38862[ebp]
 	mov	edx, DWORD PTR [ecx+3780]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 630  : 			WRITE_SHORT( 0 );
+; 833  : 			WRITE_SHORT( 0 );
 
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 631  : 			WRITE_SHORT( GetTeamIndex( PK->m_szTeamName) + 1 );
+; 834  : 			WRITE_SHORT( GetTeamIndex( PK->m_szTeamName) + 1 );
 
-	mov	eax, DWORD PTR _PK$38762[ebp]
+	mov	eax, DWORD PTR _PK$38862[ebp]
 	add	eax, 3804				; 00000edcH
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -4452,38 +5823,38 @@ $L38759:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 632  : 		MESSAGE_END();
+; 835  : 		MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 633  : 
-; 634  : 		// let the killer paint another decal as soon as he'd like.
-; 635  : 		PK->m_flNextDecalTime = gpGlobals->time;
+; 836  : 
+; 837  : 		// let the killer paint another decal as soon as he'd like.
+; 838  : 		PK->m_flNextDecalTime = gpGlobals->time;
 
-	mov	eax, DWORD PTR _PK$38762[ebp]
+	mov	eax, DWORD PTR _PK$38862[ebp]
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax+3800], edx
-$L38761:
+$L38861:
 
-; 637  : 
-; 638  : 	if ( pVictim->HasNamedPlayerItem("weapon_satchel") )
+; 840  : 
+; 841  : 	if ( pVictim->HasNamedPlayerItem("weapon_satchel") )
 
 	push	OFFSET FLAT:??_C@_0P@JCMM@weapon_satchel?$AA@ ; `string'
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	call	?HasNamedPlayerItem@CBasePlayer@@QAEHPBD@Z ; CBasePlayer::HasNamedPlayerItem
 	test	eax, eax
-	je	SHORT $L38764
+	je	SHORT $L38864
 
-; 640  : 		DeactivateSatchels( pVictim );
+; 843  : 		DeactivateSatchels( pVictim );
 
 	mov	eax, DWORD PTR _pVictim$[ebp]
 	push	eax
 	call	?DeactivateSatchels@@YAXPAVCBasePlayer@@@Z ; DeactivateSatchels
 	add	esp, 4
-$L38764:
+$L38864:
 
-; 642  : }
+; 845  : }
 
 	pop	edi
 	pop	esi
@@ -4521,6 +5892,8 @@ _pev$ = 8
 	ret	0
 ?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z ENDP	; CBaseEntity::Instance
 _TEXT	ENDS
+PUBLIC	??_C@_0DG@LJPG@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFs?$DO?$CC?5committed?5suici@ ; `string'
+PUBLIC	??_C@_0DG@MJNO@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5committed?5suici@ ; `string'
 PUBLIC	?pszName@CBasePlayerItem@@QAEPBDXZ		; CBasePlayerItem::pszName
 PUBLIC	??_C@_05MOPF@world?$AA@				; `string'
 PUBLIC	??_C@_0L@EPOB@tau_cannon?$AA@			; `string'
@@ -4534,8 +5907,6 @@ PUBLIC	??_C@_0CO@HNOP@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFs?$DO?$CC?5comm
 PUBLIC	??_C@_0CO@EGBI@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5committed?5suici@ ; `string'
 PUBLIC	??_C@_0DE@FGHG@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFs?$DO?$CC?5killed?5?$CC?$CFs?$DM?$CFi?$DO?$DM@ ; `string'
 PUBLIC	??_C@_0DE@OIKA@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5killed?5?$CC?$CFs?$DM?$CFi?$DO?$DM@ ; `string'
-PUBLIC	??_C@_0DG@LJPG@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFs?$DO?$CC?5committed?5suici@ ; `string'
-PUBLIC	??_C@_0DG@MJNO@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5committed?5suici@ ; `string'
 EXTRN	?gmsgDeathMsg@@3HA:DWORD			; gmsgDeathMsg
 EXTRN	_strcmp:NEAR
 EXTRN	_strncmp:NEAR
@@ -4613,10 +5984,10 @@ _killer_weapon_name$ = -12
 _killer_index$ = -16
 _tau$ = -20
 _gluon$ = -24
-_pPlayer$38783 = -28
+_pPlayer$38883 = -28
 ?DeathNotice@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@PAUentvars_s@@1@Z PROC NEAR ; CHalfLifeMultiplay::DeathNotice, COMDAT
 
-; 648  : {
+; 851  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4626,8 +5997,8 @@ _pPlayer$38783 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 649  : 	// Work out what killed the player, and send a message to all clients about it
-; 650  : 	CBaseEntity *Killer = CBaseEntity::Instance( pKiller );
+; 852  : 	// Work out what killed the player, and send a message to all clients about it
+; 853  : 	CBaseEntity *Killer = CBaseEntity::Instance( pKiller );
 
 	mov	eax, DWORD PTR _pKiller$[ebp]
 	push	eax
@@ -4635,35 +6006,35 @@ _pPlayer$38783 = -28
 	add	esp, 4
 	mov	DWORD PTR _Killer$[ebp], eax
 
-; 651  : 
-; 652  : 	const char *killer_weapon_name = "world";		// by default, the player is killed by the world
+; 854  : 
+; 855  : 	const char *killer_weapon_name = "world";		// by default, the player is killed by the world
 
 	mov	DWORD PTR _killer_weapon_name$[ebp], OFFSET FLAT:??_C@_05MOPF@world?$AA@ ; `string'
 
-; 653  : 	int killer_index = 0;
+; 856  : 	int killer_index = 0;
 
 	mov	DWORD PTR _killer_index$[ebp], 0
 
-; 654  : 	
-; 655  : 	// Hack to fix name change
-; 656  : 	char *tau = "tau_cannon";
+; 857  : 
+; 858  : 	// Hack to fix name change
+; 859  : 	char *tau = "tau_cannon";
 
 	mov	DWORD PTR _tau$[ebp], OFFSET FLAT:??_C@_0L@EPOB@tau_cannon?$AA@ ; `string'
 
-; 657  : 	char *gluon = "gluon gun";
+; 860  : 	char *gluon = "gluon gun";
 
 	mov	DWORD PTR _gluon$[ebp], OFFSET FLAT:??_C@_09HCIF@gluon?5gun?$AA@ ; `string'
 
-; 658  : 
-; 659  : 	if ( pKiller->flags & FL_CLIENT )
+; 861  : 
+; 862  : 	if ( pKiller->flags & FL_CLIENT )
 
 	mov	ecx, DWORD PTR _pKiller$[ebp]
 	mov	edx, DWORD PTR [ecx+420]
 	and	edx, 8
 	test	edx, edx
-	je	SHORT $L38780
+	je	SHORT $L38880
 
-; 661  : 		killer_index = ENTINDEX(ENT(pKiller));
+; 864  : 		killer_index = ENTINDEX(ENT(pKiller));
 
 	mov	eax, DWORD PTR _pKiller$[ebp]
 	push	eax
@@ -4674,48 +6045,48 @@ _pPlayer$38783 = -28
 	add	esp, 4
 	mov	DWORD PTR _killer_index$[ebp], eax
 
-; 662  : 		
-; 663  : 		if ( pevInflictor )
+; 865  : 
+; 866  : 		if ( pevInflictor )
 
 	cmp	DWORD PTR _pevInflictor$[ebp], 0
-	je	SHORT $L38786
+	je	SHORT $L38886
 
-; 665  : 			if ( pevInflictor == pKiller )
+; 868  : 			if ( pevInflictor == pKiller )
 
 	mov	ecx, DWORD PTR _pevInflictor$[ebp]
 	cmp	ecx, DWORD PTR _pKiller$[ebp]
-	jne	SHORT $L38782
+	jne	SHORT $L38882
 
-; 667  : 				// If the inflictor is the killer,  then it must be their current weapon doing the damage
-; 668  : 				CBasePlayer *pPlayer = (CBasePlayer*)CBaseEntity::Instance( pKiller );
+; 870  : 				// If the inflictor is the killer,  then it must be their current weapon doing the damage
+; 871  : 				CBasePlayer *pPlayer = (CBasePlayer*)CBaseEntity::Instance( pKiller );
 
 	mov	edx, DWORD PTR _pKiller$[ebp]
 	push	edx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pPlayer$38783[ebp], eax
+	mov	DWORD PTR _pPlayer$38883[ebp], eax
 
-; 669  : 				
-; 670  : 				if ( pPlayer->m_pActiveItem )
+; 872  : 
+; 873  : 				if ( pPlayer->m_pActiveItem )
 
-	mov	eax, DWORD PTR _pPlayer$38783[ebp]
+	mov	eax, DWORD PTR _pPlayer$38883[ebp]
 	cmp	DWORD PTR [eax+2980], 0
-	je	SHORT $L38785
+	je	SHORT $L38885
 
-; 672  : 					killer_weapon_name = pPlayer->m_pActiveItem->pszName();
+; 875  : 					killer_weapon_name = pPlayer->m_pActiveItem->pszName();
 
-	mov	ecx, DWORD PTR _pPlayer$38783[ebp]
+	mov	ecx, DWORD PTR _pPlayer$38883[ebp]
 	mov	ecx, DWORD PTR [ecx+2980]
 	call	?pszName@CBasePlayerItem@@QAEPBDXZ	; CBasePlayerItem::pszName
 	mov	DWORD PTR _killer_weapon_name$[ebp], eax
-$L38785:
+$L38885:
 
-; 675  : 			else
+; 878  : 			else
 
-	jmp	SHORT $L38786
-$L38782:
+	jmp	SHORT $L38886
+$L38882:
 
-; 677  : 				killer_weapon_name = STRING( pevInflictor->classname );  // it's just that easy
+; 880  : 				killer_weapon_name = STRING( pevInflictor->classname );  // it's just that easy
 
 	mov	edx, DWORD PTR _pevInflictor$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -4723,14 +6094,14 @@ $L38782:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
 	mov	DWORD PTR _killer_weapon_name$[ebp], eax
-$L38786:
+$L38886:
 
-; 681  : 	else
+; 884  : 	else
 
-	jmp	SHORT $L38787
-$L38780:
+	jmp	SHORT $L38887
+$L38880:
 
-; 683  : 		killer_weapon_name = STRING( pevInflictor->classname );
+; 886  : 		killer_weapon_name = STRING( pevInflictor->classname );
 
 	mov	ecx, DWORD PTR _pevInflictor$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -4738,11 +6109,11 @@ $L38780:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
 	mov	DWORD PTR _killer_weapon_name$[ebp], eax
-$L38787:
+$L38887:
 
-; 685  : 
-; 686  : 	// strip the monster_* or weapon_* from the inflictor's classname
-; 687  : 	if ( strncmp( killer_weapon_name, "weapon_", 7 ) == 0 )
+; 888  : 
+; 889  : 	// strip the monster_* or weapon_* from the inflictor's classname
+; 890  : 	if ( strncmp( killer_weapon_name, "weapon_", 7 ) == 0 )
 
 	push	7
 	push	OFFSET FLAT:??_C@_07BHGE@weapon_?$AA@	; `string'
@@ -4751,18 +6122,18 @@ $L38787:
 	call	_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38788
+	jne	SHORT $L38888
 
-; 688  : 		killer_weapon_name += 7;
+; 891  : 		killer_weapon_name += 7;
 
 	mov	ecx, DWORD PTR _killer_weapon_name$[ebp]
 	add	ecx, 7
 	mov	DWORD PTR _killer_weapon_name$[ebp], ecx
 
-; 689  : 	else if ( strncmp( killer_weapon_name, "monster_", 8 ) == 0 )
+; 892  : 	else if ( strncmp( killer_weapon_name, "monster_", 8 ) == 0 )
 
-	jmp	SHORT $L38794
-$L38788:
+	jmp	SHORT $L38894
+$L38888:
 	push	8
 	push	OFFSET FLAT:??_C@_08NIHN@monster_?$AA@	; `string'
 	mov	edx, DWORD PTR _killer_weapon_name$[ebp]
@@ -4770,18 +6141,18 @@ $L38788:
 	call	_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38791
+	jne	SHORT $L38891
 
-; 690  : 		killer_weapon_name += 8;
+; 893  : 		killer_weapon_name += 8;
 
 	mov	eax, DWORD PTR _killer_weapon_name$[ebp]
 	add	eax, 8
 	mov	DWORD PTR _killer_weapon_name$[ebp], eax
 
-; 691  : 	else if ( strncmp( killer_weapon_name, "func_", 5 ) == 0 )
+; 894  : 	else if ( strncmp( killer_weapon_name, "func_", 5 ) == 0 )
 
-	jmp	SHORT $L38794
-$L38791:
+	jmp	SHORT $L38894
+$L38891:
 	push	5
 	push	OFFSET FLAT:??_C@_05CEIF@func_?$AA@	; `string'
 	mov	ecx, DWORD PTR _killer_weapon_name$[ebp]
@@ -4789,17 +6160,17 @@ $L38791:
 	call	_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38794
+	jne	SHORT $L38894
 
-; 692  : 		killer_weapon_name += 5;
+; 895  : 		killer_weapon_name += 5;
 
 	mov	edx, DWORD PTR _killer_weapon_name$[ebp]
 	add	edx, 5
 	mov	DWORD PTR _killer_weapon_name$[ebp], edx
-$L38794:
+$L38894:
 
-; 693  : 
-; 694  : 	MESSAGE_BEGIN( MSG_ALL, gmsgDeathMsg );
+; 896  : 
+; 897  : 	MESSAGE_BEGIN( MSG_ALL, gmsgDeathMsg );
 
 	push	0
 	push	0
@@ -4809,14 +6180,14 @@ $L38794:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 695  : 		WRITE_BYTE( killer_index );						// the killer
+; 898  : 		WRITE_BYTE( killer_index );						// the killer
 
 	mov	ecx, DWORD PTR _killer_index$[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 696  : 		WRITE_BYTE( ENTINDEX(pVictim->edict()) );		// the victim
+; 899  : 		WRITE_BYTE( ENTINDEX(pVictim->edict()) );		// the victim
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -4827,20 +6198,20 @@ $L38794:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 697  : 		WRITE_STRING( killer_weapon_name );		// what they were killed by (should this be a string?)
+; 900  : 		WRITE_STRING( killer_weapon_name );		// what they were killed by (should this be a string?)
 
 	mov	edx, DWORD PTR _killer_weapon_name$[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+216
 	add	esp, 4
 
-; 698  : 	MESSAGE_END();
+; 901  : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 699  : 
-; 700  : 	// replace the code names with the 'real' names
-; 701  : 	if ( !strcmp( killer_weapon_name, "egon" ) )
+; 902  : 
+; 903  : 	// replace the code names with the 'real' names
+; 904  : 	if ( !strcmp( killer_weapon_name, "egon" ) )
 
 	push	OFFSET FLAT:??_C@_04MANP@egon?$AA@	; `string'
 	mov	eax, DWORD PTR _killer_weapon_name$[ebp]
@@ -4848,53 +6219,53 @@ $L38794:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38796
+	jne	SHORT $L38896
 
-; 702  : 		killer_weapon_name = gluon;
+; 905  : 		killer_weapon_name = gluon;
 
 	mov	ecx, DWORD PTR _gluon$[ebp]
 	mov	DWORD PTR _killer_weapon_name$[ebp], ecx
 
-; 703  : 	else if ( !strcmp( killer_weapon_name, "gauss" ) )
+; 906  : 	else if ( !strcmp( killer_weapon_name, "gauss" ) )
 
-	jmp	SHORT $L38799
-$L38796:
+	jmp	SHORT $L38899
+$L38896:
 	push	OFFSET FLAT:??_C@_05MFIA@gauss?$AA@	; `string'
 	mov	edx, DWORD PTR _killer_weapon_name$[ebp]
 	push	edx
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38799
+	jne	SHORT $L38899
 
-; 704  : 		killer_weapon_name = tau;
+; 907  : 		killer_weapon_name = tau;
 
 	mov	eax, DWORD PTR _tau$[ebp]
 	mov	DWORD PTR _killer_weapon_name$[ebp], eax
-$L38799:
+$L38899:
 
-; 705  : 
-; 706  : 	if ( pVictim->pev == pKiller )  
+; 908  : 
+; 909  : 	if ( pVictim->pev == pKiller )
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	edx, DWORD PTR _pKiller$[ebp]
-	jne	$L38801
+	jne	$L38901
 
-; 708  : 		// killed self
-; 709  : 
-; 710  : 		// team match?
-; 711  : 		if ( g_teamplay )
+; 911  : 		// killed self
+; 912  : 
+; 913  : 		// team match?
+; 914  : 		if ( g_teamplay )
 
 	cmp	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
-	je	SHORT $L38802
+	je	SHORT $L38902
 
-; 713  : 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\"\n",  
-; 714  : 				STRING( pVictim->pev->netname ), 
-; 715  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 716  : 				GETPLAYERAUTHID( pVictim->edict() ),
-; 717  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-; 718  : 				killer_weapon_name );		
+; 916  : 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\"\n",
+; 917  : 				STRING( pVictim->pev->netname ),
+; 918  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 919  : 				GETPLAYERAUTHID( pVictim->edict() ),
+; 920  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
+; 921  : 				killer_weapon_name );
 
 	mov	eax, DWORD PTR _killer_weapon_name$[ebp]
 	push	eax
@@ -4931,17 +6302,17 @@ $L38799:
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 24					; 00000018H
 
-; 720  : 		else
+; 923  : 		else
 
-	jmp	SHORT $L38804
-$L38802:
+	jmp	SHORT $L38904
+$L38902:
 
-; 722  : 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\"\n",  
-; 723  : 				STRING( pVictim->pev->netname ), 
-; 724  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 725  : 				GETPLAYERAUTHID( pVictim->edict() ),
-; 726  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 727  : 				killer_weapon_name );		
+; 925  : 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\"\n",
+; 926  : 				STRING( pVictim->pev->netname ),
+; 927  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 928  : 				GETPLAYERAUTHID( pVictim->edict() ),
+; 929  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 930  : 				killer_weapon_name );
 
 	mov	ecx, DWORD PTR _killer_weapon_name$[ebp]
 	push	ecx
@@ -4973,34 +6344,34 @@ $L38802:
 	push	OFFSET FLAT:??_C@_0CO@EGBI@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5committed?5suici@ ; `string'
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 24					; 00000018H
-$L38804:
+$L38904:
 
-; 730  : 	else if ( pKiller->flags & FL_CLIENT )
+; 933  : 	else if ( pKiller->flags & FL_CLIENT )
 
-	jmp	$L38815
-$L38801:
+	jmp	$L38915
+$L38901:
 	mov	edx, DWORD PTR _pKiller$[ebp]
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, 8
 	test	eax, eax
-	je	$L38807
+	je	$L38907
 
-; 732  : 		// team match?
-; 733  : 		if ( g_teamplay )
+; 935  : 		// team match?
+; 936  : 		if ( g_teamplay )
 
 	cmp	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
-	je	$L38808
+	je	$L38908
 
-; 735  : 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" killed \"%s<%i><%s><%s>\" with \"%s\"\n",  
-; 736  : 				STRING( pKiller->netname ),
-; 737  : 				GETPLAYERUSERID( ENT(pKiller) ),
-; 738  : 				GETPLAYERAUTHID( ENT(pKiller) ),
-; 739  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( ENT(pKiller) ), "model" ),
-; 740  : 				STRING( pVictim->pev->netname ),
-; 741  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 742  : 				GETPLAYERAUTHID( pVictim->edict() ),
-; 743  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-; 744  : 				killer_weapon_name );
+; 938  : 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" killed \"%s<%i><%s><%s>\" with \"%s\"\n",
+; 939  : 				STRING( pKiller->netname ),
+; 940  : 				GETPLAYERUSERID( ENT(pKiller) ),
+; 941  : 				GETPLAYERAUTHID( ENT(pKiller) ),
+; 942  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( ENT(pKiller) ), "model" ),
+; 943  : 				STRING( pVictim->pev->netname ),
+; 944  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 945  : 				GETPLAYERAUTHID( pVictim->edict() ),
+; 946  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
+; 947  : 				killer_weapon_name );
 
 	mov	ecx, DWORD PTR _killer_weapon_name$[ebp]
 	push	ecx
@@ -5071,21 +6442,21 @@ $L38801:
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 40					; 00000028H
 
-; 746  : 		else
+; 949  : 		else
 
-	jmp	$L38810
-$L38808:
+	jmp	$L38910
+$L38908:
 
-; 748  : 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" killed \"%s<%i><%s><%i>\" with \"%s\"\n",  
-; 749  : 				STRING( pKiller->netname ),
-; 750  : 				GETPLAYERUSERID( ENT(pKiller) ),
-; 751  : 				GETPLAYERAUTHID( ENT(pKiller) ),
-; 752  : 				GETPLAYERUSERID( ENT(pKiller) ),
-; 753  : 				STRING( pVictim->pev->netname ),
-; 754  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 755  : 				GETPLAYERAUTHID( pVictim->edict() ),
-; 756  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 757  : 				killer_weapon_name );
+; 951  : 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" killed \"%s<%i><%s><%i>\" with \"%s\"\n",
+; 952  : 				STRING( pKiller->netname ),
+; 953  : 				GETPLAYERUSERID( ENT(pKiller) ),
+; 954  : 				GETPLAYERAUTHID( ENT(pKiller) ),
+; 955  : 				GETPLAYERUSERID( ENT(pKiller) ),
+; 956  : 				STRING( pVictim->pev->netname ),
+; 957  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 958  : 				GETPLAYERAUTHID( pVictim->edict() ),
+; 959  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 960  : 				killer_weapon_name );
 
 	mov	ecx, DWORD PTR _killer_weapon_name$[ebp]
 	push	ecx
@@ -5147,27 +6518,27 @@ $L38808:
 	push	OFFSET FLAT:??_C@_0DE@OIKA@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5killed?5?$CC?$CFs?$DM?$CFi?$DO?$DM@ ; `string'
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 40					; 00000028H
-$L38810:
+$L38910:
 
-; 760  : 	else
+; 963  : 	else
 
-	jmp	$L38815
-$L38807:
+	jmp	$L38915
+$L38907:
 
-; 762  : 		// killed by the world
-; 763  : 
-; 764  : 		// team match?
-; 765  : 		if ( g_teamplay )
+; 965  : 		// killed by the world
+; 966  : 
+; 967  : 		// team match?
+; 968  : 		if ( g_teamplay )
 
 	cmp	DWORD PTR ?g_teamplay@@3HA, 0		; g_teamplay
-	je	SHORT $L38813
+	je	SHORT $L38913
 
-; 767  : 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\" (world)\n",
-; 768  : 				STRING( pVictim->pev->netname ), 
-; 769  : 				GETPLAYERUSERID( pVictim->edict() ), 
-; 770  : 				GETPLAYERAUTHID( pVictim->edict() ),
-; 771  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-; 772  : 				killer_weapon_name );		
+; 970  : 			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\" (world)\n",
+; 971  : 				STRING( pVictim->pev->netname ),
+; 972  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 973  : 				GETPLAYERAUTHID( pVictim->edict() ),
+; 974  : 				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
+; 975  : 				killer_weapon_name );
 
 	mov	ecx, DWORD PTR _killer_weapon_name$[ebp]
 	push	ecx
@@ -5204,17 +6575,17 @@ $L38807:
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 24					; 00000018H
 
-; 774  : 		else
+; 977  : 		else
 
-	jmp	SHORT $L38815
-$L38813:
+	jmp	SHORT $L38915
+$L38913:
 
-; 776  : 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\" (world)\n",
-; 777  : 				STRING( pVictim->pev->netname ), 
-; 778  : 				GETPLAYERUSERID( pVictim->edict() ), 
-; 779  : 				GETPLAYERAUTHID( pVictim->edict() ),
-; 780  : 				GETPLAYERUSERID( pVictim->edict() ),
-; 781  : 				killer_weapon_name );		
+; 979  : 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\" (world)\n",
+; 980  : 				STRING( pVictim->pev->netname ),
+; 981  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 982  : 				GETPLAYERAUTHID( pVictim->edict() ),
+; 983  : 				GETPLAYERUSERID( pVictim->edict() ),
+; 984  : 				killer_weapon_name );
 
 	mov	edx, DWORD PTR _killer_weapon_name$[ebp]
 	push	edx
@@ -5246,10 +6617,10 @@ $L38813:
 	push	OFFSET FLAT:??_C@_0DG@MJNO@?$CC?$CFs?$DM?$CFi?$DO?$DM?$CFs?$DO?$DM?$CFi?$DO?$CC?5committed?5suici@ ; `string'
 	call	?UTIL_LogPrintf@@YAXPADZZ		; UTIL_LogPrintf
 	add	esp, 24					; 00000018H
-$L38815:
+$L38915:
 
-; 784  : 
-; 785  : 	MESSAGE_BEGIN( MSG_SPEC, SVC_DIRECTOR );
+; 987  : 
+; 988  : 	MESSAGE_BEGIN( MSG_SPEC, SVC_DIRECTOR );
 
 	push	0
 	push	0
@@ -5258,19 +6629,19 @@ $L38815:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 786  : 		WRITE_BYTE ( 9 );	// command length in bytes
+; 989  : 		WRITE_BYTE ( 9 );	// command length in bytes
 
 	push	9
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 787  : 		WRITE_BYTE ( DRC_CMD_EVENT );	// player killed
+; 990  : 		WRITE_BYTE ( DRC_CMD_EVENT );	// player killed
 
 	push	2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 788  : 		WRITE_SHORT( ENTINDEX(pVictim->edict()) );	// index number of primary entity
+; 991  : 		WRITE_SHORT( ENTINDEX(pVictim->edict()) );	// index number of primary entity
 
 	mov	ecx, DWORD PTR _pVictim$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
@@ -5281,12 +6652,12 @@ $L38815:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 789  : 		if (pevInflictor)
+; 992  : 		if (pevInflictor)
 
 	cmp	DWORD PTR _pevInflictor$[ebp], 0
-	je	SHORT $L38817
+	je	SHORT $L38917
 
-; 790  : 			WRITE_SHORT( ENTINDEX(ENT(pevInflictor)) );	// index number of secondary entity
+; 993  : 			WRITE_SHORT( ENTINDEX(ENT(pevInflictor)) );	// index number of secondary entity
 
 	mov	eax, DWORD PTR _pevInflictor$[ebp]
 	push	eax
@@ -5299,12 +6670,12 @@ $L38815:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
 
-; 791  : 		else
+; 994  : 		else
 
-	jmp	SHORT $L38818
-$L38817:
+	jmp	SHORT $L38918
+$L38917:
 
-; 792  : 			WRITE_SHORT( ENTINDEX(ENT(pKiller)) );	// index number of secondary entity
+; 995  : 			WRITE_SHORT( ENTINDEX(ENT(pKiller)) );	// index number of secondary entity
 
 	mov	ecx, DWORD PTR _pKiller$[ebp]
 	push	ecx
@@ -5316,68 +6687,68 @@ $L38817:
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+200
 	add	esp, 4
-$L38818:
+$L38918:
 
-; 793  : 		WRITE_LONG( 7 | DRC_FLAG_DRAMATIC);   // eventflags (priority and flags)
+; 996  : 		WRITE_LONG( 7 | DRC_FLAG_DRAMATIC);   // eventflags (priority and flags)
 
 	push	39					; 00000027H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+204
 	add	esp, 4
 
-; 794  : 	MESSAGE_END();
+; 997  : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 795  : 
-; 796  : //  Print a standard message
-; 797  : 	// TODO: make this go direct to console
-; 798  : 	return; // just remove for now
-; 799  : /*
-; 800  : 	char	szText[ 128 ];
-; 801  : 
-; 802  : 	if ( pKiller->flags & FL_MONSTER )
-; 803  : 	{
-; 804  : 		// killed by a monster
-; 805  : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
-; 806  : 		strcat ( szText, " was killed by a monster.\n" );
-; 807  : 		return;
-; 808  : 	}
-; 809  : 
-; 810  : 	if ( pKiller == pVictim->pev )
-; 811  : 	{
-; 812  : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
-; 813  : 		strcat ( szText, " commited suicide.\n" );
-; 814  : 	}
-; 815  : 	else if ( pKiller->flags & FL_CLIENT )
-; 816  : 	{
-; 817  : 		strcpy ( szText, STRING( pKiller->netname ) );
-; 818  : 
-; 819  : 		strcat( szText, " : " );
-; 820  : 		strcat( szText, killer_weapon_name );
-; 821  : 		strcat( szText, " : " );
-; 822  : 
-; 823  : 		strcat ( szText, STRING( pVictim->pev->netname ) );
-; 824  : 		strcat ( szText, "\n" );
-; 825  : 	}
-; 826  : 	else if ( pKiller == g_pWorld )
-; 827  : 	{
-; 828  : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
-; 829  : 		strcat ( szText, " fell or drowned or something.\n" );
-; 830  : 	}
-; 831  : 	else if ( pKiller->solid == SOLID_BSP )
-; 832  : 	{
-; 833  : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
-; 834  : 		strcat ( szText, " was mooshed.\n" );
-; 835  : 	}
-; 836  : 	else
-; 837  : 	{
-; 838  : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
-; 839  : 		strcat ( szText, " died mysteriously.\n" );
-; 840  : 	}
-; 841  : 
-; 842  : 	UTIL_ClientPrintAll( szText );
-; 843  : */
-; 844  : }
+; 998  : 
+; 999  : //  Print a standard message
+; 1000 : 	// TODO: make this go direct to console
+; 1001 : 	return; // just remove for now
+; 1002 : /*
+; 1003 : 	char	szText[ 128 ];
+; 1004 : 
+; 1005 : 	if ( pKiller->flags & FL_MONSTER )
+; 1006 : 	{
+; 1007 : 		// killed by a monster
+; 1008 : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
+; 1009 : 		strcat ( szText, " was killed by a monster.\n" );
+; 1010 : 		return;
+; 1011 : 	}
+; 1012 : 
+; 1013 : 	if ( pKiller == pVictim->pev )
+; 1014 : 	{
+; 1015 : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
+; 1016 : 		strcat ( szText, " commited suicide.\n" );
+; 1017 : 	}
+; 1018 : 	else if ( pKiller->flags & FL_CLIENT )
+; 1019 : 	{
+; 1020 : 		strcpy ( szText, STRING( pKiller->netname ) );
+; 1021 : 
+; 1022 : 		strcat( szText, " : " );
+; 1023 : 		strcat( szText, killer_weapon_name );
+; 1024 : 		strcat( szText, " : " );
+; 1025 : 
+; 1026 : 		strcat ( szText, STRING( pVictim->pev->netname ) );
+; 1027 : 		strcat ( szText, "\n" );
+; 1028 : 	}
+; 1029 : 	else if ( pKiller == g_pWorld )
+; 1030 : 	{
+; 1031 : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
+; 1032 : 		strcat ( szText, " fell or drowned or something.\n" );
+; 1033 : 	}
+; 1034 : 	else if ( pKiller->solid == SOLID_BSP )
+; 1035 : 	{
+; 1036 : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
+; 1037 : 		strcat ( szText, " was mooshed.\n" );
+; 1038 : 	}
+; 1039 : 	else
+; 1040 : 	{
+; 1041 : 		strcpy ( szText, STRING( pVictim->pev->netname ) );
+; 1042 : 		strcat ( szText, " died mysteriously.\n" );
+; 1043 : 	}
+; 1044 : 
+; 1045 : 	UTIL_ClientPrintAll( szText );
+; 1046 : */
+; 1047 : }
 
 	pop	edi
 	pop	esi
@@ -5418,7 +6789,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PlayerGotWeapon@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@PAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::PlayerGotWeapon, COMDAT
 
-; 851  : {
+; 1054 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5428,7 +6799,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 852  : }
+; 1055 : }
 
 	pop	edi
 	pop	esi
@@ -5452,7 +6823,7 @@ _pWeapon$ = 8
 _this$ = -4
 ?FlWeaponRespawnTime@CHalfLifeMultiplay@@UAEMPAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::FlWeaponRespawnTime, COMDAT
 
-; 859  : {
+; 1062 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5462,40 +6833,40 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 860  : 	if ( weaponstay.value > 0 )
+; 1063 : 	if ( weaponstay.value > 0 )
 
 	fld	DWORD PTR ?weaponstay@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38829
+	jne	SHORT $L38929
 
-; 862  : 		// make sure it's only certain weapons
-; 863  : 		if ( !(pWeapon->iFlags() & ITEM_FLAG_LIMITINWORLD) )
+; 1065 : 		// make sure it's only certain weapons
+; 1066 : 		if ( !(pWeapon->iFlags() & ITEM_FLAG_LIMITINWORLD) )
 
 	mov	ecx, DWORD PTR _pWeapon$[ebp]
 	call	?iFlags@CBasePlayerItem@@QAEHXZ		; CBasePlayerItem::iFlags
 	and	eax, 8
 	test	eax, eax
-	jne	SHORT $L38829
+	jne	SHORT $L38929
 
-; 865  : 			return gpGlobals->time + 0;		// weapon respawns almost instantly
+; 1068 : 			return gpGlobals->time + 0;		// weapon respawns almost instantly
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
 	fadd	DWORD PTR __real@4@00000000000000000000
-	jmp	SHORT $L38827
-$L38829:
+	jmp	SHORT $L38927
+$L38929:
 
-; 868  : 
-; 869  : 	return gpGlobals->time + WEAPON_RESPAWN_TIME;
+; 1071 : 
+; 1072 : 	return gpGlobals->time + WEAPON_RESPAWN_TIME;
 
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [ecx]
 	fadd	DWORD PTR __real@4@4003a000000000000000
-$L38827:
+$L38927:
 
-; 870  : }
+; 1073 : }
 
 	pop	edi
 	pop	esi
@@ -5537,7 +6908,7 @@ _pWeapon$ = 8
 _this$ = -4
 ?FlWeaponTryRespawn@CHalfLifeMultiplay@@UAEMPAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::FlWeaponTryRespawn, COMDAT
 
-; 882  : {
+; 1085 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5547,37 +6918,37 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 883  : 	if ( pWeapon && pWeapon->m_iId && (pWeapon->iFlags() & ITEM_FLAG_LIMITINWORLD) )
+; 1086 : 	if ( pWeapon && pWeapon->m_iId && (pWeapon->iFlags() & ITEM_FLAG_LIMITINWORLD) )
 
 	cmp	DWORD PTR _pWeapon$[ebp], 0
-	je	SHORT $L38835
+	je	SHORT $L38935
 	mov	eax, DWORD PTR _pWeapon$[ebp]
 	cmp	DWORD PTR [eax+1824], 0
-	je	SHORT $L38835
+	je	SHORT $L38935
 	mov	ecx, DWORD PTR _pWeapon$[ebp]
 	call	?iFlags@CBasePlayerItem@@QAEHXZ		; CBasePlayerItem::iFlags
 	and	eax, 8
 	test	eax, eax
-	je	SHORT $L38835
+	je	SHORT $L38935
 
-; 885  : 		if ( NUMBER_OF_ENTITIES() < (gpGlobals->maxEntities - ENTITY_INTOLERANCE) )
+; 1088 : 		if ( NUMBER_OF_ENTITIES() < (gpGlobals->maxEntities - ENTITY_INTOLERANCE) )
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+420
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR [ecx+148]
 	sub	edx, 100				; 00000064H
 	cmp	eax, edx
-	jge	SHORT $L38836
+	jge	SHORT $L38936
 
-; 886  : 			return 0;
+; 1089 : 			return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	SHORT $L38834
-$L38836:
+	jmp	SHORT $L38934
+$L38936:
 
-; 887  : 
-; 888  : 		// we're past the entity tolerance level,  so delay the respawn
-; 889  : 		return FlWeaponRespawnTime( pWeapon );
+; 1090 : 
+; 1091 : 		// we're past the entity tolerance level,  so delay the respawn
+; 1092 : 		return FlWeaponRespawnTime( pWeapon );
 
 	mov	eax, DWORD PTR _pWeapon$[ebp]
 	push	eax
@@ -5585,16 +6956,16 @@ $L38836:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+128]
-	jmp	SHORT $L38834
-$L38835:
+	jmp	SHORT $L38934
+$L38935:
 
-; 891  : 
-; 892  : 	return 0;
+; 1094 : 
+; 1095 : 	return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-$L38834:
+$L38934:
 
-; 893  : }
+; 1096 : }
 
 	pop	edi
 	pop	esi
@@ -5613,7 +6984,7 @@ ___$ReturnUdt$ = 8
 _this$ = -4
 ?VecWeaponRespawnSpot@CHalfLifeMultiplay@@UAE?AVVector@@PAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::VecWeaponRespawnSpot, COMDAT
 
-; 900  : {
+; 1103 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5623,7 +6994,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 901  : 	return pWeapon->GetAbsOrigin();
+; 1104 : 	return pWeapon->GetAbsOrigin();
 
 	mov	ecx, DWORD PTR _pWeapon$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -5632,7 +7003,7 @@ _this$ = -4
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 902  : }
+; 1105 : }
 
 	pop	edi
 	pop	esi
@@ -5684,7 +7055,7 @@ _pWeapon$ = 8
 _this$ = -4
 ?WeaponShouldRespawn@CHalfLifeMultiplay@@UAEHPAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::WeaponShouldRespawn, COMDAT
 
-; 909  : {
+; 1112 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5694,28 +7065,28 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 910  : 	if ( pWeapon->pev->spawnflags & SF_NORESPAWN )
+; 1113 : 	if ( pWeapon->pev->spawnflags & SF_NORESPAWN )
 
 	mov	eax, DWORD PTR _pWeapon$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 1073741824				; 40000000H
 	test	edx, edx
-	je	SHORT $L38846
+	je	SHORT $L38946
 
-; 912  : 		return GR_WEAPON_RESPAWN_NO;
+; 1115 : 		return GR_WEAPON_RESPAWN_NO;
 
 	mov	eax, 2
-	jmp	SHORT $L38845
-$L38846:
+	jmp	SHORT $L38945
+$L38946:
 
-; 914  : 
-; 915  : 	return GR_WEAPON_RESPAWN_YES;
+; 1117 : 
+; 1118 : 	return GR_WEAPON_RESPAWN_YES;
 
 	mov	eax, 1
-$L38845:
+$L38945:
 
-; 916  : }
+; 1119 : }
 
 	pop	edi
 	pop	esi
@@ -5730,11 +7101,11 @@ _TEXT	SEGMENT
 _pPlayer$ = 8
 _pItem$ = 12
 _this$ = -4
-_i$38854 = -8
-_it$38858 = -12
+_i$38954 = -8
+_it$38958 = -12
 ?CanHavePlayerItem@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PAVCBasePlayerItem@@@Z PROC NEAR ; CHalfLifeMultiplay::CanHavePlayerItem, COMDAT
 
-; 923  : {
+; 1126 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5744,23 +7115,23 @@ _it$38858 = -12
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 924  : 	if ( weaponstay.value > 0 )
+; 1127 : 	if ( weaponstay.value > 0 )
 
 	fld	DWORD PTR ?weaponstay@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38857
+	jne	SHORT $L38957
 
-; 926  : 		if ( pItem->iFlags() & ITEM_FLAG_LIMITINWORLD )
+; 1129 : 		if ( pItem->iFlags() & ITEM_FLAG_LIMITINWORLD )
 
 	mov	ecx, DWORD PTR _pItem$[ebp]
 	call	?iFlags@CBasePlayerItem@@QAEHXZ		; CBasePlayerItem::iFlags
 	and	eax, 8
 	test	eax, eax
-	je	SHORT $L38853
+	je	SHORT $L38953
 
-; 927  : 			return CGameRules::CanHavePlayerItem( pPlayer, pItem );
+; 1130 : 			return CGameRules::CanHavePlayerItem( pPlayer, pItem );
 
 	mov	eax, DWORD PTR _pItem$[ebp]
 	push	eax
@@ -5768,70 +7139,70 @@ _it$38858 = -12
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanHavePlayerItem@CGameRules@@UAEHPAVCBasePlayer@@PAVCBasePlayerItem@@@Z ; CGameRules::CanHavePlayerItem
-	jmp	SHORT $L38851
-$L38853:
+	jmp	SHORT $L38951
+$L38953:
 
-; 928  : 
-; 929  : 		// check if the player already has this weapon
-; 930  : 		for ( int i = 0 ; i < MAX_ITEM_TYPES ; i++ )
+; 1131 : 
+; 1132 : 		// check if the player already has this weapon
+; 1133 : 		for ( int i = 0 ; i < MAX_ITEM_TYPES ; i++ )
 
-	mov	DWORD PTR _i$38854[ebp], 0
-	jmp	SHORT $L38855
-$L38856:
-	mov	edx, DWORD PTR _i$38854[ebp]
+	mov	DWORD PTR _i$38954[ebp], 0
+	jmp	SHORT $L38955
+$L38956:
+	mov	edx, DWORD PTR _i$38954[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38854[ebp], edx
-$L38855:
-	cmp	DWORD PTR _i$38854[ebp], 6
-	jge	SHORT $L38857
+	mov	DWORD PTR _i$38954[ebp], edx
+$L38955:
+	cmp	DWORD PTR _i$38954[ebp], 6
+	jge	SHORT $L38957
 
-; 932  : 			CBasePlayerItem *it = pPlayer->m_rgpPlayerItems[i];
+; 1135 : 			CBasePlayerItem *it = pPlayer->m_rgpPlayerItems[i];
 
-	mov	eax, DWORD PTR _i$38854[ebp]
+	mov	eax, DWORD PTR _i$38954[ebp]
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4+2956]
-	mov	DWORD PTR _it$38858[ebp], edx
-$L38860:
+	mov	DWORD PTR _it$38958[ebp], edx
+$L38960:
 
-; 933  : 
-; 934  : 			while ( it != NULL )
+; 1136 : 
+; 1137 : 			while ( it != NULL )
 
-	cmp	DWORD PTR _it$38858[ebp], 0
-	je	SHORT $L38861
+	cmp	DWORD PTR _it$38958[ebp], 0
+	je	SHORT $L38961
 
-; 936  : 				if ( it->m_iId == pItem->m_iId )
+; 1139 : 				if ( it->m_iId == pItem->m_iId )
 
-	mov	eax, DWORD PTR _it$38858[ebp]
+	mov	eax, DWORD PTR _it$38958[ebp]
 	mov	ecx, DWORD PTR _pItem$[ebp]
 	mov	edx, DWORD PTR [eax+1824]
 	cmp	edx, DWORD PTR [ecx+1824]
-	jne	SHORT $L38862
+	jne	SHORT $L38962
 
-; 938  : 					return FALSE;
+; 1141 : 					return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38851
-$L38862:
+	jmp	SHORT $L38951
+$L38962:
 
-; 940  : 
-; 941  : 				it = it->m_pNext;
+; 1143 : 
+; 1144 : 				it = it->m_pNext;
 
-	mov	eax, DWORD PTR _it$38858[ebp]
+	mov	eax, DWORD PTR _it$38958[ebp]
 	mov	ecx, DWORD PTR [eax+1820]
-	mov	DWORD PTR _it$38858[ebp], ecx
+	mov	DWORD PTR _it$38958[ebp], ecx
 
-; 942  : 			}
+; 1145 : 			}
 
-	jmp	SHORT $L38860
-$L38861:
+	jmp	SHORT $L38960
+$L38961:
 
-; 943  : 		}
+; 1146 : 		}
 
-	jmp	SHORT $L38856
-$L38857:
+	jmp	SHORT $L38956
+$L38957:
 
-; 945  : 
-; 946  : 	return CGameRules::CanHavePlayerItem( pPlayer, pItem );
+; 1148 : 
+; 1149 : 	return CGameRules::CanHavePlayerItem( pPlayer, pItem );
 
 	mov	edx, DWORD PTR _pItem$[ebp]
 	push	edx
@@ -5839,9 +7210,9 @@ $L38857:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanHavePlayerItem@CGameRules@@UAEHPAVCBasePlayer@@PAVCBasePlayerItem@@@Z ; CGameRules::CanHavePlayerItem
-$L38851:
+$L38951:
 
-; 947  : }
+; 1150 : }
 
 	pop	edi
 	pop	esi
@@ -5856,7 +7227,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?CanHaveItem@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@PAVCItem@@@Z PROC NEAR ; CHalfLifeMultiplay::CanHaveItem, COMDAT
 
-; 952  : {
+; 1155 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5866,11 +7237,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 953  : 	return TRUE;
+; 1156 : 	return TRUE;
 
 	mov	eax, 1
 
-; 954  : }
+; 1157 : }
 
 	pop	edi
 	pop	esi
@@ -5885,7 +7256,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PlayerGotItem@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@PAVCItem@@@Z PROC NEAR ; CHalfLifeMultiplay::PlayerGotItem, COMDAT
 
-; 959  : {
+; 1162 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5895,7 +7266,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 960  : }
+; 1163 : }
 
 	pop	edi
 	pop	esi
@@ -5911,7 +7282,7 @@ _pItem$ = 8
 _this$ = -4
 ?ItemShouldRespawn@CHalfLifeMultiplay@@UAEHPAVCItem@@@Z PROC NEAR ; CHalfLifeMultiplay::ItemShouldRespawn, COMDAT
 
-; 965  : {
+; 1168 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5921,28 +7292,28 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 966  : 	if ( pItem->pev->spawnflags & SF_NORESPAWN )
+; 1169 : 	if ( pItem->pev->spawnflags & SF_NORESPAWN )
 
 	mov	eax, DWORD PTR _pItem$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 1073741824				; 40000000H
 	test	edx, edx
-	je	SHORT $L38877
+	je	SHORT $L38977
 
-; 968  : 		return GR_ITEM_RESPAWN_NO;
+; 1171 : 		return GR_ITEM_RESPAWN_NO;
 
 	mov	eax, 6
-	jmp	SHORT $L38876
-$L38877:
+	jmp	SHORT $L38976
+$L38977:
 
-; 970  : 
-; 971  : 	return GR_ITEM_RESPAWN_YES;
+; 1173 : 
+; 1174 : 	return GR_ITEM_RESPAWN_YES;
 
 	mov	eax, 5
-$L38876:
+$L38976:
 
-; 972  : }
+; 1175 : }
 
 	pop	edi
 	pop	esi
@@ -5963,7 +7334,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FlItemRespawnTime@CHalfLifeMultiplay@@UAEMPAVCItem@@@Z PROC NEAR ; CHalfLifeMultiplay::FlItemRespawnTime, COMDAT
 
-; 979  : {
+; 1182 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5973,13 +7344,13 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 980  : 	return gpGlobals->time + ITEM_RESPAWN_TIME;
+; 1183 : 	return gpGlobals->time + ITEM_RESPAWN_TIME;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
 	fadd	DWORD PTR __real@4@4003f000000000000000
 
-; 981  : }
+; 1184 : }
 
 	pop	edi
 	pop	esi
@@ -5996,7 +7367,7 @@ ___$ReturnUdt$ = 8
 _this$ = -4
 ?VecItemRespawnSpot@CHalfLifeMultiplay@@UAE?AVVector@@PAVCItem@@@Z PROC NEAR ; CHalfLifeMultiplay::VecItemRespawnSpot, COMDAT
 
-; 988  : {
+; 1191 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6006,7 +7377,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 989  : 	return pItem->GetAbsOrigin();
+; 1192 : 	return pItem->GetAbsOrigin();
 
 	mov	ecx, DWORD PTR _pItem$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -6015,7 +7386,7 @@ _this$ = -4
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 990  : }
+; 1193 : }
 
 	pop	edi
 	pop	esi
@@ -6030,7 +7401,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PlayerGotAmmo@CHalfLifeMultiplay@@UAEXPAVCBasePlayer@@PADH@Z PROC NEAR ; CHalfLifeMultiplay::PlayerGotAmmo, COMDAT
 
-; 995  : {
+; 1198 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6040,7 +7411,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 996  : }
+; 1199 : }
 
 	pop	edi
 	pop	esi
@@ -6055,7 +7426,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IsAllowedToSpawn@CHalfLifeMultiplay@@UAEHPAVCBaseEntity@@@Z PROC NEAR ; CHalfLifeMultiplay::IsAllowedToSpawn, COMDAT
 
-; 1001 : {
+; 1204 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6065,14 +7436,14 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1002 : //	if ( pEntity->pev->flags & FL_MONSTER )
-; 1003 : //		return FALSE;
-; 1004 : 
-; 1005 : 	return TRUE;
+; 1205 : //	if ( pEntity->pev->flags & FL_MONSTER )
+; 1206 : //		return FALSE;
+; 1207 : 
+; 1208 : 	return TRUE;
 
 	mov	eax, 1
 
-; 1006 : }
+; 1209 : }
 
 	pop	edi
 	pop	esi
@@ -6088,7 +7459,7 @@ _pAmmo$ = 8
 _this$ = -4
 ?AmmoShouldRespawn@CHalfLifeMultiplay@@UAEHPAVCBasePlayerAmmo@@@Z PROC NEAR ; CHalfLifeMultiplay::AmmoShouldRespawn, COMDAT
 
-; 1011 : {
+; 1214 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6098,28 +7469,28 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1012 : 	if ( pAmmo->pev->spawnflags & SF_NORESPAWN )
+; 1215 : 	if ( pAmmo->pev->spawnflags & SF_NORESPAWN )
 
 	mov	eax, DWORD PTR _pAmmo$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 1073741824				; 40000000H
 	test	edx, edx
-	je	SHORT $L38901
+	je	SHORT $L39001
 
-; 1014 : 		return GR_AMMO_RESPAWN_NO;
+; 1217 : 		return GR_AMMO_RESPAWN_NO;
 
 	mov	eax, 4
-	jmp	SHORT $L38900
-$L38901:
+	jmp	SHORT $L39000
+$L39001:
 
-; 1016 : 
-; 1017 : 	return GR_AMMO_RESPAWN_YES;
+; 1219 : 
+; 1220 : 	return GR_AMMO_RESPAWN_YES;
 
 	mov	eax, 3
-$L38900:
+$L39000:
 
-; 1018 : }
+; 1221 : }
 
 	pop	edi
 	pop	esi
@@ -6134,7 +7505,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FlAmmoRespawnTime@CHalfLifeMultiplay@@UAEMPAVCBasePlayerAmmo@@@Z PROC NEAR ; CHalfLifeMultiplay::FlAmmoRespawnTime, COMDAT
 
-; 1023 : {
+; 1226 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6144,13 +7515,13 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1024 : 	return gpGlobals->time + AMMO_RESPAWN_TIME;
+; 1227 : 	return gpGlobals->time + AMMO_RESPAWN_TIME;
 
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [eax]
 	fadd	DWORD PTR __real@4@4003a000000000000000
 
-; 1025 : }
+; 1228 : }
 
 	pop	edi
 	pop	esi
@@ -6167,7 +7538,7 @@ ___$ReturnUdt$ = 8
 _this$ = -4
 ?VecAmmoRespawnSpot@CHalfLifeMultiplay@@UAE?AVVector@@PAVCBasePlayerAmmo@@@Z PROC NEAR ; CHalfLifeMultiplay::VecAmmoRespawnSpot, COMDAT
 
-; 1030 : {
+; 1233 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6177,7 +7548,7 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1031 : 	return pAmmo->GetAbsOrigin();
+; 1234 : 	return pAmmo->GetAbsOrigin();
 
 	mov	ecx, DWORD PTR _pAmmo$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -6186,7 +7557,7 @@ _this$ = -4
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 1032 : }
+; 1235 : }
 
 	pop	edi
 	pop	esi
@@ -6201,7 +7572,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FlHealthChargerRechargeTime@CHalfLifeMultiplay@@UAEMXZ PROC NEAR ; CHalfLifeMultiplay::FlHealthChargerRechargeTime, COMDAT
 
-; 1037 : {
+; 1240 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6211,11 +7582,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1038 : 	return 60;
+; 1241 : 	return 60;
 
 	fld	DWORD PTR __real@4@4004f000000000000000
 
-; 1039 : }
+; 1242 : }
 
 	pop	edi
 	pop	esi
@@ -6230,7 +7601,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FlHEVChargerRechargeTime@CHalfLifeMultiplay@@UAEMXZ PROC NEAR ; CHalfLifeMultiplay::FlHEVChargerRechargeTime, COMDAT
 
-; 1043 : {
+; 1246 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6240,11 +7611,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1044 : 	return 30;
+; 1247 : 	return 30;
 
 	fld	DWORD PTR __real@4@4003f000000000000000
 
-; 1045 : }
+; 1248 : }
 
 	pop	edi
 	pop	esi
@@ -6259,7 +7630,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?DeadPlayerWeapons@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::DeadPlayerWeapons, COMDAT
 
-; 1050 : {
+; 1253 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6269,11 +7640,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1051 : 	return GR_PLR_DROP_GUN_ACTIVE;
+; 1254 : 	return GR_PLR_DROP_GUN_ACTIVE;
 
 	mov	eax, 8
 
-; 1052 : }
+; 1255 : }
 
 	pop	edi
 	pop	esi
@@ -6288,7 +7659,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?DeadPlayerAmmo@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::DeadPlayerAmmo, COMDAT
 
-; 1057 : {
+; 1260 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6298,11 +7669,11 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1058 : 	return GR_PLR_DROP_AMMO_ACTIVE;
+; 1261 : 	return GR_PLR_DROP_AMMO_ACTIVE;
 
 	mov	eax, 11					; 0000000bH
 
-; 1059 : }
+; 1262 : }
 
 	pop	edi
 	pop	esi
@@ -6319,7 +7690,7 @@ _this$ = -4
 _pentSpawnSpot$ = -8
 ?GetPlayerSpawnSpot@CHalfLifeMultiplay@@UAEPAUedict_s@@PAVCBasePlayer@@@Z PROC NEAR ; CHalfLifeMultiplay::GetPlayerSpawnSpot, COMDAT
 
-; 1062 : {
+; 1265 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6329,7 +7700,7 @@ _pentSpawnSpot$ = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1063 : 	edict_t *pentSpawnSpot = CGameRules::GetPlayerSpawnSpot( pPlayer );	
+; 1266 : 	edict_t *pentSpawnSpot = CGameRules::GetPlayerSpawnSpot( pPlayer );
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	push	eax
@@ -6337,19 +7708,19 @@ _pentSpawnSpot$ = -8
 	call	?GetPlayerSpawnSpot@CGameRules@@UAEPAUedict_s@@PAVCBasePlayer@@@Z ; CGameRules::GetPlayerSpawnSpot
 	mov	DWORD PTR _pentSpawnSpot$[ebp], eax
 
-; 1064 : 	if ( IsMultiplayer() && pentSpawnSpot->v.target )
+; 1267 : 	if ( IsMultiplayer() && pentSpawnSpot->v.target )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+24]
 	test	eax, eax
-	je	SHORT $L38932
+	je	SHORT $L39032
 	mov	eax, DWORD PTR _pentSpawnSpot$[ebp]
 	cmp	DWORD PTR [eax+584], 0
-	je	SHORT $L38932
+	je	SHORT $L39032
 
-; 1066 : 		UTIL_FireTargets( STRING(pentSpawnSpot->v.target), pPlayer, pPlayer, USE_TOGGLE, 0 );
+; 1269 : 		UTIL_FireTargets( STRING(pentSpawnSpot->v.target), pPlayer, pPlayer, USE_TOGGLE, 0 );
 
 	push	0
 	push	3
@@ -6365,14 +7736,14 @@ _pentSpawnSpot$ = -8
 	push	eax
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
-$L38932:
+$L39032:
 
-; 1068 : 
-; 1069 : 	return pentSpawnSpot;
+; 1271 : 
+; 1272 : 	return pentSpawnSpot;
 
 	mov	eax, DWORD PTR _pentSpawnSpot$[ebp]
 
-; 1070 : }
+; 1273 : }
 
 	pop	edi
 	pop	esi
@@ -6387,7 +7758,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PlayerRelationship@CHalfLifeMultiplay@@UAEHPAVCBaseEntity@@0@Z PROC NEAR ; CHalfLifeMultiplay::PlayerRelationship, COMDAT
 
-; 1076 : {
+; 1279 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6397,12 +7768,12 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1077 : 	// half life deathmatch has only enemies
-; 1078 : 	return GR_NOTTEAMMATE;
+; 1280 : 	// half life deathmatch has only enemies
+; 1281 : 	return GR_NOTTEAMMATE;
 
 	xor	eax, eax
 
-; 1079 : }
+; 1282 : }
 
 	pop	edi
 	pop	esi
@@ -6412,8 +7783,8 @@ _this$ = -4
 	ret	8
 ?PlayerRelationship@CHalfLifeMultiplay@@UAEHPAVCBaseEntity@@0@Z ENDP ; CHalfLifeMultiplay::PlayerRelationship
 _TEXT	ENDS
-PUBLIC	?Length2D@Vector@@QBEMXZ			; Vector::Length2D
 PUBLIC	__real@4@4006dc00000000000000
+PUBLIC	?Length2D@Vector@@QBEMXZ			; Vector::Length2D
 EXTRN	?g_footsteps@@3PAUcvar_s@@A:DWORD		; g_footsteps
 EXTRN	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsVelocity
 EXTRN	?IsOnLadder@CBasePlayer@@QAEHXZ:NEAR		; CBasePlayer::IsOnLadder
@@ -6428,7 +7799,7 @@ _pl$ = 8
 _this$ = -4
 ?PlayFootstepSounds@CHalfLifeMultiplay@@UAEHPAVCBasePlayer@@M@Z PROC NEAR ; CHalfLifeMultiplay::PlayFootstepSounds, COMDAT
 
-; 1082 : {
+; 1285 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6438,30 +7809,30 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1083 : 	if ( g_footsteps && g_footsteps->value == 0 )
+; 1286 : 	if ( g_footsteps && g_footsteps->value == 0 )
 
 	cmp	DWORD PTR ?g_footsteps@@3PAUcvar_s@@A, 0 ; g_footsteps
-	je	SHORT $L38943
+	je	SHORT $L39043
 	mov	eax, DWORD PTR ?g_footsteps@@3PAUcvar_s@@A ; g_footsteps
 	fld	DWORD PTR [eax+12]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38943
+	je	SHORT $L39043
 
-; 1084 : 		return FALSE;
+; 1287 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38942
-$L38943:
+	jmp	SHORT $L39042
+$L39043:
 
-; 1085 : 
-; 1086 : 	if ( pl->IsOnLadder() || pl->GetAbsVelocity().Length2D() > 220 )
+; 1288 : 
+; 1289 : 	if ( pl->IsOnLadder() || pl->GetAbsVelocity().Length2D() > 220 )
 
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?IsOnLadder@CBasePlayer@@QAEHXZ		; CBasePlayer::IsOnLadder
 	test	eax, eax
-	jne	SHORT $L38945
+	jne	SHORT $L39045
 	mov	ecx, DWORD PTR _pl$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	mov	ecx, eax
@@ -6469,22 +7840,22 @@ $L38943:
 	fcomp	DWORD PTR __real@4@4006dc00000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38944
-$L38945:
+	jne	SHORT $L39044
+$L39045:
 
-; 1087 : 		return TRUE;  // only make step sounds in multiplayer if the player is moving fast enough
+; 1290 : 		return TRUE;  // only make step sounds in multiplayer if the player is moving fast enough
 
 	mov	eax, 1
-	jmp	SHORT $L38942
-$L38944:
+	jmp	SHORT $L39042
+$L39044:
 
-; 1088 : 
-; 1089 : 	return FALSE;
+; 1291 : 
+; 1292 : 	return FALSE;
 
 	xor	eax, eax
-$L38942:
+$L39042:
 
-; 1090 : }
+; 1293 : }
 
 	pop	edi
 	pop	esi
@@ -6537,7 +7908,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FAllowFlashlight@CHalfLifeMultiplay@@UAEHXZ PROC NEAR	; CHalfLifeMultiplay::FAllowFlashlight, COMDAT
 
-; 1093 : { 
+; 1296 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6547,21 +7918,21 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1094 : 	return flashlight.value != 0; 
+; 1297 : 	return flashlight.value != 0;
 
 	fld	DWORD PTR ?flashlight@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L39787
+	jne	SHORT $L39975
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39788
-$L39787:
+	jmp	SHORT $L39976
+$L39975:
 	mov	DWORD PTR -8+[ebp], 0
-$L39788:
+$L39976:
 	mov	eax, DWORD PTR -8+[ebp]
 
-; 1095 : }
+; 1298 : }
 
 	pop	edi
 	pop	esi
@@ -6577,7 +7948,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?FAllowMonsters@CHalfLifeMultiplay@@UAEHXZ PROC NEAR	; CHalfLifeMultiplay::FAllowMonsters, COMDAT
 
-; 1100 : {
+; 1303 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6587,21 +7958,21 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1101 : 	return ( allowmonsters.value != 0 );
+; 1304 : 	return ( allowmonsters.value != 0 );
 
 	fld	DWORD PTR ?allowmonsters@@3Ucvar_s@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L39791
+	jne	SHORT $L39979
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39792
-$L39791:
+	jmp	SHORT $L39980
+$L39979:
 	mov	DWORD PTR -8+[ebp], 0
-$L39792:
+$L39980:
 	mov	eax, DWORD PTR -8+[ebp]
 
-; 1102 : }
+; 1305 : }
 
 	pop	edi
 	pop	esi
@@ -6617,7 +7988,7 @@ _this$ = -4
 _time$ = -8
 ?GoToIntermission@CHalfLifeMultiplay@@MAEXXZ PROC NEAR	; CHalfLifeMultiplay::GoToIntermission, COMDAT
 
-; 1109 : {
+; 1312 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6627,18 +7998,18 @@ _time$ = -8
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1110 : 	if ( g_fGameOver )
+; 1313 : 	if ( g_fGameOver )
 
 	cmp	DWORD PTR ?g_fGameOver@@3HA, 0		; g_fGameOver
-	je	SHORT $L38959
+	je	SHORT $L39059
 
-; 1111 : 		return;  // intermission has already been triggered, so ignore.
+; 1314 : 		return;  // intermission has already been triggered, so ignore.
 
-	jmp	$L38958
-$L38959:
+	jmp	$L39058
+$L39059:
 
-; 1112 : 
-; 1113 : 	MESSAGE_BEGIN(MSG_ALL, SVC_INTERMISSION);
+; 1315 : 
+; 1316 : 	MESSAGE_BEGIN(MSG_ALL, SVC_INTERMISSION);
 
 	push	0
 	push	0
@@ -6647,13 +8018,13 @@ $L38959:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 1114 : 	MESSAGE_END();
+; 1317 : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 1115 : 
-; 1116 : 	// bounds check
-; 1117 : 	int time = (int)CVAR_GET_FLOAT( "mp_chattime" );
+; 1318 : 
+; 1319 : 	// bounds check
+; 1320 : 	int time = (int)CVAR_GET_FLOAT( "mp_chattime" );
 
 	push	OFFSET FLAT:??_C@_0M@KANF@mp_chattime?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+228
@@ -6661,26 +8032,26 @@ $L38959:
 	call	__ftol
 	mov	DWORD PTR _time$[ebp], eax
 
-; 1118 : 	if ( time < 1 )
+; 1321 : 	if ( time < 1 )
 
 	cmp	DWORD PTR _time$[ebp], 1
-	jge	SHORT $L38962
+	jge	SHORT $L39062
 
-; 1119 : 		CVAR_SET_STRING( "mp_chattime", "1" );
+; 1322 : 		CVAR_SET_STRING( "mp_chattime", "1" );
 
 	push	OFFSET FLAT:??_C@_01FBAH@1?$AA@		; `string'
 	push	OFFSET FLAT:??_C@_0M@KANF@mp_chattime?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+240
 	add	esp, 8
 
-; 1120 : 	else if ( time > MAX_INTERMISSION_TIME )
+; 1323 : 	else if ( time > MAX_INTERMISSION_TIME )
 
-	jmp	SHORT $L38964
-$L38962:
+	jmp	SHORT $L39064
+$L39062:
 	cmp	DWORD PTR _time$[ebp], 120		; 00000078H
-	jle	SHORT $L38964
+	jle	SHORT $L39064
 
-; 1121 : 		CVAR_SET_STRING( "mp_chattime", UTIL_dtos1( MAX_INTERMISSION_TIME ) );
+; 1324 : 		CVAR_SET_STRING( "mp_chattime", UTIL_dtos1( MAX_INTERMISSION_TIME ) );
 
 	push	120					; 00000078H
 	call	?UTIL_dtos1@@YAPADH@Z			; UTIL_dtos1
@@ -6689,10 +8060,10 @@ $L38962:
 	push	OFFSET FLAT:??_C@_0M@KANF@mp_chattime?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+240
 	add	esp, 8
-$L38964:
+$L39064:
 
-; 1122 : 
-; 1123 : 	m_flIntermissionEndTime = gpGlobals->time + ( (int)mp_chattime.value );
+; 1325 : 
+; 1326 : 	m_flIntermissionEndTime = gpGlobals->time + ( (int)mp_chattime.value );
 
 	fld	DWORD PTR ?mp_chattime@@3Ucvar_s@@A+12
 	call	__ftol
@@ -6703,24 +8074,24 @@ $L38964:
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+4]
 
-; 1124 : 	g_flIntermissionStartTime = gpGlobals->time;
+; 1327 : 	g_flIntermissionStartTime = gpGlobals->time;
 
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR ?g_flIntermissionStartTime@@3MA, eax
 
-; 1125 : 
-; 1126 : 	g_fGameOver = TRUE;
+; 1328 : 
+; 1329 : 	g_fGameOver = TRUE;
 
 	mov	DWORD PTR ?g_fGameOver@@3HA, 1		; g_fGameOver
 
-; 1127 : 	m_iEndIntermissionButtonHit = FALSE;
+; 1330 : 	m_iEndIntermissionButtonHit = FALSE;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+8], 0
-$L38958:
+$L39058:
 
-; 1128 : }
+; 1331 : }
 
 	pop	edi
 	pop	esi
@@ -6734,15 +8105,15 @@ PUBLIC	?DestroyMapCycle@@YAXPAUmapcycle_s@@@Z		; DestroyMapCycle
 EXTRN	??3@YAXPAX@Z:NEAR				; operator delete
 ;	COMDAT ?DestroyMapCycle@@YAXPAUmapcycle_s@@@Z
 _TEXT	SEGMENT
+$T39985 = -16
+$T39986 = -20
 _cycle$ = 8
 _p$ = -4
 _n$ = -8
 _start$ = -12
-$T39797 = -16
-$T39798 = -20
 ?DestroyMapCycle@@YAXPAUmapcycle_s@@@Z PROC NEAR	; DestroyMapCycle, COMDAT
 
-; 1155 : {
+; 1358 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6751,84 +8122,84 @@ $T39798 = -20
 	push	esi
 	push	edi
 
-; 1156 : 	mapcycle_item_t *p, *n, *start;
-; 1157 : 	p = cycle->items;
+; 1359 : 	mapcycle_item_t *p, *n, *start;
+; 1360 : 	p = cycle->items;
 
 	mov	eax, DWORD PTR _cycle$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _p$[ebp], ecx
 
-; 1158 : 	if ( p )
+; 1361 : 	if ( p )
 
 	cmp	DWORD PTR _p$[ebp], 0
-	je	SHORT $L38998
+	je	SHORT $L39098
 
-; 1160 : 		start = p;
+; 1363 : 		start = p;
 
 	mov	edx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _start$[ebp], edx
 
-; 1161 : 		p = p->next;
+; 1364 : 		p = p->next;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _p$[ebp], ecx
-$L39000:
+$L39100:
 
-; 1162 : 		while ( p != start )
+; 1365 : 		while ( p != start )
 
 	mov	edx, DWORD PTR _p$[ebp]
 	cmp	edx, DWORD PTR _start$[ebp]
-	je	SHORT $L39001
+	je	SHORT $L39101
 
-; 1164 : 			n = p->next;
+; 1367 : 			n = p->next;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _n$[ebp], ecx
 
-; 1165 : 			delete p;
+; 1368 : 			delete p;
 
 	mov	edx, DWORD PTR _p$[ebp]
-	mov	DWORD PTR $T39797[ebp], edx
-	mov	eax, DWORD PTR $T39797[ebp]
+	mov	DWORD PTR $T39985[ebp], edx
+	mov	eax, DWORD PTR $T39985[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
 
-; 1166 : 			p = n;
+; 1369 : 			p = n;
 
 	mov	ecx, DWORD PTR _n$[ebp]
 	mov	DWORD PTR _p$[ebp], ecx
 
-; 1167 : 		}
+; 1370 : 		}
 
-	jmp	SHORT $L39000
-$L39001:
+	jmp	SHORT $L39100
+$L39101:
 
-; 1168 : 		
-; 1169 : 		delete cycle->items;
+; 1371 : 
+; 1372 : 		delete cycle->items;
 
 	mov	edx, DWORD PTR _cycle$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	DWORD PTR $T39798[ebp], eax
-	mov	ecx, DWORD PTR $T39798[ebp]
+	mov	DWORD PTR $T39986[ebp], eax
+	mov	ecx, DWORD PTR $T39986[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L38998:
+$L39098:
 
-; 1171 : 	cycle->items = NULL;
+; 1374 : 	cycle->items = NULL;
 
 	mov	edx, DWORD PTR _cycle$[ebp]
 	mov	DWORD PTR [edx], 0
 
-; 1172 : 	cycle->next_item = NULL;
+; 1375 : 	cycle->next_item = NULL;
 
 	mov	eax, DWORD PTR _cycle$[ebp]
 	mov	DWORD PTR [eax+4], 0
 
-; 1173 : }
+; 1376 : }
 
 	pop	edi
 	pop	esi
@@ -6866,6 +8237,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?ReloadMapCycleFile@@YAHPADPAUmapcycle_s@@@Z
 _TEXT	SEGMENT
+$T39989 = -1604
 _filename$ = 8
 _cycle$ = 12
 _szBuffer$ = -1024
@@ -6878,11 +8250,10 @@ _item$ = -1076
 _newlist$ = -1080
 _next$ = -1084
 _szToken$ = -1596
-_s$39027 = -1600
-$T39801 = -1604
+_s$39127 = -1600
 ?ReloadMapCycleFile@@YAHPADPAUmapcycle_s@@@Z PROC NEAR	; ReloadMapCycleFile, COMDAT
 
-; 1184 : {
+; 1387 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6891,11 +8262,11 @@ $T39801 = -1604
 	push	esi
 	push	edi
 
-; 1185 : 	char szBuffer[ MAX_RULE_BUFFER ];
-; 1186 : 	char szMap[ 32 ];
-; 1187 : 	int length;
-; 1188 : 	char *pFileList;
-; 1189 : 	char *aFileList = pFileList = (char*)LOAD_FILE( filename, &length );
+; 1388 : 	char szBuffer[ MAX_RULE_BUFFER ];
+; 1389 : 	char szMap[ 32 ];
+; 1390 : 	int length;
+; 1391 : 	char *pFileList;
+; 1392 : 	char *aFileList = pFileList = (char*)LOAD_FILE( filename, &length );
 
 	lea	eax, DWORD PTR _length$[ebp]
 	push	eax
@@ -6907,33 +8278,33 @@ $T39801 = -1604
 	mov	edx, DWORD PTR _pFileList$[ebp]
 	mov	DWORD PTR _aFileList$[ebp], edx
 
-; 1190 : 	int hasbuffer;
-; 1191 : 	mapcycle_item_s *item, *newlist = NULL, *next;
+; 1393 : 	int hasbuffer;
+; 1394 : 	mapcycle_item_s *item, *newlist = NULL, *next;
 
 	mov	DWORD PTR _newlist$[ebp], 0
 
-; 1192 : 	char szToken[512];
-; 1193 : 
-; 1194 : 	if ( pFileList && length )
+; 1395 : 	char szToken[512];
+; 1396 : 
+; 1397 : 	if ( pFileList && length )
 
 	cmp	DWORD PTR _pFileList$[ebp], 0
-	je	$L39019
+	je	$L39119
 	cmp	DWORD PTR _length$[ebp], 0
-	je	$L39019
-$L39021:
+	je	$L39119
+$L39121:
 
-; 1196 : 		// the first map name in the file becomes the default
-; 1197 : 		while ( 1 )
+; 1399 : 		// the first map name in the file becomes the default
+; 1400 : 		while ( 1 )
 
 	mov	eax, 1
 	test	eax, eax
-	je	$L39022
+	je	$L39122
 
-; 1199 : 			hasbuffer = 0;
+; 1402 : 			hasbuffer = 0;
 
 	mov	DWORD PTR _hasbuffer$[ebp], 0
 
-; 1200 : 			memset( szBuffer, 0, MAX_RULE_BUFFER );
+; 1403 : 			memset( szBuffer, 0, MAX_RULE_BUFFER );
 
 	push	1024					; 00000400H
 	push	0
@@ -6942,8 +8313,8 @@ $L39021:
 	call	_memset
 	add	esp, 12					; 0000000cH
 
-; 1201 : 
-; 1202 : 			pFileList = COM_ParseFile( pFileList, szToken );
+; 1404 : 
+; 1405 : 			pFileList = COM_ParseFile( pFileList, szToken );
 
 	push	1
 	push	512					; 00000200H
@@ -6955,22 +8326,22 @@ $L39021:
 	add	esp, 16					; 00000010H
 	mov	DWORD PTR _pFileList$[ebp], eax
 
-; 1203 : 			if ( strlen( szToken ) <= 0 )
+; 1406 : 			if ( strlen( szToken ) <= 0 )
 
 	lea	ecx, DWORD PTR _szToken$[ebp]
 	push	ecx
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	ja	SHORT $L39023
+	ja	SHORT $L39123
 
-; 1204 : 				break;
+; 1407 : 				break;
 
-	jmp	$L39022
-$L39023:
+	jmp	$L39122
+$L39123:
 
-; 1205 : 
-; 1206 : 			strcpy( szMap, szToken );
+; 1408 : 
+; 1409 : 			strcpy( szMap, szToken );
 
 	lea	edx, DWORD PTR _szToken$[ebp]
 	push	edx
@@ -6979,18 +8350,18 @@ $L39023:
 	call	_strcpy
 	add	esp, 8
 
-; 1207 : 
-; 1208 : 			// Any more tokens on this line?
-; 1209 : 			if ( COM_TokenWaiting( pFileList ) )
+; 1410 : 
+; 1411 : 			// Any more tokens on this line?
+; 1412 : 			if ( COM_TokenWaiting( pFileList ) )
 
 	mov	ecx, DWORD PTR _pFileList$[ebp]
 	push	ecx
 	call	?COM_TokenWaiting@@YAHPAD@Z		; COM_TokenWaiting
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L39025
+	je	SHORT $L39125
 
-; 1211 : 				pFileList = COM_ParseFile( pFileList, szToken );
+; 1414 : 				pFileList = COM_ParseFile( pFileList, szToken );
 
 	push	1
 	push	512					; 00000200H
@@ -7002,20 +8373,20 @@ $L39023:
 	add	esp, 16					; 00000010H
 	mov	DWORD PTR _pFileList$[ebp], eax
 
-; 1212 : 				if ( strlen( szToken ) > 0 )
+; 1415 : 				if ( strlen( szToken ) > 0 )
 
 	lea	ecx, DWORD PTR _szToken$[ebp]
 	push	ecx
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	jbe	SHORT $L39025
+	jbe	SHORT $L39125
 
-; 1214 : 					hasbuffer = 1;
+; 1417 : 					hasbuffer = 1;
 
 	mov	DWORD PTR _hasbuffer$[ebp], 1
 
-; 1215 : 					strcpy( szBuffer, szToken );
+; 1418 : 					strcpy( szBuffer, szToken );
 
 	lea	edx, DWORD PTR _szToken$[ebp]
 	push	edx
@@ -7023,33 +8394,33 @@ $L39023:
 	push	eax
 	call	_strcpy
 	add	esp, 8
-$L39025:
+$L39125:
 
-; 1218 : 
-; 1219 : 			// Check map
-; 1220 : 			if ( IS_MAP_VALID( szMap ) )
+; 1421 : 
+; 1422 : 			// Check map
+; 1423 : 			if ( IS_MAP_VALID( szMap ) )
 
 	lea	ecx, DWORD PTR _szMap$[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+440
 	add	esp, 4
 	test	eax, eax
-	je	$L39026
+	je	$L39126
 
-; 1222 : 				// Create entry
-; 1223 : 				char *s;
-; 1224 : 
-; 1225 : 				item = new mapcycle_item_s;
+; 1425 : 				// Create entry
+; 1426 : 				char *s;
+; 1427 : 
+; 1428 : 				item = new mapcycle_item_s;
 
 	push	1068					; 0000042cH
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39801[ebp], eax
-	mov	edx, DWORD PTR $T39801[ebp]
+	mov	DWORD PTR $T39989[ebp], eax
+	mov	edx, DWORD PTR $T39989[ebp]
 	mov	DWORD PTR _item$[ebp], edx
 
-; 1226 : 
-; 1227 : 				strcpy( item->mapname, szMap );
+; 1429 : 
+; 1430 : 				strcpy( item->mapname, szMap );
 
 	lea	eax, DWORD PTR _szMap$[ebp]
 	push	eax
@@ -7059,19 +8430,19 @@ $L39025:
 	call	_strcpy
 	add	esp, 8
 
-; 1228 : 
-; 1229 : 				item->minplayers = 0;
+; 1431 : 
+; 1432 : 				item->minplayers = 0;
 
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	DWORD PTR [edx+36], 0
 
-; 1230 : 				item->maxplayers = 0;
+; 1433 : 				item->maxplayers = 0;
 
 	mov	eax, DWORD PTR _item$[ebp]
 	mov	DWORD PTR [eax+40], 0
 
-; 1231 : 
-; 1232 : 				memset( item->rulebuffer, 0, MAX_RULE_BUFFER );
+; 1434 : 
+; 1435 : 				memset( item->rulebuffer, 0, MAX_RULE_BUFFER );
 
 	push	1024					; 00000400H
 	push	0
@@ -7081,144 +8452,144 @@ $L39025:
 	call	_memset
 	add	esp, 12					; 0000000cH
 
-; 1233 : 
-; 1234 : 				if ( hasbuffer )
+; 1436 : 
+; 1437 : 				if ( hasbuffer )
 
 	cmp	DWORD PTR _hasbuffer$[ebp], 0
-	je	$L39030
+	je	$L39130
 
-; 1236 : 					s = g_engfuncs.pfnInfoKeyValue( szBuffer, "minplayers" );
+; 1439 : 					s = g_engfuncs.pfnInfoKeyValue( szBuffer, "minplayers" );
 
 	push	OFFSET FLAT:??_C@_0L@MGMF@minplayers?$AA@ ; `string'
 	lea	edx, DWORD PTR _szBuffer$[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+428
 	add	esp, 8
-	mov	DWORD PTR _s$39027[ebp], eax
+	mov	DWORD PTR _s$39127[ebp], eax
 
-; 1237 : 					if ( s && s[0] )
+; 1440 : 					if ( s && s[0] )
 
-	cmp	DWORD PTR _s$39027[ebp], 0
-	je	$L39032
-	mov	eax, DWORD PTR _s$39027[ebp]
+	cmp	DWORD PTR _s$39127[ebp], 0
+	je	$L39132
+	mov	eax, DWORD PTR _s$39127[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	$L39032
+	je	$L39132
 
-; 1239 : 						item->minplayers = Q_atoi( s );
+; 1442 : 						item->minplayers = Q_atoi( s );
 
-	mov	edx, DWORD PTR _s$39027[ebp]
+	mov	edx, DWORD PTR _s$39127[ebp]
 	push	edx
 	call	?Q_atoi@@YAHPBD@Z			; Q_atoi
 	add	esp, 4
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	DWORD PTR [ecx+36], eax
 
-; 1240 : 						item->minplayers = Q_max( item->minplayers, 0 );
+; 1443 : 						item->minplayers = Q_max( item->minplayers, 0 );
 
 	mov	edx, DWORD PTR _item$[ebp]
 	cmp	DWORD PTR [edx+36], 0
-	jle	SHORT $L39802
+	jle	SHORT $L39990
 	mov	eax, DWORD PTR _item$[ebp]
 	mov	ecx, DWORD PTR [eax+36]
 	mov	DWORD PTR -1608+[ebp], ecx
-	jmp	SHORT $L39803
-$L39802:
+	jmp	SHORT $L39991
+$L39990:
 	mov	DWORD PTR -1608+[ebp], 0
-$L39803:
+$L39991:
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR -1608+[ebp]
 	mov	DWORD PTR [edx+36], eax
 
-; 1241 : 						item->minplayers = Q_min( item->minplayers, gpGlobals->maxClients );
+; 1444 : 						item->minplayers = Q_min( item->minplayers, gpGlobals->maxClients );
 
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR [ecx+36]
 	cmp	eax, DWORD PTR [edx+144]
-	jge	SHORT $L39804
+	jge	SHORT $L39992
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	mov	DWORD PTR -1612+[ebp], edx
-	jmp	SHORT $L39805
-$L39804:
+	jmp	SHORT $L39993
+$L39992:
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	ecx, DWORD PTR [eax+144]
 	mov	DWORD PTR -1612+[ebp], ecx
-$L39805:
+$L39993:
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR -1612+[ebp]
 	mov	DWORD PTR [edx+36], eax
-$L39032:
+$L39132:
 
-; 1243 : 					s = g_engfuncs.pfnInfoKeyValue( szBuffer, "maxplayers" );
+; 1446 : 					s = g_engfuncs.pfnInfoKeyValue( szBuffer, "maxplayers" );
 
 	push	OFFSET FLAT:??_C@_0L@OGIK@maxplayers?$AA@ ; `string'
 	lea	ecx, DWORD PTR _szBuffer$[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+428
 	add	esp, 8
-	mov	DWORD PTR _s$39027[ebp], eax
+	mov	DWORD PTR _s$39127[ebp], eax
 
-; 1244 : 					if ( s && s[0] )
+; 1447 : 					if ( s && s[0] )
 
-	cmp	DWORD PTR _s$39027[ebp], 0
-	je	$L39034
-	mov	edx, DWORD PTR _s$39027[ebp]
+	cmp	DWORD PTR _s$39127[ebp], 0
+	je	$L39134
+	mov	edx, DWORD PTR _s$39127[ebp]
 	movsx	eax, BYTE PTR [edx]
 	test	eax, eax
-	je	$L39034
+	je	$L39134
 
-; 1246 : 						item->maxplayers = atoi( s );
+; 1449 : 						item->maxplayers = atoi( s );
 
-	mov	ecx, DWORD PTR _s$39027[ebp]
+	mov	ecx, DWORD PTR _s$39127[ebp]
 	push	ecx
 	call	_atoi
 	add	esp, 4
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	DWORD PTR [edx+40], eax
 
-; 1247 : 						item->maxplayers = Q_max( item->maxplayers, 0 );
+; 1450 : 						item->maxplayers = Q_max( item->maxplayers, 0 );
 
 	mov	eax, DWORD PTR _item$[ebp]
 	cmp	DWORD PTR [eax+40], 0
-	jle	SHORT $L39806
+	jle	SHORT $L39994
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	edx, DWORD PTR [ecx+40]
 	mov	DWORD PTR -1616+[ebp], edx
-	jmp	SHORT $L39807
-$L39806:
+	jmp	SHORT $L39995
+$L39994:
 	mov	DWORD PTR -1616+[ebp], 0
-$L39807:
+$L39995:
 	mov	eax, DWORD PTR _item$[ebp]
 	mov	ecx, DWORD PTR -1616+[ebp]
 	mov	DWORD PTR [eax+40], ecx
 
-; 1248 : 						item->maxplayers = Q_min( item->maxplayers, gpGlobals->maxClients );
+; 1451 : 						item->maxplayers = Q_min( item->maxplayers, gpGlobals->maxClients );
 
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	ecx, DWORD PTR [edx+40]
 	cmp	ecx, DWORD PTR [eax+144]
-	jge	SHORT $L39808
+	jge	SHORT $L39996
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR [edx+40]
 	mov	DWORD PTR -1620+[ebp], eax
-	jmp	SHORT $L39809
-$L39808:
+	jmp	SHORT $L39997
+$L39996:
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR [ecx+144]
 	mov	DWORD PTR -1620+[ebp], edx
-$L39809:
+$L39997:
 	mov	eax, DWORD PTR _item$[ebp]
 	mov	ecx, DWORD PTR -1620+[ebp]
 	mov	DWORD PTR [eax+40], ecx
-$L39034:
+$L39134:
 
-; 1250 : 
-; 1251 : 					// Remove keys
-; 1252 : 					//
-; 1253 : 					g_engfuncs.pfnInfo_RemoveKey( szBuffer, "minplayers" );
+; 1453 : 
+; 1454 : 					// Remove keys
+; 1455 : 					//
+; 1456 : 					g_engfuncs.pfnInfo_RemoveKey( szBuffer, "minplayers" );
 
 	push	OFFSET FLAT:??_C@_0L@MGMF@minplayers?$AA@ ; `string'
 	lea	edx, DWORD PTR _szBuffer$[ebp]
@@ -7226,7 +8597,7 @@ $L39034:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+472
 	add	esp, 8
 
-; 1254 : 					g_engfuncs.pfnInfo_RemoveKey( szBuffer, "maxplayers" );
+; 1457 : 					g_engfuncs.pfnInfo_RemoveKey( szBuffer, "maxplayers" );
 
 	push	OFFSET FLAT:??_C@_0L@OGIK@maxplayers?$AA@ ; `string'
 	lea	eax, DWORD PTR _szBuffer$[ebp]
@@ -7234,8 +8605,8 @@ $L39034:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+472
 	add	esp, 8
 
-; 1255 : 
-; 1256 : 					strcpy( item->rulebuffer, szBuffer );
+; 1458 : 
+; 1459 : 					strcpy( item->rulebuffer, szBuffer );
 
 	lea	ecx, DWORD PTR _szBuffer$[ebp]
 	push	ecx
@@ -7244,28 +8615,28 @@ $L39034:
 	push	edx
 	call	_strcpy
 	add	esp, 8
-$L39030:
+$L39130:
 
-; 1258 : 
-; 1259 : 				item->next = cycle->items;
+; 1461 : 
+; 1462 : 				item->next = cycle->items;
 
 	mov	eax, DWORD PTR _item$[ebp]
 	mov	ecx, DWORD PTR _cycle$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
 
-; 1260 : 				cycle->items = item;
+; 1463 : 				cycle->items = item;
 
 	mov	eax, DWORD PTR _cycle$[ebp]
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	DWORD PTR [eax], ecx
 
-; 1262 : 			else
+; 1465 : 			else
 
-	jmp	SHORT $L39035
-$L39026:
+	jmp	SHORT $L39135
+$L39126:
 
-; 1264 : 				ALERT( at_console, "Skipping %s from mapcycle, not a valid map\n", szMap );
+; 1467 : 				ALERT( at_console, "Skipping %s from mapcycle, not a valid map\n", szMap );
 
 	lea	edx, DWORD PTR _szMap$[ebp]
 	push	edx
@@ -7273,131 +8644,131 @@ $L39026:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L39035:
+$L39135:
 
-; 1266 : 
-; 1267 : 		}
+; 1469 : 
+; 1470 : 		}
 
-	jmp	$L39021
-$L39022:
+	jmp	$L39121
+$L39122:
 
-; 1268 : 
-; 1269 : 		FREE_FILE( aFileList );
+; 1471 : 
+; 1472 : 		FREE_FILE( aFileList );
 
 	mov	eax, DWORD PTR _aFileList$[ebp]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+384
 	add	esp, 4
-$L39019:
+$L39119:
 
-; 1271 : 
-; 1272 : 	// Fixup circular list pointer
-; 1273 : 	item = cycle->items;
+; 1474 : 
+; 1475 : 	// Fixup circular list pointer
+; 1476 : 	item = cycle->items;
 
 	mov	ecx, DWORD PTR _cycle$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR _item$[ebp], edx
-$L39038:
+$L39138:
 
-; 1274 : 
-; 1275 : 	// Reverse it to get original order
-; 1276 : 	while ( item )
+; 1477 : 
+; 1478 : 	// Reverse it to get original order
+; 1479 : 	while ( item )
 
 	cmp	DWORD PTR _item$[ebp], 0
-	je	SHORT $L39039
+	je	SHORT $L39139
 
-; 1278 : 		next = item->next;
+; 1481 : 		next = item->next;
 
 	mov	eax, DWORD PTR _item$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _next$[ebp], ecx
 
-; 1279 : 		item->next = newlist;
+; 1482 : 		item->next = newlist;
 
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR _newlist$[ebp]
 	mov	DWORD PTR [edx], eax
 
-; 1280 : 		newlist = item;
+; 1483 : 		newlist = item;
 
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	DWORD PTR _newlist$[ebp], ecx
 
-; 1281 : 		item = next;
+; 1484 : 		item = next;
 
 	mov	edx, DWORD PTR _next$[ebp]
 	mov	DWORD PTR _item$[ebp], edx
 
-; 1282 : 	}
+; 1485 : 	}
 
-	jmp	SHORT $L39038
-$L39039:
+	jmp	SHORT $L39138
+$L39139:
 
-; 1283 : 	cycle->items = newlist;
+; 1486 : 	cycle->items = newlist;
 
 	mov	eax, DWORD PTR _cycle$[ebp]
 	mov	ecx, DWORD PTR _newlist$[ebp]
 	mov	DWORD PTR [eax], ecx
 
-; 1284 : 	item = cycle->items;
+; 1487 : 	item = cycle->items;
 
 	mov	edx, DWORD PTR _cycle$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR _item$[ebp], eax
 
-; 1285 : 
-; 1286 : 	// Didn't parse anything
-; 1287 : 	if ( !item )
+; 1488 : 
+; 1489 : 	// Didn't parse anything
+; 1490 : 	if ( !item )
 
 	cmp	DWORD PTR _item$[ebp], 0
-	jne	SHORT $L39040
+	jne	SHORT $L39140
 
-; 1289 : 		return 0;
+; 1492 : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L39007
-$L39040:
+	jmp	SHORT $L39107
+$L39140:
 
-; 1291 : 
-; 1292 : 	while ( item->next )
+; 1494 : 
+; 1495 : 	while ( item->next )
 
 	mov	ecx, DWORD PTR _item$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	je	SHORT $L39043
+	je	SHORT $L39143
 
-; 1294 : 		item = item->next;
+; 1497 : 		item = item->next;
 
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR _item$[ebp], eax
 
-; 1295 : 	}
+; 1498 : 	}
 
-	jmp	SHORT $L39040
-$L39043:
+	jmp	SHORT $L39140
+$L39143:
 
-; 1296 : 	item->next = cycle->items;
+; 1499 : 	item->next = cycle->items;
 
 	mov	ecx, DWORD PTR _item$[ebp]
 	mov	edx, DWORD PTR _cycle$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR [ecx], eax
 
-; 1297 : 	
-; 1298 : 	cycle->next_item = item->next;
+; 1500 : 
+; 1501 : 	cycle->next_item = item->next;
 
 	mov	ecx, DWORD PTR _cycle$[ebp]
 	mov	edx, DWORD PTR _item$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR [ecx+4], eax
 
-; 1299 : 
-; 1300 : 	return 1;
+; 1502 : 
+; 1503 : 	return 1;
 
 	mov	eax, 1
-$L39007:
+$L39107:
 
-; 1301 : }
+; 1504 : }
 
 	pop	edi
 	pop	esi
@@ -7412,10 +8783,10 @@ PUBLIC	?CountPlayers@@YAHXZ				; CountPlayers
 _TEXT	SEGMENT
 _num$ = -4
 _i$ = -8
-_pEnt$39052 = -12
+_pEnt$39152 = -12
 ?CountPlayers@@YAHXZ PROC NEAR				; CountPlayers, COMDAT
 
-; 1311 : {
+; 1514 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7424,57 +8795,57 @@ _pEnt$39052 = -12
 	push	esi
 	push	edi
 
-; 1312 : 	int	num = 0;
+; 1515 : 	int	num = 0;
 
 	mov	DWORD PTR _num$[ebp], 0
 
-; 1313 : 
-; 1314 : 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+; 1516 : 
+; 1517 : 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L39049
-$L39050:
+	jmp	SHORT $L39149
+$L39150:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L39049:
+$L39149:
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+144]
-	jg	SHORT $L39051
+	jg	SHORT $L39151
 
-; 1316 : 		CBaseEntity *pEnt = UTIL_PlayerByIndex( i );
+; 1519 : 		CBaseEntity *pEnt = UTIL_PlayerByIndex( i );
 
 	mov	eax, DWORD PTR _i$[ebp]
 	push	eax
 	call	?UTIL_PlayerByIndex@@YAPAVCBaseEntity@@H@Z ; UTIL_PlayerByIndex
 	add	esp, 4
-	mov	DWORD PTR _pEnt$39052[ebp], eax
+	mov	DWORD PTR _pEnt$39152[ebp], eax
 
-; 1317 : 
-; 1318 : 		if ( pEnt )
+; 1520 : 
+; 1521 : 		if ( pEnt )
 
-	cmp	DWORD PTR _pEnt$39052[ebp], 0
-	je	SHORT $L39053
+	cmp	DWORD PTR _pEnt$39152[ebp], 0
+	je	SHORT $L39153
 
-; 1320 : 			num = num + 1;
+; 1523 : 			num = num + 1;
 
 	mov	ecx, DWORD PTR _num$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _num$[ebp], ecx
-$L39053:
+$L39153:
 
-; 1322 : 	}
+; 1525 : 	}
 
-	jmp	SHORT $L39050
-$L39051:
+	jmp	SHORT $L39150
+$L39151:
 
-; 1323 : 
-; 1324 : 	return num;
+; 1526 : 
+; 1527 : 	return num;
 
 	mov	eax, DWORD PTR _num$[ebp]
 
-; 1325 : }
+; 1528 : }
 
 	pop	edi
 	pop	esi
@@ -7506,7 +8877,7 @@ _value$ = -1024
 _o$ = -1028
 ?ExtractCommandString@@YAXPAD0@Z PROC NEAR		; ExtractCommandString, COMDAT
 
-; 1336 : {
+; 1539 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7515,59 +8886,59 @@ _o$ = -1028
 	push	esi
 	push	edi
 
-; 1337 : 	// Now make rules happen
-; 1338 : 	char	pkey[512];
-; 1339 : 	char	value[512];	// use two buffers so compares
-; 1340 : 								// work without stomping on each other
-; 1341 : 	char	*o;
-; 1342 : 	
-; 1343 : 	if ( *s == '\\' )
+; 1540 : 	// Now make rules happen
+; 1541 : 	char	pkey[512];
+; 1542 : 	char	value[512];	// use two buffers so compares
+; 1543 : 								// work without stomping on each other
+; 1544 : 	char	*o;
+; 1545 : 
+; 1546 : 	if ( *s == '\\' )
 
 	mov	eax, DWORD PTR _s$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	cmp	ecx, 92					; 0000005cH
-	jne	SHORT $L39061
+	jne	SHORT $L39161
 
-; 1344 : 		s++;
+; 1547 : 		s++;
 
 	mov	edx, DWORD PTR _s$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _s$[ebp], edx
-$L39061:
+$L39161:
 
-; 1345 : 
-; 1346 : 	while (1)
+; 1548 : 
+; 1549 : 	while (1)
 
 	mov	eax, 1
 	test	eax, eax
-	je	$L39064
+	je	$L39164
 
-; 1348 : 		o = pkey;
+; 1551 : 		o = pkey;
 
 	lea	ecx, DWORD PTR _pkey$[ebp]
 	mov	DWORD PTR _o$[ebp], ecx
-$L39066:
+$L39166:
 
-; 1349 : 		while ( *s != '\\' )
+; 1552 : 		while ( *s != '\\' )
 
 	mov	edx, DWORD PTR _s$[ebp]
 	movsx	eax, BYTE PTR [edx]
 	cmp	eax, 92					; 0000005cH
-	je	SHORT $L39067
+	je	SHORT $L39167
 
-; 1351 : 			if ( !*s )
+; 1554 : 			if ( !*s )
 
 	mov	ecx, DWORD PTR _s$[ebp]
 	movsx	edx, BYTE PTR [ecx]
 	test	edx, edx
-	jne	SHORT $L39068
+	jne	SHORT $L39168
 
-; 1352 : 				return;
+; 1555 : 				return;
 
-	jmp	$L39057
-$L39068:
+	jmp	$L39157
+$L39168:
 
-; 1353 : 			*o++ = *s++;
+; 1556 : 			*o++ = *s++;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR _s$[ebp]
@@ -7580,54 +8951,54 @@ $L39068:
 	add	ecx, 1
 	mov	DWORD PTR _s$[ebp], ecx
 
-; 1354 : 		}
+; 1557 : 		}
 
-	jmp	SHORT $L39066
-$L39067:
+	jmp	SHORT $L39166
+$L39167:
 
-; 1355 : 		*o = 0;
+; 1558 : 		*o = 0;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	BYTE PTR [edx], 0
 
-; 1356 : 		s++;
+; 1559 : 		s++;
 
 	mov	eax, DWORD PTR _s$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _s$[ebp], eax
 
-; 1357 : 
-; 1358 : 		o = value;
+; 1560 : 
+; 1561 : 		o = value;
 
 	lea	ecx, DWORD PTR _value$[ebp]
 	mov	DWORD PTR _o$[ebp], ecx
-$L39070:
+$L39170:
 
-; 1359 : 
-; 1360 : 		while (*s != '\\' && *s)
+; 1562 : 
+; 1563 : 		while (*s != '\\' && *s)
 
 	mov	edx, DWORD PTR _s$[ebp]
 	movsx	eax, BYTE PTR [edx]
 	cmp	eax, 92					; 0000005cH
-	je	SHORT $L39071
+	je	SHORT $L39171
 	mov	ecx, DWORD PTR _s$[ebp]
 	movsx	edx, BYTE PTR [ecx]
 	test	edx, edx
-	je	SHORT $L39071
+	je	SHORT $L39171
 
-; 1362 : 			if (!*s)
+; 1565 : 			if (!*s)
 
 	mov	eax, DWORD PTR _s$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	jne	SHORT $L39072
+	jne	SHORT $L39172
 
-; 1363 : 				return;
+; 1566 : 				return;
 
-	jmp	$L39057
-$L39072:
+	jmp	$L39157
+$L39172:
 
-; 1364 : 			*o++ = *s++;
+; 1567 : 			*o++ = *s++;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR _s$[ebp]
@@ -7640,18 +9011,18 @@ $L39072:
 	add	eax, 1
 	mov	DWORD PTR _s$[ebp], eax
 
-; 1365 : 		}
+; 1568 : 		}
 
-	jmp	SHORT $L39070
-$L39071:
+	jmp	SHORT $L39170
+$L39171:
 
-; 1366 : 		*o = 0;
+; 1569 : 		*o = 0;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	BYTE PTR [ecx], 0
 
-; 1367 : 
-; 1368 : 		strcat( szCommand, pkey );
+; 1570 : 
+; 1571 : 		strcat( szCommand, pkey );
 
 	lea	edx, DWORD PTR _pkey$[ebp]
 	push	edx
@@ -7660,16 +9031,16 @@ $L39071:
 	call	_strcat
 	add	esp, 8
 
-; 1369 : 		if ( strlen( value ) > 0 )
+; 1572 : 		if ( strlen( value ) > 0 )
 
 	lea	ecx, DWORD PTR _value$[ebp]
 	push	ecx
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	jbe	SHORT $L39073
+	jbe	SHORT $L39173
 
-; 1371 : 			strcat( szCommand, " " );
+; 1574 : 			strcat( szCommand, " " );
 
 	push	OFFSET FLAT:??_C@_01FCOA@?5?$AA@	; `string'
 	mov	edx, DWORD PTR _szCommand$[ebp]
@@ -7677,7 +9048,7 @@ $L39071:
 	call	_strcat
 	add	esp, 8
 
-; 1372 : 			strcat( szCommand, value );
+; 1575 : 			strcat( szCommand, value );
 
 	lea	eax, DWORD PTR _value$[ebp]
 	push	eax
@@ -7685,9 +9056,9 @@ $L39071:
 	push	ecx
 	call	_strcat
 	add	esp, 8
-$L39073:
+$L39173:
 
-; 1374 : 		strcat( szCommand, "\n" );
+; 1577 : 		strcat( szCommand, "\n" );
 
 	push	OFFSET FLAT:??_C@_01BJG@?6?$AA@		; `string'
 	mov	edx, DWORD PTR _szCommand$[ebp]
@@ -7695,32 +9066,32 @@ $L39073:
 	call	_strcat
 	add	esp, 8
 
-; 1375 : 
-; 1376 : 		if (!*s)
+; 1578 : 
+; 1579 : 		if (!*s)
 
 	mov	eax, DWORD PTR _s$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	jne	SHORT $L39076
+	jne	SHORT $L39176
 
-; 1377 : 			return;
+; 1580 : 			return;
 
-	jmp	SHORT $L39057
-$L39076:
+	jmp	SHORT $L39157
+$L39176:
 
-; 1378 : 		s++;
+; 1581 : 		s++;
 
 	mov	edx, DWORD PTR _s$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _s$[ebp], edx
 
-; 1379 : 	}
+; 1582 : 	}
 
-	jmp	$L39061
-$L39064:
-$L39057:
+	jmp	$L39161
+$L39164:
+$L39157:
 
-; 1380 : }
+; 1583 : }
 
 	pop	edi
 	pop	esi
@@ -7751,7 +9122,7 @@ _BSS	ENDS
 ;	COMDAT ?__LINE__Var@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4FA
 ; File z:\xashxtsrc\server\multiplay_gamerules.cpp
 _DATA	SEGMENT
-?__LINE__Var@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4FA DW 056eH ; `CHalfLifeMultiplay::ChangeLevel'::`2'::__LINE__Var
+?__LINE__Var@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4FA DW 0639H ; `CHalfLifeMultiplay::ChangeLevel'::`2'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_05BFEK@hldm1?$AA@
 CONST	SEGMENT
@@ -7804,12 +9175,12 @@ _maxplayers$ = -3076
 _curplayers$ = -3080
 _do_cycle$ = -3084
 _mapcfile$ = -3088
-_keeplooking$39105 = -3092
-_found$39106 = -3096
-_item$39107 = -3100
+_keeplooking$39205 = -3092
+_found$39206 = -3096
+_item$39207 = -3100
 ?ChangeLevel@CHalfLifeMultiplay@@MAEXXZ PROC NEAR	; CHalfLifeMultiplay::ChangeLevel, COMDAT
 
-; 1390 : {
+; 1593 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7819,19 +9190,19 @@ _item$39107 = -3100
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1391 : 	static char szPreviousMapCycleFile[ 256 ];
-; 1392 : 	static mapcycle_t mapcycle;
-; 1393 : 
-; 1394 : 	char szNextMap[32];
-; 1395 : 	char szFirstMapInList[32];
-; 1396 : 	char szCommands[ 1500 ];
-; 1397 : 	char szRules[ 1500 ];
-; 1398 : 	int minplayers = 0, maxplayers = 0;
+; 1594 : 	static char szPreviousMapCycleFile[ 256 ];
+; 1595 : 	static mapcycle_t mapcycle;
+; 1596 : 
+; 1597 : 	char szNextMap[32];
+; 1598 : 	char szFirstMapInList[32];
+; 1599 : 	char szCommands[ 1500 ];
+; 1600 : 	char szRules[ 1500 ];
+; 1601 : 	int minplayers = 0, maxplayers = 0;
 
 	mov	DWORD PTR _minplayers$[ebp], 0
 	mov	DWORD PTR _maxplayers$[ebp], 0
 
-; 1399 : 	strcpy( szFirstMapInList, "hldm1" );  // the absolute default level is hldm1
+; 1602 : 	strcpy( szFirstMapInList, "hldm1" );  // the absolute default level is hldm1
 
 	push	OFFSET FLAT:??_C@_05BFEK@hldm1?$AA@	; `string'
 	lea	eax, DWORD PTR _szFirstMapInList$[ebp]
@@ -7839,22 +9210,22 @@ _item$39107 = -3100
 	call	_strcpy
 	add	esp, 8
 
-; 1400 : 
-; 1401 : 	int	curplayers;
-; 1402 : 	BOOL do_cycle = TRUE;
+; 1603 : 
+; 1604 : 	int	curplayers;
+; 1605 : 	BOOL do_cycle = TRUE;
 
 	mov	DWORD PTR _do_cycle$[ebp], 1
 
-; 1403 : 
-; 1404 : 	// find the map to change to
-; 1405 : 	char *mapcfile = (char*)CVAR_GET_STRING( "mapcyclefile" );
+; 1606 : 
+; 1607 : 	// find the map to change to
+; 1608 : 	char *mapcfile = (char*)CVAR_GET_STRING( "mapcyclefile" );
 
 	push	OFFSET FLAT:??_C@_0N@MLDJ@mapcyclefile?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+232
 	add	esp, 4
 	mov	DWORD PTR _mapcfile$[ebp], eax
 
-; 1406 : 	ASSERT( mapcfile != NULL );
+; 1609 : 	ASSERT( mapcfile != NULL );
 
 	push	0
 	movsx	ecx, WORD PTR ?__LINE__Var@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4FA ; `CHalfLifeMultiplay::ChangeLevel'::`2'::__LINE__Var
@@ -7869,24 +9240,24 @@ _item$39107 = -3100
 	call	?DBG_AssertFunction@@YAXHPBD0H0@Z	; DBG_AssertFunction
 	add	esp, 20					; 00000014H
 
-; 1407 : 
-; 1408 : 	szCommands[ 0 ] = '\0';
+; 1610 : 
+; 1611 : 	szCommands[ 0 ] = '\0';
 
 	mov	BYTE PTR _szCommands$[ebp], 0
 
-; 1409 : 	szRules[ 0 ] = '\0';
+; 1612 : 	szRules[ 0 ] = '\0';
 
 	mov	BYTE PTR _szRules$[ebp], 0
 
-; 1410 : 
-; 1411 : 	curplayers = CountPlayers();
+; 1613 : 
+; 1614 : 	curplayers = CountPlayers();
 
 	call	?CountPlayers@@YAHXZ			; CountPlayers
 	mov	DWORD PTR _curplayers$[ebp], eax
 
-; 1412 : 
-; 1413 : 	// Has the map cycle filename changed?
-; 1414 : 	if ( stricmp( mapcfile, szPreviousMapCycleFile ) )
+; 1615 : 
+; 1616 : 	// Has the map cycle filename changed?
+; 1617 : 	if ( stricmp( mapcfile, szPreviousMapCycleFile ) )
 
 	push	OFFSET FLAT:_?szPreviousMapCycleFile@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4PADA
 	mov	eax, DWORD PTR _mapcfile$[ebp]
@@ -7894,9 +9265,9 @@ _item$39107 = -3100
 	call	_stricmp
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L39101
+	je	SHORT $L39201
 
-; 1416 : 		strcpy( szPreviousMapCycleFile, mapcfile );
+; 1619 : 		strcpy( szPreviousMapCycleFile, mapcfile );
 
 	mov	ecx, DWORD PTR _mapcfile$[ebp]
 	push	ecx
@@ -7904,15 +9275,15 @@ _item$39107 = -3100
 	call	_strcpy
 	add	esp, 8
 
-; 1417 : 
-; 1418 : 		DestroyMapCycle( &mapcycle );
+; 1620 : 
+; 1621 : 		DestroyMapCycle( &mapcycle );
 
 	push	OFFSET FLAT:_?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A
 	call	?DestroyMapCycle@@YAXPAUmapcycle_s@@@Z	; DestroyMapCycle
 	add	esp, 4
 
-; 1419 : 
-; 1420 : 		if ( !ReloadMapCycleFile( mapcfile, &mapcycle ) || ( !mapcycle.items ) )
+; 1622 : 
+; 1623 : 		if ( !ReloadMapCycleFile( mapcfile, &mapcycle ) || ( !mapcycle.items ) )
 
 	push	OFFSET FLAT:_?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A
 	mov	edx, DWORD PTR _mapcfile$[ebp]
@@ -7920,12 +9291,12 @@ _item$39107 = -3100
 	call	?ReloadMapCycleFile@@YAHPADPAUmapcycle_s@@@Z ; ReloadMapCycleFile
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L39102
+	je	SHORT $L39202
 	cmp	DWORD PTR _?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A, 0
-	jne	SHORT $L39101
-$L39102:
+	jne	SHORT $L39201
+$L39202:
 
-; 1422 : 			ALERT( at_console, "Unable to load map cycle file %s\n", mapcfile );
+; 1625 : 			ALERT( at_console, "Unable to load map cycle file %s\n", mapcfile );
 
 	mov	eax, DWORD PTR _mapcfile$[ebp]
 	push	eax
@@ -7934,31 +9305,31 @@ $L39102:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
 
-; 1423 : 			do_cycle = FALSE;
+; 1626 : 			do_cycle = FALSE;
 
 	mov	DWORD PTR _do_cycle$[ebp], 0
-$L39101:
+$L39201:
 
-; 1426 : 
-; 1427 : 	if ( do_cycle && mapcycle.items )
+; 1629 : 
+; 1630 : 	if ( do_cycle && mapcycle.items )
 
 	cmp	DWORD PTR _do_cycle$[ebp], 0
-	je	$L39104
+	je	$L39204
 	cmp	DWORD PTR _?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A, 0
-	je	$L39104
+	je	$L39204
 
-; 1429 : 		BOOL keeplooking = FALSE;
+; 1632 : 		BOOL keeplooking = FALSE;
 
-	mov	DWORD PTR _keeplooking$39105[ebp], 0
+	mov	DWORD PTR _keeplooking$39205[ebp], 0
 
-; 1430 : 		BOOL found = FALSE;
+; 1633 : 		BOOL found = FALSE;
 
-	mov	DWORD PTR _found$39106[ebp], 0
+	mov	DWORD PTR _found$39206[ebp], 0
 
-; 1431 : 		mapcycle_item_s *item;
-; 1432 : 
-; 1433 : 		// Assume current map
-; 1434 : 		strcpy( szNextMap, STRING(gpGlobals->mapname) );
+; 1634 : 		mapcycle_item_s *item;
+; 1635 : 
+; 1636 : 		// Assume current map
+; 1637 : 		strcpy( szNextMap, STRING(gpGlobals->mapname) );
 
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR [ecx+12]
@@ -7971,7 +9342,7 @@ $L39101:
 	call	_strcpy
 	add	esp, 8
 
-; 1435 : 		strcpy( szFirstMapInList, STRING(gpGlobals->mapname) );
+; 1638 : 		strcpy( szFirstMapInList, STRING(gpGlobals->mapname) );
 
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR [ecx+12]
@@ -7984,29 +9355,29 @@ $L39101:
 	call	_strcpy
 	add	esp, 8
 
-; 1436 : 
-; 1437 : 		// Traverse list
-; 1438 : 		for ( item = mapcycle.next_item; item->next != mapcycle.next_item; item = item->next )
+; 1639 : 
+; 1640 : 		// Traverse list
+; 1641 : 		for ( item = mapcycle.next_item; item->next != mapcycle.next_item; item = item->next )
 
 	mov	ecx, DWORD PTR _?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A+4
-	mov	DWORD PTR _item$39107[ebp], ecx
-	jmp	SHORT $L39108
-$L39109:
-	mov	edx, DWORD PTR _item$39107[ebp]
+	mov	DWORD PTR _item$39207[ebp], ecx
+	jmp	SHORT $L39208
+$L39209:
+	mov	edx, DWORD PTR _item$39207[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	DWORD PTR _item$39107[ebp], eax
-$L39108:
-	mov	ecx, DWORD PTR _item$39107[ebp]
+	mov	DWORD PTR _item$39207[ebp], eax
+$L39208:
+	mov	ecx, DWORD PTR _item$39207[ebp]
 	mov	edx, DWORD PTR [ecx]
 	cmp	edx, DWORD PTR _?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A+4
-	je	$L39110
+	je	$L39210
 
-; 1440 : 			keeplooking = FALSE;
+; 1643 : 			keeplooking = FALSE;
 
-	mov	DWORD PTR _keeplooking$39105[ebp], 0
+	mov	DWORD PTR _keeplooking$39205[ebp], 0
 
-; 1441 : 
-; 1442 : 			ASSERT( item != NULL );
+; 1644 : 
+; 1645 : 			ASSERT( item != NULL );
 
 	push	0
 	movsx	eax, WORD PTR ?__LINE__Var@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4FA ; `CHalfLifeMultiplay::ChangeLevel'::`2'::__LINE__Var
@@ -8015,122 +9386,122 @@ $L39108:
 	push	OFFSET FLAT:??_C@_0CM@PBEP@z?3?2xashxtsrc?2server?2multiplay_ga@ ; `string'
 	push	OFFSET FLAT:??_C@_0N@PDME@item?5?$CB?$DN?5NULL?$AA@ ; `string'
 	xor	ecx, ecx
-	cmp	DWORD PTR _item$39107[ebp], 0
+	cmp	DWORD PTR _item$39207[ebp], 0
 	setne	cl
 	push	ecx
 	call	?DBG_AssertFunction@@YAXHPBD0H0@Z	; DBG_AssertFunction
 	add	esp, 20					; 00000014H
 
-; 1443 : 
-; 1444 : 			if ( item->minplayers != 0 )
+; 1646 : 
+; 1647 : 			if ( item->minplayers != 0 )
 
-	mov	edx, DWORD PTR _item$39107[ebp]
+	mov	edx, DWORD PTR _item$39207[ebp]
 	cmp	DWORD PTR [edx+36], 0
-	je	SHORT $L39114
+	je	SHORT $L39214
 
-; 1446 : 				if ( curplayers >= item->minplayers )
+; 1649 : 				if ( curplayers >= item->minplayers )
 
-	mov	eax, DWORD PTR _item$39107[ebp]
+	mov	eax, DWORD PTR _item$39207[ebp]
 	mov	ecx, DWORD PTR _curplayers$[ebp]
 	cmp	ecx, DWORD PTR [eax+36]
-	jl	SHORT $L39113
+	jl	SHORT $L39213
 
-; 1448 : 					found = TRUE;
+; 1651 : 					found = TRUE;
 
-	mov	DWORD PTR _found$39106[ebp], 1
+	mov	DWORD PTR _found$39206[ebp], 1
 
-; 1449 : 					minplayers = item->minplayers;
+; 1652 : 					minplayers = item->minplayers;
 
-	mov	edx, DWORD PTR _item$39107[ebp]
+	mov	edx, DWORD PTR _item$39207[ebp]
 	mov	eax, DWORD PTR [edx+36]
 	mov	DWORD PTR _minplayers$[ebp], eax
 
-; 1451 : 				else
+; 1654 : 				else
 
-	jmp	SHORT $L39114
-$L39113:
+	jmp	SHORT $L39214
+$L39213:
 
-; 1453 : 					keeplooking = TRUE;
+; 1656 : 					keeplooking = TRUE;
 
-	mov	DWORD PTR _keeplooking$39105[ebp], 1
-$L39114:
+	mov	DWORD PTR _keeplooking$39205[ebp], 1
+$L39214:
 
-; 1456 : 
-; 1457 : 			if ( item->maxplayers != 0 )
+; 1659 : 
+; 1660 : 			if ( item->maxplayers != 0 )
 
-	mov	ecx, DWORD PTR _item$39107[ebp]
+	mov	ecx, DWORD PTR _item$39207[ebp]
 	cmp	DWORD PTR [ecx+40], 0
-	je	SHORT $L39117
+	je	SHORT $L39217
 
-; 1459 : 				if ( curplayers <= item->maxplayers )
+; 1662 : 				if ( curplayers <= item->maxplayers )
 
-	mov	edx, DWORD PTR _item$39107[ebp]
+	mov	edx, DWORD PTR _item$39207[ebp]
 	mov	eax, DWORD PTR _curplayers$[ebp]
 	cmp	eax, DWORD PTR [edx+40]
-	jg	SHORT $L39116
+	jg	SHORT $L39216
 
-; 1461 : 					found = TRUE;
+; 1664 : 					found = TRUE;
 
-	mov	DWORD PTR _found$39106[ebp], 1
+	mov	DWORD PTR _found$39206[ebp], 1
 
-; 1462 : 					maxplayers = item->maxplayers;
+; 1665 : 					maxplayers = item->maxplayers;
 
-	mov	ecx, DWORD PTR _item$39107[ebp]
+	mov	ecx, DWORD PTR _item$39207[ebp]
 	mov	edx, DWORD PTR [ecx+40]
 	mov	DWORD PTR _maxplayers$[ebp], edx
 
-; 1464 : 				else
+; 1667 : 				else
 
-	jmp	SHORT $L39117
-$L39116:
+	jmp	SHORT $L39217
+$L39216:
 
-; 1466 : 					keeplooking = TRUE;
+; 1669 : 					keeplooking = TRUE;
 
-	mov	DWORD PTR _keeplooking$39105[ebp], 1
-$L39117:
+	mov	DWORD PTR _keeplooking$39205[ebp], 1
+$L39217:
 
-; 1469 : 
-; 1470 : 			if ( keeplooking )
+; 1672 : 
+; 1673 : 			if ( keeplooking )
 
-	cmp	DWORD PTR _keeplooking$39105[ebp], 0
-	je	SHORT $L39118
+	cmp	DWORD PTR _keeplooking$39205[ebp], 0
+	je	SHORT $L39218
 
-; 1471 : 				continue;
+; 1674 : 				continue;
 
-	jmp	$L39109
-$L39118:
+	jmp	$L39209
+$L39218:
 
-; 1472 : 
-; 1473 : 			found = TRUE;
+; 1675 : 
+; 1676 : 			found = TRUE;
 
-	mov	DWORD PTR _found$39106[ebp], 1
-$L39110:
+	mov	DWORD PTR _found$39206[ebp], 1
+$L39210:
 
-; 1476 : 
-; 1477 : 		if ( !found )
+; 1679 : 
+; 1680 : 		if ( !found )
 
-	cmp	DWORD PTR _found$39106[ebp], 0
-	jne	SHORT $L39119
+	cmp	DWORD PTR _found$39206[ebp], 0
+	jne	SHORT $L39219
 
-; 1479 : 			item = mapcycle.next_item;
+; 1682 : 			item = mapcycle.next_item;
 
 	mov	eax, DWORD PTR _?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A+4
-	mov	DWORD PTR _item$39107[ebp], eax
-$L39119:
+	mov	DWORD PTR _item$39207[ebp], eax
+$L39219:
 
-; 1481 : 		
-; 1482 : 		// Increment next item pointer
-; 1483 : 		mapcycle.next_item = item->next;
+; 1684 : 
+; 1685 : 		// Increment next item pointer
+; 1686 : 		mapcycle.next_item = item->next;
 
-	mov	ecx, DWORD PTR _item$39107[ebp]
+	mov	ecx, DWORD PTR _item$39207[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR _?mapcycle@?1??ChangeLevel@CHalfLifeMultiplay@@MAEXXZ@4Umapcycle_s@@A+4, edx
 
-; 1484 : 
-; 1485 : 		// Perform logic on current item
-; 1486 : 		strcpy( szNextMap, item->mapname );
+; 1687 : 
+; 1688 : 		// Perform logic on current item
+; 1689 : 		strcpy( szNextMap, item->mapname );
 
-	mov	eax, DWORD PTR _item$39107[ebp]
+	mov	eax, DWORD PTR _item$39207[ebp]
 	add	eax, 4
 	push	eax
 	lea	ecx, DWORD PTR _szNextMap$[ebp]
@@ -8138,39 +9509,39 @@ $L39119:
 	call	_strcpy
 	add	esp, 8
 
-; 1487 : 
-; 1488 : 		ExtractCommandString( item->rulebuffer, szCommands );
+; 1690 : 
+; 1691 : 		ExtractCommandString( item->rulebuffer, szCommands );
 
 	lea	edx, DWORD PTR _szCommands$[ebp]
 	push	edx
-	mov	eax, DWORD PTR _item$39107[ebp]
+	mov	eax, DWORD PTR _item$39207[ebp]
 	add	eax, 44					; 0000002cH
 	push	eax
 	call	?ExtractCommandString@@YAXPAD0@Z	; ExtractCommandString
 	add	esp, 8
 
-; 1489 : 		strcpy( szRules, item->rulebuffer );
+; 1692 : 		strcpy( szRules, item->rulebuffer );
 
-	mov	ecx, DWORD PTR _item$39107[ebp]
+	mov	ecx, DWORD PTR _item$39207[ebp]
 	add	ecx, 44					; 0000002cH
 	push	ecx
 	lea	edx, DWORD PTR _szRules$[ebp]
 	push	edx
 	call	_strcpy
 	add	esp, 8
-$L39104:
+$L39204:
 
-; 1491 : 
-; 1492 : 	if ( !IS_MAP_VALID(szNextMap) )
+; 1694 : 
+; 1695 : 	if ( !IS_MAP_VALID(szNextMap) )
 
 	lea	eax, DWORD PTR _szNextMap$[ebp]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+440
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L39120
+	jne	SHORT $L39220
 
-; 1494 : 		strcpy( szNextMap, szFirstMapInList );
+; 1697 : 		strcpy( szNextMap, szFirstMapInList );
 
 	lea	ecx, DWORD PTR _szFirstMapInList$[ebp]
 	push	ecx
@@ -8178,15 +9549,15 @@ $L39104:
 	push	edx
 	call	_strcpy
 	add	esp, 8
-$L39120:
+$L39220:
 
-; 1496 : 
-; 1497 : 	g_fGameOver = TRUE;
+; 1699 : 
+; 1700 : 	g_fGameOver = TRUE;
 
 	mov	DWORD PTR ?g_fGameOver@@3HA, 1		; g_fGameOver
 
-; 1498 : 
-; 1499 : 	ALERT( at_console, "CHANGE LEVEL: %s\n", szNextMap );
+; 1701 : 
+; 1702 : 	ALERT( at_console, "CHANGE LEVEL: %s\n", szNextMap );
 
 	lea	eax, DWORD PTR _szNextMap$[ebp]
 	push	eax
@@ -8195,15 +9566,15 @@ $L39120:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
 
-; 1500 : 	if ( minplayers || maxplayers )
+; 1703 : 	if ( minplayers || maxplayers )
 
 	cmp	DWORD PTR _minplayers$[ebp], 0
-	jne	SHORT $L39123
+	jne	SHORT $L39223
 	cmp	DWORD PTR _maxplayers$[ebp], 0
-	je	SHORT $L39122
-$L39123:
+	je	SHORT $L39222
+$L39223:
 
-; 1502 : 		ALERT( at_console, "PLAYER COUNT:  min %i max %i current %i\n", minplayers, maxplayers, curplayers );
+; 1705 : 		ALERT( at_console, "PLAYER COUNT:  min %i max %i current %i\n", minplayers, maxplayers, curplayers );
 
 	mov	ecx, DWORD PTR _curplayers$[ebp]
 	push	ecx
@@ -8215,18 +9586,18 @@ $L39123:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 20					; 00000014H
-$L39122:
+$L39222:
 
-; 1504 : 	if ( strlen( szRules ) > 0 )
+; 1707 : 	if ( strlen( szRules ) > 0 )
 
 	lea	ecx, DWORD PTR _szRules$[ebp]
 	push	ecx
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	jbe	SHORT $L39125
+	jbe	SHORT $L39225
 
-; 1506 : 		ALERT( at_console, "RULES:  %s\n", szRules );
+; 1709 : 		ALERT( at_console, "RULES:  %s\n", szRules );
 
 	lea	edx, DWORD PTR _szRules$[ebp]
 	push	edx
@@ -8234,10 +9605,10 @@ $L39122:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L39125:
+$L39225:
 
-; 1508 : 	
-; 1509 : 	CHANGE_LEVEL( szNextMap, NULL );
+; 1711 : 
+; 1712 : 	CHANGE_LEVEL( szNextMap, NULL );
 
 	push	0
 	lea	eax, DWORD PTR _szNextMap$[ebp]
@@ -8245,24 +9616,24 @@ $L39125:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+24
 	add	esp, 8
 
-; 1510 : 	if ( strlen( szCommands ) > 0 )
+; 1713 : 	if ( strlen( szCommands ) > 0 )
 
 	lea	ecx, DWORD PTR _szCommands$[ebp]
 	push	ecx
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	jbe	SHORT $L39127
+	jbe	SHORT $L39227
 
-; 1512 : 		SERVER_COMMAND( szCommands );
+; 1715 : 		SERVER_COMMAND( szCommands );
 
 	lea	edx, DWORD PTR _szCommands$[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+156
 	add	esp, 4
-$L39127:
+$L39227:
 
-; 1514 : }
+; 1717 : }
 
 	pop	edi
 	pop	esi
@@ -8294,10 +9665,10 @@ _length$ = -8
 _char_count$ = -12
 _pFileList$ = -16
 _aFileList$ = -20
-_chunk$39145 = -84
+_chunk$39245 = -84
 ?SendMOTDToClient@CHalfLifeMultiplay@@IAEXPAUedict_s@@@Z PROC NEAR ; CHalfLifeMultiplay::SendMOTDToClient, COMDAT
 
-; 1520 : {
+; 1723 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -8307,13 +9678,13 @@ _chunk$39145 = -84
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 1521 : 	// read from the MOTD.txt file
-; 1522 : 	int length, char_count = 0;
+; 1724 : 	// read from the MOTD.txt file
+; 1725 : 	int length, char_count = 0;
 
 	mov	DWORD PTR _char_count$[ebp], 0
 
-; 1523 : 	char *pFileList;
-; 1524 : 	char *aFileList = pFileList = (char*)LOAD_FILE( (char *)CVAR_GET_STRING( "motdfile" ), &length );
+; 1726 : 	char *pFileList;
+; 1727 : 	char *aFileList = pFileList = (char*)LOAD_FILE( (char *)CVAR_GET_STRING( "motdfile" ), &length );
 
 	lea	eax, DWORD PTR _length$[ebp]
 	push	eax
@@ -8327,9 +9698,9 @@ _chunk$39145 = -84
 	mov	ecx, DWORD PTR _pFileList$[ebp]
 	mov	DWORD PTR _aFileList$[ebp], ecx
 
-; 1525 : 
-; 1526 : 	// send the server name
-; 1527 : 	MESSAGE_BEGIN( MSG_ONE, gmsgServerName, NULL, client );
+; 1728 : 
+; 1729 : 	// send the server name
+; 1730 : 	MESSAGE_BEGIN( MSG_ONE, gmsgServerName, NULL, client );
 
 	mov	edx, DWORD PTR _client$[ebp]
 	push	edx
@@ -8340,7 +9711,7 @@ _chunk$39145 = -84
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 1528 : 		WRITE_STRING( CVAR_GET_STRING("hostname") );
+; 1731 : 		WRITE_STRING( CVAR_GET_STRING("hostname") );
 
 	push	OFFSET FLAT:??_C@_08NNNB@hostname?$AA@	; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+232
@@ -8349,70 +9720,70 @@ _chunk$39145 = -84
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+216
 	add	esp, 4
 
-; 1529 : 	MESSAGE_END();
+; 1732 : 	MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
-$L39143:
+$L39243:
 
-; 1530 : 
-; 1531 : 	// Send the message of the day
-; 1532 : 	// read it chunk-by-chunk,  and send it in parts
-; 1533 : 
-; 1534 : 	while ( pFileList && *pFileList && char_count < MAX_MOTD_LENGTH )
+; 1733 : 
+; 1734 : 	// Send the message of the day
+; 1735 : 	// read it chunk-by-chunk,  and send it in parts
+; 1736 : 
+; 1737 : 	while ( pFileList && *pFileList && char_count < MAX_MOTD_LENGTH )
 
 	cmp	DWORD PTR _pFileList$[ebp], 0
-	je	$L39144
+	je	$L39244
 	mov	ecx, DWORD PTR _pFileList$[ebp]
 	movsx	edx, BYTE PTR [ecx]
 	test	edx, edx
-	je	$L39144
+	je	$L39244
 	cmp	DWORD PTR _char_count$[ebp], 1536	; 00000600H
-	jge	$L39144
+	jge	$L39244
 
-; 1536 : 		char chunk[MAX_MOTD_CHUNK+1];
-; 1537 : 		
-; 1538 : 		if ( strlen( pFileList ) < MAX_MOTD_CHUNK )
+; 1739 : 		char chunk[MAX_MOTD_CHUNK+1];
+; 1740 : 
+; 1741 : 		if ( strlen( pFileList ) < MAX_MOTD_CHUNK )
 
 	mov	eax, DWORD PTR _pFileList$[ebp]
 	push	eax
 	call	_strlen
 	add	esp, 4
 	cmp	eax, 60					; 0000003cH
-	jae	SHORT $L39146
+	jae	SHORT $L39246
 
-; 1540 : 			strcpy( chunk, pFileList );
+; 1743 : 			strcpy( chunk, pFileList );
 
 	mov	ecx, DWORD PTR _pFileList$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _chunk$39145[ebp]
+	lea	edx, DWORD PTR _chunk$39245[ebp]
 	push	edx
 	call	_strcpy
 	add	esp, 8
 
-; 1542 : 		else
+; 1745 : 		else
 
-	jmp	SHORT $L39147
-$L39146:
+	jmp	SHORT $L39247
+$L39246:
 
-; 1544 : 			strncpy( chunk, pFileList, MAX_MOTD_CHUNK );
+; 1747 : 			strncpy( chunk, pFileList, MAX_MOTD_CHUNK );
 
 	push	60					; 0000003cH
 	mov	eax, DWORD PTR _pFileList$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _chunk$39145[ebp]
+	lea	ecx, DWORD PTR _chunk$39245[ebp]
 	push	ecx
 	call	_strncpy
 	add	esp, 12					; 0000000cH
 
-; 1545 : 			chunk[MAX_MOTD_CHUNK] = 0;		// strncpy doesn't always append the null terminator
+; 1748 : 			chunk[MAX_MOTD_CHUNK] = 0;		// strncpy doesn't always append the null terminator
 
-	mov	BYTE PTR _chunk$39145[ebp+60], 0
-$L39147:
+	mov	BYTE PTR _chunk$39245[ebp+60], 0
+$L39247:
 
-; 1547 : 
-; 1548 : 		char_count += strlen( chunk );
+; 1750 : 
+; 1751 : 		char_count += strlen( chunk );
 
-	lea	edx, DWORD PTR _chunk$39145[ebp]
+	lea	edx, DWORD PTR _chunk$39245[ebp]
 	push	edx
 	call	_strlen
 	add	esp, 4
@@ -8420,30 +9791,30 @@ $L39147:
 	add	ecx, eax
 	mov	DWORD PTR _char_count$[ebp], ecx
 
-; 1549 : 		if ( char_count < MAX_MOTD_LENGTH )
+; 1752 : 		if ( char_count < MAX_MOTD_LENGTH )
 
 	cmp	DWORD PTR _char_count$[ebp], 1536	; 00000600H
-	jge	SHORT $L39148
+	jge	SHORT $L39248
 
-; 1550 : 			pFileList = aFileList + char_count; 
+; 1753 : 			pFileList = aFileList + char_count;
 
 	mov	edx, DWORD PTR _aFileList$[ebp]
 	add	edx, DWORD PTR _char_count$[ebp]
 	mov	DWORD PTR _pFileList$[ebp], edx
 
-; 1551 : 		else
+; 1754 : 		else
 
-	jmp	SHORT $L39149
-$L39148:
+	jmp	SHORT $L39249
+$L39248:
 
-; 1552 : 			*pFileList = 0;
+; 1755 : 			*pFileList = 0;
 
 	mov	eax, DWORD PTR _pFileList$[ebp]
 	mov	BYTE PTR [eax], 0
-$L39149:
+$L39249:
 
-; 1553 : 
-; 1554 : 		MESSAGE_BEGIN( MSG_ONE, gmsgMOTD, NULL, client );
+; 1756 : 
+; 1757 : 		MESSAGE_BEGIN( MSG_ONE, gmsgMOTD, NULL, client );
 
 	mov	ecx, DWORD PTR _client$[ebp]
 	push	ecx
@@ -8454,7 +9825,7 @@ $L39149:
 	call	?MESSAGE_BEGIN@@YAXHHPBMPAUedict_s@@@Z	; MESSAGE_BEGIN
 	add	esp, 16					; 00000010H
 
-; 1555 : 			WRITE_BYTE( *pFileList ? FALSE : TRUE );	// FALSE means there is still more message to come
+; 1758 : 			WRITE_BYTE( *pFileList ? FALSE : TRUE );	// FALSE means there is still more message to come
 
 	mov	eax, DWORD PTR _pFileList$[ebp]
 	movsx	ecx, BYTE PTR [eax]
@@ -8465,31 +9836,31 @@ $L39149:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+192
 	add	esp, 4
 
-; 1556 : 			WRITE_STRING( chunk );
+; 1759 : 			WRITE_STRING( chunk );
 
-	lea	edx, DWORD PTR _chunk$39145[ebp]
+	lea	edx, DWORD PTR _chunk$39245[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+216
 	add	esp, 4
 
-; 1557 : 		MESSAGE_END();
+; 1760 : 		MESSAGE_END();
 
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+188
 
-; 1558 : 	}
+; 1761 : 	}
 
-	jmp	$L39143
-$L39144:
+	jmp	$L39243
+$L39244:
 
-; 1559 : 
-; 1560 : 	FREE_FILE( aFileList );
+; 1762 : 
+; 1763 : 	FREE_FILE( aFileList );
 
 	mov	eax, DWORD PTR _aFileList$[ebp]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+384
 	add	esp, 4
 
-; 1561 : }
+; 1764 : }
 
 	pop	edi
 	pop	esi

@@ -331,7 +331,7 @@ void W_Precache(void)
 	UTIL_PrecacheOtherWeapon( "weapon_crowbar" );
 
 	// axe
-	//UTIL_PrecacheOtherWeapon( "weapon_axe" );
+	UTIL_PrecacheOtherWeapon( "weapon_axe" );
 
 	//chainsaw
 	//UTIL_PrecacheOtherWeapon( "weapon_chainsaw" );

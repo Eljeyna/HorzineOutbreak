@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -158,7 +158,8 @@ void CHandGrenade::WeaponIdle( void )
 
 		Vector vecSrc = m_pPlayer->EyePosition() + gpGlobals->v_forward * 16;
 
-		Vector vecThrow = gpGlobals->v_forward * flVel + m_pPlayer->GetAbsVelocity();
+		//Vector vecThrow = gpGlobals->v_forward * flVel + m_pPlayer->GetAbsVelocity();
+		Vector vecThrow = gpGlobals->v_forward * flVel * 1.75 + m_pPlayer->GetAbsVelocity();
 
 		// alway explode 3 seconds after the pin was pulled
 		float time = m_flStartThrow - gpGlobals->time + 3.0;
@@ -227,7 +228,7 @@ void CHandGrenade::WeaponIdle( void )
 			iAnim = HANDGRENADE_IDLE;
 			m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
 		}
-		else 
+		else
 		{
 			iAnim = HANDGRENADE_FIDGET;
 			m_flTimeWeaponIdle = gpGlobals->time + 75.0 / 30.0;

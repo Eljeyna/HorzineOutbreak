@@ -603,6 +603,51 @@ CONST	ENDS
 ;	COMDAT ??_C@_0BA@PGNL@sk_plr_crowbar3?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
+;	COMDAT ??_C@_0BF@MBHM@sk_plr_crowbar_stab1?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@DOMF@sk_plr_crowbar_stab2?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@JEFC@sk_plr_crowbar_stab3?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0M@FFDJ@sk_plr_axe1?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0M@KKIA@sk_plr_axe2?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0M@BH@sk_plr_axe3?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@NNMF@sk_plr_axe_sec1?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@CCHM@sk_plr_axe_sec2?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@IIOL@sk_plr_axe_sec3?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@BAEG@sk_plr_chainsaw1?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@OPPP@sk_plr_chainsaw2?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@EFGI@sk_plr_chainsaw3?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@IJNP@sk_plr_chainsaw_sec1?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HGGG@sk_plr_chainsaw_sec2?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@NMPB@sk_plr_chainsaw_sec3?$AA@
+CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
+CONST	ENDS
 ;	COMDAT ??_C@_0BD@IFOA@sk_plr_9mm_bullet1?$AA@
 CONST	SEGMENT DWORD USE32 PUBLIC 'CONST'
 CONST	ENDS
@@ -1290,6 +1335,36 @@ _TEXT	ENDS
 FLAT	GROUP _DATA, CONST, _BSS
 	ASSUME	CS: FLAT, DS: FLAT, SS: FLAT
 endif
+PUBLIC	??_C@_0BC@BMLD@sk_monster_chest2?$AA@		; `string'
+PUBLIC	?sk_monster_chest3@@3Ucvar_s@@A			; sk_monster_chest3
+PUBLIC	??_C@_0BC@LGCE@sk_monster_chest3?$AA@		; `string'
+PUBLIC	?sk_monster_stomach1@@3Ucvar_s@@A		; sk_monster_stomach1
+PUBLIC	??_C@_0BE@HDLO@sk_monster_stomach1?$AA@		; `string'
+PUBLIC	?sk_monster_stomach2@@3Ucvar_s@@A		; sk_monster_stomach2
+PUBLIC	??_C@_0BE@IMAH@sk_monster_stomach2?$AA@		; `string'
+PUBLIC	?sk_monster_stomach3@@3Ucvar_s@@A		; sk_monster_stomach3
+PUBLIC	??_C@_0BE@CGJA@sk_monster_stomach3?$AA@		; `string'
+PUBLIC	?sk_monster_arm1@@3Ucvar_s@@A			; sk_monster_arm1
+PUBLIC	??_C@_0BA@HFLM@sk_monster_arm1?$AA@		; `string'
+PUBLIC	?sk_monster_arm2@@3Ucvar_s@@A			; sk_monster_arm2
+PUBLIC	??_C@_0BA@IKAF@sk_monster_arm2?$AA@		; `string'
+PUBLIC	?sk_monster_arm3@@3Ucvar_s@@A			; sk_monster_arm3
+PUBLIC	??_C@_0BA@CAJC@sk_monster_arm3?$AA@		; `string'
+PUBLIC	?sk_monster_leg1@@3Ucvar_s@@A			; sk_monster_leg1
+PUBLIC	??_C@_0BA@OIDM@sk_monster_leg1?$AA@		; `string'
+PUBLIC	?sk_monster_leg2@@3Ucvar_s@@A			; sk_monster_leg2
+PUBLIC	??_C@_0BA@BHIF@sk_monster_leg2?$AA@		; `string'
+PUBLIC	?sk_monster_leg3@@3Ucvar_s@@A			; sk_monster_leg3
+PUBLIC	??_C@_0BA@LNBC@sk_monster_leg3?$AA@		; `string'
+PUBLIC	?sk_player_head1@@3Ucvar_s@@A			; sk_player_head1
+PUBLIC	??_C@_0BA@NBKO@sk_player_head1?$AA@		; `string'
+PUBLIC	?sk_player_head2@@3Ucvar_s@@A			; sk_player_head2
+PUBLIC	??_C@_0BA@COBH@sk_player_head2?$AA@		; `string'
+PUBLIC	?sk_player_head3@@3Ucvar_s@@A			; sk_player_head3
+PUBLIC	??_C@_0BA@IEIA@sk_player_head3?$AA@		; `string'
+PUBLIC	?sk_player_chest1@@3Ucvar_s@@A			; sk_player_chest1
+PUBLIC	??_C@_0BB@FLEL@sk_player_chest1?$AA@		; `string'
+PUBLIC	?sk_player_chest2@@3Ucvar_s@@A			; sk_player_chest2
 PUBLIC	??_C@_0BB@KEPC@sk_player_chest2?$AA@		; `string'
 PUBLIC	?sk_player_chest3@@3Ucvar_s@@A			; sk_player_chest3
 PUBLIC	??_C@_0BB@OGF@sk_player_chest3?$AA@		; `string'
@@ -1671,6 +1746,36 @@ PUBLIC	?sk_plr_crowbar2@@3Ucvar_s@@A			; sk_plr_crowbar2
 PUBLIC	??_C@_0BA@FMEM@sk_plr_crowbar2?$AA@		; `string'
 PUBLIC	?sk_plr_crowbar3@@3Ucvar_s@@A			; sk_plr_crowbar3
 PUBLIC	??_C@_0BA@PGNL@sk_plr_crowbar3?$AA@		; `string'
+PUBLIC	?sk_plr_crowbar_stab1@@3Ucvar_s@@A		; sk_plr_crowbar_stab1
+PUBLIC	??_C@_0BF@MBHM@sk_plr_crowbar_stab1?$AA@	; `string'
+PUBLIC	?sk_plr_crowbar_stab2@@3Ucvar_s@@A		; sk_plr_crowbar_stab2
+PUBLIC	??_C@_0BF@DOMF@sk_plr_crowbar_stab2?$AA@	; `string'
+PUBLIC	?sk_plr_crowbar_stab3@@3Ucvar_s@@A		; sk_plr_crowbar_stab3
+PUBLIC	??_C@_0BF@JEFC@sk_plr_crowbar_stab3?$AA@	; `string'
+PUBLIC	?sk_plr_axe1@@3Ucvar_s@@A			; sk_plr_axe1
+PUBLIC	??_C@_0M@FFDJ@sk_plr_axe1?$AA@			; `string'
+PUBLIC	?sk_plr_axe2@@3Ucvar_s@@A			; sk_plr_axe2
+PUBLIC	??_C@_0M@KKIA@sk_plr_axe2?$AA@			; `string'
+PUBLIC	?sk_plr_axe3@@3Ucvar_s@@A			; sk_plr_axe3
+PUBLIC	??_C@_0M@BH@sk_plr_axe3?$AA@			; `string'
+PUBLIC	?sk_plr_axe_sec1@@3Ucvar_s@@A			; sk_plr_axe_sec1
+PUBLIC	??_C@_0BA@NNMF@sk_plr_axe_sec1?$AA@		; `string'
+PUBLIC	?sk_plr_axe_sec2@@3Ucvar_s@@A			; sk_plr_axe_sec2
+PUBLIC	??_C@_0BA@CCHM@sk_plr_axe_sec2?$AA@		; `string'
+PUBLIC	?sk_plr_axe_sec3@@3Ucvar_s@@A			; sk_plr_axe_sec3
+PUBLIC	??_C@_0BA@IIOL@sk_plr_axe_sec3?$AA@		; `string'
+PUBLIC	?sk_plr_chainsaw1@@3Ucvar_s@@A			; sk_plr_chainsaw1
+PUBLIC	??_C@_0BB@BAEG@sk_plr_chainsaw1?$AA@		; `string'
+PUBLIC	?sk_plr_chainsaw2@@3Ucvar_s@@A			; sk_plr_chainsaw2
+PUBLIC	??_C@_0BB@OPPP@sk_plr_chainsaw2?$AA@		; `string'
+PUBLIC	?sk_plr_chainsaw3@@3Ucvar_s@@A			; sk_plr_chainsaw3
+PUBLIC	??_C@_0BB@EFGI@sk_plr_chainsaw3?$AA@		; `string'
+PUBLIC	?sk_plr_chainsaw_sec1@@3Ucvar_s@@A		; sk_plr_chainsaw_sec1
+PUBLIC	??_C@_0BF@IJNP@sk_plr_chainsaw_sec1?$AA@	; `string'
+PUBLIC	?sk_plr_chainsaw_sec2@@3Ucvar_s@@A		; sk_plr_chainsaw_sec2
+PUBLIC	??_C@_0BF@HGGG@sk_plr_chainsaw_sec2?$AA@	; `string'
+PUBLIC	?sk_plr_chainsaw_sec3@@3Ucvar_s@@A		; sk_plr_chainsaw_sec3
+PUBLIC	??_C@_0BF@NMPB@sk_plr_chainsaw_sec3?$AA@	; `string'
 PUBLIC	?sk_plr_9mm_bullet1@@3Ucvar_s@@A		; sk_plr_9mm_bullet1
 PUBLIC	??_C@_0BD@IFOA@sk_plr_9mm_bullet1?$AA@		; `string'
 PUBLIC	?sk_plr_9mm_bullet2@@3Ucvar_s@@A		; sk_plr_9mm_bullet2
@@ -1819,36 +1924,6 @@ PUBLIC	??_C@_0BB@MFCP@sk_monster_head3?$AA@		; `string'
 PUBLIC	?sk_monster_chest1@@3Ucvar_s@@A			; sk_monster_chest1
 PUBLIC	??_C@_0BC@ODAK@sk_monster_chest1?$AA@		; `string'
 PUBLIC	?sk_monster_chest2@@3Ucvar_s@@A			; sk_monster_chest2
-PUBLIC	??_C@_0BC@BMLD@sk_monster_chest2?$AA@		; `string'
-PUBLIC	?sk_monster_chest3@@3Ucvar_s@@A			; sk_monster_chest3
-PUBLIC	??_C@_0BC@LGCE@sk_monster_chest3?$AA@		; `string'
-PUBLIC	?sk_monster_stomach1@@3Ucvar_s@@A		; sk_monster_stomach1
-PUBLIC	??_C@_0BE@HDLO@sk_monster_stomach1?$AA@		; `string'
-PUBLIC	?sk_monster_stomach2@@3Ucvar_s@@A		; sk_monster_stomach2
-PUBLIC	??_C@_0BE@IMAH@sk_monster_stomach2?$AA@		; `string'
-PUBLIC	?sk_monster_stomach3@@3Ucvar_s@@A		; sk_monster_stomach3
-PUBLIC	??_C@_0BE@CGJA@sk_monster_stomach3?$AA@		; `string'
-PUBLIC	?sk_monster_arm1@@3Ucvar_s@@A			; sk_monster_arm1
-PUBLIC	??_C@_0BA@HFLM@sk_monster_arm1?$AA@		; `string'
-PUBLIC	?sk_monster_arm2@@3Ucvar_s@@A			; sk_monster_arm2
-PUBLIC	??_C@_0BA@IKAF@sk_monster_arm2?$AA@		; `string'
-PUBLIC	?sk_monster_arm3@@3Ucvar_s@@A			; sk_monster_arm3
-PUBLIC	??_C@_0BA@CAJC@sk_monster_arm3?$AA@		; `string'
-PUBLIC	?sk_monster_leg1@@3Ucvar_s@@A			; sk_monster_leg1
-PUBLIC	??_C@_0BA@OIDM@sk_monster_leg1?$AA@		; `string'
-PUBLIC	?sk_monster_leg2@@3Ucvar_s@@A			; sk_monster_leg2
-PUBLIC	??_C@_0BA@BHIF@sk_monster_leg2?$AA@		; `string'
-PUBLIC	?sk_monster_leg3@@3Ucvar_s@@A			; sk_monster_leg3
-PUBLIC	??_C@_0BA@LNBC@sk_monster_leg3?$AA@		; `string'
-PUBLIC	?sk_player_head1@@3Ucvar_s@@A			; sk_player_head1
-PUBLIC	??_C@_0BA@NBKO@sk_player_head1?$AA@		; `string'
-PUBLIC	?sk_player_head2@@3Ucvar_s@@A			; sk_player_head2
-PUBLIC	??_C@_0BA@COBH@sk_player_head2?$AA@		; `string'
-PUBLIC	?sk_player_head3@@3Ucvar_s@@A			; sk_player_head3
-PUBLIC	??_C@_0BA@IEIA@sk_player_head3?$AA@		; `string'
-PUBLIC	?sk_player_chest1@@3Ucvar_s@@A			; sk_player_chest1
-PUBLIC	??_C@_0BB@FLEL@sk_player_chest1?$AA@		; `string'
-PUBLIC	?sk_player_chest2@@3Ucvar_s@@A			; sk_player_chest2
 _BSS	SEGMENT
 ?g_psv_gravity@@3PAUcvar_s@@A DD 01H DUP (?)		; g_psv_gravity
 ?g_psv_aim@@3PAUcvar_s@@A DD 01H DUP (?)		; g_psv_aim
@@ -2564,6 +2639,66 @@ _DATA	SEGMENT
 	ORG $+12
 	ORG $+4
 ?sk_plr_crowbar3@@3Ucvar_s@@A DD FLAT:??_C@_0BA@PGNL@sk_plr_crowbar3?$AA@ ; sk_plr_crowbar3
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_crowbar_stab1@@3Ucvar_s@@A DD FLAT:??_C@_0BF@MBHM@sk_plr_crowbar_stab1?$AA@ ; sk_plr_crowbar_stab1
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_crowbar_stab2@@3Ucvar_s@@A DD FLAT:??_C@_0BF@DOMF@sk_plr_crowbar_stab2?$AA@ ; sk_plr_crowbar_stab2
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_crowbar_stab3@@3Ucvar_s@@A DD FLAT:??_C@_0BF@JEFC@sk_plr_crowbar_stab3?$AA@ ; sk_plr_crowbar_stab3
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_axe1@@3Ucvar_s@@A DD FLAT:??_C@_0M@FFDJ@sk_plr_axe1?$AA@ ; sk_plr_axe1
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_axe2@@3Ucvar_s@@A DD FLAT:??_C@_0M@KKIA@sk_plr_axe2?$AA@ ; sk_plr_axe2
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_axe3@@3Ucvar_s@@A DD FLAT:??_C@_0M@BH@sk_plr_axe3?$AA@ ; sk_plr_axe3
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_axe_sec1@@3Ucvar_s@@A DD FLAT:??_C@_0BA@NNMF@sk_plr_axe_sec1?$AA@ ; sk_plr_axe_sec1
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_axe_sec2@@3Ucvar_s@@A DD FLAT:??_C@_0BA@CCHM@sk_plr_axe_sec2?$AA@ ; sk_plr_axe_sec2
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_axe_sec3@@3Ucvar_s@@A DD FLAT:??_C@_0BA@IIOL@sk_plr_axe_sec3?$AA@ ; sk_plr_axe_sec3
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_chainsaw1@@3Ucvar_s@@A DD FLAT:??_C@_0BB@BAEG@sk_plr_chainsaw1?$AA@ ; sk_plr_chainsaw1
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_chainsaw2@@3Ucvar_s@@A DD FLAT:??_C@_0BB@OPPP@sk_plr_chainsaw2?$AA@ ; sk_plr_chainsaw2
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_chainsaw3@@3Ucvar_s@@A DD FLAT:??_C@_0BB@EFGI@sk_plr_chainsaw3?$AA@ ; sk_plr_chainsaw3
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_chainsaw_sec1@@3Ucvar_s@@A DD FLAT:??_C@_0BF@IJNP@sk_plr_chainsaw_sec1?$AA@ ; sk_plr_chainsaw_sec1
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_chainsaw_sec2@@3Ucvar_s@@A DD FLAT:??_C@_0BF@HGGG@sk_plr_chainsaw_sec2?$AA@ ; sk_plr_chainsaw_sec2
+	DD	FLAT:??_C@_01PLJA@0?$AA@
+	ORG $+12
+	ORG $+4
+?sk_plr_chainsaw_sec3@@3Ucvar_s@@A DD FLAT:??_C@_0BF@NMPB@sk_plr_chainsaw_sec3?$AA@ ; sk_plr_chainsaw_sec3
 	DD	FLAT:??_C@_01PLJA@0?$AA@
 	ORG $+12
 	ORG $+4
@@ -3698,6 +3833,66 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0BA@PGNL@sk_plr_crowbar3?$AA@ DB 'sk_plr_crowbar3', 00H ; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0BF@MBHM@sk_plr_crowbar_stab1?$AA@
+CONST	SEGMENT
+??_C@_0BF@MBHM@sk_plr_crowbar_stab1?$AA@ DB 'sk_plr_crowbar_stab1', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@DOMF@sk_plr_crowbar_stab2?$AA@
+CONST	SEGMENT
+??_C@_0BF@DOMF@sk_plr_crowbar_stab2?$AA@ DB 'sk_plr_crowbar_stab2', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@JEFC@sk_plr_crowbar_stab3?$AA@
+CONST	SEGMENT
+??_C@_0BF@JEFC@sk_plr_crowbar_stab3?$AA@ DB 'sk_plr_crowbar_stab3', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0M@FFDJ@sk_plr_axe1?$AA@
+CONST	SEGMENT
+??_C@_0M@FFDJ@sk_plr_axe1?$AA@ DB 'sk_plr_axe1', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0M@KKIA@sk_plr_axe2?$AA@
+CONST	SEGMENT
+??_C@_0M@KKIA@sk_plr_axe2?$AA@ DB 'sk_plr_axe2', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0M@BH@sk_plr_axe3?$AA@
+CONST	SEGMENT
+??_C@_0M@BH@sk_plr_axe3?$AA@ DB 'sk_plr_axe3', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@NNMF@sk_plr_axe_sec1?$AA@
+CONST	SEGMENT
+??_C@_0BA@NNMF@sk_plr_axe_sec1?$AA@ DB 'sk_plr_axe_sec1', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@CCHM@sk_plr_axe_sec2?$AA@
+CONST	SEGMENT
+??_C@_0BA@CCHM@sk_plr_axe_sec2?$AA@ DB 'sk_plr_axe_sec2', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@IIOL@sk_plr_axe_sec3?$AA@
+CONST	SEGMENT
+??_C@_0BA@IIOL@sk_plr_axe_sec3?$AA@ DB 'sk_plr_axe_sec3', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@BAEG@sk_plr_chainsaw1?$AA@
+CONST	SEGMENT
+??_C@_0BB@BAEG@sk_plr_chainsaw1?$AA@ DB 'sk_plr_chainsaw1', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@OPPP@sk_plr_chainsaw2?$AA@
+CONST	SEGMENT
+??_C@_0BB@OPPP@sk_plr_chainsaw2?$AA@ DB 'sk_plr_chainsaw2', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BB@EFGI@sk_plr_chainsaw3?$AA@
+CONST	SEGMENT
+??_C@_0BB@EFGI@sk_plr_chainsaw3?$AA@ DB 'sk_plr_chainsaw3', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@IJNP@sk_plr_chainsaw_sec1?$AA@
+CONST	SEGMENT
+??_C@_0BF@IJNP@sk_plr_chainsaw_sec1?$AA@ DB 'sk_plr_chainsaw_sec1', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@HGGG@sk_plr_chainsaw_sec2?$AA@
+CONST	SEGMENT
+??_C@_0BF@HGGG@sk_plr_chainsaw_sec2?$AA@ DB 'sk_plr_chainsaw_sec2', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BF@NMPB@sk_plr_chainsaw_sec3?$AA@
+CONST	SEGMENT
+??_C@_0BF@NMPB@sk_plr_chainsaw_sec3?$AA@ DB 'sk_plr_chainsaw_sec3', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0BD@IFOA@sk_plr_9mm_bullet1?$AA@
 CONST	SEGMENT
 ??_C@_0BD@IFOA@sk_plr_9mm_bullet1?$AA@ DB 'sk_plr_9mm_bullet1', 00H ; `string'
@@ -4154,10 +4349,10 @@ CONST	ENDS
 _TEXT	SEGMENT
 _pEdict$ = -4
 _i$ = -8
-_pEntity$36895 = -12
+_pEntity$36925 = -12
 ?Cmd_ShowTriggers_f@@YAXXZ PROC NEAR			; Cmd_ShowTriggers_f, COMDAT
 
-; 463  : {
+; 488  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4166,157 +4361,157 @@ _pEntity$36895 = -12
 	push	esi
 	push	edi
 
-; 464  : 	edict_t *pEdict = INDEXENT( 1 );
+; 489  : 	edict_t *pEdict = INDEXENT( 1 );
 
 	push	1
 	call	?INDEXENT@@YAPAUedict_s@@H@Z		; INDEXENT
 	add	esp, 4
 	mov	DWORD PTR _pEdict$[ebp], eax
 
-; 465  : 	if( !pEdict ) return;
+; 490  : 	if( !pEdict ) return;
 
 	cmp	DWORD PTR _pEdict$[ebp], 0
-	jne	SHORT $L36889
-	jmp	$L36887
-$L36889:
+	jne	SHORT $L36919
+	jmp	$L36917
+$L36919:
 
-; 466  : 
-; 467  : 	for( int i = 1; i < gpGlobals->maxEntities; i++, pEdict++ )
+; 491  : 
+; 492  : 	for( int i = 1; i < gpGlobals->maxEntities; i++, pEdict++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L36891
-$L36892:
+	jmp	SHORT $L36921
+$L36922:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
 	mov	ecx, DWORD PTR _pEdict$[ebp]
 	add	ecx, 804				; 00000324H
 	mov	DWORD PTR _pEdict$[ebp], ecx
-$L36891:
+$L36921:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+148]
-	jge	$L36893
+	jge	$L36923
 
-; 469  : 		if( pEdict->free )	// Not in use
+; 494  : 		if( pEdict->free )	// Not in use
 
 	mov	ecx, DWORD PTR _pEdict$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	je	SHORT $L36894
+	je	SHORT $L36924
 
-; 470  : 			continue;
+; 495  : 			continue;
 
-	jmp	SHORT $L36892
-$L36894:
+	jmp	SHORT $L36922
+$L36924:
 
-; 471  : 		
-; 472  : 		CBaseEntity *pEntity = CBaseEntity :: Instance( pEdict );
+; 496  : 
+; 497  : 		CBaseEntity *pEntity = CBaseEntity :: Instance( pEdict );
 
 	mov	edx, DWORD PTR _pEdict$[ebp]
 	push	edx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$36895[ebp], eax
+	mov	DWORD PTR _pEntity$36925[ebp], eax
 
-; 473  : 		if( !pEntity || !FBitSet( pEntity->m_iFlags, MF_TRIGGER|MF_LADDER ))
+; 498  : 		if( !pEntity || !FBitSet( pEntity->m_iFlags, MF_TRIGGER|MF_LADDER ))
 
-	cmp	DWORD PTR _pEntity$36895[ebp], 0
-	je	SHORT $L36897
-	mov	eax, DWORD PTR _pEntity$36895[ebp]
+	cmp	DWORD PTR _pEntity$36925[ebp], 0
+	je	SHORT $L36927
+	mov	eax, DWORD PTR _pEntity$36925[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	and	ecx, 10					; 0000000aH
 	test	ecx, ecx
-	jne	SHORT $L36896
-$L36897:
+	jne	SHORT $L36926
+$L36927:
 
-; 474  : 			continue;
+; 499  : 			continue;
 
-	jmp	SHORT $L36892
-$L36896:
+	jmp	SHORT $L36922
+$L36926:
 
-; 475  : 
-; 476  : 		if( FBitSet( pEntity->m_iFlags, MF_LADDER ))
+; 500  : 
+; 501  : 		if( FBitSet( pEntity->m_iFlags, MF_LADDER ))
 
-	mov	edx, DWORD PTR _pEntity$36895[ebp]
+	mov	edx, DWORD PTR _pEntity$36925[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	and	eax, 8
 	test	eax, eax
-	je	SHORT $L36898
+	je	SHORT $L36928
 
-; 478  : 			if( pEntity->pev->renderamt <= 0 )
+; 503  : 			if( pEntity->pev->renderamt <= 0 )
 
-	mov	ecx, DWORD PTR _pEntity$36895[ebp]
+	mov	ecx, DWORD PTR _pEntity$36925[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	fld	DWORD PTR [edx+332]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L36899
+	je	SHORT $L36929
 
-; 479  : 				pEntity->pev->renderamt = 255;
+; 504  : 				pEntity->pev->renderamt = 255;
 
-	mov	eax, DWORD PTR _pEntity$36895[ebp]
+	mov	eax, DWORD PTR _pEntity$36925[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+332], 1132396544		; 437f0000H
 
-; 480  : 			else pEntity->pev->renderamt = 0;
+; 505  : 			else pEntity->pev->renderamt = 0;
 
-	jmp	SHORT $L36900
-$L36899:
-	mov	edx, DWORD PTR _pEntity$36895[ebp]
+	jmp	SHORT $L36930
+$L36929:
+	mov	edx, DWORD PTR _pEntity$36925[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+332], 0
-$L36900:
+$L36930:
 
-; 482  : 		else if( FBitSet( pEntity->m_iFlags, MF_TRIGGER ))
+; 507  : 		else if( FBitSet( pEntity->m_iFlags, MF_TRIGGER ))
 
-	jmp	SHORT $L36904
-$L36898:
-	mov	ecx, DWORD PTR _pEntity$36895[ebp]
+	jmp	SHORT $L36934
+$L36928:
+	mov	ecx, DWORD PTR _pEntity$36925[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	and	edx, 2
 	test	edx, edx
-	je	SHORT $L36904
+	je	SHORT $L36934
 
-; 484  : 			if( FBitSet( pEntity->pev->effects, EF_NODRAW ))
+; 509  : 			if( FBitSet( pEntity->pev->effects, EF_NODRAW ))
 
-	mov	eax, DWORD PTR _pEntity$36895[ebp]
+	mov	eax, DWORD PTR _pEntity$36925[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+280]
 	and	edx, 128				; 00000080H
 	test	edx, edx
-	je	SHORT $L36903
+	je	SHORT $L36933
 
-; 485  : 				pEntity->pev->effects &= ~EF_NODRAW;
+; 510  : 				pEntity->pev->effects &= ~EF_NODRAW;
 
-	mov	eax, DWORD PTR _pEntity$36895[ebp]
+	mov	eax, DWORD PTR _pEntity$36925[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+280]
 	and	dl, 127					; 0000007fH
-	mov	eax, DWORD PTR _pEntity$36895[ebp]
+	mov	eax, DWORD PTR _pEntity$36925[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+280], edx
 
-; 486  : 			else pEntity->pev->effects |= EF_NODRAW;
+; 511  : 			else pEntity->pev->effects |= EF_NODRAW;
 
-	jmp	SHORT $L36904
-$L36903:
-	mov	edx, DWORD PTR _pEntity$36895[ebp]
+	jmp	SHORT $L36934
+$L36933:
+	mov	edx, DWORD PTR _pEntity$36925[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR [eax+280]
 	or	cl, -128				; ffffff80H
-	mov	edx, DWORD PTR _pEntity$36895[ebp]
+	mov	edx, DWORD PTR _pEntity$36925[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+280], ecx
-$L36904:
+$L36934:
 
-; 488  : 	}
+; 513  : 	}
 
-	jmp	$L36892
-$L36893:
-$L36887:
+	jmp	$L36922
+$L36923:
+$L36917:
 
-; 489  : }
+; 514  : }
 
 	pop	edi
 	pop	esi
@@ -4536,7 +4731,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 ?GameDLLInit@@YAXXZ PROC NEAR				; GameDLLInit, COMDAT
 
-; 494  : {
+; 519  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4545,1903 +4740,2003 @@ _TEXT	SEGMENT
 	push	esi
 	push	edi
 
-; 495  : 	// Register cvars here:
-; 496  : 
-; 497  : 	g_psv_gravity = CVAR_GET_POINTER( "sv_gravity" );
+; 520  : 	// Register cvars here:
+; 521  : 
+; 522  : 	g_psv_gravity = CVAR_GET_POINTER( "sv_gravity" );
 
 	push	OFFSET FLAT:??_C@_0L@GIJ@sv_gravity?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_psv_gravity@@3PAUcvar_s@@A, eax ; g_psv_gravity
 
-; 498  : 	g_psv_aim = CVAR_GET_POINTER( "sv_aim" );
+; 523  : 	g_psv_aim = CVAR_GET_POINTER( "sv_aim" );
 
 	push	OFFSET FLAT:??_C@_06MMCC@sv_aim?$AA@	; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_psv_aim@@3PAUcvar_s@@A, eax ; g_psv_aim
 
-; 499  : 	g_footsteps = CVAR_GET_POINTER( "mp_footsteps" );
+; 524  : 	g_footsteps = CVAR_GET_POINTER( "mp_footsteps" );
 
 	push	OFFSET FLAT:??_C@_0N@LGHF@mp_footsteps?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_footsteps@@3PAUcvar_s@@A, eax ; g_footsteps
 
-; 500  : 	g_psv_stepsize = CVAR_GET_POINTER( "sv_stepsize" );
+; 525  : 	g_psv_stepsize = CVAR_GET_POINTER( "sv_stepsize" );
 
 	push	OFFSET FLAT:??_C@_0M@IBOF@sv_stepsize?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_psv_stepsize@@3PAUcvar_s@@A, eax ; g_psv_stepsize
 
-; 501  : 	CVAR_REGISTER( &g_sync_physic );
+; 526  : 	CVAR_REGISTER( &g_sync_physic );
 
 	push	OFFSET FLAT:?g_sync_physic@@3Ucvar_s@@A	; g_sync_physic
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 502  : 
-; 503  : 	g_engfuncs.pfnAddServerCommand( "showtriggers_toggle", Cmd_ShowTriggers_f );
+; 527  : 
+; 528  : 	g_engfuncs.pfnAddServerCommand( "showtriggers_toggle", Cmd_ShowTriggers_f );
 
 	push	OFFSET FLAT:?Cmd_ShowTriggers_f@@YAXXZ	; Cmd_ShowTriggers_f
 	push	OFFSET FLAT:??_C@_0BE@NCFI@showtriggers_toggle?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+560
 	add	esp, 8
 
-; 504  : 
-; 505  : 	g_engfuncs.pfnAddServerCommand( "dump_entity_sizes", DumpEntitySizes_f );
+; 529  : 
+; 530  : 	g_engfuncs.pfnAddServerCommand( "dump_entity_sizes", DumpEntitySizes_f );
 
 	push	OFFSET FLAT:?DumpEntitySizes_f@@YAXXZ	; DumpEntitySizes_f
 	push	OFFSET FLAT:??_C@_0BC@KBPB@dump_entity_sizes?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+560
 	add	esp, 8
 
-; 506  : 	g_engfuncs.pfnAddServerCommand( "dump_entity_names", DumpEntityNames_f );
+; 531  : 	g_engfuncs.pfnAddServerCommand( "dump_entity_names", DumpEntityNames_f );
 
 	push	OFFSET FLAT:?DumpEntityNames_f@@YAXXZ	; DumpEntityNames_f
 	push	OFFSET FLAT:??_C@_0BC@DHKF@dump_entity_names?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+560
 	add	esp, 8
 
-; 507  : 
-; 508  : #ifdef HAVE_STRINGPOOL
-; 509  : 	g_engfuncs.pfnAddServerCommand( "dump_strings", DumpStrings_f );
+; 532  : 
+; 533  : #ifdef HAVE_STRINGPOOL
+; 534  : 	g_engfuncs.pfnAddServerCommand( "dump_strings", DumpStrings_f );
 
 	push	OFFSET FLAT:?DumpStrings_f@@YAXXZ	; DumpStrings_f
 	push	OFFSET FLAT:??_C@_0N@OEMG@dump_strings?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+560
 	add	esp, 8
 
-; 510  : #endif
-; 511  : 	CVAR_REGISTER (&displaysoundlist);
+; 535  : #endif
+; 536  : 	CVAR_REGISTER (&displaysoundlist);
 
 	push	OFFSET FLAT:?displaysoundlist@@3Ucvar_s@@A ; displaysoundlist
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 512  : 
-; 513  : 	CVAR_REGISTER (&teamplay);
+; 537  : 
+; 538  : 	CVAR_REGISTER (&teamplay);
 
 	push	OFFSET FLAT:?teamplay@@3Ucvar_s@@A	; teamplay
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 514  : 	CVAR_REGISTER (&fraglimit);
+; 539  : 	CVAR_REGISTER (&fraglimit);
 
 	push	OFFSET FLAT:?fraglimit@@3Ucvar_s@@A	; fraglimit
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 515  : 	CVAR_REGISTER (&timelimit);
+; 540  : 	CVAR_REGISTER (&timelimit);
 
 	push	OFFSET FLAT:?timelimit@@3Ucvar_s@@A	; timelimit
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 516  : 
-; 517  : 	CVAR_REGISTER (&fragsleft);
+; 541  : 
+; 542  : 	CVAR_REGISTER (&fragsleft);
 
 	push	OFFSET FLAT:?fragsleft@@3Ucvar_s@@A	; fragsleft
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 518  : 	CVAR_REGISTER (&timeleft);
+; 543  : 	CVAR_REGISTER (&timeleft);
 
 	push	OFFSET FLAT:?timeleft@@3Ucvar_s@@A	; timeleft
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 519  : 	CVAR_REGISTER (&debugdraw);
+; 544  : 	CVAR_REGISTER (&debugdraw);
 
 	push	OFFSET FLAT:?debugdraw@@3Ucvar_s@@A	; debugdraw
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 520  : 	CVAR_REGISTER (&physstats);
+; 545  : 	CVAR_REGISTER (&physstats);
 
 	push	OFFSET FLAT:?physstats@@3Ucvar_s@@A	; physstats
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 521  : 	CVAR_REGISTER (&physdebug);
+; 546  : 	CVAR_REGISTER (&physdebug);
 
 	push	OFFSET FLAT:?physdebug@@3Ucvar_s@@A	; physdebug
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 522  : 
-; 523  : 	CVAR_REGISTER (&friendlyfire);
+; 547  : 
+; 548  : 	CVAR_REGISTER (&friendlyfire);
 
 	push	OFFSET FLAT:?friendlyfire@@3Ucvar_s@@A	; friendlyfire
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 524  : 	CVAR_REGISTER (&falldamage);
+; 549  : 	CVAR_REGISTER (&falldamage);
 
 	push	OFFSET FLAT:?falldamage@@3Ucvar_s@@A	; falldamage
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 525  : 	CVAR_REGISTER (&weaponstay);
+; 550  : 	CVAR_REGISTER (&weaponstay);
 
 	push	OFFSET FLAT:?weaponstay@@3Ucvar_s@@A	; weaponstay
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 526  : 	CVAR_REGISTER (&forcerespawn);
+; 551  : 	CVAR_REGISTER (&forcerespawn);
 
 	push	OFFSET FLAT:?forcerespawn@@3Ucvar_s@@A	; forcerespawn
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 527  : 	CVAR_REGISTER (&flashlight);
+; 552  : 	CVAR_REGISTER (&flashlight);
 
 	push	OFFSET FLAT:?flashlight@@3Ucvar_s@@A	; flashlight
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 528  : 	CVAR_REGISTER (&aimcrosshair);
+; 553  : 	CVAR_REGISTER (&aimcrosshair);
 
 	push	OFFSET FLAT:?aimcrosshair@@3Ucvar_s@@A	; aimcrosshair
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 529  : 	CVAR_REGISTER (&decalfrequency);
+; 554  : 	CVAR_REGISTER (&decalfrequency);
 
 	push	OFFSET FLAT:?decalfrequency@@3Ucvar_s@@A ; decalfrequency
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 530  : 	CVAR_REGISTER (&teamlist);
+; 555  : 	CVAR_REGISTER (&teamlist);
 
 	push	OFFSET FLAT:?teamlist@@3Ucvar_s@@A	; teamlist
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 531  : 	CVAR_REGISTER (&teamoverride);
+; 556  : 	CVAR_REGISTER (&teamoverride);
 
 	push	OFFSET FLAT:?teamoverride@@3Ucvar_s@@A	; teamoverride
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 532  : 	CVAR_REGISTER (&defaultteam);
+; 557  : 	CVAR_REGISTER (&defaultteam);
 
 	push	OFFSET FLAT:?defaultteam@@3Ucvar_s@@A	; defaultteam
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 533  : 	CVAR_REGISTER (&allowmonsters);
+; 558  : 	CVAR_REGISTER (&allowmonsters);
 
 	push	OFFSET FLAT:?allowmonsters@@3Ucvar_s@@A	; allowmonsters
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 534  : 
-; 535  : 	CVAR_REGISTER (&mp_chattime);
+; 559  : 
+; 560  : 	CVAR_REGISTER (&mp_chattime);
 
 	push	OFFSET FLAT:?mp_chattime@@3Ucvar_s@@A	; mp_chattime
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 536  : 
-; 537  : 	// server debug drawing support requires build up to 1940
-; 538  : 	g_debugdraw = CVAR_GET_POINTER( "phys_debug" );
+; 561  : 
+; 562  : 	// server debug drawing support requires build up to 1940
+; 563  : 	g_debugdraw = CVAR_GET_POINTER( "phys_debug" );
 
 	push	OFFSET FLAT:??_C@_0L@HJFJ@phys_debug?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_debugdraw@@3PAUcvar_s@@A, eax ; g_debugdraw
 
-; 539  : 	g_physdebug = CVAR_GET_POINTER( "qphys_debug" );
+; 564  : 	g_physdebug = CVAR_GET_POINTER( "qphys_debug" );
 
 	push	OFFSET FLAT:??_C@_0M@MJCC@qphys_debug?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_physdebug@@3PAUcvar_s@@A, eax ; g_physdebug
 
-; 540  : 	p_speeds = CVAR_GET_POINTER( "p_speeds" );
+; 565  : 	p_speeds = CVAR_GET_POINTER( "p_speeds" );
 
 	push	OFFSET FLAT:??_C@_08FNPH@p_speeds?$AA@	; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?p_speeds@@3PAUcvar_s@@A, eax	; p_speeds
 
-; 541  : 	g_allow_physx = CVAR_GET_POINTER( "sv_allow_PhysX" );
+; 566  : 	g_allow_physx = CVAR_GET_POINTER( "sv_allow_PhysX" );
 
 	push	OFFSET FLAT:??_C@_0P@DNID@sv_allow_PhysX?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	mov	DWORD PTR ?g_allow_physx@@3PAUcvar_s@@A, eax ; g_allow_physx
 
-; 542  : 
-; 543  : // REGISTER CVARS FOR SKILL LEVEL STUFF
-; 544  : 	// Agrunt
-; 545  : 	CVAR_REGISTER ( &sk_agrunt_health1 );// {"sk_agrunt_health1","0"};
+; 567  : 
+; 568  : // REGISTER CVARS FOR SKILL LEVEL STUFF
+; 569  : 	// Agrunt
+; 570  : 	CVAR_REGISTER ( &sk_agrunt_health1 );// {"sk_agrunt_health1","0"};
 
 	push	OFFSET FLAT:?sk_agrunt_health1@@3Ucvar_s@@A ; sk_agrunt_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 546  : 	CVAR_REGISTER ( &sk_agrunt_health2 );// {"sk_agrunt_health2","0"};
+; 571  : 	CVAR_REGISTER ( &sk_agrunt_health2 );// {"sk_agrunt_health2","0"};
 
 	push	OFFSET FLAT:?sk_agrunt_health2@@3Ucvar_s@@A ; sk_agrunt_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 547  : 	CVAR_REGISTER ( &sk_agrunt_health3 );// {"sk_agrunt_health3","0"};
+; 572  : 	CVAR_REGISTER ( &sk_agrunt_health3 );// {"sk_agrunt_health3","0"};
 
 	push	OFFSET FLAT:?sk_agrunt_health3@@3Ucvar_s@@A ; sk_agrunt_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 548  : 
-; 549  : 	CVAR_REGISTER ( &sk_agrunt_dmg_punch1 );// {"sk_agrunt_dmg_punch1","0"};
+; 573  : 
+; 574  : 	CVAR_REGISTER ( &sk_agrunt_dmg_punch1 );// {"sk_agrunt_dmg_punch1","0"};
 
 	push	OFFSET FLAT:?sk_agrunt_dmg_punch1@@3Ucvar_s@@A ; sk_agrunt_dmg_punch1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 550  : 	CVAR_REGISTER ( &sk_agrunt_dmg_punch2 );// {"sk_agrunt_dmg_punch2","0"};
+; 575  : 	CVAR_REGISTER ( &sk_agrunt_dmg_punch2 );// {"sk_agrunt_dmg_punch2","0"};
 
 	push	OFFSET FLAT:?sk_agrunt_dmg_punch2@@3Ucvar_s@@A ; sk_agrunt_dmg_punch2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 551  : 	CVAR_REGISTER ( &sk_agrunt_dmg_punch3 );// {"sk_agrunt_dmg_punch3","0"};
+; 576  : 	CVAR_REGISTER ( &sk_agrunt_dmg_punch3 );// {"sk_agrunt_dmg_punch3","0"};
 
 	push	OFFSET FLAT:?sk_agrunt_dmg_punch3@@3Ucvar_s@@A ; sk_agrunt_dmg_punch3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 552  : 
-; 553  : 	// Apache
-; 554  : 	CVAR_REGISTER ( &sk_apache_health1 );// {"sk_apache_health1","0"};
+; 577  : 
+; 578  : 	// Apache
+; 579  : 	CVAR_REGISTER ( &sk_apache_health1 );// {"sk_apache_health1","0"};
 
 	push	OFFSET FLAT:?sk_apache_health1@@3Ucvar_s@@A ; sk_apache_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 555  : 	CVAR_REGISTER ( &sk_apache_health2 );// {"sk_apache_health2","0"};
+; 580  : 	CVAR_REGISTER ( &sk_apache_health2 );// {"sk_apache_health2","0"};
 
 	push	OFFSET FLAT:?sk_apache_health2@@3Ucvar_s@@A ; sk_apache_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 556  : 	CVAR_REGISTER ( &sk_apache_health3 );// {"sk_apache_health3","0"};
+; 581  : 	CVAR_REGISTER ( &sk_apache_health3 );// {"sk_apache_health3","0"};
 
 	push	OFFSET FLAT:?sk_apache_health3@@3Ucvar_s@@A ; sk_apache_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 557  : 
-; 558  : 	// Barney
-; 559  : 	CVAR_REGISTER ( &sk_barney_health1 );// {"sk_barney_health1","0"};
+; 582  : 
+; 583  : 	// Barney
+; 584  : 	CVAR_REGISTER ( &sk_barney_health1 );// {"sk_barney_health1","0"};
 
 	push	OFFSET FLAT:?sk_barney_health1@@3Ucvar_s@@A ; sk_barney_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 560  : 	CVAR_REGISTER ( &sk_barney_health2 );// {"sk_barney_health2","0"};
+; 585  : 	CVAR_REGISTER ( &sk_barney_health2 );// {"sk_barney_health2","0"};
 
 	push	OFFSET FLAT:?sk_barney_health2@@3Ucvar_s@@A ; sk_barney_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 561  : 	CVAR_REGISTER ( &sk_barney_health3 );// {"sk_barney_health3","0"};
+; 586  : 	CVAR_REGISTER ( &sk_barney_health3 );// {"sk_barney_health3","0"};
 
 	push	OFFSET FLAT:?sk_barney_health3@@3Ucvar_s@@A ; sk_barney_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 562  : 
-; 563  : 	// Bullsquid
-; 564  : 	CVAR_REGISTER ( &sk_bullsquid_health1 );// {"sk_bullsquid_health1","0"};
+; 587  : 
+; 588  : 	// Bullsquid
+; 589  : 	CVAR_REGISTER ( &sk_bullsquid_health1 );// {"sk_bullsquid_health1","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_health1@@3Ucvar_s@@A ; sk_bullsquid_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 565  : 	CVAR_REGISTER ( &sk_bullsquid_health2 );// {"sk_bullsquid_health2","0"};
+; 590  : 	CVAR_REGISTER ( &sk_bullsquid_health2 );// {"sk_bullsquid_health2","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_health2@@3Ucvar_s@@A ; sk_bullsquid_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 566  : 	CVAR_REGISTER ( &sk_bullsquid_health3 );// {"sk_bullsquid_health3","0"};
+; 591  : 	CVAR_REGISTER ( &sk_bullsquid_health3 );// {"sk_bullsquid_health3","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_health3@@3Ucvar_s@@A ; sk_bullsquid_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 567  : 
-; 568  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_bite1 );// {"sk_bullsquid_dmg_bite1","0"};
+; 592  : 
+; 593  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_bite1 );// {"sk_bullsquid_dmg_bite1","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_bite1@@3Ucvar_s@@A ; sk_bullsquid_dmg_bite1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 569  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_bite2 );// {"sk_bullsquid_dmg_bite2","0"};
+; 594  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_bite2 );// {"sk_bullsquid_dmg_bite2","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_bite2@@3Ucvar_s@@A ; sk_bullsquid_dmg_bite2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 570  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_bite3 );// {"sk_bullsquid_dmg_bite3","0"};
+; 595  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_bite3 );// {"sk_bullsquid_dmg_bite3","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_bite3@@3Ucvar_s@@A ; sk_bullsquid_dmg_bite3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 571  : 
-; 572  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_whip1 );// {"sk_bullsquid_dmg_whip1","0"};
+; 596  : 
+; 597  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_whip1 );// {"sk_bullsquid_dmg_whip1","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_whip1@@3Ucvar_s@@A ; sk_bullsquid_dmg_whip1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 573  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_whip2 );// {"sk_bullsquid_dmg_whip2","0"};
+; 598  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_whip2 );// {"sk_bullsquid_dmg_whip2","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_whip2@@3Ucvar_s@@A ; sk_bullsquid_dmg_whip2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 574  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_whip3 );// {"sk_bullsquid_dmg_whip3","0"};
+; 599  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_whip3 );// {"sk_bullsquid_dmg_whip3","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_whip3@@3Ucvar_s@@A ; sk_bullsquid_dmg_whip3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 575  : 
-; 576  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_spit1 );// {"sk_bullsquid_dmg_spit1","0"};
+; 600  : 
+; 601  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_spit1 );// {"sk_bullsquid_dmg_spit1","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_spit1@@3Ucvar_s@@A ; sk_bullsquid_dmg_spit1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 577  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_spit2 );// {"sk_bullsquid_dmg_spit2","0"};
+; 602  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_spit2 );// {"sk_bullsquid_dmg_spit2","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_spit2@@3Ucvar_s@@A ; sk_bullsquid_dmg_spit2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 578  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_spit3 );// {"sk_bullsquid_dmg_spit3","0"};
+; 603  : 	CVAR_REGISTER ( &sk_bullsquid_dmg_spit3 );// {"sk_bullsquid_dmg_spit3","0"};
 
 	push	OFFSET FLAT:?sk_bullsquid_dmg_spit3@@3Ucvar_s@@A ; sk_bullsquid_dmg_spit3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 579  : 
-; 580  : 
-; 581  : 	CVAR_REGISTER ( &sk_bigmomma_health_factor1 );// {"sk_bigmomma_health_factor1","1.0"};
+; 604  : 
+; 605  : 
+; 606  : 	CVAR_REGISTER ( &sk_bigmomma_health_factor1 );// {"sk_bigmomma_health_factor1","1.0"};
 
 	push	OFFSET FLAT:?sk_bigmomma_health_factor1@@3Ucvar_s@@A ; sk_bigmomma_health_factor1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 582  : 	CVAR_REGISTER ( &sk_bigmomma_health_factor2 );// {"sk_bigmomma_health_factor2","1.0"};
+; 607  : 	CVAR_REGISTER ( &sk_bigmomma_health_factor2 );// {"sk_bigmomma_health_factor2","1.0"};
 
 	push	OFFSET FLAT:?sk_bigmomma_health_factor2@@3Ucvar_s@@A ; sk_bigmomma_health_factor2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 583  : 	CVAR_REGISTER ( &sk_bigmomma_health_factor3 );// {"sk_bigmomma_health_factor3","1.0"};
+; 608  : 	CVAR_REGISTER ( &sk_bigmomma_health_factor3 );// {"sk_bigmomma_health_factor3","1.0"};
 
 	push	OFFSET FLAT:?sk_bigmomma_health_factor3@@3Ucvar_s@@A ; sk_bigmomma_health_factor3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 584  : 
-; 585  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_slash1 );// {"sk_bigmomma_dmg_slash1","50"};
+; 609  : 
+; 610  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_slash1 );// {"sk_bigmomma_dmg_slash1","50"};
 
 	push	OFFSET FLAT:?sk_bigmomma_dmg_slash1@@3Ucvar_s@@A ; sk_bigmomma_dmg_slash1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 586  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_slash2 );// {"sk_bigmomma_dmg_slash2","50"};
+; 611  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_slash2 );// {"sk_bigmomma_dmg_slash2","50"};
 
 	push	OFFSET FLAT:?sk_bigmomma_dmg_slash2@@3Ucvar_s@@A ; sk_bigmomma_dmg_slash2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 587  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_slash3 );// {"sk_bigmomma_dmg_slash3","50"};
+; 612  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_slash3 );// {"sk_bigmomma_dmg_slash3","50"};
 
 	push	OFFSET FLAT:?sk_bigmomma_dmg_slash3@@3Ucvar_s@@A ; sk_bigmomma_dmg_slash3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 588  : 
-; 589  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_blast1 );// {"sk_bigmomma_dmg_blast1","100"};
+; 613  : 
+; 614  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_blast1 );// {"sk_bigmomma_dmg_blast1","100"};
 
 	push	OFFSET FLAT:?sk_bigmomma_dmg_blast1@@3Ucvar_s@@A ; sk_bigmomma_dmg_blast1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 590  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_blast2 );// {"sk_bigmomma_dmg_blast2","100"};
+; 615  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_blast2 );// {"sk_bigmomma_dmg_blast2","100"};
 
 	push	OFFSET FLAT:?sk_bigmomma_dmg_blast2@@3Ucvar_s@@A ; sk_bigmomma_dmg_blast2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 591  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_blast3 );// {"sk_bigmomma_dmg_blast3","100"};
+; 616  : 	CVAR_REGISTER ( &sk_bigmomma_dmg_blast3 );// {"sk_bigmomma_dmg_blast3","100"};
 
 	push	OFFSET FLAT:?sk_bigmomma_dmg_blast3@@3Ucvar_s@@A ; sk_bigmomma_dmg_blast3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 592  : 
-; 593  : 	CVAR_REGISTER ( &sk_bigmomma_radius_blast1 );// {"sk_bigmomma_radius_blast1","250"};
+; 617  : 
+; 618  : 	CVAR_REGISTER ( &sk_bigmomma_radius_blast1 );// {"sk_bigmomma_radius_blast1","250"};
 
 	push	OFFSET FLAT:?sk_bigmomma_radius_blast1@@3Ucvar_s@@A ; sk_bigmomma_radius_blast1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 594  : 	CVAR_REGISTER ( &sk_bigmomma_radius_blast2 );// {"sk_bigmomma_radius_blast2","250"};
+; 619  : 	CVAR_REGISTER ( &sk_bigmomma_radius_blast2 );// {"sk_bigmomma_radius_blast2","250"};
 
 	push	OFFSET FLAT:?sk_bigmomma_radius_blast2@@3Ucvar_s@@A ; sk_bigmomma_radius_blast2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 595  : 	CVAR_REGISTER ( &sk_bigmomma_radius_blast3 );// {"sk_bigmomma_radius_blast3","250"};
+; 620  : 	CVAR_REGISTER ( &sk_bigmomma_radius_blast3 );// {"sk_bigmomma_radius_blast3","250"};
 
 	push	OFFSET FLAT:?sk_bigmomma_radius_blast3@@3Ucvar_s@@A ; sk_bigmomma_radius_blast3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 596  : 
-; 597  : 	// Gargantua
-; 598  : 	CVAR_REGISTER ( &sk_gargantua_health1 );// {"sk_gargantua_health1","0"};
+; 621  : 
+; 622  : 	// Gargantua
+; 623  : 	CVAR_REGISTER ( &sk_gargantua_health1 );// {"sk_gargantua_health1","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_health1@@3Ucvar_s@@A ; sk_gargantua_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 599  : 	CVAR_REGISTER ( &sk_gargantua_health2 );// {"sk_gargantua_health2","0"};
+; 624  : 	CVAR_REGISTER ( &sk_gargantua_health2 );// {"sk_gargantua_health2","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_health2@@3Ucvar_s@@A ; sk_gargantua_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 600  : 	CVAR_REGISTER ( &sk_gargantua_health3 );// {"sk_gargantua_health3","0"};
+; 625  : 	CVAR_REGISTER ( &sk_gargantua_health3 );// {"sk_gargantua_health3","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_health3@@3Ucvar_s@@A ; sk_gargantua_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 601  : 
-; 602  : 	CVAR_REGISTER ( &sk_gargantua_dmg_slash1 );// {"sk_gargantua_dmg_slash1","0"};
+; 626  : 
+; 627  : 	CVAR_REGISTER ( &sk_gargantua_dmg_slash1 );// {"sk_gargantua_dmg_slash1","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_slash1@@3Ucvar_s@@A ; sk_gargantua_dmg_slash1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 603  : 	CVAR_REGISTER ( &sk_gargantua_dmg_slash2 );// {"sk_gargantua_dmg_slash2","0"};
+; 628  : 	CVAR_REGISTER ( &sk_gargantua_dmg_slash2 );// {"sk_gargantua_dmg_slash2","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_slash2@@3Ucvar_s@@A ; sk_gargantua_dmg_slash2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 604  : 	CVAR_REGISTER ( &sk_gargantua_dmg_slash3 );// {"sk_gargantua_dmg_slash3","0"};
+; 629  : 	CVAR_REGISTER ( &sk_gargantua_dmg_slash3 );// {"sk_gargantua_dmg_slash3","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_slash3@@3Ucvar_s@@A ; sk_gargantua_dmg_slash3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 605  : 
-; 606  : 	CVAR_REGISTER ( &sk_gargantua_dmg_fire1 );// {"sk_gargantua_dmg_fire1","0"};
+; 630  : 
+; 631  : 	CVAR_REGISTER ( &sk_gargantua_dmg_fire1 );// {"sk_gargantua_dmg_fire1","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_fire1@@3Ucvar_s@@A ; sk_gargantua_dmg_fire1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 607  : 	CVAR_REGISTER ( &sk_gargantua_dmg_fire2 );// {"sk_gargantua_dmg_fire2","0"};
+; 632  : 	CVAR_REGISTER ( &sk_gargantua_dmg_fire2 );// {"sk_gargantua_dmg_fire2","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_fire2@@3Ucvar_s@@A ; sk_gargantua_dmg_fire2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 608  : 	CVAR_REGISTER ( &sk_gargantua_dmg_fire3 );// {"sk_gargantua_dmg_fire3","0"};
+; 633  : 	CVAR_REGISTER ( &sk_gargantua_dmg_fire3 );// {"sk_gargantua_dmg_fire3","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_fire3@@3Ucvar_s@@A ; sk_gargantua_dmg_fire3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 609  : 
-; 610  : 	CVAR_REGISTER ( &sk_gargantua_dmg_stomp1 );// {"sk_gargantua_dmg_stomp1","0"};
+; 634  : 
+; 635  : 	CVAR_REGISTER ( &sk_gargantua_dmg_stomp1 );// {"sk_gargantua_dmg_stomp1","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_stomp1@@3Ucvar_s@@A ; sk_gargantua_dmg_stomp1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 611  : 	CVAR_REGISTER ( &sk_gargantua_dmg_stomp2 );// {"sk_gargantua_dmg_stomp2","0"};
+; 636  : 	CVAR_REGISTER ( &sk_gargantua_dmg_stomp2 );// {"sk_gargantua_dmg_stomp2","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_stomp2@@3Ucvar_s@@A ; sk_gargantua_dmg_stomp2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 612  : 	CVAR_REGISTER ( &sk_gargantua_dmg_stomp3	);// {"sk_gargantua_dmg_stomp3","0"};
+; 637  : 	CVAR_REGISTER ( &sk_gargantua_dmg_stomp3	);// {"sk_gargantua_dmg_stomp3","0"};
 
 	push	OFFSET FLAT:?sk_gargantua_dmg_stomp3@@3Ucvar_s@@A ; sk_gargantua_dmg_stomp3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 613  : 
-; 614  : 
-; 615  : 	// Hassassin
-; 616  : 	CVAR_REGISTER ( &sk_hassassin_health1 );// {"sk_hassassin_health1","0"};
+; 638  : 
+; 639  : 
+; 640  : 	// Hassassin
+; 641  : 	CVAR_REGISTER ( &sk_hassassin_health1 );// {"sk_hassassin_health1","0"};
 
 	push	OFFSET FLAT:?sk_hassassin_health1@@3Ucvar_s@@A ; sk_hassassin_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 617  : 	CVAR_REGISTER ( &sk_hassassin_health2 );// {"sk_hassassin_health2","0"};
+; 642  : 	CVAR_REGISTER ( &sk_hassassin_health2 );// {"sk_hassassin_health2","0"};
 
 	push	OFFSET FLAT:?sk_hassassin_health2@@3Ucvar_s@@A ; sk_hassassin_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 618  : 	CVAR_REGISTER ( &sk_hassassin_health3 );// {"sk_hassassin_health3","0"};
+; 643  : 	CVAR_REGISTER ( &sk_hassassin_health3 );// {"sk_hassassin_health3","0"};
 
 	push	OFFSET FLAT:?sk_hassassin_health3@@3Ucvar_s@@A ; sk_hassassin_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 619  : 
-; 620  : 
-; 621  : 	// Headcrab
-; 622  : 	CVAR_REGISTER ( &sk_headcrab_health1 );// {"sk_headcrab_health1","0"};
+; 644  : 
+; 645  : 
+; 646  : 	// Headcrab
+; 647  : 	CVAR_REGISTER ( &sk_headcrab_health1 );// {"sk_headcrab_health1","0"};
 
 	push	OFFSET FLAT:?sk_headcrab_health1@@3Ucvar_s@@A ; sk_headcrab_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 623  : 	CVAR_REGISTER ( &sk_headcrab_health2 );// {"sk_headcrab_health2","0"};
+; 648  : 	CVAR_REGISTER ( &sk_headcrab_health2 );// {"sk_headcrab_health2","0"};
 
 	push	OFFSET FLAT:?sk_headcrab_health2@@3Ucvar_s@@A ; sk_headcrab_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 624  : 	CVAR_REGISTER ( &sk_headcrab_health3 );// {"sk_headcrab_health3","0"};
+; 649  : 	CVAR_REGISTER ( &sk_headcrab_health3 );// {"sk_headcrab_health3","0"};
 
 	push	OFFSET FLAT:?sk_headcrab_health3@@3Ucvar_s@@A ; sk_headcrab_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 625  : 
-; 626  : 	CVAR_REGISTER ( &sk_headcrab_dmg_bite1 );// {"sk_headcrab_dmg_bite1","0"};
+; 650  : 
+; 651  : 	CVAR_REGISTER ( &sk_headcrab_dmg_bite1 );// {"sk_headcrab_dmg_bite1","0"};
 
 	push	OFFSET FLAT:?sk_headcrab_dmg_bite1@@3Ucvar_s@@A ; sk_headcrab_dmg_bite1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 627  : 	CVAR_REGISTER ( &sk_headcrab_dmg_bite2 );// {"sk_headcrab_dmg_bite2","0"};
+; 652  : 	CVAR_REGISTER ( &sk_headcrab_dmg_bite2 );// {"sk_headcrab_dmg_bite2","0"};
 
 	push	OFFSET FLAT:?sk_headcrab_dmg_bite2@@3Ucvar_s@@A ; sk_headcrab_dmg_bite2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 628  : 	CVAR_REGISTER ( &sk_headcrab_dmg_bite3 );// {"sk_headcrab_dmg_bite3","0"};
+; 653  : 	CVAR_REGISTER ( &sk_headcrab_dmg_bite3 );// {"sk_headcrab_dmg_bite3","0"};
 
 	push	OFFSET FLAT:?sk_headcrab_dmg_bite3@@3Ucvar_s@@A ; sk_headcrab_dmg_bite3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 629  : 
-; 630  : 
-; 631  : 	// Hgrunt 
-; 632  : 	CVAR_REGISTER ( &sk_hgrunt_health1 );// {"sk_hgrunt_health1","0"};
+; 654  : 
+; 655  : 
+; 656  : 	// Hgrunt
+; 657  : 	CVAR_REGISTER ( &sk_hgrunt_health1 );// {"sk_hgrunt_health1","0"};
 
 	push	OFFSET FLAT:?sk_hgrunt_health1@@3Ucvar_s@@A ; sk_hgrunt_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 633  : 	CVAR_REGISTER ( &sk_hgrunt_health2 );// {"sk_hgrunt_health2","0"};
+; 658  : 	CVAR_REGISTER ( &sk_hgrunt_health2 );// {"sk_hgrunt_health2","0"};
 
 	push	OFFSET FLAT:?sk_hgrunt_health2@@3Ucvar_s@@A ; sk_hgrunt_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 634  : 	CVAR_REGISTER ( &sk_hgrunt_health3 );// {"sk_hgrunt_health3","0"};
+; 659  : 	CVAR_REGISTER ( &sk_hgrunt_health3 );// {"sk_hgrunt_health3","0"};
 
 	push	OFFSET FLAT:?sk_hgrunt_health3@@3Ucvar_s@@A ; sk_hgrunt_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 635  : 
-; 636  : 	CVAR_REGISTER ( &sk_hgrunt_kick1 );// {"sk_hgrunt_kick1","0"};
+; 660  : 
+; 661  : 	CVAR_REGISTER ( &sk_hgrunt_kick1 );// {"sk_hgrunt_kick1","0"};
 
 	push	OFFSET FLAT:?sk_hgrunt_kick1@@3Ucvar_s@@A ; sk_hgrunt_kick1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 637  : 	CVAR_REGISTER ( &sk_hgrunt_kick2 );// {"sk_hgrunt_kick2","0"};
+; 662  : 	CVAR_REGISTER ( &sk_hgrunt_kick2 );// {"sk_hgrunt_kick2","0"};
 
 	push	OFFSET FLAT:?sk_hgrunt_kick2@@3Ucvar_s@@A ; sk_hgrunt_kick2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 638  : 	CVAR_REGISTER ( &sk_hgrunt_kick3 );// {"sk_hgrunt_kick3","0"};
+; 663  : 	CVAR_REGISTER ( &sk_hgrunt_kick3 );// {"sk_hgrunt_kick3","0"};
 
 	push	OFFSET FLAT:?sk_hgrunt_kick3@@3Ucvar_s@@A ; sk_hgrunt_kick3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 639  : 
-; 640  : 	CVAR_REGISTER ( &sk_hgrunt_pellets1 );
+; 664  : 
+; 665  : 	CVAR_REGISTER ( &sk_hgrunt_pellets1 );
 
 	push	OFFSET FLAT:?sk_hgrunt_pellets1@@3Ucvar_s@@A ; sk_hgrunt_pellets1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 641  : 	CVAR_REGISTER ( &sk_hgrunt_pellets2 );
+; 666  : 	CVAR_REGISTER ( &sk_hgrunt_pellets2 );
 
 	push	OFFSET FLAT:?sk_hgrunt_pellets2@@3Ucvar_s@@A ; sk_hgrunt_pellets2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 642  : 	CVAR_REGISTER ( &sk_hgrunt_pellets3 );
+; 667  : 	CVAR_REGISTER ( &sk_hgrunt_pellets3 );
 
 	push	OFFSET FLAT:?sk_hgrunt_pellets3@@3Ucvar_s@@A ; sk_hgrunt_pellets3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 643  : 
-; 644  : 	CVAR_REGISTER ( &sk_hgrunt_gspeed1 );
+; 668  : 
+; 669  : 	CVAR_REGISTER ( &sk_hgrunt_gspeed1 );
 
 	push	OFFSET FLAT:?sk_hgrunt_gspeed1@@3Ucvar_s@@A ; sk_hgrunt_gspeed1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 645  : 	CVAR_REGISTER ( &sk_hgrunt_gspeed2 );
+; 670  : 	CVAR_REGISTER ( &sk_hgrunt_gspeed2 );
 
 	push	OFFSET FLAT:?sk_hgrunt_gspeed2@@3Ucvar_s@@A ; sk_hgrunt_gspeed2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 646  : 	CVAR_REGISTER ( &sk_hgrunt_gspeed3 );
+; 671  : 	CVAR_REGISTER ( &sk_hgrunt_gspeed3 );
 
 	push	OFFSET FLAT:?sk_hgrunt_gspeed3@@3Ucvar_s@@A ; sk_hgrunt_gspeed3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 647  : 
-; 648  : 	// Houndeye
-; 649  : 	CVAR_REGISTER ( &sk_houndeye_health1 );// {"sk_houndeye_health1","0"};
+; 672  : 
+; 673  : 	// Houndeye
+; 674  : 	CVAR_REGISTER ( &sk_houndeye_health1 );// {"sk_houndeye_health1","0"};
 
 	push	OFFSET FLAT:?sk_houndeye_health1@@3Ucvar_s@@A ; sk_houndeye_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 650  : 	CVAR_REGISTER ( &sk_houndeye_health2 );// {"sk_houndeye_health2","0"};
+; 675  : 	CVAR_REGISTER ( &sk_houndeye_health2 );// {"sk_houndeye_health2","0"};
 
 	push	OFFSET FLAT:?sk_houndeye_health2@@3Ucvar_s@@A ; sk_houndeye_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 651  : 	CVAR_REGISTER ( &sk_houndeye_health3 );// {"sk_houndeye_health3","0"};
+; 676  : 	CVAR_REGISTER ( &sk_houndeye_health3 );// {"sk_houndeye_health3","0"};
 
 	push	OFFSET FLAT:?sk_houndeye_health3@@3Ucvar_s@@A ; sk_houndeye_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 652  : 
-; 653  : 	CVAR_REGISTER ( &sk_houndeye_dmg_blast1 );// {"sk_houndeye_dmg_blast1","0"};
+; 677  : 
+; 678  : 	CVAR_REGISTER ( &sk_houndeye_dmg_blast1 );// {"sk_houndeye_dmg_blast1","0"};
 
 	push	OFFSET FLAT:?sk_houndeye_dmg_blast1@@3Ucvar_s@@A ; sk_houndeye_dmg_blast1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 654  : 	CVAR_REGISTER ( &sk_houndeye_dmg_blast2 );// {"sk_houndeye_dmg_blast2","0"};
+; 679  : 	CVAR_REGISTER ( &sk_houndeye_dmg_blast2 );// {"sk_houndeye_dmg_blast2","0"};
 
 	push	OFFSET FLAT:?sk_houndeye_dmg_blast2@@3Ucvar_s@@A ; sk_houndeye_dmg_blast2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 655  : 	CVAR_REGISTER ( &sk_houndeye_dmg_blast3 );// {"sk_houndeye_dmg_blast3","0"};
+; 680  : 	CVAR_REGISTER ( &sk_houndeye_dmg_blast3 );// {"sk_houndeye_dmg_blast3","0"};
 
 	push	OFFSET FLAT:?sk_houndeye_dmg_blast3@@3Ucvar_s@@A ; sk_houndeye_dmg_blast3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 656  : 
-; 657  : 
-; 658  : 	// ISlave
-; 659  : 	CVAR_REGISTER ( &sk_islave_health1 );// {"sk_islave_health1","0"};
+; 681  : 
+; 682  : 
+; 683  : 	// ISlave
+; 684  : 	CVAR_REGISTER ( &sk_islave_health1 );// {"sk_islave_health1","0"};
 
 	push	OFFSET FLAT:?sk_islave_health1@@3Ucvar_s@@A ; sk_islave_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 660  : 	CVAR_REGISTER ( &sk_islave_health2 );// {"sk_islave_health2","0"};
+; 685  : 	CVAR_REGISTER ( &sk_islave_health2 );// {"sk_islave_health2","0"};
 
 	push	OFFSET FLAT:?sk_islave_health2@@3Ucvar_s@@A ; sk_islave_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 661  : 	CVAR_REGISTER ( &sk_islave_health3 );// {"sk_islave_health3","0"};
+; 686  : 	CVAR_REGISTER ( &sk_islave_health3 );// {"sk_islave_health3","0"};
 
 	push	OFFSET FLAT:?sk_islave_health3@@3Ucvar_s@@A ; sk_islave_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 662  : 
-; 663  : 	CVAR_REGISTER ( &sk_islave_dmg_claw1 );// {"sk_islave_dmg_claw1","0"};
+; 687  : 
+; 688  : 	CVAR_REGISTER ( &sk_islave_dmg_claw1 );// {"sk_islave_dmg_claw1","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_claw1@@3Ucvar_s@@A ; sk_islave_dmg_claw1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 664  : 	CVAR_REGISTER ( &sk_islave_dmg_claw2 );// {"sk_islave_dmg_claw2","0"};
+; 689  : 	CVAR_REGISTER ( &sk_islave_dmg_claw2 );// {"sk_islave_dmg_claw2","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_claw2@@3Ucvar_s@@A ; sk_islave_dmg_claw2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 665  : 	CVAR_REGISTER ( &sk_islave_dmg_claw3 );// {"sk_islave_dmg_claw3","0"};
+; 690  : 	CVAR_REGISTER ( &sk_islave_dmg_claw3 );// {"sk_islave_dmg_claw3","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_claw3@@3Ucvar_s@@A ; sk_islave_dmg_claw3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 666  : 
-; 667  : 	CVAR_REGISTER ( &sk_islave_dmg_clawrake1	);// {"sk_islave_dmg_clawrake1","0"};
+; 691  : 
+; 692  : 	CVAR_REGISTER ( &sk_islave_dmg_clawrake1	);// {"sk_islave_dmg_clawrake1","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_clawrake1@@3Ucvar_s@@A ; sk_islave_dmg_clawrake1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 668  : 	CVAR_REGISTER ( &sk_islave_dmg_clawrake2	);// {"sk_islave_dmg_clawrake2","0"};
+; 693  : 	CVAR_REGISTER ( &sk_islave_dmg_clawrake2	);// {"sk_islave_dmg_clawrake2","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_clawrake2@@3Ucvar_s@@A ; sk_islave_dmg_clawrake2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 669  : 	CVAR_REGISTER ( &sk_islave_dmg_clawrake3	);// {"sk_islave_dmg_clawrake3","0"};
+; 694  : 	CVAR_REGISTER ( &sk_islave_dmg_clawrake3	);// {"sk_islave_dmg_clawrake3","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_clawrake3@@3Ucvar_s@@A ; sk_islave_dmg_clawrake3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 670  : 		
-; 671  : 	CVAR_REGISTER ( &sk_islave_dmg_zap1 );// {"sk_islave_dmg_zap1","0"};
+; 695  : 
+; 696  : 	CVAR_REGISTER ( &sk_islave_dmg_zap1 );// {"sk_islave_dmg_zap1","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_zap1@@3Ucvar_s@@A ; sk_islave_dmg_zap1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 672  : 	CVAR_REGISTER ( &sk_islave_dmg_zap2 );// {"sk_islave_dmg_zap2","0"};
+; 697  : 	CVAR_REGISTER ( &sk_islave_dmg_zap2 );// {"sk_islave_dmg_zap2","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_zap2@@3Ucvar_s@@A ; sk_islave_dmg_zap2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 673  : 	CVAR_REGISTER ( &sk_islave_dmg_zap3 );// {"sk_islave_dmg_zap3","0"};
+; 698  : 	CVAR_REGISTER ( &sk_islave_dmg_zap3 );// {"sk_islave_dmg_zap3","0"};
 
 	push	OFFSET FLAT:?sk_islave_dmg_zap3@@3Ucvar_s@@A ; sk_islave_dmg_zap3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 674  : 
-; 675  : 
-; 676  : 	// Icthyosaur
-; 677  : 	CVAR_REGISTER ( &sk_ichthyosaur_health1	);// {"sk_ichthyosaur_health1","0"};
+; 699  : 
+; 700  : 
+; 701  : 	// Icthyosaur
+; 702  : 	CVAR_REGISTER ( &sk_ichthyosaur_health1	);// {"sk_ichthyosaur_health1","0"};
 
 	push	OFFSET FLAT:?sk_ichthyosaur_health1@@3Ucvar_s@@A ; sk_ichthyosaur_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 678  : 	CVAR_REGISTER ( &sk_ichthyosaur_health2	);// {"sk_ichthyosaur_health2","0"};
+; 703  : 	CVAR_REGISTER ( &sk_ichthyosaur_health2	);// {"sk_ichthyosaur_health2","0"};
 
 	push	OFFSET FLAT:?sk_ichthyosaur_health2@@3Ucvar_s@@A ; sk_ichthyosaur_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 679  : 	CVAR_REGISTER ( &sk_ichthyosaur_health3	);// {"sk_ichthyosaur_health3","0"};
+; 704  : 	CVAR_REGISTER ( &sk_ichthyosaur_health3	);// {"sk_ichthyosaur_health3","0"};
 
 	push	OFFSET FLAT:?sk_ichthyosaur_health3@@3Ucvar_s@@A ; sk_ichthyosaur_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 680  : 
-; 681  : 	CVAR_REGISTER ( &sk_ichthyosaur_shake1	);// {"sk_ichthyosaur_health3","0"};
+; 705  : 
+; 706  : 	CVAR_REGISTER ( &sk_ichthyosaur_shake1	);// {"sk_ichthyosaur_health3","0"};
 
 	push	OFFSET FLAT:?sk_ichthyosaur_shake1@@3Ucvar_s@@A ; sk_ichthyosaur_shake1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 682  : 	CVAR_REGISTER ( &sk_ichthyosaur_shake2	);// {"sk_ichthyosaur_health3","0"};
+; 707  : 	CVAR_REGISTER ( &sk_ichthyosaur_shake2	);// {"sk_ichthyosaur_health3","0"};
 
 	push	OFFSET FLAT:?sk_ichthyosaur_shake2@@3Ucvar_s@@A ; sk_ichthyosaur_shake2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 683  : 	CVAR_REGISTER ( &sk_ichthyosaur_shake3	);// {"sk_ichthyosaur_health3","0"};
+; 708  : 	CVAR_REGISTER ( &sk_ichthyosaur_shake3	);// {"sk_ichthyosaur_health3","0"};
 
 	push	OFFSET FLAT:?sk_ichthyosaur_shake3@@3Ucvar_s@@A ; sk_ichthyosaur_shake3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 684  : 
-; 685  : 
-; 686  : 
-; 687  : 	// Leech
-; 688  : 	CVAR_REGISTER ( &sk_leech_health1 );// {"sk_leech_health1","0"};
+; 709  : 
+; 710  : 
+; 711  : 
+; 712  : 	// Leech
+; 713  : 	CVAR_REGISTER ( &sk_leech_health1 );// {"sk_leech_health1","0"};
 
 	push	OFFSET FLAT:?sk_leech_health1@@3Ucvar_s@@A ; sk_leech_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 689  : 	CVAR_REGISTER ( &sk_leech_health2 );// {"sk_leech_health2","0"};
+; 714  : 	CVAR_REGISTER ( &sk_leech_health2 );// {"sk_leech_health2","0"};
 
 	push	OFFSET FLAT:?sk_leech_health2@@3Ucvar_s@@A ; sk_leech_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 690  : 	CVAR_REGISTER ( &sk_leech_health3 );// {"sk_leech_health3","0"};
+; 715  : 	CVAR_REGISTER ( &sk_leech_health3 );// {"sk_leech_health3","0"};
 
 	push	OFFSET FLAT:?sk_leech_health3@@3Ucvar_s@@A ; sk_leech_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 691  : 
-; 692  : 	CVAR_REGISTER ( &sk_leech_dmg_bite1 );// {"sk_leech_dmg_bite1","0"};
+; 716  : 
+; 717  : 	CVAR_REGISTER ( &sk_leech_dmg_bite1 );// {"sk_leech_dmg_bite1","0"};
 
 	push	OFFSET FLAT:?sk_leech_dmg_bite1@@3Ucvar_s@@A ; sk_leech_dmg_bite1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 693  : 	CVAR_REGISTER ( &sk_leech_dmg_bite2 );// {"sk_leech_dmg_bite2","0"};
+; 718  : 	CVAR_REGISTER ( &sk_leech_dmg_bite2 );// {"sk_leech_dmg_bite2","0"};
 
 	push	OFFSET FLAT:?sk_leech_dmg_bite2@@3Ucvar_s@@A ; sk_leech_dmg_bite2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 694  : 	CVAR_REGISTER ( &sk_leech_dmg_bite3 );// {"sk_leech_dmg_bite3","0"};
+; 719  : 	CVAR_REGISTER ( &sk_leech_dmg_bite3 );// {"sk_leech_dmg_bite3","0"};
 
 	push	OFFSET FLAT:?sk_leech_dmg_bite3@@3Ucvar_s@@A ; sk_leech_dmg_bite3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 695  : 
-; 696  : 
-; 697  : 	// Controller
-; 698  : 	CVAR_REGISTER ( &sk_controller_health1 );
+; 720  : 
+; 721  : 
+; 722  : 	// Controller
+; 723  : 	CVAR_REGISTER ( &sk_controller_health1 );
 
 	push	OFFSET FLAT:?sk_controller_health1@@3Ucvar_s@@A ; sk_controller_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 699  : 	CVAR_REGISTER ( &sk_controller_health2 );
+; 724  : 	CVAR_REGISTER ( &sk_controller_health2 );
 
 	push	OFFSET FLAT:?sk_controller_health2@@3Ucvar_s@@A ; sk_controller_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 700  : 	CVAR_REGISTER ( &sk_controller_health3 );
+; 725  : 	CVAR_REGISTER ( &sk_controller_health3 );
 
 	push	OFFSET FLAT:?sk_controller_health3@@3Ucvar_s@@A ; sk_controller_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 701  : 
-; 702  : 	CVAR_REGISTER ( &sk_controller_dmgzap1 );
+; 726  : 
+; 727  : 	CVAR_REGISTER ( &sk_controller_dmgzap1 );
 
 	push	OFFSET FLAT:?sk_controller_dmgzap1@@3Ucvar_s@@A ; sk_controller_dmgzap1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 703  : 	CVAR_REGISTER ( &sk_controller_dmgzap2 );
+; 728  : 	CVAR_REGISTER ( &sk_controller_dmgzap2 );
 
 	push	OFFSET FLAT:?sk_controller_dmgzap2@@3Ucvar_s@@A ; sk_controller_dmgzap2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 704  : 	CVAR_REGISTER ( &sk_controller_dmgzap3 );
+; 729  : 	CVAR_REGISTER ( &sk_controller_dmgzap3 );
 
 	push	OFFSET FLAT:?sk_controller_dmgzap3@@3Ucvar_s@@A ; sk_controller_dmgzap3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 705  : 
-; 706  : 	CVAR_REGISTER ( &sk_controller_speedball1 );
+; 730  : 
+; 731  : 	CVAR_REGISTER ( &sk_controller_speedball1 );
 
 	push	OFFSET FLAT:?sk_controller_speedball1@@3Ucvar_s@@A ; sk_controller_speedball1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 707  : 	CVAR_REGISTER ( &sk_controller_speedball2 );
+; 732  : 	CVAR_REGISTER ( &sk_controller_speedball2 );
 
 	push	OFFSET FLAT:?sk_controller_speedball2@@3Ucvar_s@@A ; sk_controller_speedball2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 708  : 	CVAR_REGISTER ( &sk_controller_speedball3 );
+; 733  : 	CVAR_REGISTER ( &sk_controller_speedball3 );
 
 	push	OFFSET FLAT:?sk_controller_speedball3@@3Ucvar_s@@A ; sk_controller_speedball3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 709  : 
-; 710  : 	CVAR_REGISTER ( &sk_controller_dmgball1 );
+; 734  : 
+; 735  : 	CVAR_REGISTER ( &sk_controller_dmgball1 );
 
 	push	OFFSET FLAT:?sk_controller_dmgball1@@3Ucvar_s@@A ; sk_controller_dmgball1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 711  : 	CVAR_REGISTER ( &sk_controller_dmgball2 );
+; 736  : 	CVAR_REGISTER ( &sk_controller_dmgball2 );
 
 	push	OFFSET FLAT:?sk_controller_dmgball2@@3Ucvar_s@@A ; sk_controller_dmgball2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 712  : 	CVAR_REGISTER ( &sk_controller_dmgball3 );
+; 737  : 	CVAR_REGISTER ( &sk_controller_dmgball3 );
 
 	push	OFFSET FLAT:?sk_controller_dmgball3@@3Ucvar_s@@A ; sk_controller_dmgball3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 713  : 
-; 714  : 	// Nihilanth
-; 715  : 	CVAR_REGISTER ( &sk_nihilanth_health1 );// {"sk_nihilanth_health1","0"};
+; 738  : 
+; 739  : 	// Nihilanth
+; 740  : 	CVAR_REGISTER ( &sk_nihilanth_health1 );// {"sk_nihilanth_health1","0"};
 
 	push	OFFSET FLAT:?sk_nihilanth_health1@@3Ucvar_s@@A ; sk_nihilanth_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 716  : 	CVAR_REGISTER ( &sk_nihilanth_health2 );// {"sk_nihilanth_health2","0"};
+; 741  : 	CVAR_REGISTER ( &sk_nihilanth_health2 );// {"sk_nihilanth_health2","0"};
 
 	push	OFFSET FLAT:?sk_nihilanth_health2@@3Ucvar_s@@A ; sk_nihilanth_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 717  : 	CVAR_REGISTER ( &sk_nihilanth_health3 );// {"sk_nihilanth_health3","0"};
+; 742  : 	CVAR_REGISTER ( &sk_nihilanth_health3 );// {"sk_nihilanth_health3","0"};
 
 	push	OFFSET FLAT:?sk_nihilanth_health3@@3Ucvar_s@@A ; sk_nihilanth_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 718  : 
-; 719  : 	CVAR_REGISTER ( &sk_nihilanth_zap1 );
+; 743  : 
+; 744  : 	CVAR_REGISTER ( &sk_nihilanth_zap1 );
 
 	push	OFFSET FLAT:?sk_nihilanth_zap1@@3Ucvar_s@@A ; sk_nihilanth_zap1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 720  : 	CVAR_REGISTER ( &sk_nihilanth_zap2 );
+; 745  : 	CVAR_REGISTER ( &sk_nihilanth_zap2 );
 
 	push	OFFSET FLAT:?sk_nihilanth_zap2@@3Ucvar_s@@A ; sk_nihilanth_zap2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 721  : 	CVAR_REGISTER ( &sk_nihilanth_zap3 );
+; 746  : 	CVAR_REGISTER ( &sk_nihilanth_zap3 );
 
 	push	OFFSET FLAT:?sk_nihilanth_zap3@@3Ucvar_s@@A ; sk_nihilanth_zap3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 722  : 
-; 723  : 	// Scientist
-; 724  : 	CVAR_REGISTER ( &sk_scientist_health1 );// {"sk_scientist_health1","0"};
+; 747  : 
+; 748  : 	// Scientist
+; 749  : 	CVAR_REGISTER ( &sk_scientist_health1 );// {"sk_scientist_health1","0"};
 
 	push	OFFSET FLAT:?sk_scientist_health1@@3Ucvar_s@@A ; sk_scientist_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 725  : 	CVAR_REGISTER ( &sk_scientist_health2 );// {"sk_scientist_health2","0"};
+; 750  : 	CVAR_REGISTER ( &sk_scientist_health2 );// {"sk_scientist_health2","0"};
 
 	push	OFFSET FLAT:?sk_scientist_health2@@3Ucvar_s@@A ; sk_scientist_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 726  : 	CVAR_REGISTER ( &sk_scientist_health3 );// {"sk_scientist_health3","0"};
+; 751  : 	CVAR_REGISTER ( &sk_scientist_health3 );// {"sk_scientist_health3","0"};
 
 	push	OFFSET FLAT:?sk_scientist_health3@@3Ucvar_s@@A ; sk_scientist_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 727  : 
-; 728  : 
-; 729  : 	// Snark
-; 730  : 	CVAR_REGISTER ( &sk_snark_health1 );// {"sk_snark_health1","0"};
+; 752  : 
+; 753  : 
+; 754  : 	// Snark
+; 755  : 	CVAR_REGISTER ( &sk_snark_health1 );// {"sk_snark_health1","0"};
 
 	push	OFFSET FLAT:?sk_snark_health1@@3Ucvar_s@@A ; sk_snark_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 731  : 	CVAR_REGISTER ( &sk_snark_health2 );// {"sk_snark_health2","0"};
+; 756  : 	CVAR_REGISTER ( &sk_snark_health2 );// {"sk_snark_health2","0"};
 
 	push	OFFSET FLAT:?sk_snark_health2@@3Ucvar_s@@A ; sk_snark_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 732  : 	CVAR_REGISTER ( &sk_snark_health3 );// {"sk_snark_health3","0"};
+; 757  : 	CVAR_REGISTER ( &sk_snark_health3 );// {"sk_snark_health3","0"};
 
 	push	OFFSET FLAT:?sk_snark_health3@@3Ucvar_s@@A ; sk_snark_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 733  : 
-; 734  : 	CVAR_REGISTER ( &sk_snark_dmg_bite1 );// {"sk_snark_dmg_bite1","0"};
+; 758  : 
+; 759  : 	CVAR_REGISTER ( &sk_snark_dmg_bite1 );// {"sk_snark_dmg_bite1","0"};
 
 	push	OFFSET FLAT:?sk_snark_dmg_bite1@@3Ucvar_s@@A ; sk_snark_dmg_bite1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 735  : 	CVAR_REGISTER ( &sk_snark_dmg_bite2 );// {"sk_snark_dmg_bite2","0"};
+; 760  : 	CVAR_REGISTER ( &sk_snark_dmg_bite2 );// {"sk_snark_dmg_bite2","0"};
 
 	push	OFFSET FLAT:?sk_snark_dmg_bite2@@3Ucvar_s@@A ; sk_snark_dmg_bite2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 736  : 	CVAR_REGISTER ( &sk_snark_dmg_bite3 );// {"sk_snark_dmg_bite3","0"};
+; 761  : 	CVAR_REGISTER ( &sk_snark_dmg_bite3 );// {"sk_snark_dmg_bite3","0"};
 
 	push	OFFSET FLAT:?sk_snark_dmg_bite3@@3Ucvar_s@@A ; sk_snark_dmg_bite3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 737  : 
-; 738  : 	CVAR_REGISTER ( &sk_snark_dmg_pop1 );// {"sk_snark_dmg_pop1","0"};
+; 762  : 
+; 763  : 	CVAR_REGISTER ( &sk_snark_dmg_pop1 );// {"sk_snark_dmg_pop1","0"};
 
 	push	OFFSET FLAT:?sk_snark_dmg_pop1@@3Ucvar_s@@A ; sk_snark_dmg_pop1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 739  : 	CVAR_REGISTER ( &sk_snark_dmg_pop2 );// {"sk_snark_dmg_pop2","0"};
+; 764  : 	CVAR_REGISTER ( &sk_snark_dmg_pop2 );// {"sk_snark_dmg_pop2","0"};
 
 	push	OFFSET FLAT:?sk_snark_dmg_pop2@@3Ucvar_s@@A ; sk_snark_dmg_pop2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 740  : 	CVAR_REGISTER ( &sk_snark_dmg_pop3 );// {"sk_snark_dmg_pop3","0"};
+; 765  : 	CVAR_REGISTER ( &sk_snark_dmg_pop3 );// {"sk_snark_dmg_pop3","0"};
 
 	push	OFFSET FLAT:?sk_snark_dmg_pop3@@3Ucvar_s@@A ; sk_snark_dmg_pop3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 741  : 
-; 742  : 
-; 743  : 
-; 744  : 	// Zombie
-; 745  : 	CVAR_REGISTER ( &sk_zombie_health1 );// {"sk_zombie_health1","0"};
+; 766  : 
+; 767  : 
+; 768  : 
+; 769  : 	// Zombie
+; 770  : 	CVAR_REGISTER ( &sk_zombie_health1 );// {"sk_zombie_health1","0"};
 
 	push	OFFSET FLAT:?sk_zombie_health1@@3Ucvar_s@@A ; sk_zombie_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 746  : 	CVAR_REGISTER ( &sk_zombie_health2 );// {"sk_zombie_health3","0"};
+; 771  : 	CVAR_REGISTER ( &sk_zombie_health2 );// {"sk_zombie_health3","0"};
 
 	push	OFFSET FLAT:?sk_zombie_health2@@3Ucvar_s@@A ; sk_zombie_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 747  : 	CVAR_REGISTER ( &sk_zombie_health3 );// {"sk_zombie_health3","0"};
+; 772  : 	CVAR_REGISTER ( &sk_zombie_health3 );// {"sk_zombie_health3","0"};
 
 	push	OFFSET FLAT:?sk_zombie_health3@@3Ucvar_s@@A ; sk_zombie_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 748  : 
-; 749  : 	CVAR_REGISTER ( &sk_zombie_dmg_one_slash1 );// {"sk_zombie_dmg_one_slash1","0"};
+; 773  : 
+; 774  : 	CVAR_REGISTER ( &sk_zombie_dmg_one_slash1 );// {"sk_zombie_dmg_one_slash1","0"};
 
 	push	OFFSET FLAT:?sk_zombie_dmg_one_slash1@@3Ucvar_s@@A ; sk_zombie_dmg_one_slash1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 750  : 	CVAR_REGISTER ( &sk_zombie_dmg_one_slash2 );// {"sk_zombie_dmg_one_slash2","0"};
+; 775  : 	CVAR_REGISTER ( &sk_zombie_dmg_one_slash2 );// {"sk_zombie_dmg_one_slash2","0"};
 
 	push	OFFSET FLAT:?sk_zombie_dmg_one_slash2@@3Ucvar_s@@A ; sk_zombie_dmg_one_slash2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 751  : 	CVAR_REGISTER ( &sk_zombie_dmg_one_slash3 );// {"sk_zombie_dmg_one_slash3","0"};
+; 776  : 	CVAR_REGISTER ( &sk_zombie_dmg_one_slash3 );// {"sk_zombie_dmg_one_slash3","0"};
 
 	push	OFFSET FLAT:?sk_zombie_dmg_one_slash3@@3Ucvar_s@@A ; sk_zombie_dmg_one_slash3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 752  : 
-; 753  : 	CVAR_REGISTER ( &sk_zombie_dmg_both_slash1 );// {"sk_zombie_dmg_both_slash1","0"};
+; 777  : 
+; 778  : 	CVAR_REGISTER ( &sk_zombie_dmg_both_slash1 );// {"sk_zombie_dmg_both_slash1","0"};
 
 	push	OFFSET FLAT:?sk_zombie_dmg_both_slash1@@3Ucvar_s@@A ; sk_zombie_dmg_both_slash1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 754  : 	CVAR_REGISTER ( &sk_zombie_dmg_both_slash2 );// {"sk_zombie_dmg_both_slash2","0"};
+; 779  : 	CVAR_REGISTER ( &sk_zombie_dmg_both_slash2 );// {"sk_zombie_dmg_both_slash2","0"};
 
 	push	OFFSET FLAT:?sk_zombie_dmg_both_slash2@@3Ucvar_s@@A ; sk_zombie_dmg_both_slash2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 755  : 	CVAR_REGISTER ( &sk_zombie_dmg_both_slash3 );// {"sk_zombie_dmg_both_slash3","0"};
+; 780  : 	CVAR_REGISTER ( &sk_zombie_dmg_both_slash3 );// {"sk_zombie_dmg_both_slash3","0"};
 
 	push	OFFSET FLAT:?sk_zombie_dmg_both_slash3@@3Ucvar_s@@A ; sk_zombie_dmg_both_slash3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 756  : 
-; 757  : 
-; 758  : 	//Turret
-; 759  : 	CVAR_REGISTER ( &sk_turret_health1 );// {"sk_turret_health1","0"};
+; 781  : 
+; 782  : 
+; 783  : 	//Turret
+; 784  : 	CVAR_REGISTER ( &sk_turret_health1 );// {"sk_turret_health1","0"};
 
 	push	OFFSET FLAT:?sk_turret_health1@@3Ucvar_s@@A ; sk_turret_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 760  : 	CVAR_REGISTER ( &sk_turret_health2 );// {"sk_turret_health2","0"};
+; 785  : 	CVAR_REGISTER ( &sk_turret_health2 );// {"sk_turret_health2","0"};
 
 	push	OFFSET FLAT:?sk_turret_health2@@3Ucvar_s@@A ; sk_turret_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 761  : 	CVAR_REGISTER ( &sk_turret_health3 );// {"sk_turret_health3","0"};
+; 786  : 	CVAR_REGISTER ( &sk_turret_health3 );// {"sk_turret_health3","0"};
 
 	push	OFFSET FLAT:?sk_turret_health3@@3Ucvar_s@@A ; sk_turret_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 762  : 
-; 763  : 
-; 764  : 	// MiniTurret
-; 765  : 	CVAR_REGISTER ( &sk_miniturret_health1 );// {"sk_miniturret_health1","0"};
+; 787  : 
+; 788  : 
+; 789  : 	// MiniTurret
+; 790  : 	CVAR_REGISTER ( &sk_miniturret_health1 );// {"sk_miniturret_health1","0"};
 
 	push	OFFSET FLAT:?sk_miniturret_health1@@3Ucvar_s@@A ; sk_miniturret_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 766  : 	CVAR_REGISTER ( &sk_miniturret_health2 );// {"sk_miniturret_health2","0"};
+; 791  : 	CVAR_REGISTER ( &sk_miniturret_health2 );// {"sk_miniturret_health2","0"};
 
 	push	OFFSET FLAT:?sk_miniturret_health2@@3Ucvar_s@@A ; sk_miniturret_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 767  : 	CVAR_REGISTER ( &sk_miniturret_health3 );// {"sk_miniturret_health3","0"};
+; 792  : 	CVAR_REGISTER ( &sk_miniturret_health3 );// {"sk_miniturret_health3","0"};
 
 	push	OFFSET FLAT:?sk_miniturret_health3@@3Ucvar_s@@A ; sk_miniturret_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 768  : 
-; 769  : 
-; 770  : 	// Sentry Turret
-; 771  : 	CVAR_REGISTER ( &sk_sentry_health1 );// {"sk_sentry_health1","0"};
+; 793  : 
+; 794  : 
+; 795  : 	// Sentry Turret
+; 796  : 	CVAR_REGISTER ( &sk_sentry_health1 );// {"sk_sentry_health1","0"};
 
 	push	OFFSET FLAT:?sk_sentry_health1@@3Ucvar_s@@A ; sk_sentry_health1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 772  : 	CVAR_REGISTER ( &sk_sentry_health2 );// {"sk_sentry_health2","0"};
+; 797  : 	CVAR_REGISTER ( &sk_sentry_health2 );// {"sk_sentry_health2","0"};
 
 	push	OFFSET FLAT:?sk_sentry_health2@@3Ucvar_s@@A ; sk_sentry_health2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 773  : 	CVAR_REGISTER ( &sk_sentry_health3 );// {"sk_sentry_health3","0"};
+; 798  : 	CVAR_REGISTER ( &sk_sentry_health3 );// {"sk_sentry_health3","0"};
 
 	push	OFFSET FLAT:?sk_sentry_health3@@3Ucvar_s@@A ; sk_sentry_health3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 774  : 
-; 775  : 
-; 776  : 	// PLAYER WEAPONS
-; 777  : 
-; 778  : 	// Crowbar whack
-; 779  : 	CVAR_REGISTER ( &sk_plr_crowbar1 );// {"sk_plr_crowbar1","0"};
+; 799  : 
+; 800  : 
+; 801  : 	// PLAYER WEAPONS
+; 802  : 
+; 803  : 	// Crowbar whack
+; 804  : 	CVAR_REGISTER ( &sk_plr_crowbar1 );// {"sk_plr_crowbar1","0"};
 
 	push	OFFSET FLAT:?sk_plr_crowbar1@@3Ucvar_s@@A ; sk_plr_crowbar1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 780  : 	CVAR_REGISTER ( &sk_plr_crowbar2 );// {"sk_plr_crowbar2","0"};
+; 805  : 	CVAR_REGISTER ( &sk_plr_crowbar2 );// {"sk_plr_crowbar2","0"};
 
 	push	OFFSET FLAT:?sk_plr_crowbar2@@3Ucvar_s@@A ; sk_plr_crowbar2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 781  : 	CVAR_REGISTER ( &sk_plr_crowbar3 );// {"sk_plr_crowbar3","0"};
+; 806  : 	CVAR_REGISTER ( &sk_plr_crowbar3 );// {"sk_plr_crowbar3","0"};
 
 	push	OFFSET FLAT:?sk_plr_crowbar3@@3Ucvar_s@@A ; sk_plr_crowbar3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 782  : 
-; 783  : 	// Glock Round
-; 784  : 	CVAR_REGISTER ( &sk_plr_9mm_bullet1 );// {"sk_plr_9mm_bullet1","0"};
+; 807  : 
+; 808  : 	// Crowbar stab
+; 809  : 	CVAR_REGISTER ( &sk_plr_crowbar_stab1 );// {"sk_plr_crowbar_stab1","0"};
+
+	push	OFFSET FLAT:?sk_plr_crowbar_stab1@@3Ucvar_s@@A ; sk_plr_crowbar_stab1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 810  : 	CVAR_REGISTER ( &sk_plr_crowbar_stab2 );// {"sk_plr_crowbar_stab2","0"};
+
+	push	OFFSET FLAT:?sk_plr_crowbar_stab2@@3Ucvar_s@@A ; sk_plr_crowbar_stab2
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 811  : 	CVAR_REGISTER ( &sk_plr_crowbar_stab3 );// {"sk_plr_crowbar_stab3","0"};
+
+	push	OFFSET FLAT:?sk_plr_crowbar_stab3@@3Ucvar_s@@A ; sk_plr_crowbar_stab3
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 812  : 
+; 813  : 	// Axe primary
+; 814  : 	CVAR_REGISTER ( &sk_plr_axe1 );// {"sk_plr_axe1","0"};
+
+	push	OFFSET FLAT:?sk_plr_axe1@@3Ucvar_s@@A	; sk_plr_axe1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 815  : 	CVAR_REGISTER ( &sk_plr_axe2 );// {"sk_plr_axe2","0"};
+
+	push	OFFSET FLAT:?sk_plr_axe2@@3Ucvar_s@@A	; sk_plr_axe2
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 816  : 	CVAR_REGISTER ( &sk_plr_axe3 );// {"sk_plr_axe3","0"};
+
+	push	OFFSET FLAT:?sk_plr_axe3@@3Ucvar_s@@A	; sk_plr_axe3
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 817  : 
+; 818  : 	// Axe secondary
+; 819  : 	CVAR_REGISTER ( &sk_plr_axe_sec1 );// {"sk_plr_axe_sec1","0"};
+
+	push	OFFSET FLAT:?sk_plr_axe_sec1@@3Ucvar_s@@A ; sk_plr_axe_sec1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 820  : 	CVAR_REGISTER ( &sk_plr_axe_sec2 );// {"sk_plr_axe_sec2","0"};
+
+	push	OFFSET FLAT:?sk_plr_axe_sec2@@3Ucvar_s@@A ; sk_plr_axe_sec2
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 821  : 	CVAR_REGISTER ( &sk_plr_axe_sec3 );// {"sk_plr_axe_sec3","0"};
+
+	push	OFFSET FLAT:?sk_plr_axe_sec3@@3Ucvar_s@@A ; sk_plr_axe_sec3
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 822  : 
+; 823  : 	// Chainsaw primary
+; 824  : 	CVAR_REGISTER ( &sk_plr_chainsaw1 );// {"sk_plr_chainsaw1","0"};
+
+	push	OFFSET FLAT:?sk_plr_chainsaw1@@3Ucvar_s@@A ; sk_plr_chainsaw1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 825  : 	CVAR_REGISTER ( &sk_plr_chainsaw2 );// {"sk_plr_chainsaw2","0"};
+
+	push	OFFSET FLAT:?sk_plr_chainsaw2@@3Ucvar_s@@A ; sk_plr_chainsaw2
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 826  : 	CVAR_REGISTER ( &sk_plr_chainsaw3 );// {"sk_plr_chainsaw3","0"};
+
+	push	OFFSET FLAT:?sk_plr_chainsaw3@@3Ucvar_s@@A ; sk_plr_chainsaw3
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 827  : 
+; 828  : 	// Chainsaw secondary
+; 829  : 	CVAR_REGISTER ( &sk_plr_chainsaw_sec1 );// {"sk_plr_chainsaw_sec1","0"};
+
+	push	OFFSET FLAT:?sk_plr_chainsaw_sec1@@3Ucvar_s@@A ; sk_plr_chainsaw_sec1
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 830  : 	CVAR_REGISTER ( &sk_plr_chainsaw_sec2 );// {"sk_plr_chainsaw_sec2","0"};
+
+	push	OFFSET FLAT:?sk_plr_chainsaw_sec2@@3Ucvar_s@@A ; sk_plr_chainsaw_sec2
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 831  : 	CVAR_REGISTER ( &sk_plr_chainsaw_sec3 );// {"sk_plr_chainsaw_sec3","0"};
+
+	push	OFFSET FLAT:?sk_plr_chainsaw_sec3@@3Ucvar_s@@A ; sk_plr_chainsaw_sec3
+	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
+	add	esp, 4
+
+; 832  : 
+; 833  : 	// Glock Round
+; 834  : 	CVAR_REGISTER ( &sk_plr_9mm_bullet1 );// {"sk_plr_9mm_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mm_bullet1@@3Ucvar_s@@A ; sk_plr_9mm_bullet1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 785  : 	CVAR_REGISTER ( &sk_plr_9mm_bullet2 );// {"sk_plr_9mm_bullet2","0"};
+; 835  : 	CVAR_REGISTER ( &sk_plr_9mm_bullet2 );// {"sk_plr_9mm_bullet2","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mm_bullet2@@3Ucvar_s@@A ; sk_plr_9mm_bullet2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 786  : 	CVAR_REGISTER ( &sk_plr_9mm_bullet3 );// {"sk_plr_9mm_bullet3","0"};
+; 836  : 	CVAR_REGISTER ( &sk_plr_9mm_bullet3 );// {"sk_plr_9mm_bullet3","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mm_bullet3@@3Ucvar_s@@A ; sk_plr_9mm_bullet3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 787  : 
-; 788  : 	// 357 Round
-; 789  : 	CVAR_REGISTER ( &sk_plr_357_bullet1 );// {"sk_plr_357_bullet1","0"};
+; 837  : 
+; 838  : 	// 357 Round
+; 839  : 	CVAR_REGISTER ( &sk_plr_357_bullet1 );// {"sk_plr_357_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_plr_357_bullet1@@3Ucvar_s@@A ; sk_plr_357_bullet1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 790  : 	CVAR_REGISTER ( &sk_plr_357_bullet2 );// {"sk_plr_357_bullet2","0"};
+; 840  : 	CVAR_REGISTER ( &sk_plr_357_bullet2 );// {"sk_plr_357_bullet2","0"};
 
 	push	OFFSET FLAT:?sk_plr_357_bullet2@@3Ucvar_s@@A ; sk_plr_357_bullet2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 791  : 	CVAR_REGISTER ( &sk_plr_357_bullet3 );// {"sk_plr_357_bullet3","0"};
+; 841  : 	CVAR_REGISTER ( &sk_plr_357_bullet3 );// {"sk_plr_357_bullet3","0"};
 
 	push	OFFSET FLAT:?sk_plr_357_bullet3@@3Ucvar_s@@A ; sk_plr_357_bullet3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 792  : 
-; 793  : 	// MP5 Round
-; 794  : 	CVAR_REGISTER ( &sk_plr_9mmAR_bullet1 );// {"sk_plr_9mmAR_bullet1","0"};
+; 842  : 
+; 843  : 	// MP5 Round
+; 844  : 	CVAR_REGISTER ( &sk_plr_9mmAR_bullet1 );// {"sk_plr_9mmAR_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mmAR_bullet1@@3Ucvar_s@@A ; sk_plr_9mmAR_bullet1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 795  : 	CVAR_REGISTER ( &sk_plr_9mmAR_bullet2 );// {"sk_plr_9mmAR_bullet2","0"};
+; 845  : 	CVAR_REGISTER ( &sk_plr_9mmAR_bullet2 );// {"sk_plr_9mmAR_bullet2","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mmAR_bullet2@@3Ucvar_s@@A ; sk_plr_9mmAR_bullet2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 796  : 	CVAR_REGISTER ( &sk_plr_9mmAR_bullet3 );// {"sk_plr_9mmAR_bullet3","0"};
+; 846  : 	CVAR_REGISTER ( &sk_plr_9mmAR_bullet3 );// {"sk_plr_9mmAR_bullet3","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mmAR_bullet3@@3Ucvar_s@@A ; sk_plr_9mmAR_bullet3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 797  : 
-; 798  : 
-; 799  : 	// M203 grenade
-; 800  : 	CVAR_REGISTER ( &sk_plr_9mmAR_grenade1 );// {"sk_plr_9mmAR_grenade1","0"};
+; 847  : 
+; 848  : 
+; 849  : 	// M203 grenade
+; 850  : 	CVAR_REGISTER ( &sk_plr_9mmAR_grenade1 );// {"sk_plr_9mmAR_grenade1","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mmAR_grenade1@@3Ucvar_s@@A ; sk_plr_9mmAR_grenade1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 801  : 	CVAR_REGISTER ( &sk_plr_9mmAR_grenade2 );// {"sk_plr_9mmAR_grenade2","0"};
+; 851  : 	CVAR_REGISTER ( &sk_plr_9mmAR_grenade2 );// {"sk_plr_9mmAR_grenade2","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mmAR_grenade2@@3Ucvar_s@@A ; sk_plr_9mmAR_grenade2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 802  : 	CVAR_REGISTER ( &sk_plr_9mmAR_grenade3 );// {"sk_plr_9mmAR_grenade3","0"};
+; 852  : 	CVAR_REGISTER ( &sk_plr_9mmAR_grenade3 );// {"sk_plr_9mmAR_grenade3","0"};
 
 	push	OFFSET FLAT:?sk_plr_9mmAR_grenade3@@3Ucvar_s@@A ; sk_plr_9mmAR_grenade3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 803  : 
-; 804  : 
-; 805  : 	// Shotgun buckshot
-; 806  : 	CVAR_REGISTER ( &sk_plr_buckshot1 );// {"sk_plr_buckshot1","0"};
+; 853  : 
+; 854  : 
+; 855  : 	// Shotgun buckshot
+; 856  : 	CVAR_REGISTER ( &sk_plr_buckshot1 );// {"sk_plr_buckshot1","0"};
 
 	push	OFFSET FLAT:?sk_plr_buckshot1@@3Ucvar_s@@A ; sk_plr_buckshot1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 807  : 	CVAR_REGISTER ( &sk_plr_buckshot2 );// {"sk_plr_buckshot2","0"};
+; 857  : 	CVAR_REGISTER ( &sk_plr_buckshot2 );// {"sk_plr_buckshot2","0"};
 
 	push	OFFSET FLAT:?sk_plr_buckshot2@@3Ucvar_s@@A ; sk_plr_buckshot2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 808  : 	CVAR_REGISTER ( &sk_plr_buckshot3 );// {"sk_plr_buckshot3","0"};
+; 858  : 	CVAR_REGISTER ( &sk_plr_buckshot3 );// {"sk_plr_buckshot3","0"};
 
 	push	OFFSET FLAT:?sk_plr_buckshot3@@3Ucvar_s@@A ; sk_plr_buckshot3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 809  : 
-; 810  : 
-; 811  : 	// Crossbow
-; 812  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_monster1 );// {"sk_plr_xbow_bolt1","0"};
+; 859  : 
+; 860  : 
+; 861  : 	// Crossbow
+; 862  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_monster1 );// {"sk_plr_xbow_bolt1","0"};
 
 	push	OFFSET FLAT:?sk_plr_xbow_bolt_monster1@@3Ucvar_s@@A ; sk_plr_xbow_bolt_monster1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 813  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_monster2 );// {"sk_plr_xbow_bolt2","0"};
+; 863  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_monster2 );// {"sk_plr_xbow_bolt2","0"};
 
 	push	OFFSET FLAT:?sk_plr_xbow_bolt_monster2@@3Ucvar_s@@A ; sk_plr_xbow_bolt_monster2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 814  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_monster3 );// {"sk_plr_xbow_bolt3","0"};
+; 864  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_monster3 );// {"sk_plr_xbow_bolt3","0"};
 
 	push	OFFSET FLAT:?sk_plr_xbow_bolt_monster3@@3Ucvar_s@@A ; sk_plr_xbow_bolt_monster3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 815  : 
-; 816  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_client1 );// {"sk_plr_xbow_bolt1","0"};
+; 865  : 
+; 866  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_client1 );// {"sk_plr_xbow_bolt1","0"};
 
 	push	OFFSET FLAT:?sk_plr_xbow_bolt_client1@@3Ucvar_s@@A ; sk_plr_xbow_bolt_client1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 817  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_client2 );// {"sk_plr_xbow_bolt2","0"};
+; 867  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_client2 );// {"sk_plr_xbow_bolt2","0"};
 
 	push	OFFSET FLAT:?sk_plr_xbow_bolt_client2@@3Ucvar_s@@A ; sk_plr_xbow_bolt_client2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 818  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_client3 );// {"sk_plr_xbow_bolt3","0"};
+; 868  : 	CVAR_REGISTER ( &sk_plr_xbow_bolt_client3 );// {"sk_plr_xbow_bolt3","0"};
 
 	push	OFFSET FLAT:?sk_plr_xbow_bolt_client3@@3Ucvar_s@@A ; sk_plr_xbow_bolt_client3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 819  : 
-; 820  : 
-; 821  : 	// RPG
-; 822  : 	CVAR_REGISTER ( &sk_plr_rpg1 );// {"sk_plr_rpg1","0"};
+; 869  : 
+; 870  : 
+; 871  : 	// RPG
+; 872  : 	CVAR_REGISTER ( &sk_plr_rpg1 );// {"sk_plr_rpg1","0"};
 
 	push	OFFSET FLAT:?sk_plr_rpg1@@3Ucvar_s@@A	; sk_plr_rpg1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 823  : 	CVAR_REGISTER ( &sk_plr_rpg2 );// {"sk_plr_rpg2","0"};
+; 873  : 	CVAR_REGISTER ( &sk_plr_rpg2 );// {"sk_plr_rpg2","0"};
 
 	push	OFFSET FLAT:?sk_plr_rpg2@@3Ucvar_s@@A	; sk_plr_rpg2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 824  : 	CVAR_REGISTER ( &sk_plr_rpg3 );// {"sk_plr_rpg3","0"};
+; 874  : 	CVAR_REGISTER ( &sk_plr_rpg3 );// {"sk_plr_rpg3","0"};
 
 	push	OFFSET FLAT:?sk_plr_rpg3@@3Ucvar_s@@A	; sk_plr_rpg3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 825  : 
-; 826  : 
-; 827  : 	// Gauss Gun
-; 828  : 	CVAR_REGISTER ( &sk_plr_gauss1 );// {"sk_plr_gauss1","0"};
+; 875  : 
+; 876  : 
+; 877  : 	// Gauss Gun
+; 878  : 	CVAR_REGISTER ( &sk_plr_gauss1 );// {"sk_plr_gauss1","0"};
 
 	push	OFFSET FLAT:?sk_plr_gauss1@@3Ucvar_s@@A	; sk_plr_gauss1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 829  : 	CVAR_REGISTER ( &sk_plr_gauss2 );// {"sk_plr_gauss2","0"};
+; 879  : 	CVAR_REGISTER ( &sk_plr_gauss2 );// {"sk_plr_gauss2","0"};
 
 	push	OFFSET FLAT:?sk_plr_gauss2@@3Ucvar_s@@A	; sk_plr_gauss2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 830  : 	CVAR_REGISTER ( &sk_plr_gauss3 );// {"sk_plr_gauss3","0"};
+; 880  : 	CVAR_REGISTER ( &sk_plr_gauss3 );// {"sk_plr_gauss3","0"};
 
 	push	OFFSET FLAT:?sk_plr_gauss3@@3Ucvar_s@@A	; sk_plr_gauss3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 831  : 
-; 832  : 
-; 833  : 	// Egon Gun
-; 834  : 	CVAR_REGISTER ( &sk_plr_egon_narrow1 );// {"sk_plr_egon_narrow1","0"};
+; 881  : 
+; 882  : 
+; 883  : 	// Egon Gun
+; 884  : 	CVAR_REGISTER ( &sk_plr_egon_narrow1 );// {"sk_plr_egon_narrow1","0"};
 
 	push	OFFSET FLAT:?sk_plr_egon_narrow1@@3Ucvar_s@@A ; sk_plr_egon_narrow1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 835  : 	CVAR_REGISTER ( &sk_plr_egon_narrow2 );// {"sk_plr_egon_narrow2","0"};
+; 885  : 	CVAR_REGISTER ( &sk_plr_egon_narrow2 );// {"sk_plr_egon_narrow2","0"};
 
 	push	OFFSET FLAT:?sk_plr_egon_narrow2@@3Ucvar_s@@A ; sk_plr_egon_narrow2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 836  : 	CVAR_REGISTER ( &sk_plr_egon_narrow3 );// {"sk_plr_egon_narrow3","0"};
+; 886  : 	CVAR_REGISTER ( &sk_plr_egon_narrow3 );// {"sk_plr_egon_narrow3","0"};
 
 	push	OFFSET FLAT:?sk_plr_egon_narrow3@@3Ucvar_s@@A ; sk_plr_egon_narrow3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 837  : 
-; 838  : 	CVAR_REGISTER ( &sk_plr_egon_wide1 );// {"sk_plr_egon_wide1","0"};
+; 887  : 
+; 888  : 	CVAR_REGISTER ( &sk_plr_egon_wide1 );// {"sk_plr_egon_wide1","0"};
 
 	push	OFFSET FLAT:?sk_plr_egon_wide1@@3Ucvar_s@@A ; sk_plr_egon_wide1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 839  : 	CVAR_REGISTER ( &sk_plr_egon_wide2 );// {"sk_plr_egon_wide2","0"};
+; 889  : 	CVAR_REGISTER ( &sk_plr_egon_wide2 );// {"sk_plr_egon_wide2","0"};
 
 	push	OFFSET FLAT:?sk_plr_egon_wide2@@3Ucvar_s@@A ; sk_plr_egon_wide2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 840  : 	CVAR_REGISTER ( &sk_plr_egon_wide3 );// {"sk_plr_egon_wide3","0"};
+; 890  : 	CVAR_REGISTER ( &sk_plr_egon_wide3 );// {"sk_plr_egon_wide3","0"};
 
 	push	OFFSET FLAT:?sk_plr_egon_wide3@@3Ucvar_s@@A ; sk_plr_egon_wide3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 841  : 
-; 842  : 
-; 843  : 	// Hand Grendade
-; 844  : 	CVAR_REGISTER ( &sk_plr_hand_grenade1 );// {"sk_plr_hand_grenade1","0"};
+; 891  : 
+; 892  : 
+; 893  : 	// Hand Grendade
+; 894  : 	CVAR_REGISTER ( &sk_plr_hand_grenade1 );// {"sk_plr_hand_grenade1","0"};
 
 	push	OFFSET FLAT:?sk_plr_hand_grenade1@@3Ucvar_s@@A ; sk_plr_hand_grenade1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 845  : 	CVAR_REGISTER ( &sk_plr_hand_grenade2 );// {"sk_plr_hand_grenade2","0"};
+; 895  : 	CVAR_REGISTER ( &sk_plr_hand_grenade2 );// {"sk_plr_hand_grenade2","0"};
 
 	push	OFFSET FLAT:?sk_plr_hand_grenade2@@3Ucvar_s@@A ; sk_plr_hand_grenade2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 846  : 	CVAR_REGISTER ( &sk_plr_hand_grenade3 );// {"sk_plr_hand_grenade3","0"};
+; 896  : 	CVAR_REGISTER ( &sk_plr_hand_grenade3 );// {"sk_plr_hand_grenade3","0"};
 
 	push	OFFSET FLAT:?sk_plr_hand_grenade3@@3Ucvar_s@@A ; sk_plr_hand_grenade3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 847  : 
-; 848  : 
-; 849  : 	// Satchel Charge
-; 850  : 	CVAR_REGISTER ( &sk_plr_satchel1 );// {"sk_plr_satchel1","0"};
+; 897  : 
+; 898  : 
+; 899  : 	// Satchel Charge
+; 900  : 	CVAR_REGISTER ( &sk_plr_satchel1 );// {"sk_plr_satchel1","0"};
 
 	push	OFFSET FLAT:?sk_plr_satchel1@@3Ucvar_s@@A ; sk_plr_satchel1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 851  : 	CVAR_REGISTER ( &sk_plr_satchel2 );// {"sk_plr_satchel2","0"};
+; 901  : 	CVAR_REGISTER ( &sk_plr_satchel2 );// {"sk_plr_satchel2","0"};
 
 	push	OFFSET FLAT:?sk_plr_satchel2@@3Ucvar_s@@A ; sk_plr_satchel2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 852  : 	CVAR_REGISTER ( &sk_plr_satchel3 );// {"sk_plr_satchel3","0"};
+; 902  : 	CVAR_REGISTER ( &sk_plr_satchel3 );// {"sk_plr_satchel3","0"};
 
 	push	OFFSET FLAT:?sk_plr_satchel3@@3Ucvar_s@@A ; sk_plr_satchel3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 853  : 
-; 854  : 
-; 855  : 	// Tripmine
-; 856  : 	CVAR_REGISTER ( &sk_plr_tripmine1 );// {"sk_plr_tripmine1","0"};
+; 903  : 
+; 904  : 
+; 905  : 	// Tripmine
+; 906  : 	CVAR_REGISTER ( &sk_plr_tripmine1 );// {"sk_plr_tripmine1","0"};
 
 	push	OFFSET FLAT:?sk_plr_tripmine1@@3Ucvar_s@@A ; sk_plr_tripmine1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 857  : 	CVAR_REGISTER ( &sk_plr_tripmine2 );// {"sk_plr_tripmine2","0"};
+; 907  : 	CVAR_REGISTER ( &sk_plr_tripmine2 );// {"sk_plr_tripmine2","0"};
 
 	push	OFFSET FLAT:?sk_plr_tripmine2@@3Ucvar_s@@A ; sk_plr_tripmine2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 858  : 	CVAR_REGISTER ( &sk_plr_tripmine3 );// {"sk_plr_tripmine3","0"};
+; 908  : 	CVAR_REGISTER ( &sk_plr_tripmine3 );// {"sk_plr_tripmine3","0"};
 
 	push	OFFSET FLAT:?sk_plr_tripmine3@@3Ucvar_s@@A ; sk_plr_tripmine3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 859  : 
-; 860  : 
-; 861  : 	// WORLD WEAPONS
-; 862  : 	CVAR_REGISTER ( &sk_12mm_bullet1 );// {"sk_12mm_bullet1","0"};
+; 909  : 
+; 910  : 
+; 911  : 	// WORLD WEAPONS
+; 912  : 	CVAR_REGISTER ( &sk_12mm_bullet1 );// {"sk_12mm_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_12mm_bullet1@@3Ucvar_s@@A ; sk_12mm_bullet1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 863  : 	CVAR_REGISTER ( &sk_12mm_bullet2 );// {"sk_12mm_bullet2","0"};
+; 913  : 	CVAR_REGISTER ( &sk_12mm_bullet2 );// {"sk_12mm_bullet2","0"};
 
 	push	OFFSET FLAT:?sk_12mm_bullet2@@3Ucvar_s@@A ; sk_12mm_bullet2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 864  : 	CVAR_REGISTER ( &sk_12mm_bullet3 );// {"sk_12mm_bullet3","0"};
+; 914  : 	CVAR_REGISTER ( &sk_12mm_bullet3 );// {"sk_12mm_bullet3","0"};
 
 	push	OFFSET FLAT:?sk_12mm_bullet3@@3Ucvar_s@@A ; sk_12mm_bullet3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 865  : 
-; 866  : 	CVAR_REGISTER ( &sk_9mmAR_bullet1 );// {"sk_9mm_bullet1","0"};
+; 915  : 
+; 916  : 	CVAR_REGISTER ( &sk_9mmAR_bullet1 );// {"sk_9mm_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_9mmAR_bullet1@@3Ucvar_s@@A ; sk_9mmAR_bullet1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 867  : 	CVAR_REGISTER ( &sk_9mmAR_bullet2 );// {"sk_9mm_bullet1","0"};
+; 917  : 	CVAR_REGISTER ( &sk_9mmAR_bullet2 );// {"sk_9mm_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_9mmAR_bullet2@@3Ucvar_s@@A ; sk_9mmAR_bullet2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 868  : 	CVAR_REGISTER ( &sk_9mmAR_bullet3 );// {"sk_9mm_bullet1","0"};
+; 918  : 	CVAR_REGISTER ( &sk_9mmAR_bullet3 );// {"sk_9mm_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_9mmAR_bullet3@@3Ucvar_s@@A ; sk_9mmAR_bullet3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 869  : 
-; 870  : 	CVAR_REGISTER ( &sk_9mm_bullet1 );// {"sk_9mm_bullet1","0"};
+; 919  : 
+; 920  : 	CVAR_REGISTER ( &sk_9mm_bullet1 );// {"sk_9mm_bullet1","0"};
 
 	push	OFFSET FLAT:?sk_9mm_bullet1@@3Ucvar_s@@A ; sk_9mm_bullet1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 871  : 	CVAR_REGISTER ( &sk_9mm_bullet2 );// {"sk_9mm_bullet2","0"};
+; 921  : 	CVAR_REGISTER ( &sk_9mm_bullet2 );// {"sk_9mm_bullet2","0"};
 
 	push	OFFSET FLAT:?sk_9mm_bullet2@@3Ucvar_s@@A ; sk_9mm_bullet2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 872  : 	CVAR_REGISTER ( &sk_9mm_bullet3 );// {"sk_9mm_bullet3","0"};
+; 922  : 	CVAR_REGISTER ( &sk_9mm_bullet3 );// {"sk_9mm_bullet3","0"};
 
 	push	OFFSET FLAT:?sk_9mm_bullet3@@3Ucvar_s@@A ; sk_9mm_bullet3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 873  : 
-; 874  : 
-; 875  : 	// HORNET
-; 876  : 	CVAR_REGISTER ( &sk_hornet_dmg1 );// {"sk_hornet_dmg1","0"};
+; 923  : 
+; 924  : 
+; 925  : 	// HORNET
+; 926  : 	CVAR_REGISTER ( &sk_hornet_dmg1 );// {"sk_hornet_dmg1","0"};
 
 	push	OFFSET FLAT:?sk_hornet_dmg1@@3Ucvar_s@@A ; sk_hornet_dmg1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 877  : 	CVAR_REGISTER ( &sk_hornet_dmg2 );// {"sk_hornet_dmg2","0"};
+; 927  : 	CVAR_REGISTER ( &sk_hornet_dmg2 );// {"sk_hornet_dmg2","0"};
 
 	push	OFFSET FLAT:?sk_hornet_dmg2@@3Ucvar_s@@A ; sk_hornet_dmg2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 878  : 	CVAR_REGISTER ( &sk_hornet_dmg3 );// {"sk_hornet_dmg3","0"};
+; 928  : 	CVAR_REGISTER ( &sk_hornet_dmg3 );// {"sk_hornet_dmg3","0"};
 
 	push	OFFSET FLAT:?sk_hornet_dmg3@@3Ucvar_s@@A ; sk_hornet_dmg3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 879  : 
-; 880  : 	// HEALTH/SUIT CHARGE DISTRIBUTION
-; 881  : 	CVAR_REGISTER ( &sk_suitcharger1 );
+; 929  : 
+; 930  : 	// HEALTH/SUIT CHARGE DISTRIBUTION
+; 931  : 	CVAR_REGISTER ( &sk_suitcharger1 );
 
 	push	OFFSET FLAT:?sk_suitcharger1@@3Ucvar_s@@A ; sk_suitcharger1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 882  : 	CVAR_REGISTER ( &sk_suitcharger2 );
+; 932  : 	CVAR_REGISTER ( &sk_suitcharger2 );
 
 	push	OFFSET FLAT:?sk_suitcharger2@@3Ucvar_s@@A ; sk_suitcharger2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 883  : 	CVAR_REGISTER ( &sk_suitcharger3 );
+; 933  : 	CVAR_REGISTER ( &sk_suitcharger3 );
 
 	push	OFFSET FLAT:?sk_suitcharger3@@3Ucvar_s@@A ; sk_suitcharger3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 884  : 
-; 885  : 	CVAR_REGISTER ( &sk_battery1 );
+; 934  : 
+; 935  : 	CVAR_REGISTER ( &sk_battery1 );
 
 	push	OFFSET FLAT:?sk_battery1@@3Ucvar_s@@A	; sk_battery1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 886  : 	CVAR_REGISTER ( &sk_battery2 );
+; 936  : 	CVAR_REGISTER ( &sk_battery2 );
 
 	push	OFFSET FLAT:?sk_battery2@@3Ucvar_s@@A	; sk_battery2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 887  : 	CVAR_REGISTER ( &sk_battery3 );
+; 937  : 	CVAR_REGISTER ( &sk_battery3 );
 
 	push	OFFSET FLAT:?sk_battery3@@3Ucvar_s@@A	; sk_battery3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 888  : 
-; 889  : 	CVAR_REGISTER ( &sk_healthcharger1 );
+; 938  : 
+; 939  : 	CVAR_REGISTER ( &sk_healthcharger1 );
 
 	push	OFFSET FLAT:?sk_healthcharger1@@3Ucvar_s@@A ; sk_healthcharger1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 890  : 	CVAR_REGISTER ( &sk_healthcharger2 );
+; 940  : 	CVAR_REGISTER ( &sk_healthcharger2 );
 
 	push	OFFSET FLAT:?sk_healthcharger2@@3Ucvar_s@@A ; sk_healthcharger2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 891  : 	CVAR_REGISTER ( &sk_healthcharger3 );
+; 941  : 	CVAR_REGISTER ( &sk_healthcharger3 );
 
 	push	OFFSET FLAT:?sk_healthcharger3@@3Ucvar_s@@A ; sk_healthcharger3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 892  : 
-; 893  : 	CVAR_REGISTER ( &sk_healthkit1 );
+; 942  : 
+; 943  : 	CVAR_REGISTER ( &sk_healthkit1 );
 
 	push	OFFSET FLAT:?sk_healthkit1@@3Ucvar_s@@A	; sk_healthkit1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 894  : 	CVAR_REGISTER ( &sk_healthkit2 );
+; 944  : 	CVAR_REGISTER ( &sk_healthkit2 );
 
 	push	OFFSET FLAT:?sk_healthkit2@@3Ucvar_s@@A	; sk_healthkit2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 895  : 	CVAR_REGISTER ( &sk_healthkit3 );
+; 945  : 	CVAR_REGISTER ( &sk_healthkit3 );
 
 	push	OFFSET FLAT:?sk_healthkit3@@3Ucvar_s@@A	; sk_healthkit3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 896  : 
-; 897  : 	CVAR_REGISTER ( &sk_scientist_heal1 );
+; 946  : 
+; 947  : 	CVAR_REGISTER ( &sk_scientist_heal1 );
 
 	push	OFFSET FLAT:?sk_scientist_heal1@@3Ucvar_s@@A ; sk_scientist_heal1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 898  : 	CVAR_REGISTER ( &sk_scientist_heal2 );
+; 948  : 	CVAR_REGISTER ( &sk_scientist_heal2 );
 
 	push	OFFSET FLAT:?sk_scientist_heal2@@3Ucvar_s@@A ; sk_scientist_heal2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 899  : 	CVAR_REGISTER ( &sk_scientist_heal3 );
+; 949  : 	CVAR_REGISTER ( &sk_scientist_heal3 );
 
 	push	OFFSET FLAT:?sk_scientist_heal3@@3Ucvar_s@@A ; sk_scientist_heal3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 900  : 
-; 901  : // monster damage adjusters
-; 902  : 	CVAR_REGISTER ( &sk_monster_head1 );
+; 950  : 
+; 951  : // monster damage adjusters
+; 952  : 	CVAR_REGISTER ( &sk_monster_head1 );
 
 	push	OFFSET FLAT:?sk_monster_head1@@3Ucvar_s@@A ; sk_monster_head1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 903  : 	CVAR_REGISTER ( &sk_monster_head2 );
+; 953  : 	CVAR_REGISTER ( &sk_monster_head2 );
 
 	push	OFFSET FLAT:?sk_monster_head2@@3Ucvar_s@@A ; sk_monster_head2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 904  : 	CVAR_REGISTER ( &sk_monster_head3 );
+; 954  : 	CVAR_REGISTER ( &sk_monster_head3 );
 
 	push	OFFSET FLAT:?sk_monster_head3@@3Ucvar_s@@A ; sk_monster_head3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 905  : 
-; 906  : 	CVAR_REGISTER ( &sk_monster_chest1 );
+; 955  : 
+; 956  : 	CVAR_REGISTER ( &sk_monster_chest1 );
 
 	push	OFFSET FLAT:?sk_monster_chest1@@3Ucvar_s@@A ; sk_monster_chest1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 907  : 	CVAR_REGISTER ( &sk_monster_chest2 );
+; 957  : 	CVAR_REGISTER ( &sk_monster_chest2 );
 
 	push	OFFSET FLAT:?sk_monster_chest2@@3Ucvar_s@@A ; sk_monster_chest2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 908  : 	CVAR_REGISTER ( &sk_monster_chest3 );
+; 958  : 	CVAR_REGISTER ( &sk_monster_chest3 );
 
 	push	OFFSET FLAT:?sk_monster_chest3@@3Ucvar_s@@A ; sk_monster_chest3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 909  : 
-; 910  : 	CVAR_REGISTER ( &sk_monster_stomach1 );
+; 959  : 
+; 960  : 	CVAR_REGISTER ( &sk_monster_stomach1 );
 
 	push	OFFSET FLAT:?sk_monster_stomach1@@3Ucvar_s@@A ; sk_monster_stomach1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 911  : 	CVAR_REGISTER ( &sk_monster_stomach2 );
+; 961  : 	CVAR_REGISTER ( &sk_monster_stomach2 );
 
 	push	OFFSET FLAT:?sk_monster_stomach2@@3Ucvar_s@@A ; sk_monster_stomach2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 912  : 	CVAR_REGISTER ( &sk_monster_stomach3 );
+; 962  : 	CVAR_REGISTER ( &sk_monster_stomach3 );
 
 	push	OFFSET FLAT:?sk_monster_stomach3@@3Ucvar_s@@A ; sk_monster_stomach3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 913  : 
-; 914  : 	CVAR_REGISTER ( &sk_monster_arm1 );
+; 963  : 
+; 964  : 	CVAR_REGISTER ( &sk_monster_arm1 );
 
 	push	OFFSET FLAT:?sk_monster_arm1@@3Ucvar_s@@A ; sk_monster_arm1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 915  : 	CVAR_REGISTER ( &sk_monster_arm2 );
+; 965  : 	CVAR_REGISTER ( &sk_monster_arm2 );
 
 	push	OFFSET FLAT:?sk_monster_arm2@@3Ucvar_s@@A ; sk_monster_arm2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 916  : 	CVAR_REGISTER ( &sk_monster_arm3 );
+; 966  : 	CVAR_REGISTER ( &sk_monster_arm3 );
 
 	push	OFFSET FLAT:?sk_monster_arm3@@3Ucvar_s@@A ; sk_monster_arm3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 917  : 
-; 918  : 	CVAR_REGISTER ( &sk_monster_leg1 );
+; 967  : 
+; 968  : 	CVAR_REGISTER ( &sk_monster_leg1 );
 
 	push	OFFSET FLAT:?sk_monster_leg1@@3Ucvar_s@@A ; sk_monster_leg1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 919  : 	CVAR_REGISTER ( &sk_monster_leg2 );
+; 969  : 	CVAR_REGISTER ( &sk_monster_leg2 );
 
 	push	OFFSET FLAT:?sk_monster_leg2@@3Ucvar_s@@A ; sk_monster_leg2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 920  : 	CVAR_REGISTER ( &sk_monster_leg3 );
+; 970  : 	CVAR_REGISTER ( &sk_monster_leg3 );
 
 	push	OFFSET FLAT:?sk_monster_leg3@@3Ucvar_s@@A ; sk_monster_leg3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 921  : 
-; 922  : // player damage adjusters
-; 923  : 	CVAR_REGISTER ( &sk_player_head1 );
+; 971  : 
+; 972  : // player damage adjusters
+; 973  : 	CVAR_REGISTER ( &sk_player_head1 );
 
 	push	OFFSET FLAT:?sk_player_head1@@3Ucvar_s@@A ; sk_player_head1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 924  : 	CVAR_REGISTER ( &sk_player_head2 );
+; 974  : 	CVAR_REGISTER ( &sk_player_head2 );
 
 	push	OFFSET FLAT:?sk_player_head2@@3Ucvar_s@@A ; sk_player_head2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 925  : 	CVAR_REGISTER ( &sk_player_head3 );
+; 975  : 	CVAR_REGISTER ( &sk_player_head3 );
 
 	push	OFFSET FLAT:?sk_player_head3@@3Ucvar_s@@A ; sk_player_head3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 926  : 
-; 927  : 	CVAR_REGISTER ( &sk_player_chest1 );
+; 976  : 
+; 977  : 	CVAR_REGISTER ( &sk_player_chest1 );
 
 	push	OFFSET FLAT:?sk_player_chest1@@3Ucvar_s@@A ; sk_player_chest1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 928  : 	CVAR_REGISTER ( &sk_player_chest2 );
+; 978  : 	CVAR_REGISTER ( &sk_player_chest2 );
 
 	push	OFFSET FLAT:?sk_player_chest2@@3Ucvar_s@@A ; sk_player_chest2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 929  : 	CVAR_REGISTER ( &sk_player_chest3 );
+; 979  : 	CVAR_REGISTER ( &sk_player_chest3 );
 
 	push	OFFSET FLAT:?sk_player_chest3@@3Ucvar_s@@A ; sk_player_chest3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 930  : 
-; 931  : 	CVAR_REGISTER ( &sk_player_stomach1 );
+; 980  : 
+; 981  : 	CVAR_REGISTER ( &sk_player_stomach1 );
 
 	push	OFFSET FLAT:?sk_player_stomach1@@3Ucvar_s@@A ; sk_player_stomach1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 932  : 	CVAR_REGISTER ( &sk_player_stomach2 );
+; 982  : 	CVAR_REGISTER ( &sk_player_stomach2 );
 
 	push	OFFSET FLAT:?sk_player_stomach2@@3Ucvar_s@@A ; sk_player_stomach2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 933  : 	CVAR_REGISTER ( &sk_player_stomach3 );
+; 983  : 	CVAR_REGISTER ( &sk_player_stomach3 );
 
 	push	OFFSET FLAT:?sk_player_stomach3@@3Ucvar_s@@A ; sk_player_stomach3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 934  : 
-; 935  : 	CVAR_REGISTER ( &sk_player_arm1 );
+; 984  : 
+; 985  : 	CVAR_REGISTER ( &sk_player_arm1 );
 
 	push	OFFSET FLAT:?sk_player_arm1@@3Ucvar_s@@A ; sk_player_arm1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 936  : 	CVAR_REGISTER ( &sk_player_arm2 );
+; 986  : 	CVAR_REGISTER ( &sk_player_arm2 );
 
 	push	OFFSET FLAT:?sk_player_arm2@@3Ucvar_s@@A ; sk_player_arm2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 937  : 	CVAR_REGISTER ( &sk_player_arm3 );
+; 987  : 	CVAR_REGISTER ( &sk_player_arm3 );
 
 	push	OFFSET FLAT:?sk_player_arm3@@3Ucvar_s@@A ; sk_player_arm3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 938  : 
-; 939  : 	CVAR_REGISTER ( &sk_player_leg1 );
+; 988  : 
+; 989  : 	CVAR_REGISTER ( &sk_player_leg1 );
 
 	push	OFFSET FLAT:?sk_player_leg1@@3Ucvar_s@@A ; sk_player_leg1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 940  : 	CVAR_REGISTER ( &sk_player_leg2 );
+; 990  : 	CVAR_REGISTER ( &sk_player_leg2 );
 
 	push	OFFSET FLAT:?sk_player_leg2@@3Ucvar_s@@A ; sk_player_leg2
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 941  : 	CVAR_REGISTER ( &sk_player_leg3 );
+; 991  : 	CVAR_REGISTER ( &sk_player_leg3 );
 
 	push	OFFSET FLAT:?sk_player_leg3@@3Ucvar_s@@A ; sk_player_leg3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+224
 	add	esp, 4
 
-; 942  : // END REGISTER CVARS FOR SKILL LEVEL STUFF
-; 943  : 
-; 944  : 	SERVER_COMMAND( "exec skill.cfg\n" );
+; 992  : // END REGISTER CVARS FOR SKILL LEVEL STUFF
+; 993  : 
+; 994  : 	SERVER_COMMAND( "exec skill.cfg\n" );
 
 	push	OFFSET FLAT:??_C@_0BA@HNAG@exec?5skill?4cfg?6?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+156
 	add	esp, 4
 
-; 945  : 
-; 946  : 	WorldPhysic->InitPhysic();	// initialize physic world
+; 995  : 
+; 996  : 	WorldPhysic->InitPhysic();	// initialize physic world
 
 	mov	eax, DWORD PTR ?WorldPhysic@@3PAVIPhysicLayer@@A ; WorldPhysic
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR ?WorldPhysic@@3PAVIPhysicLayer@@A ; WorldPhysic
 	call	DWORD PTR [edx]
 
-; 947  : 
-; 948  : 	// Yes in the Xash3D we can register messages here
-; 949  : 	LinkUserMessages();
+; 997  : 
+; 998  : 	// Yes in the Xash3D we can register messages here
+; 999  : 	LinkUserMessages();
 
 	call	?LinkUserMessages@@YAXXZ		; LinkUserMessages
 
-; 950  : }
+; 1000 : }
 
 	pop	edi
 	pop	esi
@@ -6456,7 +6751,7 @@ PUBLIC	?GameDLLShutdown@@YAXXZ				; GameDLLShutdown
 _TEXT	SEGMENT
 ?GameDLLShutdown@@YAXXZ PROC NEAR			; GameDLLShutdown, COMDAT
 
-; 953  : {
+; 1003 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6465,14 +6760,14 @@ _TEXT	SEGMENT
 	push	esi
 	push	edi
 
-; 954  : 	WorldPhysic->FreePhysic();	// release physic world
+; 1004 : 	WorldPhysic->FreePhysic();	// release physic world
 
 	mov	eax, DWORD PTR ?WorldPhysic@@3PAVIPhysicLayer@@A ; WorldPhysic
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR ?WorldPhysic@@3PAVIPhysicLayer@@A ; WorldPhysic
 	call	DWORD PTR [edx+4]
 
-; 955  : }
+; 1005 : }
 
 	pop	edi
 	pop	esi

@@ -301,6 +301,26 @@ cvar_t	sk_plr_crowbar_stab1 = {"sk_plr_crowbar_stab1","0"};
 cvar_t	sk_plr_crowbar_stab2 = {"sk_plr_crowbar_stab2","0"};
 cvar_t	sk_plr_crowbar_stab3 = {"sk_plr_crowbar_stab3","0"};
 
+// Axe primary
+cvar_t	sk_plr_axe1 = {"sk_plr_axe1","0"};
+cvar_t	sk_plr_axe2 = {"sk_plr_axe2","0"};
+cvar_t	sk_plr_axe3 = {"sk_plr_axe3","0"};
+
+// Axe secondary
+cvar_t	sk_plr_axe_sec1 = {"sk_plr_axe_sec1","0"};
+cvar_t	sk_plr_axe_sec2 = {"sk_plr_axe_sec2","0"};
+cvar_t	sk_plr_axe_sec3 = {"sk_plr_axe_sec3","0"};
+
+// Chainsaw primary
+cvar_t	sk_plr_chainsaw1 = {"sk_plr_chainsaw1","0"};
+cvar_t	sk_plr_chainsaw2 = {"sk_plr_chainsaw2","0"};
+cvar_t	sk_plr_chainsaw3 = {"sk_plr_chainsaw3","0"};
+
+// Chainsaw secondary
+cvar_t	sk_plr_chainsaw_sec1 = {"sk_plr_chainsaw_sec1","0"};
+cvar_t	sk_plr_chainsaw_sec2 = {"sk_plr_chainsaw_sec2","0"};
+cvar_t	sk_plr_chainsaw_sec3 = {"sk_plr_chainsaw_sec3","0"};
+
 // Glock Round
 cvar_t	sk_plr_9mm_bullet1 = {"sk_plr_9mm_bullet1","0"};
 cvar_t	sk_plr_9mm_bullet2 = {"sk_plr_9mm_bullet2","0"};
@@ -789,6 +809,26 @@ void GameDLLInit( void )
 	CVAR_REGISTER ( &sk_plr_crowbar_stab1 );// {"sk_plr_crowbar_stab1","0"};
 	CVAR_REGISTER ( &sk_plr_crowbar_stab2 );// {"sk_plr_crowbar_stab2","0"};
 	CVAR_REGISTER ( &sk_plr_crowbar_stab3 );// {"sk_plr_crowbar_stab3","0"};
+
+	// Axe primary
+	CVAR_REGISTER ( &sk_plr_axe1 );// {"sk_plr_axe1","0"};
+	CVAR_REGISTER ( &sk_plr_axe2 );// {"sk_plr_axe2","0"};
+	CVAR_REGISTER ( &sk_plr_axe3 );// {"sk_plr_axe3","0"};
+
+	// Axe secondary
+	CVAR_REGISTER ( &sk_plr_axe_sec1 );// {"sk_plr_axe_sec1","0"};
+	CVAR_REGISTER ( &sk_plr_axe_sec2 );// {"sk_plr_axe_sec2","0"};
+	CVAR_REGISTER ( &sk_plr_axe_sec3 );// {"sk_plr_axe_sec3","0"};
+
+	// Chainsaw primary
+	CVAR_REGISTER ( &sk_plr_chainsaw1 );// {"sk_plr_chainsaw1","0"};
+	CVAR_REGISTER ( &sk_plr_chainsaw2 );// {"sk_plr_chainsaw2","0"};
+	CVAR_REGISTER ( &sk_plr_chainsaw3 );// {"sk_plr_chainsaw3","0"};
+
+	// Chainsaw secondary
+	CVAR_REGISTER ( &sk_plr_chainsaw_sec1 );// {"sk_plr_chainsaw_sec1","0"};
+	CVAR_REGISTER ( &sk_plr_chainsaw_sec2 );// {"sk_plr_chainsaw_sec2","0"};
+	CVAR_REGISTER ( &sk_plr_chainsaw_sec3 );// {"sk_plr_chainsaw_sec3","0"};
 
 	// Glock Round
 	CVAR_REGISTER ( &sk_plr_9mm_bullet1 );// {"sk_plr_9mm_bullet1","0"};

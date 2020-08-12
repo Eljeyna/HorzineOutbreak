@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -78,7 +78,7 @@ void CGrenade::Explode( TraceResult *pTrace, int bitsDamageType )
 	Vector absOrigin = GetAbsOrigin();
 
 	int iContents = UTIL_PointContents ( absOrigin );
-	
+
 	MESSAGE_BEGIN( MSG_PAS, SVC_TEMPENTITY, absOrigin );
 		WRITE_BYTE( TE_EXPLOSION );		// This makes a dynamic light and the explosion sprites/sound
 		WRITE_COORD( absOrigin.x );	// Send to PAS because of the sound
@@ -207,7 +207,7 @@ void CGrenade::Detonate( void )
 
 //
 // Contact grenade, explode when it touches something
-// 
+//
 void CGrenade::ExplodeTouch( CBaseEntity *pOther )
 {
 	TraceResult tr;
@@ -257,7 +257,7 @@ void CGrenade::BounceTouch( CBaseEntity *pOther )
 		{
 			TraceResult tr = UTIL_GetGlobalTrace( );
 			ClearMultiDamage( );
-			pOther->TraceAttack( pevOwner, 1, gpGlobals->v_forward, &tr, DMG_CLUB ); 
+			pOther->TraceAttack( pevOwner, 1, gpGlobals->v_forward, &tr, DMG_CLUB );
 			ApplyMultiDamage( pev, pevOwner );
 		}
 
@@ -267,18 +267,18 @@ void CGrenade::BounceTouch( CBaseEntity *pOther )
 	Vector vecTestVelocity;
 
 	// this is my heuristic for modulating the grenade velocity because grenades dropped purely vertical
-	// or thrown very far tend to slow down too quickly for me to always catch just by testing velocity. 
+	// or thrown very far tend to slow down too quickly for me to always catch just by testing velocity.
 	// trimming the Z velocity a bit seems to help quite a bit.
-	vecTestVelocity = GetAbsVelocity(); 
+	vecTestVelocity = GetAbsVelocity();
 	vecTestVelocity.z *= 0.45;
 
 	if( !m_fRegisteredSound && vecTestVelocity.Length() <= 60 )
 	{
 		//ALERT( at_console, "Grenade Registered!: %f\n", vecTestVelocity.Length() );
 
-		// grenade is moving really slow. It's probably very close to where it will ultimately stop moving. 
+		// grenade is moving really slow. It's probably very close to where it will ultimately stop moving.
 		// go ahead and emit the danger sound.
-		
+
 		// register a radius louder than the explosion, so we make sure everyone gets out of the way
 		CSoundEnt::InsertSound ( bits_SOUND_DANGER, GetAbsOrigin(), pev->dmg / 0.4, 0.3 );
 		m_fRegisteredSound = TRUE;
@@ -379,7 +379,7 @@ void CGrenade:: Spawn( void )
 {
 	pev->movetype = MOVETYPE_BOUNCE;
 	pev->classname = MAKE_STRING( "grenade" );
-	
+
 	pev->solid = SOLID_BBOX;
 
 	SET_MODEL(ENT(pev), "models/grenade.mdl");
@@ -400,15 +400,15 @@ CGrenade *CGrenade::ShootContact( entvars_t *pevOwner, Vector vecStart, Vector v
 	pGrenade->SetLocalVelocity( vecVelocity );
 	pGrenade->SetLocalAngles( UTIL_VecToAngles( pGrenade->GetLocalVelocity( )));
 	pGrenade->pev->owner = ENT(pevOwner);
-	
+
 	// make monsters afaid of it while in the air
 	pGrenade->SetThink( DangerSoundThink );
 	pGrenade->SetNextThink( 0 );
-	
+
 	// Tumble in air
 	Vector avelocity( RANDOM_FLOAT ( 100, 500 ), 0, 0 );
 	pGrenade->SetLocalAvelocity( avelocity );
-	
+
 	// Explode on contact
 	pGrenade->SetTouch( ExplodeTouch );
 
@@ -427,12 +427,12 @@ CGrenade * CGrenade:: ShootTimed( entvars_t *pevOwner, Vector vecStart, Vector v
 	pGrenade->SetAbsVelocity( vecVelocity );
 	pGrenade->SetLocalAngles( UTIL_VecToAngles( pGrenade->GetAbsVelocity( )));
 	pGrenade->pev->owner = ENT( pevOwner );
-	
+
 	pGrenade->SetTouch( BounceTouch );	// Bounce if touched
-	
+
 	// Take one second off of the desired detonation time and set the think to PreDetonate. PreDetonate
-	// will insert a DANGER sound into the world sound list and delay detonation for one second so that 
-	// the grenade explodes after the exact amount of time specified in the call to ShootTimed(). 
+	// will insert a DANGER sound into the world sound list and delay detonation for one second so that
+	// the grenade explodes after the exact amount of time specified in the call to ShootTimed().
 
 	pGrenade->pev->dmgtime = gpGlobals->time + time;
 	pGrenade->SetThink( TumbleThink );
@@ -443,7 +443,7 @@ CGrenade * CGrenade:: ShootTimed( entvars_t *pevOwner, Vector vecStart, Vector v
 		pGrenade->SetNextThink( 0 );
 		pGrenade->SetLocalVelocity( g_vecZero );
 	}
-		
+
 	pGrenade->pev->sequence = RANDOM_LONG( 3, 6 );
 	pGrenade->pev->framerate = 1.0;
 
@@ -461,7 +461,7 @@ CGrenade * CGrenade :: ShootSatchelCharge( entvars_t *pevOwner, Vector vecStart,
 	CGrenade *pGrenade = GetClassPtr( (CGrenade *)NULL );
 	pGrenade->pev->movetype = MOVETYPE_BOUNCE;
 	pGrenade->pev->classname = MAKE_STRING( "grenade" );
-	
+
 	pGrenade->pev->solid = SOLID_BBOX;
 
 	SET_MODEL(ENT(pGrenade->pev), "models/grenade.mdl");	// Change this to satchel charge model
@@ -473,7 +473,7 @@ CGrenade * CGrenade :: ShootSatchelCharge( entvars_t *pevOwner, Vector vecStart,
 	pGrenade->SetAbsVelocity( vecVelocity );
 	pGrenade->SetAbsAngles( g_vecZero );
 	pGrenade->pev->owner = ENT(pevOwner);
-	
+
 	// Detonate in "time" seconds
 	pGrenade->SetThink( SUB_DoNothing );
 	pGrenade->SetUse( DetonateUse );
@@ -516,4 +516,3 @@ void CGrenade :: UseSatchelCharges( entvars_t *pevOwner, SATCHELCODE code )
 }
 
 //======================end grenade
-

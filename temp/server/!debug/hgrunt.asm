@@ -1318,6 +1318,9 @@ CONST	ENDS
 FLAT	GROUP _DATA, CONST, _BSS, CRT$XCA, CRT$XCU, CRT$XCL, CRT$XCC, CRT$XCZ
 	ASSUME	CS: FLAT, DS: FLAT, SS: FLAT
 endif
+PUBLIC	?slGruntCombatFail@@3PAUSchedule_t@@A		; slGruntCombatFail
+PUBLIC	??_C@_0BC@BHFD@Grunt?5Combat?5Fail?$AA@		; `string'
+PUBLIC	?tlGruntVictoryDance@@3PAUTask_t@@A		; tlGruntVictoryDance
 PUBLIC	?slGruntVictoryDance@@3PAUSchedule_t@@A		; slGruntVictoryDance
 PUBLIC	??_C@_0BC@EPDH@GruntVictoryDance?$AA@		; `string'
 PUBLIC	?tlGruntEstablishLineOfFire@@3PAUTask_t@@A	; tlGruntEstablishLineOfFire
@@ -1405,9 +1408,6 @@ PUBLIC	?tlGruntFail@@3PAUTask_t@@A			; tlGruntFail
 PUBLIC	?slGruntFail@@3PAUSchedule_t@@A			; slGruntFail
 PUBLIC	??_C@_0L@DLCP@Grunt?5Fail?$AA@			; `string'
 PUBLIC	?tlGruntCombatFail@@3PAUTask_t@@A		; tlGruntCombatFail
-PUBLIC	?slGruntCombatFail@@3PAUSchedule_t@@A		; slGruntCombatFail
-PUBLIC	??_C@_0BC@BHFD@Grunt?5Combat?5Fail?$AA@		; `string'
-PUBLIC	?tlGruntVictoryDance@@3PAUTask_t@@A		; tlGruntVictoryDance
 _BSS	SEGMENT
 ?g_fGruntQuestion@@3HA DD 01H DUP (?)			; g_fGruntQuestion
 ?g_DataMapHolder@CHGrunt_DataDescInit@@3PAUdatamap_s@@A DD 01H DUP (?) ; CHGrunt_DataDescInit::g_DataMapHolder
@@ -2326,7 +2326,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCHGrunt@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L38398
+	jne	SHORT $L38405
 	mov	cl, BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCHGrunt@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCHGrunt@@@Z@4EA, cl
@@ -2336,7 +2336,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E46
 	call	_atexit
 	add	esp, 4
-$L38398:
+$L38405:
 	call	?GetBaseMap@CHGrunt@@SAPAUdatamap_s@@XZ	; CHGrunt::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CHGrunt@@2Udatamap_s@@A+12, eax
 
@@ -2354,14 +2354,14 @@ $L38398:
 
 	mov	edx, 1
 	test	edx, edx
-	je	SHORT $L38429
+	je	SHORT $L38436
 	mov	DWORD PTR ?m_DataMap@CHGrunt@@2Udatamap_s@@A+4, 9
 	mov	DWORD PTR ?m_DataMap@CHGrunt@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCHGrunt@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L38430
-$L38429:
+	jmp	SHORT $L38437
+$L38436:
 	mov	DWORD PTR ?m_DataMap@CHGrunt@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CHGrunt@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCHGrunt@@@Z@4PAUtypedescription_s@@A
-$L38430:
+$L38437:
 	mov	eax, OFFSET FLAT:?m_DataMap@CHGrunt@@2Udatamap_s@@A ; CHGrunt::m_DataMap
 	pop	edi
 	pop	esi
@@ -2459,7 +2459,7 @@ __unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
 _TEXT	SEGMENT
-$T40163 = -24
+$T40170 = -24
 __$EHRec$ = -12
 _this$ = -16
 _i$ = -20
@@ -2504,8 +2504,8 @@ $L30233:
 	add	ecx, 8
 	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR $T40163[ebp], edx
-	mov	eax, DWORD PTR $T40163[ebp]
+	mov	DWORD PTR $T40170[ebp], edx
+	mov	eax, DWORD PTR $T40170[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2567,13 +2567,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2504], -1
-	jne	SHORT $L38453
+	jne	SHORT $L38460
 
 ; 241  : 		// no sentence cued up.
 ; 242  : 		return; 
 
-	jmp	SHORT $L38452
-$L38453:
+	jmp	SHORT $L38459
+$L38460:
 
 ; 244  : 
 ; 245  : 	if (FOkToSpeak())
@@ -2581,7 +2581,7 @@ $L38453:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L38454
+	je	SHORT $L38461
 
 ; 247  : 		SENTENCEG_PlayRndSz( ENT(pev), pGruntSentences[ m_iSentence ], HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 
@@ -2608,8 +2608,8 @@ $L38453:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L38454:
-$L38452:
+$L38461:
+$L38459:
 
 ; 250  : }
 
@@ -2682,7 +2682,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	jne	SHORT $L38463
+	jne	SHORT $L38470
 	push	OFFSET FLAT:??_C@_0BE@OKKG@monster_alien_grunt?$AA@ ; `string'
 	mov	ecx, DWORD PTR _pTarget$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -2690,8 +2690,8 @@ _this$ = -4
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L38462
-$L38463:
+	jne	SHORT $L38469
+$L38470:
 	push	OFFSET FLAT:??_C@_0BC@HELP@monster_gargantua?$AA@ ; `string'
 	mov	eax, DWORD PTR _pTarget$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -2699,14 +2699,14 @@ $L38463:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38461
-$L38462:
+	je	SHORT $L38468
+$L38469:
 
 ; 261  : 		return R_NM;
 
 	mov	eax, 3
-	jmp	SHORT $L38460
-$L38461:
+	jmp	SHORT $L38467
+$L38468:
 
 ; 263  : 
 ; 264  : 	return CSquadMonster::IRelationship( pTarget );
@@ -2715,7 +2715,7 @@ $L38461:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?IRelationship@CBaseMonster@@UAEHPAVCBaseEntity@@@Z ; CBaseMonster::IRelationship
-$L38460:
+$L38467:
 
 ; 265  : }
 
@@ -2797,7 +2797,7 @@ _pev$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pev$[ebp], 0
-	je	SHORT $L40186
+	je	SHORT $L40193
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPAUentvars_s@@@Z		; OFFSET
@@ -2806,12 +2806,12 @@ _pev$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L40186
+	jne	SHORT $L40193
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L40187
-$L40186:
+	jmp	SHORT $L40194
+$L40193:
 	mov	DWORD PTR -4+[ebp], 1
-$L40187:
+$L40194:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -3016,14 +3016,14 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?GibMonster@CHGrunt@@UAEXXZ
 _TEXT	SEGMENT
-$T40198 = -44
-$T40199 = -56
-$T40200 = -68
-$T40201 = -80
+$T40205 = -44
+$T40206 = -56
+$T40207 = -68
+$T40208 = -80
 _this$ = -4
 _vecGunPos$ = -16
 _vecGunAngles$ = -28
-_pGun$38473 = -32
+_pGun$38480 = -32
 ?GibMonster@CHGrunt@@UAEXXZ PROC NEAR			; CHGrunt::GibMonster, COMDAT
 
 ; 271  : {
@@ -3053,13 +3053,13 @@ _pGun$38473 = -32
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetBodygroup@CBaseAnimating@@QAEHH@Z	; CBaseAnimating::GetBodygroup
 	cmp	eax, 2
-	je	$L38483
+	je	$L38490
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+416]
 	and	edx, 1024				; 00000400H
 	test	edx, edx
-	jne	$L38483
+	jne	$L38490
 
 ; 277  : 		// throw a gun if the grunt has one
 ; 278  : 		GetAttachment( 0, vecGunPos, vecGunAngles );
@@ -3080,7 +3080,7 @@ _pGun$38473 = -32
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38474
+	je	SHORT $L38481
 
 ; 283  : 			pGun = DropItem( "weapon_shotgun", vecGunPos, vecGunAngles );
 
@@ -3091,12 +3091,12 @@ _pGun$38473 = -32
 	push	OFFSET FLAT:??_C@_0P@PHLB@weapon_shotgun?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DropItem@CBaseMonster@@QAEPAVCBaseEntity@@PADABVVector@@1@Z ; CBaseMonster::DropItem
-	mov	DWORD PTR _pGun$38473[ebp], eax
+	mov	DWORD PTR _pGun$38480[ebp], eax
 
 ; 285  : 		else
 
-	jmp	SHORT $L38476
-$L38474:
+	jmp	SHORT $L38483
+$L38481:
 
 ; 287  : 			pGun = DropItem( "weapon_9mmAR", vecGunPos, vecGunAngles );
 
@@ -3107,13 +3107,13 @@ $L38474:
 	push	OFFSET FLAT:??_C@_0N@JNOE@weapon_9mmAR?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DropItem@CBaseMonster@@QAEPAVCBaseEntity@@PADABVVector@@1@Z ; CBaseMonster::DropItem
-	mov	DWORD PTR _pGun$38473[ebp], eax
-$L38476:
+	mov	DWORD PTR _pGun$38480[ebp], eax
+$L38483:
 
 ; 289  : 		if ( pGun )
 
-	cmp	DWORD PTR _pGun$38473[ebp], 0
-	je	SHORT $L38478
+	cmp	DWORD PTR _pGun$38480[ebp], 0
+	je	SHORT $L38485
 
 ; 291  : 			pGun->SetLocalVelocity( Vector( RANDOM_FLOAT( -100, 100 ), RANDOM_FLOAT( -100, 100 ), RANDOM_FLOAT( 200, 300 )));
 
@@ -3132,10 +3132,10 @@ $L38476:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40198[ebp]
+	lea	ecx, DWORD PTR $T40205[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	mov	ecx, DWORD PTR _pGun$38473[ebp]
+	mov	ecx, DWORD PTR _pGun$38480[ebp]
 	call	?SetLocalVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalVelocity
 
 ; 292  : 			pGun->SetLocalAvelocity( Vector( 0, RANDOM_FLOAT( 200, 400 ), 0 ));
@@ -3147,12 +3147,12 @@ $L38476:
 	add	esp, 4
 	fstp	DWORD PTR [esp]
 	push	0
-	lea	ecx, DWORD PTR $T40199[ebp]
+	lea	ecx, DWORD PTR $T40206[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	mov	ecx, DWORD PTR _pGun$38473[ebp]
+	mov	ecx, DWORD PTR _pGun$38480[ebp]
 	call	?SetLocalAvelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalAvelocity
-$L38478:
+$L38485:
 
 ; 294  : 	
 ; 295  : 		if( HasWeapon( HGRUNT_GRENADELAUNCHER ))
@@ -3161,7 +3161,7 @@ $L38478:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	$L38483
+	je	$L38490
 
 ; 297  : 			pGun = DropItem( "ammo_ARgrenades", vecGunPos, vecGunAngles );
 
@@ -3172,12 +3172,12 @@ $L38478:
 	push	OFFSET FLAT:??_C@_0BA@OEBJ@ammo_ARgrenades?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DropItem@CBaseMonster@@QAEPAVCBaseEntity@@PADABVVector@@1@Z ; CBaseMonster::DropItem
-	mov	DWORD PTR _pGun$38473[ebp], eax
+	mov	DWORD PTR _pGun$38480[ebp], eax
 
 ; 298  : 			if ( pGun )
 
-	cmp	DWORD PTR _pGun$38473[ebp], 0
-	je	SHORT $L38483
+	cmp	DWORD PTR _pGun$38480[ebp], 0
+	je	SHORT $L38490
 
 ; 300  : 				pGun->SetLocalVelocity( Vector( RANDOM_FLOAT( -100, 100 ), RANDOM_FLOAT( -100, 100 ), RANDOM_FLOAT( 200, 300 )));
 
@@ -3196,10 +3196,10 @@ $L38478:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40200[ebp]
+	lea	ecx, DWORD PTR $T40207[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	mov	ecx, DWORD PTR _pGun$38473[ebp]
+	mov	ecx, DWORD PTR _pGun$38480[ebp]
 	call	?SetLocalVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalVelocity
 
 ; 301  : 				pGun->SetLocalAvelocity( Vector( 0, RANDOM_FLOAT( 200, 400 ), 0 ));
@@ -3211,12 +3211,12 @@ $L38478:
 	add	esp, 4
 	fstp	DWORD PTR [esp]
 	push	0
-	lea	ecx, DWORD PTR $T40201[ebp]
+	lea	ecx, DWORD PTR $T40208[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	mov	ecx, DWORD PTR _pGun$38473[ebp]
+	mov	ecx, DWORD PTR _pGun$38480[ebp]
 	call	?SetLocalAvelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalAvelocity
-$L38483:
+$L38490:
 
 ; 305  : 
 ; 306  : 	CBaseMonster :: GibMonster();
@@ -3384,13 +3384,13 @@ _this$ = -4
 	fcomp	DWORD PTR ?g_talkWaitTime@CTalkMonster@@2MA ; CTalkMonster::g_talkWaitTime
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38494
+	je	SHORT $L38501
 
 ; 329  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38493
-$L38494:
+	jmp	SHORT $L38500
+$L38501:
 
 ; 330  : 
 ; 331  : 	if ( pev->spawnflags & SF_MONSTER_GAG )
@@ -3400,20 +3400,20 @@ $L38494:
 	mov	eax, DWORD PTR [edx+416]
 	and	eax, 2
 	test	eax, eax
-	je	SHORT $L38496
+	je	SHORT $L38503
 
 ; 333  : 		if ( m_MonsterState != MONSTERSTATE_COMBAT )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2080], 2
-	je	SHORT $L38496
+	je	SHORT $L38503
 
 ; 335  : 			// no talking outside of combat if gagged.
 ; 336  : 			return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38493
-$L38496:
+	jmp	SHORT $L38500
+$L38503:
 
 ; 339  : 
 ; 340  : 	// if player is not in pvs, don't speak
@@ -3423,7 +3423,7 @@ $L38496:
 ; 344  : 	return TRUE;
 
 	mov	eax, 1
-$L38493:
+$L38500:
 
 ; 345  : }
 
@@ -3506,12 +3506,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InSquad@CSquadMonster@@QAEHXZ		; CSquadMonster::InSquad
 	test	eax, eax
-	je	SHORT $L38508
+	je	SHORT $L38515
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L38508
+	je	SHORT $L38515
 
 ; 363  : 		if ( HasConditions ( bits_COND_SEE_ENEMY ) )
 
@@ -3519,7 +3519,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L38506
+	je	SHORT $L38513
 
 ; 365  : 			// update the squad's last enemy sighting time.
 ; 366  : 			MySquadLeader()->m_flLastEnemySightTime = gpGlobals->time;
@@ -3532,8 +3532,8 @@ _this$ = -4
 
 ; 368  : 		else
 
-	jmp	SHORT $L38508
-$L38506:
+	jmp	SHORT $L38515
+$L38513:
 
 ; 370  : 			if ( gpGlobals->time - MySquadLeader()->m_flLastEnemySightTime > 5 )
 
@@ -3545,7 +3545,7 @@ $L38506:
 	fcomp	DWORD PTR __real@4@4001a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38508
+	jne	SHORT $L38515
 
 ; 372  : 				// been a while since we've seen the enemy
 ; 373  : 				MySquadLeader()->m_fEnemyEluded = TRUE;
@@ -3553,7 +3553,7 @@ $L38506:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?MySquadLeader@CSquadMonster@@QAEPAV1@XZ ; CSquadMonster::MySquadLeader
 	mov	DWORD PTR [eax+2444], 1
-$L38508:
+$L38515:
 
 ; 377  : }
 
@@ -3717,18 +3717,18 @@ _pSquadLeader$ = -8
 ; 82   : 		if (pSquadLeader != NULL)
 
 	cmp	DWORD PTR _pSquadLeader$[ebp], 0
-	je	SHORT $L36697
+	je	SHORT $L36701
 
 ; 83   : 			return pSquadLeader;
 
 	mov	eax, DWORD PTR _pSquadLeader$[ebp]
-	jmp	SHORT $L36693
-$L36697:
+	jmp	SHORT $L36697
+$L36701:
 
 ; 84   : 		return this;
 
 	mov	eax, DWORD PTR _this$[ebp]
-$L36693:
+$L36697:
 
 ; 85   : 	}
 
@@ -3865,18 +3865,18 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	jne	SHORT $L38513
+	jne	SHORT $L38520
 
 ; 395  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38514
-$L38513:
+	jmp	SHORT $L38521
+$L38520:
 
 ; 399  : 		return FALSE;
 
 	xor	eax, eax
-$L38514:
+$L38521:
 
 ; 401  : }
 
@@ -3927,7 +3927,7 @@ _pEnemy$ = -8
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L38522
+	je	SHORT $L38529
 
 ; 413  : 		pEnemy = m_hEnemy->MyMonsterPointer();
 
@@ -3945,13 +3945,13 @@ _pEnemy$ = -8
 ; 415  : 		if ( !pEnemy )
 
 	cmp	DWORD PTR _pEnemy$[ebp], 0
-	jne	SHORT $L38522
+	jne	SHORT $L38529
 
 ; 417  : 			return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38519
-$L38522:
+	jmp	SHORT $L38526
+$L38529:
 
 ; 422  : 		 pEnemy->Classify() != CLASS_ALIEN_BIOWEAPON &&
 ; 423  : 		 pEnemy->Classify() != CLASS_PLAYER_BIOWEAPON )
@@ -3960,35 +3960,35 @@ $L38522:
 	fcomp	DWORD PTR __real@4@40058000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38523
+	je	SHORT $L38530
 	fld	DWORD PTR _flDot$[ebp]
 	fcomp	QWORD PTR __real@8@3ffeb333333333333000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38523
+	jne	SHORT $L38530
 	mov	eax, DWORD PTR _pEnemy$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pEnemy$[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 13					; 0000000dH
-	je	SHORT $L38523
+	je	SHORT $L38530
 	mov	eax, DWORD PTR _pEnemy$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pEnemy$[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 12					; 0000000cH
-	je	SHORT $L38523
+	je	SHORT $L38530
 
 ; 425  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38519
-$L38523:
+	jmp	SHORT $L38526
+$L38530:
 
 ; 427  : 	return FALSE;
 
 	xor	eax, eax
-$L38519:
+$L38526:
 
 ; 428  : }
 
@@ -4056,13 +4056,13 @@ __real@8@3fff8000000000000000 DQ 03ff0000000000000r ; 1
 CONST	ENDS
 ;	COMDAT ?CheckRangeAttack1@CHGrunt@@UAEHMM@Z
 _TEXT	SEGMENT
-$T40244 = -84
-$T40245 = -96
+$T40251 = -84
+$T40252 = -96
 _flDot$ = 8
 _flDist$ = 12
 _this$ = -4
-_tr$38530 = -60
-_vecSrc$38532 = -72
+_tr$38537 = -60
+_vecSrc$38539 = -72
 ?CheckRangeAttack1@CHGrunt@@UAEHMM@Z PROC NEAR		; CHGrunt::CheckRangeAttack1, COMDAT
 
 ; 439  : {
@@ -4081,25 +4081,25 @@ _vecSrc$38532 = -72
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	jne	$L38535
+	jne	$L38542
 	fld	DWORD PTR _flDist$[ebp]
 	fcomp	DWORD PTR __real@4@400a8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	$L38535
+	je	$L38542
 	fld	DWORD PTR _flDot$[ebp]
 	fcomp	QWORD PTR __real@8@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	$L38535
+	jne	$L38542
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?NoFriendlyFire@CSquadMonster@@QAEHXZ	; CSquadMonster::NoFriendlyFire
 	test	eax, eax
-	je	$L38535
+	je	$L38542
 
 ; 442  : 		TraceResult	tr;
 
-	lea	ecx, DWORD PTR _tr$38530[ebp]
+	lea	ecx, DWORD PTR _tr$38537[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 443  : 
@@ -4114,38 +4114,38 @@ _vecSrc$38532 = -72
 	mov	ecx, DWORD PTR -100+[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	jne	SHORT $L38531
+	jne	SHORT $L38538
 	fld	DWORD PTR _flDist$[ebp]
 	fcomp	DWORD PTR __real@4@40058000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38531
+	je	SHORT $L38538
 
 ; 446  : 			// kick nonclients, but don't shoot at them.
 ; 447  : 			return FALSE;
 
 	xor	eax, eax
-	jmp	$L38528
-$L38531:
+	jmp	$L38535
+$L38538:
 
 ; 449  : 
 ; 450  : 		Vector vecSrc = GetGunPosition();
 
-	lea	eax, DWORD PTR $T40244[ebp]
+	lea	eax, DWORD PTR $T40251[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+588]
 	push	eax
-	lea	ecx, DWORD PTR _vecSrc$38532[ebp]
+	lea	ecx, DWORD PTR _vecSrc$38539[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 451  : 
 ; 452  : 		// verify that a bullet fired from the gun will hit the enemy before the world.
 ; 453  : 		UTIL_TraceLine( vecSrc, m_hEnemy->BodyTarget(vecSrc), ignore_monsters, ignore_glass, ENT(pev), &tr);
 
-	lea	eax, DWORD PTR _tr$38530[ebp]
+	lea	eax, DWORD PTR _tr$38537[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -4155,9 +4155,9 @@ $L38531:
 	push	eax
 	push	1
 	push	1
-	lea	eax, DWORD PTR _vecSrc$38532[ebp]
+	lea	eax, DWORD PTR _vecSrc$38539[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40245[ebp]
+	lea	ecx, DWORD PTR $T40252[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
@@ -4168,7 +4168,7 @@ $L38531:
 	mov	ecx, DWORD PTR -104+[ebp]
 	call	DWORD PTR [eax+316]
 	push	eax
-	lea	ecx, DWORD PTR _vecSrc$38532[ebp]
+	lea	ecx, DWORD PTR _vecSrc$38539[ebp]
 	push	ecx
 	call	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@W4IGNORE_GLASS@@PAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceLine
 	add	esp, 24					; 00000018H
@@ -4176,23 +4176,23 @@ $L38531:
 ; 454  : 
 ; 455  : 		if ( tr.flFraction == 1.0 )
 
-	fld	DWORD PTR _tr$38530[ebp+16]
+	fld	DWORD PTR _tr$38537[ebp+16]
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38535
+	je	SHORT $L38542
 
 ; 457  : 			return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38528
-$L38535:
+	jmp	SHORT $L38535
+$L38542:
 
 ; 460  : 
 ; 461  : 	return FALSE;
 
 	xor	eax, eax
-$L38528:
+$L38535:
 
 ; 462  : }
 
@@ -4271,11 +4271,11 @@ PUBLIC	??HVector@@QBE?AV0@ABV0@@Z			; Vector::operator+
 PUBLIC	??GVector@@QBE?AV0@ABV0@@Z			; Vector::operator-
 PUBLIC	?Length@Vector@@QBEMXZ				; Vector::Length
 PUBLIC	?Length2D@Vector@@QBEMXZ			; Vector::Length2D
+PUBLIC	??D@YA?AVVector@@MABV0@@Z			; operator*
 PUBLIC	__real@4@00000000000000000000
 PUBLIC	__real@4@3fff8000000000000000
 PUBLIC	__real@4@40078000000000000000
 PUBLIC	__real@8@3ffd9999999999999800
-PUBLIC	??D@YA?AVVector@@MABV0@@Z			; operator*
 PUBLIC	?CheckRangeAttack2@CHGrunt@@UAEHMM@Z		; CHGrunt::CheckRangeAttack2
 EXTRN	?gSkillData@@3Uskilldata_t@@A:BYTE		; gSkillData
 EXTRN	?VecCheckToss@@YA?AVVector@@PAUentvars_s@@ABV1@V1@M@Z:NEAR ; VecCheckToss
@@ -4303,22 +4303,22 @@ __real@8@3ffd9999999999999800 DQ 03fd3333333333333r ; 0.3
 CONST	ENDS
 ;	COMDAT ?CheckRangeAttack2@CHGrunt@@UAEHMM@Z
 _TEXT	SEGMENT
-$T40258 = -52
-$T40259 = -64
-$T40260 = -76
-$T40261 = -88
-$T40262 = -100
-$T40263 = -112
-$T40264 = -124
-$T40265 = -136
-$T40267 = -152
-$T40268 = -164
-$T40270 = -180
-$T40271 = -192
+$T40265 = -52
+$T40266 = -64
+$T40267 = -76
+$T40268 = -88
+$T40269 = -100
+$T40270 = -112
+$T40271 = -124
+$T40272 = -136
+$T40274 = -152
+$T40275 = -164
+$T40277 = -180
+$T40278 = -192
 _this$ = -4
 _vecTarget$ = -16
-_vecToss$38565 = -28
-_vecToss$38572 = -40
+_vecToss$38572 = -28
+_vecToss$38579 = -40
 ?CheckRangeAttack2@CHGrunt@@UAEHMM@Z PROC NEAR		; CHGrunt::CheckRangeAttack2, COMDAT
 
 ; 469  : {
@@ -4337,18 +4337,18 @@ _vecToss$38572 = -40
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	jne	SHORT $L38543
+	jne	SHORT $L38550
 	push	3
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	jne	SHORT $L38543
+	jne	SHORT $L38550
 
 ; 472  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L38542
-$L38543:
+	jmp	$L38549
+$L38550:
 
 ; 474  : 	
 ; 475  : 	// if the grunt isn't moving, it's ok to check.
@@ -4359,7 +4359,7 @@ $L38543:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L38544
+	jne	SHORT $L38551
 
 ; 478  : 		m_fThrowGrenade = FALSE;
 
@@ -4370,8 +4370,8 @@ $L38543:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+2476]
-	jmp	$L38542
-$L38544:
+	jmp	$L38549
+$L38551:
 
 ; 481  : 
 ; 482  : 	// assume things haven't changed too much since last time
@@ -4383,14 +4383,14 @@ $L38544:
 	fcomp	DWORD PTR [ecx+2452]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38545
+	je	SHORT $L38552
 
 ; 485  : 		return m_fThrowGrenade;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+2476]
-	jmp	$L38542
-$L38545:
+	jmp	$L38549
+$L38552:
 
 ; 487  : 
 ; 488  : 	if ( !FBitSet ( m_hEnemy->pev->flags, FL_ONGROUND ) && m_hEnemy->pev->waterlevel == 0 && m_vecEnemyLKP.z > pev->absmax.z  )
@@ -4402,13 +4402,13 @@ $L38545:
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 512				; 00000200H
 	test	ecx, ecx
-	jne	SHORT $L38546
+	jne	SHORT $L38553
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
 	mov	edx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [edx+448], 0
-	jne	SHORT $L38546
+	jne	SHORT $L38553
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR _this$[ebp]
@@ -4416,7 +4416,7 @@ $L38545:
 	fcomp	DWORD PTR [ecx+216]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38546
+	jne	SHORT $L38553
 
 ; 490  : 		//!!!BUGBUG - we should make this check movetype and make sure it isn't FLY? Players who jump a lot are unlikely to 
 ; 491  : 		// be grenaded.
@@ -4430,8 +4430,8 @@ $L38545:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+2476]
-	jmp	$L38542
-$L38546:
+	jmp	$L38549
+$L38553:
 
 ; 496  : 	
 ; 497  : 	Vector vecTarget;
@@ -4446,7 +4446,7 @@ $L38546:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	$L38548
+	je	$L38555
 
 ; 501  : 		// find feet
 ; 502  : 		if (RANDOM_LONG(0,1))
@@ -4456,7 +4456,7 @@ $L38546:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38549
+	je	SHORT $L38556
 
 ; 504  : 			// magically know where they are
 ; 505  : 			vecTarget = Vector( m_hEnemy->GetAbsOrigin().x, m_hEnemy->GetAbsOrigin().y, m_hEnemy->pev->absmin.z );
@@ -4481,7 +4481,7 @@ $L38546:
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	mov	edx, DWORD PTR [eax]
 	push	edx
-	lea	ecx, DWORD PTR $T40258[ebp]
+	lea	ecx, DWORD PTR $T40265[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _vecTarget$[ebp], ecx
@@ -4492,8 +4492,8 @@ $L38546:
 
 ; 507  : 		else
 
-	jmp	SHORT $L38551
-$L38549:
+	jmp	SHORT $L38558
+$L38556:
 
 ; 509  : 			// toss it to where you last saw them
 ; 510  : 			vecTarget = m_vecEnemyLKP;
@@ -4506,12 +4506,12 @@ $L38549:
 	mov	DWORD PTR _vecTarget$[ebp+4], eax
 	mov	ecx, DWORD PTR [ecx+8]
 	mov	DWORD PTR _vecTarget$[ebp+8], ecx
-$L38551:
+$L38558:
 
 ; 516  : 	else
 
-	jmp	$L38556
-$L38548:
+	jmp	$L38563
+$L38555:
 
 ; 518  : 		// find target
 ; 519  : 		// vecTarget = m_hEnemy->BodyTarget( GetAbsOrigin() );
@@ -4523,12 +4523,12 @@ $L38548:
 	mov	ecx, eax
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	edx, DWORD PTR $T40260[ebp]
+	lea	edx, DWORD PTR $T40267[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	eax, DWORD PTR $T40259[ebp]
+	lea	eax, DWORD PTR $T40266[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
@@ -4541,7 +4541,7 @@ $L38548:
 	mov	ecx, eax
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	lea	eax, DWORD PTR $T40261[ebp]
+	lea	eax, DWORD PTR $T40268[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2288				; 000008f0H
@@ -4560,7 +4560,7 @@ $L38548:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L38556
+	je	SHORT $L38563
 
 ; 523  : 			vecTarget = vecTarget + ((vecTarget - GetAbsOrigin()).Length() / gSkillData.hgruntGrenadeSpeed) * m_hEnemy->GetAbsVelocity();
 
@@ -4573,7 +4573,7 @@ $L38548:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T40262[ebp]
+	lea	ecx, DWORD PTR $T40269[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vecTarget$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -4582,12 +4582,12 @@ $L38548:
 	fdiv	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+92
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	edx, DWORD PTR $T40263[ebp]
+	lea	edx, DWORD PTR $T40270[ebp]
 	push	edx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	eax, DWORD PTR $T40264[ebp]
+	lea	eax, DWORD PTR $T40271[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecTarget$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -4597,7 +4597,7 @@ $L38548:
 	mov	DWORD PTR _vecTarget$[ebp+4], edx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR _vecTarget$[ebp+8], eax
-$L38556:
+$L38563:
 
 ; 525  : 
 ; 526  : 	// are any of my squad members near the intended grenade impact area?
@@ -4606,7 +4606,7 @@ $L38556:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InSquad@CSquadMonster@@QAEHXZ		; CSquadMonster::InSquad
 	test	eax, eax
-	je	SHORT $L38561
+	je	SHORT $L38568
 
 ; 529  : 		if (SquadMemberInRange( vecTarget, 256 ))
 
@@ -4616,7 +4616,7 @@ $L38556:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SquadMemberInRange@CSquadMonster@@QAEHABVVector@@M@Z ; CSquadMonster::SquadMemberInRange
 	test	eax, eax
-	je	SHORT $L38561
+	je	SHORT $L38568
 
 ; 531  : 			// crap, I might blow my own guy up. Don't throw a grenade and don't check again for a while.
 ; 532  : 			m_flNextGrenadeCheck = gpGlobals->time + 1; // one full second.
@@ -4631,7 +4631,7 @@ $L38556:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+2476], 0
-$L38561:
+$L38568:
 
 ; 536  : 	
 ; 537  : 	if ( ( vecTarget - GetAbsOrigin() ).Length2D() <= 256 )
@@ -4639,7 +4639,7 @@ $L38561:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	edx, DWORD PTR $T40265[ebp]
+	lea	edx, DWORD PTR $T40272[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecTarget$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -4648,7 +4648,7 @@ $L38561:
 	fcomp	DWORD PTR __real@4@40078000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38563
+	je	SHORT $L38570
 
 ; 539  : 		// crap, I don't want to blow myself up
 ; 540  : 		m_flNextGrenadeCheck = gpGlobals->time + 1; // one full second.
@@ -4668,8 +4668,8 @@ $L38561:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax+2476]
-	jmp	$L38542
-$L38563:
+	jmp	$L38549
+$L38570:
 
 ; 544  : 
 ; 545  : 		
@@ -4679,7 +4679,7 @@ $L38563:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	$L38564
+	je	$L38571
 
 ; 548  : 		Vector vecToss = VecCheckToss( pev, GetGunPosition(), vecTarget, 0.5 );
 
@@ -4689,7 +4689,7 @@ $L38563:
 	lea	edx, DWORD PTR _vecTarget$[ebp]
 	push	edx
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
-	lea	eax, DWORD PTR $T40267[ebp]
+	lea	eax, DWORD PTR $T40274[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -4699,32 +4699,32 @@ $L38563:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	push	ecx
-	lea	edx, DWORD PTR $T40268[ebp]
+	lea	edx, DWORD PTR $T40275[ebp]
 	push	edx
 	call	?VecCheckToss@@YA?AVVector@@PAUentvars_s@@ABV1@V1@M@Z ; VecCheckToss
 	add	esp, 28					; 0000001cH
 	push	eax
-	lea	ecx, DWORD PTR _vecToss$38565[ebp]
+	lea	ecx, DWORD PTR _vecToss$38572[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 549  : 
 ; 550  : 		if ( vecToss != g_vecZero )
 
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
-	lea	ecx, DWORD PTR _vecToss$38565[ebp]
+	lea	ecx, DWORD PTR _vecToss$38572[ebp]
 	call	??9Vector@@QBEHABV0@@Z			; Vector::operator!=
 	test	eax, eax
-	je	SHORT $L38569
+	je	SHORT $L38576
 
 ; 552  : 			m_vecTossVelocity = vecToss;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 2464				; 000009a0H
-	mov	ecx, DWORD PTR _vecToss$38565[ebp]
+	mov	ecx, DWORD PTR _vecToss$38572[ebp]
 	mov	DWORD PTR [eax], ecx
-	mov	edx, DWORD PTR _vecToss$38565[ebp+4]
+	mov	edx, DWORD PTR _vecToss$38572[ebp+4]
 	mov	DWORD PTR [eax+4], edx
-	mov	ecx, DWORD PTR _vecToss$38565[ebp+8]
+	mov	ecx, DWORD PTR _vecToss$38572[ebp+8]
 	mov	DWORD PTR [eax+8], ecx
 
 ; 553  : 
@@ -4744,8 +4744,8 @@ $L38563:
 
 ; 559  : 		else
 
-	jmp	SHORT $L38570
-$L38569:
+	jmp	SHORT $L38577
+$L38576:
 
 ; 561  : 			// don't throw
 ; 562  : 			m_fThrowGrenade = FALSE;
@@ -4761,12 +4761,12 @@ $L38569:
 	fadd	DWORD PTR __real@4@3fff8000000000000000
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2452]
-$L38570:
+$L38577:
 
 ; 567  : 	else
 
-	jmp	$L38577
-$L38564:
+	jmp	$L38584
+$L38571:
 
 ; 569  : 		Vector vecToss = VecCheckThrow( pev, GetGunPosition(), vecTarget, gSkillData.hgruntGrenadeSpeed, 0.5 );
 
@@ -4778,7 +4778,7 @@ $L38564:
 	lea	edx, DWORD PTR _vecTarget$[ebp]
 	push	edx
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
-	lea	eax, DWORD PTR $T40270[ebp]
+	lea	eax, DWORD PTR $T40277[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -4788,32 +4788,32 @@ $L38564:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	push	ecx
-	lea	edx, DWORD PTR $T40271[ebp]
+	lea	edx, DWORD PTR $T40278[ebp]
 	push	edx
 	call	?VecCheckThrow@@YA?AVVector@@PAUentvars_s@@ABV1@V1@MM@Z ; VecCheckThrow
 	add	esp, 32					; 00000020H
 	push	eax
-	lea	ecx, DWORD PTR _vecToss$38572[ebp]
+	lea	ecx, DWORD PTR _vecToss$38579[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 570  : 
 ; 571  : 		if ( vecToss != g_vecZero )
 
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
-	lea	ecx, DWORD PTR _vecToss$38572[ebp]
+	lea	ecx, DWORD PTR _vecToss$38579[ebp]
 	call	??9Vector@@QBEHABV0@@Z			; Vector::operator!=
 	test	eax, eax
-	je	SHORT $L38576
+	je	SHORT $L38583
 
 ; 573  : 			m_vecTossVelocity = vecToss;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 2464				; 000009a0H
-	mov	ecx, DWORD PTR _vecToss$38572[ebp]
+	mov	ecx, DWORD PTR _vecToss$38579[ebp]
 	mov	DWORD PTR [eax], ecx
-	mov	edx, DWORD PTR _vecToss$38572[ebp+4]
+	mov	edx, DWORD PTR _vecToss$38579[ebp+4]
 	mov	DWORD PTR [eax+4], edx
-	mov	ecx, DWORD PTR _vecToss$38572[ebp+8]
+	mov	ecx, DWORD PTR _vecToss$38579[ebp+8]
 	mov	DWORD PTR [eax+8], ecx
 
 ; 574  : 
@@ -4834,8 +4834,8 @@ $L38564:
 
 ; 580  : 		else
 
-	jmp	SHORT $L38577
-$L38576:
+	jmp	SHORT $L38584
+$L38583:
 
 ; 582  : 			// don't throw
 ; 583  : 			m_fThrowGrenade = FALSE;
@@ -4851,7 +4851,7 @@ $L38576:
 	fadd	DWORD PTR __real@4@3fff8000000000000000
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+2452]
-$L38577:
+$L38584:
 
 ; 588  : 
 ; 589  : 	
@@ -4860,7 +4860,7 @@ $L38577:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+2476]
-$L38542:
+$L38549:
 
 ; 592  : }
 
@@ -4924,26 +4924,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40284
+	je	SHORT $L40291
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40284
+	je	SHORT $L40291
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40284
+	je	SHORT $L40291
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40285
-$L40284:
+	jmp	SHORT $L40292
+$L40291:
 	mov	DWORD PTR -8+[ebp], 0
-$L40285:
+$L40292:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -4958,7 +4958,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40288 = -16
+$T40295 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -4988,7 +4988,7 @@ $T40288 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40288[ebp]
+	lea	ecx, DWORD PTR $T40295[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -5007,7 +5007,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40291 = -16
+$T40298 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -5037,7 +5037,7 @@ $T40291 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40291[ebp]
+	lea	ecx, DWORD PTR $T40298[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -5135,7 +5135,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 _v$ = 16
 ___$ReturnUdt$ = 8
-$T40298 = -12
+$T40305 = -12
 ??D@YA?AVVector@@MABV0@@Z PROC NEAR			; operator*, COMDAT
 
 ; 288  : inline Vector operator* ( float fl, const Vector& v ) { return v * fl; }
@@ -5148,7 +5148,7 @@ $T40298 = -12
 	push	edi
 	mov	eax, DWORD PTR _fl$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40298[ebp]
+	lea	ecx, DWORD PTR $T40305[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _v$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -5169,7 +5169,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40301 = -16
+$T40308 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -5196,7 +5196,7 @@ $T40301 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40301[ebp]
+	lea	ecx, DWORD PTR $T40308[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -5244,7 +5244,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _ptr$[ebp]
 	cmp	DWORD PTR [eax+52], 11			; 0000000bH
-	jne	SHORT $L38586
+	jne	SHORT $L38593
 
 ; 603  : 		// make sure we're wearing one
 ; 604  : 		if (GetBodygroup( 1 ) == HEAD_GRUNT && (bitsDamageType & (DMG_BULLET | DMG_SLASH | DMG_BLAST | DMG_CLUB)))
@@ -5253,11 +5253,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetBodygroup@CBaseAnimating@@QAEHH@Z	; CBaseAnimating::GetBodygroup
 	test	eax, eax
-	jne	SHORT $L38588
+	jne	SHORT $L38595
 	mov	ecx, DWORD PTR _bitsDamageType$[ebp]
 	and	ecx, 198				; 000000c6H
 	test	ecx, ecx
-	je	SHORT $L38588
+	je	SHORT $L38595
 
 ; 606  : 			// absorb damage
 ; 607  : 			flDamage -= 20;
@@ -5272,7 +5272,7 @@ _this$ = -4
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38588
+	je	SHORT $L38595
 
 ; 610  : 				UTIL_Ricochet( ptr->vecEndPos, 1.0 );
 
@@ -5286,14 +5286,14 @@ _this$ = -4
 ; 611  : 				flDamage = 0.01;
 
 	mov	DWORD PTR _flDamage$[ebp], 1008981770	; 3c23d70aH
-$L38588:
+$L38595:
 
 ; 614  : 		// it's head shot anyways
 ; 615  : 		ptr->iHitgroup = HITGROUP_HEAD;
 
 	mov	eax, DWORD PTR _ptr$[ebp]
 	mov	DWORD PTR [eax+52], 1
-$L38586:
+$L38593:
 
 ; 617  : 	CSquadMonster::TraceAttack( pevAttacker, flDamage, vecDir, ptr, bitsDamageType );
 
@@ -5431,12 +5431,12 @@ _ys$ = -8
 	sub	edx, 1
 	mov	DWORD PTR -12+[ebp], edx
 	cmp	DWORD PTR -12+[ebp], 50			; 00000032H
-	ja	SHORT $L38615
+	ja	SHORT $L38622
 	mov	ecx, DWORD PTR -12+[ebp]
 	xor	eax, eax
-	mov	al, BYTE PTR $L40313[ecx]
-	jmp	DWORD PTR $L40314[eax*4]
-$L38606:
+	mov	al, BYTE PTR $L40320[ecx]
+	jmp	DWORD PTR $L40321[eax*4]
+$L38613:
 
 ; 643  : 	case ACT_IDLE:	
 ; 644  : 		ys = 150;		
@@ -5445,8 +5445,8 @@ $L38606:
 
 ; 645  : 		break;
 
-	jmp	SHORT $L38603
-$L38607:
+	jmp	SHORT $L38610
+$L38614:
 
 ; 646  : 	case ACT_RUN:	
 ; 647  : 		ys = 150;	
@@ -5455,8 +5455,8 @@ $L38607:
 
 ; 648  : 		break;
 
-	jmp	SHORT $L38603
-$L38608:
+	jmp	SHORT $L38610
+$L38615:
 
 ; 649  : 	case ACT_WALK:	
 ; 650  : 		ys = 180;		
@@ -5465,8 +5465,8 @@ $L38608:
 
 ; 651  : 		break;
 
-	jmp	SHORT $L38603
-$L38609:
+	jmp	SHORT $L38610
+$L38616:
 
 ; 652  : 	case ACT_RANGE_ATTACK1:	
 ; 653  : 		ys = 120;	
@@ -5475,8 +5475,8 @@ $L38609:
 
 ; 654  : 		break;
 
-	jmp	SHORT $L38603
-$L38610:
+	jmp	SHORT $L38610
+$L38617:
 
 ; 655  : 	case ACT_RANGE_ATTACK2:	
 ; 656  : 		ys = 120;	
@@ -5485,8 +5485,8 @@ $L38610:
 
 ; 657  : 		break;
 
-	jmp	SHORT $L38603
-$L38611:
+	jmp	SHORT $L38610
+$L38618:
 
 ; 658  : 	case ACT_MELEE_ATTACK1:	
 ; 659  : 		ys = 120;	
@@ -5495,8 +5495,8 @@ $L38611:
 
 ; 660  : 		break;
 
-	jmp	SHORT $L38603
-$L38612:
+	jmp	SHORT $L38610
+$L38619:
 
 ; 661  : 	case ACT_MELEE_ATTACK2:	
 ; 662  : 		ys = 120;	
@@ -5505,8 +5505,8 @@ $L38612:
 
 ; 663  : 		break;
 
-	jmp	SHORT $L38603
-$L38613:
+	jmp	SHORT $L38610
+$L38620:
 
 ; 664  : 	case ACT_TURN_LEFT:
 ; 665  : 	case ACT_TURN_RIGHT:	
@@ -5516,8 +5516,8 @@ $L38613:
 
 ; 667  : 		break;
 
-	jmp	SHORT $L38603
-$L38614:
+	jmp	SHORT $L38610
+$L38621:
 
 ; 668  : 	case ACT_GLIDE:
 ; 669  : 	case ACT_FLY:
@@ -5527,14 +5527,14 @@ $L38614:
 
 ; 671  : 		break;
 
-	jmp	SHORT $L38603
-$L38615:
+	jmp	SHORT $L38610
+$L38622:
 
 ; 672  : 	default:
 ; 673  : 		ys = 90;
 
 	mov	DWORD PTR _ys$[ebp], 90			; 0000005aH
-$L38603:
+$L38610:
 
 ; 676  : 
 ; 677  : 	pev->yaw_speed = ys;
@@ -5552,18 +5552,18 @@ $L38603:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L40314:
-	DD	$L38606
-	DD	$L38608
-	DD	$L38607
-	DD	$L38614
+$L40321:
 	DD	$L38613
-	DD	$L38609
-	DD	$L38610
-	DD	$L38611
-	DD	$L38612
 	DD	$L38615
-$L40313:
+	DD	$L38614
+	DD	$L38621
+	DD	$L38620
+	DD	$L38616
+	DD	$L38617
+	DD	$L38618
+	DD	$L38619
+	DD	$L38622
+$L40320:
 	DB	0
 	DB	9
 	DB	1
@@ -5664,21 +5664,21 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	$L38620
+	je	$L38627
 	cmp	DWORD PTR ?g_fGruntQuestion@@3HA, 0	; g_fGruntQuestion
-	jne	SHORT $L38621
+	jne	SHORT $L38628
 	push	1
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	je	$L38620
-$L38621:
+	je	$L38627
+$L38628:
 
 ; 684  : 		if (!g_fGruntQuestion)
 
 	cmp	DWORD PTR ?g_fGruntQuestion@@3HA, 0	; g_fGruntQuestion
-	jne	$L38622
+	jne	$L38629
 
 ; 688  : 			{
 
@@ -5688,13 +5688,13 @@ $L38621:
 	add	esp, 8
 	mov	DWORD PTR -8+[ebp], eax
 	cmp	DWORD PTR -8+[ebp], 0
-	je	SHORT $L38627
+	je	SHORT $L38634
 	cmp	DWORD PTR -8+[ebp], 1
-	je	SHORT $L38631
+	je	SHORT $L38638
 	cmp	DWORD PTR -8+[ebp], 2
-	je	$L38635
-	jmp	$L38624
-$L38627:
+	je	$L38642
+	jmp	$L38631
+$L38634:
 
 ; 689  : 			case 0: // check in
 ; 690  : 				SENTENCEG_PlayRndSz(ENT(pev), "HG_CHECK", HGRUNT_SENTENCE_VOLUME, ATTN_NORM, 0, m_voicePitch);
@@ -5721,8 +5721,8 @@ $L38627:
 
 ; 692  : 				break;
 
-	jmp	SHORT $L38624
-$L38631:
+	jmp	SHORT $L38631
+$L38638:
 
 ; 693  : 			case 1: // question
 ; 694  : 				SENTENCEG_PlayRndSz(ENT(pev), "HG_QUEST", HGRUNT_SENTENCE_VOLUME, ATTN_NORM, 0, m_voicePitch);
@@ -5749,8 +5749,8 @@ $L38631:
 
 ; 696  : 				break;
 
-	jmp	SHORT $L38624
-$L38635:
+	jmp	SHORT $L38631
+$L38642:
 
 ; 697  : 			case 2: // statement
 ; 698  : 				SENTENCEG_PlayRndSz(ENT(pev), "HG_IDLE", HGRUNT_SENTENCE_VOLUME, ATTN_NORM, 0, m_voicePitch);
@@ -5770,23 +5770,23 @@ $L38635:
 	push	eax
 	call	?SENTENCEG_PlayRndSz@@YAHPAUedict_s@@PBDMMHH@Z ; SENTENCEG_PlayRndSz
 	add	esp, 24					; 00000018H
-$L38624:
+$L38631:
 
 ; 702  : 		else
 
-	jmp	$L38639
-$L38622:
+	jmp	$L38646
+$L38629:
 
 ; 705  : 			{
 
 	mov	eax, DWORD PTR ?g_fGruntQuestion@@3HA	; g_fGruntQuestion
 	mov	DWORD PTR -12+[ebp], eax
 	cmp	DWORD PTR -12+[ebp], 1
-	je	SHORT $L38644
+	je	SHORT $L38651
 	cmp	DWORD PTR -12+[ebp], 2
-	je	SHORT $L38648
-	jmp	SHORT $L38641
-$L38644:
+	je	SHORT $L38655
+	jmp	SHORT $L38648
+$L38651:
 
 ; 706  : 			case 1: // check in
 ; 707  : 				SENTENCEG_PlayRndSz(ENT(pev), "HG_CLEAR", HGRUNT_SENTENCE_VOLUME, ATTN_NORM, 0, m_voicePitch);
@@ -5809,8 +5809,8 @@ $L38644:
 
 ; 708  : 				break;
 
-	jmp	SHORT $L38641
-$L38648:
+	jmp	SHORT $L38648
+$L38655:
 
 ; 709  : 			case 2: // question 
 ; 710  : 				SENTENCEG_PlayRndSz(ENT(pev), "HG_ANSWER", HGRUNT_SENTENCE_VOLUME, ATTN_NORM, 0, m_voicePitch);
@@ -5830,18 +5830,18 @@ $L38648:
 	push	eax
 	call	?SENTENCEG_PlayRndSz@@YAHPAUedict_s@@PBDMMHH@Z ; SENTENCEG_PlayRndSz
 	add	esp, 24					; 00000018H
-$L38641:
+$L38648:
 
 ; 713  : 			g_fGruntQuestion = 0;
 
 	mov	DWORD PTR ?g_fGruntQuestion@@3HA, 0	; g_fGruntQuestion
-$L38639:
+$L38646:
 
 ; 715  : 		JustSpoke();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L38620:
+$L38627:
 
 ; 717  : }
 
@@ -5874,14 +5874,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2300], 0
-	jg	SHORT $L38656
+	jg	SHORT $L38663
 
 ; 727  : 		SetConditions(bits_COND_NO_AMMO_LOADED);
 
 	push	1
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetConditions@CBaseMonster@@QAEXH@Z	; CBaseMonster::SetConditions
-$L38656:
+$L38663:
 
 ; 729  : }
 
@@ -5941,14 +5941,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L40323
+	je	SHORT $L40330
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2388]
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L40324
-$L40323:
+	jmp	SHORT $L40331
+$L40330:
 	mov	DWORD PTR -8+[ebp], 4
-$L40324:
+$L40331:
 	mov	eax, DWORD PTR -8+[ebp]
 
 ; 738  : }
@@ -5968,13 +5968,13 @@ EXTRN	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsAngl
 EXTRN	?UTIL_MakeVectors@@YAXABVVector@@@Z:NEAR	; UTIL_MakeVectors
 ;	COMDAT ?Kick@CHGrunt@@QAEPAVCBaseEntity@@XZ
 _TEXT	SEGMENT
-$T40327 = -100
-$T40328 = -112
+$T40334 = -100
+$T40335 = -112
 _this$ = -4
 _tr$ = -60
 _vecStart$ = -72
 _vecEnd$ = -84
-_pEntity$38671 = -88
+_pEntity$38678 = -88
 ?Kick@CHGrunt@@QAEPAVCBaseEntity@@XZ PROC NEAR		; CHGrunt::Kick, COMDAT
 
 ; 743  : {
@@ -6022,13 +6022,13 @@ _pEntity$38671 = -88
 ; 749  : 	Vector vecEnd = vecStart + (gpGlobals->v_forward * 70);
 
 	push	1116471296				; 428c0000H
-	lea	edx, DWORD PTR $T40327[ebp]
+	lea	edx, DWORD PTR $T40334[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40328[ebp]
+	lea	eax, DWORD PTR $T40335[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecStart$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -6060,7 +6060,7 @@ _pEntity$38671 = -88
 ; 753  : 	if ( tr.pHit )
 
 	cmp	DWORD PTR _tr$[ebp+48], 0
-	je	SHORT $L38670
+	je	SHORT $L38677
 
 ; 755  : 		CBaseEntity *pEntity = CBaseEntity::Instance( tr.pHit );
 
@@ -6068,19 +6068,19 @@ _pEntity$38671 = -88
 	push	eax
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$38671[ebp], eax
+	mov	DWORD PTR _pEntity$38678[ebp], eax
 
 ; 756  : 		return pEntity;
 
-	mov	eax, DWORD PTR _pEntity$38671[ebp]
-	jmp	SHORT $L38664
-$L38670:
+	mov	eax, DWORD PTR _pEntity$38678[ebp]
+	jmp	SHORT $L38671
+$L38677:
 
 ; 758  : 
 ; 759  : 	return NULL;
 
 	xor	eax, eax
-$L38664:
+$L38671:
 
 ; 760  : }
 
@@ -6171,10 +6171,10 @@ _TEXT	ENDS
 PUBLIC	?GetGunPosition@CHGrunt@@UAE?AVVector@@XZ	; CHGrunt::GetGunPosition
 ;	COMDAT ?GetGunPosition@CHGrunt@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40335 = -16
-$T40336 = -28
-$T40337 = -40
-$T40338 = -52
+$T40342 = -16
+$T40343 = -28
+$T40344 = -40
+$T40345 = -52
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?GetGunPosition@CHGrunt@@UAE?AVVector@@XZ PROC NEAR	; CHGrunt::GetGunPosition, COMDAT
@@ -6193,17 +6193,17 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2480], 0
-	je	SHORT $L38676
+	je	SHORT $L38683
 
 ; 769  : 		return GetAbsOrigin() + Vector( 0, 0, 60 );
 
 	push	1114636288				; 42700000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40335[ebp]
+	lea	ecx, DWORD PTR $T40342[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T40336[ebp]
+	lea	ecx, DWORD PTR $T40343[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -6213,18 +6213,18 @@ _this$ = -4
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	SHORT $L38679
-$L38676:
+	jmp	SHORT $L38686
+$L38683:
 
 ; 773  : 		return GetAbsOrigin() + Vector( 0, 0, 48 );
 
 	push	1111490560				; 42400000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40337[ebp]
+	lea	ecx, DWORD PTR $T40344[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	edx, DWORD PTR $T40338[ebp]
+	lea	edx, DWORD PTR $T40345[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -6234,7 +6234,7 @@ $L38676:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-$L38679:
+$L38686:
 
 ; 775  : }
 
@@ -6254,17 +6254,17 @@ EXTRN	?UTIL_VecToAngles@@YA?AVVector@@ABV1@@Z:NEAR	; UTIL_VecToAngles
 EXTRN	?FireBullets@CBaseEntity@@QAEXKVVector@@00MHHHPAUentvars_s@@@Z:NEAR ; CBaseEntity::FireBullets
 ;	COMDAT ?Shoot@CHGrunt@@QAEXXZ
 _TEXT	SEGMENT
-$T40341 = -64
-$T40342 = -76
-$T40343 = -88
-$T40344 = -100
-$T40345 = -112
-$T40346 = -124
-$T40347 = -136
-$T40348 = -148
-$T40349 = -160
-$T40351 = -176
-$T40354 = -196
+$T40348 = -64
+$T40349 = -76
+$T40350 = -88
+$T40351 = -100
+$T40352 = -112
+$T40353 = -124
+$T40354 = -136
+$T40355 = -148
+$T40356 = -160
+$T40358 = -176
+$T40361 = -196
 _this$ = -4
 _vecShootOrigin$ = -16
 _vecShootDir$ = -28
@@ -6288,17 +6288,17 @@ _angDir$ = -52
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	jne	SHORT $L38686
+	jne	SHORT $L38693
 
 ; 784  : 		return;
 
-	jmp	$L38685
-$L38686:
+	jmp	$L38692
+$L38693:
 
 ; 786  : 
 ; 787  : 	Vector vecShootOrigin = GetGunPosition();
 
-	lea	eax, DWORD PTR $T40341[ebp]
+	lea	eax, DWORD PTR $T40348[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -6312,7 +6312,7 @@ $L38686:
 
 	lea	eax, DWORD PTR _vecShootOrigin$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40342[ebp]
+	lea	ecx, DWORD PTR $T40349[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShootAtEnemy@CBaseMonster@@QAE?AVVector@@ABV2@@Z ; CBaseMonster::ShootAtEnemy
@@ -6337,33 +6337,33 @@ $L38686:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	edx, DWORD PTR $T40346[ebp]
+	lea	edx, DWORD PTR $T40353[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40347[ebp]
+	lea	eax, DWORD PTR $T40354[ebp]
 	push	eax
 	push	1128792064				; 43480000H
 	push	1117126656				; 42960000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40344[ebp]
+	lea	ecx, DWORD PTR $T40351[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 52					; 00000034H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40345[ebp]
+	lea	edx, DWORD PTR $T40352[ebp]
 	push	edx
 	push	1119092736				; 42b40000H
 	push	1109393408				; 42200000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T40343[ebp]
+	lea	eax, DWORD PTR $T40350[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
@@ -6389,12 +6389,12 @@ $L38686:
 	lea	ecx, DWORD PTR _vecShellVelocity$[ebp]
 	push	ecx
 	push	1103101952				; 41c00000H
-	lea	edx, DWORD PTR $T40348[ebp]
+	lea	edx, DWORD PTR $T40355[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecShootDir$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40349[ebp]
+	lea	eax, DWORD PTR $T40356[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecShootOrigin$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -6412,7 +6412,7 @@ $L38686:
 	push	1035108593				; 3db280f1H
 	push	1035108593				; 3db280f1H
 	push	1035108593				; 3db280f1H
-	lea	ecx, DWORD PTR $T40351[ebp]
+	lea	ecx, DWORD PTR $T40358[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -6457,7 +6457,7 @@ $L38686:
 
 	lea	eax, DWORD PTR _vecShootDir$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40354[ebp]
+	lea	ecx, DWORD PTR $T40361[ebp]
 	push	ecx
 	call	?UTIL_VecToAngles@@YA?AVVector@@ABV1@@Z	; UTIL_VecToAngles
 	add	esp, 8
@@ -6475,7 +6475,7 @@ $L38686:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetBlending@CBaseAnimating@@QAEMHM@Z	; CBaseAnimating::SetBlending
 	fstp	ST(0)
-$L38685:
+$L38692:
 
 ; 802  : }
 
@@ -6491,17 +6491,17 @@ PUBLIC	?Shotgun@CHGrunt@@QAEXXZ			; CHGrunt::Shotgun
 EXTRN	__ftol:NEAR
 ;	COMDAT ?Shotgun@CHGrunt@@QAEXXZ
 _TEXT	SEGMENT
-$T40357 = -64
-$T40358 = -76
-$T40359 = -88
-$T40360 = -100
-$T40361 = -112
-$T40362 = -124
-$T40363 = -136
-$T40364 = -148
-$T40365 = -160
-$T40367 = -176
-$T40370 = -196
+$T40364 = -64
+$T40365 = -76
+$T40366 = -88
+$T40367 = -100
+$T40368 = -112
+$T40369 = -124
+$T40370 = -136
+$T40371 = -148
+$T40372 = -160
+$T40374 = -176
+$T40377 = -196
 _this$ = -4
 _vecShootOrigin$ = -16
 _vecShootDir$ = -28
@@ -6525,17 +6525,17 @@ _angDir$ = -52
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	jne	SHORT $L38709
+	jne	SHORT $L38716
 
 ; 811  : 		return;
 
-	jmp	$L38708
-$L38709:
+	jmp	$L38715
+$L38716:
 
 ; 813  : 
 ; 814  : 	Vector vecShootOrigin = GetGunPosition();
 
-	lea	eax, DWORD PTR $T40357[ebp]
+	lea	eax, DWORD PTR $T40364[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -6549,7 +6549,7 @@ $L38709:
 
 	lea	eax, DWORD PTR _vecShootOrigin$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40358[ebp]
+	lea	ecx, DWORD PTR $T40365[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShootAtEnemy@CBaseMonster@@QAE?AVVector@@ABV2@@Z ; CBaseMonster::ShootAtEnemy
@@ -6574,33 +6574,33 @@ $L38709:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	edx, DWORD PTR $T40362[ebp]
+	lea	edx, DWORD PTR $T40369[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40363[ebp]
+	lea	eax, DWORD PTR $T40370[ebp]
 	push	eax
 	push	1128792064				; 43480000H
 	push	1117126656				; 42960000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40360[ebp]
+	lea	ecx, DWORD PTR $T40367[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 52					; 00000034H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40361[ebp]
+	lea	edx, DWORD PTR $T40368[ebp]
 	push	edx
 	push	1119092736				; 42b40000H
 	push	1109393408				; 42200000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 4
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T40359[ebp]
+	lea	eax, DWORD PTR $T40366[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
@@ -6626,12 +6626,12 @@ $L38709:
 	lea	ecx, DWORD PTR _vecShellVelocity$[ebp]
 	push	ecx
 	push	1103101952				; 41c00000H
-	lea	edx, DWORD PTR $T40364[ebp]
+	lea	edx, DWORD PTR $T40371[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecShootDir$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40365[ebp]
+	lea	eax, DWORD PTR $T40372[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecShootOrigin$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -6649,7 +6649,7 @@ $L38709:
 	push	1040558504				; 3e05a9a8H
 	push	1040558504				; 3e05a9a8H
 	push	1040558504				; 3e05a9a8H
-	lea	ecx, DWORD PTR $T40367[ebp]
+	lea	ecx, DWORD PTR $T40374[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -6696,7 +6696,7 @@ $L38709:
 
 	lea	eax, DWORD PTR _vecShootDir$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40370[ebp]
+	lea	ecx, DWORD PTR $T40377[ebp]
 	push	ecx
 	call	?UTIL_VecToAngles@@YA?AVVector@@ABV1@@Z	; UTIL_VecToAngles
 	add	esp, 8
@@ -6714,7 +6714,7 @@ $L38709:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetBlending@CBaseAnimating@@QAEMHM@Z	; CBaseAnimating::SetBlending
 	fstp	ST(0)
-$L38708:
+$L38715:
 
 ; 829  : }
 
@@ -6769,26 +6769,26 @@ __real@4@4001c000000000000000 DD 040c00000r	; 6
 CONST	ENDS
 ;	COMDAT ?HandleAnimEvent@CHGrunt@@UAEXPAUMonsterEvent_t@@@Z
 _TEXT	SEGMENT
-$T40374 = -68
-$T40377 = -88
-$T40380 = -108
-$T40383 = -128
-$T40384 = -140
-$T40385 = -152
-$T40386 = -164
-$T40387 = -176
-$T40388 = -188
-$T40389 = -200
-$T40390 = -212
-$T40391 = -224
-$T40392 = -236
+$T40381 = -68
+$T40384 = -88
+$T40387 = -108
+$T40390 = -128
+$T40391 = -140
+$T40392 = -152
+$T40393 = -164
+$T40394 = -176
+$T40395 = -188
+$T40396 = -200
+$T40397 = -212
+$T40398 = -224
+$T40399 = -236
 _pEvent$ = 8
 _this$ = -4
 _vecShootDir$ = -16
 _vecShootOrigin$ = -28
-_vecGunPos$38740 = -40
-_vecGunAngles$38741 = -52
-_pHurt$38783 = -56
+_vecGunPos$38747 = -40
+_vecGunAngles$38748 = -52
+_pHurt$38790 = -56
 ?HandleAnimEvent@CHGrunt@@UAEXPAUMonsterEvent_t@@@Z PROC NEAR ; CHGrunt::HandleAnimEvent, COMDAT
 
 ; 836  : {
@@ -6820,10 +6820,10 @@ _pHurt$38783 = -56
 	sub	edx, 2
 	mov	DWORD PTR -240+[ebp], edx
 	cmp	DWORD PTR -240+[ebp], 9
-	ja	$L38790
+	ja	$L38797
 	mov	eax, DWORD PTR -240+[ebp]
-	jmp	DWORD PTR $L40395[eax*4]
-$L38738:
+	jmp	DWORD PTR $L40402[eax*4]
+$L38745:
 
 ; 844  : 
 ; 845  : 			if( pev->spawnflags & SF_MONSTER_NO_WPN_DROP )
@@ -6833,30 +6833,30 @@ $L38738:
 	mov	eax, DWORD PTR [edx+416]
 	and	eax, 1024				; 00000400H
 	test	eax, eax
-	je	SHORT $L38739
+	je	SHORT $L38746
 
 ; 846  : 				break; //LRC
 
-	jmp	$L38735
-$L38739:
+	jmp	$L38742
+$L38746:
 
 ; 847  : 
 ; 848  : 			Vector	vecGunPos;
 
-	lea	ecx, DWORD PTR _vecGunPos$38740[ebp]
+	lea	ecx, DWORD PTR _vecGunPos$38747[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 849  : 			Vector	vecGunAngles;
 
-	lea	ecx, DWORD PTR _vecGunAngles$38741[ebp]
+	lea	ecx, DWORD PTR _vecGunAngles$38748[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 850  : 
 ; 851  : 			GetAttachment( 0, vecGunPos, vecGunAngles );
 
-	lea	ecx, DWORD PTR _vecGunAngles$38741[ebp]
+	lea	ecx, DWORD PTR _vecGunAngles$38748[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _vecGunPos$38740[ebp]
+	lea	edx, DWORD PTR _vecGunPos$38747[ebp]
 	push	edx
 	push	0
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -6879,13 +6879,13 @@ $L38739:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38742
+	je	SHORT $L38749
 
 ; 859  : 				 DropItem( "weapon_shotgun", vecGunPos, vecGunAngles );
 
-	lea	eax, DWORD PTR _vecGunAngles$38741[ebp]
+	lea	eax, DWORD PTR _vecGunAngles$38748[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _vecGunPos$38740[ebp]
+	lea	ecx, DWORD PTR _vecGunPos$38747[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0P@PHLB@weapon_shotgun?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -6893,19 +6893,19 @@ $L38739:
 
 ; 861  : 			else
 
-	jmp	SHORT $L38743
-$L38742:
+	jmp	SHORT $L38750
+$L38749:
 
 ; 863  : 				 DropItem( "weapon_9mmAR", vecGunPos, vecGunAngles );
 
-	lea	edx, DWORD PTR _vecGunAngles$38741[ebp]
+	lea	edx, DWORD PTR _vecGunAngles$38748[ebp]
 	push	edx
-	lea	eax, DWORD PTR _vecGunPos$38740[ebp]
+	lea	eax, DWORD PTR _vecGunPos$38747[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_0N@JNOE@weapon_9mmAR?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DropItem@CBaseMonster@@QAEPAVCBaseEntity@@PADABVVector@@1@Z ; CBaseMonster::DropItem
-$L38743:
+$L38750:
 
 ; 865  : 			if (HasWeapon( HGRUNT_GRENADELAUNCHER ))
 
@@ -6913,16 +6913,16 @@ $L38743:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38744
+	je	SHORT $L38751
 
 ; 867  : 				DropItem( "ammo_ARgrenades", BodyTarget( GetAbsOrigin() ), vecGunAngles );
 
-	lea	ecx, DWORD PTR _vecGunAngles$38741[ebp]
+	lea	ecx, DWORD PTR _vecGunAngles$38748[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	edx, DWORD PTR $T40374[ebp]
+	lea	edx, DWORD PTR $T40381[ebp]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -6932,12 +6932,12 @@ $L38743:
 	push	OFFSET FLAT:??_C@_0BA@OEBJ@ammo_ARgrenades?$AA@ ; `string'
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DropItem@CBaseMonster@@QAEPAVCBaseEntity@@PADABVVector@@1@Z ; CBaseMonster::DropItem
-$L38744:
+$L38751:
 
 ; 871  : 			break;
 
-	jmp	$L38735
-$L38746:
+	jmp	$L38742
+$L38753:
 
 ; 872  : 
 ; 873  : 		case HGRUNT_AE_RELOAD:
@@ -6971,8 +6971,8 @@ $L38746:
 
 ; 877  : 			break;
 
-	jmp	$L38735
-$L38749:
+	jmp	$L38742
+$L38756:
 
 ; 881  : 			UTIL_MakeVectors( GetAbsAngles() );
 
@@ -6992,7 +6992,7 @@ $L38749:
 	mov	ecx, esp
 	push	edx
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
-	lea	eax, DWORD PTR $T40377[ebp]
+	lea	eax, DWORD PTR $T40384[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -7024,8 +7024,8 @@ $L38749:
 
 ; 889  : 		break;
 
-	jmp	$L38735
-$L38753:
+	jmp	$L38742
+$L38760:
 
 ; 893  : 			EMIT_SOUND(ENT(pev), CHAN_WEAPON, "weapons/glauncher.wav", 0.8, ATTN_NORM);
 
@@ -7051,7 +7051,7 @@ $L38753:
 	push	ecx
 	mov	ecx, edx
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
-	lea	eax, DWORD PTR $T40380[ebp]
+	lea	eax, DWORD PTR $T40387[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -7075,7 +7075,7 @@ $L38753:
 ; 896  : 			if (g_iSkillLevel == SKILL_HARD)
 
 	cmp	DWORD PTR ?g_iSkillLevel@@3HA, 3	; g_iSkillLevel
-	jne	SHORT $L38759
+	jne	SHORT $L38766
 
 ; 897  : 				m_flNextGrenadeCheck = gpGlobals->time + RANDOM_FLOAT( 2, 5 );// wait a random amount of time before shooting again
 
@@ -7090,8 +7090,8 @@ $L38753:
 
 ; 898  : 			else
 
-	jmp	SHORT $L38760
-$L38759:
+	jmp	SHORT $L38767
+$L38766:
 
 ; 899  : 				m_flNextGrenadeCheck = gpGlobals->time + 6;// wait six seconds before even looking again to see if a grenade can be thrown.
 
@@ -7100,12 +7100,12 @@ $L38759:
 	fadd	DWORD PTR __real@4@4001c000000000000000
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+2452]
-$L38760:
+$L38767:
 
 ; 901  : 		break;
 
-	jmp	$L38735
-$L38761:
+	jmp	$L38742
+$L38768:
 
 ; 905  : 			UTIL_MakeVectors( GetAbsAngles() );
 
@@ -7123,31 +7123,31 @@ $L38761:
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	push	1086324736				; 40c00000H
-	lea	ecx, DWORD PTR $T40387[ebp]
+	lea	ecx, DWORD PTR $T40394[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 52					; 00000034H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40388[ebp]
+	lea	edx, DWORD PTR $T40395[ebp]
 	push	edx
 	push	1104674816				; 41d80000H
-	lea	eax, DWORD PTR $T40385[ebp]
+	lea	eax, DWORD PTR $T40392[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40386[ebp]
+	lea	ecx, DWORD PTR $T40393[ebp]
 	push	ecx
 	push	1099431936				; 41880000H
-	lea	edx, DWORD PTR $T40383[ebp]
+	lea	edx, DWORD PTR $T40390[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40384[ebp]
+	lea	eax, DWORD PTR $T40391[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -7169,8 +7169,8 @@ $L38761:
 
 ; 908  : 		break;
 
-	jmp	$L38735
-$L38770:
+	jmp	$L38742
+$L38777:
 
 ; 912  : 			if ( HasWeapon( HGRUNT_9MMAR ))
 
@@ -7178,7 +7178,7 @@ $L38770:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38771
+	je	SHORT $L38778
 
 ; 914  : 				Shoot();
 
@@ -7194,7 +7194,7 @@ $L38770:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38772
+	je	SHORT $L38779
 
 ; 919  : 					EMIT_SOUND( ENT(pev), CHAN_WEAPON, "hgrunt/gr_mgun1.wav", 1, ATTN_NORM );
 
@@ -7213,8 +7213,8 @@ $L38770:
 
 ; 921  : 				else
 
-	jmp	SHORT $L38775
-$L38772:
+	jmp	SHORT $L38782
+$L38779:
 
 ; 923  : 					EMIT_SOUND( ENT(pev), CHAN_WEAPON, "hgrunt/gr_mgun2.wav", 1, ATTN_NORM );
 
@@ -7230,12 +7230,12 @@ $L38772:
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L38775:
+$L38782:
 
 ; 926  : 			else
 
-	jmp	SHORT $L38778
-$L38771:
+	jmp	SHORT $L38785
+$L38778:
 
 ; 928  : 				Shotgun( );
 
@@ -7257,7 +7257,7 @@ $L38771:
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L38778:
+$L38785:
 
 ; 932  : 		
 ; 933  : 			CSoundEnt::InsertSound ( bits_SOUND_COMBAT, GetAbsOrigin(), 384, 0.3 );
@@ -7273,8 +7273,8 @@ $L38778:
 
 ; 935  : 		break;
 
-	jmp	$L38735
-$L38781:
+	jmp	$L38742
+$L38788:
 
 ; 936  : 
 ; 937  : 		case HGRUNT_AE_BURST2:
@@ -7286,20 +7286,20 @@ $L38781:
 
 ; 940  : 			break;
 
-	jmp	$L38735
-$L38782:
+	jmp	$L38742
+$L38789:
 
 ; 944  : 			CBaseEntity *pHurt = Kick();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Kick@CHGrunt@@QAEPAVCBaseEntity@@XZ	; CHGrunt::Kick
-	mov	DWORD PTR _pHurt$38783[ebp], eax
+	mov	DWORD PTR _pHurt$38790[ebp], eax
 
 ; 945  : 
 ; 946  : 			if ( pHurt )
 
-	cmp	DWORD PTR _pHurt$38783[ebp], 0
-	je	$L38784
+	cmp	DWORD PTR _pHurt$38790[ebp], 0
+	je	$L38791
 
 ; 948  : 				// SOUND HERE!
 ; 949  : 				UTIL_MakeVectors( GetAbsAngles() );
@@ -7312,38 +7312,38 @@ $L38782:
 
 ; 950  : 				pHurt->pev->punchangle.x = 15;
 
-	mov	eax, DWORD PTR _pHurt$38783[ebp]
+	mov	eax, DWORD PTR _pHurt$38790[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+104], 1097859072		; 41700000H
 
 ; 951  : 				pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() + gpGlobals->v_forward * 100 + gpGlobals->v_up * 50 );
 
 	push	1112014848				; 42480000H
-	lea	edx, DWORD PTR $T40391[ebp]
+	lea	edx, DWORD PTR $T40398[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 52					; 00000034H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40392[ebp]
+	lea	eax, DWORD PTR $T40399[ebp]
 	push	eax
 	push	1120403456				; 42c80000H
-	lea	ecx, DWORD PTR $T40389[ebp]
+	lea	ecx, DWORD PTR $T40396[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T40390[ebp]
+	lea	edx, DWORD PTR $T40397[ebp]
 	push	edx
-	mov	ecx, DWORD PTR _pHurt$38783[ebp]
+	mov	ecx, DWORD PTR _pHurt$38790[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	mov	ecx, DWORD PTR _pHurt$38783[ebp]
+	mov	ecx, DWORD PTR _pHurt$38790[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
 
 ; 952  : 				pHurt->TakeDamage( pev, pev, gSkillData.hgruntDmgKick, DMG_CLUB );
@@ -7357,23 +7357,23 @@ $L38782:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	push	ecx
-	mov	edx, DWORD PTR _pHurt$38783[ebp]
+	mov	edx, DWORD PTR _pHurt$38790[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _pHurt$38783[ebp]
+	mov	ecx, DWORD PTR _pHurt$38790[ebp]
 	call	DWORD PTR [eax+96]
-$L38784:
+$L38791:
 
 ; 955  : 		break;
 
-	jmp	SHORT $L38735
-$L38789:
+	jmp	SHORT $L38742
+$L38796:
 
 ; 959  : 			if ( FOkToSpeak() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L38790
+	je	SHORT $L38797
 
 ; 961  : 				SENTENCEG_PlayRndSz(ENT(pev), "HG_ALERT", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 
@@ -7397,7 +7397,7 @@ $L38789:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L38790:
+$L38797:
 
 ; 966  : 
 ; 967  : 		default:
@@ -7407,7 +7407,7 @@ $L38790:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HandleAnimEvent@CBaseMonster@@UAEXPAUMonsterEvent_t@@@Z ; CBaseMonster::HandleAnimEvent
-$L38735:
+$L38742:
 
 ; 971  : }
 
@@ -7417,17 +7417,17 @@ $L38735:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L40395:
-	DD	$L38746
-	DD	$L38782
-	DD	$L38770
-	DD	$L38781
-	DD	$L38781
-	DD	$L38749
+$L40402:
 	DD	$L38753
-	DD	$L38761
 	DD	$L38789
-	DD	$L38738
+	DD	$L38777
+	DD	$L38788
+	DD	$L38788
+	DD	$L38756
+	DD	$L38760
+	DD	$L38768
+	DD	$L38796
+	DD	$L38745
 ?HandleAnimEvent@CHGrunt@@UAEXPAUMonsterEvent_t@@@Z ENDP ; CHGrunt::HandleAnimEvent
 _TEXT	ENDS
 EXTRN	?EMIT_SOUND_DYN@@YAXPAUedict_s@@HPBDMMHH@Z:NEAR	; EMIT_SOUND_DYN
@@ -7517,9 +7517,9 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?Spawn@CHGrunt@@UAEXXZ
 _TEXT	SEGMENT
-$T40402 = -16
-$T40403 = -28
-$T40404 = -40
+$T40409 = -16
+$T40410 = -28
+$T40411 = -40
 _this$ = -4
 ?Spawn@CHGrunt@@UAEXXZ PROC NEAR			; CHGrunt::Spawn, COMDAT
 
@@ -7546,7 +7546,7 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+184], 0
-	je	SHORT $L38797
+	je	SHORT $L38804
 
 ; 981  : 		SET_MODEL(ENT(pev), STRING(pev->model)); //LRC
 
@@ -7568,8 +7568,8 @@ _this$ = -4
 
 ; 982  : 	else
 
-	jmp	SHORT $L38798
-$L38797:
+	jmp	SHORT $L38805
+$L38804:
 
 ; 983  : 		SET_MODEL(ENT(pev), "models/hgrunt.mdl");
 
@@ -7582,20 +7582,20 @@ $L38797:
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+8
 	add	esp, 8
-$L38798:
+$L38805:
 
 ; 984  : 	UTIL_SetSize(pev, VEC_HUMAN_HULL_MIN, VEC_HUMAN_HULL_MAX);
 
 	push	1116733440				; 42900000H
 	push	1098907648				; 41800000H
 	push	1098907648				; 41800000H
-	lea	ecx, DWORD PTR $T40402[ebp]
+	lea	ecx, DWORD PTR $T40409[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	0
 	push	-1048576000				; c1800000H
 	push	-1048576000				; c1800000H
-	lea	ecx, DWORD PTR $T40403[ebp]
+	lea	ecx, DWORD PTR $T40410[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	eax, DWORD PTR _this$[ebp]
@@ -7636,12 +7636,12 @@ $L38798:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38803
+	je	SHORT $L38810
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR ?gSkillData@@3Uskilldata_t@@A+80
 	mov	DWORD PTR [eax+352], ecx
-$L38803:
+$L38810:
 
 ; 991  : 	m_flFieldOfView		= 0.2;// indicates the width of this monster's forward view cone ( as a dotproduct result )
 
@@ -7696,7 +7696,7 @@ $L38803:
 	push	1113325568				; 425c0000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40404[ebp]
+	lea	ecx, DWORD PTR $T40411[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2364				; 0000093cH
@@ -7712,7 +7712,7 @@ $L38803:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2376], 0
-	jne	SHORT $L38805
+	jne	SHORT $L38812
 
 ; 1006 : 		// initialize to original values
 ; 1007 : 		AddWeapon( HGRUNT_9MMAR );
@@ -7726,7 +7726,7 @@ $L38803:
 	push	2
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AddWeapon@CBaseMonster@@QAEXH@Z	; CBaseMonster::AddWeapon
-$L38805:
+$L38812:
 
 ; 1013 : 
 ; 1014 : 	if (HasWeapon( HGRUNT_SHOTGUN ))
@@ -7735,7 +7735,7 @@ $L38805:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38806
+	je	SHORT $L38813
 
 ; 1016 : 		SetBodygroup( GUN_GROUP, GUN_SHOTGUN );
 
@@ -7751,14 +7751,14 @@ $L38805:
 
 ; 1019 : 	else
 
-	jmp	SHORT $L38807
-$L38806:
+	jmp	SHORT $L38814
+$L38813:
 
 ; 1021 : 		m_cClipSize		= GRUNT_CLIP_SIZE;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2488], 36		; 00000024H
-$L38807:
+$L38814:
 
 ; 1023 : 	m_cAmmoLoaded		= m_cClipSize;
 
@@ -7775,7 +7775,7 @@ $L38807:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	cmp	eax, 80					; 00000050H
-	jge	SHORT $L38808
+	jge	SHORT $L38815
 
 ; 1026 : 		pev->skin = 0;	// light skin
 
@@ -7785,15 +7785,15 @@ $L38807:
 
 ; 1027 : 	else
 
-	jmp	SHORT $L38809
-$L38808:
+	jmp	SHORT $L38816
+$L38815:
 
 ; 1028 : 		pev->skin = 1;	// dark skin
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+272], 1
-$L38809:
+$L38816:
 
 ; 1029 : 
 ; 1030 : 	if ( HasWeapon( HGRUNT_SHOTGUN ))
@@ -7802,7 +7802,7 @@ $L38809:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38810
+	je	SHORT $L38817
 
 ; 1032 : 		SetBodygroup( HEAD_GROUP, HEAD_SHOTGUN);
 
@@ -7813,13 +7813,13 @@ $L38809:
 
 ; 1034 : 	else if ( HasWeapon( HGRUNT_GRENADELAUNCHER ))
 
-	jmp	SHORT $L38812
-$L38810:
+	jmp	SHORT $L38819
+$L38817:
 	push	3
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L38812
+	je	SHORT $L38819
 
 ; 1036 : 		SetBodygroup( HEAD_GROUP, HEAD_M203 );
 
@@ -7833,7 +7833,7 @@ $L38810:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+272], 1
-$L38812:
+$L38819:
 
 ; 1039 : 
 ; 1040 : 	CTalkMonster::g_talkWaitTime = 0;
@@ -7973,7 +7973,7 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+184], 0
-	je	SHORT $L38816
+	je	SHORT $L38823
 
 ; 1051 : 		PRECACHE_MODEL((char*)STRING(pev->model)); //LRC
 
@@ -7989,15 +7989,15 @@ _this$ = -4
 
 ; 1052 : 	else
 
-	jmp	SHORT $L38818
-$L38816:
+	jmp	SHORT $L38825
+$L38823:
 
 ; 1053 : 		PRECACHE_MODEL("models/hgrunt.mdl");
 
 	push	OFFSET FLAT:??_C@_0BC@KNIA@models?1hgrunt?4mdl?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A
 	add	esp, 4
-$L38818:
+$L38825:
 
 ; 1054 : 
 ; 1055 : 	PRECACHE_SOUND( "hgrunt/gr_mgun1.wav" );
@@ -8099,7 +8099,7 @@ $L38818:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38828
+	je	SHORT $L38835
 
 ; 1078 : 		m_voicePitch = 109 + RANDOM_LONG(0,7);
 
@@ -8113,14 +8113,14 @@ $L38818:
 
 ; 1079 : 	else
 
-	jmp	SHORT $L38829
-$L38828:
+	jmp	SHORT $L38836
+$L38835:
 
 ; 1080 : 		m_voicePitch = 100;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2492], 100		; 00000064H
-$L38829:
+$L38836:
 
 ; 1081 : 
 ; 1082 : 	m_iBrassShell = PRECACHE_MODEL ("models/shell.mdl");// brass shell
@@ -8182,12 +8182,12 @@ _this$ = -4
 	sub	eax, 18					; 00000012H
 	mov	DWORD PTR -8+[ebp], eax
 	cmp	DWORD PTR -8+[ebp], 75			; 0000004bH
-	ja	$L38848
+	ja	$L38855
 	mov	edx, DWORD PTR -8+[ebp]
 	xor	ecx, ecx
-	mov	cl, BYTE PTR $L40411[edx]
-	jmp	DWORD PTR $L40412[ecx*4]
-$L38840:
+	mov	cl, BYTE PTR $L40418[edx]
+	jmp	DWORD PTR $L40419[ecx*4]
+$L38847:
 
 ; 1095 : 	case TASK_GRUNT_CHECK_FIRE:
 ; 1096 : 		if ( !NoFriendlyFire() )
@@ -8195,14 +8195,14 @@ $L38840:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?NoFriendlyFire@CSquadMonster@@QAEHXZ	; CSquadMonster::NoFriendlyFire
 	test	eax, eax
-	jne	SHORT $L38841
+	jne	SHORT $L38848
 
 ; 1098 : 			SetConditions( bits_COND_GRUNT_NOFIRE );
 
 	push	268435456				; 10000000H
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetConditions@CBaseMonster@@QAEXH@Z	; CBaseMonster::SetConditions
-$L38841:
+$L38848:
 
 ; 1100 : 		TaskComplete();
 
@@ -8211,8 +8211,8 @@ $L38841:
 
 ; 1101 : 		break;
 
-	jmp	SHORT $L38837
-$L38842:
+	jmp	SHORT $L38844
+$L38849:
 
 ; 1102 : 
 ; 1103 : 	case TASK_GRUNT_SPEAK_SENTENCE:
@@ -8228,8 +8228,8 @@ $L38842:
 
 ; 1106 : 		break;
 
-	jmp	SHORT $L38837
-$L38843:
+	jmp	SHORT $L38844
+$L38850:
 
 ; 1107 : 	
 ; 1108 : 	case TASK_WALK_PATH:
@@ -8250,8 +8250,8 @@ $L38843:
 
 ; 1113 : 		break;
 
-	jmp	SHORT $L38837
-$L38844:
+	jmp	SHORT $L38844
+$L38851:
 
 ; 1114 : 
 ; 1115 : 	case TASK_RELOAD:
@@ -8262,15 +8262,15 @@ $L38844:
 
 ; 1117 : 		break;
 
-	jmp	SHORT $L38837
-$L38845:
+	jmp	SHORT $L38844
+$L38852:
 
 ; 1118 : 
 ; 1119 : 	case TASK_GRUNT_FACE_TOSS_DIR:
 ; 1120 : 		break;
 
-	jmp	SHORT $L38837
-$L38846:
+	jmp	SHORT $L38844
+$L38853:
 
 ; 1121 : 
 ; 1122 : 	case TASK_FACE_IDEAL:
@@ -8287,18 +8287,18 @@ $L38846:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 5
-	jne	SHORT $L38847
+	jne	SHORT $L38854
 
 ; 1127 : 			m_IdealActivity = ACT_GLIDE;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2072], 51		; 00000033H
-$L38847:
+$L38854:
 
 ; 1129 : 		break;
 
-	jmp	SHORT $L38837
-$L38848:
+	jmp	SHORT $L38844
+$L38855:
 
 ; 1130 : 
 ; 1131 : 	default: 
@@ -8308,7 +8308,7 @@ $L38848:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?StartTask@CBaseMonster@@UAEXPAUTask_t@@@Z ; CBaseMonster::StartTask
-$L38837:
+$L38844:
 
 ; 1135 : }
 
@@ -8318,15 +8318,15 @@ $L38837:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L40412:
-	DD	$L38843
-	DD	$L38846
-	DD	$L38844
-	DD	$L38845
-	DD	$L38842
-	DD	$L38840
-	DD	$L38848
-$L40411:
+$L40419:
+	DD	$L38850
+	DD	$L38853
+	DD	$L38851
+	DD	$L38852
+	DD	$L38849
+	DD	$L38847
+	DD	$L38855
+$L40418:
 	DB	0
 	DB	0
 	DB	6
@@ -8441,8 +8441,8 @@ EXTRN	?FacingIdeal@CBaseMonster@@QAEHXZ:NEAR		; CBaseMonster::FacingIdeal
 EXTRN	?RunTask@CBaseMonster@@UAEXPAUTask_t@@@Z:NEAR	; CBaseMonster::RunTask
 ;	COMDAT ?RunTask@CHGrunt@@UAEXPAUTask_t@@@Z
 _TEXT	SEGMENT
-$T40418 = -20
-$T40419 = -32
+$T40425 = -20
+$T40426 = -32
 _pTask$ = 8
 _this$ = -4
 ?RunTask@CHGrunt@@UAEXPAUTask_t@@@Z PROC NEAR		; CHGrunt::RunTask, COMDAT
@@ -8463,21 +8463,21 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR -36+[ebp], ecx
 	cmp	DWORD PTR -36+[ebp], 91			; 0000005bH
-	je	SHORT $L38857
-	jmp	SHORT $L38862
-$L38857:
+	je	SHORT $L38864
+	jmp	SHORT $L38869
+$L38864:
 
 ; 1146 : 			// project a point along the toss vector and turn to face that point.
 ; 1147 : 			MakeIdealYaw( GetAbsOrigin() + m_vecTossVelocity * 64 );
 
 	push	1115684864				; 42800000H
-	lea	edx, DWORD PTR $T40418[ebp]
+	lea	edx, DWORD PTR $T40425[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2464				; 000009a0H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T40419[ebp]
+	lea	eax, DWORD PTR $T40426[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -8509,18 +8509,18 @@ $L38857:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FacingIdeal@CBaseMonster@@QAEHXZ	; CBaseMonster::FacingIdeal
 	test	eax, eax
-	je	SHORT $L38861
+	je	SHORT $L38868
 
 ; 1152 : 				m_iTaskStatus = TASKSTATUS_COMPLETE;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2088], 4
-$L38861:
+$L38868:
 
 ; 1154 : 			break;
 
-	jmp	SHORT $L38854
-$L38862:
+	jmp	SHORT $L38861
+$L38869:
 
 ; 1158 : 			CSquadMonster :: RunTask( pTask );
 
@@ -8528,7 +8528,7 @@ $L38862:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RunTask@CBaseMonster@@UAEXPAUTask_t@@@Z ; CBaseMonster::RunTask
-$L38854:
+$L38861:
 
 ; 1162 : }
 
@@ -8564,7 +8564,7 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx+2456]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	$L38867
+	jne	$L38874
 
 ; 1184 : 		{
 
@@ -8574,10 +8574,10 @@ _this$ = -4
 	add	esp, 8
 	mov	DWORD PTR -8+[ebp], eax
 	cmp	DWORD PTR -8+[ebp], 4
-	ja	$L38869
+	ja	$L38876
 	mov	edx, DWORD PTR -8+[ebp]
-	jmp	DWORD PTR $L40422[edx*4]
-$L38872:
+	jmp	DWORD PTR $L40429[edx*4]
+$L38879:
 
 ; 1185 : 		case 0:	
 ; 1186 : 			EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_pain3.wav", 1, ATTN_NORM );	
@@ -8597,8 +8597,8 @@ $L38872:
 
 ; 1187 : 			break;
 
-	jmp	$L38869
-$L38874:
+	jmp	$L38876
+$L38881:
 
 ; 1188 : 		case 1:
 ; 1189 : 			EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_pain4.wav", 1, ATTN_NORM );	
@@ -8618,8 +8618,8 @@ $L38874:
 
 ; 1190 : 			break;
 
-	jmp	SHORT $L38869
-$L38876:
+	jmp	SHORT $L38876
+$L38883:
 
 ; 1191 : 		case 2:
 ; 1192 : 			EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_pain5.wav", 1, ATTN_NORM );	
@@ -8639,8 +8639,8 @@ $L38876:
 
 ; 1193 : 			break;
 
-	jmp	SHORT $L38869
-$L38878:
+	jmp	SHORT $L38876
+$L38885:
 
 ; 1194 : 		case 3:
 ; 1195 : 			EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_pain1.wav", 1, ATTN_NORM );	
@@ -8660,8 +8660,8 @@ $L38878:
 
 ; 1196 : 			break;
 
-	jmp	SHORT $L38869
-$L38880:
+	jmp	SHORT $L38876
+$L38887:
 
 ; 1197 : 		case 4:
 ; 1198 : 			EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_pain2.wav", 1, ATTN_NORM );	
@@ -8678,7 +8678,7 @@ $L38880:
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L38869:
+$L38876:
 
 ; 1201 : 
 ; 1202 : 		m_flNextPainTime = gpGlobals->time + 1;
@@ -8688,7 +8688,7 @@ $L38869:
 	fadd	DWORD PTR __real@4@3fff8000000000000000
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2456]
-$L38867:
+$L38874:
 
 ; 1204 : }
 
@@ -8698,12 +8698,12 @@ $L38867:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L40422:
-	DD	$L38872
-	DD	$L38874
-	DD	$L38876
-	DD	$L38878
-	DD	$L38880
+$L40429:
+	DD	$L38879
+	DD	$L38881
+	DD	$L38883
+	DD	$L38885
+	DD	$L38887
 ?PainSound@CHGrunt@@UAEXXZ ENDP				; CHGrunt::PainSound
 _TEXT	ENDS
 PUBLIC	?DeathSound@CHGrunt@@UAEXXZ			; CHGrunt::DeathSound
@@ -8730,13 +8730,13 @@ _this$ = -4
 	add	esp, 8
 	mov	DWORD PTR -8+[ebp], eax
 	cmp	DWORD PTR -8+[ebp], 0
-	je	SHORT $L38890
+	je	SHORT $L38897
 	cmp	DWORD PTR -8+[ebp], 1
-	je	SHORT $L38892
+	je	SHORT $L38899
 	cmp	DWORD PTR -8+[ebp], 2
-	je	SHORT $L38894
-	jmp	SHORT $L38887
-$L38890:
+	je	SHORT $L38901
+	jmp	SHORT $L38894
+$L38897:
 
 ; 1213 : 	case 0:	
 ; 1214 : 		EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_die1.wav", 1, ATTN_IDLE );	
@@ -8756,8 +8756,8 @@ $L38890:
 
 ; 1215 : 		break;
 
-	jmp	SHORT $L38887
-$L38892:
+	jmp	SHORT $L38894
+$L38899:
 
 ; 1216 : 	case 1:
 ; 1217 : 		EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_die2.wav", 1, ATTN_IDLE );	
@@ -8777,8 +8777,8 @@ $L38892:
 
 ; 1218 : 		break;
 
-	jmp	SHORT $L38887
-$L38894:
+	jmp	SHORT $L38894
+$L38901:
 
 ; 1219 : 	case 2:
 ; 1220 : 		EMIT_SOUND( ENT(pev), CHAN_VOICE, "hgrunt/gr_die3.wav", 1, ATTN_IDLE );	
@@ -8795,7 +8795,7 @@ $L38894:
 	push	eax
 	call	?EMIT_SOUND@@YAXPAUedict_s@@HPBDMM@Z	; EMIT_SOUND
 	add	esp, 20					; 00000014H
-$L38887:
+$L38894:
 
 ; 1223 : }
 
@@ -8834,15 +8834,15 @@ _pSchedule$ = -8
 	call	?ScheduleInList@CBaseMonster@@QAEPAUSchedule_t@@PBDPAPAU2@H@Z ; CBaseMonster::ScheduleInList
 	mov	DWORD PTR _pSchedule$[ebp], eax
 	cmp	DWORD PTR _pSchedule$[ebp], 0
-	jne	SHORT $L39105
+	jne	SHORT $L39112
 	mov	ecx, DWORD PTR _pName$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ScheduleFromName@CBaseMonster@@UAEPAUSchedule_t@@PBD@Z ; CBaseMonster::ScheduleFromName
-	jmp	SHORT $L39103
-$L39105:
+	jmp	SHORT $L39110
+$L39112:
 	mov	eax, DWORD PTR _pSchedule$[ebp]
-$L39103:
+$L39110:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -8934,12 +8934,12 @@ _pmodel$ = -12
 	sub	eax, 1
 	mov	DWORD PTR -16+[ebp], eax
 	cmp	DWORD PTR -16+[ebp], 28			; 0000001cH
-	ja	$L39140
+	ja	$L39147
 	mov	edx, DWORD PTR -16+[ebp]
 	xor	ecx, ecx
-	mov	cl, BYTE PTR $L40429[edx]
-	jmp	DWORD PTR $L40430[ecx*4]
-$L39116:
+	mov	cl, BYTE PTR $L40436[edx]
+	jmp	DWORD PTR $L40437[ecx*4]
+$L39123:
 
 ; 1878 : 	case ACT_RANGE_ATTACK1:
 ; 1879 : 		// grunt is either shooting standing or shooting crouched
@@ -8949,13 +8949,13 @@ $L39116:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L39117
+	je	SHORT $L39124
 
 ; 1882 : 			if ( m_fStanding )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2480], 0
-	je	SHORT $L39118
+	je	SHORT $L39125
 
 ; 1884 : 				// get aimable sequence
 ; 1885 : 				iSequence = LookupSequence( "standing_mp5" );
@@ -8967,8 +8967,8 @@ $L39116:
 
 ; 1887 : 			else
 
-	jmp	SHORT $L39120
-$L39118:
+	jmp	SHORT $L39127
+$L39125:
 
 ; 1889 : 				// get crouching shoot
 ; 1890 : 				iSequence = LookupSequence( "crouching_mp5" );
@@ -8977,18 +8977,18 @@ $L39118:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?LookupSequence@CBaseAnimating@@QAEHPBD@Z ; CBaseAnimating::LookupSequence
 	mov	DWORD PTR _iSequence$[ebp], eax
-$L39120:
+$L39127:
 
 ; 1893 : 		else
 
-	jmp	SHORT $L39125
-$L39117:
+	jmp	SHORT $L39132
+$L39124:
 
 ; 1895 : 			if ( m_fStanding )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2480], 0
-	je	SHORT $L39123
+	je	SHORT $L39130
 
 ; 1897 : 				// get aimable sequence
 ; 1898 : 				iSequence = LookupSequence( "standing_shotgun" );
@@ -9000,8 +9000,8 @@ $L39117:
 
 ; 1900 : 			else
 
-	jmp	SHORT $L39125
-$L39123:
+	jmp	SHORT $L39132
+$L39130:
 
 ; 1902 : 				// get crouching shoot
 ; 1903 : 				iSequence = LookupSequence( "crouching_shotgun" );
@@ -9010,12 +9010,12 @@ $L39123:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?LookupSequence@CBaseAnimating@@QAEHPBD@Z ; CBaseAnimating::LookupSequence
 	mov	DWORD PTR _iSequence$[ebp], eax
-$L39125:
+$L39132:
 
 ; 1906 : 		break;
 
-	jmp	$L39113
-$L39127:
+	jmp	$L39120
+$L39134:
 
 ; 1907 : 	case ACT_RANGE_ATTACK2:
 ; 1908 : 		// grunt is going to a secondary long range attack. This may be a thrown 
@@ -9026,7 +9026,7 @@ $L39127:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L39128
+	je	SHORT $L39135
 
 ; 1912 : 			// get toss anim
 ; 1913 : 			iSequence = LookupSequence( "throwgrenade" );
@@ -9038,8 +9038,8 @@ $L39127:
 
 ; 1915 : 		else
 
-	jmp	SHORT $L39130
-$L39128:
+	jmp	SHORT $L39137
+$L39135:
 
 ; 1917 : 			// get launch anim
 ; 1918 : 			iSequence = LookupSequence( "launchgrenade" );
@@ -9048,12 +9048,12 @@ $L39128:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?LookupSequence@CBaseAnimating@@QAEHPBD@Z ; CBaseAnimating::LookupSequence
 	mov	DWORD PTR _iSequence$[ebp], eax
-$L39130:
+$L39137:
 
 ; 1920 : 		break;
 
-	jmp	$L39113
-$L39132:
+	jmp	$L39120
+$L39139:
 
 ; 1921 : 	case ACT_RUN:
 ; 1922 : 		if ( pev->health <= HGRUNT_LIMP_HEALTH )
@@ -9064,7 +9064,7 @@ $L39132:
 	fcomp	DWORD PTR __real@4@4003a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39133
+	je	SHORT $L39140
 
 ; 1924 : 			// limp!
 ; 1925 : 			iSequence = LookupActivity ( ACT_RUN_HURT );
@@ -9076,8 +9076,8 @@ $L39132:
 
 ; 1927 : 		else
 
-	jmp	SHORT $L39134
-$L39133:
+	jmp	SHORT $L39141
+$L39140:
 
 ; 1929 : 			iSequence = LookupActivity ( NewActivity );
 
@@ -9086,12 +9086,12 @@ $L39133:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?LookupActivity@CBaseAnimating@@QAEHH@Z	; CBaseAnimating::LookupActivity
 	mov	DWORD PTR _iSequence$[ebp], eax
-$L39134:
+$L39141:
 
 ; 1931 : 		break;
 
-	jmp	SHORT $L39113
-$L39135:
+	jmp	SHORT $L39120
+$L39142:
 
 ; 1932 : 	case ACT_WALK:
 ; 1933 : 		if ( pev->health <= HGRUNT_LIMP_HEALTH )
@@ -9102,7 +9102,7 @@ $L39135:
 	fcomp	DWORD PTR __real@4@4003a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39136
+	je	SHORT $L39143
 
 ; 1935 : 			// limp!
 ; 1936 : 			iSequence = LookupActivity ( ACT_WALK_HURT );
@@ -9114,8 +9114,8 @@ $L39135:
 
 ; 1938 : 		else
 
-	jmp	SHORT $L39137
-$L39136:
+	jmp	SHORT $L39144
+$L39143:
 
 ; 1940 : 			iSequence = LookupActivity ( NewActivity );
 
@@ -9124,24 +9124,24 @@ $L39136:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?LookupActivity@CBaseAnimating@@QAEHH@Z	; CBaseAnimating::LookupActivity
 	mov	DWORD PTR _iSequence$[ebp], eax
-$L39137:
+$L39144:
 
 ; 1942 : 		break;
 
-	jmp	SHORT $L39113
-$L39138:
+	jmp	SHORT $L39120
+$L39145:
 
 ; 1943 : 	case ACT_IDLE:
 ; 1944 : 		if ( m_MonsterState == MONSTERSTATE_COMBAT )
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+2080], 2
-	jne	SHORT $L39139
+	jne	SHORT $L39146
 
 ; 1946 : 			NewActivity = ACT_IDLE_ANGRY;
 
 	mov	DWORD PTR _NewActivity$[ebp], 47	; 0000002fH
-$L39139:
+$L39146:
 
 ; 1948 : 		iSequence = LookupActivity ( NewActivity );
 
@@ -9153,8 +9153,8 @@ $L39139:
 
 ; 1949 : 		break;
 
-	jmp	SHORT $L39113
-$L39140:
+	jmp	SHORT $L39120
+$L39147:
 
 ; 1950 : 	default:
 ; 1951 : 		iSequence = LookupActivity ( NewActivity );
@@ -9164,7 +9164,7 @@ $L39140:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?LookupActivity@CBaseAnimating@@QAEHH@Z	; CBaseAnimating::LookupActivity
 	mov	DWORD PTR _iSequence$[ebp], eax
-$L39113:
+$L39120:
 
 ; 1954 : 	
 ; 1955 : 	m_Activity = NewActivity; // Go ahead and set this so it doesn't keep trying when the anim is not present
@@ -9178,7 +9178,7 @@ $L39113:
 ; 1958 : 	if ( iSequence > ACTIVITY_NOT_AVAILABLE )
 
 	cmp	DWORD PTR _iSequence$[ebp], -1
-	jle	SHORT $L39141
+	jle	SHORT $L39148
 
 ; 1960 : 		if ( pev->sequence != iSequence || !m_fSequenceLoops )
 
@@ -9186,18 +9186,18 @@ $L39113:
 	mov	edx, DWORD PTR [ecx+4]
 	mov	eax, DWORD PTR [edx+296]
 	cmp	eax, DWORD PTR _iSequence$[ebp]
-	jne	SHORT $L39143
+	jne	SHORT $L39150
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1808], 0
-	jne	SHORT $L39142
-$L39143:
+	jne	SHORT $L39149
+$L39150:
 
 ; 1962 : 			pev->frame = 0;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+304], 0
-$L39142:
+$L39149:
 
 ; 1964 : 
 ; 1965 : 		pev->sequence		= iSequence;	// Set to the reset anim (if it's there)
@@ -9221,8 +9221,8 @@ $L39142:
 
 ; 1969 : 	else
 
-	jmp	SHORT $L39144
-$L39141:
+	jmp	SHORT $L39151
+$L39148:
 
 ; 1971 : 		// Not available try to get default anim
 ; 1972 : 		ALERT ( at_console, "%s has no sequence for act:%d\n", STRING(pev->classname), NewActivity );
@@ -9246,7 +9246,7 @@ $L39141:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	DWORD PTR [edx+296], 0
-$L39144:
+$L39151:
 
 ; 1975 : }
 
@@ -9256,14 +9256,14 @@ $L39144:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L40430:
-	DD	$L39138
-	DD	$L39135
-	DD	$L39132
-	DD	$L39116
-	DD	$L39127
-	DD	$L39140
-$L40429:
+$L40437:
+	DD	$L39145
+	DD	$L39142
+	DD	$L39139
+	DD	$L39123
+	DD	$L39134
+	DD	$L39147
+$L40436:
 	DB	0
 	DB	5
 	DB	1
@@ -9325,8 +9325,8 @@ CONST	ENDS
 ;	COMDAT ?GetSchedule@CHGrunt@@UAEPAUSchedule_t@@XZ
 _TEXT	SEGMENT
 _this$ = -4
-_pSound$39156 = -8
-_iPercent$39190 = -12
+_pSound$39163 = -8
+_iPercent$39197 = -12
 ?GetSchedule@CHGrunt@@UAEPAUSchedule_t@@XZ PROC NEAR	; CHGrunt::GetSchedule, COMDAT
 
 ; 1981 : {
@@ -9353,10 +9353,10 @@ _iPercent$39190 = -12
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+264], 5
-	jne	SHORT $L39154
+	jne	SHORT $L39161
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2080], 5
-	je	SHORT $L39154
+	je	SHORT $L39161
 
 ; 1989 : 		if (pev->flags & FL_ONGROUND)
 
@@ -9365,7 +9365,7 @@ _iPercent$39190 = -12
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, 512				; 00000200H
 	test	eax, eax
-	je	SHORT $L39151
+	je	SHORT $L39158
 
 ; 1991 : 			// just landed
 ; 1992 : 			pev->movetype = MOVETYPE_STEP;
@@ -9381,15 +9381,15 @@ _iPercent$39190 = -12
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39151:
+	jmp	$L39156
+$L39158:
 
 ; 1997 : 			// repel down a rope, 
 ; 1998 : 			if ( m_MonsterState == MONSTERSTATE_COMBAT )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2080], 2
-	jne	SHORT $L39153
+	jne	SHORT $L39160
 
 ; 1999 : 				return GetScheduleOfType ( SCHED_GRUNT_REPEL_ATTACK );
 
@@ -9398,8 +9398,8 @@ $L39151:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39153:
+	jmp	$L39156
+$L39160:
 
 ; 2001 : 				return GetScheduleOfType ( SCHED_GRUNT_REPEL );
 
@@ -9408,8 +9408,8 @@ $L39153:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39154:
+	jmp	$L39156
+$L39161:
 
 ; 2004 : 
 ; 2005 : 	// grunts place HIGH priority on running away from danger sounds.
@@ -9419,7 +9419,7 @@ $L39154:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	$L39161
+	je	$L39168
 
 ; 2008 : 		CSound *pSound;
 ; 2009 : 		pSound = PBestSound();
@@ -9428,7 +9428,7 @@ $L39154:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+544]
-	mov	DWORD PTR _pSound$39156[ebp], eax
+	mov	DWORD PTR _pSound$39163[ebp], eax
 
 ; 2010 : 
 ; 2011 : 		ASSERT( pSound != NULL );
@@ -9440,7 +9440,7 @@ $L39154:
 	push	OFFSET FLAT:??_C@_0CI@MECP@z?3?2xashxtsrc?2server?2monsters?2hgr@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@OOBL@pSound?5?$CB?$DN?5NULL?$AA@ ; `string'
 	xor	ecx, ecx
-	cmp	DWORD PTR _pSound$39156[ebp], 0
+	cmp	DWORD PTR _pSound$39163[ebp], 0
 	setne	cl
 	push	ecx
 	call	?DBG_AssertFunction@@YAXHPBD0H0@Z	; DBG_AssertFunction
@@ -9448,16 +9448,16 @@ $L39154:
 
 ; 2012 : 		if ( pSound)
 
-	cmp	DWORD PTR _pSound$39156[ebp], 0
-	je	SHORT $L39161
+	cmp	DWORD PTR _pSound$39163[ebp], 0
+	je	SHORT $L39168
 
 ; 2014 : 			if (pSound->m_iType & bits_SOUND_DANGER)
 
-	mov	edx, DWORD PTR _pSound$39156[ebp]
+	mov	edx, DWORD PTR _pSound$39163[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	and	eax, 32					; 00000020H
 	test	eax, eax
-	je	SHORT $L39161
+	je	SHORT $L39168
 
 ; 2016 : 				// dangerous sound nearby!
 ; 2017 : 				
@@ -9472,7 +9472,7 @@ $L39154:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L39162
+	je	SHORT $L39169
 
 ; 2026 : 					SENTENCEG_PlayRndSz( ENT(pev), "HG_GREN", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 
@@ -9496,7 +9496,7 @@ $L39154:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L39162:
+$L39169:
 
 ; 2029 : 				return GetScheduleOfType( SCHED_TAKE_COVER_FROM_BEST_SOUND );
 
@@ -9505,8 +9505,8 @@ $L39162:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+448]
-	jmp	$L39149
-$L39161:
+	jmp	$L39156
+$L39168:
 
 ; 2040 : 	{
 
@@ -9514,9 +9514,9 @@ $L39161:
 	mov	edx, DWORD PTR [ecx+2080]
 	mov	DWORD PTR -16+[ebp], edx
 	cmp	DWORD PTR -16+[ebp], 2
-	je	SHORT $L39169
-	jmp	$L39166
-$L39169:
+	je	SHORT $L39176
+	jmp	$L39173
+$L39176:
 
 ; 2043 : // dead enemy
 ; 2044 : 			if ( HasConditions( bits_COND_ENEMY_DEAD ) )
@@ -9525,15 +9525,15 @@ $L39169:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39170
+	je	SHORT $L39177
 
 ; 2046 : 				// call base class, all code to handle dead enemies is centralized there.
 ; 2047 : 				return CBaseMonster :: GetSchedule();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetSchedule@CBaseMonster@@UAEPAUSchedule_t@@XZ ; CBaseMonster::GetSchedule
-	jmp	$L39149
-$L39170:
+	jmp	$L39156
+$L39177:
 
 ; 2049 : 
 ; 2050 : // new enemy
@@ -9543,14 +9543,14 @@ $L39170:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	$L39171
+	je	$L39178
 
 ; 2053 : 				if ( InSquad() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InSquad@CSquadMonster@@QAEHXZ		; CSquadMonster::InSquad
 	test	eax, eax
-	je	$L39185
+	je	$L39192
 
 ; 2055 : 					MySquadLeader()->m_fEnemyEluded = FALSE;
 
@@ -9564,7 +9564,7 @@ $L39170:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?IsLeader@CSquadMonster@@QAEHXZ		; CSquadMonster::IsLeader
 	test	eax, eax
-	jne	SHORT $L39173
+	jne	SHORT $L39180
 
 ; 2059 : 						return GetScheduleOfType ( SCHED_TAKE_COVER_FROM_ENEMY );
 
@@ -9573,8 +9573,8 @@ $L39170:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39173:
+	jmp	$L39156
+$L39180:
 
 ; 2063 : 						//!!!KELLY - the leader of a squad of grunts has just seen the player or a 
 ; 2064 : 						// monster and has made it the squad's enemy. You
@@ -9589,7 +9589,7 @@ $L39173:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	$L39175
+	je	$L39182
 
 ; 2073 : 							if ((m_hEnemy != NULL) && m_hEnemy->IsPlayer())
 
@@ -9597,7 +9597,7 @@ $L39173:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39176
+	je	SHORT $L39183
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
@@ -9607,7 +9607,7 @@ $L39173:
 	mov	ecx, DWORD PTR -20+[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L39176
+	je	SHORT $L39183
 
 ; 2074 : 								// player
 ; 2075 : 								SENTENCEG_PlayRndSz( ENT(pev), "HG_ALERT", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
@@ -9630,8 +9630,8 @@ $L39173:
 
 ; 2076 : 							else if ((m_hEnemy != NULL) &&
 
-	jmp	$L39180
-$L39176:
+	jmp	$L39187
+$L39183:
 
 ; 2077 : 									(m_hEnemy->Classify() != CLASS_PLAYER_ALLY) && 
 ; 2078 : 									(m_hEnemy->Classify() != CLASS_HUMAN_PASSIVE) && 
@@ -9641,7 +9641,7 @@ $L39176:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	$L39180
+	je	$L39187
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
@@ -9651,7 +9651,7 @@ $L39176:
 	mov	ecx, DWORD PTR -24+[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 11					; 0000000bH
-	je	SHORT $L39180
+	je	SHORT $L39187
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
@@ -9661,7 +9661,7 @@ $L39176:
 	mov	ecx, DWORD PTR -28+[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 3
-	je	SHORT $L39180
+	je	SHORT $L39187
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
@@ -9671,7 +9671,7 @@ $L39176:
 	mov	ecx, DWORD PTR -32+[ebp]
 	call	DWORD PTR [edx+68]
 	cmp	eax, 1
-	je	SHORT $L39180
+	je	SHORT $L39187
 
 ; 2080 : 								// monster
 ; 2081 : 								SENTENCEG_PlayRndSz( ENT(pev), "HG_MONST", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
@@ -9691,14 +9691,14 @@ $L39176:
 	push	eax
 	call	?SENTENCEG_PlayRndSz@@YAHPAUedict_s@@PBDMMHH@Z ; SENTENCEG_PlayRndSz
 	add	esp, 24					; 00000018H
-$L39180:
+$L39187:
 
 ; 2082 : 
 ; 2083 : 							JustSpoke();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L39175:
+$L39182:
 
 ; 2085 : 						
 ; 2086 : 						if ( HasConditions ( bits_COND_CAN_RANGE_ATTACK1 ) )
@@ -9707,7 +9707,7 @@ $L39175:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39184
+	je	SHORT $L39191
 
 ; 2088 : 							return GetScheduleOfType ( SCHED_GRUNT_SUPPRESS );
 
@@ -9716,8 +9716,8 @@ $L39175:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39184:
+	jmp	$L39156
+$L39191:
 
 ; 2092 : 							return GetScheduleOfType ( SCHED_GRUNT_ESTABLISH_LINE_OF_FIRE );
 
@@ -9726,19 +9726,19 @@ $L39184:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39185:
+	jmp	$L39156
+$L39192:
 
 ; 2097 : // no ammo
 ; 2098 : 			else if ( HasConditions ( bits_COND_NO_AMMO_LOADED ) )
 
-	jmp	$L39215
-$L39171:
+	jmp	$L39222
+$L39178:
 	push	1
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39187
+	je	SHORT $L39194
 
 ; 2100 : 				//!!!KELLY - this individual just realized he's out of bullet ammo. 
 ; 2101 : 				// He's going to try to find cover to run to and reload, but rarely, if 
@@ -9750,8 +9750,8 @@ $L39171:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39187:
+	jmp	$L39156
+$L39194:
 
 ; 2105 : 			
 ; 2106 : // damaged just a little
@@ -9761,7 +9761,7 @@ $L39187:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39189
+	je	SHORT $L39196
 
 ; 2109 : 				// if hurt:
 ; 2110 : 				// 90% chance of taking cover
@@ -9772,18 +9772,18 @@ $L39187:
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
-	mov	DWORD PTR _iPercent$39190[ebp], eax
+	mov	DWORD PTR _iPercent$39197[ebp], eax
 
 ; 2113 : 
 ; 2114 : 				if ( iPercent <= 90 && m_hEnemy != NULL )
 
-	cmp	DWORD PTR _iPercent$39190[ebp], 90	; 0000005aH
-	jg	SHORT $L39191
+	cmp	DWORD PTR _iPercent$39197[ebp], 90	; 0000005aH
+	jg	SHORT $L39198
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39191
+	je	SHORT $L39198
 
 ; 2116 : 					// only try to take cover if we actually have an enemy!
 ; 2117 : 
@@ -9793,14 +9793,14 @@ $L39187:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L39192
+	je	SHORT $L39199
 
 ; 2121 : 						//SENTENCEG_PlayRndSz( ENT(pev), "HG_COVER", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 ; 2122 : 						m_iSentence = HGRUNT_SENT_COVER;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2504], 3
-$L39192:
+$L39199:
 
 ; 2125 : 					return GetScheduleOfType( SCHED_TAKE_COVER_FROM_ENEMY );
 
@@ -9809,8 +9809,8 @@ $L39192:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39191:
+	jmp	$L39156
+$L39198:
 
 ; 2129 : 					return GetScheduleOfType( SCHED_SMALL_FLINCH );
 
@@ -9819,8 +9819,8 @@ $L39191:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39189:
+	jmp	$L39156
+$L39196:
 
 ; 2132 : // can kick
 ; 2133 : 			else if ( HasConditions ( bits_COND_CAN_MELEE_ATTACK1 ) )
@@ -9829,7 +9829,7 @@ $L39189:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39195
+	je	SHORT $L39202
 
 ; 2135 : 				return GetScheduleOfType ( SCHED_MELEE_ATTACK1 );
 
@@ -9838,8 +9838,8 @@ $L39189:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39195:
+	jmp	$L39156
+$L39202:
 
 ; 2137 : // can grenade launch
 ; 2138 : 
@@ -9849,17 +9849,17 @@ $L39195:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasWeapon@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasWeapon
 	test	eax, eax
-	je	SHORT $L39197
+	je	SHORT $L39204
 	push	4096					; 00001000H
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39197
+	je	SHORT $L39204
 	push	12					; 0000000cH
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39197
+	je	SHORT $L39204
 
 ; 2141 : 				// shoot a grenade if you can
 ; 2142 : 				return GetScheduleOfType( SCHED_RANGE_ATTACK2 );
@@ -9869,8 +9869,8 @@ $L39195:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39197:
+	jmp	$L39156
+$L39204:
 
 ; 2144 : // can shoot
 ; 2145 : 			else if ( HasConditions ( bits_COND_CAN_RANGE_ATTACK1 ) )
@@ -9879,14 +9879,14 @@ $L39197:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	$L39199
+	je	$L39206
 
 ; 2147 : 				if ( InSquad() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InSquad@CSquadMonster@@QAEHXZ		; CSquadMonster::InSquad
 	test	eax, eax
-	je	SHORT $L39201
+	je	SHORT $L39208
 
 ; 2149 : 					// if the enemy has eluded the squad and a squad member has just located the enemy
 ; 2150 : 					// and the enemy does not see the squad member, issue a call to the squad to waste a 
@@ -9896,12 +9896,12 @@ $L39197:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?MySquadLeader@CSquadMonster@@QAEPAV1@XZ ; CSquadMonster::MySquadLeader
 	cmp	DWORD PTR [eax+2444], 0
-	je	SHORT $L39201
+	je	SHORT $L39208
 	push	524288					; 00080000H
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	jne	SHORT $L39201
+	jne	SHORT $L39208
 
 ; 2154 : 						MySquadLeader()->m_fEnemyEluded = FALSE;
 
@@ -9916,8 +9916,8 @@ $L39197:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39201:
+	jmp	$L39156
+$L39208:
 
 ; 2158 : 
 ; 2159 : 				if ( OccupySlot ( bits_SLOTS_HGRUNT_ENGAGE ) )
@@ -9926,7 +9926,7 @@ $L39201:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39202
+	je	SHORT $L39209
 
 ; 2161 : 					// try to take an available ENGAGE slot
 ; 2162 : 					return GetScheduleOfType( SCHED_RANGE_ATTACK1 );
@@ -9936,8 +9936,8 @@ $L39201:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39202:
+	jmp	$L39156
+$L39209:
 
 ; 2164 : 				else if ( HasConditions ( bits_COND_CAN_RANGE_ATTACK2 ) && OccupySlot( bits_SLOTS_HGRUNT_GRENADE ) )
 
@@ -9945,12 +9945,12 @@ $L39202:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39204
+	je	SHORT $L39211
 	push	12					; 0000000cH
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39204
+	je	SHORT $L39211
 
 ; 2166 : 					// throw a grenade if can and no engage slots are available
 ; 2167 : 					return GetScheduleOfType( SCHED_RANGE_ATTACK2 );
@@ -9960,8 +9960,8 @@ $L39202:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39204:
+	jmp	$L39156
+$L39211:
 
 ; 2171 : 					// hide!
 ; 2172 : 					return GetScheduleOfType( SCHED_TAKE_COVER_FROM_ENEMY );
@@ -9971,8 +9971,8 @@ $L39204:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39199:
+	jmp	$L39156
+$L39206:
 
 ; 2175 : // can't see enemy
 ; 2176 : 			else if ( HasConditions( bits_COND_ENEMY_OCCLUDED ) )
@@ -9981,7 +9981,7 @@ $L39199:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	$L39215
+	je	$L39222
 
 ; 2178 : 				if ( HasConditions( bits_COND_CAN_RANGE_ATTACK2 ) && OccupySlot( bits_SLOTS_HGRUNT_GRENADE ) )
 
@@ -9989,12 +9989,12 @@ $L39199:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39208
+	je	SHORT $L39215
 	push	12					; 0000000cH
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39208
+	je	SHORT $L39215
 
 ; 2180 : 					//!!!KELLY - this grunt is about to throw or fire a grenade at the player. Great place for "fire in the hole"  "frag out" etc
 ; 2181 : 					if (FOkToSpeak())
@@ -10002,7 +10002,7 @@ $L39199:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L39209
+	je	SHORT $L39216
 
 ; 2183 : 						SENTENCEG_PlayRndSz( ENT(pev), "HG_THROW", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 
@@ -10026,7 +10026,7 @@ $L39199:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L39209:
+$L39216:
 
 ; 2186 : 					return GetScheduleOfType( SCHED_RANGE_ATTACK2 );
 
@@ -10035,8 +10035,8 @@ $L39209:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39208:
+	jmp	$L39156
+$L39215:
 
 ; 2188 : 				else if ( OccupySlot( bits_SLOTS_HGRUNT_ENGAGE ) )
 
@@ -10044,7 +10044,7 @@ $L39208:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39213
+	je	SHORT $L39220
 
 ; 2190 : 					//!!!KELLY - grunt cannot see the enemy and has just decided to 
 ; 2191 : 					// charge the enemy's position. 
@@ -10053,14 +10053,14 @@ $L39208:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L39214
+	je	SHORT $L39221
 
 ; 2194 : 						//SENTENCEG_PlayRndSz( ENT(pev), "HG_CHARGE", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 ; 2195 : 						m_iSentence = HGRUNT_SENT_CHARGE;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2504], 5
-$L39214:
+$L39221:
 
 ; 2198 : 
 ; 2199 : 					return GetScheduleOfType( SCHED_GRUNT_ESTABLISH_LINE_OF_FIRE );
@@ -10070,8 +10070,8 @@ $L39214:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39149
-$L39213:
+	jmp	$L39156
+$L39220:
 
 ; 2203 : 					//!!!KELLY - grunt is going to stay put for a couple seconds to see if
 ; 2204 : 					// the enemy wanders back out into the open, or approaches the
@@ -10081,13 +10081,13 @@ $L39213:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L39216
+	je	SHORT $L39223
 	push	1
 	push	0
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L39216
+	je	SHORT $L39223
 
 ; 2208 : 						SENTENCEG_PlayRndSz( ENT(pev), "HG_TAUNT", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 
@@ -10111,7 +10111,7 @@ $L39213:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L39216:
+$L39223:
 
 ; 2211 : 					return GetScheduleOfType( SCHED_STANDOFF );
 
@@ -10120,8 +10120,8 @@ $L39216:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	SHORT $L39149
-$L39215:
+	jmp	SHORT $L39156
+$L39222:
 
 ; 2214 : 			
 ; 2215 : 			if ( HasConditions( bits_COND_SEE_ENEMY ) && !HasConditions ( bits_COND_CAN_RANGE_ATTACK1 ) )
@@ -10130,12 +10130,12 @@ $L39215:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39219
+	je	SHORT $L39226
 	push	1024					; 00000400H
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	jne	SHORT $L39219
+	jne	SHORT $L39226
 
 ; 2217 : 				return GetScheduleOfType ( SCHED_GRUNT_ESTABLISH_LINE_OF_FIRE );
 
@@ -10144,9 +10144,9 @@ $L39215:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	SHORT $L39149
-$L39219:
-$L39166:
+	jmp	SHORT $L39156
+$L39226:
+$L39173:
 
 ; 2221 : 	
 ; 2222 : 	// no special cases here, call the base class
@@ -10154,7 +10154,7 @@ $L39166:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetSchedule@CBaseMonster@@UAEPAUSchedule_t@@XZ ; CBaseMonster::GetSchedule
-$L39149:
+$L39156:
 
 ; 2224 : }
 
@@ -10212,8 +10212,8 @@ CONST	ENDS
 _TEXT	SEGMENT
 _Type$ = 8
 _this$ = -4
-_vecVelocity$39262 = -16
-_vecVelocity$39265 = -28
+_vecVelocity$39269 = -16
+_vecVelocity$39272 = -28
 ?GetScheduleOfType@CHGrunt@@UAEPAUSchedule_t@@H@Z PROC NEAR ; CHGrunt::GetScheduleOfType, COMDAT
 
 ; 2229 : {
@@ -10234,41 +10234,41 @@ _vecVelocity$39265 = -28
 	sub	ecx, 10					; 0000000aH
 	mov	DWORD PTR -32+[ebp], ecx
 	cmp	DWORD PTR -32+[ebp], 43			; 0000002bH
-	ja	$L39268
+	ja	$L39275
 	mov	eax, DWORD PTR -32+[ebp]
 	xor	edx, edx
-	mov	dl, BYTE PTR $L40441[eax]
-	jmp	DWORD PTR $L40442[edx*4]
-$L39228:
+	mov	dl, BYTE PTR $L40448[eax]
+	jmp	DWORD PTR $L40449[edx*4]
+$L39235:
 
 ; 2234 : 			if ( InSquad() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InSquad@CSquadMonster@@QAEHXZ		; CSquadMonster::InSquad
 	test	eax, eax
-	je	$L39229
+	je	$L39236
 
 ; 2236 : 				if ( g_iSkillLevel == SKILL_HARD && HasConditions( bits_COND_CAN_RANGE_ATTACK2 ) && OccupySlot( bits_SLOTS_HGRUNT_GRENADE ) )
 
 	cmp	DWORD PTR ?g_iSkillLevel@@3HA, 3	; g_iSkillLevel
-	jne	SHORT $L39230
+	jne	SHORT $L39237
 	push	4096					; 00001000H
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39230
+	je	SHORT $L39237
 	push	12					; 0000000cH
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39230
+	je	SHORT $L39237
 
 ; 2238 : 					if (FOkToSpeak())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FOkToSpeak@CHGrunt@@QAEHXZ		; CHGrunt::FOkToSpeak
 	test	eax, eax
-	je	SHORT $L39231
+	je	SHORT $L39238
 
 ; 2240 : 						SENTENCEG_PlayRndSz( ENT(pev), "HG_THROW", HGRUNT_SENTENCE_VOLUME, GRUNT_ATTN, 0, m_voicePitch);
 
@@ -10292,19 +10292,19 @@ $L39228:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?JustSpoke@CHGrunt@@QAEXXZ		; CHGrunt::JustSpoke
-$L39231:
+$L39238:
 
 ; 2243 : 					return slGruntTossGrenadeCover;
 
 	mov	eax, OFFSET FLAT:?slGruntTossGrenadeCover@@3PAUSchedule_t@@A ; slGruntTossGrenadeCover
-	jmp	$L39225
-$L39230:
+	jmp	$L39232
+$L39237:
 
 ; 2247 : 					return &slGruntTakeCover[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntTakeCover@@3PAUSchedule_t@@A ; slGruntTakeCover
-	jmp	$L39225
-$L39229:
+	jmp	$L39232
+$L39236:
 
 ; 2252 : 				if ( RANDOM_LONG(0,1) )
 
@@ -10313,25 +10313,25 @@ $L39229:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L39236
+	je	SHORT $L39243
 
 ; 2254 : 					return &slGruntTakeCover[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntTakeCover@@3PAUSchedule_t@@A ; slGruntTakeCover
-	jmp	$L39225
-$L39236:
+	jmp	$L39232
+$L39243:
 
 ; 2258 : 					return &slGruntGrenadeCover[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntGrenadeCover@@3PAUSchedule_t@@A ; slGruntGrenadeCover
-	jmp	$L39225
-$L39237:
+	jmp	$L39232
+$L39244:
 
 ; 2264 : 			return &slGruntTakeCoverFromBestSound[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntTakeCoverFromBestSound@@3PAUSchedule_t@@A ; slGruntTakeCoverFromBestSound
-	jmp	$L39225
-$L39239:
+	jmp	$L39232
+$L39246:
 
 ; 2268 : 			if ( HasConditions( bits_COND_CAN_RANGE_ATTACK1 ) && OccupySlot( bits_SLOTS_HGRUNT_ENGAGE ) )
 
@@ -10339,12 +10339,12 @@ $L39239:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L39240
+	je	SHORT $L39247
 	push	3
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?OccupySlot@CSquadMonster@@QAEHH@Z	; CSquadMonster::OccupySlot
 	test	eax, eax
-	je	SHORT $L39240
+	je	SHORT $L39247
 
 ; 2270 : 				return GetScheduleOfType( SCHED_RANGE_ATTACK1 );
 
@@ -10353,8 +10353,8 @@ $L39239:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+448]
-	jmp	$L39225
-$L39240:
+	jmp	$L39232
+$L39247:
 
 ; 2272 : 
 ; 2273 : 			return GetScheduleOfType ( SCHED_FAIL );
@@ -10364,8 +10364,8 @@ $L39240:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39225
-$L39241:
+	jmp	$L39232
+$L39248:
 
 ; 2278 : 			// human grunt is unable to move to a position that allows him to attack the enemy.
 ; 2279 : 			return GetScheduleOfType ( SCHED_TAKE_COVER_FROM_ENEMY );
@@ -10375,14 +10375,14 @@ $L39241:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L39225
-$L39242:
+	jmp	$L39232
+$L39249:
 
 ; 2284 : 			return &slGruntEstablishLineOfFire[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntEstablishLineOfFire@@3PAUSchedule_t@@A ; slGruntEstablishLineOfFire
-	jmp	$L39225
-$L39243:
+	jmp	$L39232
+$L39250:
 
 ; 2289 : 			// randomly stand or crouch
 ; 2290 : 			if (RANDOM_LONG(0,9) == 0)
@@ -10392,7 +10392,7 @@ $L39243:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+360
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39244
+	jne	SHORT $L39251
 
 ; 2291 : 				m_fStanding = RANDOM_LONG(0,1);
 
@@ -10402,89 +10402,89 @@ $L39243:
 	add	esp, 8
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+2480], eax
-$L39244:
+$L39251:
 
 ; 2292 : 		 
 ; 2293 : 			if (m_fStanding)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+2480], 0
-	je	SHORT $L39245
+	je	SHORT $L39252
 
 ; 2294 : 				return &slGruntRangeAttack1B[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntRangeAttack1B@@3PAUSchedule_t@@A ; slGruntRangeAttack1B
-	jmp	$L39225
-$L39245:
+	jmp	$L39232
+$L39252:
 
 ; 2296 : 				return &slGruntRangeAttack1A[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntRangeAttack1A@@3PAUSchedule_t@@A ; slGruntRangeAttack1A
-	jmp	$L39225
-$L39246:
+	jmp	$L39232
+$L39253:
 
 ; 2300 : 			return &slGruntRangeAttack2[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntRangeAttack2@@3PAUSchedule_t@@A ; slGruntRangeAttack2
-	jmp	$L39225
-$L39248:
+	jmp	$L39232
+$L39255:
 
 ; 2304 : 			return &slGruntCombatFace[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntCombatFace@@3PAUSchedule_t@@A ; slGruntCombatFace
-	jmp	$L39225
-$L39249:
+	jmp	$L39232
+$L39256:
 
 ; 2308 : 			return &slGruntWaitInCover[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntWaitInCover@@3PAUSchedule_t@@A ; slGruntWaitInCover
-	jmp	$L39225
-$L39250:
+	jmp	$L39232
+$L39257:
 
 ; 2312 : 			return &slGruntSweep[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntSweep@@3PAUSchedule_t@@A ; slGruntSweep
-	jmp	$L39225
-$L39251:
+	jmp	$L39232
+$L39258:
 
 ; 2316 : 			return &slGruntHideReload[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntHideReload@@3PAUSchedule_t@@A ; slGruntHideReload
-	jmp	$L39225
-$L39252:
+	jmp	$L39232
+$L39259:
 
 ; 2320 : 			return &slGruntFoundEnemy[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntFoundEnemy@@3PAUSchedule_t@@A ; slGruntFoundEnemy
-	jmp	$L39225
-$L39253:
+	jmp	$L39232
+$L39260:
 
 ; 2324 : 			if ( InSquad() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InSquad@CSquadMonster@@QAEHXZ		; CSquadMonster::InSquad
 	test	eax, eax
-	je	SHORT $L39255
+	je	SHORT $L39262
 
 ; 2326 : 				if ( !IsLeader() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?IsLeader@CSquadMonster@@QAEHXZ		; CSquadMonster::IsLeader
 	test	eax, eax
-	jne	SHORT $L39255
+	jne	SHORT $L39262
 
 ; 2328 : 					return &slGruntFail[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntFail@@3PAUSchedule_t@@A ; slGruntFail
-	jmp	$L39225
-$L39255:
+	jmp	$L39232
+$L39262:
 
 ; 2331 : 
 ; 2332 : 			return &slGruntVictoryDance[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntVictoryDance@@3PAUSchedule_t@@A ; slGruntVictoryDance
-	jmp	$L39225
-$L39256:
+	jmp	$L39232
+$L39263:
 
 ; 2336 : 			if ( m_hEnemy->IsPlayer() && m_fFirstEncounter )
 
@@ -10497,10 +10497,10 @@ $L39256:
 	mov	ecx, DWORD PTR -36+[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L39257
+	je	SHORT $L39264
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2484], 0
-	je	SHORT $L39257
+	je	SHORT $L39264
 
 ; 2338 : 				m_fFirstEncounter = FALSE;// after first encounter, leader won't issue handsigns anymore when he has a new enemy
 
@@ -10510,14 +10510,14 @@ $L39256:
 ; 2339 : 				return &slGruntSignalSuppress[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntSignalSuppress@@3PAUSchedule_t@@A ; slGruntSignalSuppress
-	jmp	$L39225
-$L39257:
+	jmp	$L39232
+$L39264:
 
 ; 2343 : 				return &slGruntSuppress[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntSuppress@@3PAUSchedule_t@@A ; slGruntSuppress
-	jmp	$L39225
-$L39258:
+	jmp	$L39232
+$L39265:
 
 ; 2348 : 			if ( m_hEnemy != NULL )
 
@@ -10525,99 +10525,99 @@ $L39258:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L39260
+	je	SHORT $L39267
 
 ; 2350 : 				// grunt has an enemy, so pick a different default fail schedule most likely to help recover.
 ; 2351 : 				return &slGruntCombatFail[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntCombatFail@@3PAUSchedule_t@@A ; slGruntCombatFail
-	jmp	$L39225
-$L39260:
+	jmp	$L39232
+$L39267:
 
 ; 2353 : 
 ; 2354 : 			return &slGruntFail[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntFail@@3PAUSchedule_t@@A ; slGruntFail
-	jmp	$L39225
-$L39261:
+	jmp	$L39232
+$L39268:
 
 ; 2358 : 			Vector vecVelocity = GetAbsVelocity();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	push	eax
-	lea	ecx, DWORD PTR _vecVelocity$39262[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$39269[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 2359 : 			if (vecVelocity.z > -128)
 
-	fld	DWORD PTR _vecVelocity$39262[ebp+8]
+	fld	DWORD PTR _vecVelocity$39269[ebp+8]
 	fcomp	DWORD PTR __real@4@c0068000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39263
+	jne	SHORT $L39270
 
 ; 2361 : 				vecVelocity.z -= 32;
 
-	fld	DWORD PTR _vecVelocity$39262[ebp+8]
+	fld	DWORD PTR _vecVelocity$39269[ebp+8]
 	fsub	DWORD PTR __real@4@40048000000000000000
-	fstp	DWORD PTR _vecVelocity$39262[ebp+8]
+	fstp	DWORD PTR _vecVelocity$39269[ebp+8]
 
 ; 2362 : 				SetAbsVelocity( vecVelocity );
 
-	lea	edx, DWORD PTR _vecVelocity$39262[ebp]
+	lea	edx, DWORD PTR _vecVelocity$39269[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
-$L39263:
+$L39270:
 
 ; 2364 : 			return &slGruntRepel[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntRepel@@3PAUSchedule_t@@A ; slGruntRepel
-	jmp	SHORT $L39225
-$L39264:
+	jmp	SHORT $L39232
+$L39271:
 
 ; 2368 : 			Vector vecVelocity = GetAbsVelocity();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	push	eax
-	lea	ecx, DWORD PTR _vecVelocity$39265[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$39272[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 2369 : 			if (vecVelocity.z > -128)
 
-	fld	DWORD PTR _vecVelocity$39265[ebp+8]
+	fld	DWORD PTR _vecVelocity$39272[ebp+8]
 	fcomp	DWORD PTR __real@4@c0068000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39266
+	jne	SHORT $L39273
 
 ; 2371 : 				vecVelocity.z -= 32;
 
-	fld	DWORD PTR _vecVelocity$39265[ebp+8]
+	fld	DWORD PTR _vecVelocity$39272[ebp+8]
 	fsub	DWORD PTR __real@4@40048000000000000000
-	fstp	DWORD PTR _vecVelocity$39265[ebp+8]
+	fstp	DWORD PTR _vecVelocity$39272[ebp+8]
 
 ; 2372 : 				SetAbsVelocity( vecVelocity );
 
-	lea	eax, DWORD PTR _vecVelocity$39265[ebp]
+	lea	eax, DWORD PTR _vecVelocity$39272[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
-$L39266:
+$L39273:
 
 ; 2374 : 			return &slGruntRepelAttack[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntRepelAttack@@3PAUSchedule_t@@A ; slGruntRepelAttack
-	jmp	SHORT $L39225
-$L39267:
+	jmp	SHORT $L39232
+$L39274:
 
 ; 2378 : 			return &slGruntRepelLand[ 0 ];
 
 	mov	eax, OFFSET FLAT:?slGruntRepelLand@@3PAUSchedule_t@@A ; slGruntRepelLand
-	jmp	SHORT $L39225
-$L39268:
+	jmp	SHORT $L39232
+$L39275:
 
 ; 2382 : 			return CSquadMonster :: GetScheduleOfType ( Type );
 
@@ -10625,7 +10625,7 @@ $L39268:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetScheduleOfType@CSquadMonster@@UAEPAUSchedule_t@@H@Z ; CSquadMonster::GetScheduleOfType
-$L39225:
+$L39232:
 
 ; 2385 : }
 
@@ -10635,27 +10635,27 @@ $L39225:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L40442:
-	DD	$L39248
-	DD	$L39253
-	DD	$L39228
-	DD	$L39237
-	DD	$L39243
-	DD	$L39246
-	DD	$L39258
-	DD	$L39256
-	DD	$L39242
-	DD	$L39251
+$L40449:
+	DD	$L39255
+	DD	$L39260
+	DD	$L39235
+	DD	$L39244
 	DD	$L39250
-	DD	$L39252
-	DD	$L39261
-	DD	$L39264
-	DD	$L39267
+	DD	$L39253
+	DD	$L39265
+	DD	$L39263
 	DD	$L39249
-	DD	$L39239
-	DD	$L39241
+	DD	$L39258
+	DD	$L39257
+	DD	$L39259
 	DD	$L39268
-$L40441:
+	DD	$L39271
+	DD	$L39274
+	DD	$L39256
+	DD	$L39246
+	DD	$L39248
+	DD	$L39275
+$L40448:
 	DB	0
 	DB	18					; 00000012H
 	DB	18					; 00000012H
@@ -10870,11 +10870,11 @@ _tr$ = -60
 _pEntity$ = -64
 _pGrunt$ = -68
 _pBeam$ = -72
-$T40453 = -84
-$T40454 = -96
-$T40455 = -108
-$T40456 = -120
-$T40457 = -132
+$T40460 = -84
+$T40461 = -96
+$T40462 = -108
+$T40463 = -120
+$T40464 = -132
 ?Use@CHGruntRepel@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z PROC NEAR ; CHGruntRepel::Use, COMDAT
 
 ; 2418 : {
@@ -10906,10 +10906,10 @@ $T40457 = -132
 	push	-981467136				; c5800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40453[ebp]
+	lea	ecx, DWORD PTR $T40460[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T40454[ebp]
+	lea	eax, DWORD PTR $T40461[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -10964,7 +10964,7 @@ $T40457 = -132
 	fstp	DWORD PTR [esp]
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40455[ebp]
+	lea	ecx, DWORD PTR $T40462[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR _pGrunt$[ebp]
@@ -11007,10 +11007,10 @@ $T40457 = -132
 	push	1121976320				; 42e00000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T40456[ebp]
+	lea	ecx, DWORD PTR $T40463[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T40457[ebp]
+	lea	eax, DWORD PTR $T40464[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -11406,7 +11406,7 @@ _this$ = -4
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L39381
+	je	SHORT $L39388
 
 ; 2468 : 		m_iPose = atoi(pkvd->szValue);
 
@@ -11425,8 +11425,8 @@ _this$ = -4
 
 ; 2471 : 	else 
 
-	jmp	SHORT $L39383
-$L39381:
+	jmp	SHORT $L39390
+$L39388:
 
 ; 2472 : 		CBaseMonster::KeyValue( pkvd );
 
@@ -11434,7 +11434,7 @@ $L39381:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CBaseMonster@@UAEXPAUKeyValueData_s@@@Z ; CBaseMonster::KeyValue
-$L39383:
+$L39390:
 
 ; 2473 : }
 
@@ -11581,7 +11581,7 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+296], -1
-	jne	SHORT $L39414
+	jne	SHORT $L39421
 
 ; 2494 : 		ALERT ( at_console, "Dead hgrunt with bad pose\n" );
 
@@ -11589,7 +11589,7 @@ _this$ = -4
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L39414:
+$L39421:
 
 ; 2496 : 
 ; 2497 : 	// Corpses have less health
@@ -11606,10 +11606,10 @@ $L39414:
 	mov	eax, DWORD PTR [edx+276]
 	mov	DWORD PTR -8+[ebp], eax
 	cmp	DWORD PTR -8+[ebp], 3
-	ja	$L39417
+	ja	$L39424
 	mov	ecx, DWORD PTR -8+[ebp]
-	jmp	DWORD PTR $L40484[ecx*4]
-$L39420:
+	jmp	DWORD PTR $L40491[ecx*4]
+$L39427:
 
 ; 2503 : 	case 0: // Grunt with Gun
 ; 2504 : 		pev->body = 0;
@@ -11640,8 +11640,8 @@ $L39420:
 
 ; 2508 : 		break;
 
-	jmp	$L39417
-$L39421:
+	jmp	$L39424
+$L39428:
 
 ; 2509 : 	case 1: // Commander with Gun
 ; 2510 : 		pev->body = 0;
@@ -11672,8 +11672,8 @@ $L39421:
 
 ; 2514 : 		break;
 
-	jmp	SHORT $L39417
-$L39422:
+	jmp	SHORT $L39424
+$L39429:
 
 ; 2515 : 	case 2: // Grunt no Gun
 ; 2516 : 		pev->body = 0;
@@ -11704,8 +11704,8 @@ $L39422:
 
 ; 2520 : 		break;
 
-	jmp	SHORT $L39417
-$L39423:
+	jmp	SHORT $L39424
+$L39430:
 
 ; 2521 : 	case 3: // Commander no Gun
 ; 2522 : 		pev->body = 0;
@@ -11733,7 +11733,7 @@ $L39423:
 	push	2
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetBodygroup@CBaseAnimating@@QAEXHH@Z	; CBaseAnimating::SetBodygroup
-$L39417:
+$L39424:
 
 ; 2528 : 
 ; 2529 : 	MonsterInitDead();
@@ -11751,11 +11751,11 @@ $L39417:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L40484:
-	DD	$L39420
-	DD	$L39421
-	DD	$L39422
-	DD	$L39423
+$L40491:
+	DD	$L39427
+	DD	$L39428
+	DD	$L39429
+	DD	$L39430
 ?Spawn@CDeadHGrunt@@UAEXXZ ENDP				; CDeadHGrunt::Spawn
 _TEXT	ENDS
 PUBLIC	?Create@?$CEntityFactory@VCHGrunt@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CEntityFactory<CHGrunt>::Create
@@ -12530,8 +12530,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T40537 = -20
-$T40538 = -24
+$T40544 = -20
+$T40545 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCHGrunt@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -12559,7 +12559,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39500
+	jne	SHORT $L39507
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -12568,7 +12568,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39500:
+$L39507:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -12587,7 +12587,7 @@ $L39500:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39502
+	jne	SHORT $L39509
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -12597,21 +12597,21 @@ $L39500:
 	push	2508					; 000009ccH
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40538[ebp], eax
+	mov	DWORD PTR $T40545[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40538[ebp], 0
-	je	SHORT $L40539
-	mov	ecx, DWORD PTR $T40538[ebp]
+	cmp	DWORD PTR $T40545[ebp], 0
+	je	SHORT $L40546
+	mov	ecx, DWORD PTR $T40545[ebp]
 	call	??0CHGrunt@@QAE@XZ			; CHGrunt::CHGrunt
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40540
-$L40539:
+	jmp	SHORT $L40547
+$L40546:
 	mov	DWORD PTR -28+[ebp], 0
-$L40540:
+$L40547:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40537[ebp], eax
+	mov	DWORD PTR $T40544[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40537[ebp]
+	mov	ecx, DWORD PTR $T40544[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -12619,7 +12619,7 @@ $L40540:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39502:
+$L39509:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -12649,7 +12649,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCHGrunt@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40538[ebp]
+	mov	ecx, DWORD PTR $T40545[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -12818,8 +12818,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T40558 = -20
-$T40559 = -24
+$T40565 = -20
+$T40566 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCHGruntRepel@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -12847,7 +12847,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39511
+	jne	SHORT $L39518
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -12856,7 +12856,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39511:
+$L39518:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -12875,7 +12875,7 @@ $L39511:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39513
+	jne	SHORT $L39520
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -12885,21 +12885,21 @@ $L39511:
 	push	2400					; 00000960H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40559[ebp], eax
+	mov	DWORD PTR $T40566[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40559[ebp], 0
-	je	SHORT $L40560
-	mov	ecx, DWORD PTR $T40559[ebp]
+	cmp	DWORD PTR $T40566[ebp], 0
+	je	SHORT $L40567
+	mov	ecx, DWORD PTR $T40566[ebp]
 	call	??0CHGruntRepel@@QAE@XZ			; CHGruntRepel::CHGruntRepel
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40561
-$L40560:
+	jmp	SHORT $L40568
+$L40567:
 	mov	DWORD PTR -28+[ebp], 0
-$L40561:
+$L40568:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40558[ebp], eax
+	mov	DWORD PTR $T40565[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40558[ebp]
+	mov	ecx, DWORD PTR $T40565[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -12907,7 +12907,7 @@ $L40561:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39513:
+$L39520:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -12937,7 +12937,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCHGruntRepel@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40559[ebp]
+	mov	ecx, DWORD PTR $T40566[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -12965,8 +12965,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T40571 = -20
-$T40572 = -24
+$T40578 = -20
+$T40579 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCDeadHGrunt@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -12994,7 +12994,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39522
+	jne	SHORT $L39529
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -13003,7 +13003,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39522:
+$L39529:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -13022,7 +13022,7 @@ $L39522:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39524
+	jne	SHORT $L39531
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -13032,21 +13032,21 @@ $L39522:
 	push	2400					; 00000960H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T40572[ebp], eax
+	mov	DWORD PTR $T40579[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T40572[ebp], 0
-	je	SHORT $L40573
-	mov	ecx, DWORD PTR $T40572[ebp]
+	cmp	DWORD PTR $T40579[ebp], 0
+	je	SHORT $L40580
+	mov	ecx, DWORD PTR $T40579[ebp]
 	call	??0CDeadHGrunt@@QAE@XZ			; CDeadHGrunt::CDeadHGrunt
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L40574
-$L40573:
+	jmp	SHORT $L40581
+$L40580:
 	mov	DWORD PTR -28+[ebp], 0
-$L40574:
+$L40581:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T40571[ebp], eax
+	mov	DWORD PTR $T40578[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T40571[ebp]
+	mov	ecx, DWORD PTR $T40578[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -13054,7 +13054,7 @@ $L40574:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39524:
+$L39531:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -13084,7 +13084,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCDeadHGrunt@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T40572[ebp]
+	mov	ecx, DWORD PTR $T40579[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -13133,21 +13133,21 @@ PUBLIC	?OverrideReset@CBaseEntity@@UAEXXZ		; CBaseEntity::OverrideReset
 PUBLIC	?TransferReset@CBaseEntity@@UAEXXZ		; CBaseEntity::TransferReset
 PUBLIC	?SetToggleState@CBaseEntity@@UAEXH@Z		; CBaseEntity::SetToggleState
 PUBLIC	?StartSneaking@CBaseEntity@@UAEXXZ		; CBaseEntity::StartSneaking
-PUBLIC	?MySquadMonsterPointer@CSquadMonster@@UAEPAV1@XZ ; CSquadMonster::MySquadMonsterPointer
 PUBLIC	?StopSneaking@CBaseEntity@@UAEXXZ		; CBaseEntity::StopSneaking
 PUBLIC	?OnControls@CBaseEntity@@UAEHPAV1@@Z		; CBaseEntity::OnControls
+PUBLIC	?MySquadMonsterPointer@CSquadMonster@@UAEPAV1@XZ ; CSquadMonster::MySquadMonsterPointer
 PUBLIC	?IsSneaking@CBaseEntity@@UAEHXZ			; CBaseEntity::IsSneaking
 PUBLIC	?IsBSPModel@CBaseEntity@@UAEHXZ			; CBaseEntity::IsBSPModel
 PUBLIC	?IsCustomModel@CBaseEntity@@UAEHXZ		; CBaseEntity::IsCustomModel
 PUBLIC	?ReflectGauss@CBaseEntity@@UAEHXZ		; CBaseEntity::ReflectGauss
 PUBLIC	?HasTarget@CBaseEntity@@UAEHH@Z			; CBaseEntity::HasTarget
-PUBLIC	??0CSquadMonster@@QAE@XZ			; CSquadMonster::CSquadMonster
 PUBLIC	?IsPlayer@CBaseEntity@@UAEHXZ			; CBaseEntity::IsPlayer
 PUBLIC	?IsNetClient@CBaseEntity@@UAEHXZ		; CBaseEntity::IsNetClient
+PUBLIC	??0CSquadMonster@@QAE@XZ			; CSquadMonster::CSquadMonster
 PUBLIC	?IsMonster@CBaseEntity@@UAEHXZ			; CBaseEntity::IsMonster
-PUBLIC	??1CSquadMonster@@QAE@XZ			; CSquadMonster::~CSquadMonster
 PUBLIC	?IsPushable@CBaseEntity@@UAEHXZ			; CBaseEntity::IsPushable
 PUBLIC	?IsProjectile@CBaseEntity@@UAEHXZ		; CBaseEntity::IsProjectile
+PUBLIC	??1CSquadMonster@@QAE@XZ			; CSquadMonster::~CSquadMonster
 PUBLIC	?BloodColor@CBaseMonster@@UAEHXZ		; CBaseMonster::BloodColor
 PUBLIC	?IsFuncScreen@CBaseEntity@@UAEHXZ		; CBaseEntity::IsFuncScreen
 PUBLIC	?MyMonsterPointer@CBaseMonster@@UAEPAV1@XZ	; CBaseMonster::MyMonsterPointer
@@ -13191,16 +13191,16 @@ EXTRN	?MoveDone@CBaseToggle@@UAEXXZ:NEAR		; CBaseToggle::MoveDone
 EXTRN	?Save@CBaseEntity@@UAEHAAVCSave@@@Z:NEAR	; CBaseEntity::Save
 EXTRN	?SetObjectCollisionBox@CBaseEntity@@UAEXXZ:NEAR	; CBaseEntity::SetObjectCollisionBox
 EXTRN	?SetNextThink@CBaseEntity@@UAEXM@Z:NEAR		; CBaseEntity::SetNextThink
-EXTRN	?CheckEnemy@CSquadMonster@@UAEHPAVCBaseEntity@@@Z:NEAR ; CSquadMonster::CheckEnemy
 EXTRN	?TakeArmor@CBaseEntity@@UAEHMH@Z:NEAR		; CBaseEntity::TakeArmor
+EXTRN	?CheckEnemy@CSquadMonster@@UAEHPAVCBaseEntity@@@Z:NEAR ; CSquadMonster::CheckEnemy
 EXTRN	?StartMonster@CSquadMonster@@UAEXXZ:NEAR	; CSquadMonster::StartMonster
 EXTRN	?ScheduleChange@CSquadMonster@@UAEXXZ:NEAR	; CSquadMonster::ScheduleChange
-EXTRN	?Killed@CSquadMonster@@UAEXPAUentvars_s@@H@Z:NEAR ; CSquadMonster::Killed
 EXTRN	?TraceBleed@CBaseEntity@@UAEXMVVector@@PAUgametrace_s@@H@Z:NEAR ; CBaseEntity::TraceBleed
-EXTRN	?FValidateCover@CSquadMonster@@UAEHABVVector@@@Z:NEAR ; CSquadMonster::FValidateCover
-EXTRN	?GetIdealState@CSquadMonster@@UAE?AW4MONSTERSTATE@@XZ:NEAR ; CSquadMonster::GetIdealState
+EXTRN	?Killed@CSquadMonster@@UAEXPAUentvars_s@@H@Z:NEAR ; CSquadMonster::Killed
 EXTRN	?IsInWorld@CBaseEntity@@UAEHH@Z:NEAR		; CBaseEntity::IsInWorld
+EXTRN	?FValidateCover@CSquadMonster@@UAEHABVVector@@@Z:NEAR ; CSquadMonster::FValidateCover
 EXTRN	?Restore@CBaseMonster@@UAEHAAVCRestore@@@Z:NEAR	; CBaseMonster::Restore
+EXTRN	?GetIdealState@CSquadMonster@@UAE?AW4MONSTERSTATE@@XZ:NEAR ; CSquadMonster::GetIdealState
 EXTRN	?Look@CBaseMonster@@UAEXH@Z:NEAR		; CBaseMonster::Look
 EXTRN	?RunAI@CBaseMonster@@UAEXXZ:NEAR		; CBaseMonster::RunAI
 EXTRN	?ShouldFadeOnDeath@CBaseMonster@@UAEHXZ:NEAR	; CBaseMonster::ShouldFadeOnDeath
@@ -14131,26 +14131,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L40651
+	jne	SHORT $L40658
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L40652
-$L40651:
+	je	SHORT $L40659
+$L40658:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40652
+	je	SHORT $L40659
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40653
-$L40652:
+	jmp	SHORT $L40660
+$L40659:
 	mov	DWORD PTR -8+[ebp], 0
-$L40653:
+$L40660:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -14722,8 +14722,8 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40692 = -16
-$T40693 = -28
+$T40699 = -16
+$T40700 = -28
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
 
 ; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
@@ -14736,13 +14736,13 @@ $T40693 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T40693[ebp]
+	lea	eax, DWORD PTR $T40700[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T40692[ebp]
+	lea	eax, DWORD PTR $T40699[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -14766,7 +14766,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40696 = -16
+$T40703 = -16
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
 
 ; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
@@ -14782,7 +14782,7 @@ $T40696 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40696[ebp]
+	lea	edx, DWORD PTR $T40703[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -14804,7 +14804,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40699 = -16
+$T40706 = -16
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
 
 ; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
@@ -14820,7 +14820,7 @@ $T40699 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40699[ebp]
+	lea	edx, DWORD PTR $T40706[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -15153,11 +15153,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40728 = -16
-$T40729 = -28
-$T40730 = -40
-$T40731 = -52
-$T40732 = -64
+$T40735 = -16
+$T40736 = -28
+$T40737 = -40
+$T40738 = -52
+$T40739 = -64
 ?BodyTarget@CBaseMonster@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseMonster::BodyTarget, COMDAT
 
 ; 318  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ) * 0.75 + EyePosition() * 0.25; };		// position to shoot at
@@ -15170,9 +15170,9 @@ $T40732 = -64
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1048576000				; 3e800000H
-	lea	eax, DWORD PTR $T40731[ebp]
+	lea	eax, DWORD PTR $T40738[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40730[ebp]
+	lea	ecx, DWORD PTR $T40737[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -15181,12 +15181,12 @@ $T40732 = -64
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40732[ebp]
+	lea	ecx, DWORD PTR $T40739[ebp]
 	push	ecx
 	push	1061158912				; 3f400000H
-	lea	edx, DWORD PTR $T40729[ebp]
+	lea	edx, DWORD PTR $T40736[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T40728[ebp]
+	lea	eax, DWORD PTR $T40735[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -15547,14 +15547,14 @@ _this$ = -4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L40748
+	je	SHORT $L40755
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2388]
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L40749
-$L40748:
+	jmp	SHORT $L40756
+$L40755:
 	mov	DWORD PTR -8+[ebp], 0
-$L40749:
+$L40756:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -16761,19 +16761,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L40812
+	jne	SHORT $L40819
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L40812
+	jne	SHORT $L40819
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40813
-$L40812:
+	jmp	SHORT $L40820
+$L40819:
 	mov	DWORD PTR -8+[ebp], 0
-$L40813:
+$L40820:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -16810,7 +16810,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T40818 = -16
+$T40825 = -16
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
 
 ; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
@@ -16822,7 +16822,7 @@ $T40818 = -16
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T40818[ebp]
+	lea	eax, DWORD PTR $T40825[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -17897,19 +17897,19 @@ _this$ = -4
 ; 297  : 	assert( nGrowSize >= 0 );
 
 	cmp	DWORD PTR _nGrowSize$[ebp], 0
-	jge	SHORT $L40870
+	jge	SHORT $L40877
 	push	297					; 00000129H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40870:
+$L40877:
 
 ; 298  : 	if (m_nAllocationCount)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L39592
+	je	SHORT $L39599
 
 ; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -17921,7 +17921,7 @@ $L40870:
 	add	esp, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L39592:
+$L39599:
 
 ; 302  : }
 
@@ -17999,13 +17999,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40875
+	je	SHORT $L40882
 	push	424					; 000001a8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40875:
+$L40882:
 
 ; 425  : 	assert( IsIdxValid(i) );
 
@@ -18015,13 +18015,13 @@ $L40875:
 	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40876
+	jne	SHORT $L40883
 	push	425					; 000001a9H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40876:
+$L40883:
 
 ; 426  : 	return m_pMemory[i];
 
@@ -18061,13 +18061,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40879
+	je	SHORT $L40886
 	push	488					; 000001e8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40879:
+$L40886:
 
 ; 489  : 	return m_pMemory;
 
@@ -18143,12 +18143,12 @@ _i$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _i$[ebp], ecx
-$L39625:
+$L39632:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L39626
+	jl	SHORT $L39633
 
 ; 729  : 		Destruct(&Element(i));
 
@@ -18162,8 +18162,8 @@ $L39625:
 
 ; 730  : 	}
 
-	jmp	SHORT $L39625
-$L39626:
+	jmp	SHORT $L39632
+$L39633:
 
 ; 731  : 
 ; 732  : 	m_Size = 0;
@@ -18233,16 +18233,16 @@ _this$ = -4
 ; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40888
+	jl	SHORT $L40895
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jge	SHORT $L40888
+	jge	SHORT $L40895
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40889
-$L40888:
+	jmp	SHORT $L40896
+$L40895:
 	mov	DWORD PTR -8+[ebp], 0
-$L40889:
+$L40896:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 522  : }
@@ -18278,13 +18278,13 @@ _this$ = -4
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L39658
+	jne	SHORT $L39665
 
 ; 648  : 		if (m_pMemory)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L39659
+	je	SHORT $L39666
 
 ; 650  : 			free( (void*)m_pMemory );
 
@@ -18298,13 +18298,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], 0
-$L39659:
+$L39666:
 
 ; 653  : 		m_nAllocationCount = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+4], 0
-$L39658:
+$L39665:
 
 ; 655  : }
 

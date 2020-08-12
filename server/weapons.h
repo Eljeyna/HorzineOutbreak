@@ -68,8 +68,8 @@ public:
 
 #define WEAPON_NONE				0
 #define WEAPON_CROWBAR			1
-//#define WEAPON_AXE			16
-//#define WEAPON_CHAINSAW			17
+#define WEAPON_AXE				16
+#define WEAPON_CHAINSAW			17
 #define WEAPON_GLOCK			2
 #define WEAPON_PYTHON			3
 #define WEAPON_MP5				4
@@ -92,7 +92,7 @@ public:
 
 // weapon weight factors (for auto-switching)   (-1 = noswitch)
 #define CROWBAR_WEIGHT			-10 	//0
-//#define AXE_WEIGHT					-10 	//0
+#define AXE_WEIGHT					-10 	//0
 //#define CHAINSAW_WEIGHT			-10 	//0
 #define GLOCK_WEIGHT				10 		//10
 #define PYTHON_WEIGHT				15 		//15
