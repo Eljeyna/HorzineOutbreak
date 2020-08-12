@@ -5,7 +5,7 @@ basedir		"valve"
 gamedir		"xash"
 title		"Xash"
 startmap		"grass_test2"
-trainmap		"freeman"
+trainmap		"biolabs1"
 version		0.8 custom
 size		116339527
 url_info		"https://cs-mapping.com.ua/forum/forumdisplay.php?f=189"
