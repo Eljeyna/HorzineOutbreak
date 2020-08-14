@@ -1,6 +1,9 @@
 # Folders
 [Tt]emp/
 
+# State
+*.plg
+
 # Prerequisites
 *.d
 
