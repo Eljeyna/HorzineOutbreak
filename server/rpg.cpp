@@ -30,9 +30,9 @@ enum rpg_e
 	RPG_FIRE2,	// to empty
 	RPG_HOLSTER1,	// loaded
 	RPG_DRAW1,	// loaded
-	RPG_HOLSTER2,	// unloaded
+	/*RPG_HOLSTER2,	// unloaded
 	RPG_DRAW_UL,	// unloaded
-	/*RPG_IDLE_UL,	// unloaded idle
+	RPG_IDLE_UL,	// unloaded idle
 	RPG_FIDGET_UL,	// unloaded fidget*/
 };
 
@@ -145,9 +145,11 @@ void CRpgRocket :: Spawn( void )
 	SetLocalVelocity( gpGlobals->v_forward * 250 );
 	pev->gravity = 0.5;
 
-	SetNextThink( 0.4 );
+	//SetNextThink( 0.4 );
+	SetNextThink( 0 );
 
 	pev->dmg = gSkillData.plrDmgRPG;
+	radius = 500;
 }
 
 //=========================================================
@@ -259,6 +261,7 @@ void CRpgRocket :: FollowThink( void  )
 	SetLocalAngles( UTIL_VecToAngles( vecTarget ));
 
 	// this acceleration and turning math is totally wrong, but it seems to respond well so don't change it.
+	// это не лучше, зато работает :) (нет)
 	float flSpeed = GetLocalVelocity().Length();
 
 	if( gpGlobals->time - m_flIgniteTime < 1.0 )
@@ -291,9 +294,14 @@ void CRpgRocket :: FollowThink( void  )
 
 		SetLocalVelocity( GetLocalVelocity() * 0.2 + vecTarget * flSpeed * 0.798 );
 
-		if( pev->waterlevel == 0 && GetLocalVelocity().Length() < 1500 )
+		// зачем это, Valve???
+		/*if( pev->waterlevel == 0 && GetLocalVelocity().Length() < 1500 )
 		{
 			Detonate( );
+		}*/
+		if( pev->waterlevel == 0 && GetLocalVelocity().Length() < 1500 )
+		{
+			SetLocalVelocity( GetLocalVelocity().Normalize() * 2000 );
 		}
 	}
 	// ALERT( at_console, "%.0f\n", flSpeed );
@@ -309,7 +317,7 @@ void CRpg::Spawn( void )
 	SET_MODEL(ENT(pev), "models/w_rpg.mdl");
 	//m_fSpotActive = 0;
 
-	if ( g_pGameRules->IsMultiplayer() )
+	/*if ( g_pGameRules->IsMultiplayer() )
 	{
 		// more default ammo in multiplay.
 		m_iDefaultAmmo = RPG_DEFAULT_GIVE * 2;
@@ -317,7 +325,8 @@ void CRpg::Spawn( void )
 	else
 	{
 		m_iDefaultAmmo = RPG_DEFAULT_GIVE;
-	}
+	}*/
+	m_iDefaultAmmo = RPG_DEFAULT_GIVE;
 
 	FallInit();// get ready to fall down.
 }
@@ -368,10 +377,11 @@ int CRpg::AddToPlayer( CBasePlayer *pPlayer )
 
 BOOL CRpg::Deploy( )
 {
-	if ( m_iClip == 0 )
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+	/*if ( m_iClip == 0 )
 	{
 		return DefaultDeploy( "models/v_rpg.mdl", "models/p_rpg.mdl", RPG_DRAW_UL, "rpg" );
-	}
+	}*/
 
 	return DefaultDeploy( "models/v_rpg.mdl", "models/p_rpg.mdl", RPG_DRAW1, "rpg" );
 }
@@ -390,6 +400,8 @@ BOOL CRpg::Deploy( )
 
 void CRpg::Holster( void )
 {
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+
 	m_fInReload = FALSE;// cancel any reload in progress.
 
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
@@ -428,6 +440,8 @@ void CRpg::PrimaryAttack()
 		EMIT_SOUND( m_pPlayer->edict(), CHAN_ITEM, "weapons/glauncher.wav", 0.7, ATTN_NORM );
 
 		m_iClip--;
+
+		m_pPlayer->SetAbsVelocity( m_pPlayer->GetAbsVelocity() - gpGlobals->v_forward * 150 + gpGlobals->v_up * 100 );
 
 		//m_flNextPrimaryAttack = gpGlobals->time + 1.5;
 		//m_flTimeWeaponIdle = gpGlobals->time + 1.5;
@@ -582,7 +596,7 @@ class CRpgAmmo : public CBasePlayerAmmo
 	}
 	BOOL AddAmmo( CBaseEntity *pOther )
 	{
-		int iGive;
+		/*int iGive;
 
 		if ( g_pGameRules->IsMultiplayer() )
 		{
@@ -594,7 +608,8 @@ class CRpgAmmo : public CBasePlayerAmmo
 			iGive = AMMO_RPGCLIP_GIVE;
 		}
 
-		if (pOther->GiveAmmo( iGive, "rockets", ROCKET_MAX_CARRY ) != -1)
+		if (pOther->GiveAmmo( iGive, "rockets", ROCKET_MAX_CARRY ) != -1)*/
+		if (pOther->GiveAmmo( AMMO_RPGCLIP_GIVE, "rockets", ROCKET_MAX_CARRY ) != -1)
 		{
 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
 			return TRUE;

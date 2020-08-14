@@ -105,6 +105,8 @@ BOOL CHandGrenade::CanHolster( void )
 
 void CHandGrenade::Holster( void )
 {
+	m_flStartThrow = 0;
+	m_flReleaseThrow = -1;
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 	if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType])
 	{

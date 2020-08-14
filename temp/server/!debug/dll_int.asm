@@ -796,13 +796,13 @@ EXTRN	?ServerDeactivate@@YAXXZ:NEAR			; ServerDeactivate
 EXTRN	?StartFrame@@YAXXZ:NEAR				; StartFrame
 EXTRN	?PlayerPostThink@@YAXPAUedict_s@@@Z:NEAR	; PlayerPostThink
 EXTRN	?PlayerPreThink@@YAXPAUedict_s@@@Z:NEAR		; PlayerPreThink
-EXTRN	?ParmsNewLevel@@YAXXZ:NEAR			; ParmsNewLevel
-EXTRN	?ParmsChangeLevel@@YAXXZ:NEAR			; ParmsChangeLevel
-EXTRN	?GetGameDescription@@YAPBDXZ:NEAR		; GetGameDescription
 EXTRN	?SaveGlobalState@@YAXPAUsaverestore_s@@@Z:NEAR	; SaveGlobalState
+EXTRN	?ParmsNewLevel@@YAXXZ:NEAR			; ParmsNewLevel
 EXTRN	?RestoreGlobalState@@YAXPAUsaverestore_s@@@Z:NEAR ; RestoreGlobalState
-EXTRN	?PlayerCustomization@@YAXPAUedict_s@@PAUcustomization_s@@@Z:NEAR ; PlayerCustomization
+EXTRN	?ParmsChangeLevel@@YAXXZ:NEAR			; ParmsChangeLevel
 EXTRN	?ResetGlobalState@@YAXXZ:NEAR			; ResetGlobalState
+EXTRN	?GetGameDescription@@YAPBDXZ:NEAR		; GetGameDescription
+EXTRN	?PlayerCustomization@@YAXPAUedict_s@@PAUcustomization_s@@@Z:NEAR ; PlayerCustomization
 EXTRN	?SpectatorConnect@@YAXPAUedict_s@@@Z:NEAR	; SpectatorConnect
 EXTRN	?SpectatorDisconnect@@YAXPAUedict_s@@@Z:NEAR	; SpectatorDisconnect
 EXTRN	?SpectatorThink@@YAXPAUedict_s@@@Z:NEAR		; SpectatorThink
@@ -1001,7 +1001,7 @@ _pGlobals$ = 12
 ; 46   : 	if( g_iXashEngineBuildNumber <= 0 )
 
 	cmp	DWORD PTR ?g_iXashEngineBuildNumber@@3HA, 0 ; g_iXashEngineBuildNumber
-	jg	SHORT $L36836
+	jg	SHORT $L36844
 
 ; 47   : 		g_iXashEngineBuildNumber = (int)CVAR_GET_FLOAT( "buildnum" );
 
@@ -1010,7 +1010,7 @@ _pGlobals$ = 12
 	add	esp, 4
 	call	__ftol
 	mov	DWORD PTR ?g_iXashEngineBuildNumber@@3HA, eax ; g_iXashEngineBuildNumber
-$L36836:
+$L36844:
 
 ; 48   : 	gpGlobals = pGlobals;
 
@@ -1052,16 +1052,16 @@ _GetEntityAPI PROC NEAR					; COMDAT
 ; 124  : 	if ( !pFunctionTable || interfaceVersion != INTERFACE_VERSION )
 
 	cmp	DWORD PTR _pFunctionTable$[ebp], 0
-	je	SHORT $L36845
+	je	SHORT $L36853
 	cmp	DWORD PTR _interfaceVersion$[ebp], 140	; 0000008cH
-	je	SHORT $L36844
-$L36845:
+	je	SHORT $L36852
+$L36853:
 
 ; 126  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L36843
-$L36844:
+	jmp	SHORT $L36851
+$L36852:
 
 ; 128  : 
 ; 129  : 	if( !CVAR_GET_POINTER( "host_gameloaded" ) || g_iXashEngineBuildNumber < 4140 )
@@ -1070,16 +1070,16 @@ $L36844:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L36847
+	je	SHORT $L36855
 	cmp	DWORD PTR ?g_iXashEngineBuildNumber@@3HA, 4140 ; g_iXashEngineBuildNumber, 0000102cH
-	jge	SHORT $L36846
-$L36847:
+	jge	SHORT $L36854
+$L36855:
 
 ; 130  : 		return FALSE; // not a Xash3D
 
 	xor	eax, eax
-	jmp	SHORT $L36843
-$L36846:
+	jmp	SHORT $L36851
+$L36854:
 
 ; 131  : 
 ; 132  : 	memcpy( pFunctionTable, &gFunctionTable, sizeof( DLL_FUNCTIONS ) );
@@ -1094,7 +1094,7 @@ $L36846:
 ; 133  : 	return TRUE;
 
 	mov	eax, 1
-$L36843:
+$L36851:
 
 ; 134  : }
 
@@ -1125,11 +1125,11 @@ _GetEntityAPI2 PROC NEAR				; COMDAT
 ; 138  : 	if ( !pFunctionTable || *interfaceVersion != INTERFACE_VERSION )
 
 	cmp	DWORD PTR _pFunctionTable$[ebp], 0
-	je	SHORT $L36855
+	je	SHORT $L36863
 	mov	eax, DWORD PTR _interfaceVersion$[ebp]
 	cmp	DWORD PTR [eax], 140			; 0000008cH
-	je	SHORT $L36854
-$L36855:
+	je	SHORT $L36862
+$L36863:
 
 ; 140  : 		// Tell engine what version we had, so it can figure out who is out of date.
 ; 141  : 		*interfaceVersion = INTERFACE_VERSION;
@@ -1140,8 +1140,8 @@ $L36855:
 ; 142  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L36853
-$L36854:
+	jmp	SHORT $L36861
+$L36862:
 
 ; 144  : 
 ; 145  : 	if( !CVAR_GET_POINTER( "host_gameloaded" ) || g_iXashEngineBuildNumber < 4140 )
@@ -1150,10 +1150,10 @@ $L36854:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L36857
+	je	SHORT $L36865
 	cmp	DWORD PTR ?g_iXashEngineBuildNumber@@3HA, 4140 ; g_iXashEngineBuildNumber, 0000102cH
-	jge	SHORT $L36856
-$L36857:
+	jge	SHORT $L36864
+$L36865:
 
 ; 147  : 		// Tell engine what version we had, so it can figure out who is out of date.
 ; 148  : 		*interfaceVersion = INTERFACE_VERSION;
@@ -1164,8 +1164,8 @@ $L36857:
 ; 149  : 		return FALSE; // not a Xash3D
 
 	xor	eax, eax
-	jmp	SHORT $L36853
-$L36856:
+	jmp	SHORT $L36861
+$L36864:
 
 ; 151  : 
 ; 152  : 	memcpy( pFunctionTable, &gFunctionTable, sizeof( DLL_FUNCTIONS ) );
@@ -1180,7 +1180,7 @@ $L36856:
 ; 153  : 	return TRUE;
 
 	mov	eax, 1
-$L36853:
+$L36861:
 
 ; 154  : }
 
@@ -1211,11 +1211,11 @@ _GetNewDLLFunctions PROC NEAR				; COMDAT
 ; 158  : 	if( !pFunctionTable || *interfaceVersion != NEW_DLL_FUNCTIONS_VERSION )
 
 	cmp	DWORD PTR _pFunctionTable$[ebp], 0
-	je	SHORT $L36864
+	je	SHORT $L36872
 	mov	eax, DWORD PTR _interfaceVersion$[ebp]
 	cmp	DWORD PTR [eax], 1
-	je	SHORT $L36863
-$L36864:
+	je	SHORT $L36871
+$L36872:
 
 ; 160  : 		*interfaceVersion = NEW_DLL_FUNCTIONS_VERSION;
 
@@ -1225,8 +1225,8 @@ $L36864:
 ; 161  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L36862
-$L36863:
+	jmp	SHORT $L36870
+$L36871:
 
 ; 163  : 
 ; 164  : 	if( !CVAR_GET_POINTER( "host_gameloaded" ) || g_iXashEngineBuildNumber < 4140 )
@@ -1235,10 +1235,10 @@ $L36863:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+464
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L36866
+	je	SHORT $L36874
 	cmp	DWORD PTR ?g_iXashEngineBuildNumber@@3HA, 4140 ; g_iXashEngineBuildNumber, 0000102cH
-	jge	SHORT $L36865
-$L36866:
+	jge	SHORT $L36873
+$L36874:
 
 ; 166  : 		// Tell engine what version we had, so it can figure out who is out of date.
 ; 167  : 		*interfaceVersion = NEW_DLL_FUNCTIONS_VERSION;
@@ -1249,8 +1249,8 @@ $L36866:
 ; 168  : 		return FALSE; // not a Xash3D
 
 	xor	eax, eax
-	jmp	SHORT $L36862
-$L36865:
+	jmp	SHORT $L36870
+$L36873:
 
 ; 170  : 
 ; 171  : 	memcpy( pFunctionTable, &gNewDLLFunctions, sizeof( gNewDLLFunctions ));
@@ -1265,7 +1265,7 @@ $L36865:
 ; 172  : 	return TRUE;
 
 	mov	eax, 1
-$L36862:
+$L36870:
 
 ; 173  : }
 
@@ -1292,11 +1292,11 @@ EXTRN	?g_pGameRules@@3PAVCGameRules@@A:DWORD		; g_pGameRules
 _TEXT	SEGMENT
 _pent$ = 8
 _pEntity$ = -4
-_pGlobal$36882 = -8
-$T37542 = -20
-$T37543 = -32
-$T37544 = -44
-$T37545 = -56
+_pGlobal$36890 = -8
+$T37550 = -20
+$T37551 = -32
+$T37552 = -44
+$T37553 = -56
 ?DispatchSpawn@@YAHPAUedict_s@@@Z PROC NEAR		; DispatchSpawn, COMDAT
 
 ; 179  : {
@@ -1320,7 +1320,7 @@ $T37545 = -56
 ; 182  : 	if( pEntity )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	$L36887
+	je	$L36895
 
 ; 184  : //		ALERT( at_aiconsole, "DispatchSpawn: %s\n", pEntity->GetClassname());
 ; 185  : 		// Initialize these or entities who don't link to the world won't have anything in here
@@ -1329,10 +1329,10 @@ $T37545 = -56
 	push	1065353216				; 3f800000H
 	push	1065353216				; 3f800000H
 	push	1065353216				; 3f800000H
-	lea	ecx, DWORD PTR $T37542[ebp]
+	lea	ecx, DWORD PTR $T37550[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T37543[ebp]
+	lea	ecx, DWORD PTR $T37551[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -1353,10 +1353,10 @@ $T37545 = -56
 	push	1065353216				; 3f800000H
 	push	1065353216				; 3f800000H
 	push	1065353216				; 3f800000H
-	lea	ecx, DWORD PTR $T37544[ebp]
+	lea	ecx, DWORD PTR $T37552[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T37545[ebp]
+	lea	ecx, DWORD PTR $T37553[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -1396,12 +1396,12 @@ $T37545 = -56
 ; 196  : 		if( pEntity )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36880
+	je	SHORT $L36888
 
 ; 198  : 			if ( g_pGameRules && !g_pGameRules->IsAllowedToSpawn( pEntity ))
 
 	cmp	DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A, 0 ; g_pGameRules
-	je	SHORT $L36879
+	je	SHORT $L36887
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
@@ -1409,13 +1409,13 @@ $T37545 = -56
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	call	DWORD PTR [eax+8]
 	test	eax, eax
-	jne	SHORT $L36879
+	jne	SHORT $L36887
 
 ; 199  : 				return -1; // return that this entity should be deleted
 
 	or	eax, -1
-	jmp	$L36869
-$L36879:
+	jmp	$L36877
+$L36887:
 
 ; 200  : 			if ( pEntity->pev->flags & FL_KILLME )
 
@@ -1424,24 +1424,24 @@ $L36879:
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, 1073741824				; 40000000H
 	test	eax, eax
-	je	SHORT $L36880
+	je	SHORT $L36888
 
 ; 201  : 				return -1;
 
 	or	eax, -1
-	jmp	$L36869
-$L36880:
+	jmp	$L36877
+$L36888:
 
 ; 203  : 
 ; 204  : 		// Handle global stuff here
 ; 205  : 		if ( pEntity && pEntity->pev->globalname ) 
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	$L36887
+	je	$L36895
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+4], 0
-	je	SHORT $L36887
+	je	SHORT $L36895
 
 ; 207  : 			const globalentity_t *pGlobal = gGlobalState.EntityFromTable( pEntity->pev->globalname );
 
@@ -1451,29 +1451,29 @@ $L36880:
 	push	edx
 	mov	ecx, OFFSET FLAT:?gGlobalState@@3VCGlobalState@@A
 	call	?EntityFromTable@CGlobalState@@QAEPBUglobalentity_s@@H@Z ; CGlobalState::EntityFromTable
-	mov	DWORD PTR _pGlobal$36882[ebp], eax
+	mov	DWORD PTR _pGlobal$36890[ebp], eax
 
 ; 208  : 			if ( pGlobal )
 
-	cmp	DWORD PTR _pGlobal$36882[ebp], 0
-	je	SHORT $L36883
+	cmp	DWORD PTR _pGlobal$36890[ebp], 0
+	je	SHORT $L36891
 
 ; 210  : 				// Already dead? delete
 ; 211  : 				if ( pGlobal->state == GLOBAL_DEAD )
 
-	mov	eax, DWORD PTR _pGlobal$36882[ebp]
+	mov	eax, DWORD PTR _pGlobal$36890[ebp]
 	cmp	DWORD PTR [eax+96], 2
-	jne	SHORT $L36884
+	jne	SHORT $L36892
 
 ; 212  : 					return -1;
 
 	or	eax, -1
-	jmp	SHORT $L36869
-$L36884:
+	jmp	SHORT $L36877
+$L36892:
 
 ; 213  : 				else if ( !FStrEq( STRING(gpGlobals->mapname), pGlobal->levelName ) )
 
-	mov	ecx, DWORD PTR _pGlobal$36882[ebp]
+	mov	ecx, DWORD PTR _pGlobal$36890[ebp]
 	add	ecx, 64					; 00000040H
 	push	ecx
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -1485,18 +1485,18 @@ $L36884:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L36886
+	jne	SHORT $L36894
 
 ; 214  : 					pEntity->MakeDormant();	// Hasn't been moved to this level yet, wait but stay alive
 
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?MakeDormant@CBaseEntity@@QAEXXZ	; CBaseEntity::MakeDormant
-$L36886:
+$L36894:
 
 ; 217  : 			else
 
-	jmp	SHORT $L36887
-$L36883:
+	jmp	SHORT $L36895
+$L36891:
 
 ; 219  : 				// Spawned entities default to 'On'
 ; 220  : 				gGlobalState.EntityAdd( pEntity->pev->globalname, gpGlobals->mapname, GLOBAL_ON );
@@ -1512,13 +1512,13 @@ $L36883:
 	push	edx
 	mov	ecx, OFFSET FLAT:?gGlobalState@@3VCGlobalState@@A
 	call	?EntityAdd@CGlobalState@@QAEXHHW4GLOBALESTATE@@M@Z ; CGlobalState::EntityAdd
-$L36887:
+$L36895:
 
 ; 226  : 
 ; 227  : 	return 0;
 
 	xor	eax, eax
-$L36869:
+$L36877:
 
 ; 228  : }
 
@@ -1571,7 +1571,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37550 = -16
+$T37558 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -1601,7 +1601,7 @@ $T37550 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37550[ebp]
+	lea	ecx, DWORD PTR $T37558[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1656,7 +1656,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37555 = -16
+$T37563 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -1686,7 +1686,7 @@ $T37555 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37555[ebp]
+	lea	ecx, DWORD PTR $T37563[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1795,15 +1795,15 @@ _pEntity$ = -4
 ; 232  : 	if ( !pkvd || !pentKeyvalue )
 
 	cmp	DWORD PTR _pkvd$[ebp], 0
-	je	SHORT $L36893
+	je	SHORT $L36901
 	cmp	DWORD PTR _pentKeyvalue$[ebp], 0
-	jne	SHORT $L36892
-$L36893:
+	jne	SHORT $L36900
+$L36901:
 
 ; 233  : 		return;
 
-	jmp	SHORT $L36891
-$L36892:
+	jmp	SHORT $L36899
+$L36900:
 
 ; 234  : 
 ; 235  : 	EntvarsKeyvalue( VARS(pentKeyvalue), pkvd );
@@ -1825,16 +1825,16 @@ $L36892:
 
 	mov	edx, DWORD PTR _pkvd$[ebp]
 	cmp	DWORD PTR [edx+12], 0
-	jne	SHORT $L36895
+	jne	SHORT $L36903
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	cmp	DWORD PTR [eax], 0
-	jne	SHORT $L36894
-$L36895:
+	jne	SHORT $L36902
+$L36903:
 
 ; 240  : 		return;
 
-	jmp	SHORT $L36891
-$L36894:
+	jmp	SHORT $L36899
+$L36902:
 
 ; 241  : 
 ; 242  : 	// Get the actualy entity object
@@ -1850,12 +1850,12 @@ $L36894:
 ; 245  : 	if ( !pEntity )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	jne	SHORT $L36898
+	jne	SHORT $L36906
 
 ; 246  : 		return;
 
-	jmp	SHORT $L36891
-$L36898:
+	jmp	SHORT $L36899
+$L36906:
 
 ; 247  : 
 ; 248  : 	pEntity->KeyValue( pkvd );
@@ -1866,7 +1866,7 @@ $L36898:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+12]
-$L36891:
+$L36899:
 
 ; 249  : }
 
@@ -1940,12 +1940,12 @@ _pOther$ = -8
 ; 256  : 	if ( gTouchDisabled )
 
 	cmp	DWORD PTR ?gTouchDisabled@@3HA, 0	; gTouchDisabled
-	je	SHORT $L36904
+	je	SHORT $L36912
 
 ; 257  : 		return;
 
-	jmp	SHORT $L36903
-$L36904:
+	jmp	SHORT $L36911
+$L36912:
 
 ; 258  : 
 ; 259  : 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pentTouched);
@@ -1968,9 +1968,9 @@ $L36904:
 ; 262  : 	if ( pEntity && pOther && ! ((pEntity->pev->flags | pOther->pev->flags) & FL_KILLME) )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36909
+	je	SHORT $L36917
 	cmp	DWORD PTR _pOther$[ebp], 0
-	je	SHORT $L36909
+	je	SHORT $L36917
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR _pOther$[ebp]
@@ -1979,7 +1979,7 @@ $L36904:
 	or	eax, DWORD PTR [edx+420]
 	and	eax, 1073741824				; 40000000H
 	test	eax, eax
-	jne	SHORT $L36909
+	jne	SHORT $L36917
 
 ; 263  : 		pEntity->Touch( pOther );
 
@@ -1989,8 +1989,8 @@ $L36904:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [eax+280]
-$L36909:
-$L36903:
+$L36917:
+$L36911:
 
 ; 264  : }
 
@@ -2039,13 +2039,13 @@ _pOther$ = -8
 ; 271  : 	if (pEntity && !(pEntity->pev->flags & FL_KILLME) )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36918
+	je	SHORT $L36926
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 1073741824				; 40000000H
 	test	ecx, ecx
-	jne	SHORT $L36918
+	jne	SHORT $L36926
 
 ; 272  : 		pEntity->Use( pOther, pOther, USE_TOGGLE, 0 );
 
@@ -2059,7 +2059,7 @@ _pOther$ = -8
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+276]
-$L36918:
+$L36926:
 
 ; 273  : }
 
@@ -2106,7 +2106,7 @@ _pEntity$ = -4
 ; 279  : 	if (pEntity)
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36924
+	je	SHORT $L36932
 
 ; 281  : 		if( FBitSet( pEntity->pev->flags, FL_DORMANT ))
 
@@ -2115,7 +2115,7 @@ _pEntity$ = -4
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, -2147483648			; 80000000H
 	test	eax, eax
-	je	SHORT $L36925
+	je	SHORT $L36933
 
 ; 282  : 			ALERT( at_error, "Dormant entity %s is thinking!!\n", pEntity->GetClassname() );
 
@@ -2126,7 +2126,7 @@ _pEntity$ = -4
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L36925:
+$L36933:
 
 ; 283  : 				
 ; 284  : 		pEntity->Think();
@@ -2135,7 +2135,7 @@ $L36925:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+272]
-$L36924:
+$L36932:
 
 ; 286  : }
 
@@ -2212,7 +2212,7 @@ _pOther$ = -8
 ; 293  : 	if (pEntity)
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36935
+	je	SHORT $L36943
 
 ; 294  : 		pEntity->Blocked( pOther );
 
@@ -2222,7 +2222,7 @@ _pOther$ = -8
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+284]
-$L36935:
+$L36943:
 
 ; 295  : }
 
@@ -2261,8 +2261,8 @@ _TEXT	SEGMENT
 _pent$ = 8
 _pSaveData$ = 12
 _pEntity$ = -16
-_pTable$36943 = -20
-_saveHelper$36947 = -48
+_pTable$36951 = -20
+_saveHelper$36955 = -48
 __$EHRec$ = -12
 ?DispatchSave@@YAXPAUedict_s@@PAUsaverestore_s@@@Z PROC NEAR ; DispatchSave, COMDAT
 
@@ -2292,9 +2292,9 @@ __$EHRec$ = -12
 ; 301  : 	if ( pEntity && pSaveData )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	$L36942
+	je	$L36950
 	cmp	DWORD PTR _pSaveData$[ebp], 0
-	je	$L36942
+	je	$L36950
 
 ; 303  : 		ENTITYTABLE *pTable = &pSaveData->pTable[ pSaveData->currentIndex ];
 
@@ -2304,15 +2304,15 @@ __$EHRec$ = -12
 	mov	eax, DWORD PTR _pSaveData$[ebp]
 	mov	ecx, DWORD PTR [eax+40]
 	add	ecx, edx
-	mov	DWORD PTR _pTable$36943[ebp], ecx
+	mov	DWORD PTR _pTable$36951[ebp], ecx
 
 ; 304  : 
 ; 305  : 		if ( pTable->pent != pent )
 
-	mov	edx, DWORD PTR _pTable$36943[ebp]
+	mov	edx, DWORD PTR _pTable$36951[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	eax, DWORD PTR _pent$[ebp]
-	je	SHORT $L36944
+	je	SHORT $L36952
 
 ; 306  : 			ALERT( at_error, "ENTITY TABLE OR INDEX IS WRONG!!!!\n" );
 
@@ -2320,7 +2320,7 @@ __$EHRec$ = -12
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36944:
+$L36952:
 
 ; 307  : 
 ; 308  : 		if ( pEntity->ObjectCaps() & FCAP_DONT_SAVE )
@@ -2331,17 +2331,17 @@ $L36944:
 	call	DWORD PTR [edx+24]
 	and	eax, -2147483648			; 80000000H
 	test	eax, eax
-	je	SHORT $L36946
+	je	SHORT $L36954
 
 ; 309  : 			return;
 
-	jmp	SHORT $L36939
-$L36946:
+	jmp	SHORT $L36947
+$L36954:
 
 ; 310  : 
 ; 311  : 		pTable->location = pSaveData->size;		// Remember entity position for file I/O
 
-	mov	eax, DWORD PTR _pTable$36943[ebp]
+	mov	eax, DWORD PTR _pTable$36951[ebp]
 	mov	ecx, DWORD PTR _pSaveData$[ebp]
 	mov	edx, DWORD PTR [ecx+8]
 	mov	DWORD PTR [eax+8], edx
@@ -2350,7 +2350,7 @@ $L36946:
 
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
-	mov	edx, DWORD PTR _pTable$36943[ebp]
+	mov	edx, DWORD PTR _pTable$36951[ebp]
 	mov	eax, DWORD PTR [ecx]
 	mov	DWORD PTR [edx+20], eax
 
@@ -2359,13 +2359,13 @@ $L36946:
 
 	mov	ecx, DWORD PTR _pSaveData$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _saveHelper$36947[ebp]
+	lea	ecx, DWORD PTR _saveHelper$36955[ebp]
 	call	??0CSave@@QAE@PAUsaverestore_s@@@Z	; CSave::CSave
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
 ; 315  : 		pEntity->Save( saveHelper );
 
-	lea	edx, DWORD PTR _saveHelper$36947[ebp]
+	lea	edx, DWORD PTR _saveHelper$36955[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -2376,19 +2376,19 @@ $L36946:
 ; 317  : 		pTable->size = pSaveData->size - pTable->location;	// Size of entity block is data size written to block
 
 	mov	eax, DWORD PTR _pSaveData$[ebp]
-	mov	ecx, DWORD PTR _pTable$36943[ebp]
+	mov	ecx, DWORD PTR _pTable$36951[ebp]
 	mov	edx, DWORD PTR [eax+8]
 	sub	edx, DWORD PTR [ecx+8]
-	mov	eax, DWORD PTR _pTable$36943[ebp]
+	mov	eax, DWORD PTR _pTable$36951[ebp]
 	mov	DWORD PTR [eax+12], edx
 
 ; 318  : 	}
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _saveHelper$36947[ebp]
+	lea	ecx, DWORD PTR _saveHelper$36955[ebp]
 	call	??1CSave@@QAE@XZ			; CSave::~CSave
-$L36942:
-$L36939:
+$L36950:
+$L36947:
 
 ; 319  : }
 
@@ -2404,7 +2404,7 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?DispatchSave@@YAXPAUedict_s@@PAUsaverestore_s@@@Z$0:
-	lea	ecx, DWORD PTR _saveHelper$36947[ebp]
+	lea	ecx, DWORD PTR _saveHelper$36955[ebp]
 	call	??1CSave@@QAE@XZ			; CSave::~CSave
 	ret	0
 __ehhandler$?DispatchSave@@YAXPAUedict_s@@PAUsaverestore_s@@@Z:
@@ -2519,7 +2519,7 @@ _pReturn$ = -8
 ; 327  : 	if ( pReturn )
 
 	cmp	DWORD PTR _pReturn$[ebp], 0
-	je	SHORT $L36958
+	je	SHORT $L36966
 
 ; 329  : 		if ( !FClassnameIs( pReturn->pev, STRING(classname) ) )
 
@@ -2534,7 +2534,7 @@ _pReturn$ = -8
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L36958
+	jne	SHORT $L36966
 
 ; 331  : 			ALERT( at_console, "Global entity found %s, wrong class %s\n", STRING(globalname), STRING(pReturn->pev->classname) );
 
@@ -2558,7 +2558,7 @@ _pReturn$ = -8
 ; 332  : 			pReturn = NULL;
 
 	mov	DWORD PTR _pReturn$[ebp], 0
-$L36958:
+$L36966:
 
 ; 335  : 
 ; 336  : 	return pReturn;
@@ -2643,7 +2643,7 @@ _pev$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pev$[ebp], 0
-	je	SHORT $L37599
+	je	SHORT $L37607
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPAUentvars_s@@@Z		; OFFSET
@@ -2652,12 +2652,12 @@ _pev$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L37599
+	jne	SHORT $L37607
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L37600
-$L37599:
+	jmp	SHORT $L37608
+$L37607:
 	mov	DWORD PTR -4+[ebp], 1
-$L37600:
+$L37608:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -2945,20 +2945,20 @@ _pent$ = 8
 _pSaveData$ = 12
 _globalEntity$ = 16
 _pEntity$ = -16
-_tmpVars$36968 = -692
-_pTable$36969 = -696
-_restoreHelper$36970 = -732
-_tmpRestore$36972 = -768
-_pGlobal$36974 = -772
-_pNewEntity$36977 = -776
-_pGlobal$36993 = -780
-$T37615 = -784
-$T37616 = -796
-$T37617 = -808
-$T37618 = -820
-$T37619 = -832
-$T37620 = -836
-$T37621 = -840
+_tmpVars$36976 = -692
+_pTable$36977 = -696
+_restoreHelper$36978 = -732
+_tmpRestore$36980 = -768
+_pGlobal$36982 = -772
+_pNewEntity$36985 = -776
+_pGlobal$37001 = -780
+$T37623 = -784
+$T37624 = -796
+$T37625 = -808
+$T37626 = -820
+$T37627 = -832
+$T37628 = -836
+$T37629 = -840
 __$EHRec$ = -12
 ?DispatchRestore@@YAHPAUedict_s@@PAUsaverestore_s@@H@Z PROC NEAR ; DispatchRestore, COMDAT
 
@@ -3000,13 +3000,13 @@ __$EHRec$ = -12
 ; 345  : 	if ( pEntity && pSaveData )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	$L36967
+	je	$L36975
 	cmp	DWORD PTR _pSaveData$[ebp], 0
-	je	$L36967
+	je	$L36975
 
 ; 347  : 		entvars_t tmpVars;
 
-	lea	ecx, DWORD PTR _tmpVars$36968[ebp]
+	lea	ecx, DWORD PTR _tmpVars$36976[ebp]
 	call	??0entvars_s@@QAE@XZ			; entvars_s::entvars_s
 
 ; 348  : 		ENTITYTABLE *pTable = &pSaveData->pTable[pSaveData->currentIndex];
@@ -3017,39 +3017,39 @@ __$EHRec$ = -12
 	mov	edx, DWORD PTR _pSaveData$[ebp]
 	mov	eax, DWORD PTR [edx+40]
 	add	eax, ecx
-	mov	DWORD PTR _pTable$36969[ebp], eax
+	mov	DWORD PTR _pTable$36977[ebp], eax
 
 ; 349  : 
 ; 350  : 		CRestore restoreHelper( pSaveData );
 
 	mov	ecx, DWORD PTR _pSaveData$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	??0CRestore@@QAE@PAUsaverestore_s@@@Z	; CRestore::CRestore
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
 ; 351  : 		if ( globalEntity )
 
 	cmp	DWORD PTR _globalEntity$[ebp], 0
-	je	$L36971
+	je	$L36979
 
 ; 353  : 			CRestore tmpRestore( pSaveData );
 
 	mov	edx, DWORD PTR _pSaveData$[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	??0CRestore@@QAE@PAUsaverestore_s@@@Z	; CRestore::CRestore
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 
 ; 354  : 			tmpRestore.PrecacheMode( 0 );
 
 	push	0
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	?PrecacheMode@CRestore@@QAEXH@Z		; CRestore::PrecacheMode
 
 ; 355  : 			tmpRestore.ReadEntVars( "ENTVARS", pEntity->GetDataDescMap(), &tmpVars );
 
-	lea	eax, DWORD PTR _tmpVars$36968[ebp]
+	lea	eax, DWORD PTR _tmpVars$36976[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -3057,7 +3057,7 @@ __$EHRec$ = -12
 	call	DWORD PTR [edx]
 	push	eax
 	push	OFFSET FLAT:??_C@_07BFFD@ENTVARS?$AA@	; `string'
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	?ReadEntVars@CRestore@@QAEHPBDPAUdatamap_s@@PAUentvars_s@@@Z ; CRestore::ReadEntVars
 
 ; 356  : 
@@ -3086,11 +3086,11 @@ __$EHRec$ = -12
 ; 361  : 
 ; 362  : 			const globalentity_t *pGlobal = gGlobalState.EntityFromTable( tmpVars.globalname );
 
-	mov	edx, DWORD PTR _tmpVars$36968[ebp+4]
+	mov	edx, DWORD PTR _tmpVars$36976[ebp+4]
 	push	edx
 	mov	ecx, OFFSET FLAT:?gGlobalState@@3VCGlobalState@@A
 	call	?EntityFromTable@CGlobalState@@QAEPBUglobalentity_s@@H@Z ; CGlobalState::EntityFromTable
-	mov	DWORD PTR _pGlobal$36974[ebp], eax
+	mov	DWORD PTR _pGlobal$36982[ebp], eax
 
 ; 363  : 			
 ; 364  : 			// Don't overlay any instance of the global that isn't the latest
@@ -3099,7 +3099,7 @@ __$EHRec$ = -12
 ; 367  : 			// If they aren't the same, then this global update is out of date.
 ; 368  : 			if ( !FStrEq( pSaveData->szCurrentMapName, pGlobal->levelName ) )
 
-	mov	eax, DWORD PTR _pGlobal$36974[ebp]
+	mov	eax, DWORD PTR _pGlobal$36982[ebp]
 	add	eax, 64					; 00000040H
 	push	eax
 	mov	ecx, DWORD PTR _pSaveData$[ebp]
@@ -3108,20 +3108,20 @@ __$EHRec$ = -12
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L36975
+	jne	SHORT $L36983
 
 ; 369  : 				return 0;
 
-	mov	DWORD PTR $T37615[ebp], 0
+	mov	DWORD PTR $T37623[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
-	mov	eax, DWORD PTR $T37615[ebp]
-	jmp	$L36964
-$L36975:
+	mov	eax, DWORD PTR $T37623[ebp]
+	jmp	$L36972
+$L36983:
 
 ; 370  : 
 ; 371  : 			// Compute the new global offset
@@ -3140,87 +3140,87 @@ $L36975:
 
 ; 373  : 			CBaseEntity *pNewEntity = FindGlobalEntity( tmpVars.classname, tmpVars.globalname );
 
-	mov	eax, DWORD PTR _tmpVars$36968[ebp+4]
+	mov	eax, DWORD PTR _tmpVars$36976[ebp+4]
 	push	eax
-	mov	ecx, DWORD PTR _tmpVars$36968[ebp]
+	mov	ecx, DWORD PTR _tmpVars$36976[ebp]
 	push	ecx
 	call	?FindGlobalEntity@@YAPAVCBaseEntity@@HH@Z ; FindGlobalEntity
 	add	esp, 8
-	mov	DWORD PTR _pNewEntity$36977[ebp], eax
+	mov	DWORD PTR _pNewEntity$36985[ebp], eax
 
 ; 374  : 			if ( pNewEntity )
 
-	cmp	DWORD PTR _pNewEntity$36977[ebp], 0
-	je	$L36978
+	cmp	DWORD PTR _pNewEntity$36985[ebp], 0
+	je	$L36986
 
 ; 376  : //				ALERT( at_console, "Overlay %s with %s\n", STRING(pNewEntity->pev->classname), STRING(tmpVars.classname) );
 ; 377  : 				// Tell the restore code we're overlaying a global entity from another level
 ; 378  : 				restoreHelper.SetGlobalMode( 1 );	// Don't overwrite global fields
 
 	push	1
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	?SetGlobalMode@CRestore@@QAEXH@Z	; CRestore::SetGlobalMode
 
 ; 379  : 
 ; 380  : 				if( UTIL_GetModelType( pNewEntity->pev->modelindex ) == mod_brush )
 
-	mov	edx, DWORD PTR _pNewEntity$36977[ebp]
+	mov	edx, DWORD PTR _pNewEntity$36985[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR [eax+180]
 	push	ecx
 	call	?UTIL_GetModelType@@YA?AW4modtype_t@@H@Z ; UTIL_GetModelType
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L36979
+	jne	SHORT $L36987
 
 ; 382  : 					// calculate model offsets to update the childrens
 ; 383  : 					restoreHelper.modelSpaceOffset = tmpVars.mins - pNewEntity->pev->mins;
 
-	mov	edx, DWORD PTR _pNewEntity$36977[ebp]
+	mov	edx, DWORD PTR _pNewEntity$36985[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	add	eax, 220				; 000000dcH
 	push	eax
-	lea	ecx, DWORD PTR $T37616[ebp]
+	lea	ecx, DWORD PTR $T37624[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _tmpVars$36968[ebp+220]
+	lea	ecx, DWORD PTR _tmpVars$36976[ebp+220]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR _restoreHelper$36970[ebp], edx
+	mov	DWORD PTR _restoreHelper$36978[ebp], edx
 	mov	ecx, DWORD PTR [eax+4]
-	mov	DWORD PTR _restoreHelper$36970[ebp+4], ecx
+	mov	DWORD PTR _restoreHelper$36978[ebp+4], ecx
 	mov	edx, DWORD PTR [eax+8]
-	mov	DWORD PTR _restoreHelper$36970[ebp+8], edx
+	mov	DWORD PTR _restoreHelper$36978[ebp+8], edx
 
 ; 384  : 					restoreHelper.modelOriginOffset = tmpVars.oldorigin - pNewEntity->pev->oldorigin;
 
-	mov	eax, DWORD PTR _pNewEntity$36977[ebp]
+	mov	eax, DWORD PTR _pNewEntity$36985[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 20					; 00000014H
 	push	ecx
-	lea	edx, DWORD PTR $T37617[ebp]
+	lea	edx, DWORD PTR $T37625[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _tmpVars$36968[ebp+20]
+	lea	ecx, DWORD PTR _tmpVars$36976[ebp+20]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _restoreHelper$36970[ebp+12], ecx
+	mov	DWORD PTR _restoreHelper$36978[ebp+12], ecx
 	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR _restoreHelper$36970[ebp+16], edx
+	mov	DWORD PTR _restoreHelper$36978[ebp+16], edx
 	mov	eax, DWORD PTR [eax+8]
-	mov	DWORD PTR _restoreHelper$36970[ebp+20], eax
-$L36979:
+	mov	DWORD PTR _restoreHelper$36978[ebp+20], eax
+$L36987:
 
 ; 386  : 
 ; 387  : 				pSaveData->vecLandmarkOffset = (pSaveData->vecLandmarkOffset - pNewEntity->pev->mins) + tmpVars.mins;
 
-	lea	ecx, DWORD PTR _tmpVars$36968[ebp+220]
+	lea	ecx, DWORD PTR _tmpVars$36976[ebp+220]
 	push	ecx
-	lea	edx, DWORD PTR $T37619[ebp]
+	lea	edx, DWORD PTR $T37627[ebp]
 	push	edx
-	mov	eax, DWORD PTR _pNewEntity$36977[ebp]
+	mov	eax, DWORD PTR _pNewEntity$36985[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 220				; 000000dcH
 	push	ecx
-	lea	edx, DWORD PTR $T37618[ebp]
+	lea	edx, DWORD PTR $T37626[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _pSaveData$[ebp]
 	add	ecx, 1348				; 00000544H
@@ -3238,7 +3238,7 @@ $L36979:
 
 ; 388  : 				pEntity = pNewEntity;// we're going to restore this data OVER the old entity
 
-	mov	ecx, DWORD PTR _pNewEntity$36977[ebp]
+	mov	ecx, DWORD PTR _pNewEntity$36985[ebp]
 	mov	DWORD PTR _pEntity$[ebp], ecx
 
 ; 389  : 				pent = ENT( pEntity->pev );
@@ -3252,7 +3252,7 @@ $L36979:
 
 ; 390  : 				pTable->pent = pent;
 
-	mov	ecx, DWORD PTR _pTable$36969[ebp]
+	mov	ecx, DWORD PTR _pTable$36977[ebp]
 	mov	edx, DWORD PTR _pent$[ebp]
 	mov	DWORD PTR [ecx+4], edx
 
@@ -3272,30 +3272,30 @@ $L36979:
 
 ; 395  : 			else
 
-	jmp	SHORT $L36984
-$L36978:
+	jmp	SHORT $L36992
+$L36986:
 
 ; 397  : 				// This entity will be freed automatically by the engine.  If we don't do a restore on a matching entity (below)
 ; 398  : 				// or call EntityUpdate() to move it to this level, we haven't changed global state at all.
 ; 399  : 				return 0;
 
-	mov	DWORD PTR $T37620[ebp], 0
+	mov	DWORD PTR $T37628[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
-	mov	eax, DWORD PTR $T37620[ebp]
-	jmp	$L36964
-$L36984:
+	mov	eax, DWORD PTR $T37628[ebp]
+	jmp	$L36972
+$L36992:
 
 ; 401  : 		}
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
-$L36971:
+$L36979:
 
 ; 402  : 
 ; 403  : 		if ( pEntity->ObjectCaps() & FCAP_MUST_SPAWN )
@@ -3306,11 +3306,11 @@ $L36971:
 	call	DWORD PTR [eax+24]
 	and	eax, 4
 	test	eax, eax
-	je	SHORT $L36986
+	je	SHORT $L36994
 
 ; 405  : 			pEntity->Restore( restoreHelper );
 
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -3326,12 +3326,12 @@ $L36971:
 
 ; 408  : 		else
 
-	jmp	SHORT $L36987
-$L36986:
+	jmp	SHORT $L36995
+$L36994:
 
 ; 410  : 			pEntity->Restore( restoreHelper );
 
-	lea	eax, DWORD PTR _restoreHelper$36970[ebp]
+	lea	eax, DWORD PTR _restoreHelper$36978[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -3344,26 +3344,26 @@ $L36986:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+8]
-$L36987:
+$L36995:
 
 ; 413  : 
 ; 414  : 		restoreHelper.modelOriginOffset = g_vecZero;
 
 	mov	eax, DWORD PTR ?g_vecZero@@3VVector@@B
-	mov	DWORD PTR _restoreHelper$36970[ebp+12], eax
+	mov	DWORD PTR _restoreHelper$36978[ebp+12], eax
 	mov	ecx, DWORD PTR ?g_vecZero@@3VVector@@B+4
-	mov	DWORD PTR _restoreHelper$36970[ebp+16], ecx
+	mov	DWORD PTR _restoreHelper$36978[ebp+16], ecx
 	mov	edx, DWORD PTR ?g_vecZero@@3VVector@@B+8
-	mov	DWORD PTR _restoreHelper$36970[ebp+20], edx
+	mov	DWORD PTR _restoreHelper$36978[ebp+20], edx
 
 ; 415  : 		restoreHelper.modelSpaceOffset = g_vecZero;
 
 	mov	eax, DWORD PTR ?g_vecZero@@3VVector@@B
-	mov	DWORD PTR _restoreHelper$36970[ebp], eax
+	mov	DWORD PTR _restoreHelper$36978[ebp], eax
 	mov	ecx, DWORD PTR ?g_vecZero@@3VVector@@B+4
-	mov	DWORD PTR _restoreHelper$36970[ebp+4], ecx
+	mov	DWORD PTR _restoreHelper$36978[ebp+4], ecx
 	mov	edx, DWORD PTR ?g_vecZero@@3VVector@@B+8
-	mov	DWORD PTR _restoreHelper$36970[ebp+8], edx
+	mov	DWORD PTR _restoreHelper$36978[ebp+8], edx
 
 ; 416  : 
 ; 417  : 		// Again, could be deleted, get the pointer again.
@@ -3380,7 +3380,7 @@ $L36987:
 ; 421  : 		if ( globalEntity )
 
 	cmp	DWORD PTR _globalEntity$[ebp], 0
-	je	SHORT $L36989
+	je	SHORT $L36997
 
 ; 423  : 			pSaveData->vecLandmarkOffset = gpGlobals->vecLandmarkOffset;
 
@@ -3399,7 +3399,7 @@ $L36987:
 ; 425  : 			if ( pEntity )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36990
+	je	SHORT $L36998
 
 ; 427  : 				pEntity->RelinkEntity( TRUE );
 
@@ -3415,18 +3415,18 @@ $L36987:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [eax+168]
-$L36990:
+$L36998:
 
 ; 431  : 		else if ( pEntity && pEntity->pev->globalname ) 
 
-	jmp	$L37003
-$L36989:
+	jmp	$L37011
+$L36997:
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	$L36992
+	je	$L37000
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+4], 0
-	je	$L36992
+	je	$L37000
 
 ; 433  : 			const globalentity_t *pGlobal = gGlobalState.EntityFromTable( pEntity->pev->globalname );
 
@@ -3436,33 +3436,33 @@ $L36989:
 	push	edx
 	mov	ecx, OFFSET FLAT:?gGlobalState@@3VCGlobalState@@A
 	call	?EntityFromTable@CGlobalState@@QAEPBUglobalentity_s@@H@Z ; CGlobalState::EntityFromTable
-	mov	DWORD PTR _pGlobal$36993[ebp], eax
+	mov	DWORD PTR _pGlobal$37001[ebp], eax
 
 ; 434  : 			if ( pGlobal )
 
-	cmp	DWORD PTR _pGlobal$36993[ebp], 0
-	je	SHORT $L36994
+	cmp	DWORD PTR _pGlobal$37001[ebp], 0
+	je	SHORT $L37002
 
 ; 436  : 				// Already dead? delete
 ; 437  : 				if ( pGlobal->state == GLOBAL_DEAD )
 
-	mov	eax, DWORD PTR _pGlobal$36993[ebp]
+	mov	eax, DWORD PTR _pGlobal$37001[ebp]
 	cmp	DWORD PTR [eax+96], 2
-	jne	SHORT $L36995
+	jne	SHORT $L37003
 
 ; 438  : 					return -1;
 
-	mov	DWORD PTR $T37621[ebp], -1
+	mov	DWORD PTR $T37629[ebp], -1
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
-	mov	eax, DWORD PTR $T37621[ebp]
-	jmp	$L36964
-$L36995:
+	mov	eax, DWORD PTR $T37629[ebp]
+	jmp	$L36972
+$L37003:
 
 ; 439  : 				else if ( !FStrEq( STRING(gpGlobals->mapname), pGlobal->levelName ) )
 
-	mov	ecx, DWORD PTR _pGlobal$36993[ebp]
+	mov	ecx, DWORD PTR _pGlobal$37001[ebp]
 	add	ecx, 64					; 00000040H
 	push	ecx
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -3474,18 +3474,18 @@ $L36995:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L36998
+	jne	SHORT $L37006
 
 ; 441  : 					pEntity->MakeDormant();	// Hasn't been moved to this level yet, wait but stay alive
 
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?MakeDormant@CBaseEntity@@QAEXXZ	; CBaseEntity::MakeDormant
-$L36998:
+$L37006:
 
 ; 445  : 			else
 
-	jmp	SHORT $L36999
-$L36994:
+	jmp	SHORT $L37007
+$L37002:
 
 ; 447  : 				ALERT( at_error, "Global Entity %s (%s) not in table!!!\n", STRING(pEntity->pev->globalname), STRING(pEntity->pev->classname) );
 
@@ -3522,23 +3522,23 @@ $L36994:
 	push	edx
 	mov	ecx, OFFSET FLAT:?gGlobalState@@3VCGlobalState@@A
 	call	?EntityAdd@CGlobalState@@QAEXHHW4GLOBALESTATE@@M@Z ; CGlobalState::EntityAdd
-$L36999:
+$L37007:
 
 ; 452  : 		else if( gpGlobals->changelevel )
 
-	jmp	SHORT $L37003
-$L36992:
+	jmp	SHORT $L37011
+$L37000:
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	cmp	DWORD PTR [eax+136], 0
-	je	SHORT $L37003
+	je	SHORT $L37011
 
 ; 454  : 			if( pTable->flags & ( FENTTABLE_MOVEABLE|FENTTABLE_PLAYER ))
 
-	mov	ecx, DWORD PTR _pTable$36969[ebp]
+	mov	ecx, DWORD PTR _pTable$36977[ebp]
 	mov	edx, DWORD PTR [ecx+16]
 	and	edx, -1610612736			; a0000000H
 	test	edx, edx
-	je	SHORT $L37003
+	je	SHORT $L37011
 
 ; 456  : 				// do reset for moveable entities
 ; 457  : 				pEntity->TransferReset();
@@ -3547,19 +3547,19 @@ $L36992:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+172]
-$L37003:
+$L37011:
 
 ; 460  : 	}
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
-$L36967:
+$L36975:
 
 ; 461  : 	return 0;
 
 	xor	eax, eax
-$L36964:
+$L36972:
 
 ; 462  : }
 
@@ -3575,11 +3575,11 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?DispatchRestore@@YAHPAUedict_s@@PAUsaverestore_s@@H@Z$0:
-	lea	ecx, DWORD PTR _restoreHelper$36970[ebp]
+	lea	ecx, DWORD PTR _restoreHelper$36978[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
 	ret	0
 __unwindfunclet$?DispatchRestore@@YAHPAUedict_s@@PAUsaverestore_s@@H@Z$1:
-	lea	ecx, DWORD PTR _tmpRestore$36972[ebp]
+	lea	ecx, DWORD PTR _tmpRestore$36980[ebp]
 	call	??1CRestore@@QAE@XZ			; CRestore::~CRestore
 	ret	0
 __ehhandler$?DispatchRestore@@YAHPAUedict_s@@PAUsaverestore_s@@H@Z:
@@ -3860,9 +3860,9 @@ _pTable$ = -4
 _pEntity$ = -8
 _pent$ = -12
 _i$ = -16
-_active$37022 = -20
-_ed$37028 = -24
-_ed$37039 = -28
+_active$37030 = -20
+_ed$37036 = -24
+_ed$37047 = -28
 ?DispatchCreateEntitiesInRestoreList@@YAXPAUsaverestore_s@@HH@Z PROC NEAR ; DispatchCreateEntitiesInRestoreList, COMDAT
 
 ; 465  : {
@@ -3882,16 +3882,16 @@ _ed$37039 = -28
 ; 471  : 	for( int i = 0; i < pSaveData->tableCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37017
-$L37018:
+	jmp	SHORT $L37025
+$L37026:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L37017:
+$L37025:
 	mov	ecx, DWORD PTR _pSaveData$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+32]
-	jge	$L37019
+	jge	$L37027
 
 ; 473  : 		pTable = &pSaveData->pTable[i];
 
@@ -3915,18 +3915,18 @@ $L37017:
 
 	mov	eax, DWORD PTR _pTable$[ebp]
 	cmp	DWORD PTR [eax+20], 0
-	je	$L37020
+	je	$L37028
 	mov	ecx, DWORD PTR _pTable$[ebp]
 	cmp	DWORD PTR [ecx+12], 0
-	je	$L37020
+	je	$L37028
 	mov	edx, DWORD PTR _pTable$[ebp]
 	mov	eax, DWORD PTR [edx+16]
 	and	eax, 1073741824				; 40000000H
 	test	eax, eax
-	je	SHORT $L37021
+	je	SHORT $L37029
 	cmp	DWORD PTR _create_world$[ebp], 0
-	jne	$L37020
-$L37021:
+	jne	$L37028
+$L37029:
 
 ; 479  : 			int	active = FBitSet( pTable->flags, levelMask ) ? 1 : 0;
 
@@ -3936,27 +3936,27 @@ $L37021:
 	neg	edx
 	sbb	edx, edx
 	neg	edx
-	mov	DWORD PTR _active$37022[ebp], edx
+	mov	DWORD PTR _active$37030[ebp], edx
 
 ; 480  : 
 ; 481  : 			if( create_world )
 
 	cmp	DWORD PTR _create_world$[ebp], 0
-	je	SHORT $L37023
+	je	SHORT $L37031
 
 ; 482  : 				active = 1;
 
-	mov	DWORD PTR _active$37022[ebp], 1
-$L37023:
+	mov	DWORD PTR _active$37030[ebp], 1
+$L37031:
 
 ; 483  : 
 ; 484  : 			if( pTable->id == 0 && create_world ) // worldspawn
 
 	mov	eax, DWORD PTR _pTable$[ebp]
 	cmp	DWORD PTR [eax], 0
-	jne	$L37024
+	jne	$L37032
 	cmp	DWORD PTR _create_world$[ebp], 0
-	je	$L37024
+	je	$L37032
 
 ; 486  : 				ASSERT( i == 0 );
 
@@ -3981,14 +3981,14 @@ $L37023:
 	push	ecx
 	call	?INDEXENT@@YAPAUedict_s@@H@Z		; INDEXENT
 	add	esp, 4
-	mov	DWORD PTR _ed$37028[ebp], eax
+	mov	DWORD PTR _ed$37036[ebp], eax
 
 ; 489  : 
 ; 490  : 				memset( &ed->v, 0, sizeof( entvars_t ));
 
 	push	676					; 000002a4H
 	push	0
-	mov	edx, DWORD PTR _ed$37028[ebp]
+	mov	edx, DWORD PTR _ed$37036[ebp]
 	add	edx, 128				; 00000080H
 	push	edx
 	call	_memset
@@ -3996,18 +3996,18 @@ $L37023:
 
 ; 491  : 				ed->v.pContainingEntity = ed;
 
-	mov	eax, DWORD PTR _ed$37028[ebp]
-	mov	ecx, DWORD PTR _ed$37028[ebp]
+	mov	eax, DWORD PTR _ed$37036[ebp]
+	mov	ecx, DWORD PTR _ed$37036[ebp]
 	mov	DWORD PTR [eax+648], ecx
 
 ; 492  : 				ed->free = false;
 
-	mov	edx, DWORD PTR _ed$37028[ebp]
+	mov	edx, DWORD PTR _ed$37036[ebp]
 	mov	DWORD PTR [edx], 0
 
 ; 493  : 				pEntity = GetClassPtr( (CWorld *)VARS(ed));
 
-	mov	eax, DWORD PTR _ed$37028[ebp]
+	mov	eax, DWORD PTR _ed$37036[ebp]
 	push	eax
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
@@ -4018,16 +4018,16 @@ $L37023:
 
 ; 495  : 			else if(( pTable->id > 0 ) && ( pTable->id <= gpGlobals->maxClients ))
 
-	jmp	$L37042
-$L37024:
+	jmp	$L37050
+$L37032:
 	mov	ecx, DWORD PTR _pTable$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	jle	SHORT $L37036
+	jle	SHORT $L37044
 	mov	edx, DWORD PTR _pTable$[ebp]
 	mov	eax, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	ecx, DWORD PTR [edx]
 	cmp	ecx, DWORD PTR [eax+144]
-	jg	SHORT $L37036
+	jg	SHORT $L37044
 
 ; 497  : 				if( !FBitSet( pTable->flags, FENTTABLE_PLAYER ))
 
@@ -4035,7 +4035,7 @@ $L37024:
 	mov	eax, DWORD PTR [edx+16]
 	and	eax, -2147483648			; 80000000H
 	test	eax, eax
-	jne	SHORT $L37037
+	jne	SHORT $L37045
 
 ; 498  : 					ALERT( at_warning, "ENTITY IS NOT A PLAYER: %d\n", i );
 
@@ -4045,7 +4045,7 @@ $L37024:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L37037:
+$L37045:
 
 ; 499  : 
 ; 500  : 				edict_t *ed = INDEXENT( pTable->id );
@@ -4055,20 +4055,20 @@ $L37037:
 	push	eax
 	call	?INDEXENT@@YAPAUedict_s@@H@Z		; INDEXENT
 	add	esp, 4
-	mov	DWORD PTR _ed$37039[ebp], eax
+	mov	DWORD PTR _ed$37047[ebp], eax
 
 ; 501  : 
 ; 502  : 				// create the player
 ; 503  : 				if( active && ed != NULL )
 
-	cmp	DWORD PTR _active$37022[ebp], 0
-	je	SHORT $L37040
-	cmp	DWORD PTR _ed$37039[ebp], 0
-	je	SHORT $L37040
+	cmp	DWORD PTR _active$37030[ebp], 0
+	je	SHORT $L37048
+	cmp	DWORD PTR _ed$37047[ebp], 0
+	je	SHORT $L37048
 
 ; 504  : 					pEntity = CreateEntityByName( STRING( pTable->classname ), VARS( ed ));
 
-	mov	ecx, DWORD PTR _ed$37039[ebp]
+	mov	ecx, DWORD PTR _ed$37047[ebp]
 	push	ecx
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
@@ -4082,14 +4082,14 @@ $L37037:
 	call	?CreateEntityByName@@YAPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CreateEntityByName
 	add	esp, 8
 	mov	DWORD PTR _pEntity$[ebp], eax
-$L37040:
+$L37048:
 
 ; 506  : 			else if( active )
 
-	jmp	SHORT $L37042
-$L37036:
-	cmp	DWORD PTR _active$37022[ebp], 0
-	je	SHORT $L37042
+	jmp	SHORT $L37050
+$L37044:
+	cmp	DWORD PTR _active$37030[ebp], 0
+	je	SHORT $L37050
 
 ; 508  : 				pEntity = CreateEntityByName( STRING( pTable->classname ));
 
@@ -4103,25 +4103,25 @@ $L37036:
 	call	?CreateEntityByName@@YAPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CreateEntityByName
 	add	esp, 8
 	mov	DWORD PTR _pEntity$[ebp], eax
-$L37042:
+$L37050:
 
 ; 510  : 
 ; 511  : 			pent = (pEntity) ? ENT(pEntity) : NULL;
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L37646
+	je	SHORT $L37654
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	push	eax
 	call	?ENT@@YAPAUedict_s@@PAVCBaseEntity@@@Z	; ENT
 	add	esp, 4
 	mov	DWORD PTR -32+[ebp], eax
-	jmp	SHORT $L37647
-$L37646:
+	jmp	SHORT $L37655
+$L37654:
 	mov	DWORD PTR -32+[ebp], 0
-$L37647:
+$L37655:
 	mov	ecx, DWORD PTR -32+[ebp]
 	mov	DWORD PTR _pent$[ebp], ecx
-$L37020:
+$L37028:
 
 ; 513  : 
 ; 514  : 		pTable->pent = pent;
@@ -4132,8 +4132,8 @@ $L37020:
 
 ; 515  : 	}
 
-	jmp	$L37018
-$L37019:
+	jmp	$L37026
+$L37027:
 
 ; 516  : }
 
@@ -4198,7 +4198,7 @@ _pEntity$ = -4
 ; 522  : 	if( pEntity )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L37048
+	je	SHORT $L37056
 
 ; 524  : 		pEntity->CalcAbsolutePosition();
 
@@ -4211,7 +4211,7 @@ _pEntity$ = -4
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+64]
-$L37048:
+$L37056:
 
 ; 527  : }
 
@@ -4229,8 +4229,8 @@ EXTRN	?UpdateOnRemove@CBaseEntity@@QAEXXZ:NEAR	; CBaseEntity::UpdateOnRemove
 ;	COMDAT ?OnFreeEntPrivateData@@YAXPAUedict_s@@@Z
 _TEXT	SEGMENT
 _pEdict$ = 8
-_pEntity$37054 = -4
-_pEntity$37057 = -8
+_pEntity$37062 = -4
+_pEntity$37065 = -8
 ?OnFreeEntPrivateData@@YAXPAUedict_s@@@Z PROC NEAR	; OnFreeEntPrivateData, COMDAT
 
 ; 530  : {
@@ -4245,15 +4245,15 @@ _pEntity$37057 = -8
 ; 531  : 	if( g_fPhysicInitialized )
 
 	cmp	DWORD PTR ?g_fPhysicInitialized@@3HA, 0	; g_fPhysicInitialized
-	je	SHORT $L37055
+	je	SHORT $L37063
 
 ; 533  : 		if( pEdict && pEdict->pvPrivateData )
 
 	cmp	DWORD PTR _pEdict$[ebp], 0
-	je	SHORT $L37053
+	je	SHORT $L37061
 	mov	eax, DWORD PTR _pEdict$[ebp]
 	cmp	DWORD PTR [eax+124], 0
-	je	SHORT $L37053
+	je	SHORT $L37061
 
 ; 535  : 			CBaseEntity *pEntity = CBaseEntity::Instance( pEdict );
 
@@ -4261,35 +4261,35 @@ _pEntity$37057 = -8
 	push	ecx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$37054[ebp], eax
+	mov	DWORD PTR _pEntity$37062[ebp], eax
 
 ; 536  : 			pEntity->m_BodyMesh.FreeMesh(); // release all local copy of meshes
 
-	mov	ecx, DWORD PTR _pEntity$37054[ebp]
+	mov	ecx, DWORD PTR _pEntity$37062[ebp]
 	add	ecx, 248				; 000000f8H
 	call	?FreeMesh@CMeshDesc@@QAEXXZ		; CMeshDesc::FreeMesh
-$L37053:
+$L37061:
 
 ; 538  : 
 ; 539  : 		if( GET_SERVER_STATE() == SERVER_DEAD )
 
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+20
 	test	eax, eax
-	jne	SHORT $L37055
+	jne	SHORT $L37063
 
 ; 540  : 			return;
 
-	jmp	SHORT $L37051
-$L37055:
+	jmp	SHORT $L37059
+$L37063:
 
 ; 542  : 
 ; 543  : 	if( pEdict && pEdict->pvPrivateData )
 
 	cmp	DWORD PTR _pEdict$[ebp], 0
-	je	SHORT $L37056
+	je	SHORT $L37064
 	mov	edx, DWORD PTR _pEdict$[ebp]
 	cmp	DWORD PTR [edx+124], 0
-	je	SHORT $L37056
+	je	SHORT $L37064
 
 ; 545  : 		CBaseEntity *pEntity = CBaseEntity::Instance( pEdict );
 
@@ -4297,20 +4297,20 @@ $L37055:
 	push	eax
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$37057[ebp], eax
+	mov	DWORD PTR _pEntity$37065[ebp], eax
 
 ; 546  : 		pEntity->m_BodyMesh.FreeMesh();
 
-	mov	ecx, DWORD PTR _pEntity$37057[ebp]
+	mov	ecx, DWORD PTR _pEntity$37065[ebp]
 	add	ecx, 248				; 000000f8H
 	call	?FreeMesh@CMeshDesc@@QAEXXZ		; CMeshDesc::FreeMesh
 
 ; 547  : 		pEntity->UpdateOnRemove();
 
-	mov	ecx, DWORD PTR _pEntity$37057[ebp]
+	mov	ecx, DWORD PTR _pEntity$37065[ebp]
 	call	?UpdateOnRemove@CBaseEntity@@QAEXXZ	; CBaseEntity::UpdateOnRemove
-$L37056:
-$L37051:
+$L37064:
+$L37059:
 
 ; 549  : }
 
@@ -4405,18 +4405,18 @@ __$EHRec$ = -12
 ; 561  : 	for( int i = 0; i < fieldCount; i++, pField++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37071
-$L37072:
+	jmp	SHORT $L37079
+$L37080:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
 	mov	edx, DWORD PTR _pField$[ebp]
 	add	edx, 24					; 00000018H
 	mov	DWORD PTR _pField$[ebp], edx
-$L37071:
+$L37079:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _fieldCount$[ebp]
-	jge	$L37073
+	jge	$L37081
 
 ; 563  : 		pField->fieldType = pInFields[i].fieldType;
 
@@ -4465,8 +4465,8 @@ $L37071:
 
 ; 568  : 	}
 
-	jmp	$L37072
-$L37073:
+	jmp	$L37080
+$L37081:
 
 ; 569  : 
 ; 570  : 	CSave saveHelper( pSaveData );
@@ -4594,18 +4594,18 @@ __$EHRec$ = -12
 ; 584  : 	for( int i = 0; i < fieldCount; i++, pField++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37087
-$L37088:
+	jmp	SHORT $L37095
+$L37096:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
 	mov	edx, DWORD PTR _pField$[ebp]
 	add	edx, 24					; 00000018H
 	mov	DWORD PTR _pField$[ebp], edx
-$L37087:
+$L37095:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _fieldCount$[ebp]
-	jge	$L37089
+	jge	$L37097
 
 ; 586  : 		pField->fieldType = pInFields[i].fieldType;
 
@@ -4654,8 +4654,8 @@ $L37087:
 
 ; 591  : 	}
 
-	jmp	$L37088
-$L37089:
+	jmp	$L37096
+$L37097:
 
 ; 592  : 
 ; 593  : 	CRestore restoreHelper( pSaveData );
@@ -4724,8 +4724,8 @@ xdata$x	ENDS
 _TEXT	SEGMENT
 _a$ = 8
 _pev$ = -16
-$T37674 = -20
-$T37675 = -24
+$T37682 = -20
+$T37683 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCWorld@@PAV1@@Z PROC NEAR		; GetClassPtr, COMDAT
 
@@ -4753,7 +4753,7 @@ __$EHRec$ = -12
 ; 1077 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L37116
+	jne	SHORT $L37124
 
 ; 1078 : 		pev = VARS(CREATE_ENTITY());
 
@@ -4762,7 +4762,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L37116:
+$L37124:
 
 ; 1079 : 
 ; 1080 : 	// get the private data
@@ -4781,7 +4781,7 @@ $L37116:
 ; 1083 : 	if (a == NULL) 
 
 	cmp	DWORD PTR _a$[ebp], 0
-	jne	SHORT $L37118
+	jne	SHORT $L37126
 
 ; 1085 : 		// allocate private data 
 ; 1086 : 		a = new(pev) T;
@@ -4791,21 +4791,21 @@ $L37116:
 	push	1764					; 000006e4H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T37675[ebp], eax
+	mov	DWORD PTR $T37683[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T37675[ebp], 0
-	je	SHORT $L37676
-	mov	ecx, DWORD PTR $T37675[ebp]
+	cmp	DWORD PTR $T37683[ebp], 0
+	je	SHORT $L37684
+	mov	ecx, DWORD PTR $T37683[ebp]
 	call	??0CWorld@@QAE@XZ			; CWorld::CWorld
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L37677
-$L37676:
+	jmp	SHORT $L37685
+$L37684:
 	mov	DWORD PTR -28+[ebp], 0
-$L37677:
+$L37685:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T37674[ebp], eax
+	mov	DWORD PTR $T37682[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T37674[ebp]
+	mov	ecx, DWORD PTR $T37682[ebp]
 	mov	DWORD PTR _a$[ebp], ecx
 
 ; 1087 : 		a->pev = pev;
@@ -4813,7 +4813,7 @@ $L37677:
 	mov	edx, DWORD PTR _a$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L37118:
+$L37126:
 
 ; 1089 : 	return a;
 
@@ -4835,7 +4835,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCWorld@@PAV1@@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T37675[ebp]
+	mov	ecx, DWORD PTR $T37683[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -5820,26 +5820,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37754
+	je	SHORT $L37762
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37754
+	je	SHORT $L37762
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37754
+	je	SHORT $L37762
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37755
-$L37754:
+	jmp	SHORT $L37763
+$L37762:
 	mov	DWORD PTR -8+[ebp], 0
-$L37755:
+$L37763:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -6022,19 +6022,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L37772
+	jne	SHORT $L37780
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37772
+	jne	SHORT $L37780
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37773
-$L37772:
+	jmp	SHORT $L37781
+$L37780:
 	mov	DWORD PTR -8+[ebp], 0
-$L37773:
+$L37781:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -6121,26 +6121,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L37780
+	jne	SHORT $L37788
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L37781
-$L37780:
+	je	SHORT $L37789
+$L37788:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37781
+	je	SHORT $L37789
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37782
-$L37781:
+	jmp	SHORT $L37790
+$L37789:
 	mov	DWORD PTR -8+[ebp], 0
-$L37782:
+$L37790:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -6892,8 +6892,8 @@ PUBLIC	??DVector@@QBE?AV0@M@Z				; Vector::operator*
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37831 = -16
-$T37832 = -28
+$T37839 = -16
+$T37840 = -28
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
 
 ; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
@@ -6906,13 +6906,13 @@ $T37832 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T37832[ebp]
+	lea	eax, DWORD PTR $T37840[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T37831[ebp]
+	lea	eax, DWORD PTR $T37839[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -6937,7 +6937,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37835 = -16
+$T37843 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -6964,7 +6964,7 @@ $T37835 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37835[ebp]
+	lea	ecx, DWORD PTR $T37843[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -6982,7 +6982,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37838 = -16
+$T37846 = -16
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
 
 ; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
@@ -6998,7 +6998,7 @@ $T37838 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T37838[ebp]
+	lea	edx, DWORD PTR $T37846[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -7020,7 +7020,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37841 = -16
+$T37849 = -16
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
 
 ; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
@@ -7036,7 +7036,7 @@ $T37841 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T37841[ebp]
+	lea	edx, DWORD PTR $T37849[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -7058,7 +7058,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37844 = -16
+$T37852 = -16
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
 
 ; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
@@ -7070,7 +7070,7 @@ $T37844 = -16
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T37844[ebp]
+	lea	eax, DWORD PTR $T37852[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]

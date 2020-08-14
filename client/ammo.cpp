@@ -70,7 +70,7 @@ void WeaponsResource :: LoadWeaponSprites( WEAPON *pWeapon )
 
 	client_sprite_t *p;
 
-	p = GetSpriteList( pList, "crosshair", iRes, i );
+	/*p = GetSpriteList( pList, "crosshair", iRes, i );
 	if( p )
 	{
 		Q_snprintf( sz, sizeof( sz ), "sprites/%s.spr", p->szSprite );
@@ -112,7 +112,12 @@ void WeaponsResource :: LoadWeaponSprites( WEAPON *pWeapon )
 	{
 		pWeapon->hZoomedAutoaim = pWeapon->hZoomedCrosshair;  // default to zoomed crosshair
 		pWeapon->rcZoomedAutoaim = pWeapon->rcZoomedCrosshair;
-	}
+	}*/
+
+	pWeapon->hCrosshair = 0;
+	pWeapon->hAutoaim = 0;
+	pWeapon->hZoomedCrosshair = pWeapon->hCrosshair;
+	pWeapon->rcZoomedCrosshair = pWeapon->rcCrosshair;
 
 	p = GetSpriteList( pList, "weapon", iRes, i );
 	if( p )

@@ -1621,7 +1621,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L38457
+	jne	SHORT $L38471
 	mov	cl, BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4EA, cl
@@ -1631,7 +1631,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E46
 	call	_atexit
 	add	esp, 4
-$L38457:
+$L38471:
 	call	?GetBaseMap@CIchthyosaur@@SAPAUdatamap_s@@XZ ; CIchthyosaur::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CIchthyosaur@@2Udatamap_s@@A+12, eax
 
@@ -1650,7 +1650,7 @@ $L38457:
 	mov	dl, BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4EA
 	and	edx, 2
 	test	edx, edx
-	jne	$L38488
+	jne	$L38502
 	mov	al, BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4EA
 	or	al, 2
 	mov	BYTE PTR _?$S45@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4EA, al
@@ -1676,20 +1676,20 @@ $L38457:
 	mov	WORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4PAUtypedescription_s@@A+278, 8
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4PAUtypedescription_s@@A+280, 0
 	mov	DWORD PTR _?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4PAUtypedescription_s@@A+284, OFFSET FLAT:?BiteTouch@CIchthyosaur@@QAEXPAVCBaseEntity@@@Z ; CIchthyosaur::BiteTouch
-$L38488:
+$L38502:
 
 ; 136  : END_DATADESC()
 
 	mov	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L38495
+	je	SHORT $L38509
 	mov	DWORD PTR ?m_DataMap@CIchthyosaur@@2Udatamap_s@@A+4, 11 ; 0000000bH
 	mov	DWORD PTR ?m_DataMap@CIchthyosaur@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L38496
-$L38495:
+	jmp	SHORT $L38510
+$L38509:
 	mov	DWORD PTR ?m_DataMap@CIchthyosaur@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CIchthyosaur@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCIchthyosaur@@@Z@4PAUtypedescription_s@@A
-$L38496:
+$L38510:
 	mov	eax, OFFSET FLAT:?m_DataMap@CIchthyosaur@@2Udatamap_s@@A ; CIchthyosaur::m_DataMap
 	pop	edi
 	pop	esi
@@ -1762,7 +1762,7 @@ _TEXT	SEGMENT
 _pszIdentifier$ = 8
 _this$ = -4
 _pBuf$ = -8
-$T39608 = -12
+$T39622 = -12
 ?GenerateName@CDatadescGeneratedNameHolder@@QAEPBDPBD@Z PROC NEAR ; CDatadescGeneratedNameHolder::GenerateName, COMDAT
 
 ; 205  : 	{
@@ -1787,8 +1787,8 @@ $T39608 = -12
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T39608[ebp], eax
-	mov	ecx, DWORD PTR $T39608[ebp]
+	mov	DWORD PTR $T39622[ebp], eax
+	mov	ecx, DWORD PTR $T39622[ebp]
 	mov	DWORD PTR _pBuf$[ebp], ecx
 
 ; 207  : 		sprintf( pBuf, "%s::", m_pszBase );
@@ -1875,7 +1875,7 @@ xdata$x	ENDS
 _TEXT	SEGMENT
 _this$ = -16
 _i$ = -20
-$T39613 = -24
+$T39627 = -24
 __$EHRec$ = -12
 ??1CDatadescGeneratedNameHolder@@QAE@XZ PROC NEAR	; CDatadescGeneratedNameHolder::~CDatadescGeneratedNameHolder, COMDAT
 
@@ -1918,8 +1918,8 @@ $L30214:
 	add	ecx, 8
 	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR $T39613[ebp], edx
-	mov	eax, DWORD PTR $T39613[ebp]
+	mov	DWORD PTR $T39627[ebp], edx
+	mov	eax, DWORD PTR $T39627[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -2325,15 +2325,15 @@ _pSchedule$ = -8
 	call	?ScheduleInList@CBaseMonster@@QAEPAUSchedule_t@@PBDPAPAU2@H@Z ; CBaseMonster::ScheduleInList
 	mov	DWORD PTR _pSchedule$[ebp], eax
 	cmp	DWORD PTR _pSchedule$[ebp], 0
-	jne	SHORT $L38567
+	jne	SHORT $L38581
 	mov	ecx, DWORD PTR _pName$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ScheduleFromName@CBaseMonster@@UAEPAUSchedule_t@@PBD@Z ; CBaseMonster::ScheduleFromName
-	jmp	SHORT $L38565
-$L38567:
+	jmp	SHORT $L38579
+$L38581:
 	mov	eax, DWORD PTR _pSchedule$[ebp]
-$L38565:
+$L38579:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -2362,14 +2362,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L39644
+	je	SHORT $L39658
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2388]
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L39645
-$L39644:
+	jmp	SHORT $L39659
+$L39658:
 	mov	DWORD PTR -8+[ebp], 7
-$L39645:
+$L39659:
 	mov	eax, DWORD PTR -8+[ebp]
 
 ; 324  : }
@@ -2417,7 +2417,7 @@ _this$ = -4
 	fcomp	QWORD PTR __real@8@3ffeb333333333333000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38577
+	jne	SHORT $L38591
 	mov	eax, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [eax+2444]
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
@@ -2426,18 +2426,18 @@ _this$ = -4
 	fcompp
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38577
+	je	SHORT $L38591
 
 ; 334  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38576
-$L38577:
+	jmp	SHORT $L38590
+$L38591:
 
 ; 336  : 	return FALSE;
 
 	xor	eax, eax
-$L38576:
+$L38590:
 
 ; 337  : }
 
@@ -2473,7 +2473,7 @@ _this$ = -4
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator CBaseEntity *
 	cmp	DWORD PTR _pOther$[ebp], eax
-	jne	SHORT $L38582
+	jne	SHORT $L38596
 
 ; 344  : 		m_flEnemyTouched = gpGlobals->time;
 
@@ -2486,7 +2486,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2448], 1
-$L38582:
+$L38596:
 
 ; 347  : }
 
@@ -2659,19 +2659,19 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShouldToggle@CBaseEntity@@QAEHW4USE_TYPE@@H@Z ; CBaseEntity::ShouldToggle
 	test	eax, eax
-	jne	SHORT $L38590
+	jne	SHORT $L38604
 
 ; 352  : 		return;
 
-	jmp	SHORT $L38589
-$L38590:
+	jmp	SHORT $L38603
+$L38604:
 
 ; 353  : 
 ; 354  : 	if (m_bOnAttack)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2448], 0
-	je	SHORT $L38591
+	je	SHORT $L38605
 
 ; 356  : 		m_bOnAttack = 0;
 
@@ -2680,15 +2680,15 @@ $L38590:
 
 ; 358  : 	else
 
-	jmp	SHORT $L38592
-$L38591:
+	jmp	SHORT $L38606
+$L38605:
 
 ; 360  : 		m_bOnAttack = 1;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2448], 1
-$L38592:
-$L38589:
+$L38606:
+$L38603:
 
 ; 362  : }
 
@@ -2735,34 +2735,34 @@ _this$ = -4
 	fcomp	QWORD PTR __real@8@bffeb333333333333000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38598
+	jne	SHORT $L38612
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2448], 0
-	jne	SHORT $L38599
+	jne	SHORT $L38613
 	fld	DWORD PTR _flDist$[ebp]
 	fcomp	DWORD PTR __real@4@4006c000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38598
+	je	SHORT $L38612
 	mov	ecx, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [ecx+2436]
 	fcomp	DWORD PTR __real@4@4006c000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38598
-$L38599:
+	je	SHORT $L38612
+$L38613:
 
 ; 372  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38597
-$L38598:
+	jmp	SHORT $L38611
+$L38612:
 
 ; 374  : 
 ; 375  : 	return FALSE;
 
 	xor	eax, eax
-$L38597:
+$L38611:
 
 ; 376  : }
 
@@ -2943,21 +2943,21 @@ _TEXT	SEGMENT
 _pEvent$ = 8
 _this$ = -4
 _bDidAttack$ = -8
-_pHurt$38626 = -12
-_vecShootDir$38630 = -24
-_vecAngles$38636 = -36
-_vecSrc$38639 = -48
-$T39678 = -60
-$T39679 = -72
-$T39680 = -84
-$T39681 = -96
-$T39682 = -108
-$T39683 = -120
-$T39684 = -132
-$T39686 = -148
-$T39687 = -160
-$T39689 = -176
-$T39690 = -188
+_pHurt$38640 = -12
+_vecShootDir$38644 = -24
+_vecAngles$38650 = -36
+_vecSrc$38653 = -48
+$T39692 = -60
+$T39693 = -72
+$T39694 = -84
+$T39695 = -96
+$T39696 = -108
+$T39697 = -120
+$T39698 = -132
+$T39700 = -148
+$T39701 = -160
+$T39703 = -176
+$T39704 = -188
 ?HandleAnimEvent@CIchthyosaur@@UAEXPAUMonsterEvent_t@@@Z PROC NEAR ; CIchthyosaur::HandleAnimEvent, COMDAT
 
 ; 416  : {
@@ -2980,11 +2980,11 @@ $T39690 = -188
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR -192+[ebp], ecx
 	cmp	DWORD PTR -192+[ebp], 0
-	jle	$L38637
+	jle	$L38651
 	cmp	DWORD PTR -192+[ebp], 2
-	jle	SHORT $L38624
-	jmp	$L38637
-$L38624:
+	jle	SHORT $L38638
+	jmp	$L38651
+$L38638:
 
 ; 423  : 			if (m_hEnemy != NULL && FVisible( m_hEnemy ))
 
@@ -2992,7 +2992,7 @@ $L38624:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	$L38632
+	je	$L38646
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator CBaseEntity *
@@ -3002,14 +3002,14 @@ $L38624:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+332]
 	test	eax, eax
-	je	$L38632
+	je	$L38646
 
 ; 425  : 				CBaseEntity *pHurt = m_hEnemy;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator CBaseEntity *
-	mov	DWORD PTR _pHurt$38626[ebp], eax
+	mov	DWORD PTR _pHurt$38640[ebp], eax
 
 ; 426  : 
 ; 427  : 				if (m_flEnemyTouched < gpGlobals->time - 0.2 && (m_hEnemy->BodyTarget( GetAbsOrigin() ) - GetAbsOrigin()).Length() > (32+16+32))
@@ -3022,16 +3022,16 @@ $L38624:
 	fcompp
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38629
+	jne	SHORT $L38643
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	eax, DWORD PTR $T39679[ebp]
+	lea	eax, DWORD PTR $T39693[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T39678[ebp]
+	lea	ecx, DWORD PTR $T39692[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
@@ -3048,12 +3048,12 @@ $L38624:
 	fcomp	DWORD PTR __real@4@4005a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38629
+	jne	SHORT $L38643
 
 ; 428  : 					break;
 
-	jmp	$L38621
-$L38629:
+	jmp	$L38635
+$L38643:
 
 ; 429  : 
 ; 430  : 				Vector vecShootDir = ShootAtEnemy( GetAbsOrigin() );
@@ -3061,12 +3061,12 @@ $L38629:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T39680[ebp]
+	lea	ecx, DWORD PTR $T39694[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShootAtEnemy@CBaseMonster@@QAE?AVVector@@ABV2@@Z ; CBaseMonster::ShootAtEnemy
 	push	eax
-	lea	ecx, DWORD PTR _vecShootDir$38630[ebp]
+	lea	ecx, DWORD PTR _vecShootDir$38644[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 431  : 				UTIL_MakeAimVectors ( GetAbsAngles() );
@@ -3083,14 +3083,14 @@ $L38629:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	edx, 40					; 00000028H
 	push	edx
-	lea	eax, DWORD PTR _vecShootDir$38630[ebp]
+	lea	eax, DWORD PTR _vecShootDir$38644[ebp]
 	push	eax
 	call	?DotProduct@@YAMABVVector@@0@Z		; DotProduct
 	add	esp, 8
 	fcomp	QWORD PTR __real@8@3ffeb4fdf3b645a1c800
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	$L38632
+	jne	$L38646
 
 ; 435  : 					m_bOnAttack = TRUE;
 
@@ -3099,50 +3099,50 @@ $L38629:
 
 ; 436  : 					pHurt->pev->punchangle.z = -18;
 
-	mov	edx, DWORD PTR _pHurt$38626[ebp]
+	mov	edx, DWORD PTR _pHurt$38640[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+112], -1047527424	; c1900000H
 
 ; 437  : 					pHurt->pev->punchangle.x = 5;
 
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	DWORD PTR [edx+104], 1084227584		; 40a00000H
 
 ; 438  : 					pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() - gpGlobals->v_right * 300 );
 
 	push	1133903872				; 43960000H
-	lea	eax, DWORD PTR $T39681[ebp]
+	lea	eax, DWORD PTR $T39695[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 64					; 00000040H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T39682[ebp]
+	lea	ecx, DWORD PTR $T39696[ebp]
 	push	ecx
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	mov	ecx, eax
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
 
 ; 439  : 					if (pHurt->IsPlayer())
 
-	mov	edx, DWORD PTR _pHurt$38626[ebp]
+	mov	edx, DWORD PTR _pHurt$38640[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	call	DWORD PTR [eax+224]
 	test	eax, eax
-	je	SHORT $L38635
+	je	SHORT $L38649
 
 ; 441  : 						Vector vecAngles  = pHurt->GetAbsAngles();
 
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	call	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsAngles
 	push	eax
-	lea	ecx, DWORD PTR _vecAngles$38636[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38650[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 442  : 						vecAngles.x += RANDOM_FLOAT( -35, 35 );
@@ -3151,8 +3151,8 @@ $L38629:
 	push	-1039400960				; c20c0000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fadd	DWORD PTR _vecAngles$38636[ebp]
-	fstp	DWORD PTR _vecAngles$38636[ebp]
+	fadd	DWORD PTR _vecAngles$38650[ebp]
+	fstp	DWORD PTR _vecAngles$38650[ebp]
 
 ; 443  : 						vecAngles.y += RANDOM_FLOAT( -90, 90 );
 
@@ -3160,26 +3160,26 @@ $L38629:
 	push	-1028390912				; c2b40000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fadd	DWORD PTR _vecAngles$38636[ebp+4]
-	fstp	DWORD PTR _vecAngles$38636[ebp+4]
+	fadd	DWORD PTR _vecAngles$38650[ebp+4]
+	fstp	DWORD PTR _vecAngles$38650[ebp+4]
 
 ; 444  : 						vecAngles.z = 0;
 
-	mov	DWORD PTR _vecAngles$38636[ebp+8], 0
+	mov	DWORD PTR _vecAngles$38650[ebp+8], 0
 
 ; 445  : 						pHurt->pev->fixangle = TRUE;
 
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	DWORD PTR [edx+160], 1
 
 ; 446  : 						pHurt->SetAbsAngles( vecAngles );
 
-	lea	eax, DWORD PTR _vecAngles$38636[ebp]
+	lea	eax, DWORD PTR _vecAngles$38650[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
-$L38635:
+$L38649:
 
 ; 448  : 					pHurt->TakeDamage( pev, pev, gSkillData.ichthyosaurDmgShake, DMG_SLASH );
 
@@ -3192,11 +3192,11 @@ $L38635:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	push	edx
-	mov	eax, DWORD PTR _pHurt$38626[ebp]
+	mov	eax, DWORD PTR _pHurt$38640[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _pHurt$38626[ebp]
+	mov	ecx, DWORD PTR _pHurt$38640[ebp]
 	call	DWORD PTR [edx+96]
-$L38632:
+$L38646:
 
 ; 451  : 			BiteSound();
 
@@ -3210,8 +3210,8 @@ $L38632:
 
 ; 455  : 		break;
 
-	jmp	SHORT $L38621
-$L38637:
+	jmp	SHORT $L38635
+$L38651:
 
 ; 456  : 	default:
 ; 457  : 		CFlyingMonster::HandleAnimEvent( pEvent );
@@ -3220,31 +3220,31 @@ $L38637:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HandleAnimEvent@CFlyingMonster@@UAEXPAUMonsterEvent_t@@@Z ; CFlyingMonster::HandleAnimEvent
-$L38621:
+$L38635:
 
 ; 460  : 
 ; 461  : 	if (bDidAttack)
 
 	cmp	DWORD PTR _bDidAttack$[ebp], 0
-	je	$L38638
+	je	$L38652
 
 ; 463  : 		Vector vecSrc = GetAbsOrigin() + gpGlobals->v_forward * 32;
 
 	push	1107296256				; 42000000H
-	lea	ecx, DWORD PTR $T39683[ebp]
+	lea	ecx, DWORD PTR $T39697[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	add	ecx, 40					; 00000028H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T39684[ebp]
+	lea	edx, DWORD PTR $T39698[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	ecx, DWORD PTR _vecSrc$38639[ebp]
+	lea	ecx, DWORD PTR _vecSrc$38653[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 464  : 		UTIL_Bubbles( vecSrc - Vector( 8, 8, 8 ), vecSrc + Vector( 8, 8, 8 ), 16 );
@@ -3253,12 +3253,12 @@ $L38621:
 	push	1090519040				; 41000000H
 	push	1090519040				; 41000000H
 	push	1090519040				; 41000000H
-	lea	ecx, DWORD PTR $T39686[ebp]
+	lea	ecx, DWORD PTR $T39700[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T39687[ebp]
+	lea	eax, DWORD PTR $T39701[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _vecSrc$38639[ebp]
+	lea	ecx, DWORD PTR _vecSrc$38653[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -3267,12 +3267,12 @@ $L38621:
 	push	1090519040				; 41000000H
 	push	1090519040				; 41000000H
 	push	1090519040				; 41000000H
-	lea	ecx, DWORD PTR $T39689[ebp]
+	lea	ecx, DWORD PTR $T39703[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T39690[ebp]
+	lea	ecx, DWORD PTR $T39704[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _vecSrc$38639[ebp]
+	lea	ecx, DWORD PTR _vecSrc$38653[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -3280,7 +3280,7 @@ $L38621:
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	call	?UTIL_Bubbles@@YAXVVector@@0H@Z		; UTIL_Bubbles
 	add	esp, 28					; 0000001cH
-$L38638:
+$L38652:
 
 ; 466  : }
 
@@ -3368,7 +3368,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T39701 = -16
+$T39715 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -3398,7 +3398,7 @@ $T39701 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39701[ebp]
+	lea	ecx, DWORD PTR $T39715[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -3417,7 +3417,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T39704 = -16
+$T39718 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -3447,7 +3447,7 @@ $T39704 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39704[ebp]
+	lea	ecx, DWORD PTR $T39718[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -3466,7 +3466,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T39707 = -16
+$T39721 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -3493,7 +3493,7 @@ $T39707 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39707[ebp]
+	lea	ecx, DWORD PTR $T39721[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -3677,11 +3677,11 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _Forward$ = -16
-$T39718 = -28
-$T39719 = -40
-$T39720 = -52
-$T39721 = -64
-$T39722 = -76
+$T39732 = -28
+$T39733 = -40
+$T39734 = -52
+$T39735 = -64
+$T39736 = -76
 ?Spawn@CIchthyosaur@@UAEXXZ PROC NEAR			; CIchthyosaur::Spawn, COMDAT
 
 ; 472  : {
@@ -3707,7 +3707,7 @@ $T39722 = -76
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+184], 0
-	je	SHORT $L38651
+	je	SHORT $L38665
 
 ; 476  : 		SET_MODEL(ENT(pev), STRING(pev->model)); //LRC
 
@@ -3729,8 +3729,8 @@ $T39722 = -76
 
 ; 477  : 	else
 
-	jmp	SHORT $L38652
-$L38651:
+	jmp	SHORT $L38666
+$L38665:
 
 ; 478  : 		SET_MODEL(ENT(pev), "models/icky.mdl");
 
@@ -3743,20 +3743,20 @@ $L38651:
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+8
 	add	esp, 8
-$L38652:
+$L38666:
 
 ; 479  : 	UTIL_SetSize( pev, Vector( -32, -32, -32 ), Vector( 32, 32, 32 ) );
 
 	push	1107296256				; 42000000H
 	push	1107296256				; 42000000H
 	push	1107296256				; 42000000H
-	lea	ecx, DWORD PTR $T39718[ebp]
+	lea	ecx, DWORD PTR $T39732[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	push	-1040187392				; c2000000H
 	push	-1040187392				; c2000000H
 	push	-1040187392				; c2000000H
-	lea	ecx, DWORD PTR $T39719[ebp]
+	lea	ecx, DWORD PTR $T39733[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	eax, DWORD PTR _this$[ebp]
@@ -3791,19 +3791,19 @@ $L38652:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38657
+	je	SHORT $L38671
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR ?gSkillData@@3Uskilldata_t@@A+120
 	mov	DWORD PTR [ecx+352], edx
-$L38657:
+$L38671:
 
 ; 485  : 	pev->view_ofs		= Vector ( 0, 0, 16 );
 
 	push	1098907648				; 41800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T39720[ebp]
+	lea	ecx, DWORD PTR $T39734[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -3918,7 +3918,7 @@ $L38657:
 
 ; 506  : 	SetAbsVelocity( m_flightSpeed * Forward.Normalize() );
 
-	lea	ecx, DWORD PTR $T39721[ebp]
+	lea	ecx, DWORD PTR $T39735[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _Forward$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -3926,7 +3926,7 @@ $L38657:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+2408]
 	push	eax
-	lea	ecx, DWORD PTR $T39722[ebp]
+	lea	ecx, DWORD PTR $T39736[ebp]
 	push	ecx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
@@ -4014,7 +4014,7 @@ _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
 _flLen$ = -8
-$T39731 = -20
+$T39745 = -20
 ?Normalize@Vector@@QBE?AV1@XZ PROC NEAR			; Vector::Normalize, COMDAT
 
 ; 232  : 	{
@@ -4065,7 +4065,7 @@ $T39731 = -20
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39731[ebp]
+	lea	ecx, DWORD PTR $T39745[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4099,7 +4099,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 _v$ = 16
 ___$ReturnUdt$ = 8
-$T39736 = -12
+$T39750 = -12
 ??D@YA?AVVector@@MABV0@@Z PROC NEAR			; operator*, COMDAT
 
 ; 288  : inline Vector operator* ( float fl, const Vector& v ) { return v * fl; }
@@ -4112,7 +4112,7 @@ $T39736 = -12
 	push	edi
 	mov	eax, DWORD PTR _fl$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39736[ebp]
+	lea	ecx, DWORD PTR $T39750[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _v$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -4439,12 +4439,12 @@ PUBLIC	?Precache@CIchthyosaur@@UAEXXZ			; CIchthyosaur::Precache
 ;	COMDAT ?Precache@CIchthyosaur@@UAEXXZ
 _TEXT	SEGMENT
 _this$ = -4
-_i$38676 = -8
-_i$38681 = -12
-_i$38686 = -16
-_i$38691 = -20
-_i$38696 = -24
-_i$38701 = -28
+_i$38690 = -8
+_i$38695 = -12
+_i$38700 = -16
+_i$38705 = -20
+_i$38710 = -24
+_i$38715 = -28
 ?Precache@CIchthyosaur@@UAEXXZ PROC NEAR		; CIchthyosaur::Precache, COMDAT
 
 ; 514  : {
@@ -4462,7 +4462,7 @@ _i$38701 = -28
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+184], 0
-	je	SHORT $L38673
+	je	SHORT $L38687
 
 ; 516  : 		PRECACHE_MODEL((char*)STRING(pev->model)); //LRC
 
@@ -4478,130 +4478,130 @@ _i$38701 = -28
 
 ; 517  : 	else
 
-	jmp	SHORT $L38675
-$L38673:
+	jmp	SHORT $L38689
+$L38687:
 
 ; 518  : 		PRECACHE_MODEL("models/icky.mdl");
 
 	push	OFFSET FLAT:??_C@_0BA@FCNO@models?1icky?4mdl?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A
 	add	esp, 4
-$L38675:
+$L38689:
 
 ; 519  : 
 ; 520  : 	PRECACHE_SOUND_ARRAY( pIdleSounds );
 
-	mov	DWORD PTR _i$38676[ebp], 0
-	jmp	SHORT $L38677
-$L38678:
-	mov	edx, DWORD PTR _i$38676[ebp]
+	mov	DWORD PTR _i$38690[ebp], 0
+	jmp	SHORT $L38691
+$L38692:
+	mov	edx, DWORD PTR _i$38690[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38676[ebp], edx
-$L38677:
-	cmp	DWORD PTR _i$38676[ebp], 4
-	jae	SHORT $L38679
-	mov	eax, DWORD PTR _i$38676[ebp]
+	mov	DWORD PTR _i$38690[ebp], edx
+$L38691:
+	cmp	DWORD PTR _i$38690[ebp], 4
+	jae	SHORT $L38693
+	mov	eax, DWORD PTR _i$38690[ebp]
 	mov	ecx, DWORD PTR ?pIdleSounds@CIchthyosaur@@2PAPBDA[eax*4]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-	jmp	SHORT $L38678
-$L38679:
+	jmp	SHORT $L38692
+$L38693:
 
 ; 521  : 	PRECACHE_SOUND_ARRAY( pAlertSounds );
 
-	mov	DWORD PTR _i$38681[ebp], 0
-	jmp	SHORT $L38682
-$L38683:
-	mov	edx, DWORD PTR _i$38681[ebp]
+	mov	DWORD PTR _i$38695[ebp], 0
+	jmp	SHORT $L38696
+$L38697:
+	mov	edx, DWORD PTR _i$38695[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38681[ebp], edx
-$L38682:
-	cmp	DWORD PTR _i$38681[ebp], 2
-	jae	SHORT $L38684
-	mov	eax, DWORD PTR _i$38681[ebp]
+	mov	DWORD PTR _i$38695[ebp], edx
+$L38696:
+	cmp	DWORD PTR _i$38695[ebp], 2
+	jae	SHORT $L38698
+	mov	eax, DWORD PTR _i$38695[ebp]
 	mov	ecx, DWORD PTR ?pAlertSounds@CIchthyosaur@@2PAPBDA[eax*4]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-	jmp	SHORT $L38683
-$L38684:
+	jmp	SHORT $L38697
+$L38698:
 
 ; 522  : 	PRECACHE_SOUND_ARRAY( pAttackSounds );
 
-	mov	DWORD PTR _i$38686[ebp], 0
-	jmp	SHORT $L38687
-$L38688:
-	mov	edx, DWORD PTR _i$38686[ebp]
+	mov	DWORD PTR _i$38700[ebp], 0
+	jmp	SHORT $L38701
+$L38702:
+	mov	edx, DWORD PTR _i$38700[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38686[ebp], edx
-$L38687:
-	cmp	DWORD PTR _i$38686[ebp], 2
-	jae	SHORT $L38689
-	mov	eax, DWORD PTR _i$38686[ebp]
+	mov	DWORD PTR _i$38700[ebp], edx
+$L38701:
+	cmp	DWORD PTR _i$38700[ebp], 2
+	jae	SHORT $L38703
+	mov	eax, DWORD PTR _i$38700[ebp]
 	mov	ecx, DWORD PTR ?pAttackSounds@CIchthyosaur@@2PAPBDA[eax*4]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-	jmp	SHORT $L38688
-$L38689:
+	jmp	SHORT $L38702
+$L38703:
 
 ; 523  : 	PRECACHE_SOUND_ARRAY( pBiteSounds );
 
-	mov	DWORD PTR _i$38691[ebp], 0
-	jmp	SHORT $L38692
-$L38693:
-	mov	edx, DWORD PTR _i$38691[ebp]
+	mov	DWORD PTR _i$38705[ebp], 0
+	jmp	SHORT $L38706
+$L38707:
+	mov	edx, DWORD PTR _i$38705[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38691[ebp], edx
-$L38692:
-	cmp	DWORD PTR _i$38691[ebp], 2
-	jae	SHORT $L38694
-	mov	eax, DWORD PTR _i$38691[ebp]
+	mov	DWORD PTR _i$38705[ebp], edx
+$L38706:
+	cmp	DWORD PTR _i$38705[ebp], 2
+	jae	SHORT $L38708
+	mov	eax, DWORD PTR _i$38705[ebp]
 	mov	ecx, DWORD PTR ?pBiteSounds@CIchthyosaur@@2PAPBDA[eax*4]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-	jmp	SHORT $L38693
-$L38694:
+	jmp	SHORT $L38707
+$L38708:
 
 ; 524  : 	PRECACHE_SOUND_ARRAY( pDieSounds );
 
-	mov	DWORD PTR _i$38696[ebp], 0
-	jmp	SHORT $L38697
-$L38698:
-	mov	edx, DWORD PTR _i$38696[ebp]
+	mov	DWORD PTR _i$38710[ebp], 0
+	jmp	SHORT $L38711
+$L38712:
+	mov	edx, DWORD PTR _i$38710[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38696[ebp], edx
-$L38697:
-	cmp	DWORD PTR _i$38696[ebp], 2
-	jae	SHORT $L38699
-	mov	eax, DWORD PTR _i$38696[ebp]
+	mov	DWORD PTR _i$38710[ebp], edx
+$L38711:
+	cmp	DWORD PTR _i$38710[ebp], 2
+	jae	SHORT $L38713
+	mov	eax, DWORD PTR _i$38710[ebp]
 	mov	ecx, DWORD PTR ?pDieSounds@CIchthyosaur@@2PAPBDA[eax*4]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-	jmp	SHORT $L38698
-$L38699:
+	jmp	SHORT $L38712
+$L38713:
 
 ; 525  : 	PRECACHE_SOUND_ARRAY( pPainSounds );
 
-	mov	DWORD PTR _i$38701[ebp], 0
-	jmp	SHORT $L38702
-$L38703:
-	mov	edx, DWORD PTR _i$38701[ebp]
+	mov	DWORD PTR _i$38715[ebp], 0
+	jmp	SHORT $L38716
+$L38717:
+	mov	edx, DWORD PTR _i$38715[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38701[ebp], edx
-$L38702:
-	cmp	DWORD PTR _i$38701[ebp], 3
-	jae	SHORT $L38704
-	mov	eax, DWORD PTR _i$38701[ebp]
+	mov	DWORD PTR _i$38715[ebp], edx
+$L38716:
+	cmp	DWORD PTR _i$38715[ebp], 3
+	jae	SHORT $L38718
+	mov	eax, DWORD PTR _i$38715[ebp]
 	mov	ecx, DWORD PTR ?pPainSounds@CIchthyosaur@@2PAPBDA[eax*4]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-	jmp	SHORT $L38703
-$L38704:
+	jmp	SHORT $L38717
+$L38718:
 
 ; 526  : }
 
@@ -4643,13 +4643,13 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+2080]
 	mov	DWORD PTR -8+[ebp], ecx
 	cmp	DWORD PTR -8+[ebp], 1
-	je	SHORT $L38713
+	je	SHORT $L38727
 	cmp	DWORD PTR -8+[ebp], 2
-	je	SHORT $L38715
+	je	SHORT $L38729
 	cmp	DWORD PTR -8+[ebp], 3
-	je	SHORT $L38714
-	jmp	$L38710
-$L38713:
+	je	SHORT $L38728
+	jmp	$L38724
+$L38727:
 
 ; 536  : 	case MONSTERSTATE_IDLE:
 ; 537  : 		m_flightSpeed = 80;
@@ -4664,8 +4664,8 @@ $L38713:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L38708
-$L38714:
+	jmp	$L38722
+$L38728:
 
 ; 539  : 
 ; 540  : 	case MONSTERSTATE_ALERT:
@@ -4681,8 +4681,8 @@ $L38714:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L38708
-$L38715:
+	jmp	$L38722
+$L38729:
 
 ; 543  : 
 ; 544  : 	case MONSTERSTATE_COMBAT:
@@ -4698,7 +4698,7 @@ $L38715:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L38716
+	je	SHORT $L38730
 
 ; 549  : 			return GetScheduleOfType( SCHED_MELEE_ATTACK1 );
 
@@ -4707,8 +4707,8 @@ $L38715:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	$L38708
-$L38716:
+	jmp	$L38722
+$L38730:
 
 ; 551  : 		// chase them down and eat them
 ; 552  : 		if ( HasConditions( bits_COND_CAN_RANGE_ATTACK1 ) )
@@ -4717,7 +4717,7 @@ $L38716:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L38717
+	je	SHORT $L38731
 
 ; 554  : 			return GetScheduleOfType( SCHED_CHASE_ENEMY );
 
@@ -4726,8 +4726,8 @@ $L38716:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	SHORT $L38708
-$L38717:
+	jmp	SHORT $L38722
+$L38731:
 
 ; 556  : 		if ( HasConditions( bits_COND_HEAVY_DAMAGE ) )
 
@@ -4735,13 +4735,13 @@ $L38717:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	SHORT $L38718
+	je	SHORT $L38732
 
 ; 558  : 			m_bOnAttack = TRUE;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2448], 1
-$L38718:
+$L38732:
 
 ; 560  : 		if ( pev->health < pev->max_health - 20 )
 
@@ -4754,13 +4754,13 @@ $L38718:
 	fcomp	DWORD PTR [edx+352]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38719
+	jne	SHORT $L38733
 
 ; 562  : 			m_bOnAttack = TRUE;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2448], 1
-$L38719:
+$L38733:
 
 ; 564  : 
 ; 565  : 		return GetScheduleOfType( SCHED_STANDOFF );
@@ -4770,15 +4770,15 @@ $L38719:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+448]
-	jmp	SHORT $L38708
-$L38710:
+	jmp	SHORT $L38722
+$L38724:
 
 ; 567  : 
 ; 568  : 	return CFlyingMonster :: GetSchedule();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetSchedule@CBaseMonster@@UAEPAUSchedule_t@@XZ ; CBaseMonster::GetSchedule
-$L38708:
+$L38722:
 
 ; 569  : }
 
@@ -4809,12 +4809,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+1956]
 	and	ecx, DWORD PTR _iConditions$[ebp]
 	test	ecx, ecx
-	je	SHORT $L36111
+	je	SHORT $L36119
 	mov	eax, 1
-	jmp	SHORT $L36110
-$L36111:
+	jmp	SHORT $L36118
+$L36119:
 	xor	eax, eax
-$L36110:
+$L36118:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -4849,47 +4849,47 @@ _this$ = -4
 	sub	ecx, 2
 	mov	DWORD PTR -8+[ebp], ecx
 	cmp	DWORD PTR -8+[ebp], 39			; 00000027H
-	ja	SHORT $L38725
+	ja	SHORT $L38739
 	mov	eax, DWORD PTR -8+[ebp]
 	xor	edx, edx
-	mov	dl, BYTE PTR $L39763[eax]
-	jmp	DWORD PTR $L39764[edx*4]
-$L38728:
+	mov	dl, BYTE PTR $L39777[eax]
+	jmp	DWORD PTR $L39778[edx*4]
+$L38742:
 
 ; 579  : 	case SCHED_IDLE_WALK:
 ; 580  : 		return slSwimAround;
 
 	mov	eax, OFFSET FLAT:_slSwimAround
-	jmp	SHORT $L38723
-$L38729:
+	jmp	SHORT $L38737
+$L38743:
 
 ; 581  : 	case SCHED_STANDOFF:
 ; 582  : 		return slCircleEnemy;
 
 	mov	eax, OFFSET FLAT:_slCircleEnemy
-	jmp	SHORT $L38723
-$L38730:
+	jmp	SHORT $L38737
+$L38744:
 
 ; 583  : 	case SCHED_FAIL:
 ; 584  : 		return slSwimAgitated;
 
 	mov	eax, OFFSET FLAT:_slSwimAgitated
-	jmp	SHORT $L38723
-$L38731:
+	jmp	SHORT $L38737
+$L38745:
 
 ; 585  : 	case SCHED_DIE:
 ; 586  : 		return slTwitchDie;
 
 	mov	eax, OFFSET FLAT:?slTwitchDie@@3PAUSchedule_t@@A ; slTwitchDie
-	jmp	SHORT $L38723
-$L38732:
+	jmp	SHORT $L38737
+$L38746:
 
 ; 587  : 	case SCHED_CHASE_ENEMY:
 ; 588  : 		AttackSound( );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AttackSound@CIchthyosaur@@QAEXXZ	; CIchthyosaur::AttackSound
-$L38725:
+$L38739:
 
 ; 590  : 
 ; 591  : 	return CBaseMonster :: GetScheduleOfType( Type );
@@ -4898,7 +4898,7 @@ $L38725:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetScheduleOfType@CBaseMonster@@UAEPAUSchedule_t@@H@Z ; CBaseMonster::GetScheduleOfType
-$L38723:
+$L38737:
 
 ; 592  : }
 
@@ -4908,14 +4908,14 @@ $L38723:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L39764:
-	DD	$L38728
-	DD	$L38732
-	DD	$L38729
-	DD	$L38731
-	DD	$L38730
-	DD	$L38725
-$L39763:
+$L39778:
+	DD	$L38742
+	DD	$L38746
+	DD	$L38743
+	DD	$L38745
+	DD	$L38744
+	DD	$L38739
+$L39777:
 	DB	0
 	DB	5
 	DB	5
@@ -4997,24 +4997,24 @@ _this$ = -4
 	sub	edx, 27					; 0000001bH
 	mov	DWORD PTR -8+[ebp], edx
 	cmp	DWORD PTR -8+[ebp], 66			; 00000042H
-	ja	$L38748
+	ja	$L38762
 	mov	ecx, DWORD PTR -8+[ebp]
 	xor	eax, eax
-	mov	al, BYTE PTR $L39769[ecx]
-	jmp	DWORD PTR $L39770[eax*4]
-$L38741:
+	mov	al, BYTE PTR $L39783[ecx]
+	jmp	DWORD PTR $L39784[eax*4]
+$L38755:
 
 ; 605  : 	case TASK_ICHTHYOSAUR_CIRCLE_ENEMY:
 ; 606  : 		break;
 
-	jmp	SHORT $L38738
-$L38742:
+	jmp	SHORT $L38752
+$L38756:
 
 ; 607  : 	case TASK_ICHTHYOSAUR_SWIM:
 ; 608  : 		break;
 
-	jmp	SHORT $L38738
-$L38743:
+	jmp	SHORT $L38752
+$L38757:
 
 ; 609  : 	case TASK_SMALL_FLINCH:
 ; 610  : 		if (m_idealDist > 128)
@@ -5024,7 +5024,7 @@ $L38743:
 	fcomp	DWORD PTR __real@4@40068000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38744
+	jne	SHORT $L38758
 
 ; 612  : 			m_flMaxDist = 512;
 
@@ -5038,14 +5038,14 @@ $L38743:
 
 ; 615  : 		else
 
-	jmp	SHORT $L38745
-$L38744:
+	jmp	SHORT $L38759
+$L38758:
 
 ; 617  : 			m_bOnAttack = TRUE;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+2448], 1
-$L38745:
+$L38759:
 
 ; 619  : 		CFlyingMonster::StartTask(pTask);
 
@@ -5056,8 +5056,8 @@ $L38745:
 
 ; 620  : 		break;
 
-	jmp	SHORT $L38738
-$L38746:
+	jmp	SHORT $L38752
+$L38760:
 
 ; 621  : 
 ; 622  : 	case TASK_ICHTHYOSAUR_FLOAT:
@@ -5075,8 +5075,8 @@ $L38746:
 
 ; 625  : 		break;
 
-	jmp	SHORT $L38738
-$L38748:
+	jmp	SHORT $L38752
+$L38762:
 
 ; 626  : 
 ; 627  : 	default:
@@ -5086,7 +5086,7 @@ $L38748:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?StartTask@CBaseMonster@@UAEXPAUTask_t@@@Z ; CBaseMonster::StartTask
-$L38738:
+$L38752:
 
 ; 631  : }
 
@@ -5096,13 +5096,13 @@ $L38738:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L39770:
-	DD	$L38743
-	DD	$L38741
-	DD	$L38742
-	DD	$L38746
-	DD	$L38748
-$L39769:
+$L39784:
+	DD	$L38757
+	DD	$L38755
+	DD	$L38756
+	DD	$L38760
+	DD	$L38762
+$L39783:
 	DB	0
 	DB	4
 	DB	4
@@ -5208,33 +5208,33 @@ __real@4@40028000000000000000 DD 041000000r	; 8
 CONST	ENDS
 ;	COMDAT ?RunTask@CIchthyosaur@@UAEXPAUTask_t@@@Z
 _TEXT	SEGMENT
-$T39773 = -144
+$T39787 = -144
 _pTask$ = 8
-$T39774 = -156
-$T39775 = -168
+$T39788 = -156
+$T39789 = -168
 _this$ = -4
-$T39776 = -180
-$T39777 = -192
-$T39778 = -204
-$T39779 = -216
-$T39780 = -228
-$T39781 = -240
-$T39782 = -252
-$T39783 = -264
-$T39784 = -276
-$T39785 = -288
-_vecFrom$38761 = -16
-$T39786 = -300
-$T39787 = -312
-_vecDelta$38763 = -28
-$T39788 = -324
-$T39789 = -336
-$T39790 = -348
-_vecSwim$38766 = -40
-_vecPos$38772 = -52
-_tr$38777 = -108
-_vecAngles$38801 = -120
-_vecVelocity$38803 = -132
+$T39790 = -180
+$T39791 = -192
+$T39792 = -204
+$T39793 = -216
+$T39794 = -228
+$T39795 = -240
+$T39796 = -252
+$T39797 = -264
+$T39798 = -276
+$T39799 = -288
+_vecFrom$38775 = -16
+$T39800 = -300
+$T39801 = -312
+_vecDelta$38777 = -28
+$T39802 = -324
+$T39803 = -336
+$T39804 = -348
+_vecSwim$38780 = -40
+_vecPos$38786 = -52
+_tr$38791 = -108
+_vecAngles$38815 = -120
+_vecVelocity$38817 = -132
 ?RunTask@CIchthyosaur@@UAEXPAUTask_t@@@Z PROC NEAR	; CIchthyosaur::RunTask, COMDAT
 
 ; 634  : {
@@ -5256,12 +5256,12 @@ _vecVelocity$38803 = -132
 	sub	edx, 76					; 0000004cH
 	mov	DWORD PTR -352+[ebp], edx
 	cmp	DWORD PTR -352+[ebp], 17		; 00000011H
-	ja	$L38806
+	ja	$L38820
 	mov	ecx, DWORD PTR -352+[ebp]
 	xor	eax, eax
-	mov	al, BYTE PTR $L39801[ecx]
-	jmp	DWORD PTR $L39802[eax*4]
-$L38757:
+	mov	al, BYTE PTR $L39815[ecx]
+	jmp	DWORD PTR $L39816[eax*4]
+$L38771:
 
 ; 637  : 	case TASK_ICHTHYOSAUR_CIRCLE_ENEMY:
 ; 638  : 		if (m_hEnemy == NULL)
@@ -5270,7 +5270,7 @@ $L38757:
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	jne	SHORT $L38758
+	jne	SHORT $L38772
 
 ; 640  : 			TaskComplete( );
 
@@ -5279,8 +5279,8 @@ $L38757:
 
 ; 642  : 		else if (FVisible( m_hEnemy ))
 
-	jmp	$L38794
-$L38758:
+	jmp	$L38808
+$L38772:
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator CBaseEntity *
@@ -5290,11 +5290,11 @@ $L38758:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+332]
 	test	eax, eax
-	je	$L38760
+	je	$L38774
 
 ; 644  : 			Vector vecFrom = m_hEnemy->EyePosition( );
 
-	lea	ecx, DWORD PTR $T39773[ebp]
+	lea	ecx, DWORD PTR $T39787[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
@@ -5305,17 +5305,17 @@ $L38758:
 	mov	ecx, DWORD PTR -356+[ebp]
 	call	DWORD PTR [eax+308]
 	push	eax
-	lea	ecx, DWORD PTR _vecFrom$38761[ebp]
+	lea	ecx, DWORD PTR _vecFrom$38775[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 645  : 
 ; 646  : 			Vector vecDelta = (GetAbsOrigin() - vecFrom).Normalize( );
 
-	lea	ecx, DWORD PTR $T39775[ebp]
+	lea	ecx, DWORD PTR $T39789[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _vecFrom$38761[ebp]
+	lea	edx, DWORD PTR _vecFrom$38775[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T39774[ebp]
+	lea	eax, DWORD PTR $T39788[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -5324,29 +5324,29 @@ $L38758:
 	mov	ecx, eax
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
 	push	eax
-	lea	ecx, DWORD PTR _vecDelta$38763[ebp]
+	lea	ecx, DWORD PTR _vecDelta$38777[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 647  : 			Vector vecSwim = CrossProduct( vecDelta, Vector( 0, 0, 1 ) ).Normalize( );
 
-	lea	ecx, DWORD PTR $T39778[ebp]
+	lea	ecx, DWORD PTR $T39792[ebp]
 	push	ecx
 	push	1065353216				; 3f800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T39776[ebp]
+	lea	ecx, DWORD PTR $T39790[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	edx, DWORD PTR _vecDelta$38763[ebp]
+	lea	edx, DWORD PTR _vecDelta$38777[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T39777[ebp]
+	lea	eax, DWORD PTR $T39791[ebp]
 	push	eax
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
 	mov	ecx, eax
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
 	push	eax
-	lea	ecx, DWORD PTR _vecSwim$38766[ebp]
+	lea	ecx, DWORD PTR _vecSwim$38780[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 648  : 			
@@ -5355,57 +5355,57 @@ $L38758:
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
 	push	ecx
-	lea	edx, DWORD PTR _vecSwim$38766[ebp]
+	lea	edx, DWORD PTR _vecSwim$38780[ebp]
 	push	edx
 	call	?DotProduct@@YAMABVVector@@0@Z		; DotProduct
 	add	esp, 8
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38770
+	je	SHORT $L38784
 
 ; 650  : 				vecSwim = vecSwim * -1.0;
 
 	push	-1082130432				; bf800000H
-	lea	eax, DWORD PTR $T39779[ebp]
+	lea	eax, DWORD PTR $T39793[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _vecSwim$38766[ebp]
+	lea	ecx, DWORD PTR _vecSwim$38780[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _vecSwim$38766[ebp], ecx
+	mov	DWORD PTR _vecSwim$38780[ebp], ecx
 	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR _vecSwim$38766[ebp+4], edx
+	mov	DWORD PTR _vecSwim$38780[ebp+4], edx
 	mov	eax, DWORD PTR [eax+8]
-	mov	DWORD PTR _vecSwim$38766[ebp+8], eax
-$L38770:
+	mov	DWORD PTR _vecSwim$38780[ebp+8], eax
+$L38784:
 
 ; 651  : 
 ; 652  : 			Vector vecPos = vecFrom + vecDelta * m_idealDist + vecSwim * 32;
 
 	push	1107296256				; 42000000H
-	lea	ecx, DWORD PTR $T39782[ebp]
+	lea	ecx, DWORD PTR $T39796[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _vecSwim$38766[ebp]
+	lea	ecx, DWORD PTR _vecSwim$38780[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T39783[ebp]
+	lea	edx, DWORD PTR $T39797[ebp]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+2436]
 	push	ecx
-	lea	edx, DWORD PTR $T39780[ebp]
+	lea	edx, DWORD PTR $T39794[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _vecDelta$38763[ebp]
+	lea	ecx, DWORD PTR _vecDelta$38777[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T39781[ebp]
+	lea	eax, DWORD PTR $T39795[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _vecFrom$38761[ebp]
+	lea	ecx, DWORD PTR _vecFrom$38775[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	ecx, DWORD PTR _vecPos$38772[ebp]
+	lea	ecx, DWORD PTR _vecPos$38786[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 653  : 
@@ -5413,13 +5413,13 @@ $L38770:
 ; 655  : 
 ; 656  : 			TraceResult tr;
 
-	lea	ecx, DWORD PTR _tr$38777[ebp]
+	lea	ecx, DWORD PTR _tr$38791[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 657  : 		
 ; 658  : 			UTIL_TraceHull( vecFrom, vecPos, ignore_monsters, large_hull, m_hEnemy->edict(), &tr );
 
-	lea	ecx, DWORD PTR _tr$38777[ebp]
+	lea	ecx, DWORD PTR _tr$38791[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
@@ -5429,9 +5429,9 @@ $L38770:
 	push	eax
 	push	2
 	push	1
-	lea	edx, DWORD PTR _vecPos$38772[ebp]
+	lea	edx, DWORD PTR _vecPos$38786[ebp]
 	push	edx
-	lea	eax, DWORD PTR _vecFrom$38761[ebp]
+	lea	eax, DWORD PTR _vecFrom$38775[ebp]
 	push	eax
 	call	?UTIL_TraceHull@@YAXABVVector@@0W4IGNORE_MONSTERS@@HPAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceHull
 	add	esp, 24					; 00000018H
@@ -5439,21 +5439,21 @@ $L38770:
 ; 659  : 
 ; 660  : 			if (tr.flFraction > 0.5)
 
-	fld	DWORD PTR _tr$38777[ebp+16]
+	fld	DWORD PTR _tr$38791[ebp+16]
 	fcomp	QWORD PTR __real@8@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38778
+	jne	SHORT $L38792
 
 ; 661  : 				vecPos = tr.vecEndPos;
 
-	mov	ecx, DWORD PTR _tr$38777[ebp+20]
-	mov	DWORD PTR _vecPos$38772[ebp], ecx
-	mov	edx, DWORD PTR _tr$38777[ebp+24]
-	mov	DWORD PTR _vecPos$38772[ebp+4], edx
-	mov	eax, DWORD PTR _tr$38777[ebp+28]
-	mov	DWORD PTR _vecPos$38772[ebp+8], eax
-$L38778:
+	mov	ecx, DWORD PTR _tr$38791[ebp+20]
+	mov	DWORD PTR _vecPos$38786[ebp], ecx
+	mov	edx, DWORD PTR _tr$38791[ebp+24]
+	mov	DWORD PTR _vecPos$38786[ebp+4], edx
+	mov	eax, DWORD PTR _tr$38791[ebp+28]
+	mov	DWORD PTR _vecPos$38786[ebp+8], eax
+$L38792:
 
 ; 662  : 
 ; 663  : 			m_SaveVelocity = m_SaveVelocity * 0.8 + 0.2 * (vecPos - GetAbsOrigin()).Normalize() * m_flightSpeed;
@@ -5461,32 +5461,32 @@ $L38778:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2408]
 	push	edx
-	lea	eax, DWORD PTR $T39788[ebp]
+	lea	eax, DWORD PTR $T39802[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39786[ebp]
+	lea	ecx, DWORD PTR $T39800[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	edx, DWORD PTR $T39785[ebp]
+	lea	edx, DWORD PTR $T39799[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _vecPos$38772[ebp]
+	lea	ecx, DWORD PTR _vecPos$38786[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	mov	ecx, eax
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
 	push	eax
 	push	1045220557				; 3e4ccccdH
-	lea	eax, DWORD PTR $T39787[ebp]
+	lea	eax, DWORD PTR $T39801[ebp]
 	push	eax
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T39789[ebp]
+	lea	ecx, DWORD PTR $T39803[ebp]
 	push	ecx
 	push	1061997773				; 3f4ccccdH
-	lea	edx, DWORD PTR $T39784[ebp]
+	lea	edx, DWORD PTR $T39798[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
@@ -5511,7 +5511,7 @@ $L38778:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	je	$L38785
+	je	$L38799
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -5523,7 +5523,7 @@ $L38778:
 	mov	ecx, DWORD PTR -360+[ebp]
 	call	DWORD PTR [eax+332]
 	test	eax, eax
-	je	$L38785
+	je	$L38799
 
 ; 669  : 				m_flNextAlert -= 0.1;
 
@@ -5542,7 +5542,7 @@ $L38778:
 	fcomp	DWORD PTR [ecx+2460]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38786
+	je	SHORT $L38800
 
 ; 673  : 					m_idealDist += 4;
 
@@ -5551,7 +5551,7 @@ $L38778:
 	fadd	DWORD PTR __real@4@40018000000000000000
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+2436]
-$L38786:
+$L38800:
 
 ; 675  : 				if (m_flightSpeed > m_flMinSpeed)
 
@@ -5561,7 +5561,7 @@ $L38786:
 	fcomp	DWORD PTR [edx+2456]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38787
+	jne	SHORT $L38801
 
 ; 677  : 					m_flightSpeed -= 2;
 
@@ -5573,15 +5573,15 @@ $L38786:
 
 ; 679  : 				else if (m_flightSpeed < m_flMinSpeed)
 
-	jmp	SHORT $L38789
-$L38787:
+	jmp	SHORT $L38803
+$L38801:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [edx+2408]
 	fcomp	DWORD PTR [eax+2456]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38789
+	je	SHORT $L38803
 
 ; 681  : 					m_flightSpeed += 2;
 
@@ -5590,7 +5590,7 @@ $L38787:
 	fadd	DWORD PTR __real@4@40008000000000000000
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2408]
-$L38789:
+$L38803:
 
 ; 683  : 				if (m_flMinSpeed < m_flMaxSpeed)
 
@@ -5600,7 +5600,7 @@ $L38789:
 	fcomp	DWORD PTR [ecx+2452]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38790
+	je	SHORT $L38804
 
 ; 685  : 					m_flMinSpeed += 0.5;
 
@@ -5609,12 +5609,12 @@ $L38789:
 	fadd	QWORD PTR __real@8@3ffe8000000000000000
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+2456]
-$L38790:
+$L38804:
 
 ; 688  : 			else 
 
-	jmp	SHORT $L38793
-$L38785:
+	jmp	SHORT $L38807
+$L38799:
 
 ; 690  : 				m_flNextAlert += 0.1;
 
@@ -5632,7 +5632,7 @@ $L38785:
 	fcomp	DWORD PTR __real@4@40068000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38792
+	jne	SHORT $L38806
 
 ; 694  : 					m_idealDist -= 4;
 
@@ -5641,7 +5641,7 @@ $L38785:
 	fsub	DWORD PTR __real@4@40018000000000000000
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2436]
-$L38792:
+$L38806:
 
 ; 696  : 				if (m_flightSpeed < m_flMaxSpeed)
 
@@ -5651,7 +5651,7 @@ $L38792:
 	fcomp	DWORD PTR [ecx+2452]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38793
+	je	SHORT $L38807
 
 ; 698  : 					m_flightSpeed += 4;
 
@@ -5660,12 +5660,12 @@ $L38792:
 	fadd	DWORD PTR __real@4@40018000000000000000
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [eax+2408]
-$L38793:
+$L38807:
 
 ; 703  : 		else
 
-	jmp	SHORT $L38794
-$L38760:
+	jmp	SHORT $L38808
+$L38774:
 
 ; 705  : 			m_flNextAlert = gpGlobals->time + 0.2;
 
@@ -5674,7 +5674,7 @@ $L38760:
 	fadd	QWORD PTR __real@8@3ffcccccccccccccd000
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2468]
-$L38794:
+$L38808:
 
 ; 707  : 
 ; 708  : 		if (m_flNextAlert < gpGlobals->time)
@@ -5685,7 +5685,7 @@ $L38794:
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38795
+	je	SHORT $L38809
 
 ; 710  : 			// ALERT( at_console, "AlertSound()\n");
 ; 711  : 			AlertSound( );
@@ -5705,38 +5705,38 @@ $L38794:
 	fadd	DWORD PTR [ecx]
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [edx+2468]
-$L38795:
+$L38809:
 
 ; 714  : 
 ; 715  : 		break;
 
-	jmp	$L38754
-$L38796:
+	jmp	$L38768
+$L38810:
 
 ; 716  : 	case TASK_ICHTHYOSAUR_SWIM:
 ; 717  : 		if (m_fSequenceFinished)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1804], 0
-	je	SHORT $L38797
+	je	SHORT $L38811
 
 ; 719  : 			TaskComplete( );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TaskComplete@CBaseMonster@@QAEXXZ	; CBaseMonster::TaskComplete
-$L38797:
+$L38811:
 
 ; 721  : 		break;
 
-	jmp	$L38754
-$L38798:
+	jmp	$L38768
+$L38812:
 
 ; 722  : 	case TASK_DIE:
 ; 723  : 		if ( m_fSequenceFinished )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1804], 0
-	je	SHORT $L38799
+	je	SHORT $L38813
 
 ; 725  : 			pev->deadflag = DEAD_DEAD;
 
@@ -5749,34 +5749,34 @@ $L38798:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TaskComplete@CBaseMonster@@QAEXXZ	; CBaseMonster::TaskComplete
-$L38799:
+$L38813:
 
 ; 729  : 		break;
 
-	jmp	$L38754
-$L38800:
+	jmp	$L38768
+$L38814:
 
 ; 733  : 		Vector vecAngles = GetAbsAngles();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsAngles
 	push	eax
-	lea	ecx, DWORD PTR _vecAngles$38801[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38815[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 734  : 		vecAngles.x = UTIL_ApproachAngle( 0, vecAngles.x, 20 );
 
 	push	1101004800				; 41a00000H
-	mov	ecx, DWORD PTR _vecAngles$38801[ebp]
+	mov	ecx, DWORD PTR _vecAngles$38815[ebp]
 	push	ecx
 	push	0
 	call	?UTIL_ApproachAngle@@YAMMMM@Z		; UTIL_ApproachAngle
 	add	esp, 12					; 0000000cH
-	fstp	DWORD PTR _vecAngles$38801[ebp]
+	fstp	DWORD PTR _vecAngles$38815[ebp]
 
 ; 735  : 		SetAbsAngles( vecAngles );
 
-	lea	edx, DWORD PTR _vecAngles$38801[ebp]
+	lea	edx, DWORD PTR _vecAngles$38815[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
@@ -5784,7 +5784,7 @@ $L38800:
 ; 736  : 		SetAbsVelocity( GetAbsVelocity() * 0.8 );
 
 	push	1061997773				; 3f4ccccdH
-	lea	eax, DWORD PTR $T39790[ebp]
+	lea	eax, DWORD PTR $T39804[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
@@ -5799,7 +5799,7 @@ $L38800:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsVelocity
 	push	eax
-	lea	ecx, DWORD PTR _vecVelocity$38803[ebp]
+	lea	ecx, DWORD PTR _vecVelocity$38817[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 738  : 		if (pev->waterlevel > 1 && vecVelocity.z < 64)
@@ -5807,42 +5807,42 @@ $L38800:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+448], 1
-	jle	SHORT $L38804
-	fld	DWORD PTR _vecVelocity$38803[ebp+8]
+	jle	SHORT $L38818
+	fld	DWORD PTR _vecVelocity$38817[ebp+8]
 	fcomp	DWORD PTR __real@4@40058000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38804
+	je	SHORT $L38818
 
 ; 740  : 			vecVelocity.z += 8;
 
-	fld	DWORD PTR _vecVelocity$38803[ebp+8]
+	fld	DWORD PTR _vecVelocity$38817[ebp+8]
 	fadd	DWORD PTR __real@4@40028000000000000000
-	fstp	DWORD PTR _vecVelocity$38803[ebp+8]
+	fstp	DWORD PTR _vecVelocity$38817[ebp+8]
 
 ; 742  : 		else 
 
-	jmp	SHORT $L38805
-$L38804:
+	jmp	SHORT $L38819
+$L38818:
 
 ; 744  : 			vecVelocity.z -= 8;
 
-	fld	DWORD PTR _vecVelocity$38803[ebp+8]
+	fld	DWORD PTR _vecVelocity$38817[ebp+8]
 	fsub	DWORD PTR __real@4@40028000000000000000
-	fstp	DWORD PTR _vecVelocity$38803[ebp+8]
-$L38805:
+	fstp	DWORD PTR _vecVelocity$38817[ebp+8]
+$L38819:
 
 ; 746  : 		SetAbsVelocity( vecVelocity );
 
-	lea	eax, DWORD PTR _vecVelocity$38803[ebp]
+	lea	eax, DWORD PTR _vecVelocity$38817[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
 
 ; 749  : 		break;
 
-	jmp	SHORT $L38754
-$L38806:
+	jmp	SHORT $L38768
+$L38820:
 
 ; 750  : 
 ; 751  : 	default: 
@@ -5852,7 +5852,7 @@ $L38806:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RunTask@CBaseMonster@@UAEXPAUTask_t@@@Z ; CBaseMonster::RunTask
-$L38754:
+$L38768:
 
 ; 755  : }
 
@@ -5862,13 +5862,13 @@ $L38754:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L39802:
-	DD	$L38798
-	DD	$L38757
-	DD	$L38796
-	DD	$L38800
-	DD	$L38806
-$L39801:
+$L39816:
+	DD	$L38812
+	DD	$L38771
+	DD	$L38810
+	DD	$L38814
+	DD	$L38820
+$L39815:
 	DB	0
 	DB	4
 	DB	4
@@ -5894,7 +5894,7 @@ _TEXT	SEGMENT
 _a$ = 12
 _b$ = 16
 ___$ReturnUdt$ = 8
-$T39805 = -12
+$T39819 = -12
 ?CrossProduct@@YA?AVVector@@ABV1@0@Z PROC NEAR		; CrossProduct, COMDAT
 
 ; 291  : inline Vector CrossProduct( const Vector& a, const Vector& b ) { return Vector( a.y*b.z - a.z*b.y, a.z*b.x - a.x*b.z, a.x*b.y - a.y*b.x ); }
@@ -5938,7 +5938,7 @@ $T39805 = -12
 	fsubp	ST(1), ST(0)
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39805[ebp]
+	lea	ecx, DWORD PTR $T39819[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -5997,10 +5997,10 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HasConditions@CBaseMonster@@QAEHH@Z	; CBaseMonster::HasConditions
 	test	eax, eax
-	jne	SHORT $L36088
+	jne	SHORT $L36096
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+2088], 4
-$L36088:
+$L36096:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -6079,13 +6079,13 @@ _pitch$ = -8
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38814
+	je	SHORT $L38828
 	mov	ecx, DWORD PTR _vec$[ebp]
 	fld	DWORD PTR [ecx]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38814
+	je	SHORT $L38828
 
 ; 763  : 		pitch = 0;
 
@@ -6093,8 +6093,8 @@ _pitch$ = -8
 
 ; 764  : 	else
 
-	jmp	SHORT $L38817
-$L38814:
+	jmp	SHORT $L38831
+$L38828:
 
 ; 766  : 		pitch = (int) (atan2(vec.z, sqrt(vec.x*vec.x+vec.y*vec.y)) * 180 / M_PI);
 
@@ -6130,14 +6130,14 @@ $L38814:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38817
+	je	SHORT $L38831
 
 ; 768  : 			pitch += 360;
 
 	fld	DWORD PTR _pitch$[ebp]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _pitch$[ebp]
-$L38817:
+$L38831:
 
 ; 770  : 	return pitch;
 
@@ -6240,13 +6240,13 @@ _flCurrentPitch$ = -12
 	fcomp	DWORD PTR [edx+164]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L38828
+	je	SHORT $L38842
 
 ; 788  : 		return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	SHORT $L38825
-$L38828:
+	jmp	SHORT $L38839
+$L38842:
 
 ; 790  : 
 ; 791  : 	flPitchDiff = pev->idealpitch - flCurrentPitch;
@@ -6266,7 +6266,7 @@ $L38828:
 	fcomp	DWORD PTR _flCurrentPitch$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38829
+	jne	SHORT $L38843
 
 ; 795  : 		if (flPitchDiff >= 180)
 
@@ -6274,19 +6274,19 @@ $L38828:
 	fcomp	DWORD PTR __real@4@4006b400000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38830
+	jne	SHORT $L38844
 
 ; 796  : 			flPitchDiff = flPitchDiff - 360;
 
 	fld	DWORD PTR _flPitchDiff$[ebp]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flPitchDiff$[ebp]
-$L38830:
+$L38844:
 
 ; 798  : 	else 
 
-	jmp	SHORT $L38832
-$L38829:
+	jmp	SHORT $L38846
+$L38843:
 
 ; 800  : 		if (flPitchDiff <= -180)
 
@@ -6294,19 +6294,19 @@ $L38829:
 	fcomp	DWORD PTR __real@4@c006b400000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38832
+	je	SHORT $L38846
 
 ; 801  : 			flPitchDiff = flPitchDiff + 360;
 
 	fld	DWORD PTR _flPitchDiff$[ebp]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flPitchDiff$[ebp]
-$L38832:
+$L38846:
 
 ; 803  : 	return flPitchDiff;
 
 	fld	DWORD PTR _flPitchDiff$[ebp]
-$L38825:
+$L38839:
 
 ; 804  : }
 
@@ -6328,9 +6328,9 @@ CONST	ENDS
 ;	COMDAT ?ChangePitch@CIchthyosaur@@QAEMH@Z
 _TEXT	SEGMENT
 _this$ = -4
-_diff$38838 = -8
-_target$38839 = -12
-_vecAngles$38844 = -24
+_diff$38852 = -8
+_target$38853 = -12
+_vecAngles$38858 = -24
 ?ChangePitch@CIchthyosaur@@QAEMH@Z PROC NEAR		; CIchthyosaur::ChangePitch, COMDAT
 
 ; 807  : {
@@ -6348,17 +6348,17 @@ _vecAngles$38844 = -24
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 5
-	jne	$L38837
+	jne	$L38851
 
 ; 810  : 		float diff = FlPitchDiff();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FlPitchDiff@CIchthyosaur@@QAEMXZ	; CIchthyosaur::FlPitchDiff
-	fstp	DWORD PTR _diff$38838[ebp]
+	fstp	DWORD PTR _diff$38852[ebp]
 
 ; 811  : 		float target = 0;
 
-	mov	DWORD PTR _target$38839[ebp], 0
+	mov	DWORD PTR _target$38853[ebp], 0
 
 ; 812  : 		if ( m_IdealActivity != GetStoppedActivity() )
 
@@ -6368,61 +6368,61 @@ _vecAngles$38844 = -24
 	call	DWORD PTR [eax+412]
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2072], eax
-	je	SHORT $L38843
+	je	SHORT $L38857
 
 ; 814  : 			if (diff < -20)
 
-	fld	DWORD PTR _diff$38838[ebp]
+	fld	DWORD PTR _diff$38852[ebp]
 	fcomp	DWORD PTR __real@4@c003a000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38841
+	je	SHORT $L38855
 
 ; 815  : 				target = 45;
 
-	mov	DWORD PTR _target$38839[ebp], 1110704128 ; 42340000H
+	mov	DWORD PTR _target$38853[ebp], 1110704128 ; 42340000H
 
 ; 816  : 			else if (diff > 20)
 
-	jmp	SHORT $L38843
-$L38841:
-	fld	DWORD PTR _diff$38838[ebp]
+	jmp	SHORT $L38857
+$L38855:
+	fld	DWORD PTR _diff$38852[ebp]
 	fcomp	DWORD PTR __real@4@4003a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38843
+	jne	SHORT $L38857
 
 ; 817  : 				target = -45;
 
-	mov	DWORD PTR _target$38839[ebp], -1036779520 ; c2340000H
-$L38843:
+	mov	DWORD PTR _target$38853[ebp], -1036779520 ; c2340000H
+$L38857:
 
 ; 819  : 		Vector vecAngles = GetAbsAngles();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsAngles
 	push	eax
-	lea	ecx, DWORD PTR _vecAngles$38844[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38858[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 820  : 		vecAngles.x = UTIL_ApproachAngle( target, vecAngles.x, 220.0 * 0.1 );
 
 	push	1102053376				; 41b00000H
-	mov	edx, DWORD PTR _vecAngles$38844[ebp]
+	mov	edx, DWORD PTR _vecAngles$38858[ebp]
 	push	edx
-	mov	eax, DWORD PTR _target$38839[ebp]
+	mov	eax, DWORD PTR _target$38853[ebp]
 	push	eax
 	call	?UTIL_ApproachAngle@@YAMMMM@Z		; UTIL_ApproachAngle
 	add	esp, 12					; 0000000cH
-	fstp	DWORD PTR _vecAngles$38844[ebp]
+	fstp	DWORD PTR _vecAngles$38858[ebp]
 
 ; 821  : 		SetAbsAngles( vecAngles );
 
-	lea	ecx, DWORD PTR _vecAngles$38844[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38858[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
-$L38837:
+$L38851:
 
 ; 823  : 	return 0;
 
@@ -6445,9 +6445,9 @@ EXTRN	?FlYawDiff@CBaseMonster@@QAEMXZ:NEAR		; CBaseMonster::FlYawDiff
 _TEXT	SEGMENT
 _speed$ = 8
 _this$ = -4
-_diff$38850 = -8
-_target$38851 = -12
-_vecAngles$38856 = -24
+_diff$38864 = -8
+_target$38865 = -12
+_vecAngles$38870 = -24
 ?ChangeYaw@CIchthyosaur@@UAEMH@Z PROC NEAR		; CIchthyosaur::ChangeYaw, COMDAT
 
 ; 827  : {
@@ -6465,17 +6465,17 @@ _vecAngles$38856 = -24
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 5
-	jne	$L38849
+	jne	$L38863
 
 ; 830  : 		float diff = FlYawDiff();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?FlYawDiff@CBaseMonster@@QAEMXZ		; CBaseMonster::FlYawDiff
-	fstp	DWORD PTR _diff$38850[ebp]
+	fstp	DWORD PTR _diff$38864[ebp]
 
 ; 831  : 		float target = 0;
 
-	mov	DWORD PTR _target$38851[ebp], 0
+	mov	DWORD PTR _target$38865[ebp], 0
 
 ; 832  : 
 ; 833  : 		if ( m_IdealActivity != GetStoppedActivity() )
@@ -6486,61 +6486,61 @@ _vecAngles$38856 = -24
 	call	DWORD PTR [eax+412]
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2072], eax
-	je	SHORT $L38855
+	je	SHORT $L38869
 
 ; 835  : 			if ( diff < -20 )
 
-	fld	DWORD PTR _diff$38850[ebp]
+	fld	DWORD PTR _diff$38864[ebp]
 	fcomp	DWORD PTR __real@4@c003a000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38853
+	je	SHORT $L38867
 
 ; 836  : 				target = 20;
 
-	mov	DWORD PTR _target$38851[ebp], 1101004800 ; 41a00000H
+	mov	DWORD PTR _target$38865[ebp], 1101004800 ; 41a00000H
 
 ; 837  : 			else if ( diff > 20 )
 
-	jmp	SHORT $L38855
-$L38853:
-	fld	DWORD PTR _diff$38850[ebp]
+	jmp	SHORT $L38869
+$L38867:
+	fld	DWORD PTR _diff$38864[ebp]
 	fcomp	DWORD PTR __real@4@4003a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38855
+	jne	SHORT $L38869
 
 ; 838  : 				target = -20;
 
-	mov	DWORD PTR _target$38851[ebp], -1046478848 ; c1a00000H
-$L38855:
+	mov	DWORD PTR _target$38865[ebp], -1046478848 ; c1a00000H
+$L38869:
 
 ; 840  : 		Vector vecAngles = GetAbsAngles();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsAngles
 	push	eax
-	lea	ecx, DWORD PTR _vecAngles$38856[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38870[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 841  : 		vecAngles.z = UTIL_ApproachAngle( target, vecAngles.z, 220.0 * 0.1 );
 
 	push	1102053376				; 41b00000H
-	mov	edx, DWORD PTR _vecAngles$38856[ebp+8]
+	mov	edx, DWORD PTR _vecAngles$38870[ebp+8]
 	push	edx
-	mov	eax, DWORD PTR _target$38851[ebp]
+	mov	eax, DWORD PTR _target$38865[ebp]
 	push	eax
 	call	?UTIL_ApproachAngle@@YAMMMM@Z		; UTIL_ApproachAngle
 	add	esp, 12					; 0000000cH
-	fstp	DWORD PTR _vecAngles$38856[ebp+8]
+	fstp	DWORD PTR _vecAngles$38870[ebp+8]
 
 ; 842  : 		SetAbsAngles( vecAngles );
 
-	lea	ecx, DWORD PTR _vecAngles$38856[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38870[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
-$L38849:
+$L38863:
 
 ; 844  : 	return CFlyingMonster::ChangeYaw( speed );
 
@@ -6580,18 +6580,18 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 5
-	je	SHORT $L38861
+	je	SHORT $L38875
 
 ; 851  : 		return ACT_IDLE;
 
 	mov	eax, 1
-	jmp	SHORT $L38860
-$L38861:
+	jmp	SHORT $L38874
+$L38875:
 
 ; 852  : 	return ACT_WALK;
 
 	mov	eax, 3
-$L38860:
+$L38874:
 
 ; 853  : }
 
@@ -6606,7 +6606,7 @@ _TEXT	ENDS
 PUBLIC	?MoveExecute@CIchthyosaur@@UAEXPAVCBaseEntity@@ABVVector@@M@Z ; CIchthyosaur::MoveExecute
 ;	COMDAT ?MoveExecute@CIchthyosaur@@UAEXPAVCBaseEntity@@ABVVector@@M@Z
 _TEXT	SEGMENT
-$T39839 = -16
+$T39853 = -16
 _vecDir$ = 12
 _this$ = -4
 ?MoveExecute@CIchthyosaur@@UAEXPAVCBaseEntity@@ABVVector@@M@Z PROC NEAR ; CIchthyosaur::MoveExecute, COMDAT
@@ -6626,7 +6626,7 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+2408]
 	push	ecx
-	lea	edx, DWORD PTR $T39839[ebp]
+	lea	edx, DWORD PTR $T39853[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _vecDir$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -6678,13 +6678,13 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	$L38878
+	jne	$L38892
 
 ; 867  : 		if (m_MonsterState != MONSTERSTATE_SCRIPT)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+2080], 6
-	je	$L38878
+	je	$L38892
 
 ; 869  : 			Swim( );
 
@@ -6701,7 +6701,7 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 1
-	je	$L38878
+	je	$L38892
 
 ; 874  : 				pev->skin = EYE_CLOSED;
 
@@ -6719,7 +6719,7 @@ _this$ = -4
 	fcompp
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38878
+	jne	SHORT $L38892
 
 ; 877  : 					m_flBlink = gpGlobals->time + RANDOM_FLOAT( 3, 4 );
 
@@ -6736,7 +6736,7 @@ _this$ = -4
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+2448], 0
-	je	SHORT $L38877
+	je	SHORT $L38891
 
 ; 879  : 						pev->skin = EYE_MAD;
 
@@ -6746,15 +6746,15 @@ _this$ = -4
 
 ; 880  : 					else
 
-	jmp	SHORT $L38878
-$L38877:
+	jmp	SHORT $L38892
+$L38891:
 
 ; 881  : 						pev->skin = EYE_BASE;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+272], 1
-$L38878:
+$L38892:
 
 ; 886  : }
 
@@ -6786,13 +6786,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2448], 0
-	jne	SHORT $L38883
+	jne	SHORT $L38897
 
 ; 891  : 		m_flightSpeed = 80.0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+2408], 1117782016	; 42a00000H
-$L38883:
+$L38897:
 
 ; 892  : }
 
@@ -6854,6 +6854,9 @@ __real@8@40018000000000000000 DQ 04010000000000000r ; 4
 CONST	ENDS
 ;	COMDAT ?Swim@CIchthyosaur@@QAEXXZ
 _TEXT	SEGMENT
+_f$ = -92
+_u$ = -104
+_l$ = -116
 _r$ = -128
 _d$ = -140
 _SteeringVector$ = -152
@@ -6862,42 +6865,42 @@ _vecAngles$ = -168
 _turn$ = -172
 _speed$ = -176
 _flTempRoll$ = -180
-$T39846 = -192
-$T39847 = -204
-$T39848 = -216
-$T39849 = -228
-$T39850 = -240
-$T39851 = -252
-$T39852 = -264
-$T39853 = -276
-$T39854 = -288
-$T39855 = -300
-$T39856 = -312
-$T39857 = -324
-$T39858 = -336
-$T39859 = -348
-$T39860 = -360
-$T39861 = -372
-$T39862 = -384
-$T39863 = -396
-$T39864 = -408
-$T39865 = -420
-$T39866 = -432
-$T39867 = -444
-$T39868 = -456
-$T39869 = -468
-$T39870 = -480
-$T39871 = -492
-$T39872 = -504
-$T39873 = -516
-$T39874 = -528
-$T39875 = -540
-$T39876 = -552
-$T39877 = -564
-$T39878 = -576
-$T39879 = -588
-$T39880 = -600
-$T39881 = -612
+$T39860 = -192
+$T39861 = -204
+$T39862 = -216
+$T39863 = -228
+$T39864 = -240
+$T39865 = -252
+$T39866 = -264
+$T39867 = -276
+$T39868 = -288
+$T39869 = -300
+$T39870 = -312
+$T39871 = -324
+$T39872 = -336
+$T39873 = -348
+$T39874 = -360
+$T39875 = -372
+$T39876 = -384
+$T39877 = -396
+$T39878 = -408
+$T39879 = -420
+$T39880 = -432
+$T39881 = -444
+$T39882 = -456
+$T39883 = -468
+$T39884 = -480
+$T39885 = -492
+$T39886 = -504
+$T39887 = -516
+$T39888 = -528
+$T39889 = -540
+$T39890 = -552
+$T39891 = -564
+$T39892 = -576
+$T39893 = -588
+$T39894 = -600
+$T39895 = -612
 _this$ = -4
 _retValue$ = -8
 _start$ = -20
@@ -6905,10 +6908,7 @@ _Angles$ = -32
 _Forward$ = -44
 _Right$ = -56
 _Up$ = -68
-_vecAngles$38895 = -80
-_f$ = -92
-_u$ = -104
-_l$ = -116
+_vecAngles$38909 = -80
 ?Swim@CIchthyosaur@@QAEXXZ PROC NEAR			; CIchthyosaur::Swim, COMDAT
 
 ; 895  : {
@@ -6957,19 +6957,19 @@ _l$ = -116
 	mov	edx, DWORD PTR [ecx+420]
 	and	edx, 512				; 00000200H
 	test	edx, edx
-	je	$L38894
+	je	$L38908
 
 ; 905  : 		Vector vecAngles = GetAbsAngles();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsAngles
 	push	eax
-	lea	ecx, DWORD PTR _vecAngles$38895[ebp]
+	lea	ecx, DWORD PTR _vecAngles$38909[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 906  : 		vecAngles.x = 0;
 
-	mov	DWORD PTR _vecAngles$38895[ebp], 0
+	mov	DWORD PTR _vecAngles$38909[ebp], 0
 
 ; 907  : 		vecAngles.y += RANDOM_FLOAT( -45, 45 );
 
@@ -6977,8 +6977,8 @@ _l$ = -116
 	push	-1036779520				; c2340000H
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+364
 	add	esp, 8
-	fadd	DWORD PTR _vecAngles$38895[ebp+4]
-	fstp	DWORD PTR _vecAngles$38895[ebp+4]
+	fadd	DWORD PTR _vecAngles$38909[ebp+4]
+	fstp	DWORD PTR _vecAngles$38909[ebp+4]
 
 ; 908  : 		ClearBits( pev->flags, FL_ONGROUND );
 
@@ -6993,15 +6993,15 @@ _l$ = -116
 ; 909  : 
 ; 910  : 		Angles = Vector( -vecAngles.x, vecAngles.y, vecAngles.z );
 
-	mov	edx, DWORD PTR _vecAngles$38895[ebp+8]
+	mov	edx, DWORD PTR _vecAngles$38909[ebp+8]
 	push	edx
-	mov	eax, DWORD PTR _vecAngles$38895[ebp+4]
+	mov	eax, DWORD PTR _vecAngles$38909[ebp+4]
 	push	eax
-	fld	DWORD PTR _vecAngles$38895[ebp]
+	fld	DWORD PTR _vecAngles$38909[ebp]
 	fchs
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39846[ebp]
+	lea	ecx, DWORD PTR $T39860[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _Angles$[ebp], ecx
@@ -7029,7 +7029,7 @@ _l$ = -116
 ; 912  : 
 ; 913  : 		SetAbsAngles( vecAngles );
 
-	lea	edx, DWORD PTR _vecAngles$38895[ebp]
+	lea	edx, DWORD PTR _vecAngles$38909[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
@@ -7037,15 +7037,15 @@ _l$ = -116
 ; 914  : 		SetAbsVelocity( Forward * 200 + Up * 200 );
 
 	push	1128792064				; 43480000H
-	lea	eax, DWORD PTR $T39848[ebp]
+	lea	eax, DWORD PTR $T39862[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _Up$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T39849[ebp]
+	lea	ecx, DWORD PTR $T39863[ebp]
 	push	ecx
 	push	1128792064				; 43480000H
-	lea	edx, DWORD PTR $T39847[ebp]
+	lea	edx, DWORD PTR $T39861[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _Forward$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -7058,22 +7058,22 @@ _l$ = -116
 ; 915  : 
 ; 916  : 		return;
 
-	jmp	$L38887
-$L38894:
+	jmp	$L38901
+$L38908:
 
 ; 918  : 
 ; 919  : 	if (m_bOnAttack && m_flightSpeed < m_flMaxSpeed)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2448], 0
-	je	SHORT $L38900
+	je	SHORT $L38914
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [ecx+2408]
 	fcomp	DWORD PTR [edx+2452]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38900
+	je	SHORT $L38914
 
 ; 921  : 		m_flightSpeed += 40;
 
@@ -7082,7 +7082,7 @@ $L38894:
 	fadd	DWORD PTR __real@4@4004a000000000000000
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+2408]
-$L38900:
+$L38914:
 
 ; 923  : 	if (m_flightSpeed < 180)
 
@@ -7091,13 +7091,13 @@ $L38900:
 	fcomp	DWORD PTR __real@4@4006b400000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38901
+	je	SHORT $L38915
 
 ; 925  : 		if (m_IdealActivity == ACT_RUN)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2072], 4
-	jne	SHORT $L38902
+	jne	SHORT $L38916
 
 ; 926  : 			SetActivity( ACT_WALK );
 
@@ -7106,13 +7106,13 @@ $L38900:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+484]
-$L38902:
+$L38916:
 
 ; 927  : 		if (m_IdealActivity == ACT_WALK)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2072], 3
-	jne	SHORT $L38903
+	jne	SHORT $L38917
 
 ; 928  : 			pev->framerate = m_flightSpeed / 150.0;
 
@@ -7123,18 +7123,18 @@ $L38902:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fstp	DWORD PTR [eax+312]
-$L38903:
+$L38917:
 
 ; 931  : 	else
 
-	jmp	SHORT $L38906
-$L38901:
+	jmp	SHORT $L38920
+$L38915:
 
 ; 933  : 		if (m_IdealActivity == ACT_WALK)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2072], 3
-	jne	SHORT $L38905
+	jne	SHORT $L38919
 
 ; 934  : 			SetActivity( ACT_RUN );
 
@@ -7143,13 +7143,13 @@ $L38901:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+484]
-$L38905:
+$L38919:
 
 ; 935  : 		if (m_IdealActivity == ACT_RUN)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+2072], 4
-	jne	SHORT $L38906
+	jne	SHORT $L38920
 
 ; 936  : 			pev->framerate = m_flightSpeed / 150.0;
 
@@ -7160,7 +7160,7 @@ $L38905:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fstp	DWORD PTR [ecx+312]
-$L38906:
+$L38920:
 
 ; 939  : 
 ; 940  : /*
@@ -7179,7 +7179,7 @@ $L38906:
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 2424				; 00000978H
 	push	edx
-	lea	eax, DWORD PTR $T39850[ebp]
+	lea	eax, DWORD PTR $T39864[ebp]
 	push	eax
 	call	?UTIL_VecToAngles@@YA?AVVector@@ABV1@@Z	; UTIL_VecToAngles
 	add	esp, 8
@@ -7225,17 +7225,17 @@ $L38906:
 	lea	edx, DWORD PTR _Forward$[ebp]
 	push	edx
 	push	1125515264				; 43160000H
-	lea	eax, DWORD PTR $T39851[ebp]
+	lea	eax, DWORD PTR $T39865[ebp]
 	push	eax
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	ecx, DWORD PTR $T39852[ebp]
+	lea	ecx, DWORD PTR $T39866[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	edx, DWORD PTR $T39853[ebp]
+	lea	edx, DWORD PTR $T39867[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoProbe@CIchthyosaur@@QAE?AVVector@@ABV2@@Z ; CIchthyosaur::DoProbe
@@ -7250,24 +7250,24 @@ $L38906:
 
 	lea	ecx, DWORD PTR _Right$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39856[ebp]
+	lea	edx, DWORD PTR $T39870[ebp]
 	push	edx
 	lea	eax, DWORD PTR _Forward$[ebp]
 	push	eax
 	push	1112014848				; 42480000H
-	lea	ecx, DWORD PTR $T39854[ebp]
+	lea	ecx, DWORD PTR $T39868[ebp]
 	push	ecx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	edx, DWORD PTR $T39855[ebp]
+	lea	edx, DWORD PTR $T39869[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	eax, DWORD PTR $T39857[ebp]
+	lea	eax, DWORD PTR $T39871[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoProbe@CIchthyosaur@@QAE?AVVector@@ABV2@@Z ; CIchthyosaur::DoProbe
@@ -7282,24 +7282,24 @@ $L38906:
 
 	lea	ecx, DWORD PTR _Right$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39860[ebp]
+	lea	edx, DWORD PTR $T39874[ebp]
 	push	edx
 	lea	eax, DWORD PTR _Forward$[ebp]
 	push	eax
 	push	1112014848				; 42480000H
-	lea	ecx, DWORD PTR $T39858[ebp]
+	lea	ecx, DWORD PTR $T39872[ebp]
 	push	ecx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	edx, DWORD PTR $T39859[ebp]
+	lea	edx, DWORD PTR $T39873[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	lea	eax, DWORD PTR $T39861[ebp]
+	lea	eax, DWORD PTR $T39875[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoProbe@CIchthyosaur@@QAE?AVVector@@ABV2@@Z ; CIchthyosaur::DoProbe
@@ -7314,24 +7314,24 @@ $L38906:
 
 	lea	ecx, DWORD PTR _Up$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39864[ebp]
+	lea	edx, DWORD PTR $T39878[ebp]
 	push	edx
 	lea	eax, DWORD PTR _Forward$[ebp]
 	push	eax
 	push	1112014848				; 42480000H
-	lea	ecx, DWORD PTR $T39862[ebp]
+	lea	ecx, DWORD PTR $T39876[ebp]
 	push	ecx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	edx, DWORD PTR $T39863[ebp]
+	lea	edx, DWORD PTR $T39877[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	eax, DWORD PTR $T39865[ebp]
+	lea	eax, DWORD PTR $T39879[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoProbe@CIchthyosaur@@QAE?AVVector@@ABV2@@Z ; CIchthyosaur::DoProbe
@@ -7346,24 +7346,24 @@ $L38906:
 
 	lea	ecx, DWORD PTR _Up$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39868[ebp]
+	lea	edx, DWORD PTR $T39882[ebp]
 	push	edx
 	lea	eax, DWORD PTR _Forward$[ebp]
 	push	eax
 	push	1112014848				; 42480000H
-	lea	ecx, DWORD PTR $T39866[ebp]
+	lea	ecx, DWORD PTR $T39880[ebp]
 	push	ecx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	edx, DWORD PTR $T39867[ebp]
+	lea	edx, DWORD PTR $T39881[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	lea	eax, DWORD PTR $T39869[ebp]
+	lea	eax, DWORD PTR $T39883[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoProbe@CIchthyosaur@@QAE?AVVector@@ABV2@@Z ; CIchthyosaur::DoProbe
@@ -7379,19 +7379,19 @@ $L38906:
 
 	lea	ecx, DWORD PTR _d$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39873[ebp]
+	lea	edx, DWORD PTR $T39887[ebp]
 	push	edx
 	lea	eax, DWORD PTR _u$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39872[ebp]
+	lea	ecx, DWORD PTR $T39886[ebp]
 	push	ecx
 	lea	edx, DWORD PTR _l$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T39871[ebp]
+	lea	eax, DWORD PTR $T39885[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _r$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T39870[ebp]
+	lea	edx, DWORD PTR $T39884[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _f$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -7407,15 +7407,15 @@ $L38906:
 
 ; 962  : 	m_SaveVelocity = (m_SaveVelocity + SteeringVector/2).Normalize();
 
-	lea	eax, DWORD PTR $T39876[ebp]
+	lea	eax, DWORD PTR $T39890[ebp]
 	push	eax
 	push	1073741824				; 40000000H
-	lea	ecx, DWORD PTR $T39874[ebp]
+	lea	ecx, DWORD PTR $T39888[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _SteeringVector$[ebp]
 	call	??KVector@@QBE?AV0@M@Z			; Vector::operator/
 	push	eax
-	lea	edx, DWORD PTR $T39875[ebp]
+	lea	edx, DWORD PTR $T39889[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
@@ -7478,14 +7478,14 @@ $L38906:
 	fcomp	QWORD PTR __real@8@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38942
+	jne	SHORT $L38956
 
 ; 970  : 		SetAbsVelocity( m_SaveVelocity = m_SaveVelocity * m_flightSpeed );
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2408]
 	push	edx
-	lea	eax, DWORD PTR $T39877[ebp]
+	lea	eax, DWORD PTR $T39891[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
@@ -7506,13 +7506,13 @@ $L38906:
 
 ; 971  : 	else if (flDot > 0)
 
-	jmp	$L38948
-$L38942:
+	jmp	$L38962
+$L38956:
 	fld	DWORD PTR _flDot$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38945
+	jne	SHORT $L38959
 
 ; 972  : 		SetAbsVelocity( m_SaveVelocity = m_SaveVelocity * m_flightSpeed * (flDot + 0.5));
 
@@ -7521,12 +7521,12 @@ $L38942:
 	fst	DWORD PTR -624+[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	edx, DWORD PTR $T39879[ebp]
+	lea	edx, DWORD PTR $T39893[ebp]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+2408]
 	push	ecx
-	lea	edx, DWORD PTR $T39878[ebp]
+	lea	edx, DWORD PTR $T39892[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
@@ -7549,13 +7549,13 @@ $L38942:
 
 ; 973  : 	else
 
-	jmp	SHORT $L38948
-$L38945:
+	jmp	SHORT $L38962
+$L38959:
 
 ; 974  : 		SetAbsVelocity( m_SaveVelocity = m_SaveVelocity * 80 );
 
 	push	1117782016				; 42a00000H
-	lea	edx, DWORD PTR $T39880[ebp]
+	lea	edx, DWORD PTR $T39894[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
@@ -7573,7 +7573,7 @@ $L38945:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsVelocity
-$L38948:
+$L38962:
 
 ; 975  : 
 ; 976  : 	// ALERT( at_console, "%.0f %.0f\n", m_flightSpeed, GetAbsvelocity().Length() );
@@ -7593,7 +7593,7 @@ $L38948:
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 2424				; 00000978H
 	push	edx
-	lea	eax, DWORD PTR $T39881[ebp]
+	lea	eax, DWORD PTR $T39895[ebp]
 	push	eax
 	call	?UTIL_VecToAngles@@YA?AVVector@@ABV1@@Z	; UTIL_VecToAngles
 	add	esp, 8
@@ -7613,14 +7613,14 @@ $L38948:
 	fcomp	DWORD PTR __real@4@4006b400000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38951
+	jne	SHORT $L38965
 
 ; 993  : 		Angles.x = Angles.x - 360;
 
 	fld	DWORD PTR _Angles$[ebp]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _Angles$[ebp]
-$L38951:
+$L38965:
 
 ; 994  : 
 ; 995  : 	Vector vecAngles = GetAbsAngles();
@@ -7648,9 +7648,9 @@ $L38951:
 	fcomp	DWORD PTR __real@4@c005a000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38953
+	je	SHORT $L38967
 	mov	DWORD PTR _vecAngles$[ebp], -1029701632	; c2a00000H
-$L38953:
+$L38967:
 
 ; 998  : 	if (vecAngles.x >  80) vecAngles.x =  80;
 
@@ -7658,9 +7658,9 @@ $L38953:
 	fcomp	DWORD PTR __real@4@4005a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38954
+	jne	SHORT $L38968
 	mov	DWORD PTR _vecAngles$[ebp], 1117782016	; 42a00000H
-$L38954:
+$L38968:
 
 ; 999  : 
 ; 1000 : 	// Smooth Yaw and generate Roll
@@ -7688,14 +7688,14 @@ $L38954:
 	fcomp	QWORD PTR -632+[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38956
+	jne	SHORT $L38970
 
 ; 1007 : 		turn = Angles.y - vecAngles.y;
 
 	fld	DWORD PTR _Angles$[ebp+4]
 	fsub	DWORD PTR _vecAngles$[ebp+4]
 	fstp	DWORD PTR _turn$[ebp]
-$L38956:
+$L38970:
 
 ; 1009 : 	if (fabs(Angles.y - vecAngles.y + 360) < fabs(turn))
 
@@ -7715,7 +7715,7 @@ $L38956:
 	fcomp	QWORD PTR -640+[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38957
+	jne	SHORT $L38971
 
 ; 1011 : 		turn = Angles.y - vecAngles.y + 360;
 
@@ -7723,7 +7723,7 @@ $L38956:
 	fsub	DWORD PTR _vecAngles$[ebp+4]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _turn$[ebp]
-$L38957:
+$L38971:
 
 ; 1013 : 	if (fabs(Angles.y - vecAngles.y - 360) < fabs(turn))
 
@@ -7743,7 +7743,7 @@ $L38957:
 	fcomp	QWORD PTR -648+[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38958
+	jne	SHORT $L38972
 
 ; 1015 : 		turn = Angles.y - vecAngles.y - 360;
 
@@ -7751,7 +7751,7 @@ $L38957:
 	fsub	DWORD PTR _vecAngles$[ebp+4]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _turn$[ebp]
-$L38958:
+$L38972:
 
 ; 1017 : 
 ; 1018 : 	float speed = m_flightSpeed * 0.1;
@@ -7774,7 +7774,7 @@ $L38958:
 	fcompp
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38962
+	je	SHORT $L38976
 
 ; 1023 : 		if (turn < 0.0)
 
@@ -7782,7 +7782,7 @@ $L38958:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38961
+	je	SHORT $L38975
 
 ; 1025 : 			turn = -speed;
 
@@ -7792,14 +7792,14 @@ $L38958:
 
 ; 1027 : 		else
 
-	jmp	SHORT $L38962
-$L38961:
+	jmp	SHORT $L38976
+$L38975:
 
 ; 1029 : 			turn = speed;
 
 	mov	ecx, DWORD PTR _speed$[ebp]
 	mov	DWORD PTR _turn$[ebp], ecx
-$L38962:
+$L38976:
 
 ; 1032 : 	vecAngles.y += turn;
 
@@ -7880,14 +7880,14 @@ $L38962:
 	fcomp	QWORD PTR -660+[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38966
+	jne	SHORT $L38980
 
 ; 1051 : 		turn = Angles.z - vecAngles.z;
 
 	fld	DWORD PTR _Angles$[ebp+8]
 	fsub	DWORD PTR _vecAngles$[ebp+8]
 	fstp	DWORD PTR _turn$[ebp]
-$L38966:
+$L38980:
 
 ; 1053 : 	if (fabs(Angles.z - vecAngles.z + 360) < fabs(turn))
 
@@ -7907,7 +7907,7 @@ $L38966:
 	fcomp	QWORD PTR -668+[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38967
+	jne	SHORT $L38981
 
 ; 1055 : 		turn = Angles.z - vecAngles.z + 360;
 
@@ -7915,7 +7915,7 @@ $L38966:
 	fsub	DWORD PTR _vecAngles$[ebp+8]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _turn$[ebp]
-$L38967:
+$L38981:
 
 ; 1057 : 	if (fabs(Angles.z - vecAngles.z - 360) < fabs(turn))
 
@@ -7935,7 +7935,7 @@ $L38967:
 	fcomp	QWORD PTR -676+[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38968
+	jne	SHORT $L38982
 
 ; 1059 : 		turn = Angles.z - vecAngles.z - 360;
 
@@ -7943,7 +7943,7 @@ $L38967:
 	fsub	DWORD PTR _vecAngles$[ebp+8]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _turn$[ebp]
-$L38968:
+$L38982:
 
 ; 1061 : 	speed = m_flightSpeed/2 * 0.1;
 
@@ -7964,7 +7964,7 @@ $L38968:
 	fcompp
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38969
+	jne	SHORT $L38983
 
 ; 1064 : 		flTempRoll += turn;
 
@@ -7974,8 +7974,8 @@ $L38968:
 
 ; 1066 : 	else
 
-	jmp	SHORT $L38972
-$L38969:
+	jmp	SHORT $L38986
+$L38983:
 
 ; 1068 : 		if (turn < 0.0)
 
@@ -7983,7 +7983,7 @@ $L38969:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38971
+	je	SHORT $L38985
 
 ; 1070 : 			flTempRoll -= speed;
 
@@ -7993,15 +7993,15 @@ $L38969:
 
 ; 1072 : 		else
 
-	jmp	SHORT $L38972
-$L38971:
+	jmp	SHORT $L38986
+$L38985:
 
 ; 1074 : 			flTempRoll += speed;
 
 	fld	DWORD PTR _flTempRoll$[ebp]
 	fadd	DWORD PTR _speed$[ebp]
 	fstp	DWORD PTR _flTempRoll$[ebp]
-$L38972:
+$L38986:
 
 ; 1077 : 
 ; 1078 : 	vecAngles.z = UTIL_Approach(flTempRoll, vecAngles.z, 5 );
@@ -8021,9 +8021,9 @@ $L38972:
 	fcomp	DWORD PTR __real@4@c003a000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38973
+	je	SHORT $L38987
 	mov	DWORD PTR _vecAngles$[ebp+8], -1046478848 ; c1a00000H
-$L38973:
+$L38987:
 
 ; 1080 : 	if (vecAngles.z >  20) vecAngles.z =  20;
 
@@ -8031,9 +8031,9 @@ $L38973:
 	fcomp	DWORD PTR __real@4@4003a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38974
+	jne	SHORT $L38988
 	mov	DWORD PTR _vecAngles$[ebp+8], 1101004800 ; 41a00000H
-$L38974:
+$L38988:
 
 ; 1081 : 
 ; 1082 : 	UTIL_MakeVectorsPrivate( Angles, Forward, Right, Up);
@@ -8060,7 +8060,7 @@ $L38974:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
-$L38887:
+$L38901:
 
 ; 1086 : }
 
@@ -8077,7 +8077,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T39898 = -16
+$T39912 = -16
 ??KVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator/, COMDAT
 
 ; 154  : 	inline Vector operator/(float fl) const		{ return Vector(x/fl, y/fl, z/fl);	   }
@@ -8104,7 +8104,7 @@ $T39898 = -16
 	fdiv	DWORD PTR _fl$[ebp]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T39898[ebp]
+	lea	ecx, DWORD PTR $T39912[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -8139,18 +8139,18 @@ _WallNormal$ = -16
 _frac$ = -20
 _bBumpedSomething$ = -24
 _tr$ = -80
-_ProbeDir$38992 = -92
-_NormalToProbeAndWallNormal$38994 = -104
-_SteeringVector$38996 = -116
-_SteeringForce$38998 = -120
-$T39901 = -132
-$T39902 = -144
-$T39903 = -156
-$T39904 = -168
-$T39905 = -180
-$T39906 = -192
-$T39907 = -204
-$T39908 = -216
+_ProbeDir$39006 = -92
+_NormalToProbeAndWallNormal$39008 = -104
+_SteeringVector$39010 = -116
+_SteeringForce$39012 = -120
+$T39915 = -132
+$T39916 = -144
+$T39917 = -156
+$T39918 = -168
+$T39919 = -180
+$T39920 = -192
+$T39921 = -204
+$T39922 = -216
 ?DoProbe@CIchthyosaur@@QAE?AVVector@@ABV2@@Z PROC NEAR	; CIchthyosaur::DoProbe, COMDAT
 
 ; 1090 : {
@@ -8168,7 +8168,7 @@ $T39908 = -216
 	push	-1082130432				; bf800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T39901[ebp]
+	lea	ecx, DWORD PTR $T39915[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	lea	ecx, DWORD PTR _WallNormal$[ebp]
@@ -8219,13 +8219,13 @@ $T39908 = -216
 ; 1097 : 	if ( tr.fAllSolid || tr.flFraction < 0.99 )
 
 	cmp	DWORD PTR _tr$[ebp], 0
-	jne	SHORT $L38986
+	jne	SHORT $L39000
 	fld	DWORD PTR _tr$[ebp+16]
 	fcomp	QWORD PTR __real@8@3ffefd70a3d70a3d7000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38989
-$L38986:
+	je	SHORT $L39003
+$L39000:
 
 ; 1099 : 		if (tr.flFraction < 0.0) tr.flFraction = 0.0;
 
@@ -8233,9 +8233,9 @@ $L38986:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38987
+	je	SHORT $L39001
 	mov	DWORD PTR _tr$[ebp+16], 0
-$L38987:
+$L39001:
 
 ; 1100 : 		if (tr.flFraction > 1.0) tr.flFraction = 1.0;
 
@@ -8243,9 +8243,9 @@ $L38987:
 	fcomp	QWORD PTR __real@8@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38988
+	jne	SHORT $L39002
 	mov	DWORD PTR _tr$[ebp+16], 1065353216	; 3f800000H
-$L38988:
+$L39002:
 
 ; 1101 : 		if (tr.flFraction < frac)
 
@@ -8253,7 +8253,7 @@ $L38988:
 	fcomp	DWORD PTR _frac$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38989
+	je	SHORT $L39003
 
 ; 1103 : 			frac = tr.flFraction;
 
@@ -8272,38 +8272,38 @@ $L38988:
 	mov	DWORD PTR _WallNormal$[ebp+4], edx
 	mov	eax, DWORD PTR _tr$[ebp+44]
 	mov	DWORD PTR _WallNormal$[ebp+8], eax
-$L38989:
+$L39003:
 
 ; 1108 : 
 ; 1109 : 	if (bBumpedSomething && (m_hEnemy == NULL || tr.pHit != m_hEnemy->edict()))
 
 	cmp	DWORD PTR _bBumpedSomething$[ebp], 0
-	je	$L38990
+	je	$L39004
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L38991
+	je	SHORT $L39005
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1960				; 000007a8H
 	call	??CEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator->
 	mov	ecx, eax
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	cmp	DWORD PTR _tr$[ebp+48], eax
-	je	$L38990
-$L38991:
+	je	$L39004
+$L39005:
 
 ; 1111 : 		Vector ProbeDir = Probe - GetAbsOrigin();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T39902[ebp]
+	lea	ecx, DWORD PTR $T39916[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _Probe$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	lea	ecx, DWORD PTR _ProbeDir$38992[ebp]
+	lea	ecx, DWORD PTR _ProbeDir$39006[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 1112 : 
@@ -8311,28 +8311,28 @@ $L38991:
 
 	lea	edx, DWORD PTR _WallNormal$[ebp]
 	push	edx
-	lea	eax, DWORD PTR _ProbeDir$38992[ebp]
+	lea	eax, DWORD PTR _ProbeDir$39006[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39903[ebp]
+	lea	ecx, DWORD PTR $T39917[ebp]
 	push	ecx
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	ecx, DWORD PTR _NormalToProbeAndWallNormal$38994[ebp]
+	lea	ecx, DWORD PTR _NormalToProbeAndWallNormal$39008[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 1114 : 		Vector SteeringVector = CrossProduct( NormalToProbeAndWallNormal, ProbeDir);
 
-	lea	edx, DWORD PTR _ProbeDir$38992[ebp]
+	lea	edx, DWORD PTR _ProbeDir$39006[ebp]
 	push	edx
-	lea	eax, DWORD PTR _NormalToProbeAndWallNormal$38994[ebp]
+	lea	eax, DWORD PTR _NormalToProbeAndWallNormal$39008[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39904[ebp]
+	lea	ecx, DWORD PTR $T39918[ebp]
 	push	ecx
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	ecx, DWORD PTR _SteeringVector$38996[ebp]
+	lea	ecx, DWORD PTR _SteeringVector$39010[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 1115 : 
@@ -8343,13 +8343,13 @@ $L38991:
 	mov	edx, DWORD PTR _this$[ebp]
 	fmul	DWORD PTR [edx+2408]
 	fstp	DWORD PTR -220+[ebp]
-	lea	eax, DWORD PTR $T39905[ebp]
+	lea	eax, DWORD PTR $T39919[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 2424				; 00000978H
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
 	push	eax
-	lea	ecx, DWORD PTR $T39906[ebp]
+	lea	ecx, DWORD PTR $T39920[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _WallNormal$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -8357,53 +8357,53 @@ $L38991:
 	call	?DotProduct@@YAMABVVector@@0@Z		; DotProduct
 	add	esp, 8
 	fmul	DWORD PTR -220+[ebp]
-	fstp	DWORD PTR _SteeringForce$38998[ebp]
+	fstp	DWORD PTR _SteeringForce$39012[ebp]
 
 ; 1117 : 		if (SteeringForce < 0.0)
 
-	fld	DWORD PTR _SteeringForce$38998[ebp]
+	fld	DWORD PTR _SteeringForce$39012[ebp]
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L39001
+	je	SHORT $L39015
 
 ; 1119 : 			SteeringForce = -SteeringForce;
 
-	fld	DWORD PTR _SteeringForce$38998[ebp]
+	fld	DWORD PTR _SteeringForce$39012[ebp]
 	fchs
-	fstp	DWORD PTR _SteeringForce$38998[ebp]
-$L39001:
+	fstp	DWORD PTR _SteeringForce$39012[ebp]
+$L39015:
 
 ; 1121 : 		SteeringVector = SteeringForce * SteeringVector.Normalize();
 
-	lea	edx, DWORD PTR $T39907[ebp]
+	lea	edx, DWORD PTR $T39921[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _SteeringVector$38996[ebp]
+	lea	ecx, DWORD PTR _SteeringVector$39010[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
 	push	eax
-	mov	eax, DWORD PTR _SteeringForce$38998[ebp]
+	mov	eax, DWORD PTR _SteeringForce$39012[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T39908[ebp]
+	lea	ecx, DWORD PTR $T39922[ebp]
 	push	ecx
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR _SteeringVector$38996[ebp], edx
+	mov	DWORD PTR _SteeringVector$39010[ebp], edx
 	mov	ecx, DWORD PTR [eax+4]
-	mov	DWORD PTR _SteeringVector$38996[ebp+4], ecx
+	mov	DWORD PTR _SteeringVector$39010[ebp+4], ecx
 	mov	edx, DWORD PTR [eax+8]
-	mov	DWORD PTR _SteeringVector$38996[ebp+8], edx
+	mov	DWORD PTR _SteeringVector$39010[ebp+8], edx
 
 ; 1122 : 		
 ; 1123 : 		return SteeringVector;
 
-	lea	eax, DWORD PTR _SteeringVector$38996[ebp]
+	lea	eax, DWORD PTR _SteeringVector$39010[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	jmp	SHORT $L38979
-$L38990:
+	jmp	SHORT $L38993
+$L39004:
 
 ; 1125 : 
 ; 1126 : 	return g_vecZero;
@@ -8412,7 +8412,7 @@ $L38990:
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-$L38979:
+$L38993:
 
 ; 1127 : }
 
@@ -8635,10 +8635,10 @@ __unwindtable$??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z
 _TEXT	SEGMENT
+__$EHRec$ = -12
 _growSize$ = 8
 _initSize$ = 12
 _this$ = -16
-__$EHRec$ = -12
 ??0?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@HH@Z PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::CUtlArray<char *,CUtlMemory<char *,int> >, COMDAT
 
 ; 247  : {
@@ -8709,8 +8709,8 @@ __unwindtable$??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ
 _TEXT	SEGMENT
-_this$ = -16
 __$EHRec$ = -12
+_this$ = -16
 ??1?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAE@XZ PROC NEAR ; CUtlArray<char *,CUtlMemory<char *,int> >::~CUtlArray<char *,CUtlMemory<char *,int> >, COMDAT
 
 ; 260  : {
@@ -8862,11 +8862,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	test	eax, eax
-	je	SHORT $L39947
+	je	SHORT $L39961
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	cmp	DWORD PTR _src$[ebp], eax
-	jb	SHORT $L39947
+	jb	SHORT $L39961
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	mov	esi, eax
@@ -8874,13 +8874,13 @@ _this$ = -4
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	lea	eax, DWORD PTR [esi+eax*4]
 	cmp	DWORD PTR _src$[ebp], eax
-	jae	SHORT $L39947
+	jae	SHORT $L39961
 	push	519					; 00000207H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L39947:
+$L39961:
 
 ; 520  : 	return InsertBefore( m_Size, src );
 
@@ -8951,8 +8951,8 @@ __unwindtable$?GetClassPtr@@YAPAVCIchthyosaur@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCIchthyosaur@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T39952 = -20
-$T39953 = -24
+$T39966 = -20
+$T39967 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -8983,7 +8983,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L39048
+	jne	SHORT $L39062
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -8992,7 +8992,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L39048:
+$L39062:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -9011,7 +9011,7 @@ $L39048:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L39050
+	jne	SHORT $L39064
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -9021,21 +9021,21 @@ $L39048:
 	push	2472					; 000009a8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39953[ebp], eax
+	mov	DWORD PTR $T39967[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39953[ebp], 0
-	je	SHORT $L39954
-	mov	ecx, DWORD PTR $T39953[ebp]
+	cmp	DWORD PTR $T39967[ebp], 0
+	je	SHORT $L39968
+	mov	ecx, DWORD PTR $T39967[ebp]
 	call	??0CIchthyosaur@@QAE@XZ			; CIchthyosaur::CIchthyosaur
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39955
-$L39954:
+	jmp	SHORT $L39969
+$L39968:
 	mov	DWORD PTR -28+[ebp], 0
-$L39955:
+$L39969:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39952[ebp], eax
+	mov	DWORD PTR $T39966[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39952[ebp]
+	mov	ecx, DWORD PTR $T39966[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -9043,7 +9043,7 @@ $L39955:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L39050:
+$L39064:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -9073,7 +9073,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCIchthyosaur@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39953[ebp]
+	mov	ecx, DWORD PTR $T39967[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -9238,15 +9238,15 @@ PUBLIC	?StopFollowing@CBaseMonster@@UAEXH@Z		; CBaseMonster::StopFollowing
 PUBLIC	??_7CIchthyosaur@@6B@				; CIchthyosaur::`vftable'
 PUBLIC	?GetToggleState@CBaseToggle@@UAEHXZ		; CBaseToggle::GetToggleState
 PUBLIC	?GetDelay@CBaseToggle@@UAEMXZ			; CBaseToggle::GetDelay
-PUBLIC	??0CFlyingMonster@@QAE@XZ			; CFlyingMonster::CFlyingMonster
 PUBLIC	?ObjectCaps@CBaseEntity@@UAEHXZ			; CBaseEntity::ObjectCaps
 PUBLIC	?Activate@CBaseEntity@@UAEXXZ			; CBaseEntity::Activate
 PUBLIC	?OnChangeLevel@CBaseEntity@@UAEXXZ		; CBaseEntity::OnChangeLevel
-PUBLIC	??1CFlyingMonster@@QAE@XZ			; CFlyingMonster::~CFlyingMonster
 PUBLIC	?OnTeleport@CBaseEntity@@UAEXXZ			; CBaseEntity::OnTeleport
+PUBLIC	??0CFlyingMonster@@QAE@XZ			; CFlyingMonster::CFlyingMonster
 PUBLIC	?PortalSleep@CBaseEntity@@UAEXM@Z		; CBaseEntity::PortalSleep
 PUBLIC	?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z ; CBaseEntity::StartMessage
 PUBLIC	?GetPosition@CBaseEntity@@UAEMXZ		; CBaseEntity::GetPosition
+PUBLIC	??1CFlyingMonster@@QAE@XZ			; CFlyingMonster::~CFlyingMonster
 PUBLIC	?OnChangeParent@CBaseEntity@@UAEXXZ		; CBaseEntity::OnChangeParent
 PUBLIC	?OnClearParent@CBaseEntity@@UAEXXZ		; CBaseEntity::OnClearParent
 PUBLIC	?OnRemove@CBaseEntity@@UAEXXZ			; CBaseEntity::OnRemove
@@ -10287,26 +10287,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L40042
+	jne	SHORT $L40056
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L40043
-$L40042:
+	je	SHORT $L40057
+$L40056:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40043
+	je	SHORT $L40057
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40044
-$L40043:
+	jmp	SHORT $L40058
+$L40057:
 	mov	DWORD PTR -8+[ebp], 0
-$L40044:
+$L40058:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -10910,8 +10910,8 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?Center@CBaseEntity@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40085 = -16
-$T40086 = -28
+$T40099 = -16
+$T40100 = -28
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
@@ -10926,13 +10926,13 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T40086[ebp]
+	lea	eax, DWORD PTR $T40100[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T40085[ebp]
+	lea	eax, DWORD PTR $T40099[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -10954,7 +10954,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40089 = -16
+$T40103 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
@@ -10972,7 +10972,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40089[ebp]
+	lea	edx, DWORD PTR $T40103[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -10992,7 +10992,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40092 = -16
+$T40106 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
@@ -11010,7 +11010,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40092[ebp]
+	lea	edx, DWORD PTR $T40106[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -11080,26 +11080,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40097
+	je	SHORT $L40111
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40097
+	je	SHORT $L40111
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L40097
+	je	SHORT $L40111
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40098
-$L40097:
+	jmp	SHORT $L40112
+$L40111:
 	mov	DWORD PTR -8+[ebp], 0
-$L40098:
+$L40112:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -11430,11 +11430,11 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?BodyTarget@CBaseMonster@@UAE?AVVector@@ABV2@@Z
 _TEXT	SEGMENT
-$T40129 = -16
-$T40130 = -28
-$T40131 = -40
-$T40132 = -52
-$T40133 = -64
+$T40143 = -16
+$T40144 = -28
+$T40145 = -40
+$T40146 = -52
+$T40147 = -64
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?BodyTarget@CBaseMonster@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseMonster::BodyTarget, COMDAT
@@ -11449,9 +11449,9 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1048576000				; 3e800000H
-	lea	eax, DWORD PTR $T40132[ebp]
+	lea	eax, DWORD PTR $T40146[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T40131[ebp]
+	lea	ecx, DWORD PTR $T40145[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -11460,12 +11460,12 @@ _this$ = -4
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T40133[ebp]
+	lea	ecx, DWORD PTR $T40147[ebp]
 	push	ecx
 	push	1061158912				; 3f400000H
-	lea	edx, DWORD PTR $T40130[ebp]
+	lea	edx, DWORD PTR $T40144[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T40129[ebp]
+	lea	eax, DWORD PTR $T40143[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -11492,7 +11492,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IsMoving@CBaseMonster@@UAEHXZ PROC NEAR		; CBaseMonster::IsMoving, COMDAT
 
-; 328  : 	virtual int		IsMoving( void ) { return m_movementGoal != MOVEGOAL_NONE; }
+; 329  : 	virtual int		IsMoving( void ) { return m_movementGoal != MOVEGOAL_NONE; }
 
 	push	ebp
 	mov	ebp, esp
@@ -11519,7 +11519,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?StopFollowing@CBaseMonster@@UAEXH@Z PROC NEAR		; CBaseMonster::StopFollowing, COMDAT
 
-; 339  : 	virtual void StopFollowing( BOOL clearSchedule ) {}
+; 340  : 	virtual void StopFollowing( BOOL clearSchedule ) {}
 
 	push	ebp
 	mov	ebp, esp
@@ -11830,14 +11830,14 @@ _this$ = -4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+2388], 0
-	je	SHORT $L40153
+	je	SHORT $L40167
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+2388]
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L40154
-$L40153:
+	jmp	SHORT $L40168
+$L40167:
 	mov	DWORD PTR -8+[ebp], 0
-$L40154:
+$L40168:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -11874,7 +11874,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?DeathSound@CBaseMonster@@UAEXXZ PROC NEAR		; CBaseMonster::DeathSound, COMDAT
 
-; 333  : 	virtual void DeathSound ( void ) { return; };
+; 334  : 	virtual void DeathSound ( void ) { return; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11896,7 +11896,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?AlertSound@CBaseMonster@@UAEXXZ PROC NEAR		; CBaseMonster::AlertSound, COMDAT
 
-; 334  : 	virtual void AlertSound ( void ) { return; };
+; 335  : 	virtual void AlertSound ( void ) { return; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11918,7 +11918,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?IdleSound@CBaseMonster@@UAEXXZ PROC NEAR		; CBaseMonster::IdleSound, COMDAT
 
-; 335  : 	virtual void IdleSound ( void ) { return; };
+; 336  : 	virtual void IdleSound ( void ) { return; };
 
 	push	ebp
 	mov	ebp, esp
@@ -11940,7 +11940,7 @@ _TEXT	SEGMENT
 _this$ = -4
 ?PainSound@CBaseMonster@@UAEXXZ PROC NEAR		; CBaseMonster::PainSound, COMDAT
 
-; 336  : 	virtual void PainSound ( void ) { return; };
+; 337  : 	virtual void PainSound ( void ) { return; };
 
 	push	ebp
 	mov	ebp, esp
@@ -12632,19 +12632,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L40205
+	jne	SHORT $L40219
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L40205
+	jne	SHORT $L40219
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40206
-$L40205:
+	jmp	SHORT $L40220
+$L40219:
 	mov	DWORD PTR -8+[ebp], 0
-$L40206:
+$L40220:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -12679,7 +12679,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z
 _TEXT	SEGMENT
-$T40211 = -16
+$T40225 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
@@ -12693,7 +12693,7 @@ _this$ = -4
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T40211[ebp]
+	lea	eax, DWORD PTR $T40225[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -13713,11 +13713,11 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	test	eax, eax
-	je	SHORT $L40261
+	je	SHORT $L40275
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	cmp	DWORD PTR _src$[ebp], eax
-	jb	SHORT $L40261
+	jb	SHORT $L40275
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Base@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEPAPADXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Base
 	mov	esi, eax
@@ -13725,13 +13725,13 @@ _this$ = -4
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	lea	eax, DWORD PTR [esi+eax*4]
 	cmp	DWORD PTR _src$[ebp], eax
-	jae	SHORT $L40261
+	jae	SHORT $L40275
 	push	535					; 00000217H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0EF@KBFD@?$CIBase?$CI?$CJ?5?$DN?$DN?5NULL?$CJ?5?$HM?$HM?5?$CI?$CGsrc?5?$DM?5Base@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40261:
+$L40275:
 
 ; 536  : 
 ; 537  : 	// Can insert at the end
@@ -13740,20 +13740,20 @@ $L40261:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Count@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBEHXZ ; CUtlArray<char *,CUtlMemory<char *,int> >::Count
 	cmp	DWORD PTR _elem$[ebp], eax
-	je	SHORT $L40262
+	je	SHORT $L40276
 	mov	edx, DWORD PTR _elem$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::IsValidIndex
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40262
+	jne	SHORT $L40276
 	push	538					; 0000021aH
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0CI@IOBG@?$CIelem?5?$DN?$DN?5Count?$CI?$CJ?$CJ?5?$HM?$HM?5IsValidInde@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40262:
+$L40276:
 
 ; 539  : 
 ; 540  : 	GrowVector();
@@ -13885,19 +13885,19 @@ _this$ = -4
 ; 297  : 	assert( nGrowSize >= 0 );
 
 	cmp	DWORD PTR _nGrowSize$[ebp], 0
-	jge	SHORT $L40267
+	jge	SHORT $L40281
 	push	297					; 00000129H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40267:
+$L40281:
 
 ; 298  : 	if (m_nAllocationCount)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L39114
+	je	SHORT $L39128
 
 ; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -13909,7 +13909,7 @@ $L40267:
 	add	esp, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L39114:
+$L39128:
 
 ; 302  : }
 
@@ -13987,13 +13987,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40272
+	je	SHORT $L40286
 	push	424					; 000001a8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40272:
+$L40286:
 
 ; 425  : 	assert( IsIdxValid(i) );
 
@@ -14003,13 +14003,13 @@ $L40272:
 	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40273
+	jne	SHORT $L40287
 	push	425					; 000001a9H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40273:
+$L40287:
 
 ; 426  : 	return m_pMemory[i];
 
@@ -14049,13 +14049,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40276
+	je	SHORT $L40290
 	push	488					; 000001e8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40276:
+$L40290:
 
 ; 489  : 	return m_pMemory;
 
@@ -14160,16 +14160,16 @@ _this$ = -4
 ; 355  : 	return (i >= 0) && (i < m_Size);
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40283
+	jl	SHORT $L40297
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+12]
-	jge	SHORT $L40283
+	jge	SHORT $L40297
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40284
-$L40283:
+	jmp	SHORT $L40298
+$L40297:
 	mov	DWORD PTR -8+[ebp], 0
-$L40284:
+$L40298:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 356  : }
@@ -14204,12 +14204,12 @@ _i$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _i$[ebp], ecx
-$L39147:
+$L39161:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L39148
+	jl	SHORT $L39162
 
 ; 729  : 		Destruct(&Element(i));
 
@@ -14223,8 +14223,8 @@ $L39147:
 
 ; 730  : 	}
 
-	jmp	SHORT $L39147
-$L39148:
+	jmp	SHORT $L39161
+$L39162:
 
 ; 731  : 
 ; 732  : 	m_Size = 0;
@@ -14268,7 +14268,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?NumAllocated@?$CUtlMemory@PADH@@QBEHXZ	; CUtlMemory<char *,int>::NumAllocated
 	cmp	esi, eax
-	jle	SHORT $L39157
+	jle	SHORT $L39171
 
 ; 377  : 		m_Memory.Grow( m_Size + num - m_Memory.NumAllocated() );
 
@@ -14281,7 +14281,7 @@ _this$ = -4
 	push	esi
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Grow@?$CUtlMemory@PADH@@QAEXH@Z	; CUtlMemory<char *,int>::Grow
-$L39157:
+$L39171:
 
 ; 379  : 
 ; 380  : 	m_Size += num;
@@ -14341,18 +14341,18 @@ _numToMove$ = -8
 	call	?IsValidIndex@?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QBE_NH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::IsValidIndex
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40291
+	jne	SHORT $L40305
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+12], 0
-	je	SHORT $L40291
+	je	SHORT $L40305
 	cmp	DWORD PTR _num$[ebp], 0
-	je	SHORT $L40291
+	je	SHORT $L40305
 	push	448					; 000001c0H
 	push	OFFSET FLAT:??_C@_0CE@EGBJ@z?3?2xashxtsrc?2game_shared?2utlarra@ ; `string'
 	push	OFFSET FLAT:??_C@_0DG@DBGD@IsValidIndex?$CIelem?$CJ?5?$HM?$HM?5?$CI?5m_Size?5?$DN@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40291:
+$L40305:
 
 ; 449  : 	int numToMove = m_Size - elem - num;
 
@@ -14365,9 +14365,9 @@ $L40291:
 ; 450  : 	if ((numToMove > 0) && (num > 0))
 
 	cmp	DWORD PTR _numToMove$[ebp], 0
-	jle	SHORT $L39166
+	jle	SHORT $L39180
 	cmp	DWORD PTR _num$[ebp], 0
-	jle	SHORT $L39166
+	jle	SHORT $L39180
 
 ; 451  : 		memmove( &Element(elem+num), &Element(elem), numToMove * sizeof(T) );
 
@@ -14387,7 +14387,7 @@ $L40291:
 	push	eax
 	call	_memmove
 	add	esp, 12					; 0000000cH
-$L39166:
+$L39180:
 
 ; 452  : }
 
@@ -14404,7 +14404,7 @@ PUBLIC	??2@YAPAXIPAX@Z					; operator new
 _TEXT	SEGMENT
 _pMemory$ = 8
 _src$ = 12
-$T40294 = -4
+$T40308 = -4
 ?CopyConstruct@@YAXPAPADABQAD@Z PROC NEAR		; CopyConstruct, COMDAT
 
 ; 43   : {
@@ -14423,19 +14423,19 @@ $T40294 = -4
 	push	4
 	call	??2@YAPAXIPAX@Z				; operator new
 	add	esp, 8
-	mov	DWORD PTR $T40294[ebp], eax
-	cmp	DWORD PTR $T40294[ebp], 0
-	je	SHORT $L40295
-	mov	ecx, DWORD PTR $T40294[ebp]
+	mov	DWORD PTR $T40308[ebp], eax
+	cmp	DWORD PTR $T40308[ebp], 0
+	je	SHORT $L40309
+	mov	ecx, DWORD PTR $T40308[ebp]
 	mov	edx, DWORD PTR _src$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR [ecx], eax
-	mov	ecx, DWORD PTR $T40294[ebp]
+	mov	ecx, DWORD PTR $T40308[ebp]
 	mov	DWORD PTR -8+[ebp], ecx
-	jmp	SHORT $L40296
-$L40295:
+	jmp	SHORT $L40310
+$L40309:
 	mov	DWORD PTR -8+[ebp], 0
-$L40296:
+$L40310:
 
 ; 45   : }
 
@@ -14488,16 +14488,16 @@ _this$ = -4
 ; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40301
+	jl	SHORT $L40315
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jge	SHORT $L40301
+	jge	SHORT $L40315
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40302
-$L40301:
+	jmp	SHORT $L40316
+$L40315:
 	mov	DWORD PTR -8+[ebp], 0
-$L40302:
+$L40316:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 522  : }
@@ -14533,13 +14533,13 @@ _this$ = -4
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L39180
+	jne	SHORT $L39194
 
 ; 648  : 		if (m_pMemory)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L39181
+	je	SHORT $L39195
 
 ; 650  : 			free( (void*)m_pMemory );
 
@@ -14553,13 +14553,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], 0
-$L39181:
+$L39195:
 
 ; 653  : 		m_nAllocationCount = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+4], 0
-$L39180:
+$L39194:
 
 ; 655  : }
 
@@ -14636,8 +14636,8 @@ _this$ = -4
 _TEXT	ENDS
 PUBLIC	??_C@_07BGLK@num?5?$DO?50?$AA@			; `string'
 PUBLIC	??_C@_01PLJA@0?$AA@				; `string'
-PUBLIC	??_C@_09JCKE@m_pMemory?$AA@			; `string'
 PUBLIC	?UtlMemory_CalcNewAllocationCount@@YAHHHHH@Z	; UtlMemory_CalcNewAllocationCount
+PUBLIC	??_C@_09JCKE@m_pMemory?$AA@			; `string'
 EXTRN	_realloc:NEAR
 ;	COMDAT ??_C@_07BGLK@num?5?$DO?50?$AA@
 ; File z:\xashxtsrc\game_shared\utlmemory.h
@@ -14672,13 +14672,13 @@ _nAllocationRequested$ = -8
 ; 561  : 	assert( num > 0 );
 
 	cmp	DWORD PTR _num$[ebp], 0
-	jg	SHORT $L40311
+	jg	SHORT $L40325
 	push	561					; 00000231H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_07BGLK@num?5?$DO?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40311:
+$L40325:
 
 ; 562  : 
 ; 563  : 	if ( IsExternallyAllocated() )
@@ -14687,25 +14687,25 @@ $L40311:
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L39195
+	je	SHORT $L39209
 
 ; 565  : 		// Can't grow a buffer whose memory was externally allocated 
 ; 566  : 		assert(0);
 
 	xor	ecx, ecx
 	test	ecx, ecx
-	jne	SHORT $L40312
+	jne	SHORT $L40326
 	push	566					; 00000236H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_01PLJA@0?$AA@		; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40312:
+$L40326:
 
 ; 567  : 		return;
 
-	jmp	$L39192
-$L39195:
+	jmp	$L39206
+$L39209:
 
 ; 569  : 
 ; 570  : 	// Make sure we have at least numallocated + num allocations.
@@ -14741,18 +14741,18 @@ $L39195:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	eax, DWORD PTR _nAllocationRequested$[ebp]
-	jge	SHORT $L39215
+	jge	SHORT $L39229
 
 ; 579  : 		if ( ( int )( I )m_nAllocationCount == 0 && ( int )( I )( m_nAllocationCount - 1 ) >= nAllocationRequested )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	jne	SHORT $L39207
+	jne	SHORT $L39221
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	sub	eax, 1
 	cmp	eax, DWORD PTR _nAllocationRequested$[ebp]
-	jl	SHORT $L39207
+	jl	SHORT $L39221
 
 ; 581  : 			--m_nAllocationCount; // deal w/ the common case of m_nAllocationCount == MAX_USHORT + 1
 
@@ -14764,39 +14764,39 @@ $L39195:
 
 ; 583  : 		else
 
-	jmp	SHORT $L39215
-$L39207:
+	jmp	SHORT $L39229
+$L39221:
 
 ; 585  : 			if ( ( int )( I )nAllocationRequested != nAllocationRequested )
 
 	mov	ecx, DWORD PTR _nAllocationRequested$[ebp]
 	cmp	ecx, DWORD PTR _nAllocationRequested$[ebp]
-	je	SHORT $L39211
+	je	SHORT $L39225
 
 ; 587  : 				// we've been asked to grow memory to a size s.t. the index type can't address the requested amount of memory
 ; 588  : 				assert( 0 );
 
 	xor	edx, edx
 	test	edx, edx
-	jne	SHORT $L40313
+	jne	SHORT $L40327
 	push	588					; 0000024cH
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_01PLJA@0?$AA@		; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40313:
+$L40327:
 
 ; 589  : 				return;
 
-	jmp	$L39192
-$L39211:
+	jmp	$L39206
+$L39225:
 
 ; 591  : 			while ( ( int )( I )m_nAllocationCount < nAllocationRequested )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	edx, DWORD PTR _nAllocationRequested$[ebp]
-	jge	SHORT $L39215
+	jge	SHORT $L39229
 
 ; 593  : 				m_nAllocationCount = ( m_nAllocationCount + nAllocationRequested ) / 2;
 
@@ -14811,15 +14811,15 @@ $L39211:
 
 ; 594  : 			}
 
-	jmp	SHORT $L39211
-$L39215:
+	jmp	SHORT $L39225
+$L39229:
 
 ; 597  : 
 ; 598  : 	if (m_pMemory)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	je	SHORT $L39218
+	je	SHORT $L39232
 
 ; 600  : 		m_pMemory = (T*)realloc( m_pMemory, m_nAllocationCount * sizeof(T) );
 
@@ -14839,18 +14839,18 @@ $L39215:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L40314
+	jne	SHORT $L40328
 	push	601					; 00000259H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_09JCKE@m_pMemory?$AA@	; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40314:
+$L40328:
 
 ; 603  : 	else
 
-	jmp	SHORT $L40315
-$L39218:
+	jmp	SHORT $L40329
+$L39232:
 
 ; 605  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -14867,14 +14867,14 @@ $L39218:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L40315
+	jne	SHORT $L40329
 	push	606					; 0000025eH
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_09JCKE@m_pMemory?$AA@	; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40315:
-$L39192:
+$L40329:
+$L39206:
 
 ; 608  : }
 

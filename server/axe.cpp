@@ -57,14 +57,13 @@ public:
 
   void FindHullIntersection( const Vector &vecSrc, TraceResult &tr, float *mins, float *maxs, edict_t *pEntity );
   void PrimaryAttack( void );
-	float axe_reload;
+	float axe_next_attack;
 	bool axe_primary_attack;
 	void SecondaryAttack( void );
 	void WeaponIdle( void );
 	void AxeAttack( void );
 	BOOL Deploy( void );
 	void Holster( void );
-	int m_iSwing;
 	TraceResult m_trHit;
 };
 
@@ -115,13 +114,13 @@ int CAxe::GetItemInfo(ItemInfo *p)
 
 BOOL CAxe::Deploy( )
 {
-	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "crowbar" );
+	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "axe" );
 }
 
 void CAxe::Holster( void )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
-	axe_reload = 0;
+	axe_next_attack = 0;
 	SendWeaponAnim( AXE_HOLSTER );
 }
 
@@ -172,12 +171,12 @@ void CAxe::FindHullIntersection( const Vector &vecSrc, TraceResult &tr, float *m
 
 void CAxe::PrimaryAttack( void )
 {
-	if (axe_reload > 0)
+	if (axe_next_attack > 0)
 	{
 		WeaponIdle();
 		return;
 	}
-	axe_reload = 0.7;
+	axe_next_attack = 0.7;
 	axe_primary_attack = true;
 	m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + AXE_PRI_DELAY;
 	SendWeaponAnim( AXE_ATTACK1HIT );
@@ -185,12 +184,12 @@ void CAxe::PrimaryAttack( void )
 
 void CAxe::SecondaryAttack( void )
 {
-	if (axe_reload > 0)
+	if (axe_next_attack > 0)
 	{
 		WeaponIdle();
 		return;
 	}
-	axe_reload = 0.7;
+	axe_next_attack = 0.7;
 	axe_primary_attack = false;
 	m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + AXE_SEC_DELAY;
 	SendWeaponAnim( AXE_ATTACK1HIT );
@@ -209,7 +208,7 @@ void CAxe::AxeAttack( void )
 
 	UTIL_MakeVectors (m_pPlayer->pev->v_angle);
 	Vector vecSrc	= m_pPlayer->GetGunPosition( );
-	Vector vecEnd	= vecSrc + gpGlobals->v_forward * 32;
+	Vector vecEnd	= vecSrc + gpGlobals->v_forward * 64;
 
 	UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, ENT( m_pPlayer->pev ), &tr );
 
@@ -229,7 +228,7 @@ void CAxe::AxeAttack( void )
 
 	if( tr.flFraction >= 1.0 )
 	{
-		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + axe_reload;
+		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + axe_next_attack;
 		// play wiff or swish sound
 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
@@ -259,7 +258,7 @@ void CAxe::AxeAttack( void )
 
 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
 
-		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + axe_reload;
+		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + axe_next_attack;
 
 		// play thwack, smack, or dong sound
 		float flVol = 1.0;
@@ -329,11 +328,11 @@ void CAxe::WeaponIdle( void )
 {
 	ResetEmptySound( );
 
-	if (m_flTimeWeaponIdle > gpGlobals->time || axe_reload == 0)
+	if (m_flTimeWeaponIdle > gpGlobals->time || axe_next_attack == 0)
 		return;
 
 	AxeAttack();
-  axe_reload = 0;
+  axe_next_attack = 0;
 
 	/*int iAnim;
 	switch ( RANDOM_LONG( 0, 1 ) )

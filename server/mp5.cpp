@@ -49,6 +49,7 @@ public:
 	//void SecondaryAttack( void );
 	//int SecondaryAmmoIndex( void );
 	BOOL Deploy( void );
+	void Holster( void );
 	void Reload( void );
 	void WeaponIdle( void );
 	float m_flNextAnimTime;
@@ -138,7 +139,15 @@ int CMP5::AddToPlayer( CBasePlayer *pPlayer )
 
 BOOL CMP5::Deploy( )
 {
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 	return DefaultDeploy( "models/v_9mmAR.mdl", "models/p_9mmAR.mdl", MP5_DEPLOY, "mp5" );
+}
+
+void CMP5::Holster( void )
+{
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+	m_fInReload = FALSE;// cancel any reload in progress.
+	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 }
 
 void CMP5::PrimaryAttack()

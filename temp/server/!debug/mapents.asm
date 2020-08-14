@@ -643,7 +643,7 @@ _pSrcParent$ = -8
 
 	mov	eax, DWORD PTR _pParent$[ebp]
 	mov	DWORD PTR _pSrcParent$[ebp], eax
-$L36341:
+$L36349:
 
 ; 29   : 
 ; 30   : 	while(( pParent = UTIL_FindEntityByTargetname( pParent, STRING( pEntity->m_iParent ))) != NULL )
@@ -660,12 +660,12 @@ $L36341:
 	add	esp, 8
 	mov	DWORD PTR _pParent$[ebp], eax
 	cmp	DWORD PTR _pParent$[ebp], 0
-	je	$L36342
+	je	$L36350
 
 ; 32   : 		if( fShownMessage )
 
 	cmp	DWORD PTR _fShownMessage$[ebp], 0
-	je	SHORT $L36343
+	je	SHORT $L36351
 
 ; 33   : 			ALERT( at_console, "," );
 
@@ -673,13 +673,13 @@ $L36341:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36343:
+$L36351:
 
 ; 34   : 
 ; 35   : 		if( !fShownMessage )
 
 	cmp	DWORD PTR _fShownMessage$[ebp], 0
-	jne	SHORT $L36345
+	jne	SHORT $L36353
 
 ; 37   : 			ALERT( at_warning, "Entity %s[%d] has multiple parent [%s]:", pEntity->GetClassname( ), pEntity->entindex(), pSrcParent->GetDebugName()); 
 
@@ -713,7 +713,7 @@ $L36343:
 ; 39   : 			fShownMessage = TRUE;
 
 	mov	DWORD PTR _fShownMessage$[ebp], 1
-$L36345:
+$L36353:
 
 ; 41   : 		ALERT( at_console, " %s[%d]", pParent->GetClassname(), pParent->entindex());
 
@@ -730,14 +730,14 @@ $L36345:
 
 ; 42   : 	}
 
-	jmp	$L36341
-$L36342:
+	jmp	$L36349
+$L36350:
 
 ; 43   : 
 ; 44   : 	if( fShownMessage )
 
 	cmp	DWORD PTR _fShownMessage$[ebp], 0
-	je	SHORT $L36349
+	je	SHORT $L36357
 
 ; 45   : 		ALERT( at_console, "\n" );
 
@@ -745,7 +745,7 @@ $L36342:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36349:
+$L36357:
 
 ; 46   : }
 
@@ -989,6 +989,7 @@ _pev$ = 8
 	ret	0
 ?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z ENDP		; ENT
 _TEXT	ENDS
+PUBLIC	__real@4@00000000000000000000
 PUBLIC	?ED_ParseEdict@@YAPAVCBaseEntity@@PAPADPAUedict_s@@@Z ; ED_ParseEdict
 PUBLIC	??_C@_0CK@FNOC@ED_ParseEdict?3?5EOF?5without?5closi@ ; `string'
 PUBLIC	??_C@_0CL@KHHD@ED_ParseEdict?3?5closing?5brace?5wit@ ; `string'
@@ -1004,7 +1005,7 @@ PUBLIC	??_C@_05DKPF@light?$AA@				; `string'
 PUBLIC	??_C@_0M@IPMA@light_level?$AA@			; `string'
 PUBLIC	??_C@_09JDJH@classname?$AA@			; `string'
 PUBLIC	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z		; VARS
-PUBLIC	__real@4@00000000000000000000
+EXTRN	__chkstk:NEAR
 EXTRN	__fltused:NEAR
 EXTRN	??3@YAXPAX@Z:NEAR				; operator delete
 EXTRN	?Q_strncpy@@YAIPADPBDI@Z:NEAR			; Q_strncpy
@@ -1016,7 +1017,6 @@ EXTRN	?va@@YAPADPBDZZ:NEAR				; va
 EXTRN	?COM_ParseFileExt@@YAPADPAD0J_N@Z:NEAR		; COM_ParseFileExt
 EXTRN	?ENT@@YAPAUedict_s@@PAVCBaseEntity@@@Z:NEAR	; ENT
 EXTRN	?g_physfuncs@@3Userver_physics_api_s@@A:BYTE	; g_physfuncs
-EXTRN	__chkstk:NEAR
 ;	COMDAT ??_C@_09JDJH@classname?$AA@
 ; File z:\xashxtsrc\server\mapents.cpp
 CONST	SEGMENT
@@ -1079,6 +1079,11 @@ __real@4@00000000000000000000 DD 000000000r	; 0
 CONST	ENDS
 ;	COMDAT ?ED_ParseEdict@@YAPAVCBaseEntity@@PAPADPAUedict_s@@@Z
 _TEXT	SEGMENT
+$T36864 = -6436
+$T36865 = -6440
+$T36866 = -6444
+$T36867 = -6448
+$T36868 = -6452
 _pfile$ = 8
 _ent$ = 12
 _pkvd$ = -4096
@@ -1086,17 +1091,12 @@ _i$ = -4100
 _numpairs$ = -4104
 _classname$ = -4108
 _token$ = -6156
-_keyname$36389 = -6412
+_keyname$36397 = -6412
 _pEntity$ = -6416
 _iszClassName$ = -6420
-_flYawAngle$36421 = -6424
-$T36854 = -6428
-$T36855 = -6432
-$T36856 = -6436
-$T36857 = -6440
-$T36858 = -6444
-$T36859 = -6448
-$T36860 = -6452
+_flYawAngle$36429 = -6424
+$T36862 = -6428
+$T36863 = -6432
 ?ED_ParseEdict@@YAPAVCBaseEntity@@PAPADPAUedict_s@@@Z PROC NEAR ; ED_ParseEdict, COMDAT
 
 ; 106  : {
@@ -1117,7 +1117,7 @@ $T36860 = -6452
 ; 109  : 	const char	*classname = NULL;
 
 	mov	DWORD PTR _classname$[ebp], 0
-$L36387:
+$L36395:
 
 ; 110  : 	char		token[2048];
 ; 111  : 
@@ -1126,7 +1126,7 @@ $L36387:
 
 	mov	eax, 1
 	test	eax, eax
-	je	$L36388
+	je	$L36396
 
 ; 115  : 		char	keyname[256];
 ; 116  : 
@@ -1146,23 +1146,23 @@ $L36387:
 	mov	DWORD PTR [ecx], eax
 	mov	edx, DWORD PTR _pfile$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L36390
+	jne	SHORT $L36398
 
 ; 119  : 			HOST_ERROR( "ED_ParseEdict: EOF without closing brace\n" );
 
 	push	OFFSET FLAT:??_C@_0CK@FNOC@ED_ParseEdict?3?5EOF?5without?5closi@ ; `string'
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+24
 	add	esp, 4
-$L36390:
+$L36398:
 
 ; 120  : 
 ; 121  : 		if( token[0] == '}' ) break; // end of desc
 
 	movsx	eax, BYTE PTR _token$[ebp]
 	cmp	eax, 125				; 0000007dH
-	jne	SHORT $L36392
-	jmp	$L36388
-$L36392:
+	jne	SHORT $L36400
+	jmp	$L36396
+$L36400:
 
 ; 122  : 
 ; 123  : 		Q_strncpy( keyname, token, sizeof( keyname ));
@@ -1170,7 +1170,7 @@ $L36392:
 	push	256					; 00000100H
 	lea	ecx, DWORD PTR _token$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _keyname$36389[ebp]
+	lea	edx, DWORD PTR _keyname$36397[ebp]
 	push	edx
 	call	?Q_strncpy@@YAIPADPBDI@Z		; Q_strncpy
 	add	esp, 12					; 0000000cH
@@ -1192,38 +1192,38 @@ $L36392:
 	mov	DWORD PTR [ecx], eax
 	mov	edx, DWORD PTR _pfile$[ebp]
 	cmp	DWORD PTR [edx], 0
-	jne	SHORT $L36393
+	jne	SHORT $L36401
 
 ; 127  : 			HOST_ERROR( "ED_ParseEdict: EOF without closing brace\n" );
 
 	push	OFFSET FLAT:??_C@_0CK@FNOC@ED_ParseEdict?3?5EOF?5without?5closi@ ; `string'
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+24
 	add	esp, 4
-$L36393:
+$L36401:
 
 ; 128  : 
 ; 129  : 		if( token[0] == '}' )
 
 	movsx	eax, BYTE PTR _token$[ebp]
 	cmp	eax, 125				; 0000007dH
-	jne	SHORT $L36394
+	jne	SHORT $L36402
 
 ; 130  : 			HOST_ERROR( "ED_ParseEdict: closing brace without data\n" );
 
 	push	OFFSET FLAT:??_C@_0CL@KHHD@ED_ParseEdict?3?5closing?5brace?5wit@ ; `string'
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+24
 	add	esp, 4
-$L36394:
+$L36402:
 
 ; 131  : 
 ; 132  : 		// ignore attempts to set key ""
 ; 133  : 		if( !keyname[0] ) continue;
 
-	movsx	ecx, BYTE PTR _keyname$36389[ebp]
+	movsx	ecx, BYTE PTR _keyname$36397[ebp]
 	test	ecx, ecx
-	jne	SHORT $L36396
-	jmp	$L36387
-$L36396:
+	jne	SHORT $L36404
+	jmp	$L36395
+$L36404:
 
 ; 134  : 
 ; 135  : 		// "wad" field is completely ignored in XashXT
@@ -1231,17 +1231,17 @@ $L36396:
 
 	push	99999					; 0001869fH
 	push	OFFSET FLAT:??_C@_03GMFF@wad?$AA@	; `string'
-	lea	edx, DWORD PTR _keyname$36389[ebp]
+	lea	edx, DWORD PTR _keyname$36397[ebp]
 	push	edx
 	call	?Q_strncmp@@YAHPBD0H@Z			; Q_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L36397
+	jne	SHORT $L36405
 
 ; 137  : 			continue;
 
-	jmp	$L36387
-$L36397:
+	jmp	$L36395
+$L36405:
 
 ; 138  : 
 ; 139  : 		// ignore attempts to set value ""
@@ -1249,9 +1249,9 @@ $L36397:
 
 	movsx	eax, BYTE PTR _token$[ebp]
 	test	eax, eax
-	jne	SHORT $L36399
-	jmp	$L36387
-$L36399:
+	jne	SHORT $L36407
+	jmp	$L36395
+$L36407:
 
 ; 141  : 
 ; 142  : 		// create keyvalue strings
@@ -1264,7 +1264,7 @@ $L36399:
 
 ; 144  : 		pkvd[numpairs].szKeyName = copystring( keyname );
 
-	lea	eax, DWORD PTR _keyname$36389[ebp]
+	lea	eax, DWORD PTR _keyname$36397[ebp]
 	push	eax
 	call	?copystring@@YAPADPBD@Z			; copystring
 	add	esp, 4
@@ -1293,14 +1293,14 @@ $L36399:
 
 	push	99999					; 0001869fH
 	push	OFFSET FLAT:??_C@_09JDJH@classname?$AA@	; `string'
-	lea	eax, DWORD PTR _keyname$36389[ebp]
+	lea	eax, DWORD PTR _keyname$36397[ebp]
 	push	eax
 	call	?Q_strncmp@@YAHPBD0H@Z			; Q_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L36401
+	jne	SHORT $L36409
 	cmp	DWORD PTR _classname$[ebp], 0
-	jne	SHORT $L36401
+	jne	SHORT $L36409
 
 ; 149  : 			classname = pkvd[numpairs].szValue;
 
@@ -1308,7 +1308,7 @@ $L36399:
 	shl	ecx, 4
 	mov	edx, DWORD PTR _pkvd$[ebp+ecx+8]
 	mov	DWORD PTR _classname$[ebp], edx
-$L36401:
+$L36409:
 
 ; 150  : 		if( ++numpairs >= 256 ) break;
 
@@ -1316,14 +1316,14 @@ $L36401:
 	add	eax, 1
 	mov	DWORD PTR _numpairs$[ebp], eax
 	cmp	DWORD PTR _numpairs$[ebp], 256		; 00000100H
-	jl	SHORT $L36402
-	jmp	SHORT $L36388
-$L36402:
+	jl	SHORT $L36410
+	jmp	SHORT $L36396
+$L36410:
 
 ; 151  : 	}
 
-	jmp	$L36387
-$L36388:
+	jmp	$L36395
+$L36396:
 
 ; 152  : 
 ; 153  : 	CBaseEntity *pEntity;
@@ -1339,7 +1339,7 @@ $L36388:
 ; 156  : 	if( ent )
 
 	cmp	DWORD PTR _ent$[ebp], 0
-	je	SHORT $L36405
+	je	SHORT $L36413
 
 ; 158  : 		// initialize world
 ; 159  : 		pEntity = CreateEntityByName( STRING( iszClassName ), VARS( ent ));
@@ -1363,11 +1363,11 @@ $L36388:
 ; 162  : 		if( !pEntity ) HOST_ERROR( "Can't initialize world!\n" );
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	jne	SHORT $L36406
+	jne	SHORT $L36414
 	push	OFFSET FLAT:??_C@_0BJ@FCC@Can?8t?5initialize?5world?$CB?6?$AA@ ; `string'
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+24
 	add	esp, 4
-$L36406:
+$L36414:
 
 ; 163  : 		pEntity->m_iParent = NULL_STRING; // don't allow a parent on the first entity (worldspawn)
 
@@ -1376,8 +1376,8 @@ $L36406:
 
 ; 165  : 	else
 
-	jmp	SHORT $L36408
-$L36405:
+	jmp	SHORT $L36416
+$L36413:
 
 ; 167  : 		// any other entity
 ; 168  : 		pEntity = CreateEntityByName( STRING( iszClassName ));
@@ -1391,48 +1391,48 @@ $L36405:
 	call	?CreateEntityByName@@YAPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CreateEntityByName
 	add	esp, 8
 	mov	DWORD PTR _pEntity$[ebp], eax
-$L36408:
+$L36416:
 
 ; 170  : 
 ; 171  : 	if( !pEntity || ENT( pEntity )->free || FBitSet( pEntity->pev->flags, FL_KILLME ))
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L36410
+	je	SHORT $L36418
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	push	eax
 	call	?ENT@@YAPAUedict_s@@PAVCBaseEntity@@@Z	; ENT
 	add	esp, 4
 	cmp	DWORD PTR [eax], 0
-	jne	SHORT $L36410
+	jne	SHORT $L36418
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, 1073741824				; 40000000H
 	test	eax, eax
-	je	SHORT $L36409
-$L36410:
+	je	SHORT $L36417
+$L36418:
 
 ; 173  : 		// release allocated strings
 ; 174  : 		for( i = 0; i < numpairs; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36411
-$L36412:
+	jmp	SHORT $L36419
+$L36420:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36411:
+$L36419:
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR _numpairs$[ebp]
-	jge	SHORT $L36413
+	jge	SHORT $L36421
 
 ; 176  : 			freestring( pkvd[i].szKeyName );
 
 	mov	eax, DWORD PTR _i$[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _pkvd$[ebp+eax+4]
-	mov	DWORD PTR $T36854[ebp], ecx
-	mov	edx, DWORD PTR $T36854[ebp]
+	mov	DWORD PTR $T36862[ebp], ecx
+	mov	edx, DWORD PTR $T36862[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1442,36 +1442,36 @@ $L36411:
 	mov	eax, DWORD PTR _i$[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _pkvd$[ebp+eax+8]
-	mov	DWORD PTR $T36855[ebp], ecx
-	mov	edx, DWORD PTR $T36855[ebp]
+	mov	DWORD PTR $T36863[ebp], ecx
+	mov	edx, DWORD PTR $T36863[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
 
 ; 178  : 		}
 
-	jmp	SHORT $L36412
-$L36413:
+	jmp	SHORT $L36420
+$L36421:
 
 ; 179  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L36380
-$L36409:
+	jmp	$L36388
+$L36417:
 
 ; 181  : 
 ; 182  : 	for( i = 0; i < numpairs; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36416
-$L36417:
+	jmp	SHORT $L36424
+$L36425:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36416:
+$L36424:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _numpairs$[ebp]
-	jge	$L36418
+	jge	$L36426
 
 ; 184  : 		if( !Q_strcmp( pkvd[i].szKeyName, "angle" ))
 
@@ -1484,7 +1484,7 @@ $L36416:
 	call	?Q_strncmp@@YAHPBD0H@Z			; Q_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	$L36433
+	jne	$L36441
 
 ; 186  : 			float	flYawAngle = Q_atof( pkvd[i].szValue );
 
@@ -1494,7 +1494,7 @@ $L36416:
 	push	edx
 	call	?Q_atof@@YAMPBD@Z			; Q_atof
 	add	esp, 4
-	fstp	DWORD PTR _flYawAngle$36421[ebp]
+	fstp	DWORD PTR _flYawAngle$36429[ebp]
 
 ; 187  : 
 ; 188  : 			freestring( pkvd[i].szKeyName ); // will be replace with 'angles'
@@ -1502,8 +1502,8 @@ $L36416:
 	mov	eax, DWORD PTR _i$[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _pkvd$[ebp+eax+4]
-	mov	DWORD PTR $T36856[ebp], ecx
-	mov	edx, DWORD PTR $T36856[ebp]
+	mov	DWORD PTR $T36864[ebp], ecx
+	mov	edx, DWORD PTR $T36864[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1513,8 +1513,8 @@ $L36416:
 	mov	eax, DWORD PTR _i$[ebp]
 	shl	eax, 4
 	mov	ecx, DWORD PTR _pkvd$[ebp+eax+8]
-	mov	DWORD PTR $T36857[ebp], ecx
-	mov	edx, DWORD PTR $T36857[ebp]
+	mov	DWORD PTR $T36865[ebp], ecx
+	mov	edx, DWORD PTR $T36865[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1531,11 +1531,11 @@ $L36416:
 ; 191  : 
 ; 192  : 			if( flYawAngle >= 0.0f )
 
-	fld	DWORD PTR _flYawAngle$36421[ebp]
+	fld	DWORD PTR _flYawAngle$36429[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L36425
+	jne	SHORT $L36433
 
 ; 193  : 				pkvd[i].szValue = copystring( va( "%g %g %g", pEntity->pev->angles.x, flYawAngle, pEntity->pev->angles.z ));
 
@@ -1544,7 +1544,7 @@ $L36416:
 	fld	DWORD PTR [eax+88]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	fld	DWORD PTR _flYawAngle$36421[ebp]
+	fld	DWORD PTR _flYawAngle$36429[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	mov	ecx, DWORD PTR _pEntity$[ebp]
@@ -1564,10 +1564,10 @@ $L36416:
 
 ; 194  : 			else if( flYawAngle == -1.0f )
 
-	jmp	SHORT $L36433
-$L36425:
-	cmp	DWORD PTR _flYawAngle$36421[ebp], -1082130432 ; bf800000H
-	jne	SHORT $L36428
+	jmp	SHORT $L36441
+$L36433:
+	cmp	DWORD PTR _flYawAngle$36429[ebp], -1082130432 ; bf800000H
+	jne	SHORT $L36436
 
 ; 195  : 				pkvd[i].szValue = copystring( "-90 0 0" );
 
@@ -1580,10 +1580,10 @@ $L36425:
 
 ; 196  : 			else if( flYawAngle == -2.0f )
 
-	jmp	SHORT $L36433
-$L36428:
-	cmp	DWORD PTR _flYawAngle$36421[ebp], -1073741824 ; c0000000H
-	jne	SHORT $L36431
+	jmp	SHORT $L36441
+$L36436:
+	cmp	DWORD PTR _flYawAngle$36429[ebp], -1073741824 ; c0000000H
+	jne	SHORT $L36439
 
 ; 197  : 				pkvd[i].szValue = copystring( "90 0 0" );
 
@@ -1596,15 +1596,15 @@ $L36428:
 
 ; 198  : 			else pkvd[i].szValue = copystring( "0 0 0" ); // technically an error
 
-	jmp	SHORT $L36433
-$L36431:
+	jmp	SHORT $L36441
+$L36439:
 	push	OFFSET FLAT:??_C@_05OBMA@0?50?50?$AA@	; `string'
 	call	?copystring@@YAPADPBD@Z			; copystring
 	add	esp, 4
 	mov	edx, DWORD PTR _i$[ebp]
 	shl	edx, 4
 	mov	DWORD PTR _pkvd$[ebp+edx+8], eax
-$L36433:
+$L36441:
 
 ; 200  : 
 ; 201  : 		if( !Q_strcmp( pkvd[i].szKeyName, "light" ))
@@ -1618,15 +1618,15 @@ $L36433:
 	call	?Q_strncmp@@YAHPBD0H@Z			; Q_strncmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L36435
+	jne	SHORT $L36443
 
 ; 203  : 			freestring( pkvd[i].szKeyName );
 
 	mov	edx, DWORD PTR _i$[ebp]
 	shl	edx, 4
 	mov	eax, DWORD PTR _pkvd$[ebp+edx+4]
-	mov	DWORD PTR $T36858[ebp], eax
-	mov	ecx, DWORD PTR $T36858[ebp]
+	mov	DWORD PTR $T36866[ebp], eax
+	mov	ecx, DWORD PTR $T36866[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1639,7 +1639,7 @@ $L36433:
 	mov	edx, DWORD PTR _i$[ebp]
 	shl	edx, 4
 	mov	DWORD PTR _pkvd$[ebp+edx+4], eax
-$L36435:
+$L36443:
 
 ; 206  : 
 ; 207  : 		if( !pkvd[i].fHandled )
@@ -1647,7 +1647,7 @@ $L36435:
 	mov	eax, DWORD PTR _i$[ebp]
 	shl	eax, 4
 	cmp	DWORD PTR _pkvd$[ebp+eax+12], 0
-	jne	SHORT $L36439
+	jne	SHORT $L36447
 
 ; 209  : 			pkvd[i].szClassName = (char *)classname;
 
@@ -1667,7 +1667,7 @@ $L36435:
 	push	eax
 	call	?DispatchKeyValue@@YAXPAUedict_s@@PAUKeyValueData_s@@@Z ; DispatchKeyValue
 	add	esp, 8
-$L36439:
+$L36447:
 
 ; 212  : 
 ; 213  : 		// no reason to keep this data
@@ -1676,8 +1676,8 @@ $L36439:
 	mov	edx, DWORD PTR _i$[ebp]
 	shl	edx, 4
 	mov	eax, DWORD PTR _pkvd$[ebp+edx+4]
-	mov	DWORD PTR $T36859[ebp], eax
-	mov	ecx, DWORD PTR $T36859[ebp]
+	mov	DWORD PTR $T36867[ebp], eax
+	mov	ecx, DWORD PTR $T36867[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1687,22 +1687,22 @@ $L36439:
 	mov	edx, DWORD PTR _i$[ebp]
 	shl	edx, 4
 	mov	eax, DWORD PTR _pkvd$[ebp+edx+8]
-	mov	DWORD PTR $T36860[ebp], eax
-	mov	ecx, DWORD PTR $T36860[ebp]
+	mov	DWORD PTR $T36868[ebp], eax
+	mov	ecx, DWORD PTR $T36868[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
 
 ; 216  : 	}
 
-	jmp	$L36417
-$L36418:
+	jmp	$L36425
+$L36426:
 
 ; 217  : 
 ; 218  : 	return pEntity;
 
 	mov	eax, DWORD PTR _pEntity$[ebp]
-$L36380:
+$L36388:
 
 ; 219  : }
 
@@ -1779,7 +1779,7 @@ _ent$ = 8
 	call	?DispatchSpawn@@YAHPAUedict_s@@@Z	; DispatchSpawn
 	add	esp, 4
 	test	eax, eax
-	jge	SHORT $L36447
+	jge	SHORT $L36455
 
 ; 225  : 		// game rejected the spawn and not marked for delete
 ; 226  : 		if( !FBitSet( ent->v.flags, FL_KILLME ))
@@ -1788,7 +1788,7 @@ _ent$ = 8
 	mov	edx, DWORD PTR [ecx+548]
 	and	edx, 1073741824				; 40000000H
 	test	edx, edx
-	jne	SHORT $L36447
+	jne	SHORT $L36455
 
 ; 228  : 			REMOVE_ENTITY( ent );
 
@@ -1800,13 +1800,13 @@ _ent$ = 8
 ; 229  : 			return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L36445
-$L36447:
+	jmp	SHORT $L36453
+$L36455:
 
 ; 232  : 	return 1;
 
 	mov	eax, 1
-$L36445:
+$L36453:
 
 ; 233  : }
 
@@ -1864,12 +1864,12 @@ _pSpawnList$ = -34820
 _nEntity$ = -34824
 _nEntities$ = -34828
 _create_world$ = -34832
-_ent$36464 = -34836
-_pEntity$36466 = -34840
-_pEntity$36482 = -34844
-_pParent$36484 = -34848
-_pEntity$36490 = -34852
-_pEntity$36496 = -34856
+_ent$36472 = -34836
+_pEntity$36474 = -34840
+_pEntity$36490 = -34844
+_pParent$36492 = -34848
+_pEntity$36498 = -34852
+_pEntity$36504 = -34856
 ?DispatchSpawnEntities@@YAHPBDPAD@Z PROC NEAR		; DispatchSpawnEntities, COMDAT
 
 ; 236  : {
@@ -1885,10 +1885,10 @@ _pEntity$36496 = -34856
 ; 237  : 	if( !entities ) return 0; // probably this never happens
 
 	cmp	DWORD PTR _entities$[ebp], 0
-	jne	SHORT $L36452
+	jne	SHORT $L36460
 	xor	eax, eax
-	jmp	$L36451
-$L36452:
+	jmp	$L36459
+$L36460:
 
 ; 240  : 	int inhibited = 0;
 
@@ -1902,7 +1902,7 @@ $L36452:
 ; 243  : 	BOOL create_world = TRUE;
 
 	mov	DWORD PTR _create_world$[ebp], 1
-$L36460:
+$L36468:
 
 ; 244  : 
 ; 245  : 	// parse ents
@@ -1918,13 +1918,13 @@ $L36460:
 	add	esp, 16					; 00000010H
 	mov	DWORD PTR _entities$[ebp], eax
 	cmp	DWORD PTR _entities$[ebp], 0
-	je	$L36461
+	je	$L36469
 
 ; 248  : 		if( token[0] != '{' )
 
 	movsx	edx, BYTE PTR _token$[ebp]
 	cmp	edx, 123				; 0000007bH
-	je	SHORT $L36462
+	je	SHORT $L36470
 
 ; 249  : 			HOST_ERROR( "ED_LoadFromFile: found %s when expecting {\n", token );
 
@@ -1933,83 +1933,83 @@ $L36460:
 	push	OFFSET FLAT:??_C@_0CM@DPCC@ED_LoadFromFile?3?5found?5?$CFs?5when?5e@ ; `string'
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+24
 	add	esp, 8
-$L36462:
+$L36470:
 
 ; 250  : 
 ; 251  : 		edict_t *ent = NULL;
 
-	mov	DWORD PTR _ent$36464[ebp], 0
+	mov	DWORD PTR _ent$36472[ebp], 0
 
 ; 252  : 
 ; 253  : 		if( create_world )
 
 	cmp	DWORD PTR _create_world$[ebp], 0
-	je	SHORT $L36465
+	je	SHORT $L36473
 
 ; 254  : 			ent = INDEXENT( 0 ); // already initialized by engine
 
 	push	0
 	call	?INDEXENT@@YAPAUedict_s@@H@Z		; INDEXENT
 	add	esp, 4
-	mov	DWORD PTR _ent$36464[ebp], eax
-$L36465:
+	mov	DWORD PTR _ent$36472[ebp], eax
+$L36473:
 
 ; 255  : 
 ; 256  : 		CBaseEntity *pEntity = ED_ParseEdict( &entities, ent );
 
-	mov	ecx, DWORD PTR _ent$36464[ebp]
+	mov	ecx, DWORD PTR _ent$36472[ebp]
 	push	ecx
 	lea	edx, DWORD PTR _entities$[ebp]
 	push	edx
 	call	?ED_ParseEdict@@YAPAVCBaseEntity@@PAPADPAUedict_s@@@Z ; ED_ParseEdict
 	add	esp, 8
-	mov	DWORD PTR _pEntity$36466[ebp], eax
+	mov	DWORD PTR _pEntity$36474[ebp], eax
 
 ; 257  : 		if( !pEntity ) continue;
 
-	cmp	DWORD PTR _pEntity$36466[ebp], 0
-	jne	SHORT $L36467
-	jmp	$L36460
-$L36467:
+	cmp	DWORD PTR _pEntity$36474[ebp], 0
+	jne	SHORT $L36475
+	jmp	$L36468
+$L36475:
 
 ; 258  : 
 ; 259  : 		if( pEntity->ObjectCaps() & FCAP_IGNORE_PARENT )
 
-	mov	eax, DWORD PTR _pEntity$36466[ebp]
+	mov	eax, DWORD PTR _pEntity$36474[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _pEntity$36466[ebp]
+	mov	ecx, DWORD PTR _pEntity$36474[ebp]
 	call	DWORD PTR [edx+24]
 	and	eax, 4096				; 00001000H
 	test	eax, eax
-	je	SHORT $L36468
+	je	SHORT $L36476
 
 ; 260  : 			pEntity->m_iParent = NULL_STRING; // clear parent for this entity
 
-	mov	eax, DWORD PTR _pEntity$36466[ebp]
+	mov	eax, DWORD PTR _pEntity$36474[ebp]
 	mov	DWORD PTR [eax+172], 0
-$L36468:
+$L36476:
 
 ; 261  : 
 ; 262  : 		if( create_world )
 
 	cmp	DWORD PTR _create_world$[ebp], 0
-	je	SHORT $L36469
+	je	SHORT $L36477
 
 ; 264  : 			if( DispatchSpawn( ent ) < 0 )
 
-	mov	ecx, DWORD PTR _ent$36464[ebp]
+	mov	ecx, DWORD PTR _ent$36472[ebp]
 	push	ecx
 	call	?DispatchSpawn@@YAHPAUedict_s@@@Z	; DispatchSpawn
 	add	esp, 4
 	test	eax, eax
-	jge	SHORT $L36470
+	jge	SHORT $L36478
 
 ; 265  : 				HOST_ERROR( "can't spawn the world\n" );
 
 	push	OFFSET FLAT:??_C@_0BH@CAL@can?8t?5spawn?5the?5world?6?$AA@ ; `string'
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+24
 	add	esp, 4
-$L36470:
+$L36478:
 
 ; 266  : 			create_world = false;
 
@@ -2017,45 +2017,45 @@ $L36470:
 
 ; 268  : 		else if( pEntity->m_iParent == NULL_STRING && pEntity->pev->targetname == NULL_STRING )
 
-	jmp	SHORT $L36475
-$L36469:
-	mov	edx, DWORD PTR _pEntity$36466[ebp]
+	jmp	SHORT $L36483
+$L36477:
+	mov	edx, DWORD PTR _pEntity$36474[ebp]
 	cmp	DWORD PTR [edx+172], 0
-	jne	SHORT $L36473
-	mov	eax, DWORD PTR _pEntity$36466[ebp]
+	jne	SHORT $L36481
+	mov	eax, DWORD PTR _pEntity$36474[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+460], 0
-	jne	SHORT $L36473
+	jne	SHORT $L36481
 
 ; 270  : 			// it's doesn't have parent and can't be parent himself
 ; 271  : 			// so we can spawn this immediately
 ; 272  : 			if( !ED_SpawnEdict( pEntity->edict( )))
 
-	mov	ecx, DWORD PTR _pEntity$36466[ebp]
+	mov	ecx, DWORD PTR _pEntity$36474[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	?ED_SpawnEdict@@YAHPAUedict_s@@@Z	; ED_SpawnEdict
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L36474
+	jne	SHORT $L36482
 
 ; 273  : 				inhibited++;
 
 	mov	edx, DWORD PTR _inhibited$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _inhibited$[ebp], edx
-$L36474:
+$L36482:
 
 ; 275  : 		else
 
-	jmp	SHORT $L36475
-$L36473:
+	jmp	SHORT $L36483
+$L36481:
 
 ; 277  : 			// queue up this entity for spawning
 ; 278  : 			pSpawnList[nEntities].m_pEntity = pEntity;
 
 	mov	eax, DWORD PTR _nEntities$[ebp]
-	mov	ecx, DWORD PTR _pEntity$36466[ebp]
+	mov	ecx, DWORD PTR _pEntity$36474[ebp]
 	mov	DWORD PTR _pSpawnList$[ebp+eax*8], ecx
 
 ; 279  : 			pSpawnList[nEntities].m_nDepth = 0;
@@ -2068,12 +2068,12 @@ $L36473:
 	mov	eax, DWORD PTR _nEntities$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _nEntities$[ebp], eax
-$L36475:
+$L36483:
 
 ; 282  : 	}
 
-	jmp	$L36460
-$L36461:
+	jmp	$L36468
+$L36469:
 
 ; 283  : 
 ; 284  : 	ED_ComputeSpawnHierarchyDepth( pSpawnList, nEntities );
@@ -2108,34 +2108,34 @@ $L36461:
 	mov	edx, DWORD PTR _nEntities$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _nEntity$[ebp], edx
-	jmp	SHORT $L36479
-$L36480:
+	jmp	SHORT $L36487
+$L36488:
 	mov	eax, DWORD PTR _nEntity$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _nEntity$[ebp], eax
-$L36479:
+$L36487:
 	cmp	DWORD PTR _nEntity$[ebp], 0
-	jl	$L36481
+	jl	$L36489
 
 ; 295  : 		CBaseEntity *pEntity = pSpawnList[nEntity].m_pEntity;
 
 	mov	ecx, DWORD PTR _nEntity$[ebp]
 	mov	edx, DWORD PTR _pSpawnList$[ebp+ecx*8]
-	mov	DWORD PTR _pEntity$36482[ebp], edx
+	mov	DWORD PTR _pEntity$36490[ebp], edx
 
 ; 296  : 
 ; 297  : 		if( pEntity && !pEntity->HasAttachment( ))
 
-	cmp	DWORD PTR _pEntity$36482[ebp], 0
-	je	$L36485
-	mov	ecx, DWORD PTR _pEntity$36482[ebp]
+	cmp	DWORD PTR _pEntity$36490[ebp], 0
+	je	$L36493
+	mov	ecx, DWORD PTR _pEntity$36490[ebp]
 	call	?HasAttachment@CBaseEntity@@QAEHXZ	; CBaseEntity::HasAttachment
 	test	eax, eax
-	jne	$L36485
+	jne	$L36493
 
 ; 299  : 			CBaseEntity *pParent = UTIL_FindEntityByTargetname( NULL, STRING( pEntity->m_iParent ));
 
-	mov	eax, DWORD PTR _pEntity$36482[ebp]
+	mov	eax, DWORD PTR _pEntity$36490[ebp]
 	mov	ecx, DWORD PTR [eax+172]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
@@ -2144,24 +2144,24 @@ $L36479:
 	push	0
 	call	?UTIL_FindEntityByTargetname@@YAPAVCBaseEntity@@PAV1@PBD@Z ; UTIL_FindEntityByTargetname
 	add	esp, 8
-	mov	DWORD PTR _pParent$36484[ebp], eax
+	mov	DWORD PTR _pParent$36492[ebp], eax
 
 ; 300  : 
 ; 301  : 			if( pParent && pParent->edict( ))
 
-	cmp	DWORD PTR _pParent$36484[ebp], 0
-	je	SHORT $L36485
-	mov	ecx, DWORD PTR _pParent$36484[ebp]
+	cmp	DWORD PTR _pParent$36492[ebp], 0
+	je	SHORT $L36493
+	mov	ecx, DWORD PTR _pParent$36492[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	test	eax, eax
-	je	SHORT $L36485
+	je	SHORT $L36493
 
 ; 303  : 				ALERT( at_aiconsole, "%s linked with %s\n", pEntity->GetClassname(), pParent->GetClassname());
 
-	mov	ecx, DWORD PTR _pParent$36484[ebp]
+	mov	ecx, DWORD PTR _pParent$36492[ebp]
 	call	?GetClassname@CBaseEntity@@QAEPBDXZ	; CBaseEntity::GetClassname
 	push	eax
-	mov	ecx, DWORD PTR _pEntity$36482[ebp]
+	mov	ecx, DWORD PTR _pEntity$36490[ebp]
 	call	?GetClassname@CBaseEntity@@QAEPBDXZ	; CBaseEntity::GetClassname
 	push	eax
 	push	OFFSET FLAT:??_C@_0BD@NJMF@?$CFs?5linked?5with?5?$CFs?6?$AA@ ; `string'
@@ -2172,74 +2172,74 @@ $L36479:
 ; 304  : 				pEntity->SetParent( pParent ); 
 
 	push	0
-	mov	edx, DWORD PTR _pParent$36484[ebp]
+	mov	edx, DWORD PTR _pParent$36492[ebp]
 	push	edx
-	mov	ecx, DWORD PTR _pEntity$36482[ebp]
+	mov	ecx, DWORD PTR _pEntity$36490[ebp]
 	call	?SetParent@CBaseEntity@@QAEXPAV1@H@Z	; CBaseEntity::SetParent
 
 ; 305  : 				CheckForMultipleParents( pEntity, pParent );
 
-	mov	eax, DWORD PTR _pParent$36484[ebp]
+	mov	eax, DWORD PTR _pParent$36492[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pEntity$36482[ebp]
+	mov	ecx, DWORD PTR _pEntity$36490[ebp]
 	push	ecx
 	call	?CheckForMultipleParents@@YAXPAVCBaseEntity@@0@Z ; CheckForMultipleParents
 	add	esp, 8
-$L36485:
+$L36493:
 
 ; 308  : 	}
 
-	jmp	$L36480
-$L36481:
+	jmp	$L36488
+$L36489:
 
 ; 309  : 
 ; 310  : 	// Spawn all the entities in hierarchy depth order so that parents spawn before their children.
 ; 311  : 	for( nEntity = 0; nEntity < nEntities; nEntity++ )
 
 	mov	DWORD PTR _nEntity$[ebp], 0
-	jmp	SHORT $L36487
-$L36488:
+	jmp	SHORT $L36495
+$L36496:
 	mov	edx, DWORD PTR _nEntity$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _nEntity$[ebp], edx
-$L36487:
+$L36495:
 	mov	eax, DWORD PTR _nEntity$[ebp]
 	cmp	eax, DWORD PTR _nEntities$[ebp]
-	jge	SHORT $L36489
+	jge	SHORT $L36497
 
 ; 313  : 		CBaseEntity *pEntity = pSpawnList[nEntity].m_pEntity;
 
 	mov	ecx, DWORD PTR _nEntity$[ebp]
 	mov	edx, DWORD PTR _pSpawnList$[ebp+ecx*8]
-	mov	DWORD PTR _pEntity$36490[ebp], edx
+	mov	DWORD PTR _pEntity$36498[ebp], edx
 
 ; 314  : 
 ; 315  : 		if( pEntity )
 
-	cmp	DWORD PTR _pEntity$36490[ebp], 0
-	je	SHORT $L36492
+	cmp	DWORD PTR _pEntity$36498[ebp], 0
+	je	SHORT $L36500
 
 ; 317  : 			if( !ED_SpawnEdict( pEntity->edict( )))
 
-	mov	ecx, DWORD PTR _pEntity$36490[ebp]
+	mov	ecx, DWORD PTR _pEntity$36498[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	call	?ED_SpawnEdict@@YAHPAUedict_s@@@Z	; ED_SpawnEdict
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L36492
+	jne	SHORT $L36500
 
 ; 318  : 				inhibited++;
 
 	mov	eax, DWORD PTR _inhibited$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _inhibited$[ebp], eax
-$L36492:
+$L36500:
 
 ; 320  : 	}
 
-	jmp	SHORT $L36488
-$L36489:
+	jmp	SHORT $L36496
+$L36497:
 
 ; 321  : 
 ; 322  : 	// Set up last remaining entities that linked with model attachments
@@ -2248,41 +2248,41 @@ $L36489:
 	mov	ecx, DWORD PTR _nEntities$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _nEntity$[ebp], ecx
-	jmp	SHORT $L36493
-$L36494:
+	jmp	SHORT $L36501
+$L36502:
 	mov	edx, DWORD PTR _nEntity$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _nEntity$[ebp], edx
-$L36493:
+$L36501:
 	cmp	DWORD PTR _nEntity$[ebp], 0
-	jl	SHORT $L36495
+	jl	SHORT $L36503
 
 ; 325  : 		CBaseEntity *pEntity = pSpawnList[nEntity].m_pEntity;
 
 	mov	eax, DWORD PTR _nEntity$[ebp]
 	mov	ecx, DWORD PTR _pSpawnList$[ebp+eax*8]
-	mov	DWORD PTR _pEntity$36496[ebp], ecx
+	mov	DWORD PTR _pEntity$36504[ebp], ecx
 
 ; 326  : 
 ; 327  : 		// make sure this entity is really want attachement
 ; 328  : 		if( pEntity && pEntity->HasAttachment( ))
 
-	cmp	DWORD PTR _pEntity$36496[ebp], 0
-	je	SHORT $L36497
-	mov	ecx, DWORD PTR _pEntity$36496[ebp]
+	cmp	DWORD PTR _pEntity$36504[ebp], 0
+	je	SHORT $L36505
+	mov	ecx, DWORD PTR _pEntity$36504[ebp]
 	call	?HasAttachment@CBaseEntity@@QAEHXZ	; CBaseEntity::HasAttachment
 	test	eax, eax
-	je	SHORT $L36497
+	je	SHORT $L36505
 
 ; 330  : 			ALERT( at_aiconsole, "%s attached with %s\n", pEntity->GetClassname(), STRING( pEntity->m_iParent ));
 
-	mov	edx, DWORD PTR _pEntity$36496[ebp]
+	mov	edx, DWORD PTR _pEntity$36504[ebp]
 	mov	eax, DWORD PTR [edx+172]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
 	push	eax
-	mov	ecx, DWORD PTR _pEntity$36496[ebp]
+	mov	ecx, DWORD PTR _pEntity$36504[ebp]
 	call	?GetClassname@CBaseEntity@@QAEPBDXZ	; CBaseEntity::GetClassname
 	push	eax
 	push	OFFSET FLAT:??_C@_0BF@FJFG@?$CFs?5attached?5with?5?$CFs?6?$AA@ ; `string'
@@ -2293,17 +2293,17 @@ $L36493:
 ; 331  : 			pEntity->SetParent( pEntity->m_iParent, 0 ); 
 
 	push	0
-	mov	ecx, DWORD PTR _pEntity$36496[ebp]
+	mov	ecx, DWORD PTR _pEntity$36504[ebp]
 	mov	edx, DWORD PTR [ecx+172]
 	push	edx
-	mov	ecx, DWORD PTR _pEntity$36496[ebp]
+	mov	ecx, DWORD PTR _pEntity$36504[ebp]
 	call	?SetParent@CBaseEntity@@QAEXHH@Z	; CBaseEntity::SetParent
-$L36497:
+$L36505:
 
 ; 333  : 	}
 
-	jmp	$L36494
-$L36495:
+	jmp	$L36502
+$L36503:
 
 ; 334  : 
 ; 335  : 
@@ -2320,7 +2320,7 @@ $L36495:
 ; 338  : 	return 1;	// we done
 
 	mov	eax, 1
-$L36451:
+$L36459:
 
 ; 339  : }
 
@@ -2378,13 +2378,13 @@ _pEnt2$ = 12
 	mov	ecx, DWORD PTR _pEnt2$[ebp]
 	mov	edx, DWORD PTR [eax+4]
 	cmp	edx, DWORD PTR [ecx+4]
-	jne	SHORT $L36355
+	jne	SHORT $L36363
 
 ; 51   : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L36354
-$L36355:
+	jmp	SHORT $L36362
+$L36363:
 
 ; 52   : 
 ; 53   : 	if( pEnt1->m_nDepth > pEnt2->m_nDepth )
@@ -2393,19 +2393,19 @@ $L36355:
 	mov	ecx, DWORD PTR _pEnt2$[ebp]
 	mov	edx, DWORD PTR [eax+4]
 	cmp	edx, DWORD PTR [ecx+4]
-	jle	SHORT $L36356
+	jle	SHORT $L36364
 
 ; 54   : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L36354
-$L36356:
+	jmp	SHORT $L36362
+$L36364:
 
 ; 55   : 
 ; 56   : 	return -1;
 
 	or	eax, -1
-$L36354:
+$L36362:
 
 ; 57   : }
 
@@ -2423,7 +2423,7 @@ _TEXT	SEGMENT
 _pSpawnList$ = 8
 _nEntities$ = 12
 _nEntity$ = -4
-_pEntity$36374 = -8
+_pEntity$36382 = -8
 ?ED_ComputeSpawnHierarchyDepth@@YAXPAUCSpawnEntry@@H@Z PROC NEAR ; ED_ComputeSpawnHierarchyDepth, COMDAT
 
 ; 82   : {
@@ -2441,36 +2441,36 @@ _pEntity$36374 = -8
 ; 86   : 	for( int nEntity = 0; nEntity < nEntities; nEntity++ )
 
 	mov	DWORD PTR _nEntity$[ebp], 0
-	jmp	SHORT $L36371
-$L36372:
+	jmp	SHORT $L36379
+$L36380:
 	mov	eax, DWORD PTR _nEntity$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _nEntity$[ebp], eax
-$L36371:
+$L36379:
 	mov	ecx, DWORD PTR _nEntity$[ebp]
 	cmp	ecx, DWORD PTR _nEntities$[ebp]
-	jge	SHORT $L36373
+	jge	SHORT $L36381
 
 ; 88   : 		CBaseEntity *pEntity = pSpawnList[nEntity].m_pEntity;
 
 	mov	edx, DWORD PTR _nEntity$[ebp]
 	mov	eax, DWORD PTR _pSpawnList$[ebp]
 	mov	ecx, DWORD PTR [eax+edx*8]
-	mov	DWORD PTR _pEntity$36374[ebp], ecx
+	mov	DWORD PTR _pEntity$36382[ebp], ecx
 
 ; 89   : 
 ; 90   : 		if( pEntity && !pEntity->IsDormant( ))
 
-	cmp	DWORD PTR _pEntity$36374[ebp], 0
-	je	SHORT $L36375
-	mov	ecx, DWORD PTR _pEntity$36374[ebp]
+	cmp	DWORD PTR _pEntity$36382[ebp], 0
+	je	SHORT $L36383
+	mov	ecx, DWORD PTR _pEntity$36382[ebp]
 	call	?IsDormant@CBaseEntity@@QAEHXZ		; CBaseEntity::IsDormant
 	test	eax, eax
-	jne	SHORT $L36375
+	jne	SHORT $L36383
 
 ; 91   : 			pSpawnList[nEntity].m_nDepth = ED_ComputeSpawnHierarchyDepth_r( pEntity );
 
-	mov	edx, DWORD PTR _pEntity$36374[ebp]
+	mov	edx, DWORD PTR _pEntity$36382[ebp]
 	push	edx
 	call	?ED_ComputeSpawnHierarchyDepth_r@@YAHPAVCBaseEntity@@@Z ; ED_ComputeSpawnHierarchyDepth_r
 	add	esp, 4
@@ -2480,20 +2480,20 @@ $L36371:
 
 ; 92   : 		else
 
-	jmp	SHORT $L36376
-$L36375:
+	jmp	SHORT $L36384
+$L36383:
 
 ; 93   : 			pSpawnList[nEntity].m_nDepth = 1;
 
 	mov	eax, DWORD PTR _nEntity$[ebp]
 	mov	ecx, DWORD PTR _pSpawnList$[ebp]
 	mov	DWORD PTR [ecx+eax*8+4], 1
-$L36376:
+$L36384:
 
 ; 94   : 	}
 
-	jmp	SHORT $L36372
-$L36373:
+	jmp	SHORT $L36380
+$L36381:
 
 ; 95   : }
 
@@ -2530,26 +2530,26 @@ _pParent$ = -4
 ; 61   : 	if( !pEntity )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	jne	SHORT $L36360
+	jne	SHORT $L36368
 
 ; 62   : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L36359
-$L36360:
+	jmp	SHORT $L36367
+$L36368:
 
 ; 63   : 
 ; 64   : 	if( pEntity->m_iParent == NULL_STRING )
 
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	cmp	DWORD PTR [eax+172], 0
-	jne	SHORT $L36361
+	jne	SHORT $L36369
 
 ; 65   : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L36359
-$L36361:
+	jmp	SHORT $L36367
+$L36369:
 
 ; 66   : 
 ; 67   : 	CBaseEntity *pParent = UTIL_FindEntityByTargetname( NULL, STRING( pEntity->m_iParent ));
@@ -2569,20 +2569,20 @@ $L36361:
 ; 69   : 	if( !pParent )
 
 	cmp	DWORD PTR _pParent$[ebp], 0
-	jne	SHORT $L36363
+	jne	SHORT $L36371
 
 ; 70   : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L36359
-$L36363:
+	jmp	SHORT $L36367
+$L36371:
 
 ; 71   : 
 ; 72   : 	if( pParent == pEntity )
 
 	mov	eax, DWORD PTR _pParent$[ebp]
 	cmp	eax, DWORD PTR _pEntity$[ebp]
-	jne	SHORT $L36364
+	jne	SHORT $L36372
 
 ; 74   : 		ALERT( at_warning, "LEVEL DESIGN ERROR: Entity %s is parented to itself!\n", pEntity->GetTargetname());
 
@@ -2597,8 +2597,8 @@ $L36363:
 ; 75   : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L36359
-$L36364:
+	jmp	SHORT $L36367
+$L36372:
 
 ; 77   : 
 ; 78   : 	return 1 + ED_ComputeSpawnHierarchyDepth_r( pParent );
@@ -2608,7 +2608,7 @@ $L36364:
 	call	?ED_ComputeSpawnHierarchyDepth_r@@YAHPAVCBaseEntity@@@Z ; ED_ComputeSpawnHierarchyDepth_r
 	add	esp, 4
 	add	eax, 1
-$L36359:
+$L36367:
 
 ; 79   : }
 

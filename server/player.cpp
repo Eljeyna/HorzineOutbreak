@@ -3868,10 +3868,12 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 	case 101:
 		gEvilImpulse101 = TRUE;
 		GiveNamedItem( "item_suit" );
+		GiveNamedItem( "item_healthkit" );
 		GiveNamedItem( "item_battery" );
 		GiveNamedItem( "weapon_crowbar" );
 		GiveNamedItem( "weapon_axe" );
-		//GiveNamedItem( "weapon_chainsaw" );
+		GiveNamedItem( "weapon_chainsaw" );
+		GiveNamedItem( "ammo_fuel" );
 		GiveNamedItem( "weapon_9mmhandgun" );
 		GiveNamedItem( "ammo_9mmclip" );
 		GiveNamedItem( "weapon_shotgun" );
@@ -3894,11 +3896,12 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		//GiveNamedItem( "weapon_snark" );
 		//GiveNamedItem( "weapon_hornetgun" );
 		gEvilImpulse101 = FALSE;
+
 		/*hudtextparms_t	m_textParms;
 
 		m_textParms.channel = 0;
-		m_textParms.x = -1;
-		m_textParms.y = -0.25;
+		m_textParms.x = 0.05;
+		m_textParms.y = 0.5;
 		m_textParms.effect = 0;
 
 		m_textParms.r1 = 255;
@@ -3910,11 +3913,11 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		m_textParms.g2 = 160;
 		m_textParms.b2 = 0;
 		m_textParms.a2 = 200;
-		m_textParms.fadeinTime = 3;
+		m_textParms.fadeinTime = 0.5;
 		m_textParms.fadeoutTime = 3;
 		m_textParms.holdTime = 10;
 		m_textParms.fxTime = 0.25;
-		UTIL_HudMessage( this, m_textParms, "Wake up" );*/
+		UTIL_HudMessage( this, m_textParms, "Buy item\n\n1. Melee weapons\n2. Pistols\n3. Shotguns\n4. Sub-Machine guns\n5. Assault Rifles\n6. Sniper rifles\n7. Demolition\n\n8. Equipment\n\n0. Exit" );*/
 		break;
 	case 102:
 		// Gibbage!!!

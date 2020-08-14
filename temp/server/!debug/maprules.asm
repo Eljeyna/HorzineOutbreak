@@ -1707,7 +1707,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCRuleEntity@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L37261
+	jne	SHORT $L37269
 	mov	cl, BYTE PTR _?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCRuleEntity@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S25@?1??DataMapInit@@YAPAUdatamap_s@@PAVCRuleEntity@@@Z@4EA, cl
@@ -1717,7 +1717,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E26
 	call	_atexit
 	add	esp, 4
-$L37261:
+$L37269:
 	call	?GetBaseMap@CRuleEntity@@SAPAUdatamap_s@@XZ ; CRuleEntity::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CRuleEntity@@2Udatamap_s@@A+12, eax
 
@@ -1726,14 +1726,14 @@ $L37261:
 
 	mov	edx, 1
 	test	edx, edx
-	je	SHORT $L37269
+	je	SHORT $L37277
 	mov	DWORD PTR ?m_DataMap@CRuleEntity@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CRuleEntity@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCRuleEntity@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L37270
-$L37269:
+	jmp	SHORT $L37278
+$L37277:
 	mov	DWORD PTR ?m_DataMap@CRuleEntity@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CRuleEntity@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCRuleEntity@@@Z@4PAUtypedescription_s@@A
-$L37270:
+$L37278:
 	mov	eax, OFFSET FLAT:?m_DataMap@CRuleEntity@@2Udatamap_s@@A ; CRuleEntity::m_DataMap
 	pop	edi
 	pop	esi
@@ -1831,7 +1831,7 @@ __unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
 _TEXT	SEGMENT
-$T39386 = -24
+$T39394 = -24
 __$EHRec$ = -12
 _this$ = -16
 _i$ = -20
@@ -1876,8 +1876,8 @@ $L30214:
 	add	ecx, 8
 	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR $T39386[ebp], edx
-	mov	eax, DWORD PTR $T39386[ebp]
+	mov	DWORD PTR $T39394[ebp], edx
+	mov	eax, DWORD PTR $T39394[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1988,7 +1988,7 @@ _this$ = -4
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37280
+	je	SHORT $L37288
 
 ; 66   : 		SetMaster( ALLOC_STRING(pkvd->szValue) );
 
@@ -2008,8 +2008,8 @@ _this$ = -4
 
 ; 69   : 	else
 
-	jmp	SHORT $L37281
-$L37280:
+	jmp	SHORT $L37289
+$L37288:
 
 ; 70   : 		CBaseEntity::KeyValue( pkvd );
 
@@ -2017,7 +2017,7 @@ $L37280:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CBaseEntity@@UAEXPAUKeyValueData_s@@@Z ; CBaseEntity::KeyValue
-$L37281:
+$L37289:
 
 ; 71   : }
 
@@ -2354,7 +2354,7 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1764], 0
-	je	SHORT $L37288
+	je	SHORT $L37296
 
 ; 77   : 		if ( UTIL_IsMasterTriggered( m_iszMaster, pActivator ) )
 
@@ -2366,25 +2366,25 @@ _this$ = -4
 	call	?UTIL_IsMasterTriggered@@YAHHPAVCBaseEntity@@@Z ; UTIL_IsMasterTriggered
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37287
+	je	SHORT $L37295
 
 ; 78   : 			return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L37285
-$L37287:
+	jmp	SHORT $L37293
+$L37295:
 
 ; 80   : 			return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L37285
-$L37288:
+	jmp	SHORT $L37293
+$L37296:
 
 ; 82   : 	
 ; 83   : 	return TRUE;
 
 	mov	eax, 1
-$L37285:
+$L37293:
 
 ; 84   : }
 
@@ -2658,7 +2658,7 @@ _this$ = -4
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37409
+	je	SHORT $L37417
 
 ; 156  : 		SetPoints( atoi(pkvd->szValue) );
 
@@ -2678,8 +2678,8 @@ _this$ = -4
 
 ; 159  : 	else
 
-	jmp	SHORT $L37411
-$L37409:
+	jmp	SHORT $L37419
+$L37417:
 
 ; 160  : 		CRulePointEntity::KeyValue( pkvd );
 
@@ -2687,7 +2687,7 @@ $L37409:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CRuleEntity@@UAEXPAUKeyValueData_s@@@Z ; CRuleEntity::KeyValue
-$L37411:
+$L37419:
 
 ; 161  : }
 
@@ -2753,12 +2753,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L37419
+	jne	SHORT $L37427
 
 ; 166  : 		return;
 
-	jmp	SHORT $L37418
-$L37419:
+	jmp	SHORT $L37426
+$L37427:
 
 ; 167  : 
 ; 168  : 	// Only players can use this
@@ -2769,14 +2769,14 @@ $L37419:
 	mov	ecx, DWORD PTR _pActivator$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L37422
+	je	SHORT $L37430
 
 ; 171  : 		if ( AwardToTeam() )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AwardToTeam@CGameScore@@QAEHXZ		; CGameScore::AwardToTeam
 	test	eax, eax
-	je	SHORT $L37421
+	je	SHORT $L37429
 
 ; 173  : 			pActivator->AddPointsToTeam( Points(), AllowNegativeScore() );
 
@@ -2793,8 +2793,8 @@ $L37419:
 
 ; 175  : 		else
 
-	jmp	SHORT $L37422
-$L37421:
+	jmp	SHORT $L37430
+$L37429:
 
 ; 177  : 			pActivator->AddPoints( Points(), AllowNegativeScore() );
 
@@ -2808,8 +2808,8 @@ $L37421:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActivator$[ebp]
 	call	DWORD PTR [edx+140]
-$L37422:
-$L37418:
+$L37430:
+$L37426:
 
 ; 180  : }
 
@@ -2976,12 +2976,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L37476
+	jne	SHORT $L37484
 
 ; 198  : 		return;
 
-	jmp	SHORT $L37475
-$L37476:
+	jmp	SHORT $L37483
+$L37484:
 
 ; 199  : 
 ; 200  : 	g_pGameRules->EndMultiplayerGame();
@@ -2990,7 +2990,7 @@ $L37476:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	call	DWORD PTR [edx+236]
-$L37475:
+$L37483:
 
 ; 201  : }
 
@@ -3169,7 +3169,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S40@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGameText@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L37590
+	jne	SHORT $L37598
 	mov	cl, BYTE PTR _?$S40@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGameText@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S40@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGameText@@@Z@4EA, cl
@@ -3179,7 +3179,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E41
 	call	_atexit
 	add	esp, 4
-$L37590:
+$L37598:
 	call	?GetBaseMap@CGameText@@SAPAUdatamap_s@@XZ ; CGameText::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CGameText@@2Udatamap_s@@A+12, eax
 
@@ -3188,14 +3188,14 @@ $L37590:
 
 	mov	edx, 1
 	test	edx, edx
-	je	SHORT $L37598
+	je	SHORT $L37606
 	mov	DWORD PTR ?m_DataMap@CGameText@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CGameText@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGameText@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L37599
-$L37598:
+	jmp	SHORT $L37607
+$L37606:
 	mov	DWORD PTR ?m_DataMap@CGameText@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CGameText@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGameText@@@Z@4PAUtypedescription_s@@A
-$L37599:
+$L37607:
 	mov	eax, OFFSET FLAT:?m_DataMap@CGameText@@2Udatamap_s@@A ; CGameText::m_DataMap
 	pop	edi
 	pop	esi
@@ -3282,8 +3282,8 @@ CONST	ENDS
 _TEXT	SEGMENT
 _pkvd$ = 8
 _this$ = -4
-_color$37619 = -20
-_color$37623 = -36
+_color$37627 = -20
+_color$37631 = -36
 ?KeyValue@CGameText@@UAEXPAUKeyValueData_s@@@Z PROC NEAR ; CGameText::KeyValue, COMDAT
 
 ; 240  : {
@@ -3305,7 +3305,7 @@ _color$37623 = -36
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37605
+	je	SHORT $L37613
 
 ; 243  : 		m_textParms.channel = atoi( pkvd->szValue );
 
@@ -3324,8 +3324,8 @@ _color$37623 = -36
 
 ; 246  : 	else if (FStrEq(pkvd->szKeyName, "x"))
 
-	jmp	$L37636
-$L37605:
+	jmp	$L37644
+$L37613:
 	push	OFFSET FLAT:??_C@_01KOI@x?$AA@		; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -3333,7 +3333,7 @@ $L37605:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37608
+	je	SHORT $L37616
 
 ; 248  : 		m_textParms.x = atof( pkvd->szValue );
 
@@ -3352,8 +3352,8 @@ $L37605:
 
 ; 251  : 	else if (FStrEq(pkvd->szKeyName, "y"))
 
-	jmp	$L37636
-$L37608:
+	jmp	$L37644
+$L37616:
 	push	OFFSET FLAT:??_C@_01KAHP@y?$AA@		; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -3361,7 +3361,7 @@ $L37608:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37611
+	je	SHORT $L37619
 
 ; 253  : 		m_textParms.y = atof( pkvd->szValue );
 
@@ -3380,8 +3380,8 @@ $L37608:
 
 ; 256  : 	else if (FStrEq(pkvd->szKeyName, "effect"))
 
-	jmp	$L37636
-$L37611:
+	jmp	$L37644
+$L37619:
 	push	OFFSET FLAT:??_C@_06JOBA@effect?$AA@	; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -3389,7 +3389,7 @@ $L37611:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37614
+	je	SHORT $L37622
 
 ; 258  : 		m_textParms.effect = atoi( pkvd->szValue );
 
@@ -3408,8 +3408,8 @@ $L37611:
 
 ; 261  : 	else if (FStrEq(pkvd->szKeyName, "color"))
 
-	jmp	$L37636
-$L37614:
+	jmp	$L37644
+$L37622:
 	push	OFFSET FLAT:??_C@_05HMGA@color?$AA@	; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -3417,7 +3417,7 @@ $L37614:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37617
+	je	SHORT $L37625
 
 ; 263  : 		int color[4];
 ; 264  : 		UTIL_StringToIntArray( color, 4, pkvd->szValue );
@@ -3426,7 +3426,7 @@ $L37614:
 	mov	eax, DWORD PTR [edx+8]
 	push	eax
 	push	4
-	lea	ecx, DWORD PTR _color$37619[ebp]
+	lea	ecx, DWORD PTR _color$37627[ebp]
 	push	ecx
 	call	?UTIL_StringToIntArray@@YAXPAHHPBD@Z	; UTIL_StringToIntArray
 	add	esp, 12					; 0000000cH
@@ -3434,25 +3434,25 @@ $L37614:
 ; 265  : 		m_textParms.r1 = color[0];
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR _color$37619[ebp]
+	mov	al, BYTE PTR _color$37627[ebp]
 	mov	BYTE PTR [edx+1780], al
 
 ; 266  : 		m_textParms.g1 = color[1];
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	dl, BYTE PTR _color$37619[ebp+4]
+	mov	dl, BYTE PTR _color$37627[ebp+4]
 	mov	BYTE PTR [ecx+1781], dl
 
 ; 267  : 		m_textParms.b1 = color[2];
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	cl, BYTE PTR _color$37619[ebp+8]
+	mov	cl, BYTE PTR _color$37627[ebp+8]
 	mov	BYTE PTR [eax+1782], cl
 
 ; 268  : 		m_textParms.a1 = color[3];
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR _color$37619[ebp+12]
+	mov	al, BYTE PTR _color$37627[ebp+12]
 	mov	BYTE PTR [edx+1783], al
 
 ; 269  : 		pkvd->fHandled = TRUE;
@@ -3462,8 +3462,8 @@ $L37614:
 
 ; 271  : 	else if (FStrEq(pkvd->szKeyName, "color2"))
 
-	jmp	$L37636
-$L37617:
+	jmp	$L37644
+$L37625:
 	push	OFFSET FLAT:??_C@_06DAMC@color2?$AA@	; `string'
 	mov	edx, DWORD PTR _pkvd$[ebp]
 	mov	eax, DWORD PTR [edx+4]
@@ -3471,7 +3471,7 @@ $L37617:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37621
+	je	SHORT $L37629
 
 ; 273  : 		int color[4];
 ; 274  : 		UTIL_StringToIntArray( color, 4, pkvd->szValue );
@@ -3480,7 +3480,7 @@ $L37617:
 	mov	edx, DWORD PTR [ecx+8]
 	push	edx
 	push	4
-	lea	eax, DWORD PTR _color$37623[ebp]
+	lea	eax, DWORD PTR _color$37631[ebp]
 	push	eax
 	call	?UTIL_StringToIntArray@@YAXPAHHPBD@Z	; UTIL_StringToIntArray
 	add	esp, 12					; 0000000cH
@@ -3488,25 +3488,25 @@ $L37617:
 ; 275  : 		m_textParms.r2 = color[0];
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	dl, BYTE PTR _color$37623[ebp]
+	mov	dl, BYTE PTR _color$37631[ebp]
 	mov	BYTE PTR [ecx+1784], dl
 
 ; 276  : 		m_textParms.g2 = color[1];
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	cl, BYTE PTR _color$37623[ebp+4]
+	mov	cl, BYTE PTR _color$37631[ebp+4]
 	mov	BYTE PTR [eax+1785], cl
 
 ; 277  : 		m_textParms.b2 = color[2];
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR _color$37623[ebp+8]
+	mov	al, BYTE PTR _color$37631[ebp+8]
 	mov	BYTE PTR [edx+1786], al
 
 ; 278  : 		m_textParms.a2 = color[3];
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	dl, BYTE PTR _color$37623[ebp+12]
+	mov	dl, BYTE PTR _color$37631[ebp+12]
 	mov	BYTE PTR [ecx+1787], dl
 
 ; 279  : 		pkvd->fHandled = TRUE;
@@ -3516,8 +3516,8 @@ $L37617:
 
 ; 281  : 	else if (FStrEq(pkvd->szKeyName, "fadein"))
 
-	jmp	$L37636
-$L37621:
+	jmp	$L37644
+$L37629:
 	push	OFFSET FLAT:??_C@_06DKEJ@fadein?$AA@	; `string'
 	mov	ecx, DWORD PTR _pkvd$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -3525,7 +3525,7 @@ $L37621:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37625
+	je	SHORT $L37633
 
 ; 283  : 		m_textParms.fadeinTime = atof( pkvd->szValue );
 
@@ -3544,8 +3544,8 @@ $L37621:
 
 ; 286  : 	else if (FStrEq(pkvd->szKeyName, "fadeout"))
 
-	jmp	$L37636
-$L37625:
+	jmp	$L37644
+$L37633:
 	push	OFFSET FLAT:??_C@_07FOED@fadeout?$AA@	; `string'
 	mov	ecx, DWORD PTR _pkvd$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -3553,7 +3553,7 @@ $L37625:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37628
+	je	SHORT $L37636
 
 ; 288  : 		m_textParms.fadeoutTime = atof( pkvd->szValue );
 
@@ -3572,8 +3572,8 @@ $L37625:
 
 ; 291  : 	else if (FStrEq(pkvd->szKeyName, "holdtime"))
 
-	jmp	$L37636
-$L37628:
+	jmp	$L37644
+$L37636:
 	push	OFFSET FLAT:??_C@_08GFEH@holdtime?$AA@	; `string'
 	mov	ecx, DWORD PTR _pkvd$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -3581,7 +3581,7 @@ $L37628:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37631
+	je	SHORT $L37639
 
 ; 293  : 		m_textParms.holdTime = atof( pkvd->szValue );
 
@@ -3600,8 +3600,8 @@ $L37628:
 
 ; 296  : 	else if (FStrEq(pkvd->szKeyName, "fxtime"))
 
-	jmp	SHORT $L37636
-$L37631:
+	jmp	SHORT $L37644
+$L37639:
 	push	OFFSET FLAT:??_C@_06OFHG@fxtime?$AA@	; `string'
 	mov	ecx, DWORD PTR _pkvd$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -3609,7 +3609,7 @@ $L37631:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37634
+	je	SHORT $L37642
 
 ; 298  : 		m_textParms.fxTime = atof( pkvd->szValue );
 
@@ -3628,8 +3628,8 @@ $L37631:
 
 ; 301  : 	else
 
-	jmp	SHORT $L37636
-$L37634:
+	jmp	SHORT $L37644
+$L37642:
 
 ; 302  : 		CRulePointEntity::KeyValue( pkvd );
 
@@ -3637,7 +3637,7 @@ $L37634:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CRuleEntity@@UAEXPAUKeyValueData_s@@@Z ; CRuleEntity::KeyValue
-$L37636:
+$L37644:
 
 ; 303  : }
 
@@ -3677,12 +3677,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L37644
+	jne	SHORT $L37652
 
 ; 309  : 		return;
 
-	jmp	SHORT $L37643
-$L37644:
+	jmp	SHORT $L37651
+$L37652:
 
 ; 310  : 
 ; 311  : 	if ( MessageToAll() )
@@ -3690,7 +3690,7 @@ $L37644:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?MessageToAll@CGameText@@QAEHXZ		; CGameText::MessageToAll
 	test	eax, eax
-	je	SHORT $L37645
+	je	SHORT $L37653
 
 ; 313  : 		UTIL_HudMessageAll( m_textParms, MessageGet() );
 
@@ -3705,19 +3705,19 @@ $L37644:
 
 ; 315  : 	else
 
-	jmp	SHORT $L37647
-$L37645:
+	jmp	SHORT $L37655
+$L37653:
 
 ; 317  : 		if ( pActivator && pActivator->IsNetClient() )
 
 	cmp	DWORD PTR _pActivator$[ebp], 0
-	je	SHORT $L37647
+	je	SHORT $L37655
 	mov	edx, DWORD PTR _pActivator$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActivator$[ebp]
 	call	DWORD PTR [eax+228]
 	test	eax, eax
-	je	SHORT $L37647
+	je	SHORT $L37655
 
 ; 319  : 			UTIL_HudMessage( pActivator, m_textParms, MessageGet() );
 
@@ -3731,8 +3731,8 @@ $L37645:
 	push	edx
 	call	?UTIL_HudMessage@@YAXPAVCBaseEntity@@ABUhudtextparms_s@@PBD@Z ; UTIL_HudMessage
 	add	esp, 12					; 0000000cH
-$L37647:
-$L37643:
+$L37655:
+$L37651:
 
 ; 322  : }
 
@@ -3867,7 +3867,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _pkvd$ = 8
 _this$ = -4
-_type$37723 = -8
+_type$37731 = -8
 ?KeyValue@CGameTeamMaster@@UAEXPAUKeyValueData_s@@@Z PROC NEAR ; CGameTeamMaster::KeyValue, COMDAT
 
 ; 358  : {
@@ -3889,7 +3889,7 @@ _type$37723 = -8
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37718
+	je	SHORT $L37726
 
 ; 361  : 		m_teamIndex = atoi( pkvd->szValue );
 
@@ -3908,8 +3908,8 @@ _type$37723 = -8
 
 ; 364  : 	else if (FStrEq(pkvd->szKeyName, "triggerstate"))
 
-	jmp	$L37731
-$L37718:
+	jmp	$L37739
+$L37726:
 	push	OFFSET FLAT:??_C@_0N@IBE@triggerstate?$AA@ ; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -3917,7 +3917,7 @@ $L37718:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37721
+	je	SHORT $L37729
 
 ; 366  : 		int type = atoi( pkvd->szValue );
 
@@ -3926,18 +3926,18 @@ $L37718:
 	push	eax
 	call	_atoi
 	add	esp, 4
-	mov	DWORD PTR _type$37723[ebp], eax
+	mov	DWORD PTR _type$37731[ebp], eax
 
 ; 368  : 		{
 
-	mov	ecx, DWORD PTR _type$37723[ebp]
+	mov	ecx, DWORD PTR _type$37731[ebp]
 	mov	DWORD PTR -12+[ebp], ecx
 	cmp	DWORD PTR -12+[ebp], 0
-	je	SHORT $L37728
+	je	SHORT $L37736
 	cmp	DWORD PTR -12+[ebp], 2
-	je	SHORT $L37729
-	jmp	SHORT $L37730
-$L37728:
+	je	SHORT $L37737
+	jmp	SHORT $L37738
+$L37736:
 
 ; 369  : 		case 0:
 ; 370  : 			triggerType = USE_OFF;
@@ -3947,8 +3947,8 @@ $L37728:
 
 ; 371  : 			break;
 
-	jmp	SHORT $L37725
-$L37729:
+	jmp	SHORT $L37733
+$L37737:
 
 ; 372  : 		case 2:
 ; 373  : 			triggerType = USE_TOGGLE;
@@ -3958,15 +3958,15 @@ $L37729:
 
 ; 374  : 			break;
 
-	jmp	SHORT $L37725
-$L37730:
+	jmp	SHORT $L37733
+$L37738:
 
 ; 375  : 		default:
 ; 376  : 			triggerType = USE_ON;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1772], 1
-$L37725:
+$L37733:
 
 ; 379  : 		pkvd->fHandled = TRUE;
 
@@ -3975,8 +3975,8 @@ $L37725:
 
 ; 381  : 	else
 
-	jmp	SHORT $L37731
-$L37721:
+	jmp	SHORT $L37739
+$L37729:
 
 ; 382  : 		CRulePointEntity::KeyValue( pkvd );
 
@@ -3984,7 +3984,7 @@ $L37721:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CRuleEntity@@UAEXPAUKeyValueData_s@@@Z ; CRuleEntity::KeyValue
-$L37731:
+$L37739:
 
 ; 383  : }
 
@@ -4032,18 +4032,18 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L37739
+	jne	SHORT $L37747
 
 ; 389  : 		return;
 
-	jmp	$L37738
-$L37739:
+	jmp	$L37746
+$L37747:
 
 ; 390  : 
 ; 391  : 	if ( useType == USE_SET )
 
 	cmp	DWORD PTR _useType$[ebp], 2
-	jne	SHORT $L37740
+	jne	SHORT $L37748
 
 ; 393  : 		if ( value < 0 )
 
@@ -4051,7 +4051,7 @@ $L37739:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37741
+	je	SHORT $L37749
 
 ; 395  : 			m_teamIndex = -1;
 
@@ -4060,8 +4060,8 @@ $L37739:
 
 ; 397  : 		else
 
-	jmp	SHORT $L37742
-$L37741:
+	jmp	SHORT $L37750
+$L37749:
 
 ; 399  : 			m_teamIndex = g_pGameRules->GetTeamIndex( pActivator->TeamID() );
 
@@ -4076,12 +4076,12 @@ $L37741:
 	call	DWORD PTR [edx+204]
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1768], eax
-$L37742:
+$L37750:
 
 ; 401  : 		return;
 
-	jmp	SHORT $L37738
-$L37740:
+	jmp	SHORT $L37746
+$L37748:
 
 ; 403  : 
 ; 404  : 	if ( TeamMatch( pActivator ) )
@@ -4091,7 +4091,7 @@ $L37740:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TeamMatch@CGameTeamMaster@@AAEHPAVCBaseEntity@@@Z ; CGameTeamMaster::TeamMatch
 	test	eax, eax
-	je	SHORT $L37744
+	je	SHORT $L37752
 
 ; 406  : 		SUB_UseTargets( pActivator, triggerType, value );
 
@@ -4111,7 +4111,7 @@ $L37740:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveOnFire@CGameTeamMaster@@QAEHXZ	; CGameTeamMaster::RemoveOnFire
 	test	eax, eax
-	je	SHORT $L37744
+	je	SHORT $L37752
 
 ; 408  : 			UTIL_Remove( this );
 
@@ -4119,8 +4119,8 @@ $L37740:
 	push	ecx
 	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
 	add	esp, 4
-$L37744:
-$L37738:
+$L37752:
+$L37746:
 
 ; 410  : }
 
@@ -4221,13 +4221,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1768], 0
-	jge	SHORT $L37753
+	jge	SHORT $L37761
 
 ; 422  : 		return "";
 
 	mov	eax, OFFSET FLAT:??_C@_00A@?$AA@	; `string'
-	jmp	SHORT $L37752
-$L37753:
+	jmp	SHORT $L37760
+$L37761:
 
 ; 423  : 
 ; 424  : 	return g_pGameRules->GetIndexedTeamName( m_teamIndex );		// UNDONE: Fill this in with the team from the "teamlist"
@@ -4239,7 +4239,7 @@ $L37753:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	call	DWORD PTR [edx+208]
-$L37752:
+$L37760:
 
 ; 425  : }
 
@@ -4273,29 +4273,29 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1768], 0
-	jge	SHORT $L37758
+	jge	SHORT $L37766
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AnyTeam@CGameTeamMaster@@QAEHXZ	; CGameTeamMaster::AnyTeam
 	test	eax, eax
-	je	SHORT $L37758
+	je	SHORT $L37766
 
 ; 431  : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L37757
-$L37758:
+	jmp	SHORT $L37765
+$L37766:
 
 ; 432  : 
 ; 433  : 	if ( !pActivator )
 
 	cmp	DWORD PTR _pActivator$[ebp], 0
-	jne	SHORT $L37759
+	jne	SHORT $L37767
 
 ; 434  : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L37757
-$L37759:
+	jmp	SHORT $L37765
+$L37767:
 
 ; 435  : 
 ; 436  : 	return UTIL_TeamsMatch( pActivator->TeamID(), TeamID() );
@@ -4312,7 +4312,7 @@ $L37759:
 	push	eax
 	call	?UTIL_TeamsMatch@@YAHPBD0@Z		; UTIL_TeamsMatch
 	add	esp, 8
-$L37757:
+$L37765:
 
 ; 437  : }
 
@@ -4430,12 +4430,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L37823
+	jne	SHORT $L37831
 
 ; 462  : 		return;
 
-	jmp	SHORT $L37822
-$L37823:
+	jmp	SHORT $L37830
+$L37831:
 
 ; 463  : 
 ; 464  : 	if ( ShouldClearTeam() )
@@ -4443,7 +4443,7 @@ $L37823:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShouldClearTeam@CGameTeamSet@@QAEHXZ	; CGameTeamSet::ShouldClearTeam
 	test	eax, eax
-	je	SHORT $L37824
+	je	SHORT $L37832
 
 ; 466  : 		SUB_UseTargets( pActivator, USE_SET, -1 );
 
@@ -4457,8 +4457,8 @@ $L37823:
 
 ; 468  : 	else
 
-	jmp	SHORT $L37825
-$L37824:
+	jmp	SHORT $L37833
+$L37832:
 
 ; 470  : 		SUB_UseTargets( pActivator, USE_SET, 0 );
 
@@ -4469,7 +4469,7 @@ $L37824:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SUB_UseTargets@CBaseEntity@@QAEXPAV1@W4USE_TYPE@@MH@Z ; CBaseEntity::SUB_UseTargets
-$L37825:
+$L37833:
 
 ; 472  : 
 ; 473  : 	if ( RemoveOnFire() )
@@ -4477,7 +4477,7 @@ $L37825:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveOnFire@CGameTeamSet@@QAEHXZ	; CGameTeamSet::RemoveOnFire
 	test	eax, eax
-	je	SHORT $L37826
+	je	SHORT $L37834
 
 ; 475  : 		UTIL_Remove( this );
 
@@ -4485,8 +4485,8 @@ $L37825:
 	push	eax
 	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
 	add	esp, 4
-$L37826:
-$L37822:
+$L37834:
+$L37830:
 
 ; 477  : }
 
@@ -4574,8 +4574,8 @@ _$E50	PROC NEAR					; COMDAT
 	ret	0
 _$E50	ENDP
 _TEXT	ENDS
-PUBLIC	??0?$CEntityFactory@VCGamePlayerZone@@@@QAE@PBD@Z ; CEntityFactory<CGamePlayerZone>::CEntityFactory<CGamePlayerZone>
 PUBLIC	??_C@_0BB@BKKN@game_zone_player?$AA@		; `string'
+PUBLIC	??0?$CEntityFactory@VCGamePlayerZone@@@@QAE@PBD@Z ; CEntityFactory<CGamePlayerZone>::CEntityFactory<CGamePlayerZone>
 _BSS	SEGMENT
 _game_zone_player DD 01H DUP (?)
 _BSS	ENDS
@@ -4723,7 +4723,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S55@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGamePlayerZone@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L37930
+	jne	SHORT $L37938
 	mov	cl, BYTE PTR _?$S55@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGamePlayerZone@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S55@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGamePlayerZone@@@Z@4EA, cl
@@ -4733,7 +4733,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E56
 	call	_atexit
 	add	esp, 4
-$L37930:
+$L37938:
 	call	?GetBaseMap@CGamePlayerZone@@SAPAUdatamap_s@@XZ ; CGamePlayerZone::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CGamePlayerZone@@2Udatamap_s@@A+12, eax
 
@@ -4745,14 +4745,14 @@ $L37930:
 
 	mov	edx, 1
 	test	edx, edx
-	je	SHORT $L37950
+	je	SHORT $L37958
 	mov	DWORD PTR ?m_DataMap@CGamePlayerZone@@2Udatamap_s@@A+4, 4
 	mov	DWORD PTR ?m_DataMap@CGamePlayerZone@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGamePlayerZone@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L37951
-$L37950:
+	jmp	SHORT $L37959
+$L37958:
 	mov	DWORD PTR ?m_DataMap@CGamePlayerZone@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CGamePlayerZone@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCGamePlayerZone@@@Z@4PAUtypedescription_s@@A
-$L37951:
+$L37959:
 	mov	eax, OFFSET FLAT:?m_DataMap@CGamePlayerZone@@2Udatamap_s@@A ; CGamePlayerZone::m_DataMap
 	pop	edi
 	pop	esi
@@ -4807,7 +4807,7 @@ _this$ = -4
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37957
+	je	SHORT $L37965
 
 ; 512  : 		m_iszInTarget = ALLOC_STRING( pkvd->szValue );
 
@@ -4826,8 +4826,8 @@ _this$ = -4
 
 ; 515  : 	else if (FStrEq(pkvd->szKeyName, "outtarget"))
 
-	jmp	$L37964
-$L37957:
+	jmp	$L37972
+$L37965:
 	push	OFFSET FLAT:??_C@_09GEJO@outtarget?$AA@	; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -4835,7 +4835,7 @@ $L37957:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37959
+	je	SHORT $L37967
 
 ; 517  : 		m_iszOutTarget = ALLOC_STRING( pkvd->szValue );
 
@@ -4854,8 +4854,8 @@ $L37957:
 
 ; 520  : 	else if (FStrEq(pkvd->szKeyName, "incount"))
 
-	jmp	$L37964
-$L37959:
+	jmp	$L37972
+$L37967:
 	push	OFFSET FLAT:??_C@_07FHFJ@incount?$AA@	; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -4863,7 +4863,7 @@ $L37959:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37961
+	je	SHORT $L37969
 
 ; 522  : 		m_iszInCount = ALLOC_STRING( pkvd->szValue );
 
@@ -4882,8 +4882,8 @@ $L37959:
 
 ; 525  : 	else if (FStrEq(pkvd->szKeyName, "outcount"))
 
-	jmp	SHORT $L37964
-$L37961:
+	jmp	SHORT $L37972
+$L37969:
 	push	OFFSET FLAT:??_C@_08BLHB@outcount?$AA@	; `string'
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -4891,7 +4891,7 @@ $L37961:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L37963
+	je	SHORT $L37971
 
 ; 527  : 		m_iszOutCount = ALLOC_STRING( pkvd->szValue );
 
@@ -4910,8 +4910,8 @@ $L37961:
 
 ; 530  : 	else
 
-	jmp	SHORT $L37964
-$L37963:
+	jmp	SHORT $L37972
+$L37971:
 
 ; 531  : 		CRuleBrushEntity::KeyValue( pkvd );
 
@@ -4919,7 +4919,7 @@ $L37963:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?KeyValue@CRuleEntity@@UAEXPAUKeyValueData_s@@@Z ; CRuleEntity::KeyValue
-$L37964:
+$L37972:
 
 ; 532  : }
 
@@ -4948,8 +4948,8 @@ _playersInCount$ = -8
 _playersOutCount$ = -12
 _pPlayer$ = -16
 _i$ = -20
-_trace$37981 = -76
-_hullNumber$37982 = -80
+_trace$37989 = -76
+_hullNumber$37990 = -80
 ?Use@CGamePlayerZone@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z PROC NEAR ; CGamePlayerZone::Use, COMDAT
 
 ; 535  : {
@@ -4978,12 +4978,12 @@ _hullNumber$37982 = -80
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L37974
+	jne	SHORT $L37982
 
 ; 540  : 		return;
 
-	jmp	$L37971
-$L37974:
+	jmp	$L37979
+$L37982:
 
 ; 541  : 
 ; 542  : 	CBaseEntity *pPlayer = NULL;
@@ -4994,16 +4994,16 @@ $L37974:
 ; 544  : 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L37977
-$L37978:
+	jmp	SHORT $L37985
+$L37986:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37977:
+$L37985:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+144]
-	jg	$L37979
+	jg	$L37987
 
 ; 546  : 		pPlayer = UTIL_PlayerByIndex( i );
 
@@ -5016,18 +5016,18 @@ $L37977:
 ; 547  : 		if ( pPlayer )
 
 	cmp	DWORD PTR _pPlayer$[ebp], 0
-	je	$L37987
+	je	$L37995
 
 ; 549  : 			TraceResult trace;
 
-	lea	ecx, DWORD PTR _trace$37981[ebp]
+	lea	ecx, DWORD PTR _trace$37989[ebp]
 	call	??0gametrace_s@@QAE@XZ			; gametrace_s::gametrace_s
 
 ; 550  : 			int			hullNumber;
 ; 551  : 
 ; 552  : 			hullNumber = human_hull;
 
-	mov	DWORD PTR _hullNumber$37982[ebp], 1
+	mov	DWORD PTR _hullNumber$37990[ebp], 1
 
 ; 553  : 			if ( pPlayer->pev->flags & FL_DUCKING )
 
@@ -5036,22 +5036,22 @@ $L37977:
 	mov	ecx, DWORD PTR [eax+420]
 	and	ecx, 16384				; 00004000H
 	test	ecx, ecx
-	je	SHORT $L37983
+	je	SHORT $L37991
 
 ; 555  : 				hullNumber = head_hull;
 
-	mov	DWORD PTR _hullNumber$37982[ebp], 3
-$L37983:
+	mov	DWORD PTR _hullNumber$37990[ebp], 3
+$L37991:
 
 ; 557  : 
 ; 558  : 			UTIL_TraceModel( pPlayer->GetAbsOrigin(), pPlayer->GetAbsOrigin(), hullNumber, edict(), &trace );
 
-	lea	edx, DWORD PTR _trace$37981[ebp]
+	lea	edx, DWORD PTR _trace$37989[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
-	mov	eax, DWORD PTR _hullNumber$37982[ebp]
+	mov	eax, DWORD PTR _hullNumber$37990[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pPlayer$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -5065,8 +5065,8 @@ $L37983:
 ; 559  : 
 ; 560  : 			if ( trace.fStartSolid )
 
-	cmp	DWORD PTR _trace$37981[ebp+4], 0
-	je	SHORT $L37984
+	cmp	DWORD PTR _trace$37989[ebp+4], 0
+	je	SHORT $L37992
 
 ; 562  : 				playersInCount++;
 
@@ -5078,7 +5078,7 @@ $L37983:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1768], 0
-	je	SHORT $L37985
+	je	SHORT $L37993
 
 ; 565  : 					UTIL_FireTargets( STRING(m_iszInTarget), pPlayer, pActivator, useType, value );
 
@@ -5098,12 +5098,12 @@ $L37983:
 	push	eax
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
-$L37985:
+$L37993:
 
 ; 568  : 			else
 
-	jmp	SHORT $L37987
-$L37984:
+	jmp	SHORT $L37995
+$L37992:
 
 ; 570  : 				playersOutCount++;
 
@@ -5115,7 +5115,7 @@ $L37984:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1772], 0
-	je	SHORT $L37987
+	je	SHORT $L37995
 
 ; 573  : 					UTIL_FireTargets( STRING(m_iszOutTarget), pPlayer, pActivator, useType, value );
 
@@ -5135,19 +5135,19 @@ $L37984:
 	push	eax
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
-$L37987:
+$L37995:
 
 ; 577  : 	}
 
-	jmp	$L37978
-$L37979:
+	jmp	$L37986
+$L37987:
 
 ; 578  : 
 ; 579  : 	if ( m_iszInCount )
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1776], 0
-	je	SHORT $L37988
+	je	SHORT $L37996
 
 ; 581  : 		UTIL_FireTargets( STRING(m_iszInCount), pActivator, this, USE_SET, playersInCount );
 
@@ -5167,14 +5167,14 @@ $L37979:
 	push	eax
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
-$L37988:
+$L37996:
 
 ; 583  : 
 ; 584  : 	if ( m_iszOutCount )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1780], 0
-	je	SHORT $L37989
+	je	SHORT $L37997
 
 ; 586  : 		UTIL_FireTargets( STRING(m_iszOutCount), pActivator, this, USE_SET, playersOutCount );
 
@@ -5194,8 +5194,8 @@ $L37988:
 	push	eax
 	call	?UTIL_FireTargets@@YAXPBDPAVCBaseEntity@@1W4USE_TYPE@@M@Z ; UTIL_FireTargets
 	add	esp, 20					; 00000014H
-$L37989:
-$L37971:
+$L37997:
+$L37979:
 
 ; 588  : }
 
@@ -5337,12 +5337,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L38050
+	jne	SHORT $L38058
 
 ; 611  : 		return;
 
-	jmp	$L38049
-$L38050:
+	jmp	$L38057
+$L38058:
 
 ; 612  : 
 ; 613  : 	if ( pActivator->IsPlayer() )
@@ -5352,7 +5352,7 @@ $L38050:
 	mov	ecx, DWORD PTR _pActivator$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L38053
+	je	SHORT $L38061
 
 ; 615  : 		if ( pev->dmg < 0 )
 
@@ -5362,7 +5362,7 @@ $L38050:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38052
+	je	SHORT $L38060
 
 ; 616  : 			pActivator->TakeHealth( -pev->dmg, DMG_GENERIC );
 
@@ -5380,8 +5380,8 @@ $L38050:
 
 ; 617  : 		else
 
-	jmp	SHORT $L38053
-$L38052:
+	jmp	SHORT $L38061
+$L38060:
 
 ; 618  : 			pActivator->TakeDamage( pev, pev, pev->dmg, DMG_GENERIC );
 
@@ -5400,7 +5400,7 @@ $L38052:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActivator$[ebp]
 	call	DWORD PTR [edx+96]
-$L38053:
+$L38061:
 
 ; 620  : 	
 ; 621  : 	SUB_UseTargets( pActivator, useType, value );
@@ -5421,7 +5421,7 @@ $L38053:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveOnFire@CGamePlayerHurt@@QAEHXZ	; CGamePlayerHurt::RemoveOnFire
 	test	eax, eax
-	je	SHORT $L38054
+	je	SHORT $L38062
 
 ; 625  : 		UTIL_Remove( this );
 
@@ -5429,8 +5429,8 @@ $L38053:
 	push	eax
 	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
 	add	esp, 4
-$L38054:
-$L38049:
+$L38062:
+$L38057:
 
 ; 627  : }
 
@@ -5650,22 +5650,22 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L38156
+	jne	SHORT $L38164
 
 ; 671  : 		return;
 
-	jmp	$L38155
-$L38156:
+	jmp	$L38163
+$L38164:
 
 ; 674  : 	{
 
 	mov	ecx, DWORD PTR _useType$[ebp]
 	mov	DWORD PTR -8+[ebp], ecx
 	cmp	DWORD PTR -8+[ebp], 3
-	ja	SHORT $L38158
+	ja	SHORT $L38166
 	mov	edx, DWORD PTR -8+[ebp]
-	jmp	DWORD PTR $L39542[edx*4]
-$L38161:
+	jmp	DWORD PTR $L39550[edx*4]
+$L38169:
 
 ; 675  : 	case USE_ON:
 ; 676  : 	case USE_TOGGLE:
@@ -5676,8 +5676,8 @@ $L38161:
 
 ; 678  : 		break;
 
-	jmp	SHORT $L38158
-$L38162:
+	jmp	SHORT $L38166
+$L38170:
 
 ; 679  : 	
 ; 680  : 	case USE_OFF:
@@ -5688,8 +5688,8 @@ $L38162:
 
 ; 682  : 		break;
 
-	jmp	SHORT $L38158
-$L38163:
+	jmp	SHORT $L38166
+$L38171:
 
 ; 683  : 
 ; 684  : 	case USE_SET:
@@ -5700,7 +5700,7 @@ $L38163:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetCountValue@CGameCounter@@AAEXH@Z	; CGameCounter::SetCountValue
-$L38158:
+$L38166:
 
 ; 688  : 	
 ; 689  : 	if ( HitLimit() )
@@ -5708,7 +5708,7 @@ $L38158:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?HitLimit@CGameCounter@@QAEHXZ		; CGameCounter::HitLimit
 	test	eax, eax
-	je	SHORT $L38167
+	je	SHORT $L38175
 
 ; 691  : 		SUB_UseTargets( pActivator, USE_TOGGLE, 0 );
 
@@ -5725,7 +5725,7 @@ $L38158:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveOnFire@CGameCounter@@QAEHXZ	; CGameCounter::RemoveOnFire
 	test	eax, eax
-	je	SHORT $L38166
+	je	SHORT $L38174
 
 ; 694  : 			UTIL_Remove( this );
 
@@ -5733,7 +5733,7 @@ $L38158:
 	push	ecx
 	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
 	add	esp, 4
-$L38166:
+$L38174:
 
 ; 696  : 		
 ; 697  : 		if ( ResetOnFire() )
@@ -5741,14 +5741,14 @@ $L38166:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ResetOnFire@CGameCounter@@QAEHXZ	; CGameCounter::ResetOnFire
 	test	eax, eax
-	je	SHORT $L38167
+	je	SHORT $L38175
 
 ; 699  : 			ResetCount();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ResetCount@CGameCounter@@QAEXXZ	; CGameCounter::ResetCount
-$L38167:
-$L38155:
+$L38175:
+$L38163:
 
 ; 702  : }
 
@@ -5758,11 +5758,11 @@ $L38155:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
-$L39542:
-	DD	$L38162
-	DD	$L38161
-	DD	$L38163
-	DD	$L38161
+$L39550:
+	DD	$L38170
+	DD	$L38169
+	DD	$L38171
+	DD	$L38169
 ?Use@CGameCounter@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z ENDP ; CGameCounter::Use
 _TEXT	ENDS
 ;	COMDAT ?RemoveOnFire@CGameCounter@@QAEHXZ
@@ -6076,12 +6076,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L38226
+	jne	SHORT $L38234
 
 ; 725  : 		return;
 
-	jmp	SHORT $L38225
-$L38226:
+	jmp	SHORT $L38233
+$L38234:
 
 ; 726  : 
 ; 727  : 	SUB_UseTargets( pActivator, USE_SET, pev->frags );
@@ -6103,7 +6103,7 @@ $L38226:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveOnFire@CGameCounterSet@@QAEHXZ	; CGameCounterSet::RemoveOnFire
 	test	eax, eax
-	je	SHORT $L38227
+	je	SHORT $L38235
 
 ; 731  : 		UTIL_Remove( this );
 
@@ -6111,8 +6111,8 @@ $L38226:
 	push	edx
 	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
 	add	esp, 4
-$L38227:
-$L38225:
+$L38235:
+$L38233:
 
 ; 733  : }
 
@@ -6210,8 +6210,8 @@ EXTRN	?UTIL_StripToken@@YAXPBDPAD@Z:NEAR		; UTIL_StripToken
 _TEXT	SEGMENT
 _pkvd$ = 8
 _this$ = -4
-_i$38293 = -8
-_tmp$38298 = -136
+_i$38301 = -8
+_tmp$38306 = -136
 ?KeyValue@CGamePlayerEquip@@UAEXPAUKeyValueData_s@@@Z PROC NEAR ; CGamePlayerEquip::KeyValue, COMDAT
 
 ; 762  : {
@@ -6236,32 +6236,32 @@ _tmp$38298 = -136
 
 	mov	ecx, DWORD PTR _pkvd$[ebp]
 	cmp	DWORD PTR [ecx+12], 0
-	jne	$L38296
+	jne	$L38304
 
 ; 767  : 		for ( int i = 0; i < MAX_EQUIP; i++ )
 
-	mov	DWORD PTR _i$38293[ebp], 0
-	jmp	SHORT $L38294
-$L38295:
-	mov	edx, DWORD PTR _i$38293[ebp]
+	mov	DWORD PTR _i$38301[ebp], 0
+	jmp	SHORT $L38302
+$L38303:
+	mov	edx, DWORD PTR _i$38301[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$38293[ebp], edx
-$L38294:
-	cmp	DWORD PTR _i$38293[ebp], 32		; 00000020H
-	jge	$L38296
+	mov	DWORD PTR _i$38301[ebp], edx
+$L38302:
+	cmp	DWORD PTR _i$38301[ebp], 32		; 00000020H
+	jge	$L38304
 
 ; 769  : 			if ( !m_weaponNames[i] )
 
-	mov	eax, DWORD PTR _i$38293[ebp]
+	mov	eax, DWORD PTR _i$38301[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+eax*4+1768], 0
-	jne	$L38297
+	jne	$L38305
 
 ; 771  : 				char tmp[128];
 ; 772  : 
 ; 773  : 				UTIL_StripToken( pkvd->szKeyName, tmp );
 
-	lea	edx, DWORD PTR _tmp$38298[ebp]
+	lea	edx, DWORD PTR _tmp$38306[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pkvd$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -6272,11 +6272,11 @@ $L38294:
 ; 774  : 
 ; 775  : 				m_weaponNames[i] = ALLOC_STRING(tmp);
 
-	lea	edx, DWORD PTR _tmp$38298[ebp]
+	lea	edx, DWORD PTR _tmp$38306[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+268
 	add	esp, 4
-	mov	ecx, DWORD PTR _i$38293[ebp]
+	mov	ecx, DWORD PTR _i$38301[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+ecx*4+1768], eax
 
@@ -6287,25 +6287,25 @@ $L38294:
 	push	ecx
 	call	_atoi
 	add	esp, 4
-	mov	edx, DWORD PTR _i$38293[ebp]
+	mov	edx, DWORD PTR _i$38301[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+edx*4+1896], eax
 
 ; 777  : 				m_weaponCount[i] = Q_max(1,m_weaponCount[i]);
 
-	mov	edx, DWORD PTR _i$38293[ebp]
+	mov	edx, DWORD PTR _i$38301[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+edx*4+1896], 1
-	jge	SHORT $L39575
+	jge	SHORT $L39583
 	mov	DWORD PTR -140+[ebp], 1
-	jmp	SHORT $L39576
-$L39575:
-	mov	ecx, DWORD PTR _i$38293[ebp]
+	jmp	SHORT $L39584
+$L39583:
+	mov	ecx, DWORD PTR _i$38301[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+1896]
 	mov	DWORD PTR -140+[ebp], eax
-$L39576:
-	mov	ecx, DWORD PTR _i$38293[ebp]
+$L39584:
+	mov	ecx, DWORD PTR _i$38301[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR -140+[ebp]
 	mov	DWORD PTR [edx+ecx*4+1896], eax
@@ -6317,13 +6317,13 @@ $L39576:
 
 ; 779  : 				break;
 
-	jmp	SHORT $L38296
-$L38297:
+	jmp	SHORT $L38304
+$L38305:
 
 ; 781  : 		}
 
-	jmp	$L38295
-$L38296:
+	jmp	$L38303
+$L38304:
 
 ; 783  : }
 
@@ -6361,12 +6361,12 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L38303
+	jne	SHORT $L38311
 
 ; 788  : 		return;
 
-	jmp	SHORT $L38302
-$L38303:
+	jmp	SHORT $L38310
+$L38311:
 
 ; 789  : 
 ; 790  : 	if ( UseOnly() )
@@ -6374,12 +6374,12 @@ $L38303:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?UseOnly@CGamePlayerEquip@@QAEHXZ	; CGamePlayerEquip::UseOnly
 	test	eax, eax
-	je	SHORT $L38304
+	je	SHORT $L38312
 
 ; 791  : 		return;
 
-	jmp	SHORT $L38302
-$L38304:
+	jmp	SHORT $L38310
+$L38312:
 
 ; 792  : 
 ; 793  : 	EquipPlayer( pOther );
@@ -6388,7 +6388,7 @@ $L38304:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?EquipPlayer@CGamePlayerEquip@@AAEXPAVCBaseEntity@@@Z ; CGamePlayerEquip::EquipPlayer
-$L38302:
+$L38310:
 
 ; 794  : }
 
@@ -6436,7 +6436,7 @@ _pEntity$ = 8
 _this$ = -4
 _pPlayer$ = -8
 _i$ = -12
-_j$38318 = -16
+_j$38326 = -16
 ?EquipPlayer@CGamePlayerEquip@@AAEXPAVCBaseEntity@@@Z PROC NEAR ; CGamePlayerEquip::EquipPlayer, COMDAT
 
 ; 797  : {
@@ -6461,64 +6461,64 @@ _j$38318 = -16
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L38310
+	je	SHORT $L38318
 
 ; 802  : 		pPlayer = (CBasePlayer *)pEntity;
 
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	DWORD PTR _pPlayer$[ebp], eax
-$L38310:
+$L38318:
 
 ; 804  : 
 ; 805  : 	if ( !pPlayer )
 
 	cmp	DWORD PTR _pPlayer$[ebp], 0
-	jne	SHORT $L38312
+	jne	SHORT $L38320
 
 ; 806  : 		return;
 
-	jmp	SHORT $L38308
-$L38312:
+	jmp	SHORT $L38316
+$L38320:
 
 ; 807  : 
 ; 808  : 	for ( int i = 0; i < MAX_EQUIP; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38314
-$L38315:
+	jmp	SHORT $L38322
+$L38323:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38314:
+$L38322:
 	cmp	DWORD PTR _i$[ebp], 32			; 00000020H
-	jge	SHORT $L38316
+	jge	SHORT $L38324
 
 ; 810  : 		if ( !m_weaponNames[i] )
 
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+edx*4+1768], 0
-	jne	SHORT $L38317
+	jne	SHORT $L38325
 
 ; 811  : 			break;
 
-	jmp	SHORT $L38316
-$L38317:
+	jmp	SHORT $L38324
+$L38325:
 
 ; 812  : 		for ( int j = 0; j < m_weaponCount[i]; j++ )
 
-	mov	DWORD PTR _j$38318[ebp], 0
-	jmp	SHORT $L38319
-$L38320:
-	mov	ecx, DWORD PTR _j$38318[ebp]
+	mov	DWORD PTR _j$38326[ebp], 0
+	jmp	SHORT $L38327
+$L38328:
+	mov	ecx, DWORD PTR _j$38326[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _j$38318[ebp], ecx
-$L38319:
+	mov	DWORD PTR _j$38326[ebp], ecx
+$L38327:
 	mov	edx, DWORD PTR _i$[ebp]
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _j$38318[ebp]
+	mov	ecx, DWORD PTR _j$38326[ebp]
 	cmp	ecx, DWORD PTR [eax+edx*4+1896]
-	jge	SHORT $L38321
+	jge	SHORT $L38329
 
 ; 814  :  			pPlayer->GiveNamedItem( STRING(m_weaponNames[i]) );
 
@@ -6534,14 +6534,14 @@ $L38319:
 
 ; 815  : 		}
 
-	jmp	SHORT $L38320
-$L38321:
+	jmp	SHORT $L38328
+$L38329:
 
 ; 816  : 	}
 
-	jmp	SHORT $L38315
+	jmp	SHORT $L38323
+$L38324:
 $L38316:
-$L38308:
 
 ; 817  : }
 
@@ -6661,7 +6661,7 @@ _pTeamEntity$ = -8
 ; 853  : 	CBaseEntity *pTeamEntity = NULL;
 
 	mov	DWORD PTR _pTeamEntity$[ebp], 0
-$L38398:
+$L38406:
 
 ; 854  : 
 ; 855  : 	while ((pTeamEntity = UTIL_FindEntityByTargetname( pTeamEntity, pszTargetName )) != NULL)
@@ -6674,7 +6674,7 @@ $L38398:
 	add	esp, 8
 	mov	DWORD PTR _pTeamEntity$[ebp], eax
 	cmp	DWORD PTR _pTeamEntity$[ebp], 0
-	je	SHORT $L38399
+	je	SHORT $L38407
 
 ; 857  : 		if ( FClassnameIs( pTeamEntity->pev, "game_team_master" ) )
 
@@ -6685,7 +6685,7 @@ $L38398:
 	call	?FClassnameIs@@YAHPAUentvars_s@@PBD@Z	; FClassnameIs
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L38400
+	je	SHORT $L38408
 
 ; 858  : 			return pTeamEntity->TeamID();
 
@@ -6693,19 +6693,19 @@ $L38398:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pTeamEntity$[ebp]
 	call	DWORD PTR [edx+264]
-	jmp	SHORT $L38395
-$L38400:
+	jmp	SHORT $L38403
+$L38408:
 
 ; 859  : 	}
 
-	jmp	SHORT $L38398
-$L38399:
+	jmp	SHORT $L38406
+$L38407:
 
 ; 860  : 
 ; 861  : 	return NULL;
 
 	xor	eax, eax
-$L38395:
+$L38403:
 
 ; 862  : }
 
@@ -6785,7 +6785,7 @@ _pev$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pev$[ebp], 0
-	je	SHORT $L39595
+	je	SHORT $L39603
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPAUentvars_s@@@Z		; OFFSET
@@ -6794,12 +6794,12 @@ _pev$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L39595
+	jne	SHORT $L39603
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L39596
-$L39595:
+	jmp	SHORT $L39604
+$L39603:
 	mov	DWORD PTR -4+[ebp], 1
-$L39596:
+$L39604:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -6951,8 +6951,8 @@ PUBLIC	?ShouldGibPlayer@CGamePlayerTeam@@AAEHXZ	; CGamePlayerTeam::ShouldGibPlay
 _TEXT	SEGMENT
 _pActivator$ = 8
 _this$ = -4
-_pszTargetTeam$38410 = -8
-_pPlayer$38412 = -12
+_pszTargetTeam$38418 = -8
+_pPlayer$38420 = -12
 ?Use@CGamePlayerTeam@@UAEXPAVCBaseEntity@@0W4USE_TYPE@@M@Z PROC NEAR ; CGamePlayerTeam::Use, COMDAT
 
 ; 865  : {
@@ -6972,12 +6972,12 @@ _pPlayer$38412 = -12
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CanFireForActivator@CRuleEntity@@IAEHPAVCBaseEntity@@@Z ; CRuleEntity::CanFireForActivator
 	test	eax, eax
-	jne	SHORT $L38408
+	jne	SHORT $L38416
 
 ; 867  : 		return;
 
-	jmp	$L38407
-$L38408:
+	jmp	$L38415
+$L38416:
 
 ; 868  : 
 ; 869  : 	if ( pActivator->IsPlayer() )
@@ -6987,7 +6987,7 @@ $L38408:
 	mov	ecx, DWORD PTR _pActivator$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L38411
+	je	SHORT $L38419
 
 ; 871  : 		const char *pszTargetTeam = TargetTeamName( STRING(pev->target) );
 
@@ -7000,17 +7000,17 @@ $L38408:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TargetTeamName@CGamePlayerTeam@@AAEPBDPBD@Z ; CGamePlayerTeam::TargetTeamName
-	mov	DWORD PTR _pszTargetTeam$38410[ebp], eax
+	mov	DWORD PTR _pszTargetTeam$38418[ebp], eax
 
 ; 872  : 		if ( pszTargetTeam )
 
-	cmp	DWORD PTR _pszTargetTeam$38410[ebp], 0
-	je	SHORT $L38411
+	cmp	DWORD PTR _pszTargetTeam$38418[ebp], 0
+	je	SHORT $L38419
 
 ; 874  : 			CBasePlayer *pPlayer = (CBasePlayer *)pActivator;
 
 	mov	eax, DWORD PTR _pActivator$[ebp]
-	mov	DWORD PTR _pPlayer$38412[ebp], eax
+	mov	DWORD PTR _pPlayer$38420[ebp], eax
 
 ; 875  : 			g_pGameRules->ChangePlayerTeam( pPlayer, pszTargetTeam, ShouldKillPlayer(), ShouldGibPlayer() );
 
@@ -7020,15 +7020,15 @@ $L38408:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ShouldKillPlayer@CGamePlayerTeam@@AAEHXZ ; CGamePlayerTeam::ShouldKillPlayer
 	push	eax
-	mov	ecx, DWORD PTR _pszTargetTeam$38410[ebp]
+	mov	ecx, DWORD PTR _pszTargetTeam$38418[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _pPlayer$38412[ebp]
+	mov	edx, DWORD PTR _pPlayer$38420[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR ?g_pGameRules@@3PAVCGameRules@@A ; g_pGameRules
 	call	DWORD PTR [edx+216]
-$L38411:
+$L38419:
 
 ; 878  : 	
 ; 879  : 	if ( RemoveOnFire() )
@@ -7036,7 +7036,7 @@ $L38411:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveOnFire@CGamePlayerTeam@@AAEHXZ	; CGamePlayerTeam::RemoveOnFire
 	test	eax, eax
-	je	SHORT $L38414
+	je	SHORT $L38422
 
 ; 881  : 		UTIL_Remove( this );
 
@@ -7044,8 +7044,8 @@ $L38411:
 	push	eax
 	call	?UTIL_Remove@@YAXPAVCBaseEntity@@@Z	; UTIL_Remove
 	add	esp, 4
-$L38414:
-$L38407:
+$L38422:
+$L38415:
 
 ; 883  : }
 
@@ -7951,10 +7951,10 @@ _this$ = -4
 	ret	0
 ?GetEntitySize@?$CEntityFactory@VCGameTeamSet@@@@UAEIXZ ENDP ; CEntityFactory<CGameTeamSet>::GetEntitySize
 _TEXT	ENDS
+PUBLIC	??_7?$CEntityFactory@VCGamePlayerZone@@@@6B@	; CEntityFactory<CGamePlayerZone>::`vftable'
 PUBLIC	?Create@?$CEntityFactory@VCGamePlayerZone@@@@UAEPAVCBaseEntity@@PBDPAUentvars_s@@@Z ; CEntityFactory<CGamePlayerZone>::Create
 PUBLIC	?Destroy@?$CEntityFactory@VCGamePlayerZone@@@@UAEXPAVCBaseEntity@@@Z ; CEntityFactory<CGamePlayerZone>::Destroy
 PUBLIC	?GetEntitySize@?$CEntityFactory@VCGamePlayerZone@@@@UAEIXZ ; CEntityFactory<CGamePlayerZone>::GetEntitySize
-PUBLIC	??_7?$CEntityFactory@VCGamePlayerZone@@@@6B@	; CEntityFactory<CGamePlayerZone>::`vftable'
 ;	COMDAT ??_7?$CEntityFactory@VCGamePlayerZone@@@@6B@
 ; File z:\xashxtsrc\server\util.h
 CONST	SEGMENT
@@ -9263,8 +9263,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39731 = -20
-$T39732 = -24
+$T39739 = -20
+$T39740 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameScore@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -9292,7 +9292,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38621
+	jne	SHORT $L38629
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -9301,7 +9301,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38621:
+$L38629:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -9320,7 +9320,7 @@ $L38621:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38623
+	jne	SHORT $L38631
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -9330,21 +9330,21 @@ $L38621:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39732[ebp], eax
+	mov	DWORD PTR $T39740[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39732[ebp], 0
-	je	SHORT $L39733
-	mov	ecx, DWORD PTR $T39732[ebp]
+	cmp	DWORD PTR $T39740[ebp], 0
+	je	SHORT $L39741
+	mov	ecx, DWORD PTR $T39740[ebp]
 	call	??0CGameScore@@QAE@XZ			; CGameScore::CGameScore
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39734
-$L39733:
+	jmp	SHORT $L39742
+$L39741:
 	mov	DWORD PTR -28+[ebp], 0
-$L39734:
+$L39742:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39731[ebp], eax
+	mov	DWORD PTR $T39739[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39731[ebp]
+	mov	ecx, DWORD PTR $T39739[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -9352,7 +9352,7 @@ $L39734:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38623:
+$L38631:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -9382,7 +9382,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameScore@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39732[ebp]
+	mov	ecx, DWORD PTR $T39740[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -9592,8 +9592,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39754 = -20
-$T39755 = -24
+$T39762 = -20
+$T39763 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameEnd@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -9621,7 +9621,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38632
+	jne	SHORT $L38640
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -9630,7 +9630,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38632:
+$L38640:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -9649,7 +9649,7 @@ $L38632:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38634
+	jne	SHORT $L38642
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -9659,21 +9659,21 @@ $L38632:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39755[ebp], eax
+	mov	DWORD PTR $T39763[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39755[ebp], 0
-	je	SHORT $L39756
-	mov	ecx, DWORD PTR $T39755[ebp]
+	cmp	DWORD PTR $T39763[ebp], 0
+	je	SHORT $L39764
+	mov	ecx, DWORD PTR $T39763[ebp]
 	call	??0CGameEnd@@QAE@XZ			; CGameEnd::CGameEnd
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39757
-$L39756:
+	jmp	SHORT $L39765
+$L39764:
 	mov	DWORD PTR -28+[ebp], 0
-$L39757:
+$L39765:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39754[ebp], eax
+	mov	DWORD PTR $T39762[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39754[ebp]
+	mov	ecx, DWORD PTR $T39762[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -9681,7 +9681,7 @@ $L39757:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38634:
+$L38642:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -9711,7 +9711,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameEnd@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39755[ebp]
+	mov	ecx, DWORD PTR $T39763[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -9739,8 +9739,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39767 = -20
-$T39768 = -24
+$T39775 = -20
+$T39776 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameText@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -9768,7 +9768,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38643
+	jne	SHORT $L38651
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -9777,7 +9777,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38643:
+$L38651:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -9796,7 +9796,7 @@ $L38643:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38645
+	jne	SHORT $L38653
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -9806,21 +9806,21 @@ $L38643:
 	push	1808					; 00000710H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39768[ebp], eax
+	mov	DWORD PTR $T39776[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39768[ebp], 0
-	je	SHORT $L39769
-	mov	ecx, DWORD PTR $T39768[ebp]
+	cmp	DWORD PTR $T39776[ebp], 0
+	je	SHORT $L39777
+	mov	ecx, DWORD PTR $T39776[ebp]
 	call	??0CGameText@@QAE@XZ			; CGameText::CGameText
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39770
-$L39769:
+	jmp	SHORT $L39778
+$L39777:
 	mov	DWORD PTR -28+[ebp], 0
-$L39770:
+$L39778:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39767[ebp], eax
+	mov	DWORD PTR $T39775[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39767[ebp]
+	mov	ecx, DWORD PTR $T39775[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -9828,7 +9828,7 @@ $L39770:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38645:
+$L38653:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -9858,7 +9858,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameText@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39768[ebp]
+	mov	ecx, DWORD PTR $T39776[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -9886,8 +9886,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39780 = -20
-$T39781 = -24
+$T39788 = -20
+$T39789 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameTeamMaster@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
 
@@ -9915,7 +9915,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38654
+	jne	SHORT $L38662
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -9924,7 +9924,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38654:
+$L38662:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -9943,7 +9943,7 @@ $L38654:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38656
+	jne	SHORT $L38664
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -9953,21 +9953,21 @@ $L38654:
 	push	1776					; 000006f0H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39781[ebp], eax
+	mov	DWORD PTR $T39789[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39781[ebp], 0
-	je	SHORT $L39782
-	mov	ecx, DWORD PTR $T39781[ebp]
+	cmp	DWORD PTR $T39789[ebp], 0
+	je	SHORT $L39790
+	mov	ecx, DWORD PTR $T39789[ebp]
 	call	??0CGameTeamMaster@@QAE@XZ		; CGameTeamMaster::CGameTeamMaster
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39783
-$L39782:
+	jmp	SHORT $L39791
+$L39790:
 	mov	DWORD PTR -28+[ebp], 0
-$L39783:
+$L39791:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39780[ebp], eax
+	mov	DWORD PTR $T39788[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39780[ebp]
+	mov	ecx, DWORD PTR $T39788[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -9975,7 +9975,7 @@ $L39783:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38656:
+$L38664:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10005,7 +10005,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameTeamMaster@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39781[ebp]
+	mov	ecx, DWORD PTR $T39789[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10033,8 +10033,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39793 = -20
-$T39794 = -24
+$T39801 = -20
+$T39802 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameTeamSet@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -10062,7 +10062,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38665
+	jne	SHORT $L38673
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10071,7 +10071,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38665:
+$L38673:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10090,7 +10090,7 @@ $L38665:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38667
+	jne	SHORT $L38675
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10100,21 +10100,21 @@ $L38665:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39794[ebp], eax
+	mov	DWORD PTR $T39802[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39794[ebp], 0
-	je	SHORT $L39795
-	mov	ecx, DWORD PTR $T39794[ebp]
+	cmp	DWORD PTR $T39802[ebp], 0
+	je	SHORT $L39803
+	mov	ecx, DWORD PTR $T39802[ebp]
 	call	??0CGameTeamSet@@QAE@XZ			; CGameTeamSet::CGameTeamSet
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39796
-$L39795:
+	jmp	SHORT $L39804
+$L39803:
 	mov	DWORD PTR -28+[ebp], 0
-$L39796:
+$L39804:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39793[ebp], eax
+	mov	DWORD PTR $T39801[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39793[ebp]
+	mov	ecx, DWORD PTR $T39801[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -10122,7 +10122,7 @@ $L39796:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38667:
+$L38675:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10152,7 +10152,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameTeamSet@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39794[ebp]
+	mov	ecx, DWORD PTR $T39802[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10180,8 +10180,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39806 = -20
-$T39807 = -24
+$T39814 = -20
+$T39815 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGamePlayerZone@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
 
@@ -10209,7 +10209,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38676
+	jne	SHORT $L38684
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10218,7 +10218,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38676:
+$L38684:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10237,7 +10237,7 @@ $L38676:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38678
+	jne	SHORT $L38686
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10247,21 +10247,21 @@ $L38676:
 	push	1784					; 000006f8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39807[ebp], eax
+	mov	DWORD PTR $T39815[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39807[ebp], 0
-	je	SHORT $L39808
-	mov	ecx, DWORD PTR $T39807[ebp]
+	cmp	DWORD PTR $T39815[ebp], 0
+	je	SHORT $L39816
+	mov	ecx, DWORD PTR $T39815[ebp]
 	call	??0CGamePlayerZone@@QAE@XZ		; CGamePlayerZone::CGamePlayerZone
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39809
-$L39808:
+	jmp	SHORT $L39817
+$L39816:
 	mov	DWORD PTR -28+[ebp], 0
-$L39809:
+$L39817:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39806[ebp], eax
+	mov	DWORD PTR $T39814[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39806[ebp]
+	mov	ecx, DWORD PTR $T39814[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -10269,7 +10269,7 @@ $L39809:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38678:
+$L38686:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10299,7 +10299,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGamePlayerZone@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39807[ebp]
+	mov	ecx, DWORD PTR $T39815[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10327,8 +10327,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39819 = -20
-$T39820 = -24
+$T39827 = -20
+$T39828 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGamePlayerHurt@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
 
@@ -10356,7 +10356,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38687
+	jne	SHORT $L38695
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10365,7 +10365,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38687:
+$L38695:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10384,7 +10384,7 @@ $L38687:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38689
+	jne	SHORT $L38697
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10394,21 +10394,21 @@ $L38687:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39820[ebp], eax
+	mov	DWORD PTR $T39828[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39820[ebp], 0
-	je	SHORT $L39821
-	mov	ecx, DWORD PTR $T39820[ebp]
+	cmp	DWORD PTR $T39828[ebp], 0
+	je	SHORT $L39829
+	mov	ecx, DWORD PTR $T39828[ebp]
 	call	??0CGamePlayerHurt@@QAE@XZ		; CGamePlayerHurt::CGamePlayerHurt
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39822
-$L39821:
+	jmp	SHORT $L39830
+$L39829:
 	mov	DWORD PTR -28+[ebp], 0
-$L39822:
+$L39830:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39819[ebp], eax
+	mov	DWORD PTR $T39827[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39819[ebp]
+	mov	ecx, DWORD PTR $T39827[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -10416,7 +10416,7 @@ $L39822:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38689:
+$L38697:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10446,7 +10446,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGamePlayerHurt@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39820[ebp]
+	mov	ecx, DWORD PTR $T39828[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10474,8 +10474,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39832 = -20
-$T39833 = -24
+$T39840 = -20
+$T39841 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameCounter@@PAV1@PBD@Z PROC NEAR	; GetClassPtr, COMDAT
 
@@ -10503,7 +10503,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38698
+	jne	SHORT $L38706
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10512,7 +10512,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38698:
+$L38706:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10531,7 +10531,7 @@ $L38698:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38700
+	jne	SHORT $L38708
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10541,21 +10541,21 @@ $L38698:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39833[ebp], eax
+	mov	DWORD PTR $T39841[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39833[ebp], 0
-	je	SHORT $L39834
-	mov	ecx, DWORD PTR $T39833[ebp]
+	cmp	DWORD PTR $T39841[ebp], 0
+	je	SHORT $L39842
+	mov	ecx, DWORD PTR $T39841[ebp]
 	call	??0CGameCounter@@QAE@XZ			; CGameCounter::CGameCounter
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39835
-$L39834:
+	jmp	SHORT $L39843
+$L39842:
 	mov	DWORD PTR -28+[ebp], 0
-$L39835:
+$L39843:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39832[ebp], eax
+	mov	DWORD PTR $T39840[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39832[ebp]
+	mov	ecx, DWORD PTR $T39840[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -10563,7 +10563,7 @@ $L39835:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38700:
+$L38708:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10593,7 +10593,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameCounter@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39833[ebp]
+	mov	ecx, DWORD PTR $T39841[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10621,8 +10621,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39845 = -20
-$T39846 = -24
+$T39853 = -20
+$T39854 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGameCounterSet@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
 
@@ -10650,7 +10650,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38709
+	jne	SHORT $L38717
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10659,7 +10659,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38709:
+$L38717:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10678,7 +10678,7 @@ $L38709:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38711
+	jne	SHORT $L38719
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10688,21 +10688,21 @@ $L38709:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39846[ebp], eax
+	mov	DWORD PTR $T39854[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39846[ebp], 0
-	je	SHORT $L39847
-	mov	ecx, DWORD PTR $T39846[ebp]
+	cmp	DWORD PTR $T39854[ebp], 0
+	je	SHORT $L39855
+	mov	ecx, DWORD PTR $T39854[ebp]
 	call	??0CGameCounterSet@@QAE@XZ		; CGameCounterSet::CGameCounterSet
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39848
-$L39847:
+	jmp	SHORT $L39856
+$L39855:
 	mov	DWORD PTR -28+[ebp], 0
-$L39848:
+$L39856:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39845[ebp], eax
+	mov	DWORD PTR $T39853[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39845[ebp]
+	mov	ecx, DWORD PTR $T39853[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -10710,7 +10710,7 @@ $L39848:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38711:
+$L38719:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10740,7 +10740,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGameCounterSet@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39846[ebp]
+	mov	ecx, DWORD PTR $T39854[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10768,8 +10768,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39858 = -20
-$T39859 = -24
+$T39866 = -20
+$T39867 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGamePlayerEquip@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
 
@@ -10797,7 +10797,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38720
+	jne	SHORT $L38728
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10806,7 +10806,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38720:
+$L38728:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10825,7 +10825,7 @@ $L38720:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38722
+	jne	SHORT $L38730
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10835,21 +10835,21 @@ $L38720:
 	push	2024					; 000007e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39859[ebp], eax
+	mov	DWORD PTR $T39867[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39859[ebp], 0
-	je	SHORT $L39860
-	mov	ecx, DWORD PTR $T39859[ebp]
+	cmp	DWORD PTR $T39867[ebp], 0
+	je	SHORT $L39868
+	mov	ecx, DWORD PTR $T39867[ebp]
 	call	??0CGamePlayerEquip@@QAE@XZ		; CGamePlayerEquip::CGamePlayerEquip
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39861
-$L39860:
+	jmp	SHORT $L39869
+$L39868:
 	mov	DWORD PTR -28+[ebp], 0
-$L39861:
+$L39869:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39858[ebp], eax
+	mov	DWORD PTR $T39866[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39858[ebp]
+	mov	ecx, DWORD PTR $T39866[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -10857,7 +10857,7 @@ $L39861:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38722:
+$L38730:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -10887,7 +10887,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGamePlayerEquip@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39859[ebp]
+	mov	ecx, DWORD PTR $T39867[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -10915,8 +10915,8 @@ _TEXT	SEGMENT
 _newEnt$ = 8
 _className$ = 12
 _pev$ = -16
-$T39871 = -20
-$T39872 = -24
+$T39879 = -20
+$T39880 = -24
 __$EHRec$ = -12
 ?GetClassPtr@@YAPAVCGamePlayerTeam@@PAV1@PBD@Z PROC NEAR ; GetClassPtr, COMDAT
 
@@ -10944,7 +10944,7 @@ __$EHRec$ = -12
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L38731
+	jne	SHORT $L38739
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -10953,7 +10953,7 @@ __$EHRec$ = -12
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L38731:
+$L38739:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -10972,7 +10972,7 @@ $L38731:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L38733
+	jne	SHORT $L38741
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -10982,21 +10982,21 @@ $L38731:
 	push	1768					; 000006e8H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T39872[ebp], eax
+	mov	DWORD PTR $T39880[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T39872[ebp], 0
-	je	SHORT $L39873
-	mov	ecx, DWORD PTR $T39872[ebp]
+	cmp	DWORD PTR $T39880[ebp], 0
+	je	SHORT $L39881
+	mov	ecx, DWORD PTR $T39880[ebp]
 	call	??0CGamePlayerTeam@@QAE@XZ		; CGamePlayerTeam::CGamePlayerTeam
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L39874
-$L39873:
+	jmp	SHORT $L39882
+$L39881:
 	mov	DWORD PTR -28+[ebp], 0
-$L39874:
+$L39882:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T39871[ebp], eax
+	mov	DWORD PTR $T39879[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T39871[ebp]
+	mov	ecx, DWORD PTR $T39879[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -11004,7 +11004,7 @@ $L39874:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L38733:
+$L38741:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -11034,7 +11034,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCGamePlayerTeam@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T39872[ebp]
+	mov	ecx, DWORD PTR $T39880[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -11963,26 +11963,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39947
+	je	SHORT $L39955
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39947
+	je	SHORT $L39955
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39947
+	je	SHORT $L39955
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39948
-$L39947:
+	jmp	SHORT $L39956
+$L39955:
 	mov	DWORD PTR -8+[ebp], 0
-$L39948:
+$L39956:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -12165,19 +12165,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L39965
+	jne	SHORT $L39973
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39965
+	jne	SHORT $L39973
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39966
-$L39965:
+	jmp	SHORT $L39974
+$L39973:
 	mov	DWORD PTR -8+[ebp], 0
-$L39966:
+$L39974:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -12265,26 +12265,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L39973
+	jne	SHORT $L39981
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L39974
-$L39973:
+	je	SHORT $L39982
+$L39981:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39974
+	je	SHORT $L39982
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L39975
-$L39974:
+	jmp	SHORT $L39983
+$L39982:
 	mov	DWORD PTR -8+[ebp], 0
-$L39975:
+$L39983:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -12983,8 +12983,8 @@ PUBLIC	??HVector@@QBE?AV0@ABV0@@Z			; Vector::operator+
 PUBLIC	??DVector@@QBE?AV0@M@Z				; Vector::operator*
 ;	COMDAT ?Center@CBaseEntity@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40022 = -16
-$T40023 = -28
+$T40030 = -16
+$T40031 = -28
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
@@ -12999,13 +12999,13 @@ _this$ = -4
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T40023[ebp]
+	lea	eax, DWORD PTR $T40031[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T40022[ebp]
+	lea	eax, DWORD PTR $T40030[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -13064,7 +13064,7 @@ _TEXT	ENDS
 PUBLIC	??0Vector@@QAE@MMM@Z				; Vector::Vector
 ;	COMDAT ??HVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
-$T40028 = -16
+$T40036 = -16
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -13097,7 +13097,7 @@ _this$ = -4
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40028[ebp]
+	lea	ecx, DWORD PTR $T40036[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -13148,7 +13148,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ??DVector@@QBE?AV0@M@Z
 _TEXT	SEGMENT
-$T40033 = -16
+$T40041 = -16
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -13178,7 +13178,7 @@ _this$ = -4
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T40033[ebp]
+	lea	ecx, DWORD PTR $T40041[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -13194,7 +13194,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40036 = -16
+$T40044 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
@@ -13212,7 +13212,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40036[ebp]
+	lea	edx, DWORD PTR $T40044[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -13232,7 +13232,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ
 _TEXT	SEGMENT
-$T40039 = -16
+$T40047 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
@@ -13250,7 +13250,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T40039[ebp]
+	lea	edx, DWORD PTR $T40047[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -13270,7 +13270,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z
 _TEXT	SEGMENT
-$T40042 = -16
+$T40050 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
@@ -13284,7 +13284,7 @@ _this$ = -4
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T40042[ebp]
+	lea	eax, DWORD PTR $T40050[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -15227,19 +15227,19 @@ _this$ = -4
 ; 297  : 	assert( nGrowSize >= 0 );
 
 	cmp	DWORD PTR _nGrowSize$[ebp], 0
-	jge	SHORT $L40107
+	jge	SHORT $L40115
 	push	297					; 00000129H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40107:
+$L40115:
 
 ; 298  : 	if (m_nAllocationCount)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L38805
+	je	SHORT $L38813
 
 ; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -15251,7 +15251,7 @@ $L40107:
 	add	esp, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L38805:
+$L38813:
 
 ; 302  : }
 
@@ -15329,13 +15329,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40112
+	je	SHORT $L40120
 	push	424					; 000001a8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40112:
+$L40120:
 
 ; 425  : 	assert( IsIdxValid(i) );
 
@@ -15345,13 +15345,13 @@ $L40112:
 	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L40113
+	jne	SHORT $L40121
 	push	425					; 000001a9H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40113:
+$L40121:
 
 ; 426  : 	return m_pMemory[i];
 
@@ -15391,13 +15391,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L40116
+	je	SHORT $L40124
 	push	488					; 000001e8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L40116:
+$L40124:
 
 ; 489  : 	return m_pMemory;
 
@@ -15473,12 +15473,12 @@ _i$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _i$[ebp], ecx
-$L38838:
+$L38846:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L38839
+	jl	SHORT $L38847
 
 ; 729  : 		Destruct(&Element(i));
 
@@ -15492,8 +15492,8 @@ $L38838:
 
 ; 730  : 	}
 
-	jmp	SHORT $L38838
-$L38839:
+	jmp	SHORT $L38846
+$L38847:
 
 ; 731  : 
 ; 732  : 	m_Size = 0;
@@ -15563,16 +15563,16 @@ _this$ = -4
 ; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L40125
+	jl	SHORT $L40133
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jge	SHORT $L40125
+	jge	SHORT $L40133
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L40126
-$L40125:
+	jmp	SHORT $L40134
+$L40133:
 	mov	DWORD PTR -8+[ebp], 0
-$L40126:
+$L40134:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 522  : }
@@ -15608,13 +15608,13 @@ _this$ = -4
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L38871
+	jne	SHORT $L38879
 
 ; 648  : 		if (m_pMemory)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L38872
+	je	SHORT $L38880
 
 ; 650  : 			free( (void*)m_pMemory );
 
@@ -15628,13 +15628,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], 0
-$L38872:
+$L38880:
 
 ; 653  : 		m_nAllocationCount = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+4], 0
-$L38871:
+$L38879:
 
 ; 655  : }
 

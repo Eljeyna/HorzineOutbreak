@@ -502,10 +502,10 @@ _end$ = 20
 _tr$ = 24
 _this$ = -4
 _i$ = -8
-$T37778 = -20
-$T37779 = -32
-$T37780 = -44
-$T37781 = -56
+$T37786 = -20
+$T37787 = -32
+$T37788 = -44
+$T37789 = -56
 ?SetupTrace@TraceMesh@@QAEXABVVector@@000PAUtrace_s@@@Z PROC NEAR ; TraceMesh::SetupTrace, COMDAT
 
 ; 29   : {
@@ -584,7 +584,7 @@ $T37781 = -56
 
 	mov	edx, DWORD PTR _mins$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T37778[ebp]
+	lea	eax, DWORD PTR $T37786[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -617,7 +617,7 @@ $T37781 = -56
 
 	mov	ecx, DWORD PTR _maxs$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T37779[ebp]
+	lea	edx, DWORD PTR $T37787[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -650,7 +650,7 @@ $T37781 = -56
 
 	mov	ecx, DWORD PTR _mins$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T37780[ebp]
+	lea	edx, DWORD PTR $T37788[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 12					; 0000000cH
@@ -684,7 +684,7 @@ $T37781 = -56
 
 	mov	ecx, DWORD PTR _maxs$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T37781[ebp]
+	lea	edx, DWORD PTR $T37789[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 12					; 0000000cH
@@ -718,14 +718,14 @@ $T37781 = -56
 ; 53   : 	for( int i = 0; i < 3; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37335
-$L37336:
+	jmp	SHORT $L37343
+$L37344:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L37335:
+$L37343:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L37337
+	jge	SHORT $L37345
 
 ; 55   : 		m_vecAbsMins[i] -= 1.0f;
 
@@ -757,8 +757,8 @@ $L37335:
 
 ; 57   : 	}
 
-	jmp	SHORT $L37336
-$L37337:
+	jmp	SHORT $L37344
+$L37345:
 
 ; 58   : 
 ; 59   : 	if( start == end )
@@ -768,7 +768,7 @@ $L37337:
 	mov	ecx, DWORD PTR _start$[ebp]
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L37338
+	je	SHORT $L37346
 
 ; 60   : 		bIsTestPosition = true;
 
@@ -777,11 +777,11 @@ $L37337:
 
 ; 61   : 	else bIsTestPosition = false;
 
-	jmp	SHORT $L37339
-$L37338:
+	jmp	SHORT $L37347
+$L37346:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	BYTE PTR [ecx+100], 0
-$L37339:
+$L37347:
 
 ; 62   : }
 
@@ -814,26 +814,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37787
+	je	SHORT $L37795
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37787
+	je	SHORT $L37795
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37787
+	je	SHORT $L37795
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37788
-$L37787:
+	jmp	SHORT $L37796
+$L37795:
 	mov	DWORD PTR -8+[ebp], 0
-$L37788:
+$L37796:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -850,7 +850,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37791 = -16
+$T37799 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -880,7 +880,7 @@ $T37791 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37791[ebp]
+	lea	ecx, DWORD PTR $T37799[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1043,12 +1043,12 @@ _i$ = -56
 
 	mov	eax, DWORD PTR _facet$[ebp]
 	cmp	DWORD PTR [eax+32], 0
-	jne	SHORT $L37356
+	jne	SHORT $L37364
 
 ; 72   : 		return;
 
-	jmp	$L37343
-$L37356:
+	jmp	$L37351
+$L37364:
 
 ; 73   : 
 ; 74   : 	enterfrac = -1.0f;
@@ -1090,19 +1090,19 @@ $L37356:
 ; 83   : 	for( int i = 0; i < facet->numplanes; i++, planes++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37358
-$L37359:
+	jmp	SHORT $L37366
+$L37367:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
 	mov	ecx, DWORD PTR _planes$[ebp]
 	add	ecx, 20					; 00000014H
 	mov	DWORD PTR _planes$[ebp], ecx
-$L37358:
+$L37366:
 	mov	edx, DWORD PTR _facet$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+32]
-	jge	$L37360
+	jge	$L37368
 
 ; 85   : 		p = planes;
 
@@ -1117,7 +1117,7 @@ $L37358:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+16]
 	cmp	eax, 3
-	jge	SHORT $L37361
+	jge	SHORT $L37369
 
 ; 90   : 			d1 = m_vecStartMins[p->type] - p->dist;
 
@@ -1147,8 +1147,8 @@ $L37358:
 
 ; 93   : 		else
 
-	jmp	$L37364
-$L37361:
+	jmp	$L37372
+$L37369:
 
 ; 96   : 			{
 
@@ -1157,10 +1157,10 @@ $L37361:
 	mov	cl, BYTE PTR [eax+17]
 	mov	DWORD PTR -60+[ebp], ecx
 	cmp	DWORD PTR -60+[ebp], 7
-	ja	$L37375
+	ja	$L37383
 	mov	edx, DWORD PTR -60+[ebp]
-	jmp	DWORD PTR $L37806[edx*4]
-$L37367:
+	jmp	DWORD PTR $L37814[edx*4]
+$L37375:
 
 ; 97   : 			case 0:
 ; 98   : 				d1 = p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMins.z - p->dist;
@@ -1205,8 +1205,8 @@ $L37367:
 
 ; 100  : 				break;
 
-	jmp	$L37364
-$L37368:
+	jmp	$L37372
+$L37376:
 
 ; 101  : 			case 1:
 ; 102  : 				d1 = p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMins.z - p->dist;
@@ -1251,8 +1251,8 @@ $L37368:
 
 ; 104  : 				break;
 
-	jmp	$L37364
-$L37369:
+	jmp	$L37372
+$L37377:
 
 ; 105  : 			case 2:
 ; 106  : 				d1 = p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMins.z - p->dist;
@@ -1297,8 +1297,8 @@ $L37369:
 
 ; 108  : 				break;
 
-	jmp	$L37364
-$L37370:
+	jmp	$L37372
+$L37378:
 
 ; 109  : 			case 3:
 ; 110  : 				d1 = p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMins.z - p->dist;
@@ -1343,8 +1343,8 @@ $L37370:
 
 ; 112  : 				break;
 
-	jmp	$L37364
-$L37371:
+	jmp	$L37372
+$L37379:
 
 ; 113  : 			case 4:
 ; 114  : 				d1 = p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMaxs.z - p->dist;
@@ -1389,8 +1389,8 @@ $L37371:
 
 ; 116  : 				break;
 
-	jmp	$L37364
-$L37372:
+	jmp	$L37372
+$L37380:
 
 ; 117  : 			case 5:
 ; 118  : 				d1 = p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMaxs.z - p->dist;
@@ -1435,8 +1435,8 @@ $L37372:
 
 ; 120  : 				break;
 
-	jmp	$L37364
-$L37373:
+	jmp	$L37372
+$L37381:
 
 ; 121  : 			case 6:
 ; 122  : 				d1 = p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMaxs.z - p->dist;
@@ -1481,8 +1481,8 @@ $L37373:
 
 ; 124  : 				break;
 
-	jmp	SHORT $L37364
-$L37374:
+	jmp	SHORT $L37372
+$L37382:
 
 ; 125  : 			case 7:
 ; 126  : 				d1 = p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMaxs.z - p->dist;
@@ -1527,8 +1527,8 @@ $L37374:
 
 ; 128  : 				break;
 
-	jmp	SHORT $L37364
-$L37375:
+	jmp	SHORT $L37372
+$L37383:
 
 ; 129  : 			default:
 ; 130  : 				d1 = d2 = 0.0f; // shut up compiler
@@ -1536,7 +1536,7 @@ $L37375:
 	mov	DWORD PTR _d2$[ebp], 0
 	mov	ecx, DWORD PTR _d2$[ebp]
 	mov	DWORD PTR _d1$[ebp], ecx
-$L37364:
+$L37372:
 
 ; 134  : 
 ; 135  : 		if( d2 > 0.0f ) getout = true;	// endpoint is not in solid
@@ -1545,9 +1545,9 @@ $L37364:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37376
+	jne	SHORT $L37384
 	mov	BYTE PTR _getout$[ebp], 1
-$L37376:
+$L37384:
 
 ; 136  : 		if( d1 > 0.0f ) startout = true;
 
@@ -1555,9 +1555,9 @@ $L37376:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37377
+	jne	SHORT $L37385
 	mov	BYTE PTR _startout$[ebp], 1
-$L37377:
+$L37385:
 
 ; 137  : 
 ; 138  : 		// if completely in front of face, no intersection
@@ -1567,17 +1567,17 @@ $L37377:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37378
+	jne	SHORT $L37386
 	fld	DWORD PTR _d2$[ebp]
 	fcomp	DWORD PTR _d1$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L37378
+	jne	SHORT $L37386
 
 ; 140  : 			return;
 
-	jmp	$L37343
-$L37378:
+	jmp	$L37351
+$L37386:
 
 ; 141  : 
 ; 142  : 		if( d1 <= 0 && d2 <= 0 )
@@ -1586,17 +1586,17 @@ $L37378:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L37379
+	je	SHORT $L37387
 	fld	DWORD PTR _d2$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L37379
+	je	SHORT $L37387
 
 ; 143  : 			continue;
 
-	jmp	$L37359
-$L37379:
+	jmp	$L37367
+$L37387:
 
 ; 144  : 
 ; 145  : 		// crosses face
@@ -1620,7 +1620,7 @@ $L37379:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37380
+	jne	SHORT $L37388
 
 ; 151  : 			// enter
 ; 152  : 			if( f > enterfrac )
@@ -1629,7 +1629,7 @@ $L37379:
 	fcomp	DWORD PTR _enterfrac$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37381
+	jne	SHORT $L37389
 
 ; 154  : 				distfrac = d;
 
@@ -1645,17 +1645,17 @@ $L37379:
 
 	mov	ecx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _clipplane$[ebp], ecx
-$L37381:
+$L37389:
 
 ; 159  : 		else if( d < 0.0f )
 
-	jmp	SHORT $L37384
-$L37380:
+	jmp	SHORT $L37392
+$L37388:
 	fld	DWORD PTR _d$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37384
+	je	SHORT $L37392
 
 ; 161  : 			// leave
 ; 162  : 			if( f < leavefrac )
@@ -1664,18 +1664,18 @@ $L37380:
 	fcomp	DWORD PTR _leavefrac$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37384
+	je	SHORT $L37392
 
 ; 163  : 				leavefrac = f;
 
 	mov	edx, DWORD PTR _f$[ebp]
 	mov	DWORD PTR _leavefrac$[ebp], edx
-$L37384:
+$L37392:
 
 ; 165  : 	}
 
-	jmp	$L37359
-$L37360:
+	jmp	$L37367
+$L37368:
 
 ; 166  : 
 ; 167  : 	if( !startout )
@@ -1683,7 +1683,7 @@ $L37360:
 	mov	eax, DWORD PTR _startout$[ebp]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L37385
+	jne	SHORT $L37393
 
 ; 169  : 		// original point was inside brush
 ; 170  : 		trace->startsolid = true;
@@ -1697,16 +1697,16 @@ $L37360:
 	mov	eax, DWORD PTR _getout$[ebp]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L37386
+	jne	SHORT $L37394
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+112]
 	mov	DWORD PTR [edx], 1
-$L37386:
+$L37394:
 
 ; 172  : 		return;
 
-	jmp	$L37343
-$L37385:
+	jmp	$L37351
+$L37393:
 
 ; 174  : 
 ; 175  : 	if( enterfrac - FRAC_EPSILON <= leavefrac )
@@ -1716,7 +1716,7 @@ $L37385:
 	fcomp	DWORD PTR _leavefrac$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	$L37388
+	je	$L37396
 
 ; 177  : 		if( enterfrac > -1 && enterfrac < m_flRealFraction )
 
@@ -1724,13 +1724,13 @@ $L37385:
 	fcomp	DWORD PTR __real@4@bfff8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37388
+	jne	SHORT $L37396
 	mov	eax, DWORD PTR _this$[ebp]
 	fld	DWORD PTR _enterfrac$[ebp]
 	fcomp	DWORD PTR [eax+96]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37388
+	je	SHORT $L37396
 
 ; 179  : 			if( enterfrac < 0 ) enterfrac = 0;
 
@@ -1738,9 +1738,9 @@ $L37385:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37389
+	je	SHORT $L37397
 	mov	DWORD PTR _enterfrac$[ebp], 0
-$L37389:
+$L37397:
 
 ; 180  : 			m_flRealFraction = enterfrac;
 
@@ -1777,8 +1777,8 @@ $L37389:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+112]
 	fstp	DWORD PTR [eax+16]
-$L37388:
-$L37343:
+$L37396:
+$L37351:
 
 ; 186  : }
 
@@ -1788,15 +1788,15 @@ $L37343:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L37806:
-	DD	$L37367
-	DD	$L37368
-	DD	$L37369
-	DD	$L37370
-	DD	$L37371
-	DD	$L37372
-	DD	$L37373
-	DD	$L37374
+$L37814:
+	DD	$L37375
+	DD	$L37376
+	DD	$L37377
+	DD	$L37378
+	DD	$L37379
+	DD	$L37380
+	DD	$L37381
+	DD	$L37382
 ?ClipBoxToFacet@TraceMesh@@QAEXPAUmfacet_t@@@Z ENDP	; TraceMesh::ClipBoxToFacet
 _TEXT	ENDS
 PUBLIC	?TestBoxInFacet@TraceMesh@@QAEXPAUmfacet_t@@@Z	; TraceMesh::TestBoxInFacet
@@ -1825,12 +1825,12 @@ _i$ = -16
 
 	mov	eax, DWORD PTR _facet$[ebp]
 	cmp	DWORD PTR [eax+32], 0
-	jne	SHORT $L37396
+	jne	SHORT $L37404
 
 ; 193  : 		return;
 
-	jmp	$L37393
-$L37396:
+	jmp	$L37401
+$L37404:
 
 ; 194  : 
 ; 195  : 	planes = facet->planes;
@@ -1851,19 +1851,19 @@ $L37396:
 ; 198  : 	for( int i = 0; i < facet->numplanes; i++, planes++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37398
-$L37399:
+	jmp	SHORT $L37406
+$L37407:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
 	mov	ecx, DWORD PTR _planes$[ebp]
 	add	ecx, 20					; 00000014H
 	mov	DWORD PTR _planes$[ebp], ecx
-$L37398:
+$L37406:
 	mov	edx, DWORD PTR _facet$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+32]
-	jge	$L37400
+	jge	$L37408
 
 ; 200  : 		p = planes;
 
@@ -1879,7 +1879,7 @@ $L37398:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+16]
 	cmp	eax, 3
-	jge	SHORT $L37401
+	jge	SHORT $L37409
 
 ; 206  : 			if( m_vecStartMins[p->type] > p->dist )
 
@@ -1894,17 +1894,17 @@ $L37398:
 	fcomp	DWORD PTR [ecx+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37402
+	jne	SHORT $L37410
 
 ; 207  : 				return;
 
-	jmp	$L37393
-$L37402:
+	jmp	$L37401
+$L37410:
 
 ; 209  : 		else
 
-	jmp	$L37405
-$L37401:
+	jmp	$L37413
+$L37409:
 
 ; 212  : 			{
 
@@ -1913,10 +1913,10 @@ $L37401:
 	mov	al, BYTE PTR [edx+17]
 	mov	DWORD PTR -20+[ebp], eax
 	cmp	DWORD PTR -20+[ebp], 7
-	ja	$L37424
+	ja	$L37432
 	mov	ecx, DWORD PTR -20+[ebp]
-	jmp	DWORD PTR $L37809[ecx*4]
-$L37408:
+	jmp	DWORD PTR $L37817[ecx*4]
+$L37416:
 
 ; 213  : 			case 0:
 ; 214  : 				if( p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMins.z > p->dist )
@@ -1939,17 +1939,17 @@ $L37408:
 	fcomp	DWORD PTR [edx+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37409
+	jne	SHORT $L37417
 
 ; 215  : 					return;
 
-	jmp	$L37393
-$L37409:
+	jmp	$L37401
+$L37417:
 
 ; 216  : 				break;
 
-	jmp	$L37405
-$L37410:
+	jmp	$L37413
+$L37418:
 
 ; 217  : 			case 1:
 ; 218  : 				if( p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMins.z > p->dist )
@@ -1972,17 +1972,17 @@ $L37410:
 	fcomp	DWORD PTR [eax+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37411
+	jne	SHORT $L37419
 
 ; 219  : 					return;
 
-	jmp	$L37393
-$L37411:
+	jmp	$L37401
+$L37419:
 
 ; 220  : 				break;
 
-	jmp	$L37405
-$L37412:
+	jmp	$L37413
+$L37420:
 
 ; 221  : 			case 2:
 ; 222  : 				if( p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMins.z > p->dist )
@@ -2005,17 +2005,17 @@ $L37412:
 	fcomp	DWORD PTR [ecx+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37413
+	jne	SHORT $L37421
 
 ; 223  : 					return;
 
-	jmp	$L37393
-$L37413:
+	jmp	$L37401
+$L37421:
 
 ; 224  : 				break;
 
-	jmp	$L37405
-$L37414:
+	jmp	$L37413
+$L37422:
 
 ; 225  : 			case 3:
 ; 226  : 				if( p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMins.z > p->dist )
@@ -2038,17 +2038,17 @@ $L37414:
 	fcomp	DWORD PTR [edx+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37415
+	jne	SHORT $L37423
 
 ; 227  : 					return;
 
-	jmp	$L37393
-$L37415:
+	jmp	$L37401
+$L37423:
 
 ; 228  : 				break;
 
-	jmp	$L37405
-$L37416:
+	jmp	$L37413
+$L37424:
 
 ; 229  : 			case 4:
 ; 230  : 				if( p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMaxs.z > p->dist )
@@ -2071,17 +2071,17 @@ $L37416:
 	fcomp	DWORD PTR [eax+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37417
+	jne	SHORT $L37425
 
 ; 231  : 					return;
 
-	jmp	$L37393
-$L37417:
+	jmp	$L37401
+$L37425:
 
 ; 232  : 				break;
 
-	jmp	$L37405
-$L37418:
+	jmp	$L37413
+$L37426:
 
 ; 233  : 			case 5:
 ; 234  : 				if( p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMins.y + p->normal.z * m_vecStartMaxs.z > p->dist )
@@ -2104,17 +2104,17 @@ $L37418:
 	fcomp	DWORD PTR [ecx+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37419
+	jne	SHORT $L37427
 
 ; 235  : 					return;
 
-	jmp	$L37393
-$L37419:
+	jmp	$L37401
+$L37427:
 
 ; 236  : 				break;
 
-	jmp	SHORT $L37405
-$L37420:
+	jmp	SHORT $L37413
+$L37428:
 
 ; 237  : 			case 6:
 ; 238  : 				if( p->normal.x * m_vecStartMins.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMaxs.z > p->dist )
@@ -2137,17 +2137,17 @@ $L37420:
 	fcomp	DWORD PTR [edx+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37421
+	jne	SHORT $L37429
 
 ; 239  : 					return;
 
-	jmp	SHORT $L37393
-$L37421:
+	jmp	SHORT $L37401
+$L37429:
 
 ; 240  : 				break;
 
-	jmp	SHORT $L37405
-$L37422:
+	jmp	SHORT $L37413
+$L37430:
 
 ; 241  : 			case 7:
 ; 242  : 				if( p->normal.x * m_vecStartMaxs.x + p->normal.y * m_vecStartMaxs.y + p->normal.z * m_vecStartMaxs.z > p->dist )
@@ -2170,29 +2170,29 @@ $L37422:
 	fcomp	DWORD PTR [eax+12]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37423
+	jne	SHORT $L37431
 
 ; 243  : 					return;
 
-	jmp	SHORT $L37393
-$L37423:
+	jmp	SHORT $L37401
+$L37431:
 
 ; 244  : 				break;
 
-	jmp	SHORT $L37405
-$L37424:
+	jmp	SHORT $L37413
+$L37432:
 
 ; 245  : 			default:
 ; 246  : 				// signbits not initialized
 ; 247  : 				return;
 
-	jmp	SHORT $L37393
-$L37405:
+	jmp	SHORT $L37401
+$L37413:
 
 ; 250  : 	}
 
-	jmp	$L37399
-$L37400:
+	jmp	$L37407
+$L37408:
 
 ; 251  : 
 ; 252  : 	// inside this brush
@@ -2212,7 +2212,7 @@ $L37400:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+112]
 	mov	DWORD PTR [edx], 1
-$L37393:
+$L37401:
 
 ; 256  : }
 
@@ -2222,15 +2222,15 @@ $L37393:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L37809:
-	DD	$L37408
-	DD	$L37410
-	DD	$L37412
-	DD	$L37414
+$L37817:
 	DD	$L37416
 	DD	$L37418
 	DD	$L37420
 	DD	$L37422
+	DD	$L37424
+	DD	$L37426
+	DD	$L37428
+	DD	$L37430
 ?TestBoxInFacet@TraceMesh@@QAEXPAUmfacet_t@@@Z ENDP	; TraceMesh::TestBoxInFacet
 _TEXT	ENDS
 PUBLIC	?ClipToLinks@TraceMesh@@QAEXPAUareanode_s@@@Z	; TraceMesh::ClipToLinks
@@ -2263,15 +2263,15 @@ _facet$ = -16
 	mov	eax, DWORD PTR _node$[ebp]
 	mov	ecx, DWORD PTR [eax+28]
 	mov	DWORD PTR _l$[ebp], ecx
-	jmp	SHORT $L37432
-$L37433:
+	jmp	SHORT $L37440
+$L37441:
 	mov	edx, DWORD PTR _next$[ebp]
 	mov	DWORD PTR _l$[ebp], edx
-$L37432:
+$L37440:
 	mov	eax, DWORD PTR _node$[ebp]
 	add	eax, 24					; 00000018H
 	cmp	DWORD PTR _l$[ebp], eax
-	je	$L37434
+	je	$L37442
 
 ; 266  : 		next = l->next;
 
@@ -2304,12 +2304,12 @@ $L37432:
 	add	esp, 16					; 00000010H
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L37439
+	jne	SHORT $L37447
 
 ; 271  : 			continue;
 
-	jmp	SHORT $L37433
-$L37439:
+	jmp	SHORT $L37441
+$L37447:
 
 ; 272  : 
 ; 273  : 		// might intersect, so do an exact clip
@@ -2320,9 +2320,9 @@ $L37439:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37440
-	jmp	$L37428
-$L37440:
+	je	SHORT $L37448
+	jmp	$L37436
+$L37448:
 
 ; 275  : 
 ; 276  : 		if( bIsTestPosition )
@@ -2331,7 +2331,7 @@ $L37440:
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [eax+100]
 	test	ecx, ecx
-	je	SHORT $L37441
+	je	SHORT $L37449
 
 ; 277  : 			TestBoxInFacet( facet );
 
@@ -2342,18 +2342,18 @@ $L37440:
 
 ; 278  : 		else ClipBoxToFacet( facet );
 
-	jmp	SHORT $L37442
-$L37441:
+	jmp	SHORT $L37450
+$L37449:
 	mov	eax, DWORD PTR _facet$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ClipBoxToFacet@TraceMesh@@QAEXPAUmfacet_t@@@Z ; TraceMesh::ClipBoxToFacet
-$L37442:
+$L37450:
 
 ; 279  : 	}
 
-	jmp	$L37433
-$L37434:
+	jmp	$L37441
+$L37442:
 
 ; 280  : 	
 ; 281  : 	// recurse down both sides
@@ -2361,9 +2361,9 @@ $L37434:
 
 	mov	ecx, DWORD PTR _node$[ebp]
 	cmp	DWORD PTR [ecx], -1
-	jne	SHORT $L37443
-	jmp	SHORT $L37428
-$L37443:
+	jne	SHORT $L37451
+	jmp	SHORT $L37436
+$L37451:
 
 ; 283  : 
 ; 284  : 	if( m_vecAbsMaxs[node->axis] > node->dist )
@@ -2378,7 +2378,7 @@ $L37443:
 	fcomp	DWORD PTR [edx+4]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37444
+	jne	SHORT $L37452
 
 ; 285  : 		ClipToLinks( node->children[0] );
 
@@ -2387,7 +2387,7 @@ $L37443:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ClipToLinks@TraceMesh@@QAEXPAUareanode_s@@@Z ; TraceMesh::ClipToLinks
-$L37444:
+$L37452:
 
 ; 286  : 	if( m_vecAbsMins[node->axis] < node->dist )
 
@@ -2401,7 +2401,7 @@ $L37444:
 	fcomp	DWORD PTR [edx+4]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37445
+	je	SHORT $L37453
 
 ; 287  : 		ClipToLinks( node->children[1] );
 
@@ -2410,8 +2410,8 @@ $L37444:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ClipToLinks@TraceMesh@@QAEXPAUareanode_s@@@Z ; TraceMesh::ClipToLinks
-$L37445:
-$L37428:
+$L37453:
+$L37436:
 
 ; 288  : }
 
@@ -2428,8 +2428,8 @@ PUBLIC	?DoTrace@TraceMesh@@QAE_NXZ			; TraceMesh::DoTrace
 ;	COMDAT ?DoTrace@TraceMesh@@QAE_NXZ
 _TEXT	SEGMENT
 _this$ = -4
-_facet$37454 = -8
-_i$37455 = -12
+_facet$37462 = -8
+_i$37463 = -12
 ?DoTrace@TraceMesh@@QAE_NXZ PROC NEAR			; TraceMesh::DoTrace, COMDAT
 
 ; 291  : {
@@ -2446,7 +2446,7 @@ _i$37455 = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+108], 0
-	je	SHORT $L37451
+	je	SHORT $L37459
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 84					; 00000054H
 	push	ecx
@@ -2464,14 +2464,14 @@ _i$37455 = -12
 	add	esp, 16					; 00000010H
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L37450
-$L37451:
+	jne	SHORT $L37458
+$L37459:
 
 ; 293  : 		return false; // invalid mesh or no intersection
 
 	xor	al, al
-	jmp	$L37449
-$L37450:
+	jmp	$L37457
+$L37458:
 
 ; 294  : 
 ; 295  : 	checkcount = 0;
@@ -2484,7 +2484,7 @@ $L37450:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+104], 0
-	je	SHORT $L37452
+	je	SHORT $L37460
 
 ; 299  : 		ClipToLinks( areanodes );
 
@@ -2496,33 +2496,33 @@ $L37450:
 
 ; 301  : 	else
 
-	jmp	SHORT $L37458
-$L37452:
+	jmp	SHORT $L37466
+$L37460:
 
 ; 303  : 		mfacet_t *facet = mesh->facets;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+108]
 	mov	ecx, DWORD PTR [eax+28]
-	mov	DWORD PTR _facet$37454[ebp], ecx
+	mov	DWORD PTR _facet$37462[ebp], ecx
 
 ; 304  : 		for( int i = 0; i < mesh->numfacets; i++, facet++ )
 
-	mov	DWORD PTR _i$37455[ebp], 0
-	jmp	SHORT $L37456
-$L37457:
-	mov	edx, DWORD PTR _i$37455[ebp]
+	mov	DWORD PTR _i$37463[ebp], 0
+	jmp	SHORT $L37464
+$L37465:
+	mov	edx, DWORD PTR _i$37463[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$37455[ebp], edx
-	mov	eax, DWORD PTR _facet$37454[ebp]
+	mov	DWORD PTR _i$37463[ebp], edx
+	mov	eax, DWORD PTR _facet$37462[ebp]
 	add	eax, 40					; 00000028H
-	mov	DWORD PTR _facet$37454[ebp], eax
-$L37456:
+	mov	DWORD PTR _facet$37462[ebp], eax
+$L37464:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+108]
-	mov	eax, DWORD PTR _i$37455[ebp]
+	mov	eax, DWORD PTR _i$37463[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	SHORT $L37458
+	jge	SHORT $L37466
 
 ; 306  : 			if( bIsTestPosition )
 
@@ -2530,24 +2530,24 @@ $L37456:
 	xor	edx, edx
 	mov	dl, BYTE PTR [ecx+100]
 	test	edx, edx
-	je	SHORT $L37459
+	je	SHORT $L37467
 
 ; 307  : 				TestBoxInFacet( facet );
 
-	mov	eax, DWORD PTR _facet$37454[ebp]
+	mov	eax, DWORD PTR _facet$37462[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TestBoxInFacet@TraceMesh@@QAEXPAUmfacet_t@@@Z ; TraceMesh::TestBoxInFacet
 
 ; 308  : 			else ClipBoxToFacet( facet );
 
-	jmp	SHORT $L37460
-$L37459:
-	mov	ecx, DWORD PTR _facet$37454[ebp]
+	jmp	SHORT $L37468
+$L37467:
+	mov	ecx, DWORD PTR _facet$37462[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ClipBoxToFacet@TraceMesh@@QAEXPAUmfacet_t@@@Z ; TraceMesh::ClipBoxToFacet
-$L37460:
+$L37468:
 
 ; 309  : 
 ; 310  : 			if( !m_flRealFraction )
@@ -2557,17 +2557,17 @@ $L37460:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37461
+	je	SHORT $L37469
 
 ; 311  : 				break;
 
-	jmp	SHORT $L37458
-$L37461:
+	jmp	SHORT $L37466
+$L37469:
 
 ; 312  : 		}
 
-	jmp	SHORT $L37457
-$L37458:
+	jmp	SHORT $L37465
+$L37466:
 
 ; 314  : 
 ; 315  : //	ALERT( at_aiconsole, "total %i checks for %s\n", checkcount, areanodes ? "tree" : "brute force" );
@@ -2580,28 +2580,28 @@ $L37458:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L37816
+	jne	SHORT $L37824
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+112]
 	fld	DWORD PTR [eax+16]
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37814
+	je	SHORT $L37822
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+112]
 	fld	DWORD PTR [edx+16]
 	fstp	DWORD PTR -16+[ebp]
-	jmp	SHORT $L37815
-$L37814:
+	jmp	SHORT $L37823
+$L37822:
 	mov	DWORD PTR -16+[ebp], 1065353216		; 3f800000H
-$L37815:
+$L37823:
 	mov	eax, DWORD PTR -16+[ebp]
 	mov	DWORD PTR -20+[ebp], eax
-	jmp	SHORT $L37817
-$L37816:
+	jmp	SHORT $L37825
+$L37824:
 	mov	DWORD PTR -20+[ebp], 0
-$L37817:
+$L37825:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+112]
 	mov	eax, DWORD PTR -20+[ebp]
@@ -2615,7 +2615,7 @@ $L37817:
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37462
+	je	SHORT $L37470
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 12					; 0000000cH
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -2630,8 +2630,8 @@ $L37817:
 
 ; 319  : 	else VectorLerp( m_vecStart, trace->fraction, m_vecEnd, trace->endpos );
 
-	jmp	SHORT $L37463
-$L37462:
+	jmp	SHORT $L37471
+$L37470:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+112]
 	add	edx, 20					; 00000014H
@@ -2647,7 +2647,7 @@ $L37462:
 	push	ecx
 	call	?VectorLerp@@YAXABVVector@@M0AAV1@@Z	; VectorLerp
 	add	esp, 16					; 00000010H
-$L37463:
+$L37471:
 
 ; 320  : 
 ; 321  : 	return (trace->fraction != 1.0f);
@@ -2658,14 +2658,14 @@ $L37463:
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L37818
+	jne	SHORT $L37826
 	mov	DWORD PTR -24+[ebp], 1
-	jmp	SHORT $L37819
-$L37818:
+	jmp	SHORT $L37827
+$L37826:
 	mov	DWORD PTR -24+[ebp], 0
-$L37819:
+$L37827:
 	mov	al, BYTE PTR -24+[ebp]
-$L37449:
+$L37457:
 
 ; 322  : }
 

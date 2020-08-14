@@ -275,6 +275,12 @@ void CHalfLifeMultiplay::RefreshSkillData( void )
 	// Axe secondary
 	gSkillData.plrDmgAxeSec = GetSkillCvar( "sk_plr_axe_sec");
 
+	// Chainsaw primary
+	gSkillData.plrDmgChainsaw = GetSkillCvar( "sk_plr_chainsaw");
+
+	// Chainsaw secondary
+	gSkillData.plrDmgChainsawSec = GetSkillCvar( "sk_plr_chainsaw_sec");
+
 	// Glock Round
 	gSkillData.plrDmg9MM = GetSkillCvar( "sk_plr_9mm_bullet");
 

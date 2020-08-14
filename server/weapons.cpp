@@ -334,7 +334,8 @@ void W_Precache(void)
 	UTIL_PrecacheOtherWeapon( "weapon_axe" );
 
 	//chainsaw
-	//UTIL_PrecacheOtherWeapon( "weapon_chainsaw" );
+	UTIL_PrecacheOtherWeapon( "weapon_chainsaw" );
+	UTIL_PrecacheOther( "ammo_fuel" );
 
 	// glock
 	UTIL_PrecacheOtherWeapon( "weapon_9mmhandgun" );

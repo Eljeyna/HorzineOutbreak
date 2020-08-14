@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   This source code contains proprietary and confidential information of
@@ -35,7 +35,7 @@ public:
 		SCRIPT_WALK_TO_MARK,
 		SCRIPT_RUN_TO_MARK,
 	} SCRIPTSTATE;
-	
+
 	// these fields have been added in the process of reworking the state machine. (sjb)
 	EHANDLE		m_hEnemy;		 // the entity that the monster is fighting.
 	EHANDLE		m_hTargetEnt;	 // the entity that the monster is trying to reach
@@ -48,12 +48,12 @@ public:
 
 	Activity		m_Activity;// what the monster is doing (animation)
 	Activity		m_IdealActivity;// monster should switch to this activity
-		
+
 	int		m_LastHitGroup; // the last body region that took damage
-		
+
 	MONSTERSTATE	m_MonsterState;// monster's current state
 	MONSTERSTATE	m_IdealMonsterState;// monster should change to this state
-	
+
 	int		m_iTaskStatus;
 	Schedule_t	*m_pSchedule;
 	int		m_iScheduleIndex;
@@ -94,7 +94,7 @@ public:
 
 	int		m_failSchedule;				// Schedule type to choose if current schedule fails
 
-	float		m_flHungryTime;// set this is a future time to stop the monster from eating for a while. 
+	float		m_flHungryTime;// set this is a future time to stop the monster from eating for a while.
 
 	float		m_flDistTooFar;	// if enemy farther away than this, bits_COND_ENEMY_TOOFAR set in CheckEnemy
 	float		m_flDistLook;	// distance monster sees (Default 2048)
@@ -104,7 +104,7 @@ public:
 	byte		m_iWeapons[MAX_WEAPON_BYTES];	// monster weapon flags
 
 	int		m_iTriggerCondition;// for scripted AI, this is the condition that will cause the activation of the monster's TriggerTarget
-	string_t		m_iszTriggerTarget;// name of target that should be fired. 
+	string_t		m_iszTriggerTarget;// name of target that should be fired.
 
 	Vector		m_HackedGunPos;	// HACK until we can query end of gun
 
@@ -123,17 +123,17 @@ public:
 	void MonsterUse( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
 
 // overrideable Monster member functions
-	
+
 	// LRC- to allow level-designers to change monster allegiances
 	int		m_iClass;
 	int		m_iPlayerReact;
 	virtual int	Classify( void ) { return m_iClass ? m_iClass : CLASS_NONE; }
-	
+
 	virtual int	 BloodColor( void ) { return m_bloodColor; }
 
 	virtual CBaseMonster *MyMonsterPointer( void ) { return this; }
 	virtual void Look ( int iDistance );// basic sight function for monsters
-	virtual void RunAI ( void );// core ai function!	
+	virtual void RunAI ( void );// core ai function!
 	void Listen ( void );
 
 	virtual BOOL	IsAlive( void ) { return (pev->deadflag != DEAD_DEAD); }
@@ -147,7 +147,7 @@ public:
 // Basic Monster AI functions
 	virtual float ChangeYaw ( int speed );
 	float VecToYaw( Vector vecDir );
-	float FlYawDiff ( void ); 
+	float FlYawDiff ( void );
 
 	float DamageForce( float damage );
 
@@ -194,7 +194,7 @@ public:
 
 		virtual Schedule_t *ScheduleFromName( const char *pName );
 		static Schedule_t *m_scheduleList[];
-		
+
 		void MaintainSchedule ( void );
 		virtual void StartTask ( Task_t *pTask );
 		virtual void RunTask ( Task_t *pTask );
@@ -222,7 +222,7 @@ public:
 		BOOL PopEnemy( void );
 
 		BOOL FGetNodeRoute ( Vector vecDest );
-		
+
 		inline void TaskComplete( void ) { if ( !HasConditions(bits_COND_TASK_FAILED) ) m_iTaskStatus = TASKSTATUS_COMPLETE; }
 		void MovementComplete( void );
 		inline void TaskFail( void ) { SetConditions(bits_COND_TASK_FAILED); }
@@ -243,7 +243,7 @@ public:
 		virtual BOOL BuildNearestRoute ( Vector vecThreat, Vector vecViewOffset, float flMinDist, float flMaxDist );
 		int RouteClassify( int iMoveFlag );
 		void InsertWaypoint ( Vector vecLocation, int afMoveFlags );
-		
+
 		BOOL FindLateralCover ( const Vector &vecThreat, const Vector &vecViewOffset );
 		virtual BOOL FindCover ( Vector vecThreat, Vector vecViewOffset, float flMinDist, float flMaxDist );
 		virtual BOOL FValidateCover ( const Vector &vecCoverLocation ) { return TRUE; };
@@ -252,7 +252,7 @@ public:
 		virtual BOOL FCanCheckAttacks ( void );
 		virtual void CheckAmmo( void ) { return; };
 		virtual int IgnoreConditions ( void );
-		
+
 		inline void	SetConditions( int iConditions ) { m_afConditions |= iConditions; }
 		inline void	ClearConditions( int iConditions ) { m_afConditions &= ~iConditions; }
 		inline BOOL HasConditions( int iConditions ) { if ( m_afConditions & iConditions ) return TRUE; return FALSE; }
@@ -289,12 +289,12 @@ public:
 		CBaseEntity *CheckTraceHullAttack( float flDist, int iDamage, int iDmgType );
 		BOOL FacingIdeal( void );
 
-		BOOL FCheckAITrigger( void );// checks and, if necessary, fires the monster's trigger target. 
+		BOOL FCheckAITrigger( void );// checks and, if necessary, fires the monster's trigger target.
 		BOOL NoFriendlyFire( void );
 
 		BOOL BBoxFlat( void );
 
-		// PrescheduleThink 
+		// PrescheduleThink
 		virtual void PrescheduleThink( void ) { return; };
 
 		BOOL GetEnemy ( void );
@@ -324,18 +324,19 @@ public:
 	int			DeadTakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
 
 	void RadiusDamage(entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int iClassIgnore, int bitsDamageType );
+	void RadiusDamage(entvars_t* pevInflictor, entvars_t*	pevAttacker, float flDamage, float flRadius, int iClassIgnore, int bitsDamageType );
 	void RadiusDamage(Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int iClassIgnore, int bitsDamageType );
 	virtual int		IsMoving( void ) { return m_movementGoal != MOVEGOAL_NONE; }
 
 	void RouteClear( void );
 	void RouteNew( void );
-	
+
 	virtual void DeathSound ( void ) { return; };
 	virtual void AlertSound ( void ) { return; };
 	virtual void IdleSound ( void ) { return; };
 	virtual void PainSound ( void ) { return; };
 	virtual void StepSound( void );
-	
+
 	virtual void StopFollowing( BOOL clearSchedule ) {}
 
 	inline void	Remember( int iMemory ) { m_afMemory |= iMemory; }

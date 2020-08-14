@@ -1335,6 +1335,14 @@ _TEXT	ENDS
 FLAT	GROUP _DATA, CONST, _BSS
 	ASSUME	CS: FLAT, DS: FLAT, SS: FLAT
 endif
+PUBLIC	??_C@_01KOLO@2?$AA@				; `string'
+PUBLIC	?sk_monster_head2@@3Ucvar_s@@A			; sk_monster_head2
+PUBLIC	??_C@_0BB@GPLI@sk_monster_head2?$AA@		; `string'
+PUBLIC	?sk_monster_head3@@3Ucvar_s@@A			; sk_monster_head3
+PUBLIC	??_C@_0BB@MFCP@sk_monster_head3?$AA@		; `string'
+PUBLIC	?sk_monster_chest1@@3Ucvar_s@@A			; sk_monster_chest1
+PUBLIC	??_C@_0BC@ODAK@sk_monster_chest1?$AA@		; `string'
+PUBLIC	?sk_monster_chest2@@3Ucvar_s@@A			; sk_monster_chest2
 PUBLIC	??_C@_0BC@BMLD@sk_monster_chest2?$AA@		; `string'
 PUBLIC	?sk_monster_chest3@@3Ucvar_s@@A			; sk_monster_chest3
 PUBLIC	??_C@_0BC@LGCE@sk_monster_chest3?$AA@		; `string'
@@ -1391,62 +1399,62 @@ PUBLIC	??_C@_01PLJA@0?$AA@				; `string'
 PUBLIC	?fragsleft@@3Ucvar_s@@A				; fragsleft
 PUBLIC	??_C@_0N@FNEM@mp_fragsleft?$AA@			; `string'
 PUBLIC	?timeleft@@3Ucvar_s@@A				; timeleft
-PUBLIC	??_C@_0M@IHID@mp_timeleft?$AA@			; `string'
-PUBLIC	??_C@_0M@KOKP@mp_teamplay?$AA@			; `string'
-PUBLIC	??_C@_0N@MKGH@mp_fraglimit?$AA@			; `string'
-PUBLIC	??_C@_0N@JECA@mp_timelimit?$AA@			; `string'
-PUBLIC	??_C@_0BA@NHMN@mp_friendlyfire?$AA@		; `string'
-PUBLIC	??_C@_0O@OCEA@mp_falldamage?$AA@		; `string'
-PUBLIC	??_C@_0O@FPOG@mp_weaponstay?$AA@		; `string'
-PUBLIC	??_C@_0BA@OHKH@mp_forcerespawn?$AA@		; `string'
 PUBLIC	?displaysoundlist@@3Ucvar_s@@A			; displaysoundlist
-PUBLIC	??_C@_01FBAH@1?$AA@				; `string'
+PUBLIC	??_C@_0M@IHID@mp_timeleft?$AA@			; `string'
 PUBLIC	?teamplay@@3Ucvar_s@@A				; teamplay
-PUBLIC	??_C@_0O@DCFE@mp_flashlight?$AA@		; `string'
+PUBLIC	??_C@_0M@KOKP@mp_teamplay?$AA@			; `string'
 PUBLIC	?fraglimit@@3Ucvar_s@@A				; fraglimit
-PUBLIC	??_C@_0BB@IDFJ@mp_autocrosshair?$AA@		; `string'
+PUBLIC	??_C@_0N@MKGH@mp_fraglimit?$AA@			; `string'
 PUBLIC	?timelimit@@3Ucvar_s@@A				; timelimit
-PUBLIC	??_C@_0P@FJGF@decalfrequency?$AA@		; `string'
+PUBLIC	??_C@_0N@JECA@mp_timelimit?$AA@			; `string'
 PUBLIC	?friendlyfire@@3Ucvar_s@@A			; friendlyfire
-PUBLIC	??_C@_0M@ENJF@mp_teamlist?$AA@			; `string'
+PUBLIC	??_C@_0BA@NHMN@mp_friendlyfire?$AA@		; `string'
 PUBLIC	?falldamage@@3Ucvar_s@@A			; falldamage
-PUBLIC	??_C@_0BB@HGPB@hgrunt?$DLscientist?$AA@		; `string'
+PUBLIC	??_C@_0O@OCEA@mp_falldamage?$AA@		; `string'
 PUBLIC	?weaponstay@@3Ucvar_s@@A			; weaponstay
-PUBLIC	??_C@_0BA@HLDE@mp_teamoverride?$AA@		; `string'
+PUBLIC	??_C@_0O@FPOG@mp_weaponstay?$AA@		; `string'
 PUBLIC	?forcerespawn@@3Ucvar_s@@A			; forcerespawn
-PUBLIC	??_C@_0P@OMJO@mp_defaultteam?$AA@		; `string'
+PUBLIC	??_C@_0BA@OHKH@mp_forcerespawn?$AA@		; `string'
 PUBLIC	?flashlight@@3Ucvar_s@@A			; flashlight
+PUBLIC	??_C@_01FBAH@1?$AA@				; `string'
+PUBLIC	?aimcrosshair@@3Ucvar_s@@A			; aimcrosshair
+PUBLIC	??_C@_0O@DCFE@mp_flashlight?$AA@		; `string'
+PUBLIC	?decalfrequency@@3Ucvar_s@@A			; decalfrequency
+PUBLIC	??_C@_0BB@IDFJ@mp_autocrosshair?$AA@		; `string'
+PUBLIC	?teamlist@@3Ucvar_s@@A				; teamlist
+PUBLIC	??_C@_0P@FJGF@decalfrequency?$AA@		; `string'
+PUBLIC	?teamoverride@@3Ucvar_s@@A			; teamoverride
+PUBLIC	??_C@_0M@ENJF@mp_teamlist?$AA@			; `string'
+PUBLIC	?defaultteam@@3Ucvar_s@@A			; defaultteam
+PUBLIC	??_C@_0BB@HGPB@hgrunt?$DLscientist?$AA@		; `string'
+PUBLIC	?allowmonsters@@3Ucvar_s@@A			; allowmonsters
+PUBLIC	??_C@_0BA@HLDE@mp_teamoverride?$AA@		; `string'
+PUBLIC	?g_psv_gravity@@3PAUcvar_s@@A			; g_psv_gravity
+PUBLIC	??_C@_0P@OMJO@mp_defaultteam?$AA@		; `string'
+PUBLIC	?g_psv_aim@@3PAUcvar_s@@A			; g_psv_aim
 PUBLIC	??_C@_0BB@GNCO@mp_allowmonsters?$AA@		; `string'
 PUBLIC	?mp_chattime@@3Ucvar_s@@A			; mp_chattime
-PUBLIC	?aimcrosshair@@3Ucvar_s@@A			; aimcrosshair
-PUBLIC	?decalfrequency@@3Ucvar_s@@A			; decalfrequency
-PUBLIC	??_C@_0M@KANF@mp_chattime?$AA@			; `string'
-PUBLIC	?teamlist@@3Ucvar_s@@A				; teamlist
-PUBLIC	??_C@_02FCMB@10?$AA@				; `string'
-PUBLIC	?teamoverride@@3Ucvar_s@@A			; teamoverride
-PUBLIC	?debugdraw@@3Ucvar_s@@A				; debugdraw
-PUBLIC	?defaultteam@@3Ucvar_s@@A			; defaultteam
-PUBLIC	??_C@_0L@HJFJ@phys_debug?$AA@			; `string'
-PUBLIC	?physdebug@@3Ucvar_s@@A				; physdebug
-PUBLIC	?allowmonsters@@3Ucvar_s@@A			; allowmonsters
-PUBLIC	?g_psv_gravity@@3PAUcvar_s@@A			; g_psv_gravity
-PUBLIC	??_C@_0M@OOPC@phys_qdebug?$AA@			; `string'
-PUBLIC	?g_psv_aim@@3PAUcvar_s@@A			; g_psv_aim
-PUBLIC	?physstats@@3Ucvar_s@@A				; physstats
 PUBLIC	?g_psv_stepsize@@3PAUcvar_s@@A			; g_psv_stepsize
-PUBLIC	??_C@_08FNPH@p_speeds?$AA@			; `string'
 PUBLIC	?g_footsteps@@3PAUcvar_s@@A			; g_footsteps
+PUBLIC	??_C@_0M@KANF@mp_chattime?$AA@			; `string'
+PUBLIC	?g_debugdraw@@3PAUcvar_s@@A			; g_debugdraw
+PUBLIC	??_C@_02FCMB@10?$AA@				; `string'
+PUBLIC	?p_speeds@@3PAUcvar_s@@A			; p_speeds
+PUBLIC	?debugdraw@@3Ucvar_s@@A				; debugdraw
+PUBLIC	?g_physdebug@@3PAUcvar_s@@A			; g_physdebug
+PUBLIC	??_C@_0L@HJFJ@phys_debug?$AA@			; `string'
+PUBLIC	?g_allow_physx@@3PAUcvar_s@@A			; g_allow_physx
+PUBLIC	?physdebug@@3Ucvar_s@@A				; physdebug
+PUBLIC	?g_sync_physic@@3Ucvar_s@@A			; g_sync_physic
+PUBLIC	??_C@_0M@OOPC@phys_qdebug?$AA@			; `string'
+PUBLIC	?physstats@@3Ucvar_s@@A				; physstats
+PUBLIC	??_C@_08FNPH@p_speeds?$AA@			; `string'
 PUBLIC	??_C@_0P@FPKK@sv_sync_physic?$AA@		; `string'
 PUBLIC	?sk_agrunt_health1@@3Ucvar_s@@A			; sk_agrunt_health1
-PUBLIC	?g_debugdraw@@3PAUcvar_s@@A			; g_debugdraw
-PUBLIC	?p_speeds@@3PAUcvar_s@@A			; p_speeds
 PUBLIC	??_C@_0BC@NPKK@sk_agrunt_health1?$AA@		; `string'
 PUBLIC	?sk_agrunt_health2@@3Ucvar_s@@A			; sk_agrunt_health2
-PUBLIC	?g_physdebug@@3PAUcvar_s@@A			; g_physdebug
-PUBLIC	?g_allow_physx@@3PAUcvar_s@@A			; g_allow_physx
 PUBLIC	??_C@_0BC@CABD@sk_agrunt_health2?$AA@		; `string'
 PUBLIC	?sk_agrunt_health3@@3Ucvar_s@@A			; sk_agrunt_health3
-PUBLIC	?g_sync_physic@@3Ucvar_s@@A			; g_sync_physic
 PUBLIC	??_C@_0BC@IKIE@sk_agrunt_health3?$AA@		; `string'
 PUBLIC	?sk_agrunt_dmg_punch1@@3Ucvar_s@@A		; sk_agrunt_dmg_punch1
 PUBLIC	??_C@_0BF@NCLM@sk_agrunt_dmg_punch1?$AA@	; `string'
@@ -1916,14 +1924,6 @@ PUBLIC	?sk_scientist_heal3@@3Ucvar_s@@A		; sk_scientist_heal3
 PUBLIC	??_C@_0BD@JHJF@sk_scientist_heal3?$AA@		; `string'
 PUBLIC	?sk_monster_head1@@3Ucvar_s@@A			; sk_monster_head1
 PUBLIC	??_C@_0BB@JAAB@sk_monster_head1?$AA@		; `string'
-PUBLIC	??_C@_01KOLO@2?$AA@				; `string'
-PUBLIC	?sk_monster_head2@@3Ucvar_s@@A			; sk_monster_head2
-PUBLIC	??_C@_0BB@GPLI@sk_monster_head2?$AA@		; `string'
-PUBLIC	?sk_monster_head3@@3Ucvar_s@@A			; sk_monster_head3
-PUBLIC	??_C@_0BB@MFCP@sk_monster_head3?$AA@		; `string'
-PUBLIC	?sk_monster_chest1@@3Ucvar_s@@A			; sk_monster_chest1
-PUBLIC	??_C@_0BC@ODAK@sk_monster_chest1?$AA@		; `string'
-PUBLIC	?sk_monster_chest2@@3Ucvar_s@@A			; sk_monster_chest2
 _BSS	SEGMENT
 ?g_psv_gravity@@3PAUcvar_s@@A DD 01H DUP (?)		; g_psv_gravity
 ?g_psv_aim@@3PAUcvar_s@@A DD 01H DUP (?)		; g_psv_aim
@@ -4349,7 +4349,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _pEdict$ = -4
 _i$ = -8
-_pEntity$36925 = -12
+_pEntity$36933 = -12
 ?Cmd_ShowTriggers_f@@YAXXZ PROC NEAR			; Cmd_ShowTriggers_f, COMDAT
 
 ; 488  : {
@@ -4371,38 +4371,38 @@ _pEntity$36925 = -12
 ; 490  : 	if( !pEdict ) return;
 
 	cmp	DWORD PTR _pEdict$[ebp], 0
-	jne	SHORT $L36919
-	jmp	$L36917
-$L36919:
+	jne	SHORT $L36927
+	jmp	$L36925
+$L36927:
 
 ; 491  : 
 ; 492  : 	for( int i = 1; i < gpGlobals->maxEntities; i++, pEdict++ )
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L36921
-$L36922:
+	jmp	SHORT $L36929
+$L36930:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
 	mov	ecx, DWORD PTR _pEdict$[ebp]
 	add	ecx, 804				; 00000324H
 	mov	DWORD PTR _pEdict$[ebp], ecx
-$L36921:
+$L36929:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+148]
-	jge	$L36923
+	jge	$L36931
 
 ; 494  : 		if( pEdict->free )	// Not in use
 
 	mov	ecx, DWORD PTR _pEdict$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	je	SHORT $L36924
+	je	SHORT $L36932
 
 ; 495  : 			continue;
 
-	jmp	SHORT $L36922
-$L36924:
+	jmp	SHORT $L36930
+$L36932:
 
 ; 496  : 
 ; 497  : 		CBaseEntity *pEntity = CBaseEntity :: Instance( pEdict );
@@ -4411,105 +4411,105 @@ $L36924:
 	push	edx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$36925[ebp], eax
+	mov	DWORD PTR _pEntity$36933[ebp], eax
 
 ; 498  : 		if( !pEntity || !FBitSet( pEntity->m_iFlags, MF_TRIGGER|MF_LADDER ))
 
-	cmp	DWORD PTR _pEntity$36925[ebp], 0
-	je	SHORT $L36927
-	mov	eax, DWORD PTR _pEntity$36925[ebp]
+	cmp	DWORD PTR _pEntity$36933[ebp], 0
+	je	SHORT $L36935
+	mov	eax, DWORD PTR _pEntity$36933[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	and	ecx, 10					; 0000000aH
 	test	ecx, ecx
-	jne	SHORT $L36926
-$L36927:
+	jne	SHORT $L36934
+$L36935:
 
 ; 499  : 			continue;
 
-	jmp	SHORT $L36922
-$L36926:
+	jmp	SHORT $L36930
+$L36934:
 
 ; 500  : 
 ; 501  : 		if( FBitSet( pEntity->m_iFlags, MF_LADDER ))
 
-	mov	edx, DWORD PTR _pEntity$36925[ebp]
+	mov	edx, DWORD PTR _pEntity$36933[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	and	eax, 8
 	test	eax, eax
-	je	SHORT $L36928
+	je	SHORT $L36936
 
 ; 503  : 			if( pEntity->pev->renderamt <= 0 )
 
-	mov	ecx, DWORD PTR _pEntity$36925[ebp]
+	mov	ecx, DWORD PTR _pEntity$36933[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	fld	DWORD PTR [edx+332]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L36929
+	je	SHORT $L36937
 
 ; 504  : 				pEntity->pev->renderamt = 255;
 
-	mov	eax, DWORD PTR _pEntity$36925[ebp]
+	mov	eax, DWORD PTR _pEntity$36933[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+332], 1132396544		; 437f0000H
 
 ; 505  : 			else pEntity->pev->renderamt = 0;
 
-	jmp	SHORT $L36930
-$L36929:
-	mov	edx, DWORD PTR _pEntity$36925[ebp]
+	jmp	SHORT $L36938
+$L36937:
+	mov	edx, DWORD PTR _pEntity$36933[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+332], 0
-$L36930:
+$L36938:
 
 ; 507  : 		else if( FBitSet( pEntity->m_iFlags, MF_TRIGGER ))
 
-	jmp	SHORT $L36934
-$L36928:
-	mov	ecx, DWORD PTR _pEntity$36925[ebp]
+	jmp	SHORT $L36942
+$L36936:
+	mov	ecx, DWORD PTR _pEntity$36933[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	and	edx, 2
 	test	edx, edx
-	je	SHORT $L36934
+	je	SHORT $L36942
 
 ; 509  : 			if( FBitSet( pEntity->pev->effects, EF_NODRAW ))
 
-	mov	eax, DWORD PTR _pEntity$36925[ebp]
+	mov	eax, DWORD PTR _pEntity$36933[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+280]
 	and	edx, 128				; 00000080H
 	test	edx, edx
-	je	SHORT $L36933
+	je	SHORT $L36941
 
 ; 510  : 				pEntity->pev->effects &= ~EF_NODRAW;
 
-	mov	eax, DWORD PTR _pEntity$36925[ebp]
+	mov	eax, DWORD PTR _pEntity$36933[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	edx, DWORD PTR [ecx+280]
 	and	dl, 127					; 0000007fH
-	mov	eax, DWORD PTR _pEntity$36925[ebp]
+	mov	eax, DWORD PTR _pEntity$36933[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+280], edx
 
 ; 511  : 			else pEntity->pev->effects |= EF_NODRAW;
 
-	jmp	SHORT $L36934
-$L36933:
-	mov	edx, DWORD PTR _pEntity$36925[ebp]
+	jmp	SHORT $L36942
+$L36941:
+	mov	edx, DWORD PTR _pEntity$36933[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	ecx, DWORD PTR [eax+280]
 	or	cl, -128				; ffffff80H
-	mov	edx, DWORD PTR _pEntity$36925[ebp]
+	mov	edx, DWORD PTR _pEntity$36933[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR [eax+280], ecx
-$L36934:
+$L36942:
 
 ; 513  : 	}
 
-	jmp	$L36922
-$L36923:
-$L36917:
+	jmp	$L36930
+$L36931:
+$L36925:
 
 ; 514  : }
 

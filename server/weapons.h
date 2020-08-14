@@ -57,6 +57,7 @@ public:
 	virtual BOOL IsProjectile( void ) { return TRUE; }
 
 	BOOL m_fRegisteredSound;// whether or not this grenade has issued its DANGER sound to the world sound list yet.
+	float radius;
 };
 
 
@@ -93,7 +94,7 @@ public:
 // weapon weight factors (for auto-switching)   (-1 = noswitch)
 #define CROWBAR_WEIGHT			-10 	//0
 #define AXE_WEIGHT					-10 	//0
-//#define CHAINSAW_WEIGHT			-10 	//0
+#define CHAINSAW_WEIGHT			-10 	//0
 #define GLOCK_WEIGHT				10 		//10
 #define PYTHON_WEIGHT				15 		//15
 #define MP5_WEIGHT					15 		//15
@@ -110,7 +111,7 @@ public:
 
 
 // weapon clip/carry ammo capacities
-//#define FUEL_MAX_CARRY		100
+#define FUEL_MAX_CARRY		500
 #define URANIUM_MAX_CARRY		100
 #define	_9MM_MAX_CARRY			240
 #define _556_MAX_CARRY			400
@@ -129,7 +130,7 @@ public:
 #define WEAPON_NOCLIP			-1
 
 //#define CROWBAR_MAX_CLIP		WEAPON_NOCLIP
-//#define FUEL_MAX_CLIP			100
+#define FUEL_MAX_CLIP			100
 #define GLOCK_MAX_CLIP			15
 #define PYTHON_MAX_CLIP			7
 #define MP5_MAX_CLIP			40
@@ -146,7 +147,7 @@ public:
 
 
 // the default amount of ammo that comes with each gun when it spawns
-//#define FUEL_DEFAULT_GIVE			100
+#define FUEL_DEFAULT_GIVE			100
 #define GLOCK_DEFAULT_GIVE			15
 #define PYTHON_DEFAULT_GIVE			7
 #define MP5_DEFAULT_GIVE			40
@@ -163,7 +164,7 @@ public:
 #define HIVEHAND_DEFAULT_GIVE		8
 
 // The amount of ammo given to a player by an ammo item.
-//#define AMMO_FUEL_GIVE	50
+#define AMMO_FUEL_GIVE			FUEL_MAX_CLIP
 #define AMMO_URANIUMBOX_GIVE	20
 #define AMMO_GLOCKCLIP_GIVE		GLOCK_MAX_CLIP
 #define AMMO_357BOX_GIVE		PYTHON_MAX_CLIP

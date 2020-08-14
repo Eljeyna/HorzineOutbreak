@@ -898,9 +898,7 @@ PUBLIC	??_C@_0P@FPPM@ACT_IDLE_ANGRY?$AA@		; `string'
 PUBLIC	??_C@_0O@PBCP@ACT_WALK_HURT?$AA@		; `string'
 PUBLIC	??_C@_0N@MLHD@ACT_RUN_HURT?$AA@			; `string'
 PUBLIC	??_C@_09HJMC@ACT_HOVER?$AA@			; `string'
-PUBLIC	?m_poseparameter@@3PAMA				; m_poseparameter
 PUBLIC	??_C@_09JCGF@ACT_GLIDE?$AA@			; `string'
-PUBLIC	?IEngineStudio@@3Userver_studio_api_s@@A	; IEngineStudio
 PUBLIC	??_C@_0N@OMAB@ACT_FLY_LEFT?$AA@			; `string'
 PUBLIC	??_C@_0O@DMDJ@ACT_FLY_RIGHT?$AA@		; `string'
 PUBLIC	??_C@_0BB@MJAI@ACT_DETECT_SCENT?$AA@		; `string'
@@ -908,7 +906,9 @@ PUBLIC	??_C@_09IION@ACT_SNIFF?$AA@			; `string'
 PUBLIC	??_C@_08PNIC@ACT_BITE?$AA@			; `string'
 PUBLIC	??_C@_0BD@NHBG@ACT_THREAT_DISPLAY?$AA@		; `string'
 PUBLIC	??_C@_0BB@GAPB@ACT_FEAR_DISPLAY?$AA@		; `string'
+PUBLIC	?m_poseparameter@@3PAMA				; m_poseparameter
 PUBLIC	??_C@_0M@LPIN@ACT_EXCITED?$AA@			; `string'
+PUBLIC	?IEngineStudio@@3Userver_studio_api_s@@A	; IEngineStudio
 PUBLIC	??_C@_0BE@LKKK@ACT_SPECIAL_ATTACK1?$AA@		; `string'
 PUBLIC	??_C@_0BE@EFBD@ACT_SPECIAL_ATTACK2?$AA@		; `string'
 PUBLIC	??_C@_0BA@MCPA@ACT_COMBAT_IDLE?$AA@		; `string'
@@ -1993,9 +1993,9 @@ _pseqdesc$ = 8
 _this$ = -4
 _pseqgroup$ = -8
 _paSequences$ = -12
-_filepath$37955 = -140
-_modelpath$37956 = -268
-_modelname$37957 = -332
+_filepath$37963 = -140
+_modelpath$37964 = -268
+_modelname$37965 = -332
 ?GetAnimSourceData@CBaseBoneSetup@@UAEPAUmstudioanim_t@@PAUmstudioseqdesc_t@@@Z PROC NEAR ; CBaseBoneSetup::GetAnimSourceData, COMDAT
 
 ; 60   : 	{
@@ -2029,7 +2029,7 @@ _modelname$37957 = -332
 
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [eax+156], 0
-	jne	SHORT $L37942
+	jne	SHORT $L37950
 
 ; 67   : 			return (mstudioanim_t *)((byte *)m_pStudioHeader + pseqdesc->animindex);
 
@@ -2037,21 +2037,21 @@ _modelname$37957 = -332
 	mov	eax, DWORD PTR [ecx+18968]
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	add	eax, DWORD PTR [edx+124]
-	jmp	$L37937
-$L37942:
+	jmp	$L37945
+$L37950:
 
 ; 68   : 
 ; 69   : 		assert( m_pSubModel ); // assume model is set
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+18972], 0
-	jne	SHORT $L38826
+	jne	SHORT $L38834
 	push	69					; 00000045H
 	push	OFFSET FLAT:??_C@_0CL@EHCN@z?3?2xashxtsrc?2server?2monsters?2ani@ ; `string'
 	push	OFFSET FLAT:??_C@_0M@NLKH@m_pSubModel?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L38826:
+$L38834:
 
 ; 70   : 
 ; 71   : 		paSequences = (cache_user_t *)m_pSubModel->submodels;
@@ -2065,7 +2065,7 @@ $L38826:
 ; 73   : 		if( paSequences == NULL )
 
 	cmp	DWORD PTR _paSequences$[ebp], 0
-	jne	SHORT $L37949
+	jne	SHORT $L37957
 
 ; 75   : 			paSequences = (cache_user_t *)IEngineStudio.Mem_Calloc( MAXSTUDIOGROUPS, sizeof( cache_user_t ));
 
@@ -2081,7 +2081,7 @@ $L38826:
 	mov	eax, DWORD PTR [edx+18972]
 	mov	ecx, DWORD PTR _paSequences$[ebp]
 	mov	DWORD PTR [eax+124], ecx
-$L37949:
+$L37957:
 
 ; 78   : 
 ; 79   : 		// check for already loaded
@@ -2095,13 +2095,13 @@ $L37949:
 	call	DWORD PTR ?IEngineStudio@@3Userver_studio_api_s@@A+4
 	add	esp, 4
 	test	eax, eax
-	jne	$L37954
+	jne	$L37962
 
 ; 82   : 			char filepath[128], modelpath[128], modelname[64];
 ; 83   : 
 ; 84   : 			COM_FileBase( m_pSubModel->name, modelname );
 
-	lea	eax, DWORD PTR _modelname$37957[ebp]
+	lea	eax, DWORD PTR _modelname$37965[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+18972]
@@ -2111,7 +2111,7 @@ $L37949:
 
 ; 85   : 			COM_ExtractFilePath( m_pSubModel->name, modelpath );
 
-	lea	eax, DWORD PTR _modelpath$37956[ebp]
+	lea	eax, DWORD PTR _modelpath$37964[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+18972]
@@ -2135,13 +2135,13 @@ $L37949:
 	mov	ecx, 10					; 0000000aH
 	idiv	ecx
 	push	eax
-	lea	edx, DWORD PTR _modelname$37957[ebp]
+	lea	edx, DWORD PTR _modelname$37965[ebp]
 	push	edx
-	lea	eax, DWORD PTR _modelpath$37956[ebp]
+	lea	eax, DWORD PTR _modelpath$37964[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_0O@FCKL@?$CFs?1?$CFs?$CFi?$CFi?4mdl?$AA@ ; `string'
 	push	128					; 00000080H
-	lea	ecx, DWORD PTR _filepath$37955[ebp]
+	lea	ecx, DWORD PTR _filepath$37963[ebp]
 	push	ecx
 	call	?Q_snprintf@@YAHPADIPBDZZ		; Q_snprintf
 	add	esp, 28					; 0000001cH
@@ -2149,7 +2149,7 @@ $L37949:
 ; 89   : 
 ; 90   : 			ALERT( at_console, "loading: %s\n", filepath );
 
-	lea	edx, DWORD PTR _filepath$37955[ebp]
+	lea	edx, DWORD PTR _filepath$37963[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_0N@DENN@loading?3?5?$CFs?6?$AA@ ; `string'
 	push	1
@@ -2163,11 +2163,11 @@ $L37949:
 	mov	edx, DWORD PTR _paSequences$[ebp]
 	lea	eax, DWORD PTR [edx+ecx*4]
 	push	eax
-	lea	ecx, DWORD PTR _filepath$37955[ebp]
+	lea	ecx, DWORD PTR _filepath$37963[ebp]
 	push	ecx
 	call	DWORD PTR ?IEngineStudio@@3Userver_studio_api_s@@A+8
 	add	esp, 8
-$L37954:
+$L37962:
 
 ; 93   : 
 ; 94   : 		return (mstudioanim_t *)((byte *)paSequences[pseqdesc->seqgroup].data + pseqdesc->animindex);
@@ -2178,7 +2178,7 @@ $L37954:
 	mov	eax, DWORD PTR [ecx+eax*4]
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	add	eax, DWORD PTR [edx+124]
-$L37937:
+$L37945:
 
 ; 95   : 	}
 
@@ -2217,13 +2217,13 @@ _Server_GetBlendingInterface PROC NEAR			; COMDAT
 ; 108  : 	if( version != SV_BLENDING_INTERFACE_VERSION  )
 
 	cmp	DWORD PTR _version$[ebp], 1
-	je	SHORT $L37985
+	je	SHORT $L37993
 
 ; 109  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L37984
-$L37985:
+	jmp	SHORT $L37992
+$L37993:
 
 ; 110  : 
 ; 111  : 	ALERT( at_aiconsole, "Server_GetBlendingInterface()\n" );
@@ -2249,7 +2249,7 @@ $L37985:
 ; 117  : 	return 1;
 
 	mov	eax, 1
-$L37984:
+$L37992:
 
 ; 118  : }
 
@@ -2350,12 +2350,12 @@ _pstudiohdr$ = -4
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L37996
+	jne	SHORT $L38004
 
 ; 130  : 		return;
 
-	jmp	SHORT $L37993
-$L37996:
+	jmp	SHORT $L38001
+$L38004:
 
 ; 131  : 
 ; 132  : 	g_boneSetup.SetStudioPointers( pstudiohdr, poseparams );
@@ -2373,7 +2373,7 @@ $L37996:
 	push	eax
 	mov	ecx, OFFSET FLAT:_g_boneSetup
 	call	?CalcDefaultPoseParameters@CStudioBoneSetup@@QAEXQAM@Z ; CStudioBoneSetup::CalcDefaultPoseParameters
-$L37993:
+$L38001:
 
 ; 134  : }
 
@@ -2419,17 +2419,17 @@ _mod$ = -8
 ; 142  : 	if( !mod || mod->type != mod_studio )
 
 	cmp	DWORD PTR _mod$[ebp], 0
-	je	SHORT $L38005
+	je	SHORT $L38013
 	mov	ecx, DWORD PTR _mod$[ebp]
 	cmp	DWORD PTR [ecx+68], 3
-	je	SHORT $L38004
-$L38005:
+	je	SHORT $L38012
+$L38013:
 
 ; 143  : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L38000
-$L38004:
+	jmp	SHORT $L38008
+$L38012:
 
 ; 144  : 
 ; 145  : 	if( !( pstudiohdr = (studiohdr_t *)mod->cache.data ))
@@ -2438,13 +2438,13 @@ $L38004:
 	mov	eax, DWORD PTR [edx+388]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38007
+	jne	SHORT $L38015
 
 ; 146  : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L38000
-$L38007:
+	jmp	SHORT $L38008
+$L38015:
 
 ; 147  : 
 ; 148  : 	g_boneSetup.SetBaseModel( mod );
@@ -2467,7 +2467,7 @@ $L38007:
 ; 151  : 	return &g_boneSetup;
 
 	mov	eax, OFFSET FLAT:_g_boneSetup
-$L38000:
+$L38008:
 
 ; 152  : }
 
@@ -2534,13 +2534,13 @@ _i$ = -8
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38015
+	jne	SHORT $L38023
 
 ; 161  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L38012
-$L38015:
+	jmp	SHORT $L38020
+$L38023:
 
 ; 162  : 
 ; 163  : 	g_boneSetup.SetStudioPointers( pstudiohdr, poseparams );
@@ -2556,16 +2556,16 @@ $L38015:
 ; 165  : 	for( int i = 0; i < g_boneSetup.CountPoseParameters(); i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38017
-$L38018:
+	jmp	SHORT $L38025
+$L38026:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38017:
+$L38025:
 	mov	ecx, OFFSET FLAT:_g_boneSetup
 	call	?CountPoseParameters@CStudioBoneSetup@@QAEHXZ ; CStudioBoneSetup::CountPoseParameters
 	cmp	DWORD PTR _i$[ebp], eax
-	jge	SHORT $L38019
+	jge	SHORT $L38027
 
 ; 167  : 		if( !Q_stricmp( g_boneSetup.pPoseParameter( i )->name, szName ))
 
@@ -2580,24 +2580,24 @@ $L38017:
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38020
+	jne	SHORT $L38028
 
 ; 168  : 			return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L38012
-$L38020:
+	jmp	SHORT $L38020
+$L38028:
 
 ; 169  : 	}
 
-	jmp	SHORT $L38018
-$L38019:
+	jmp	SHORT $L38026
+$L38027:
 
 ; 170  : 
 ; 171  : 	return -1; // Error
 
 	or	eax, -1
-$L38012:
+$L38020:
 
 ; 172  : }
 
@@ -2796,12 +2796,12 @@ _pstudiohdr$ = -4
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38029
+	jne	SHORT $L38037
 
 ; 179  : 		return;
 
-	jmp	SHORT $L38026
-$L38029:
+	jmp	SHORT $L38034
+$L38037:
 
 ; 180  : 
 ; 181  : 	g_boneSetup.SetStudioPointers( pstudiohdr, poseparams );
@@ -2826,7 +2826,7 @@ $L38029:
 	mov	ecx, OFFSET FLAT:_g_boneSetup
 	call	?SetPoseParameter@CStudioBoneSetup@@QAEMHMAAM@Z ; CStudioBoneSetup::SetPoseParameter
 	fstp	ST(0)
-$L38026:
+$L38034:
 
 ; 183  : }
 
@@ -2870,13 +2870,13 @@ _pstudiohdr$ = -4
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38037
+	jne	SHORT $L38045
 
 ; 190  : 		return 0.0f;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	SHORT $L38034
-$L38037:
+	jmp	SHORT $L38042
+$L38045:
 
 ; 191  : 
 ; 192  : 	g_boneSetup.SetStudioPointers( pstudiohdr, poseparams );
@@ -2898,7 +2898,7 @@ $L38037:
 	push	eax
 	mov	ecx, OFFSET FLAT:_g_boneSetup
 	call	?GetPoseParameter@CStudioBoneSetup@@QAEMHM@Z ; CStudioBoneSetup::GetPoseParameter
-$L38034:
+$L38042:
 
 ; 194  : }
 
@@ -2919,7 +2919,7 @@ _pmodel$ = 8
 _name$ = 12
 _pstudiohdr$ = -4
 _i$ = -8
-_set$38049 = -12
+_set$38057 = -12
 ?FindHitboxSetByName@@YAHPAXPBD@Z PROC NEAR		; FindHitboxSetByName, COMDAT
 
 ; 197  : {
@@ -2938,13 +2938,13 @@ _set$38049 = -12
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38044
+	jne	SHORT $L38052
 
 ; 201  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L38041
-$L38044:
+	jmp	SHORT $L38049
+$L38052:
 
 ; 202  : 
 ; 203  : 	SetupModelBones( pstudiohdr );
@@ -2958,16 +2958,16 @@ $L38044:
 ; 205  : 	for( int i = 0; i < g_boneSetup.GetNumHitboxSets(); i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38046
-$L38047:
+	jmp	SHORT $L38054
+$L38055:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L38046:
+$L38054:
 	mov	ecx, OFFSET FLAT:_g_boneSetup
 	call	?GetNumHitboxSets@CStudioBoneSetup@@QAEHXZ ; CStudioBoneSetup::GetNumHitboxSets
 	cmp	DWORD PTR _i$[ebp], eax
-	jge	SHORT $L38048
+	jge	SHORT $L38056
 
 ; 207  : 		mstudiohitboxset_t *set = g_boneSetup.pHitboxSet( i );
 
@@ -2975,15 +2975,15 @@ $L38046:
 	push	eax
 	mov	ecx, OFFSET FLAT:_g_boneSetup
 	call	?pHitboxSet@CStudioBoneSetup@@QBEPAUmstudiohitboxset_t@@H@Z ; CStudioBoneSetup::pHitboxSet
-	mov	DWORD PTR _set$38049[ebp], eax
+	mov	DWORD PTR _set$38057[ebp], eax
 
 ; 208  : 
 ; 209  : 		if( !set ) continue;
 
-	cmp	DWORD PTR _set$38049[ebp], 0
-	jne	SHORT $L38050
-	jmp	SHORT $L38047
-$L38050:
+	cmp	DWORD PTR _set$38057[ebp], 0
+	jne	SHORT $L38058
+	jmp	SHORT $L38055
+$L38058:
 
 ; 210  : 
 ; 211  : 		if( !Q_stricmp( set->name, name ))
@@ -2991,29 +2991,29 @@ $L38050:
 	push	99999					; 0001869fH
 	mov	ecx, DWORD PTR _name$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _set$38049[ebp]
+	mov	edx, DWORD PTR _set$38057[ebp]
 	push	edx
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38051
+	jne	SHORT $L38059
 
 ; 212  : 			return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L38041
-$L38051:
+	jmp	SHORT $L38049
+$L38059:
 
 ; 213  : 	}
 
-	jmp	SHORT $L38047
-$L38048:
+	jmp	SHORT $L38055
+$L38056:
 
 ; 214  : 
 ; 215  : 	return -1;
 
 	or	eax, -1
-$L38041:
+$L38049:
 
 ; 216  : }
 
@@ -3212,13 +3212,13 @@ _pseqdesc$ = -8
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38060
+	jne	SHORT $L38068
 
 ; 223  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38057
-$L38060:
+	jmp	SHORT $L38065
+$L38068:
 
 ; 226  : 
 ; 227  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex);
@@ -3261,7 +3261,7 @@ $L38060:
 ; 232  : 	return 1;
 
 	mov	eax, 1
-$L38057:
+$L38065:
 
 ; 233  : }
 
@@ -3301,13 +3301,13 @@ _i$ = -20
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38070
+	jne	SHORT $L38078
 
 ; 240  : 		return ACTIVITY_NOT_AVAILABLE;
 
 	or	eax, -1
-	jmp	$L38067
-$L38070:
+	jmp	$L38075
+$L38078:
 
 ; 243  : 
 ; 244  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex);
@@ -3330,16 +3330,16 @@ $L38070:
 ; 249  : 	for( int i = 0; i < pstudiohdr->numseq; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38077
-$L38078:
+	jmp	SHORT $L38085
+$L38086:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38077:
+$L38085:
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+164]
-	jge	SHORT $L38079
+	jge	SHORT $L38087
 
 ; 251  : 		if( pseqdesc[i].activity == activity )
 
@@ -3348,7 +3348,7 @@ $L38077:
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	mov	edx, DWORD PTR [ecx+eax+40]
 	cmp	edx, DWORD PTR _activity$[ebp]
-	jne	SHORT $L38081
+	jne	SHORT $L38089
 
 ; 253  : 			weighttotal += pseqdesc[i].actweight;
 
@@ -3363,7 +3363,7 @@ $L38077:
 ; 255  : 			if( !weighttotal || RANDOM_LONG( 0, weighttotal - 1 ) < pseqdesc[i].actweight )
 
 	cmp	DWORD PTR _weighttotal$[ebp], 0
-	je	SHORT $L38082
+	je	SHORT $L38090
 	mov	eax, DWORD PTR _weighttotal$[ebp]
 	sub	eax, 1
 	push	eax
@@ -3374,25 +3374,25 @@ $L38077:
 	imul	ecx, 176				; 000000b0H
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	cmp	eax, DWORD PTR [edx+ecx+44]
-	jge	SHORT $L38081
-$L38082:
+	jge	SHORT $L38089
+$L38090:
 
 ; 256  : 				seq = i;
 
 	mov	eax, DWORD PTR _i$[ebp]
 	mov	DWORD PTR _seq$[ebp], eax
-$L38081:
+$L38089:
 
 ; 258  : 	}
 
-	jmp	SHORT $L38078
-$L38079:
+	jmp	SHORT $L38086
+$L38087:
 
 ; 259  : 
 ; 260  : 	return seq;
 
 	mov	eax, DWORD PTR _seq$[ebp]
-$L38067:
+$L38075:
 
 ; 261  : }
 
@@ -3432,13 +3432,13 @@ _i$ = -20
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38089
+	jne	SHORT $L38097
 
 ; 268  : 		return ACTIVITY_NOT_AVAILABLE;
 
 	or	eax, -1
-	jmp	$L38086
-$L38089:
+	jmp	$L38094
+$L38097:
 
 ; 271  : 
 ; 272  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex);
@@ -3461,16 +3461,16 @@ $L38089:
 ; 277  : 	for( int i = 0; i < pstudiohdr->numseq; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38096
-$L38097:
+	jmp	SHORT $L38104
+$L38105:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38096:
+$L38104:
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+164]
-	jge	SHORT $L38098
+	jge	SHORT $L38106
 
 ; 279  : 		if( pseqdesc[i].activity == activity )
 
@@ -3479,7 +3479,7 @@ $L38096:
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	mov	edx, DWORD PTR [ecx+eax+40]
 	cmp	edx, DWORD PTR _activity$[ebp]
-	jne	SHORT $L38100
+	jne	SHORT $L38108
 
 ; 281  : 			if( pseqdesc[i].actweight > weight )
 
@@ -3488,7 +3488,7 @@ $L38096:
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	mov	edx, DWORD PTR [ecx+eax+44]
 	cmp	edx, DWORD PTR _weight$[ebp]
-	jle	SHORT $L38100
+	jle	SHORT $L38108
 
 ; 283  : 				weight = pseqdesc[i].actweight;
 
@@ -3502,18 +3502,18 @@ $L38096:
 
 	mov	eax, DWORD PTR _i$[ebp]
 	mov	DWORD PTR _seq$[ebp], eax
-$L38100:
+$L38108:
 
 ; 287  : 	}
 
-	jmp	SHORT $L38097
-$L38098:
+	jmp	SHORT $L38105
+$L38106:
 
 ; 288  : 
 ; 289  : 	return seq;
 
 	mov	eax, DWORD PTR _seq$[ebp]
-$L38086:
+$L38094:
 
 ; 290  : }
 
@@ -3549,13 +3549,13 @@ _pstudiohdr$ = -4
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38107
+	jne	SHORT $L38115
 
 ; 297  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38104
-$L38107:
+	jmp	SHORT $L38112
+$L38115:
 
 ; 298  : 
 ; 299  : 	vecEyePosition = pstudiohdr->eyeposition;
@@ -3574,7 +3574,7 @@ $L38107:
 ; 301  : 	return 1;
 
 	mov	eax, 1
-$L38104:
+$L38112:
 
 ; 302  : }
 
@@ -3612,13 +3612,13 @@ _i$ = -12
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38114
+	jne	SHORT $L38122
 
 ; 309  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L38111
-$L38114:
+	jmp	SHORT $L38119
+$L38122:
 
 ; 312  : 
 ; 313  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex);
@@ -3632,16 +3632,16 @@ $L38114:
 ; 315  : 	for( int i = 0; i < pstudiohdr->numseq; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38119
-$L38120:
+	jmp	SHORT $L38127
+$L38128:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L38119:
+$L38127:
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+164]
-	jge	SHORT $L38121
+	jge	SHORT $L38129
 
 ; 317  : 		if( !Q_stricmp( pseqdesc[i].label, label ))
 
@@ -3656,24 +3656,24 @@ $L38119:
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38122
+	jne	SHORT $L38130
 
 ; 318  : 			return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L38111
-$L38122:
+	jmp	SHORT $L38119
+$L38130:
 
 ; 319  : 	}
 
-	jmp	SHORT $L38120
-$L38121:
+	jmp	SHORT $L38128
+$L38129:
 
 ; 320  : 
 ; 321  : 	return -1;
 
 	or	eax, -1
-$L38111:
+$L38119:
 
 ; 322  : }
 
@@ -3703,21 +3703,21 @@ _eventNumber$ = 8
 ; 326  : 	if( eventNumber == SCRIPT_EVENT_SOUND || eventNumber == SCRIPT_EVENT_SOUND_VOICE )
 
 	cmp	DWORD PTR _eventNumber$[ebp], 1004	; 000003ecH
-	je	SHORT $L38127
+	je	SHORT $L38135
 	cmp	DWORD PTR _eventNumber$[ebp], 1008	; 000003f0H
-	jne	SHORT $L38126
-$L38127:
+	jne	SHORT $L38134
+$L38135:
 
 ; 327  : 		return 1;
 
 	mov	eax, 1
-	jmp	SHORT $L38125
-$L38126:
+	jmp	SHORT $L38133
+$L38134:
 
 ; 328  : 	return 0;
 
 	xor	eax, eax
-$L38125:
+$L38133:
 
 ; 329  : }
 
@@ -3743,10 +3743,10 @@ _TEXT	SEGMENT
 _pmodel$ = 8
 _pSequenceName$ = 12
 _index$ = -4
-_pstudiohdr$38134 = -8
-_pseqdesc$38138 = -12
-_pevent$38139 = -16
-_i$38144 = -20
+_pstudiohdr$38142 = -8
+_pseqdesc$38146 = -12
+_pevent$38147 = -16
+_i$38152 = -20
 ?SequencePrecache@@YAXPAXPBD@Z PROC NEAR		; SequencePrecache, COMDAT
 
 ; 332  : {
@@ -3772,145 +3772,145 @@ _i$38144 = -20
 ; 335  : 	if( index >= 0 )
 
 	cmp	DWORD PTR _index$[ebp], 0
-	jl	$L38147
+	jl	$L38155
 
 ; 337  : 		studiohdr_t *pstudiohdr;
 ; 338  : 	
 ; 339  : 		pstudiohdr = (studiohdr_t *)pmodel;
 
 	mov	edx, DWORD PTR _pmodel$[ebp]
-	mov	DWORD PTR _pstudiohdr$38134[ebp], edx
+	mov	DWORD PTR _pstudiohdr$38142[ebp], edx
 
 ; 340  : 
 ; 341  : 		if( !pstudiohdr || index >= pstudiohdr->numseq )
 
-	cmp	DWORD PTR _pstudiohdr$38134[ebp], 0
-	je	SHORT $L38137
-	mov	eax, DWORD PTR _pstudiohdr$38134[ebp]
+	cmp	DWORD PTR _pstudiohdr$38142[ebp], 0
+	je	SHORT $L38145
+	mov	eax, DWORD PTR _pstudiohdr$38142[ebp]
 	mov	ecx, DWORD PTR _index$[ebp]
 	cmp	ecx, DWORD PTR [eax+164]
-	jl	SHORT $L38136
-$L38137:
+	jl	SHORT $L38144
+$L38145:
 
 ; 342  : 			return;
 
-	jmp	$L38131
-$L38136:
+	jmp	$L38139
+$L38144:
 
 ; 345  : 		mstudioevent_t *pevent;
 ; 346  : 
 ; 347  : 		pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex) + index;
 
-	mov	edx, DWORD PTR _pstudiohdr$38134[ebp]
-	mov	eax, DWORD PTR _pstudiohdr$38134[ebp]
+	mov	edx, DWORD PTR _pstudiohdr$38142[ebp]
+	mov	eax, DWORD PTR _pstudiohdr$38142[ebp]
 	add	eax, DWORD PTR [edx+168]
 	mov	ecx, DWORD PTR _index$[ebp]
 	imul	ecx, 176				; 000000b0H
 	add	eax, ecx
-	mov	DWORD PTR _pseqdesc$38138[ebp], eax
+	mov	DWORD PTR _pseqdesc$38146[ebp], eax
 
 ; 348  : 		pevent = (mstudioevent_t *)((byte *)pstudiohdr + pseqdesc->eventindex);
 
-	mov	edx, DWORD PTR _pseqdesc$38138[ebp]
-	mov	eax, DWORD PTR _pstudiohdr$38134[ebp]
+	mov	edx, DWORD PTR _pseqdesc$38146[ebp]
+	mov	eax, DWORD PTR _pstudiohdr$38142[ebp]
 	add	eax, DWORD PTR [edx+52]
-	mov	DWORD PTR _pevent$38139[ebp], eax
+	mov	DWORD PTR _pevent$38147[ebp], eax
 
 ; 349  : 
 ; 350  : 		for( int i = 0; i < pseqdesc->numevents; i++ )
 
-	mov	DWORD PTR _i$38144[ebp], 0
-	jmp	SHORT $L38145
-$L38146:
-	mov	ecx, DWORD PTR _i$38144[ebp]
+	mov	DWORD PTR _i$38152[ebp], 0
+	jmp	SHORT $L38153
+$L38154:
+	mov	ecx, DWORD PTR _i$38152[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _i$38144[ebp], ecx
-$L38145:
-	mov	edx, DWORD PTR _pseqdesc$38138[ebp]
-	mov	eax, DWORD PTR _i$38144[ebp]
+	mov	DWORD PTR _i$38152[ebp], ecx
+$L38153:
+	mov	edx, DWORD PTR _pseqdesc$38146[ebp]
+	mov	eax, DWORD PTR _i$38152[ebp]
 	cmp	eax, DWORD PTR [edx+48]
-	jge	$L38147
+	jge	$L38155
 
 ; 352  : 			// don't send client-side events to the server AI
 ; 353  : 			if( pevent[i].event >= EVENT_CLIENT )
 
-	mov	ecx, DWORD PTR _i$38144[ebp]
+	mov	ecx, DWORD PTR _i$38152[ebp]
 	imul	ecx, 76					; 0000004cH
-	mov	edx, DWORD PTR _pevent$38139[ebp]
+	mov	edx, DWORD PTR _pevent$38147[ebp]
 	cmp	DWORD PTR [edx+ecx+4], 5000		; 00001388H
-	jl	SHORT $L38148
+	jl	SHORT $L38156
 
 ; 354  : 				continue;
 
-	jmp	SHORT $L38146
-$L38148:
+	jmp	SHORT $L38154
+$L38156:
 
 ; 355  : 
 ; 356  : 			if( IsSoundEvent( pevent[i].event ))
 
-	mov	eax, DWORD PTR _i$38144[ebp]
+	mov	eax, DWORD PTR _i$38152[ebp]
 	imul	eax, 76					; 0000004cH
-	mov	ecx, DWORD PTR _pevent$38139[ebp]
+	mov	ecx, DWORD PTR _pevent$38147[ebp]
 	mov	edx, DWORD PTR [ecx+eax+4]
 	push	edx
 	call	?IsSoundEvent@@YAHH@Z			; IsSoundEvent
 	add	esp, 4
 	test	eax, eax
-	je	SHORT $L38149
+	je	SHORT $L38157
 
 ; 358  : 				if( !Q_strlen(pevent[i].options ))
 
-	mov	eax, DWORD PTR _i$38144[ebp]
+	mov	eax, DWORD PTR _i$38152[ebp]
 	imul	eax, 76					; 0000004cH
-	mov	ecx, DWORD PTR _pevent$38139[ebp]
+	mov	ecx, DWORD PTR _pevent$38147[ebp]
 	lea	edx, DWORD PTR [ecx+eax+12]
 	push	edx
 	call	?Q_strlen@@YAHPBD@Z			; Q_strlen
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L38150
+	jne	SHORT $L38158
 
 ; 360  : 					ALERT( at_error, "Bad sound event %d in sequence %s :: %s (sound is \"%s\")\n",
 ; 361  : 					pevent[i].event, pstudiohdr->name, pSequenceName, pevent[i].options );
 
-	mov	eax, DWORD PTR _i$38144[ebp]
+	mov	eax, DWORD PTR _i$38152[ebp]
 	imul	eax, 76					; 0000004cH
-	mov	ecx, DWORD PTR _pevent$38139[ebp]
+	mov	ecx, DWORD PTR _pevent$38147[ebp]
 	lea	edx, DWORD PTR [ecx+eax+12]
 	push	edx
 	mov	eax, DWORD PTR _pSequenceName$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pstudiohdr$38134[ebp]
+	mov	ecx, DWORD PTR _pstudiohdr$38142[ebp]
 	add	ecx, 8
 	push	ecx
-	mov	edx, DWORD PTR _i$38144[ebp]
+	mov	edx, DWORD PTR _i$38152[ebp]
 	imul	edx, 76					; 0000004cH
-	mov	eax, DWORD PTR _pevent$38139[ebp]
+	mov	eax, DWORD PTR _pevent$38147[ebp]
 	mov	ecx, DWORD PTR [eax+edx+4]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0DJ@PPBE@Bad?5sound?5event?5?$CFd?5in?5sequence?5?$CF@ ; `string'
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 24					; 00000018H
-$L38150:
+$L38158:
 
 ; 363  : 
 ; 364  : 				PRECACHE_SOUND( pevent[i].options );
 
-	mov	edx, DWORD PTR _i$38144[ebp]
+	mov	edx, DWORD PTR _i$38152[ebp]
 	imul	edx, 76					; 0000004cH
-	mov	eax, DWORD PTR _pevent$38139[ebp]
+	mov	eax, DWORD PTR _pevent$38147[ebp]
 	lea	ecx, DWORD PTR [eax+edx+12]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-$L38149:
+$L38157:
 
 ; 366  : 		}
 
-	jmp	$L38146
-$L38147:
-$L38131:
+	jmp	$L38154
+$L38155:
+$L38139:
 
 ; 368  : }
 
@@ -3958,31 +3958,31 @@ _pseqdesc$ = -8
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38160
+	jne	SHORT $L38168
 
 ; 375  : 		return;	
 
-	jmp	$L38157
-$L38160:
+	jmp	$L38165
+$L38168:
 
 ; 378  : 
 ; 379  : 	if( gaitsequence < 0 || gaitsequence >= pstudiohdr->numseq ) 
 
 	mov	ecx, DWORD PTR _gaitsequence$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	jl	SHORT $L38163
+	jl	SHORT $L38171
 	mov	edx, DWORD PTR _gaitsequence$[ebp]
 	mov	eax, DWORD PTR _pstudiohdr$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	cmp	ecx, DWORD PTR [eax+164]
-	jl	SHORT $L38162
-$L38163:
+	jl	SHORT $L38170
+$L38171:
 
 ; 380  : 		gaitsequence = 0;
 
 	mov	edx, DWORD PTR _gaitsequence$[ebp]
 	mov	DWORD PTR [edx], 0
-$L38162:
+$L38170:
 
 ; 381  : 
 ; 382  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex) + gaitsequence;
@@ -4007,7 +4007,7 @@ $L38162:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38166
+	jne	SHORT $L38174
 
 ; 386  : 		flGaitFrame += (flGaitMovement / pseqdesc->linearmovement[0]) * pseqdesc->numframes;
 
@@ -4025,8 +4025,8 @@ $L38162:
 
 ; 387  : 	else flGaitFrame += pseqdesc->fps * gpGlobals->frametime;
 
-	jmp	SHORT $L38167
-$L38166:
+	jmp	SHORT $L38175
+$L38174:
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	fld	DWORD PTR [ecx+32]
@@ -4035,7 +4035,7 @@ $L38166:
 	fadd	DWORD PTR [eax]
 	mov	ecx, DWORD PTR _flGaitFrame$[ebp]
 	fstp	DWORD PTR [ecx]
-$L38167:
+$L38175:
 
 ; 388  : 
 ; 389  : 	// do modulo
@@ -4053,7 +4053,7 @@ $L38167:
 	add	esp, 16					; 00000010H
 	mov	ecx, DWORD PTR _flGaitFrame$[ebp]
 	fstp	DWORD PTR [ecx]
-$L38170:
+$L38178:
 
 ; 391  : 	while( flGaitFrame < 0.0 ) flGaitFrame += pseqdesc->numframes;
 
@@ -4062,16 +4062,16 @@ $L38170:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38171
+	je	SHORT $L38179
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	fild	DWORD PTR [eax+56]
 	mov	ecx, DWORD PTR _flGaitFrame$[ebp]
 	fadd	DWORD PTR [ecx]
 	mov	edx, DWORD PTR _flGaitFrame$[ebp]
 	fstp	DWORD PTR [edx]
-	jmp	SHORT $L38170
-$L38171:
-$L38157:
+	jmp	SHORT $L38178
+$L38179:
+$L38165:
 
 ; 392  : }
 
@@ -4151,12 +4151,12 @@ _pseqdesc$ = -32
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38182
+	jne	SHORT $L38190
 
 ; 400  : 		return;	
 
-	jmp	$L38177
-$L38182:
+	jmp	$L38185
+$L38190:
 
 ; 401  : 
 ; 402  : 	SetupModelBones( pstudiohdr );
@@ -4174,7 +4174,7 @@ $L38182:
 	mov	edx, DWORD PTR _pstudiohdr$[ebp]
 	mov	eax, DWORD PTR _sequence$[ebp]
 	cmp	eax, DWORD PTR [edx+164]
-	jl	SHORT $L38184
+	jl	SHORT $L38192
 
 ; 408  : 		*pflFrameRate = 0.0f;
 
@@ -4188,8 +4188,8 @@ $L38182:
 
 ; 410  : 		return;
 
-	jmp	$L38177
-$L38184:
+	jmp	$L38185
+$L38192:
 
 ; 412  : 
 ; 413  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex) + sequence;
@@ -4220,7 +4220,7 @@ $L38184:
 
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [eax+56], 1
-	jle	SHORT $L38187
+	jle	SHORT $L38195
 
 ; 418  : 		*pflFrameRate = 256 * pseqdesc->fps / (pseqdesc->numframes - 1);
 
@@ -4258,8 +4258,8 @@ $L38184:
 
 ; 422  : 	else
 
-	jmp	SHORT $L38188
-$L38187:
+	jmp	SHORT $L38196
+$L38195:
 
 ; 424  : 		*pflFrameRate = 256.0f;
 
@@ -4270,8 +4270,8 @@ $L38187:
 
 	mov	eax, DWORD PTR _pflGroundSpeed$[ebp]
 	mov	DWORD PTR [eax], 0
-$L38188:
-$L38177:
+$L38196:
+$L38185:
 
 ; 427  : }
 
@@ -4377,18 +4377,18 @@ _pseqdesc$ = -8
 ; 435  : 	if( !pstudiohdr || sequence >= pstudiohdr->numseq )
 
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	je	SHORT $L38196
+	je	SHORT $L38204
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _sequence$[ebp]
 	cmp	edx, DWORD PTR [ecx+164]
-	jl	SHORT $L38195
-$L38196:
+	jl	SHORT $L38203
+$L38204:
 
 ; 436  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38192
-$L38195:
+	jmp	SHORT $L38200
+$L38203:
 
 ; 439  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex) + sequence;
 
@@ -4405,7 +4405,7 @@ $L38195:
 
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	eax, DWORD PTR [eax+36]
-$L38192:
+$L38200:
 
 ; 442  : }
 
@@ -4458,20 +4458,20 @@ _pevent$ = -16
 ; 450  : 	if( !pstudiohdr || sequence >= pstudiohdr->numseq || !pMonsterEvent )
 
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	je	SHORT $L38211
+	je	SHORT $L38219
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _sequence$[ebp]
 	cmp	edx, DWORD PTR [ecx+164]
-	jge	SHORT $L38211
+	jge	SHORT $L38219
 	cmp	DWORD PTR _pMonsterEvent$[ebp], 0
-	jne	SHORT $L38210
-$L38211:
+	jne	SHORT $L38218
+$L38219:
 
 ; 451  : 		return 0;
 
 	xor	eax, eax
-	jmp	$L38207
-$L38210:
+	jmp	$L38215
+$L38218:
 
 ; 452  : 
 ; 453  : 	int events = 0;
@@ -4504,25 +4504,25 @@ $L38210:
 
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [edx+48], 0
-	je	SHORT $L38220
+	je	SHORT $L38228
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	ecx, DWORD PTR _index$[ebp]
 	cmp	ecx, DWORD PTR [eax+48]
-	jle	SHORT $L38219
-$L38220:
+	jle	SHORT $L38227
+$L38228:
 
 ; 462  : 		return 0;
 
 	xor	eax, eax
-	jmp	$L38207
-$L38219:
+	jmp	$L38215
+$L38227:
 
 ; 463  : 
 ; 464  : 	if( pseqdesc->numframes > 1 )
 
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [edx+56], 1
-	jle	SHORT $L38221
+	jle	SHORT $L38229
 
 ; 466  : 		flStart *= (pseqdesc->numframes - 1) / 256.0f;
 
@@ -4548,8 +4548,8 @@ $L38219:
 
 ; 469  : 	else
 
-	jmp	SHORT $L38222
-$L38221:
+	jmp	SHORT $L38230
+$L38229:
 
 ; 471  : 		flStart = 0.0f;
 
@@ -4558,21 +4558,21 @@ $L38221:
 ; 472  : 		flEnd = 1.0f;
 
 	mov	DWORD PTR _flEnd$[ebp], 1065353216	; 3f800000H
-$L38222:
+$L38230:
 
 ; 474  : 
 ; 475  : 	for( ; index < pseqdesc->numevents; index++ )
 
-	jmp	SHORT $L38223
-$L38224:
+	jmp	SHORT $L38231
+$L38232:
 	mov	ecx, DWORD PTR _index$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _index$[ebp], ecx
-$L38223:
+$L38231:
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	mov	eax, DWORD PTR _index$[ebp]
 	cmp	eax, DWORD PTR [edx+48]
-	jge	$L38225
+	jge	$L38233
 
 ; 477  : 		// Don't send client-side events to the server AI
 ; 478  : 		if( pevent[index].event >= EVENT_CLIENT )
@@ -4581,12 +4581,12 @@ $L38223:
 	imul	ecx, 76					; 0000004cH
 	mov	edx, DWORD PTR _pevent$[ebp]
 	cmp	DWORD PTR [edx+ecx+4], 5000		; 00001388H
-	jl	SHORT $L38226
+	jl	SHORT $L38234
 
 ; 479  : 			continue;
 
-	jmp	SHORT $L38224
-$L38226:
+	jmp	SHORT $L38232
+$L38234:
 
 ; 480  : 
 ; 481  : 		if(( pevent[index].frame >= flStart && pevent[index].frame < flEnd ) || ((pseqdesc->flags & STUDIO_LOOPING) && flEnd >= pseqdesc->numframes - 1 && pevent[index].frame < flEnd - pseqdesc->numframes + 1) )
@@ -4598,7 +4598,7 @@ $L38226:
 	fcomp	DWORD PTR _flStart$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38229
+	jne	SHORT $L38237
 	mov	edx, DWORD PTR _index$[ebp]
 	imul	edx, 76					; 0000004cH
 	mov	eax, DWORD PTR _pevent$[ebp]
@@ -4606,13 +4606,13 @@ $L38226:
 	fcomp	DWORD PTR _flEnd$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38228
-$L38229:
+	jne	SHORT $L38236
+$L38237:
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	mov	edx, DWORD PTR [ecx+36]
 	and	edx, 1
 	test	edx, edx
-	je	SHORT $L38227
+	je	SHORT $L38235
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	ecx, DWORD PTR [eax+56]
 	sub	ecx, 1
@@ -4621,7 +4621,7 @@ $L38229:
 	fcomp	DWORD PTR _flEnd$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L38227
+	je	SHORT $L38235
 	mov	edx, DWORD PTR _index$[ebp]
 	imul	edx, 76					; 0000004cH
 	mov	eax, DWORD PTR _pevent$[ebp]
@@ -4633,8 +4633,8 @@ $L38229:
 	fcompp
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38227
-$L38228:
+	jne	SHORT $L38235
+$L38236:
 
 ; 483  : 			pMonsterEvent->event = pevent[index].event;
 
@@ -4658,19 +4658,19 @@ $L38228:
 
 	mov	eax, DWORD PTR _index$[ebp]
 	add	eax, 1
-	jmp	SHORT $L38207
-$L38227:
+	jmp	SHORT $L38215
+$L38235:
 
 ; 487  : 	}
 
-	jmp	$L38224
-$L38225:
+	jmp	$L38232
+$L38233:
 
 ; 488  : 
 ; 489  : 	return 0;
 
 	xor	eax, eax
-$L38207:
+$L38215:
 
 ; 490  : }
 
@@ -4682,14 +4682,14 @@ $L38207:
 	ret	0
 ?GetAnimationEvent@@YAHPAXHPAUMonsterEvent_t@@MMH@Z ENDP ; GetAnimationEvent
 _TEXT	ENDS
-PUBLIC	?SetController@@YAMPAXPAEHM@Z			; SetController
-PUBLIC	__real@4@4007b380000000000000
-PUBLIC	__real@4@40008000000000000000
-PUBLIC	__real@4@4006b400000000000000
 PUBLIC	__real@4@4007b400000000000000
 PUBLIC	__real@4@c007b400000000000000
 PUBLIC	__real@4@4006ff00000000000000
 PUBLIC	__real@4@3ff78080810000000000
+PUBLIC	?SetController@@YAMPAXPAEHM@Z			; SetController
+PUBLIC	__real@4@4007b380000000000000
+PUBLIC	__real@4@40008000000000000000
+PUBLIC	__real@4@4006b400000000000000
 EXTRN	__ftol:NEAR
 ;	COMDAT __real@4@4007b380000000000000
 ; File z:\xashxtsrc\server\monsters\animation.cpp
@@ -4748,13 +4748,13 @@ _setting$ = -16
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38238
+	jne	SHORT $L38246
 
 ; 497  : 		return flValue;
 
 	fld	DWORD PTR _flValue$[ebp]
-	jmp	$L38235
-$L38238:
+	jmp	$L38243
+$L38246:
 
 ; 498  : 
 ; 499  : 	mstudiobonecontroller_t *pbonecontroller = (mstudiobonecontroller_t *)((byte *)pstudiohdr + pstudiohdr->bonecontrollerindex);
@@ -4769,36 +4769,36 @@ $L38238:
 ; 502  : 	for( int i = 0; i < pstudiohdr->numbonecontrollers; i++, pbonecontroller++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38243
-$L38244:
+	jmp	SHORT $L38251
+$L38252:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
 	mov	ecx, DWORD PTR _pbonecontroller$[ebp]
 	add	ecx, 24					; 00000018H
 	mov	DWORD PTR _pbonecontroller$[ebp], ecx
-$L38243:
+$L38251:
 	mov	edx, DWORD PTR _pstudiohdr$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+148]
-	jge	SHORT $L38245
+	jge	SHORT $L38253
 
 ; 504  : 		if( pbonecontroller->index == iController )
 
 	mov	ecx, DWORD PTR _pbonecontroller$[ebp]
 	mov	edx, DWORD PTR [ecx+20]
 	cmp	edx, DWORD PTR _iController$[ebp]
-	jne	SHORT $L38246
+	jne	SHORT $L38254
 
 ; 505  : 			break;
 
-	jmp	SHORT $L38245
-$L38246:
+	jmp	SHORT $L38253
+$L38254:
 
 ; 506  : 	}
 
-	jmp	SHORT $L38244
-$L38245:
+	jmp	SHORT $L38252
+$L38253:
 
 ; 507  : 
 ; 508  : 	if( i >= pstudiohdr->numbonecontrollers )
@@ -4806,13 +4806,13 @@ $L38245:
 	mov	eax, DWORD PTR _pstudiohdr$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+148]
-	jl	SHORT $L38247
+	jl	SHORT $L38255
 
 ; 509  : 		return flValue;
 
 	fld	DWORD PTR _flValue$[ebp]
-	jmp	$L38235
-$L38247:
+	jmp	$L38243
+$L38255:
 
 ; 510  : 
 ; 511  : 	// wrap 0..360 if it's a rotational controller
@@ -4822,7 +4822,7 @@ $L38247:
 	mov	eax, DWORD PTR [edx+4]
 	and	eax, 56					; 00000038H
 	test	eax, eax
-	je	$L38257
+	je	$L38265
 
 ; 514  : 		// ugly hack, invert value if end < start
 ; 515  : 		if( pbonecontroller->end < pbonecontroller->start )
@@ -4833,14 +4833,14 @@ $L38247:
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38249
+	je	SHORT $L38257
 
 ; 516  : 			flValue = -flValue;
 
 	fld	DWORD PTR _flValue$[ebp]
 	fchs
 	fstp	DWORD PTR _flValue$[ebp]
-$L38249:
+$L38257:
 
 ; 517  : 
 ; 518  : 		// does the controller not wrap?
@@ -4853,7 +4853,7 @@ $L38249:
 	fcomp	DWORD PTR [ecx+12]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38250
+	jne	SHORT $L38258
 
 ; 521  : 			if( flValue > (( pbonecontroller->start + pbonecontroller->end ) / 2.0f ) + 180 )
 
@@ -4866,14 +4866,14 @@ $L38249:
 	fcomp	DWORD PTR _flValue$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38251
+	je	SHORT $L38259
 
 ; 522  : 				flValue = flValue - 360;
 
 	fld	DWORD PTR _flValue$[ebp]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flValue$[ebp]
-$L38251:
+$L38259:
 
 ; 523  : 			if( flValue < (( pbonecontroller->start + pbonecontroller->end ) / 2.0f ) - 180 )
 
@@ -4886,19 +4886,19 @@ $L38251:
 	fcomp	DWORD PTR _flValue$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38252
+	jne	SHORT $L38260
 
 ; 524  : 				flValue = flValue + 360;
 
 	fld	DWORD PTR _flValue$[ebp]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flValue$[ebp]
-$L38252:
+$L38260:
 
 ; 526  : 		else
 
-	jmp	SHORT $L38257
-$L38250:
+	jmp	SHORT $L38265
+$L38258:
 
 ; 528  : 			if( flValue > 360.0f )
 
@@ -4906,7 +4906,7 @@ $L38250:
 	fcomp	DWORD PTR __real@4@4007b400000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38254
+	jne	SHORT $L38262
 
 ; 529  : 				flValue = flValue - (int)(flValue / 360.0f) * 360.0f;
 
@@ -4921,13 +4921,13 @@ $L38250:
 
 ; 530  : 			else if( flValue < 0.0f )
 
-	jmp	SHORT $L38257
-$L38254:
+	jmp	SHORT $L38265
+$L38262:
 	fld	DWORD PTR _flValue$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38257
+	je	SHORT $L38265
 
 ; 531  : 				flValue = flValue + (int)((flValue / -360.0f) + 1.0f) * 360.0f;
 
@@ -4940,7 +4940,7 @@ $L38254:
 	fmul	DWORD PTR __real@4@4007b400000000000000
 	fadd	DWORD PTR _flValue$[ebp]
 	fstp	DWORD PTR _flValue$[ebp]
-$L38257:
+$L38265:
 
 ; 534  : 
 ; 535  : 	int setting = 255 * (flValue - pbonecontroller->start) / (pbonecontroller->end - pbonecontroller->start);
@@ -4961,21 +4961,21 @@ $L38257:
 ; 537  : 	setting = bound( 0, setting, 255 );
 
 	cmp	DWORD PTR _setting$[ebp], 0
-	jl	SHORT $L38895
+	jl	SHORT $L38903
 	cmp	DWORD PTR _setting$[ebp], 255		; 000000ffH
-	jge	SHORT $L38893
+	jge	SHORT $L38901
 	mov	eax, DWORD PTR _setting$[ebp]
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L38894
-$L38893:
+	jmp	SHORT $L38902
+$L38901:
 	mov	DWORD PTR -28+[ebp], 255		; 000000ffH
-$L38894:
+$L38902:
 	mov	ecx, DWORD PTR -28+[ebp]
 	mov	DWORD PTR -32+[ebp], ecx
-	jmp	SHORT $L38896
-$L38895:
+	jmp	SHORT $L38904
+$L38903:
 	mov	DWORD PTR -32+[ebp], 0
-$L38896:
+$L38904:
 	mov	edx, DWORD PTR -32+[ebp]
 	mov	DWORD PTR _setting$[ebp], edx
 
@@ -4998,7 +4998,7 @@ $L38896:
 	fmulp	ST(1), ST(0)
 	mov	ecx, DWORD PTR _pbonecontroller$[ebp]
 	fadd	DWORD PTR [ecx+8]
-$L38235:
+$L38243:
 
 ; 541  : }
 
@@ -5039,13 +5039,13 @@ _setting$ = -12
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38269
+	jne	SHORT $L38277
 
 ; 548  : 		return flValue;
 
 	fld	DWORD PTR _flValue$[ebp]
-	jmp	$L38266
-$L38269:
+	jmp	$L38274
+$L38277:
 
 ; 551  : 
 ; 552  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex) + sequence;
@@ -5064,13 +5064,13 @@ $L38269:
 	mov	ecx, DWORD PTR _iBlender$[ebp]
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [edx+ecx*4+128], 0
-	jne	SHORT $L38273
+	jne	SHORT $L38281
 
 ; 555  : 		return flValue;
 
 	fld	DWORD PTR _flValue$[ebp]
-	jmp	$L38266
-$L38273:
+	jmp	$L38274
+$L38281:
 
 ; 556  : 
 ; 557  : 	if( pseqdesc->blendtype[iBlender] & ( STUDIO_XR|STUDIO_YR|STUDIO_ZR ))
@@ -5080,7 +5080,7 @@ $L38273:
 	mov	edx, DWORD PTR [ecx+eax*4+128]
 	and	edx, 56					; 00000038H
 	test	edx, edx
-	je	$L38278
+	je	$L38286
 
 ; 559  : 		// ugly hack, invert value if end < start
 ; 560  : 		if( pseqdesc->blendend[iBlender] < pseqdesc->blendstart[iBlender] )
@@ -5093,14 +5093,14 @@ $L38273:
 	fcomp	DWORD PTR [esi+edx*4+136]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38275
+	je	SHORT $L38283
 
 ; 561  : 			flValue = -flValue;
 
 	fld	DWORD PTR _flValue$[ebp]
 	fchs
 	fstp	DWORD PTR _flValue$[ebp]
-$L38275:
+$L38283:
 
 ; 562  : 
 ; 563  : 		// does the controller not wrap?
@@ -5115,7 +5115,7 @@ $L38275:
 	fcomp	DWORD PTR [eax+edx*4+144]
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38278
+	jne	SHORT $L38286
 
 ; 566  : 			if( flValue > (( pseqdesc->blendstart[iBlender] + pseqdesc->blendend[iBlender] ) / 2.0f ) + 180.0f )
 
@@ -5130,14 +5130,14 @@ $L38275:
 	fcomp	DWORD PTR _flValue$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38277
+	je	SHORT $L38285
 
 ; 567  : 				flValue = flValue - 360.0f;
 
 	fld	DWORD PTR _flValue$[ebp]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flValue$[ebp]
-$L38277:
+$L38285:
 
 ; 568  : 			if( flValue < (( pseqdesc->blendstart[iBlender] + pseqdesc->blendend[iBlender] ) / 2.0f ) - 180.0f )
 
@@ -5152,14 +5152,14 @@ $L38277:
 	fcomp	DWORD PTR _flValue$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L38278
+	jne	SHORT $L38286
 
 ; 569  : 				flValue = flValue + 360.0f;
 
 	fld	DWORD PTR _flValue$[ebp]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flValue$[ebp]
-$L38278:
+$L38286:
 
 ; 572  : 
 ; 573  : 	int setting = 255 * (flValue - pseqdesc->blendstart[iBlender]) / (pseqdesc->blendend[iBlender] - pseqdesc->blendstart[iBlender]);
@@ -5183,21 +5183,21 @@ $L38278:
 ; 575  : 	setting = bound( 0, setting, 255 );
 
 	cmp	DWORD PTR _setting$[ebp], 0
-	jl	SHORT $L38916
+	jl	SHORT $L38924
 	cmp	DWORD PTR _setting$[ebp], 255		; 000000ffH
-	jge	SHORT $L38914
+	jge	SHORT $L38922
 	mov	eax, DWORD PTR _setting$[ebp]
 	mov	DWORD PTR -16+[ebp], eax
-	jmp	SHORT $L38915
-$L38914:
+	jmp	SHORT $L38923
+$L38922:
 	mov	DWORD PTR -16+[ebp], 255		; 000000ffH
-$L38915:
+$L38923:
 	mov	ecx, DWORD PTR -16+[ebp]
 	mov	DWORD PTR -20+[ebp], ecx
-	jmp	SHORT $L38917
-$L38916:
+	jmp	SHORT $L38925
+$L38924:
 	mov	DWORD PTR -20+[ebp], 0
-$L38917:
+$L38925:
 	mov	edx, DWORD PTR -20+[ebp]
 	mov	DWORD PTR _setting$[ebp], edx
 
@@ -5223,7 +5223,7 @@ $L38917:
 	mov	edx, DWORD PTR _iBlender$[ebp]
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	fadd	DWORD PTR [eax+edx*4+136]
-$L38266:
+$L38274:
 
 ; 579  : }
 
@@ -5273,13 +5273,13 @@ _i$ = -24
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38288
+	jne	SHORT $L38296
 
 ; 586  : 		return iGoalAnim;
 
 	mov	eax, DWORD PTR _iGoalAnim$[ebp]
-	jmp	$L38285
-$L38288:
+	jmp	$L38293
+$L38296:
 
 ; 589  : 	pseqdesc = (mstudioseqdesc_t *)((byte *)pstudiohdr + pstudiohdr->seqindex);
 
@@ -5296,19 +5296,19 @@ $L38288:
 	imul	eax, 176				; 000000b0H
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [ecx+eax+160], 0
-	je	SHORT $L38293
+	je	SHORT $L38301
 	mov	edx, DWORD PTR _iGoalAnim$[ebp]
 	imul	edx, 176				; 000000b0H
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [eax+edx+160], 0
-	jne	SHORT $L38292
-$L38293:
+	jne	SHORT $L38300
+$L38301:
 
 ; 594  : 		return iGoalAnim;
 
 	mov	eax, DWORD PTR _iGoalAnim$[ebp]
-	jmp	$L38285
-$L38292:
+	jmp	$L38293
+$L38300:
 
 ; 598  : 
 ; 599  : 	// ALERT( at_console, "from %d to %d: ", pEndNode->iEndNode, pGoalNode->iStartNode );
@@ -5317,7 +5317,7 @@ $L38292:
 
 	mov	ecx, DWORD PTR _piDir$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	jle	SHORT $L38295
+	jle	SHORT $L38303
 
 ; 603  : 		iEndNode = pseqdesc[iEndingAnim].exitnode;
 
@@ -5329,8 +5329,8 @@ $L38292:
 
 ; 605  : 	else
 
-	jmp	SHORT $L38296
-$L38295:
+	jmp	SHORT $L38304
+$L38303:
 
 ; 607  : 		iEndNode = pseqdesc[iEndingAnim].entrynode;
 
@@ -5339,7 +5339,7 @@ $L38295:
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	ecx, DWORD PTR [eax+edx+160]
 	mov	DWORD PTR _iEndNode$[ebp], ecx
-$L38296:
+$L38304:
 
 ; 609  : 
 ; 610  : 	if( iEndNode == pseqdesc[iGoalAnim].entrynode )
@@ -5349,7 +5349,7 @@ $L38296:
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	ecx, DWORD PTR _iEndNode$[ebp]
 	cmp	ecx, DWORD PTR [eax+edx+160]
-	jne	SHORT $L38297
+	jne	SHORT $L38305
 
 ; 612  : 		*piDir = 1;
 
@@ -5359,8 +5359,8 @@ $L38296:
 ; 613  : 		return iGoalAnim;
 
 	mov	eax, DWORD PTR _iGoalAnim$[ebp]
-	jmp	$L38285
-$L38297:
+	jmp	$L38293
+$L38305:
 
 ; 615  : 
 ; 616  : 	byte *pTransition = ((byte *)pstudiohdr + pstudiohdr->transitionindex);
@@ -5390,29 +5390,29 @@ $L38297:
 ; 620  : 	if( iInternNode == 0 )
 
 	cmp	DWORD PTR _iInternNode$[ebp], 0
-	jne	SHORT $L38301
+	jne	SHORT $L38309
 
 ; 621  : 		return iGoalAnim;
 
 	mov	eax, DWORD PTR _iGoalAnim$[ebp]
-	jmp	$L38285
-$L38301:
+	jmp	$L38293
+$L38309:
 
 ; 622  : 
 ; 623  : 	// look for someone going
 ; 624  : 	for( int i = 0; i < pstudiohdr->numseq; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38303
-$L38304:
+	jmp	SHORT $L38311
+$L38312:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38303:
+$L38311:
 	mov	edx, DWORD PTR _pstudiohdr$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+164]
-	jge	$L38305
+	jge	$L38313
 
 ; 626  : 		if( pseqdesc[i].entrynode == iEndNode && pseqdesc[i].exitnode == iInternNode )
 
@@ -5421,13 +5421,13 @@ $L38303:
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	mov	eax, DWORD PTR [edx+ecx+160]
 	cmp	eax, DWORD PTR _iEndNode$[ebp]
-	jne	SHORT $L38306
+	jne	SHORT $L38314
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 176				; 000000b0H
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	mov	eax, DWORD PTR [edx+ecx+164]
 	cmp	eax, DWORD PTR _iInternNode$[ebp]
-	jne	SHORT $L38306
+	jne	SHORT $L38314
 
 ; 628  : 			*piDir = 1;
 
@@ -5437,8 +5437,8 @@ $L38303:
 ; 629  : 			return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L38285
-$L38306:
+	jmp	SHORT $L38293
+$L38314:
 
 ; 631  : 
 ; 632  : 		if( pseqdesc[i].nodeflags )
@@ -5449,7 +5449,7 @@ $L38306:
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [eax+edx+168]
 	test	ecx, ecx
-	je	SHORT $L38308
+	je	SHORT $L38316
 
 ; 634  : 			if( pseqdesc[i].exitnode == iEndNode && pseqdesc[i].entrynode == iInternNode )
 
@@ -5458,13 +5458,13 @@ $L38306:
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	ecx, DWORD PTR [eax+edx+164]
 	cmp	ecx, DWORD PTR _iEndNode$[ebp]
-	jne	SHORT $L38308
+	jne	SHORT $L38316
 	mov	edx, DWORD PTR _i$[ebp]
 	imul	edx, 176				; 000000b0H
 	mov	eax, DWORD PTR _pseqdesc$[ebp]
 	mov	ecx, DWORD PTR [eax+edx+160]
 	cmp	ecx, DWORD PTR _iInternNode$[ebp]
-	jne	SHORT $L38308
+	jne	SHORT $L38316
 
 ; 636  : 				*piDir = -1;
 
@@ -5474,13 +5474,13 @@ $L38306:
 ; 637  : 				return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L38285
-$L38308:
+	jmp	SHORT $L38293
+$L38316:
 
 ; 640  : 	}
 
-	jmp	$L38304
-$L38305:
+	jmp	$L38312
+$L38313:
 
 ; 641  : 
 ; 642  : 	ALERT( at_console, "error in transition graph" );
@@ -5494,7 +5494,7 @@ $L38305:
 ; 644  : 	return iGoalAnim;
 
 	mov	eax, DWORD PTR _iGoalAnim$[ebp]
-$L38285:
+$L38293:
 
 ; 645  : }
 
@@ -5534,12 +5534,12 @@ _iCurrent$ = -12
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38318
+	jne	SHORT $L38326
 
 ; 652  : 		return;
 
-	jmp	SHORT $L38315
-$L38318:
+	jmp	SHORT $L38323
+$L38326:
 
 ; 653  : 
 ; 654  : 	if( iGroup > pstudiohdr->numbodyparts )
@@ -5547,12 +5547,12 @@ $L38318:
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _iGroup$[ebp]
 	cmp	edx, DWORD PTR [ecx+204]
-	jle	SHORT $L38319
+	jle	SHORT $L38327
 
 ; 655  : 		return;
 
-	jmp	SHORT $L38315
-$L38319:
+	jmp	SHORT $L38323
+$L38327:
 
 ; 656  : 
 ; 657  : 	mstudiobodyparts_t *pbodypart = (mstudiobodyparts_t *)((byte *)pstudiohdr + pstudiohdr->bodypartindex) + iGroup;
@@ -5571,12 +5571,12 @@ $L38319:
 	mov	eax, DWORD PTR _pbodypart$[ebp]
 	mov	ecx, DWORD PTR _iValue$[ebp]
 	cmp	ecx, DWORD PTR [eax+64]
-	jl	SHORT $L38323
+	jl	SHORT $L38331
 
 ; 660  : 		return;
 
-	jmp	SHORT $L38315
-$L38323:
+	jmp	SHORT $L38323
+$L38331:
 
 ; 661  : 
 ; 662  : 	int iCurrent = (iBody / pbodypart->base) % pbodypart->nummodels;
@@ -5605,7 +5605,7 @@ $L38323:
 	add	edx, ecx
 	mov	eax, DWORD PTR _iBody$[ebp]
 	mov	DWORD PTR [eax], edx
-$L38315:
+$L38323:
 
 ; 664  : }
 
@@ -5644,13 +5644,13 @@ _iCurrent$ = -12
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38332
+	jne	SHORT $L38340
 
 ; 671  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38329
-$L38332:
+	jmp	SHORT $L38337
+$L38340:
 
 ; 672  : 
 ; 673  : 	if( iGroup > pstudiohdr->numbodyparts )
@@ -5658,13 +5658,13 @@ $L38332:
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _iGroup$[ebp]
 	cmp	edx, DWORD PTR [ecx+204]
-	jle	SHORT $L38333
+	jle	SHORT $L38341
 
 ; 674  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38329
-$L38333:
+	jmp	SHORT $L38337
+$L38341:
 
 ; 675  : 
 ; 676  : 	mstudiobodyparts_t *pbodypart = (mstudiobodyparts_t *)((byte *)pstudiohdr + pstudiohdr->bodypartindex) + iGroup;
@@ -5681,13 +5681,13 @@ $L38333:
 
 	mov	eax, DWORD PTR _pbodypart$[ebp]
 	cmp	DWORD PTR [eax+64], 1
-	jg	SHORT $L38337
+	jg	SHORT $L38345
 
 ; 678  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38329
-$L38337:
+	jmp	SHORT $L38337
+$L38345:
 
 ; 679  : 
 ; 680  : 	int iCurrent = (iBody / pbodypart->base) % pbodypart->nummodels;
@@ -5705,7 +5705,7 @@ $L38337:
 ; 682  : 	return iCurrent;
 
 	mov	eax, DWORD PTR _iCurrent$[ebp]
-$L38329:
+$L38337:
 
 ; 683  : }
 
@@ -5724,7 +5724,7 @@ _pmodel$ = 8
 _pName$ = 12
 _pstudiohdr$ = -4
 _i$ = -8
-_pattachment$38350 = -12
+_pattachment$38358 = -12
 ?FindAttachmentByName@@YAHPAXPBD@Z PROC NEAR		; FindAttachmentByName, COMDAT
 
 ; 686  : {
@@ -5743,35 +5743,35 @@ _pattachment$38350 = -12
 	mov	eax, DWORD PTR _pmodel$[ebp]
 	mov	DWORD PTR _pstudiohdr$[ebp], eax
 	cmp	DWORD PTR _pstudiohdr$[ebp], 0
-	jne	SHORT $L38345
+	jne	SHORT $L38353
 
 ; 690  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L38342
-$L38345:
+	jmp	SHORT $L38350
+$L38353:
 
 ; 691  : 
 ; 692  : 	for( int i = 0; i < pstudiohdr->numattachments; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L38347
-$L38348:
+	jmp	SHORT $L38355
+$L38356:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L38347:
+$L38355:
 	mov	edx, DWORD PTR _pstudiohdr$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+212]
-	jge	SHORT $L38349
+	jge	SHORT $L38357
 
 ; 694  : 		mstudioattachment_t	*pattachment = (mstudioattachment_t *) ((byte *)pstudiohdr + pstudiohdr->attachmentindex);
 
 	mov	ecx, DWORD PTR _pstudiohdr$[ebp]
 	mov	edx, DWORD PTR _pstudiohdr$[ebp]
 	add	edx, DWORD PTR [ecx+216]
-	mov	DWORD PTR _pattachment$38350[ebp], edx
+	mov	DWORD PTR _pattachment$38358[ebp], edx
 
 ; 695  : 
 ; 696  : 		if( !Q_stricmp( pattachment[i].name, pName ))
@@ -5781,31 +5781,31 @@ $L38347:
 	push	eax
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 88					; 00000058H
-	mov	edx, DWORD PTR _pattachment$38350[ebp]
+	mov	edx, DWORD PTR _pattachment$38358[ebp]
 	add	edx, ecx
 	push	edx
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L38353
+	jne	SHORT $L38361
 
 ; 697  : 			return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L38342
-$L38353:
+	jmp	SHORT $L38350
+$L38361:
 
 ; 698  : 
 ; 699  : 	}
 
-	jmp	SHORT $L38348
-$L38349:
+	jmp	SHORT $L38356
+$L38357:
 
 ; 700  : 
 ; 701  : 	return -1;
 
 	or	eax, -1
-$L38342:
+$L38350:
 
 ; 702  : }
 

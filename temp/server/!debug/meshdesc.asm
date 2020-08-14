@@ -819,7 +819,7 @@ _mins1$ = -32
 _maxs1$ = -44
 _mins2$ = -56
 _maxs2$ = -68
-$T36768 = -80
+$T36776 = -80
 ?CreateAreaNode@CMeshDesc@@QAEPAUareanode_s@@HABVVector@@0@Z PROC NEAR ; CMeshDesc::CreateAreaNode, COMDAT
 
 ; 64   : {
@@ -881,7 +881,7 @@ $T36768 = -80
 ; 75   : 	if( depth == AREA_DEPTH )
 
 	cmp	DWORD PTR _depth$[ebp], 4
-	jne	SHORT $L36281
+	jne	SHORT $L36289
 
 ; 77   : 		anode->axis = -1;
 
@@ -898,15 +898,15 @@ $T36768 = -80
 ; 79   : 		return anode;
 
 	mov	eax, DWORD PTR _anode$[ebp]
-	jmp	$L36274
-$L36281:
+	jmp	$L36282
+$L36289:
 
 ; 81   : 	
 ; 82   : 	size = maxs - mins;
 
 	mov	edx, DWORD PTR _mins$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T36768[ebp]
+	lea	eax, DWORD PTR $T36776[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _maxs$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -929,7 +929,7 @@ $L36281:
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L36283
+	jne	SHORT $L36291
 
 ; 85   : 		anode->axis = 0;
 
@@ -938,11 +938,11 @@ $L36281:
 
 ; 86   : 	else anode->axis = 1;
 
-	jmp	SHORT $L36284
-$L36283:
+	jmp	SHORT $L36292
+$L36291:
 	mov	edx, DWORD PTR _anode$[ebp]
 	mov	DWORD PTR [edx], 1
-$L36284:
+$L36292:
 
 ; 87   : 	
 ; 88   : 	anode->dist = 0.5f * ( maxs[anode->axis] + mins[anode->axis] );
@@ -1055,7 +1055,7 @@ $L36284:
 ; 98   : 	return anode;
 
 	mov	eax, DWORD PTR _anode$[ebp]
-$L36274:
+$L36282:
 
 ; 99   : }
 
@@ -1074,7 +1074,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T36774 = -16
+$T36782 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -1104,7 +1104,7 @@ $T36774 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36774[ebp]
+	lea	ecx, DWORD PTR $T36782[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1240,8 +1240,8 @@ EXTRN	??3@YAXPAX@Z:NEAR				; operator delete
 _TEXT	SEGMENT
 _this$ = -4
 _i$ = -8
-$T36785 = -12
-$T36786 = -16
+$T36793 = -12
+$T36794 = -16
 ?FreeMesh@CMeshDesc@@QAEXXZ PROC NEAR			; CMeshDesc::FreeMesh, COMDAT
 
 ; 102  : {
@@ -1258,28 +1258,28 @@ $T36786 = -16
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	jg	SHORT $L36289
+	jg	SHORT $L36297
 
 ; 104  : 		return;
 
-	jmp	SHORT $L36288
-$L36289:
+	jmp	SHORT $L36296
+$L36297:
 
 ; 105  : 
 ; 106  : 	// free all allocated memory by this mesh
 ; 107  : 	for( int i = 0; i < m_mesh.numfacets; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36291
-$L36292:
+	jmp	SHORT $L36299
+$L36300:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36291:
+$L36299:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+24]
-	jge	SHORT $L36293
+	jge	SHORT $L36301
 
 ; 108  : 		delete [] m_mesh.facets[i].planes;
 
@@ -1288,20 +1288,20 @@ $L36291:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+28]
 	mov	ecx, DWORD PTR [eax+ecx+36]
-	mov	DWORD PTR $T36785[ebp], ecx
-	mov	edx, DWORD PTR $T36785[ebp]
+	mov	DWORD PTR $T36793[ebp], ecx
+	mov	edx, DWORD PTR $T36793[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-	jmp	SHORT $L36292
-$L36293:
+	jmp	SHORT $L36300
+$L36301:
 
 ; 109  : 	delete [] m_mesh.facets;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+28]
-	mov	DWORD PTR $T36786[ebp], ecx
-	mov	edx, DWORD PTR $T36786[ebp]
+	mov	DWORD PTR $T36794[ebp], ecx
+	mov	edx, DWORD PTR $T36794[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1316,7 +1316,7 @@ $L36293:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+24], 0
-$L36288:
+$L36296:
 
 ; 113  : }
 
@@ -1360,20 +1360,20 @@ _this$ = -4
 ; 117  : 	if( numTriangles <= 0 )
 
 	cmp	DWORD PTR _numTriangles$[ebp], 0
-	jg	SHORT $L36301
+	jg	SHORT $L36309
 
 ; 118  : 		return false;
 
 	xor	al, al
-	jmp	$L36300
-$L36301:
+	jmp	$L36308
+$L36309:
 
 ; 119  : 
 ; 120  : 	// perfomance warning
 ; 121  : 	if( numTriangles >= 16384 )
 
 	cmp	DWORD PTR _numTriangles$[ebp], 16384	; 00004000H
-	jl	SHORT $L36302
+	jl	SHORT $L36310
 
 ; 122  : 		ALERT( at_warning, "%s have too many triangles (%i)\n", debug_name, numTriangles );
 
@@ -1385,13 +1385,13 @@ $L36301:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 16					; 00000010H
-$L36302:
+$L36310:
 
 ; 123  : 
 ; 124  : 	if( numTriangles >= 256 )
 
 	cmp	DWORD PTR _numTriangles$[ebp], 256	; 00000100H
-	jl	SHORT $L36304
+	jl	SHORT $L36312
 
 ; 125  : 		has_tree = true;	// too many triangles invoke to build AABB tree
 
@@ -1400,11 +1400,11 @@ $L36302:
 
 ; 126  : 	else has_tree = false;
 
-	jmp	SHORT $L36305
-$L36304:
+	jmp	SHORT $L36313
+$L36312:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	BYTE PTR [eax+1352], 0
-$L36305:
+$L36313:
 
 ; 127  : 
 ; 128  : 	ClearBounds( m_mesh.mins, m_mesh.maxs );
@@ -1465,7 +1465,7 @@ $L36305:
 ; 138  : 	return true;
 
 	mov	al, 1
-$L36300:
+$L36308:
 
 ; 139  : }
 
@@ -1537,21 +1537,21 @@ _normal$ = -696
 _numplanes$ = -700
 _dist$ = -704
 _axis$ = -708
-_dir$36334 = -712
-_j$36348 = -716
-_k$36349 = -720
-_vec$36350 = -732
-_axis$36360 = -736
-_dir$36364 = -740
-_vec2$36368 = -752
-_d$36381 = -756
+_dir$36342 = -712
+_j$36356 = -716
+_k$36357 = -720
+_vec$36358 = -732
+_axis$36368 = -736
+_dir$36372 = -740
+_vec2$36376 = -752
+_d$36389 = -756
 _$S19$ = -760
-$T36791 = -772
-$T36792 = -784
-$T36793 = -796
-$T36794 = -808
-$T36795 = -812
-$T36796 = -816
+$T36799 = -772
+$T36800 = -784
+$T36801 = -796
+$T36802 = -808
+$T36803 = -812
+$T36804 = -816
 __$EHRec$ = -12
 ?AddMeshTrinagle@CMeshDesc@@QAE_NQBVVector@@@Z PROC NEAR ; CMeshDesc::AddMeshTrinagle, COMDAT
 
@@ -1576,13 +1576,13 @@ __$EHRec$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+40], 0
-	jg	SHORT $L36313
+	jg	SHORT $L36321
 
 ; 146  : 		return false; // were not in a build mode!
 
 	xor	al, al
-	jmp	$L36311
-$L36313:
+	jmp	$L36319
+$L36321:
 
 ; 147  : 
 ; 148  : 	if( m_mesh.numfacets >= m_iNumTris )
@@ -1591,7 +1591,7 @@ $L36313:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+24]
 	cmp	eax, DWORD PTR [edx+40]
-	jl	SHORT $L36314
+	jl	SHORT $L36322
 
 ; 150  : 		ALERT( at_error, "AddMeshTriangle: %s overflow (%i >= %i)\n", m_debugName, m_mesh.numfacets, m_iNumTris );
 
@@ -1612,22 +1612,22 @@ $L36313:
 ; 151  : 		return false;
 
 	xor	al, al
-	jmp	$L36311
-$L36314:
+	jmp	$L36319
+$L36322:
 
 ; 153  : 
 ; 154  : 	// add triangle to bounds
 ; 155  : 	for( i = 0; i < 3; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36316
-$L36317:
+	jmp	SHORT $L36324
+$L36325:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36316:
+$L36324:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L36318
+	jge	SHORT $L36326
 
 ; 156  : 		AddPointToBounds( triangle[i], m_mesh.mins, m_mesh.maxs );
 
@@ -1644,8 +1644,8 @@ $L36316:
 	push	edx
 	call	?AddPointToBounds@@YAXABVVector@@AAV1@1M@Z ; AddPointToBounds
 	add	esp, 16					; 00000010H
-	jmp	SHORT $L36317
-$L36318:
+	jmp	SHORT $L36325
+$L36326:
 
 ; 157  : 
 ; 158  : 	mfacet_t *facet = &m_mesh.facets[m_mesh.numfacets];
@@ -1685,13 +1685,13 @@ $L36318:
 	add	esp, 12					; 0000000cH
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L36321
+	je	SHORT $L36329
 
 ; 165  : 		return false; // bad plane
 
 	xor	al, al
-	jmp	$L36311
-$L36321:
+	jmp	$L36319
+$L36329:
 
 ; 166  : 
 ; 167  : 	mplane_t planes[32];
@@ -1769,14 +1769,14 @@ $L36321:
 ; 184  : 	for( i = 0; i < 3; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36327
-$L36328:
+	jmp	SHORT $L36335
+$L36336:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36327:
+$L36335:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L36329
+	jge	SHORT $L36337
 
 ; 185  : 		AddPointToBounds( triangle[i], facet->mins, facet->maxs );
 
@@ -1793,47 +1793,47 @@ $L36327:
 	push	edx
 	call	?AddPointToBounds@@YAXABVVector@@AAV1@1M@Z ; AddPointToBounds
 	add	esp, 16					; 00000010H
-	jmp	SHORT $L36328
-$L36329:
+	jmp	SHORT $L36336
+$L36337:
 
 ; 186  : 
 ; 187  : 	// add the axial planes
 ; 188  : 	for( int axis = 0; axis < 3; axis++ )
 
 	mov	DWORD PTR _axis$[ebp], 0
-	jmp	SHORT $L36331
-$L36332:
+	jmp	SHORT $L36339
+$L36340:
 	mov	eax, DWORD PTR _axis$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _axis$[ebp], eax
-$L36331:
+$L36339:
 	cmp	DWORD PTR _axis$[ebp], 3
-	jge	$L36333
+	jge	$L36341
 
 ; 190  : 		for( int dir = -1; dir <= 1; dir += 2 )
 
-	mov	DWORD PTR _dir$36334[ebp], -1
-	jmp	SHORT $L36335
-$L36336:
-	mov	ecx, DWORD PTR _dir$36334[ebp]
+	mov	DWORD PTR _dir$36342[ebp], -1
+	jmp	SHORT $L36343
+$L36344:
+	mov	ecx, DWORD PTR _dir$36342[ebp]
 	add	ecx, 2
-	mov	DWORD PTR _dir$36334[ebp], ecx
-$L36335:
-	cmp	DWORD PTR _dir$36334[ebp], 1
-	jg	$L36337
+	mov	DWORD PTR _dir$36342[ebp], ecx
+$L36343:
+	cmp	DWORD PTR _dir$36342[ebp], 1
+	jg	$L36345
 
 ; 192  : 			for( i = 0; i < numplanes; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36338
-$L36339:
+	jmp	SHORT $L36346
+$L36347:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36338:
+$L36346:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _numplanes$[ebp]
-	jge	SHORT $L36340
+	jge	SHORT $L36348
 
 ; 194  : 				if( planes[i].normal[axis] == dir )
 
@@ -1841,29 +1841,29 @@ $L36338:
 	imul	ecx, 20					; 00000014H
 	lea	ecx, DWORD PTR _planes$[ebp+ecx]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
-	fild	DWORD PTR _dir$36334[ebp]
+	fild	DWORD PTR _dir$36342[ebp]
 	mov	edx, DWORD PTR _axis$[ebp]
 	fcomp	DWORD PTR [eax+edx*4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36341
+	je	SHORT $L36349
 
 ; 195  : 					break;
 
-	jmp	SHORT $L36340
-$L36341:
+	jmp	SHORT $L36348
+$L36349:
 
 ; 196  : 			}
 
-	jmp	SHORT $L36339
-$L36340:
+	jmp	SHORT $L36347
+$L36348:
 
 ; 197  : 
 ; 198  : 			if( i == numplanes )
 
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _numplanes$[ebp]
-	jne	$L36342
+	jne	$L36350
 
 ; 200  : 				normal = g_vecZero;
 
@@ -1876,7 +1876,7 @@ $L36340:
 
 ; 201  : 				normal[axis] = dir;
 
-	fild	DWORD PTR _dir$36334[ebp]
+	fild	DWORD PTR _dir$36342[ebp]
 	fstp	DWORD PTR -820+[ebp]
 	lea	ecx, DWORD PTR _normal$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
@@ -1886,8 +1886,8 @@ $L36340:
 
 ; 202  : 				if( dir == 1 )
 
-	cmp	DWORD PTR _dir$36334[ebp], 1
-	jne	SHORT $L36343
+	cmp	DWORD PTR _dir$36342[ebp], 1
+	jne	SHORT $L36351
 
 ; 203  : 					dist = facet->maxs[axis];
 
@@ -1900,15 +1900,15 @@ $L36340:
 
 ; 204  : 				else dist = -facet->mins[axis];
 
-	jmp	SHORT $L36344
-$L36343:
+	jmp	SHORT $L36352
+$L36351:
 	mov	ecx, DWORD PTR _facet$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	mov	ecx, DWORD PTR _axis$[ebp]
 	fld	DWORD PTR [eax+ecx*4]
 	fchs
 	fstp	DWORD PTR _dist$[ebp]
-$L36344:
+$L36352:
 
 ; 205  : 
 ; 206  : 				planes[numplanes].normal = normal;
@@ -1935,31 +1935,31 @@ $L36344:
 	mov	ecx, DWORD PTR _numplanes$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _numplanes$[ebp], ecx
-$L36342:
+$L36350:
 
 ; 210  : 		}
 
-	jmp	$L36336
-$L36337:
+	jmp	$L36344
+$L36345:
 
 ; 211  : 	}
 
-	jmp	$L36332
-$L36333:
+	jmp	$L36340
+$L36341:
 
 ; 212  : 
 ; 213  : 	// add the edge bevels
 ; 214  : 	for( i = 0; i < 3; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36345
-$L36346:
+	jmp	SHORT $L36353
+$L36354:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36345:
+$L36353:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	$L36347
+	jge	$L36355
 
 ; 216  : 		int j = (i + 1) % 3;
 
@@ -1968,7 +1968,7 @@ $L36345:
 	cdq
 	mov	ecx, 3
 	idiv	ecx
-	mov	DWORD PTR _j$36348[ebp], edx
+	mov	DWORD PTR _j$36356[ebp], edx
 
 ; 217  : 		int k = (i + 2) % 3;
 
@@ -1977,17 +1977,17 @@ $L36345:
 	cdq
 	mov	ecx, 3
 	idiv	ecx
-	mov	DWORD PTR _k$36349[ebp], edx
+	mov	DWORD PTR _k$36357[ebp], edx
 
 ; 218  : 
 ; 219  : 		Vector vec = triangle[i] - triangle[j];
 
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	edx, DWORD PTR _j$36356[ebp]
 	imul	edx, 12					; 0000000cH
 	mov	eax, DWORD PTR _triangle$[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR $T36791[ebp]
+	lea	ecx, DWORD PTR $T36799[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _i$[ebp]
 	imul	edx, 12					; 0000000cH
@@ -1995,37 +1995,37 @@ $L36345:
 	add	ecx, edx
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	lea	ecx, DWORD PTR _vec$36350[ebp]
+	lea	ecx, DWORD PTR _vec$36358[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 220  : 		if( vec.Length() < 0.5f ) continue;
 
-	lea	ecx, DWORD PTR _vec$36350[ebp]
+	lea	ecx, DWORD PTR _vec$36358[ebp]
 	call	?Length@Vector@@QBEMXZ			; Vector::Length
 	fcomp	DWORD PTR __real@4@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L36352
-	jmp	$L36346
-$L36352:
+	je	SHORT $L36360
+	jmp	$L36354
+$L36360:
 
 ; 221  : 
 ; 222  : 		vec = vec.Normalize();
 
-	lea	eax, DWORD PTR $T36792[ebp]
+	lea	eax, DWORD PTR $T36800[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _vec$36350[ebp]
+	lea	ecx, DWORD PTR _vec$36358[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _vec$36350[ebp], ecx
+	mov	DWORD PTR _vec$36358[ebp], ecx
 	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR _vec$36350[ebp+4], edx
+	mov	DWORD PTR _vec$36358[ebp+4], edx
 	mov	eax, DWORD PTR [eax+8]
-	mov	DWORD PTR _vec$36350[ebp+8], eax
+	mov	DWORD PTR _vec$36358[ebp+8], eax
 
 ; 223  : 		SnapVectorToGrid( vec );
 
-	lea	ecx, DWORD PTR _vec$36350[ebp]
+	lea	ecx, DWORD PTR _vec$36358[ebp]
 	push	ecx
 	call	?SnapVectorToGrid@@YAXAAVVector@@@Z	; SnapVectorToGrid
 	add	esp, 4
@@ -2033,104 +2033,104 @@ $L36352:
 ; 224  : 
 ; 225  : 		for( j = 0; j < 3; j++ )
 
-	mov	DWORD PTR _j$36348[ebp], 0
-	jmp	SHORT $L36354
-$L36355:
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	DWORD PTR _j$36356[ebp], 0
+	jmp	SHORT $L36362
+$L36363:
+	mov	edx, DWORD PTR _j$36356[ebp]
 	add	edx, 1
-	mov	DWORD PTR _j$36348[ebp], edx
-$L36354:
-	cmp	DWORD PTR _j$36348[ebp], 3
-	jge	SHORT $L36356
+	mov	DWORD PTR _j$36356[ebp], edx
+$L36362:
+	cmp	DWORD PTR _j$36356[ebp], 3
+	jge	SHORT $L36364
 
 ; 227  : 			if( vec[j] == 1.0f || vec[j] == -1.0f )
 
-	lea	ecx, DWORD PTR _vec$36350[ebp]
+	lea	ecx, DWORD PTR _vec$36358[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
-	mov	ecx, DWORD PTR _j$36348[ebp]
+	mov	ecx, DWORD PTR _j$36356[ebp]
 	fld	DWORD PTR [eax+ecx*4]
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L36358
-	lea	ecx, DWORD PTR _vec$36350[ebp]
+	jne	SHORT $L36366
+	lea	ecx, DWORD PTR _vec$36358[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	edx, DWORD PTR _j$36356[ebp]
 	fld	DWORD PTR [eax+edx*4]
 	fcomp	DWORD PTR __real@4@bfff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36357
-$L36358:
+	je	SHORT $L36365
+$L36366:
 
 ; 228  : 				break; // axial
 
-	jmp	SHORT $L36356
-$L36357:
+	jmp	SHORT $L36364
+$L36365:
 
 ; 229  : 		}
 
-	jmp	SHORT $L36355
-$L36356:
+	jmp	SHORT $L36363
+$L36364:
 
 ; 230  : 
 ; 231  : 		if( j != 3 ) continue; // only test non-axial edges
 
-	cmp	DWORD PTR _j$36348[ebp], 3
-	je	SHORT $L36359
-	jmp	$L36346
-$L36359:
+	cmp	DWORD PTR _j$36356[ebp], 3
+	je	SHORT $L36367
+	jmp	$L36354
+$L36367:
 
 ; 232  : 
 ; 233  : 		// try the six possible slanted axials from this edge
 ; 234  : 		for( int axis = 0; axis < 3; axis++ )
 
-	mov	DWORD PTR _axis$36360[ebp], 0
-	jmp	SHORT $L36361
-$L36362:
-	mov	eax, DWORD PTR _axis$36360[ebp]
+	mov	DWORD PTR _axis$36368[ebp], 0
+	jmp	SHORT $L36369
+$L36370:
+	mov	eax, DWORD PTR _axis$36368[ebp]
 	add	eax, 1
-	mov	DWORD PTR _axis$36360[ebp], eax
-$L36361:
-	cmp	DWORD PTR _axis$36360[ebp], 3
-	jge	$L36363
+	mov	DWORD PTR _axis$36368[ebp], eax
+$L36369:
+	cmp	DWORD PTR _axis$36368[ebp], 3
+	jge	$L36371
 
 ; 236  : 			for( int dir = -1; dir <= 1; dir += 2 )
 
-	mov	DWORD PTR _dir$36364[ebp], -1
-	jmp	SHORT $L36365
-$L36366:
-	mov	ecx, DWORD PTR _dir$36364[ebp]
+	mov	DWORD PTR _dir$36372[ebp], -1
+	jmp	SHORT $L36373
+$L36374:
+	mov	ecx, DWORD PTR _dir$36372[ebp]
 	add	ecx, 2
-	mov	DWORD PTR _dir$36364[ebp], ecx
-$L36365:
-	cmp	DWORD PTR _dir$36364[ebp], 1
-	jg	$L36367
+	mov	DWORD PTR _dir$36372[ebp], ecx
+$L36373:
+	cmp	DWORD PTR _dir$36372[ebp], 1
+	jg	$L36375
 
 ; 238  : 				// construct a plane
 ; 239  : 				Vector vec2 = g_vecZero;
 
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
-	lea	ecx, DWORD PTR _vec2$36368[ebp]
+	lea	ecx, DWORD PTR _vec2$36376[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 240  : 				vec2[axis] = dir;
 
-	fild	DWORD PTR _dir$36364[ebp]
+	fild	DWORD PTR _dir$36372[ebp]
 	fstp	DWORD PTR -824+[ebp]
-	lea	ecx, DWORD PTR _vec2$36368[ebp]
+	lea	ecx, DWORD PTR _vec2$36376[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
-	mov	edx, DWORD PTR _axis$36360[ebp]
+	mov	edx, DWORD PTR _axis$36368[ebp]
 	mov	ecx, DWORD PTR -824+[ebp]
 	mov	DWORD PTR [eax+edx*4], ecx
 
 ; 241  : 				normal = CrossProduct( vec, vec2 );
 
-	lea	edx, DWORD PTR _vec2$36368[ebp]
+	lea	edx, DWORD PTR _vec2$36376[ebp]
 	push	edx
-	lea	eax, DWORD PTR _vec$36350[ebp]
+	lea	eax, DWORD PTR _vec$36358[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T36793[ebp]
+	lea	ecx, DWORD PTR $T36801[ebp]
 	push	ecx
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
@@ -2149,17 +2149,17 @@ $L36365:
 	fcomp	DWORD PTR __real@4@3ffe8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L36370
+	je	SHORT $L36378
 
 ; 244  : 					continue;
 
-	jmp	$L36366
-$L36370:
+	jmp	$L36374
+$L36378:
 
 ; 245  : 
 ; 246  : 				normal = normal.Normalize();
 
-	lea	eax, DWORD PTR $T36794[ebp]
+	lea	eax, DWORD PTR $T36802[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _normal$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -2186,16 +2186,16 @@ $L36370:
 ; 248  : 
 ; 249  : 				for( j = 0; j < numplanes; j++ )
 
-	mov	DWORD PTR _j$36348[ebp], 0
-	jmp	SHORT $L36372
-$L36373:
-	mov	ecx, DWORD PTR _j$36348[ebp]
+	mov	DWORD PTR _j$36356[ebp], 0
+	jmp	SHORT $L36380
+$L36381:
+	mov	ecx, DWORD PTR _j$36356[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _j$36348[ebp], ecx
-$L36372:
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	DWORD PTR _j$36356[ebp], ecx
+$L36380:
+	mov	edx, DWORD PTR _j$36356[ebp]
 	cmp	edx, DWORD PTR _numplanes$[ebp]
-	jge	SHORT $L36374
+	jge	SHORT $L36382
 
 ; 251  : 					// if this plane has already been used, skip it
 ; 252  : 					if( ComparePlanes( &planes[j], normal, dist ))
@@ -2204,7 +2204,7 @@ $L36372:
 	push	eax
 	lea	ecx, DWORD PTR _normal$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	edx, DWORD PTR _j$36356[ebp]
 	imul	edx, 20					; 00000014H
 	lea	eax, DWORD PTR _planes$[ebp+edx]
 	push	eax
@@ -2212,52 +2212,52 @@ $L36372:
 	add	esp, 12					; 0000000cH
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L36375
+	je	SHORT $L36383
 
 ; 253  : 						break;
 
-	jmp	SHORT $L36374
-$L36375:
+	jmp	SHORT $L36382
+$L36383:
 
 ; 254  : 				}
 
-	jmp	SHORT $L36373
-$L36374:
+	jmp	SHORT $L36381
+$L36382:
 
 ; 255  : 
 ; 256  : 				if( j != numplanes ) continue;
 
-	mov	ecx, DWORD PTR _j$36348[ebp]
+	mov	ecx, DWORD PTR _j$36356[ebp]
 	cmp	ecx, DWORD PTR _numplanes$[ebp]
-	je	SHORT $L36376
-	jmp	$L36366
-$L36376:
+	je	SHORT $L36384
+	jmp	$L36374
+$L36384:
 
 ; 257  : 
 ; 258  : 				// if all other points are behind this plane, it is a proper edge bevel
 ; 259  : 				for( j = 0; j < 3; j++ )
 
-	mov	DWORD PTR _j$36348[ebp], 0
-	jmp	SHORT $L36377
-$L36378:
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	DWORD PTR _j$36356[ebp], 0
+	jmp	SHORT $L36385
+$L36386:
+	mov	edx, DWORD PTR _j$36356[ebp]
 	add	edx, 1
-	mov	DWORD PTR _j$36348[ebp], edx
-$L36377:
-	cmp	DWORD PTR _j$36348[ebp], 3
-	jge	SHORT $L36379
+	mov	DWORD PTR _j$36356[ebp], edx
+$L36385:
+	cmp	DWORD PTR _j$36356[ebp], 3
+	jge	SHORT $L36387
 
 ; 261  : 					if( j != i )
 
-	mov	eax, DWORD PTR _j$36348[ebp]
+	mov	eax, DWORD PTR _j$36356[ebp]
 	cmp	eax, DWORD PTR _i$[ebp]
-	je	SHORT $L36382
+	je	SHORT $L36390
 
 ; 263  : 						float d = DotProduct( triangle[j], normal ) - dist;
 
 	lea	ecx, DWORD PTR _normal$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _j$36348[ebp]
+	mov	edx, DWORD PTR _j$36356[ebp]
 	imul	edx, 12					; 0000000cH
 	mov	eax, DWORD PTR _triangle$[ebp]
 	add	eax, edx
@@ -2265,31 +2265,31 @@ $L36377:
 	call	?DotProduct@@YAMABVVector@@0@Z		; DotProduct
 	add	esp, 8
 	fsub	DWORD PTR _dist$[ebp]
-	fstp	DWORD PTR _d$36381[ebp]
+	fstp	DWORD PTR _d$36389[ebp]
 
 ; 264  : 						// point in front: this plane isn't part of the outer hull
 ; 265  : 						if( d > 0.1f ) break;
 
-	fld	DWORD PTR _d$36381[ebp]
+	fld	DWORD PTR _d$36389[ebp]
 	fcomp	DWORD PTR __real@4@3ffbcccccd0000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L36382
-	jmp	SHORT $L36379
-$L36382:
+	jne	SHORT $L36390
+	jmp	SHORT $L36387
+$L36390:
 
 ; 267  : 				}
 
-	jmp	SHORT $L36378
-$L36379:
+	jmp	SHORT $L36386
+$L36387:
 
 ; 268  : 
 ; 269  : 				if( j != 3 ) continue;
 
-	cmp	DWORD PTR _j$36348[ebp], 3
-	je	SHORT $L36383
-	jmp	$L36366
-$L36383:
+	cmp	DWORD PTR _j$36356[ebp], 3
+	je	SHORT $L36391
+	jmp	$L36374
+$L36391:
 
 ; 270  : 
 ; 271  : 				// add this plane
@@ -2320,18 +2320,18 @@ $L36383:
 
 ; 275  : 			}
 
-	jmp	$L36366
-$L36367:
+	jmp	$L36374
+$L36375:
 
 ; 276  : 		}
 
-	jmp	$L36362
-$L36363:
+	jmp	$L36370
+$L36371:
 
 ; 277  : 	}
 
-	jmp	$L36346
-$L36347:
+	jmp	$L36354
+$L36355:
 
 ; 278  : 
 ; 279  : 	facet->planes = new mplane_t[numplanes];
@@ -2343,28 +2343,28 @@ $L36347:
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T36796[ebp], eax
+	mov	DWORD PTR $T36804[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T36796[ebp], 0
-	je	SHORT $L36797
+	cmp	DWORD PTR $T36804[ebp], 0
+	je	SHORT $L36805
 	push	OFFSET FLAT:??0mplane_s@@QAE@XZ		; mplane_s::mplane_s
 	mov	eax, DWORD PTR _$S19$[ebp]
 	push	eax
 	push	20					; 00000014H
-	mov	ecx, DWORD PTR $T36796[ebp]
+	mov	ecx, DWORD PTR $T36804[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
-	mov	edx, DWORD PTR $T36796[ebp]
+	mov	edx, DWORD PTR $T36804[ebp]
 	mov	DWORD PTR -828+[ebp], edx
-	jmp	SHORT $L36798
-$L36797:
+	jmp	SHORT $L36806
+$L36805:
 	mov	DWORD PTR -828+[ebp], 0
-$L36798:
+$L36806:
 	mov	eax, DWORD PTR -828+[ebp]
-	mov	DWORD PTR $T36795[ebp], eax
+	mov	DWORD PTR $T36803[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	ecx, DWORD PTR _facet$[ebp]
-	mov	edx, DWORD PTR $T36795[ebp]
+	mov	edx, DWORD PTR $T36803[ebp]
 	mov	DWORD PTR [ecx+36], edx
 
 ; 280  : 	facet->numplanes = numplanes;
@@ -2377,16 +2377,16 @@ $L36798:
 ; 282  : 	for( i = 0; i < facet->numplanes; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36390
-$L36391:
+	jmp	SHORT $L36398
+$L36399:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36390:
+$L36398:
 	mov	eax, DWORD PTR _facet$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	SHORT $L36392
+	jge	SHORT $L36400
 
 ; 284  : 		facet->planes[i] = planes[i];
 
@@ -2425,21 +2425,21 @@ $L36390:
 
 ; 287  : 	}
 
-	jmp	SHORT $L36391
-$L36392:
+	jmp	SHORT $L36399
+$L36400:
 
 ; 288  : 
 ; 289  : 	for( i = 0; i < 3; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36393
-$L36394:
+	jmp	SHORT $L36401
+$L36402:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36393:
+$L36401:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L36395
+	jge	SHORT $L36403
 
 ; 291  : 		// spread the mins / maxs by a pixel
 ; 292  : 		facet->mins[i] -= 1.0f;
@@ -2471,8 +2471,8 @@ $L36393:
 
 ; 294  : 	}
 
-	jmp	SHORT $L36394
-$L36395:
+	jmp	SHORT $L36402
+$L36403:
 
 ; 295  : 
 ; 296  : 	// added
@@ -2496,7 +2496,7 @@ $L36395:
 ; 300  : 	return true;
 
 	mov	al, 1
-$L36311:
+$L36319:
 
 ; 301  : }
 
@@ -2512,7 +2512,7 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?AddMeshTrinagle@CMeshDesc@@QAE_NQBVVector@@@Z$0:
-	mov	eax, DWORD PTR $T36796[ebp]
+	mov	eax, DWORD PTR $T36804[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
@@ -2575,7 +2575,7 @@ _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
 _flLen$ = -8
-$T36820 = -20
+$T36828 = -20
 ?Normalize@Vector@@QBE?AV1@XZ PROC NEAR			; Vector::Normalize, COMDAT
 
 ; 232  : 	{
@@ -2626,7 +2626,7 @@ $T36820 = -20
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36820[ebp]
+	lea	ecx, DWORD PTR $T36828[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -2696,7 +2696,7 @@ _TEXT	SEGMENT
 _a$ = 12
 _b$ = 16
 ___$ReturnUdt$ = 8
-$T36827 = -12
+$T36835 = -12
 ?CrossProduct@@YA?AVVector@@ABV1@0@Z PROC NEAR		; CrossProduct, COMDAT
 
 ; 291  : inline Vector CrossProduct( const Vector& a, const Vector& b ) { return Vector( a.y*b.z - a.z*b.y, a.z*b.x - a.x*b.z, a.x*b.y - a.y*b.x ); }
@@ -2740,7 +2740,7 @@ $T36827 = -12
 	fsubp	ST(1), ST(0)
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T36827[ebp]
+	lea	ecx, DWORD PTR $T36835[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -2800,22 +2800,22 @@ _node$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 68					; 00000044H
 	mov	DWORD PTR _node$[ebp], eax
-$L36404:
+$L36412:
 
 ; 307  : 
 ; 308  : 	while( 1 )
 
 	mov	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L36405
+	je	SHORT $L36413
 
 ; 310  : 		if( node->axis == -1 ) break;
 
 	mov	edx, DWORD PTR _node$[ebp]
 	cmp	DWORD PTR [edx], -1
-	jne	SHORT $L36406
-	jmp	SHORT $L36405
-$L36406:
+	jne	SHORT $L36414
+	jmp	SHORT $L36413
+$L36414:
 
 ; 311  : 		if( facet->mins[node->axis] > node->dist )
 
@@ -2828,7 +2828,7 @@ $L36406:
 	fcomp	DWORD PTR [ecx+4]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L36407
+	jne	SHORT $L36415
 
 ; 312  : 			node = node->children[0];
 
@@ -2838,8 +2838,8 @@ $L36406:
 
 ; 313  : 		else if( facet->maxs[node->axis] < node->dist )
 
-	jmp	SHORT $L36410
-$L36407:
+	jmp	SHORT $L36418
+$L36415:
 	mov	ecx, DWORD PTR _facet$[ebp]
 	add	ecx, 12					; 0000000cH
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
@@ -2850,7 +2850,7 @@ $L36407:
 	fcomp	DWORD PTR [ecx+4]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L36409
+	je	SHORT $L36417
 
 ; 314  : 			node = node->children[1];
 
@@ -2860,15 +2860,15 @@ $L36407:
 
 ; 315  : 		else break; // crosses the node
 
-	jmp	SHORT $L36410
-$L36409:
-	jmp	SHORT $L36405
-$L36410:
+	jmp	SHORT $L36418
+$L36417:
+	jmp	SHORT $L36413
+$L36418:
 
 ; 316  : 	}
 
-	jmp	SHORT $L36404
-$L36405:
+	jmp	SHORT $L36412
+$L36413:
 
 ; 317  : 	
 ; 318  : 	// link it in	
@@ -2905,7 +2905,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _i$ = -8
-_i$36422 = -12
+_i$36430 = -12
 ?FinishMeshBuild@CMeshDesc@@QAE_NXZ PROC NEAR		; CMeshDesc::FinishMeshBuild, COMDAT
 
 ; 323  : {
@@ -2922,7 +2922,7 @@ _i$36422 = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	jg	SHORT $L36415
+	jg	SHORT $L36423
 
 ; 326  : 		FreeMesh();
 
@@ -2939,21 +2939,21 @@ _i$36422 = -12
 ; 328  : 		return false;
 
 	xor	al, al
-	jmp	$L36414
-$L36415:
+	jmp	$L36422
+$L36423:
 
 ; 330  : 
 ; 331  : 	for( int i = 0; i < 3; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36418
-$L36419:
+	jmp	SHORT $L36426
+$L36427:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36418:
+$L36426:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L36420
+	jge	SHORT $L36428
 
 ; 333  : 		// spread the mins / maxs by a pixel
 ; 334  : 		m_mesh.mins[i] -= 1.0f;
@@ -2985,8 +2985,8 @@ $L36418:
 
 ; 336  : 	}
 
-	jmp	SHORT $L36419
-$L36420:
+	jmp	SHORT $L36427
+$L36428:
 
 ; 337  : 
 ; 338  : 	if( has_tree )
@@ -2995,7 +2995,7 @@ $L36420:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+1352]
 	test	eax, eax
-	je	SHORT $L36425
+	je	SHORT $L36433
 
 ; 340  : 		// create tree
 ; 341  : 		CreateAreaNode( 0, m_mesh.mins, m_mesh.maxs );
@@ -3012,21 +3012,21 @@ $L36420:
 ; 342  : 
 ; 343  : 		for( int i = 0; i < m_mesh.numfacets; i++ )
 
-	mov	DWORD PTR _i$36422[ebp], 0
-	jmp	SHORT $L36423
-$L36424:
-	mov	eax, DWORD PTR _i$36422[ebp]
+	mov	DWORD PTR _i$36430[ebp], 0
+	jmp	SHORT $L36431
+$L36432:
+	mov	eax, DWORD PTR _i$36430[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$36422[ebp], eax
-$L36423:
+	mov	DWORD PTR _i$36430[ebp], eax
+$L36431:
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _i$36422[ebp]
+	mov	edx, DWORD PTR _i$36430[ebp]
 	cmp	edx, DWORD PTR [ecx+24]
-	jge	SHORT $L36425
+	jge	SHORT $L36433
 
 ; 344  : 			RelinkFacet( &m_mesh.facets[i] );
 
-	mov	eax, DWORD PTR _i$36422[ebp]
+	mov	eax, DWORD PTR _i$36430[ebp]
 	imul	eax, 40					; 00000028H
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+28]
@@ -3034,8 +3034,8 @@ $L36423:
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RelinkFacet@CMeshDesc@@QAEXPAUmfacet_t@@@Z ; CMeshDesc::RelinkFacet
-	jmp	SHORT $L36424
-$L36425:
+	jmp	SHORT $L36432
+$L36433:
 
 ; 346  : 
 ; 347  : #if 0
@@ -3045,7 +3045,7 @@ $L36425:
 ; 351  : 	return true;
 
 	mov	al, 1
-$L36414:
+$L36422:
 
 ; 352  : }
 
@@ -3084,20 +3084,20 @@ _this$ = -4
 	mov	ecx, DWORD PTR _origin$[ebp]
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L36431
+	je	SHORT $L36439
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 56					; 00000038H
 	push	ecx
 	mov	ecx, DWORD PTR _angles$[ebp]
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L36431
+	je	SHORT $L36439
 
 ; 357  : 		return &m_mesh;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	jmp	SHORT $L36430
-$L36431:
+	jmp	SHORT $L36438
+$L36439:
 
 ; 358  : 
 ; 359  : 	// release old copy
@@ -3136,7 +3136,7 @@ $L36431:
 ; 366  : 	return NULL;
 
 	xor	eax, eax
-$L36430:
+$L36438:
 
 ; 367  : }
 
@@ -3169,26 +3169,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36838
+	je	SHORT $L36846
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36838
+	je	SHORT $L36846
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36838
+	je	SHORT $L36846
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L36839
-$L36838:
+	jmp	SHORT $L36847
+$L36846:
 	mov	DWORD PTR -8+[ebp], 0
-$L36839:
+$L36847:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi

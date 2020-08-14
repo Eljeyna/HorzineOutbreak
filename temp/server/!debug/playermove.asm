@@ -726,7 +726,7 @@ _szTemp$ = -20
 	mov	al, BYTE PTR _grgchTextureType[edx]
 	mov	BYTE PTR _chTemp$[ebp], al
 
-; 136  : 	
+; 136  : 
 ; 137  : 	strcpy( grgszTextureName[ i ], grgszTextureName[ j ] );
 
 	mov	ecx, DWORD PTR _j$[ebp]
@@ -892,10 +892,10 @@ _diff$ = -12
 _len$ = -16
 _curdist$ = -20
 _curpos$6478 = -32
-$T7916 = -44
-$T7917 = -56
-$T7918 = -68
-$T7919 = -80
+$T7915 = -44
+$T7916 = -56
+$T7917 = -68
+$T7918 = -80
 ?PM_ParticleLine@@YAXVVector@@0H@Z PROC NEAR		; PM_ParticleLine, COMDAT
 
 ; 167  : {
@@ -912,7 +912,7 @@ $T7919 = -80
 
 	lea	eax, DWORD PTR _start$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T7916[ebp]
+	lea	ecx, DWORD PTR $T7915[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _end$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -928,7 +928,7 @@ $T7919 = -80
 
 ; 171  : 	diff = diff.Normalize();
 
-	lea	edx, DWORD PTR $T7917[ebp]
+	lea	edx, DWORD PTR $T7916[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _diff$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -960,12 +960,12 @@ $L6476:
 	push	ecx
 	mov	edx, DWORD PTR _curdist$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T7918[ebp]
+	lea	eax, DWORD PTR $T7917[ebp]
 	push	eax
 	call	??D@YA?AVVector@@MABV0@@Z		; operator*
 	add	esp, 12					; 0000000cH
 	push	eax
-	lea	ecx, DWORD PTR $T7919[ebp]
+	lea	ecx, DWORD PTR $T7918[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -1051,7 +1051,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T7927 = -16
+$T7926 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -1081,7 +1081,7 @@ $T7927 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T7927[ebp]
+	lea	ecx, DWORD PTR $T7926[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1135,7 +1135,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T7932 = -16
+$T7931 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -1165,7 +1165,7 @@ $T7932 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T7932[ebp]
+	lea	ecx, DWORD PTR $T7931[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1257,7 +1257,7 @@ __real@4@3fff8000000000000000 DD 03f800000r	; 1
 CONST	ENDS
 ;	COMDAT ?Normalize@Vector@@QBE?AV1@XZ
 _TEXT	SEGMENT
-$T7939 = -20
+$T7938 = -20
 ___$ReturnUdt$ = 8
 _this$ = -4
 _flLen$ = -8
@@ -1311,7 +1311,7 @@ _flLen$ = -8
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T7939[ebp]
+	lea	ecx, DWORD PTR $T7938[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1343,7 +1343,7 @@ _TEXT	ENDS
 PUBLIC	??DVector@@QBE?AV0@M@Z				; Vector::operator*
 ;	COMDAT ??D@YA?AVVector@@MABV0@@Z
 _TEXT	SEGMENT
-$T7946 = -12
+$T7945 = -12
 _fl$ = 12
 _v$ = 16
 ___$ReturnUdt$ = 8
@@ -1359,7 +1359,7 @@ ___$ReturnUdt$ = 8
 	push	edi
 	mov	eax, DWORD PTR _fl$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T7946[ebp]
+	lea	ecx, DWORD PTR $T7945[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _v$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -1380,7 +1380,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T7949 = -16
+$T7948 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -1407,7 +1407,7 @@ $T7949 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T7949[ebp]
+	lea	ecx, DWORD PTR $T7948[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -1581,7 +1581,7 @@ $L6498:
 	jmp	SHORT $L6498
 $L6499:
 
-; 214  : 		
+; 214  : 
 ; 215  : 		if (!buffer[i])
 
 	mov	ecx, DWORD PTR _i$[ebp]
@@ -1658,7 +1658,7 @@ $L6504:
 	jmp	SHORT $L6504
 $L6505:
 
-; 228  : 		
+; 228  : 
 ; 229  : 		if (!buffer[i])
 
 	mov	edx, DWORD PTR _i$[ebp]
@@ -1721,15 +1721,15 @@ $L6510:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 12					; 0000000cH
 	cmp	DWORD PTR _j$[ebp], eax
-	jge	SHORT $L7952
+	jge	SHORT $L7951
 	mov	ecx, DWORD PTR _j$[ebp]
 	mov	DWORD PTR -540+[ebp], ecx
-	jmp	SHORT $L7953
-$L7952:
+	jmp	SHORT $L7952
+$L7951:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 12					; 0000000cH
 	mov	DWORD PTR -540+[ebp], edx
-$L7953:
+$L7952:
 	mov	eax, DWORD PTR -540+[ebp]
 	mov	DWORD PTR _j$[ebp], eax
 
@@ -1835,7 +1835,7 @@ _val$ = -16
 ; 259  : 	assert( pm_shared_initialized );
 
 	cmp	DWORD PTR _pm_shared_initialized, 0
-	jne	SHORT $L7956
+	jne	SHORT $L7955
 	movsx	eax, WORD PTR ?__LINE__Var@?1??PM_FindTextureType@@YADPAD@Z@4FA ; `PM_FindTextureType'::`2'::__LINE__Var
 	add	eax, 4
 	push	eax
@@ -1843,7 +1843,7 @@ _val$ = -16
 	push	OFFSET FLAT:??_C@_0BG@MKFG@pm_shared_initialized?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L7956:
+$L7955:
 
 ; 260  : 
 ; 261  : 	left = 0;
@@ -2006,7 +2006,7 @@ $L6538:
 	cmp	DWORD PTR -8+[ebp], 3
 	ja	SHORT $L6550
 	mov	ecx, DWORD PTR -8+[ebp]
-	jmp	DWORD PTR $L7959[ecx*4]
+	jmp	DWORD PTR $L7958[ecx*4]
 $L6546:
 
 ; 297  : 			// right foot
@@ -2091,7 +2091,7 @@ $L6534:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L7959:
+$L7958:
 	DD	$L6546
 	DD	$L6547
 	DD	$L6548
@@ -2366,7 +2366,7 @@ _iType$ = -24
 	jmp	$L6556
 $L6563:
 
-; 326  : 	
+; 326  : 
 ; 327  : 	irand = pmove->RandomLong(0,1) + ( pmove->iStepLeft * 2 );
 
 	push	1
@@ -2694,7 +2694,7 @@ $L6567:
 	cmp	DWORD PTR -32+[ebp], 7
 	ja	SHORT $L6592
 	mov	edx, DWORD PTR -32+[ebp]
-	jmp	DWORD PTR $L7964[edx*4]
+	jmp	DWORD PTR $L7963[edx*4]
 $L6592:
 
 ; 394  : 		{
@@ -2704,7 +2704,7 @@ $L6592:
 	cmp	DWORD PTR -36+[ebp], 3
 	ja	$L6594
 	mov	ecx, DWORD PTR -36+[ebp]
-	jmp	DWORD PTR $L7965[ecx*4]
+	jmp	DWORD PTR $L7964[ecx*4]
 $L6597:
 
 ; 395  : 		// right foot
@@ -2780,7 +2780,7 @@ $L6609:
 	cmp	DWORD PTR -40+[ebp], 3
 	ja	$L6611
 	mov	edx, DWORD PTR -40+[ebp]
-	jmp	DWORD PTR $L7966[edx*4]
+	jmp	DWORD PTR $L7965[edx*4]
 $L6614:
 
 ; 406  : 		// right foot
@@ -2856,7 +2856,7 @@ $L6626:
 	cmp	DWORD PTR -44+[ebp], 3
 	ja	$L6628
 	mov	eax, DWORD PTR -44+[ebp]
-	jmp	DWORD PTR $L7967[eax*4]
+	jmp	DWORD PTR $L7966[eax*4]
 $L6631:
 
 ; 417  : 		// right foot
@@ -2932,7 +2932,7 @@ $L6643:
 	cmp	DWORD PTR -48+[ebp], 3
 	ja	$L6645
 	mov	ecx, DWORD PTR -48+[ebp]
-	jmp	DWORD PTR $L7968[ecx*4]
+	jmp	DWORD PTR $L7967[ecx*4]
 $L6648:
 
 ; 428  : 		// right foot
@@ -3008,7 +3008,7 @@ $L6660:
 	cmp	DWORD PTR -52+[ebp], 3
 	ja	$L6662
 	mov	edx, DWORD PTR -52+[ebp]
-	jmp	DWORD PTR $L7969[edx*4]
+	jmp	DWORD PTR $L7968[edx*4]
 $L6665:
 
 ; 439  : 		// right foot
@@ -3100,7 +3100,7 @@ $L6678:
 	cmp	DWORD PTR -56+[ebp], 4
 	ja	$L6680
 	mov	ecx, DWORD PTR -56+[ebp]
-	jmp	DWORD PTR $L7970[ecx*4]
+	jmp	DWORD PTR $L7969[ecx*4]
 $L6683:
 
 ; 452  : 		// right foot
@@ -3191,7 +3191,7 @@ $L6698:
 	cmp	DWORD PTR -60+[ebp], 3
 	ja	$L6700
 	mov	ecx, DWORD PTR -60+[ebp]
-	jmp	DWORD PTR $L7971[ecx*4]
+	jmp	DWORD PTR $L7970[ecx*4]
 $L6703:
 
 ; 464  : 		// right foot
@@ -3299,7 +3299,7 @@ $L6717:
 	cmp	DWORD PTR -64+[ebp], 3
 	ja	$L6719
 	mov	edx, DWORD PTR -64+[ebp]
-	jmp	DWORD PTR $L7972[edx*4]
+	jmp	DWORD PTR $L7971[edx*4]
 $L6722:
 
 ; 486  : 		// right foot
@@ -3375,7 +3375,7 @@ $L6734:
 	cmp	DWORD PTR -68+[ebp], 3
 	ja	$L6736
 	mov	eax, DWORD PTR -68+[ebp]
-	jmp	DWORD PTR $L7973[eax*4]
+	jmp	DWORD PTR $L7972[eax*4]
 $L6739:
 
 ; 497  : 		// right foot
@@ -3441,7 +3441,7 @@ $L6736:
 $L6589:
 $L6556:
 
-; 506  : }	
+; 506  : }
 
 	pop	edi
 	pop	esi
@@ -3449,7 +3449,7 @@ $L6556:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L7964:
+$L7963:
 	DD	$L6609
 	DD	$L6626
 	DD	$L6643
@@ -3458,48 +3458,48 @@ $L7964:
 	DD	$L6698
 	DD	$L6715
 	DD	$L6734
-$L7965:
+$L7964:
 	DD	$L6597
 	DD	$L6600
 	DD	$L6603
 	DD	$L6606
-$L7966:
+$L7965:
 	DD	$L6614
 	DD	$L6617
 	DD	$L6620
 	DD	$L6623
-$L7967:
+$L7966:
 	DD	$L6631
 	DD	$L6634
 	DD	$L6637
 	DD	$L6640
-$L7968:
+$L7967:
 	DD	$L6648
 	DD	$L6651
 	DD	$L6654
 	DD	$L6657
-$L7969:
+$L7968:
 	DD	$L6665
 	DD	$L6668
 	DD	$L6671
 	DD	$L6674
-$L7970:
+$L7969:
 	DD	$L6683
 	DD	$L6686
 	DD	$L6689
 	DD	$L6692
 	DD	$L6695
-$L7971:
+$L7970:
 	DD	$L6703
 	DD	$L6706
 	DD	$L6709
 	DD	$L6712
-$L7972:
+$L7971:
 	DD	$L6722
 	DD	$L6725
 	DD	$L6728
 	DD	$L6731
-$L7973:
+$L7972:
 	DD	$L6739
 	DD	$L6742
 	DD	$L6745
@@ -3532,36 +3532,36 @@ _chTextureType$ = 8
 	ja	SHORT $L6758
 	mov	eax, DWORD PTR -4+[ebp]
 	xor	edx, edx
-	mov	dl, BYTE PTR $L7976[eax]
-	jmp	DWORD PTR $L7977[edx*4]
+	mov	dl, BYTE PTR $L7975[eax]
+	jmp	DWORD PTR $L7976[edx*4]
 $L6758:
 
 ; 512  : 		default:
-; 513  : 		case CHAR_TEX_CONCRETE:	return STEP_CONCRETE;	
+; 513  : 		case CHAR_TEX_CONCRETE:	return STEP_CONCRETE;
 
 	xor	eax, eax
 	jmp	SHORT $L6755
 $L6759:
 
-; 514  : 		case CHAR_TEX_METAL: return STEP_METAL;	
+; 514  : 		case CHAR_TEX_METAL: return STEP_METAL;
 
 	mov	eax, 1
 	jmp	SHORT $L6755
 $L6760:
 
-; 515  : 		case CHAR_TEX_DIRT: return STEP_DIRT;	
+; 515  : 		case CHAR_TEX_DIRT: return STEP_DIRT;
 
 	mov	eax, 2
 	jmp	SHORT $L6755
 $L6761:
 
-; 516  : 		case CHAR_TEX_VENT: return STEP_VENT;	
+; 516  : 		case CHAR_TEX_VENT: return STEP_VENT;
 
 	mov	eax, 3
 	jmp	SHORT $L6755
 $L6762:
 
-; 517  : 		case CHAR_TEX_GRATE: return STEP_GRATE;	
+; 517  : 		case CHAR_TEX_GRATE: return STEP_GRATE;
 
 	mov	eax, 4
 	jmp	SHORT $L6755
@@ -3586,7 +3586,7 @@ $L6755:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L7977:
+$L7976:
 	DD	$L6760
 	DD	$L6762
 	DD	$L6759
@@ -3594,7 +3594,7 @@ $L7977:
 	DD	$L6763
 	DD	$L6761
 	DD	$L6758
-$L7976:
+$L7975:
 	DB	0
 	DB	6
 	DB	6
@@ -3768,7 +3768,7 @@ $L6775:
 $L6774:
 
 ; 554  : 	// '}}'
-; 555  : 	
+; 555  : 
 ; 556  : 	strcpy( pmove->sztexturename, pTextureName);
 
 	mov	ecx, DWORD PTR _pTextureName$[ebp]
@@ -3784,9 +3784,9 @@ $L6774:
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	BYTE PTR [eax+252], 0
 
-; 558  : 		
+; 558  : 
 ; 559  : 	// get texture type
-; 560  : 	pmove->chtexturetype = PM_FindTextureType( pmove->sztexturename );	
+; 560  : 	pmove->chtexturetype = PM_FindTextureType( pmove->sztexturename );
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 240				; 000000f0H
@@ -3929,7 +3929,7 @@ $L6792:
 	mov	DWORD PTR _fLadder$[ebp], ecx
 
 ; 590  : 
-; 591  : 	// UNDONE: need defined numbers for run, walk, crouch, crouch run velocities!!!!	
+; 591  : 	// UNDONE: need defined numbers for run, walk, crouch, crouch run velocities!!!!
 ; 592  : 	if ( ( pmove->flags & FL_DUCKING) || fLadder )
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -3997,18 +3997,18 @@ $L6797:
 	jne	$L6796
 $L6798:
 
-; 612  : 		fWalking = speed < velrun;		
+; 612  : 		fWalking = speed < velrun;
 
 	fld	DWORD PTR _speed$[ebp]
 	fcomp	DWORD PTR _velrun$[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L7984
+	je	SHORT $L7983
 	mov	DWORD PTR -76+[ebp], 1
-	jmp	SHORT $L7985
-$L7984:
+	jmp	SHORT $L7984
+$L7983:
 	mov	DWORD PTR -76+[ebp], 0
-$L7985:
+$L7984:
 	mov	eax, DWORD PTR -76+[ebp]
 	mov	DWORD PTR _fWalking$[ebp], eax
 
@@ -4157,18 +4157,18 @@ $L6801:
 ; 637  : 			fvol = fWalking ? 0.2 : 0.5;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7986
+	je	SHORT $L7985
 	mov	DWORD PTR -100+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -100+[ebp+4], 1070176665	; 3fc99999H
-	jmp	SHORT $L7987
-$L7986:
+	jmp	SHORT $L7986
+$L7985:
 	mov	DWORD PTR -100+[ebp], 0
 	mov	DWORD PTR -100+[ebp+4], 1071644672	; 3fe00000H
-$L7987:
+$L7986:
 	fld	QWORD PTR -100+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
-; 638  : 			pmove->flTimeStepSound = fWalking ? 400 : 300;		
+; 638  : 			pmove->flTimeStepSound = fWalking ? 400 : 300;
 
 	mov	eax, DWORD PTR _fWalking$[ebp]
 	neg	eax
@@ -4183,7 +4183,7 @@ $L7987:
 	jmp	$L6806
 $L6803:
 
-; 642  : 			// find texture under player, if different from current texture, 
+; 642  : 			// find texture under player, if different from current texture,
 ; 643  : 			// get material type
 ; 644  : 			step = PM_MapTextureTypeStepType( pmove->chtexturetype );
 
@@ -4206,23 +4206,23 @@ $L6803:
 	ja	SHORT $L6809
 	mov	edx, DWORD PTR -104+[ebp]
 	xor	ecx, ecx
-	mov	cl, BYTE PTR $L8011[edx]
-	jmp	DWORD PTR $L8012[ecx*4]
+	mov	cl, BYTE PTR $L8010[edx]
+	jmp	DWORD PTR $L8011[ecx*4]
 $L6809:
 
 ; 648  : 			default:
-; 649  : 			case CHAR_TEX_CONCRETE:						
+; 649  : 			case CHAR_TEX_CONCRETE:
 ; 650  : 				fvol = fWalking ? 0.2 : 0.5;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7988
+	je	SHORT $L7987
 	mov	DWORD PTR -112+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -112+[ebp+4], 1070176665	; 3fc99999H
-	jmp	SHORT $L7989
-$L7988:
+	jmp	SHORT $L7988
+$L7987:
 	mov	DWORD PTR -112+[ebp], 0
 	mov	DWORD PTR -112+[ebp+4], 1071644672	; 3fe00000H
-$L7989:
+$L7988:
 	fld	QWORD PTR -112+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4242,18 +4242,18 @@ $L7989:
 $L6810:
 
 ; 653  : 
-; 654  : 			case CHAR_TEX_METAL:	
+; 654  : 			case CHAR_TEX_METAL:
 ; 655  : 				fvol = fWalking ? 0.2 : 0.5;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7990
+	je	SHORT $L7989
 	mov	DWORD PTR -120+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -120+[ebp+4], 1070176665	; 3fc99999H
-	jmp	SHORT $L7991
-$L7990:
+	jmp	SHORT $L7990
+$L7989:
 	mov	DWORD PTR -120+[ebp], 0
 	mov	DWORD PTR -120+[ebp+4], 1071644672	; 3fe00000H
-$L7991:
+$L7990:
 	fld	QWORD PTR -120+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4273,18 +4273,18 @@ $L7991:
 $L6811:
 
 ; 658  : 
-; 659  : 			case CHAR_TEX_DIRT:	
+; 659  : 			case CHAR_TEX_DIRT:
 ; 660  : 				fvol = fWalking ? 0.25 : 0.55;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7992
+	je	SHORT $L7991
 	mov	DWORD PTR -128+[ebp], 0
 	mov	DWORD PTR -128+[ebp+4], 1070596096	; 3fd00000H
-	jmp	SHORT $L7993
-$L7992:
+	jmp	SHORT $L7992
+$L7991:
 	mov	DWORD PTR -128+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -128+[ebp+4], 1071749529	; 3fe19999H
-$L7993:
+$L7992:
 	fld	QWORD PTR -128+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4304,18 +4304,18 @@ $L7993:
 $L6812:
 
 ; 663  : 
-; 664  : 			case CHAR_TEX_VENT:	
+; 664  : 			case CHAR_TEX_VENT:
 ; 665  : 				fvol = fWalking ? 0.4 : 0.7;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7994
+	je	SHORT $L7993
 	mov	DWORD PTR -136+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -136+[ebp+4], 1071225241	; 3fd99999H
-	jmp	SHORT $L7995
-$L7994:
+	jmp	SHORT $L7994
+$L7993:
 	mov	DWORD PTR -136+[ebp], 1717986918	; 66666666H
 	mov	DWORD PTR -136+[ebp+4], 1072064102	; 3fe66666H
-$L7995:
+$L7994:
 	fld	QWORD PTR -136+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4339,14 +4339,14 @@ $L6813:
 ; 670  : 				fvol = fWalking ? 0.2 : 0.5;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7996
+	je	SHORT $L7995
 	mov	DWORD PTR -144+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -144+[ebp+4], 1070176665	; 3fc99999H
-	jmp	SHORT $L7997
-$L7996:
+	jmp	SHORT $L7996
+$L7995:
 	mov	DWORD PTR -144+[ebp], 0
 	mov	DWORD PTR -144+[ebp+4], 1071644672	; 3fe00000H
-$L7997:
+$L7996:
 	fld	QWORD PTR -144+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4366,18 +4366,18 @@ $L7997:
 $L6814:
 
 ; 673  : 
-; 674  : 			case CHAR_TEX_TILE:	
+; 674  : 			case CHAR_TEX_TILE:
 ; 675  : 				fvol = fWalking ? 0.2 : 0.5;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L7998
+	je	SHORT $L7997
 	mov	DWORD PTR -152+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -152+[ebp+4], 1070176665	; 3fc99999H
-	jmp	SHORT $L7999
-$L7998:
+	jmp	SHORT $L7998
+$L7997:
 	mov	DWORD PTR -152+[ebp], 0
 	mov	DWORD PTR -152+[ebp+4], 1071644672	; 3fe00000H
-$L7999:
+$L7998:
 	fld	QWORD PTR -152+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4401,14 +4401,14 @@ $L6815:
 ; 680  : 				fvol = fWalking ? 0.2 : 0.5;
 
 	cmp	DWORD PTR _fWalking$[ebp], 0
-	je	SHORT $L8000
+	je	SHORT $L7999
 	mov	DWORD PTR -160+[ebp], -1717986918	; 9999999aH
 	mov	DWORD PTR -160+[ebp+4], 1070176665	; 3fc99999H
-	jmp	SHORT $L8001
-$L8000:
+	jmp	SHORT $L8000
+$L7999:
 	mov	DWORD PTR -160+[ebp], 0
 	mov	DWORD PTR -160+[ebp+4], 1071644672	; 3fe00000H
-$L8001:
+$L8000:
 	fld	QWORD PTR -160+[ebp]
 	fstp	DWORD PTR _fvol$[ebp]
 
@@ -4423,7 +4423,7 @@ $L8001:
 	mov	DWORD PTR [ecx+148], eax
 $L6806:
 
-; 685  : 		
+; 685  : 
 ; 686  : 		pmove->flTimeStepSound += flduck; // slower step time if ducking
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -4471,7 +4471,7 @@ $L6778:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L8012:
+$L8011:
 	DD	$L6811
 	DD	$L6813
 	DD	$L6810
@@ -4479,7 +4479,7 @@ $L8012:
 	DD	$L6814
 	DD	$L6812
 	DD	$L6809
-$L8011:
+$L8010:
 	DB	0
 	DB	6
 	DB	6
@@ -4789,7 +4789,7 @@ $L6842:
 
 ; 764  : 
 ; 765  : 		// Bound it.
-; 766  : 		if (pmove->velocity[i] > pmove->movevars->maxvelocity) 
+; 766  : 		if (pmove->velocity[i] > pmove->movevars->maxvelocity)
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
@@ -4918,7 +4918,7 @@ _blocked$ = -20
 ; 792  : 	float	change;
 ; 793  : 	float angle;
 ; 794  : 	int		i, blocked;
-; 795  : 	
+; 795  : 
 ; 796  : 	angle = normal[ 2 ];
 
 	lea	ecx, DWORD PTR _normal$[ebp]
@@ -4939,7 +4939,7 @@ _blocked$ = -20
 	test	ah, 65					; 00000041H
 	jne	SHORT $L6860
 
-; 800  : 		blocked |= 0x01;		// 
+; 800  : 		blocked |= 0x01;		//
 
 	mov	ecx, DWORD PTR _blocked$[ebp]
 	or	ecx, 1
@@ -4954,14 +4954,14 @@ $L6860:
 	test	ah, 64					; 00000040H
 	je	SHORT $L6861
 
-; 802  : 		blocked |= 0x02;		// 
+; 802  : 		blocked |= 0x02;		//
 
 	mov	edx, DWORD PTR _blocked$[ebp]
 	or	edx, 2
 	mov	DWORD PTR _blocked$[ebp], edx
 $L6861:
 
-; 803  : 	
+; 803  : 
 ; 804  : 	// Determine how far along plane to slide based on incoming direction.
 ; 805  : 	// Scale by overbounce factor.
 ; 806  : 	backoff = DotProduct (in, normal) * overbounce;
@@ -5044,7 +5044,7 @@ $L6865:
 	jmp	$L6863
 $L6864:
 
-; 816  : 	
+; 816  : 
 ; 817  : 	// Return blocking flags.
 ; 818  : 	return blocked;
 
@@ -5155,7 +5155,7 @@ $L6871:
 
 ; 832  : 
 ; 833  : 	// Add gravity so they'll be in the correct position during movement
-; 834  : 	// yes, this 0.5 looks wrong, but it's not.  
+; 834  : 	// yes, this 0.5 looks wrong, but it's not.
 ; 835  : 	pmove->velocity[2] -= (ent_gravity * pmove->movevars->gravity * 0.5 * pmove->frametime );
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -5275,7 +5275,7 @@ $L6876:
 $L6877:
 
 ; 854  : 
-; 855  : 	// Get the correct velocity for the end of the dt 
+; 855  : 	// Get the correct velocity for the end of the dt
 ; 856  :   	pmove->velocity[2] -= (ent_gravity * pmove->movevars->gravity * pmove->frametime * 0.5 );
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -5351,9 +5351,9 @@ _time_left$ = -212
 _allFraction$ = -216
 _blocked$ = -220
 _bumpcount$ = -224
-$T8031 = -292
-$T8040 = -336
-$T8041 = -348
+$T8030 = -292
+$T8039 = -336
+$T8040 = -348
 ?PM_FlyMove@@YAHXZ PROC NEAR				; PM_FlyMove, COMDAT
 
 ; 869  : {
@@ -5407,12 +5407,12 @@ $T8041 = -348
 
 ; 880  : 	float		time_left, allFraction;
 ; 881  : 	int			blocked;
-; 882  : 		
+; 882  : 
 ; 883  : 	numbumps  = 4;           // Bump up to four times
 
 	mov	DWORD PTR _numbumps$[ebp], 4
 
-; 884  : 	
+; 884  : 
 ; 885  : 	blocked   = 0;           // Assume not blocked
 
 	mov	DWORD PTR _blocked$[ebp], 0
@@ -5438,7 +5438,7 @@ $T8041 = -348
 	mov	ecx, DWORD PTR _primal_velocity$[ebp+8]
 	mov	DWORD PTR _original_velocity$[ebp+8], ecx
 
-; 888  : 	
+; 888  : 
 ; 889  : 	allFraction = 0;
 
 	mov	DWORD PTR _allFraction$[ebp], 0
@@ -5528,7 +5528,7 @@ $L6904:
 	add	ecx, 56					; 00000038H
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	eax, DWORD PTR $T8031[ebp]
+	lea	eax, DWORD PTR $T8030[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [ecx+324992]
@@ -5582,7 +5582,7 @@ $L6906:
 
 ; 917  : 
 ; 918  : 		// If we moved some portion of the total distance, then
-; 919  : 		//  copy the end position into the pmove->origin and 
+; 919  : 		//  copy the end position into the pmove->origin and
 ; 920  : 		//  zero the plane counter.
 ; 921  : 		if( trace.fraction > 0 )
 
@@ -5677,7 +5677,7 @@ $L6908:
 	mov	DWORD PTR _blocked$[ebp], ecx
 $L6911:
 
-; 948  : 		// If the plane has a zero z component in the normal, then it's a 
+; 948  : 		// If the plane has a zero z component in the normal, then it's a
 ; 949  : 		//  step or wall
 ; 950  : 		if( !trace.plane.normal.z )
 
@@ -5704,7 +5704,7 @@ $L6912:
 	fsubr	DWORD PTR _time_left$[ebp]
 	fstp	DWORD PTR _time_left$[ebp]
 
-; 959  : 		
+; 959  : 
 ; 960  : 		// Did we run out of planes to clip against?
 ; 961  : 		if( numplanes >= MAX_CLIP_PLANES )
 
@@ -5824,7 +5824,7 @@ $L6916:
 	mov	eax, DWORD PTR _new_velocity$[ebp+8]
 	mov	DWORD PTR _original_velocity$[ebp+8], eax
 
-; 986  : 				else															
+; 986  : 				else
 
 	jmp	SHORT $L6922
 $L6919:
@@ -5984,7 +5984,7 @@ $L6936:
 	jmp	$L6927
 $L6928:
 
-; 1011 : 			
+; 1011 : 
 ; 1012 : 			// Did we go all the way through plane set
 ; 1013 : 			if( i != numplanes )
 
@@ -6027,7 +6027,7 @@ $L6939:
 	push	ecx
 	lea	edx, DWORD PTR _planes$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T8040[ebp]
+	lea	eax, DWORD PTR $T8039[ebp]
 	push	eax
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
@@ -6053,7 +6053,7 @@ $L6939:
 
 	mov	eax, DWORD PTR _d$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8041[ebp]
+	lea	ecx, DWORD PTR $T8040[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _dir$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -6164,26 +6164,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L8050
+	je	SHORT $L8049
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L8050
+	je	SHORT $L8049
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L8050
+	je	SHORT $L8049
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L8051
-$L8050:
+	jmp	SHORT $L8050
+$L8049:
 	mov	DWORD PTR -8+[ebp], 0
-$L8051:
+$L8050:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -6198,7 +6198,7 @@ _TEXT	SEGMENT
 _a$ = 12
 _b$ = 16
 ___$ReturnUdt$ = 8
-$T8054 = -12
+$T8053 = -12
 ?CrossProduct@@YA?AVVector@@ABV1@0@Z PROC NEAR		; CrossProduct, COMDAT
 
 ; 291  : inline Vector CrossProduct( const Vector& a, const Vector& b ) { return Vector( a.y*b.z - a.z*b.y, a.z*b.x - a.x*b.z, a.x*b.y - a.y*b.x ); }
@@ -6242,7 +6242,7 @@ $T8054 = -12
 	fsubp	ST(1), ST(0)
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T8054[ebp]
+	lea	ecx, DWORD PTR $T8053[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -6505,7 +6505,7 @@ $L6965:
 	fmul	DWORD PTR [edx+196]
 	fstp	DWORD PTR _accelspeed$[ebp]
 
-; 1084 : 	
+; 1084 : 
 ; 1085 : 	// Cap at addspeed
 ; 1086 : 	if (accelspeed > addspeed)
 
@@ -6521,7 +6521,7 @@ $L6965:
 	mov	DWORD PTR _accelspeed$[ebp], eax
 $L6966:
 
-; 1088 : 	
+; 1088 : 
 ; 1089 : 	// Adjust velocity.
 ; 1090 : 	for (i=0 ; i<3 ; i++)
 
@@ -6535,7 +6535,7 @@ $L6967:
 	cmp	DWORD PTR _i$[ebp], 3
 	jge	SHORT $L6969
 
-; 1092 : 		pmove->velocity[i] += accelspeed * wishdir[i];	
+; 1092 : 		pmove->velocity[i] += accelspeed * wishdir[i];
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
@@ -6592,12 +6592,12 @@ _downvel$ = -124
 _downdist$ = -128
 _updist$ = -132
 _trace$ = -200
-$T8067 = -212
-$T8068 = -224
-$T8069 = -236
-$T8071 = -308
-$T8072 = -376
-$T8073 = -444
+$T8066 = -212
+$T8067 = -224
+$T8068 = -236
+$T8070 = -308
+$T8071 = -376
+$T8072 = -444
 ?PM_WalkMove@@YAXXZ PROC NEAR				; PM_WalkMove, COMDAT
 
 ; 1104 : {
@@ -6655,7 +6655,7 @@ $T8073 = -444
 	lea	ecx, DWORD PTR _trace$[ebp]
 	call	??0pmtrace_s@@QAE@XZ			; pmtrace_s::pmtrace_s
 
-; 1121 : 	
+; 1121 : 
 ; 1122 : 	// Copy movement amounts
 ; 1123 : 	fmove = pmove->cmd.forwardmove;
 
@@ -6669,7 +6669,7 @@ $T8073 = -444
 	mov	eax, DWORD PTR [edx+283756]
 	mov	DWORD PTR _smove$[ebp], eax
 
-; 1125 : 	
+; 1125 : 
 ; 1126 : 	// Zero out z components of movement vectors
 ; 1127 : 	pmove->forward[2] = 0;
 
@@ -6685,10 +6685,10 @@ $T8073 = -444
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	mov	DWORD PTR [eax+8], 0
 
-; 1129 : 	
+; 1129 : 
 ; 1130 : 	pmove->forward = pmove->forward.Normalize();  // Normalize remainder of vectors.
 
-	lea	ecx, DWORD PTR $T8067[ebp]
+	lea	ecx, DWORD PTR $T8066[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 20					; 00000014H
@@ -6702,9 +6702,9 @@ $T8073 = -444
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
 
-; 1131 : 	pmove->right = pmove->right.Normalize();    // 
+; 1131 : 	pmove->right = pmove->right.Normalize();    //
 
-	lea	ecx, DWORD PTR $T8068[ebp]
+	lea	ecx, DWORD PTR $T8067[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 32					; 00000020H
@@ -6756,7 +6756,7 @@ $L6993:
 	jmp	SHORT $L6994
 $L6995:
 
-; 1135 : 	
+; 1135 : 
 ; 1136 : 	wishvel[2] = 0;             // Zero out z part of velocity
 
 	lea	ecx, DWORD PTR _wishvel$[ebp]
@@ -6781,7 +6781,7 @@ $L6995:
 
 ; 1140 : 	wishdir = wishdir.Normalize();
 
-	lea	edx, DWORD PTR $T8069[ebp]
+	lea	edx, DWORD PTR $T8068[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _wishdir$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -6910,7 +6910,7 @@ $L6999:
 	mov	DWORD PTR _oldonground$[ebp], edx
 
 ; 1172 : 
-; 1173 : 	// first try just moving to the destination	
+; 1173 : 	// first try just moving to the destination
 ; 1174 : 	dest[0] = pmove->origin[0] + pmove->velocity[0] * pmove->frametime;
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -6930,7 +6930,7 @@ $L6999:
 	mov	edx, DWORD PTR -456+[ebp]
 	mov	DWORD PTR [eax], edx
 
-; 1175 : 	dest[1] = pmove->origin[1] + pmove->velocity[1] * pmove->frametime;	
+; 1175 : 	dest[1] = pmove->origin[1] + pmove->velocity[1] * pmove->frametime;
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 56					; 00000038H
@@ -6982,7 +6982,7 @@ $L6999:
 	add	ecx, 56					; 00000038H
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	edx, DWORD PTR $T8071[ebp]
+	lea	edx, DWORD PTR $T8070[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [eax+324992]
@@ -7150,7 +7150,7 @@ $L7004:
 	fadd	DWORD PTR [ecx+48]
 	fstp	DWORD PTR _dest$[ebp+8]
 
-; 1215 : 	
+; 1215 : 
 ; 1216 : 	trace = pmove->PM_PlayerTrace (pmove->origin, dest, PM_NORMAL, -1 );
 
 	push	-1
@@ -7162,7 +7162,7 @@ $L7004:
 	add	ecx, 56					; 00000038H
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	edx, DWORD PTR $T8072[ebp]
+	lea	edx, DWORD PTR $T8071[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [eax+324992]
@@ -7223,7 +7223,7 @@ $L7006:
 	fsub	DWORD PTR [edx+48]
 	fstp	DWORD PTR _dest$[ebp+8]
 
-; 1232 : 	
+; 1232 : 
 ; 1233 : 	trace = pmove->PM_PlayerTrace (pmove->origin, dest, PM_NORMAL, -1 );
 
 	push	-1
@@ -7235,7 +7235,7 @@ $L7006:
 	add	ecx, 56					; 00000038H
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	eax, DWORD PTR $T8073[ebp]
+	lea	eax, DWORD PTR $T8072[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [ecx+324992]
@@ -7564,7 +7564,7 @@ _newvel$ = -32
 _start$7026 = -44
 _stop$7027 = -56
 _trace$7028 = -124
-$T8080 = -192
+$T8079 = -192
 ?PM_Friction@@YAXXZ PROC NEAR				; PM_Friction, COMDAT
 
 ; 1275 : {
@@ -7584,7 +7584,7 @@ $T8080 = -192
 	lea	ecx, DWORD PTR _newvel$[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
-; 1280 : 	
+; 1280 : 
 ; 1281 : 	// If we are in water jump cycle, don't apply friction
 ; 1282 : 	if (pmove->waterjumptime)
 
@@ -7600,7 +7600,7 @@ $T8080 = -192
 	jmp	$L7016
 $L7023:
 
-; 1284 : 	
+; 1284 : 
 ; 1285 : 	// Calculate speed
 ; 1286 : 	speed = sqrt( DotProduct( pmove->velocity, pmove->velocity ));
 
@@ -7616,7 +7616,7 @@ $L7023:
 	add	esp, 8
 	fstp	DWORD PTR _speed$[ebp]
 
-; 1287 : 	
+; 1287 : 
 ; 1288 : 	// If too slow, return
 ; 1289 : 	if (speed < 0.1f)
 
@@ -7753,7 +7753,7 @@ $L7024:
 	lea	ecx, DWORD PTR _start$7026[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	edx, DWORD PTR $T8080[ebp]
+	lea	edx, DWORD PTR $T8079[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [eax+324992]
@@ -7795,9 +7795,9 @@ $L7030:
 	mov	DWORD PTR _friction$[ebp], ecx
 $L7031:
 
-; 1313 : 		
+; 1313 : 
 ; 1314 : 		// Grab friction value.
-; 1315 : 		//friction = pmove->movevars->friction;      
+; 1315 : 		//friction = pmove->movevars->friction;
 ; 1316 : 
 ; 1317 : 		friction *= pmove->friction;  // player friction?
 
@@ -7818,16 +7818,16 @@ $L7031:
 	fcomp	DWORD PTR [ecx+4]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L8081
+	je	SHORT $L8080
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	eax, DWORD PTR [edx+324848]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR -220+[ebp], ecx
-	jmp	SHORT $L8082
-$L8081:
+	jmp	SHORT $L8081
+$L8080:
 	mov	edx, DWORD PTR _speed$[ebp]
 	mov	DWORD PTR -220+[ebp], edx
-$L8082:
+$L8081:
 	mov	eax, DWORD PTR -220+[ebp]
 	mov	DWORD PTR _control$[ebp], eax
 
@@ -7930,7 +7930,7 @@ _wishspd$ = -20
 	mov	eax, DWORD PTR _wishspeed$[ebp]
 	mov	DWORD PTR _wishspd$[ebp], eax
 
-; 1347 : 		
+; 1347 : 
 ; 1348 : 	if (pmove->dead)
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -8032,7 +8032,7 @@ $L7046:
 	mov	DWORD PTR _accelspeed$[ebp], ecx
 $L7047:
 
-; 1370 : 	
+; 1370 : 
 ; 1371 : 	// Adjust pmove vel.
 ; 1372 : 	for (i=0 ; i<3 ; i++)
 
@@ -8046,7 +8046,7 @@ $L7048:
 	cmp	DWORD PTR _i$[ebp], 3
 	jge	SHORT $L7050
 
-; 1374 : 		pmove->velocity[i] += accelspeed*wishdir[i];	
+; 1374 : 		pmove->velocity[i] += accelspeed*wishdir[i];
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
@@ -8106,11 +8106,11 @@ _speed$ = -140
 _newspeed$ = -144
 _addspeed$ = -148
 _accelspeed$ = -152
-$T8093 = -164
-$T8094 = -176
-$T8095 = -188
-$T8096 = -200
-$T8097 = -268
+$T8092 = -164
+$T8093 = -176
+$T8094 = -188
+$T8095 = -200
+$T8096 = -268
 ?PM_WaterMove@@YAXXZ PROC NEAR				; PM_WaterMove, COMDAT
 
 ; 1385 : {
@@ -8272,7 +8272,7 @@ $L7070:
 
 ; 1411 : 	wishdir = wishdir.Normalize();
 
-	lea	eax, DWORD PTR $T8093[ebp]
+	lea	eax, DWORD PTR $T8092[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _wishdir$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -8425,7 +8425,7 @@ $L7076:
 ; 1448 : 
 ; 1449 : 		wishvel = wishvel.Normalize();
 
-	lea	ecx, DWORD PTR $T8094[ebp]
+	lea	ecx, DWORD PTR $T8093[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _wishvel$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -8503,13 +8503,13 @@ $L7082:
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	edx, DWORD PTR [ecx+16]
 	push	edx
-	lea	eax, DWORD PTR $T8095[ebp]
+	lea	eax, DWORD PTR $T8094[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T8096[ebp]
+	lea	ecx, DWORD PTR $T8095[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 56					; 00000038H
@@ -8530,7 +8530,7 @@ $L7082:
 	mov	edx, DWORD PTR _dest$[ebp+8]
 	mov	DWORD PTR _start$[ebp+8], edx
 
-; 1462 : 	
+; 1462 : 
 ; 1463 : 	start[2] += pmove->movevars->stepsize + 1;
 
 	lea	ecx, DWORD PTR _start$[ebp]
@@ -8556,7 +8556,7 @@ $L7082:
 	lea	ecx, DWORD PTR _start$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	ecx, DWORD PTR $T8097[ebp]
+	lea	ecx, DWORD PTR $T8096[ebp]
 	push	ecx
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [edx+324992]
@@ -8590,7 +8590,7 @@ $L7082:
 	jmp	SHORT $L7053
 $L7086:
 
-; 1471 : 	
+; 1471 : 
 ; 1472 : 	// Try moving straight along out normal path.
 ; 1473 : 	PM_FlyMove ();
 
@@ -8610,9 +8610,9 @@ _TEXT	ENDS
 PUBLIC	?PM_AirMove@@YAXXZ				; PM_AirMove
 ;	COMDAT ?PM_AirMove@@YAXXZ
 _TEXT	SEGMENT
-$T8104 = -52
-$T8105 = -64
-$T8106 = -76
+$T8103 = -52
+$T8104 = -64
+$T8105 = -76
 _i$ = -4
 _wishvel$ = -16
 _fmove$ = -20
@@ -8657,7 +8657,7 @@ _wishspeed$ = -40
 	mov	eax, DWORD PTR [edx+283756]
 	mov	DWORD PTR _smove$[ebp], eax
 
-; 1494 : 	
+; 1494 : 
 ; 1495 : 	// Zero out z components of movement vectors
 ; 1496 : 	pmove->forward[2] = 0;
 
@@ -8677,7 +8677,7 @@ _wishspeed$ = -40
 ; 1499 : 	// Renormalize
 ; 1500 : 	pmove->forward = pmove->forward.Normalize();
 
-	lea	ecx, DWORD PTR $T8104[ebp]
+	lea	ecx, DWORD PTR $T8103[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 20					; 00000014H
@@ -8691,9 +8691,9 @@ _wishspeed$ = -40
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
 
-; 1501 : 	pmove->right = pmove->right.Normalize(); 
+; 1501 : 	pmove->right = pmove->right.Normalize();
 
-	lea	ecx, DWORD PTR $T8105[ebp]
+	lea	ecx, DWORD PTR $T8104[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 32					; 00000020H
@@ -8709,7 +8709,7 @@ _wishspeed$ = -40
 
 ; 1502 : 
 ; 1503 : 	// Determine x and y parts of velocity
-; 1504 : 	for (i=0 ; i<2 ; i++)       
+; 1504 : 	for (i=0 ; i<2 ; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
 	jmp	SHORT $L7098
@@ -8750,7 +8750,7 @@ $L7098:
 $L7100:
 
 ; 1508 : 	// Zero out z part of velocity
-; 1509 : 	wishvel[2] = 0;             
+; 1509 : 	wishvel[2] = 0;
 
 	lea	ecx, DWORD PTR _wishvel$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
@@ -8775,7 +8775,7 @@ $L7100:
 
 ; 1514 : 	wishdir = wishdir.Normalize();
 
-	lea	edx, DWORD PTR $T8106[ebp]
+	lea	edx, DWORD PTR $T8105[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _wishdir$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -8814,7 +8814,7 @@ $L7100:
 	mov	DWORD PTR _wishspeed$[ebp], ecx
 $L7102:
 
-; 1522 : 	
+; 1522 : 
 ; 1523 : 	PM_AirAccelerate (wishdir, wishspeed, pmove->movevars->airaccelerate);
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -8875,15 +8875,15 @@ _TEXT	SEGMENT
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [eax+228], 1
-	jle	SHORT $L8110
+	jle	SHORT $L8109
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [ecx+232], -19		; ffffffedH
-	je	SHORT $L8110
+	je	SHORT $L8109
 	mov	DWORD PTR -4+[ebp], 1
-	jmp	SHORT $L8111
-$L8110:
+	jmp	SHORT $L8110
+$L8109:
 	mov	DWORD PTR -4+[ebp], 0
-$L8111:
+$L8110:
 	mov	eax, DWORD PTR -4+[ebp]
 
 ; 1534 : }
@@ -8910,14 +8910,14 @@ __real@4@4004c800000000000000 DD 042480000r	; 50
 CONST	ENDS
 ;	COMDAT ?PM_CheckWater@@YAHXZ
 _TEXT	SEGMENT
-$T8114 = -40
-$T8115 = -52
-$T8116 = -64
-$T8117 = -76
-$T8118 = -88
-$T8119 = -100
-$T8120 = -112
-$T8121 = -124
+$T8113 = -40
+$T8114 = -52
+$T8115 = -64
+$T8116 = -76
+$T8117 = -88
+$T8118 = -100
+$T8119 = -112
+$T8120 = -124
 _point$ = -12
 _cont$ = -16
 _truecont$ = -20
@@ -9028,7 +9028,7 @@ _heightover2$ = -28
 	mov	ecx, DWORD PTR -160+[ebp]
 	mov	DWORD PTR [eax+8], ecx
 
-; 1555 : 	
+; 1555 : 
 ; 1556 : 	// Assume that we are not in water at all.
 ; 1557 : 	pmove->waterlevel = 0;
 
@@ -9221,23 +9221,23 @@ $L7120:
 	or	dl, 1
 	mov	BYTE PTR _?$S13@?N@??PM_CheckWater@@YAHXZ@4EA, dl
 
-; 1598 : 			Vector( 1,  0,  0 ), 
+; 1598 : 			Vector( 1,  0,  0 ),
 
 	push	0
 	push	0
 	push	1065353216				; 3f800000H
-	lea	ecx, DWORD PTR $T8114[ebp]
+	lea	ecx, DWORD PTR $T8113[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 1599 : 			Vector( 0,  1,  0 ), 
+; 1599 : 			Vector( 0,  1,  0 ),
 
 	push	0
 	push	1065353216				; 3f800000H
 	push	0
-	lea	ecx, DWORD PTR $T8115[ebp]
+	lea	ecx, DWORD PTR $T8114[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A+12
@@ -9248,29 +9248,29 @@ $L7120:
 	push	0
 	push	0
 	push	-1082130432				; bf800000H
-	lea	ecx, DWORD PTR $T8116[ebp]
+	lea	ecx, DWORD PTR $T8115[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A+24
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 1601 : 			Vector( 0, -1,  0 ), 
+; 1601 : 			Vector( 0, -1,  0 ),
 
 	push	0
 	push	-1082130432				; bf800000H
 	push	0
-	lea	ecx, DWORD PTR $T8117[ebp]
+	lea	ecx, DWORD PTR $T8116[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A+36
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 1602 : 			Vector( 0,  0,  1 ), 
+; 1602 : 			Vector( 0,  0,  1 ),
 
 	push	1065353216				; 3f800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T8118[ebp]
+	lea	ecx, DWORD PTR $T8117[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A+48
@@ -9282,7 +9282,7 @@ $L7120:
 	push	-1082130432				; bf800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T8119[ebp]
+	lea	ecx, DWORD PTR $T8118[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A+60
@@ -9300,7 +9300,7 @@ $L7128:
 	fmul	DWORD PTR __real@4@4004c800000000000000
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T8120[ebp]
+	lea	ecx, DWORD PTR $T8119[ebp]
 	push	ecx
 	mov	ecx, -9					; fffffff7H
 	sub	ecx, DWORD PTR _truecont$[ebp]
@@ -9308,7 +9308,7 @@ $L7128:
 	add	ecx, OFFSET FLAT:_?current_table@?N@??PM_CheckWater@@YAHXZ@4PAVVector@@A
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T8121[ebp]
+	lea	edx, DWORD PTR $T8120[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 116				; 00000074H
@@ -9372,7 +9372,7 @@ __real@4@4006b400000000000000 DD 043340000r	; 180
 CONST	ENDS
 ;	COMDAT ?PM_CatagorizePosition@@YAXXZ
 _TEXT	SEGMENT
-$T8128 = -148
+$T8127 = -148
 _point$ = -12
 _tr$ = -80
 ?PM_CatagorizePosition@@YAXXZ PROC NEAR			; PM_CatagorizePosition, COMDAT
@@ -9400,7 +9400,7 @@ _tr$ = -80
 ; 1623 : // if the player hull point one unit down is solid, the player
 ; 1624 : // is on ground
 ; 1625 : 
-; 1626 : // see if standing on something solid	
+; 1626 : // see if standing on something solid
 ; 1627 : 
 ; 1628 : 	// Doing this before we move may introduce a potential latency in water detection, but
 ; 1629 : 	// doing it after can get us stuck on the bottom in water if the amount we move up
@@ -9481,7 +9481,7 @@ $L7144:
 	add	ecx, 56					; 00000038H
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	eax, DWORD PTR $T8128[ebp]
+	lea	eax, DWORD PTR $T8127[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [ecx+324992]
@@ -9734,8 +9734,8 @@ _i$ = -128
 _z$7191 = -132
 _x$7195 = -136
 _y$7199 = -140
-$T8141 = -152
-$T8142 = -164
+$T8140 = -152
+$T8141 = -164
 _traceresult$ = -68
 ?PM_CheckStuck@@YAHXZ PROC NEAR				; PM_CheckStuck, COMDAT
 
@@ -9875,7 +9875,7 @@ $L7178:
 
 	lea	eax, DWORD PTR _offset$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8141[ebp]
+	lea	ecx, DWORD PTR $T8140[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _base$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -10024,7 +10024,7 @@ $L7186:
 
 	lea	eax, DWORD PTR _offset$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8142[ebp]
+	lea	ecx, DWORD PTR $T8141[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _base$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -10267,11 +10267,11 @@ _smove$ = -56
 _wishdir$ = -68
 _wishspeed$ = -72
 _target$7237 = -76
-$T8153 = -88
-$T8154 = -100
-$T8155 = -112
-$T8156 = -124
-$T8157 = -136
+$T8152 = -88
+$T8153 = -100
+$T8154 = -112
+$T8155 = -124
+$T8156 = -136
 ?PM_SpectatorMove@@YAXXZ PROC NEAR			; PM_SpectatorMove, COMDAT
 
 ; 1807 : {
@@ -10303,7 +10303,7 @@ $T8157 = -136
 ; 1817 : 	// there a two different main move types : track player or moce freely (OBS_ROAMING)
 ; 1818 : 	// doesn't need excate track position, only to generate PVS, so just copy
 ; 1819 : 	// targets position and real view position is calculated on client (saves server CPU)
-; 1820 : 	
+; 1820 : 
 ; 1821 : 	if ( pmove->iuser1 == OBS_ROAMING)
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -10365,16 +10365,16 @@ $L7222:
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L8151
+	je	SHORT $L8150
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	edx, DWORD PTR [ecx+324848]
 	mov	eax, DWORD PTR [edx+4]
 	mov	DWORD PTR -140+[ebp], eax
-	jmp	SHORT $L8152
-$L8151:
+	jmp	SHORT $L8151
+$L8150:
 	mov	ecx, DWORD PTR _speed$[ebp]
 	mov	DWORD PTR -140+[ebp], ecx
-$L8152:
+$L8151:
 	mov	edx, DWORD PTR -140+[ebp]
 	mov	DWORD PTR _control$[ebp], edx
 
@@ -10438,10 +10438,10 @@ $L7223:
 	mov	edx, DWORD PTR [ecx+283756]
 	mov	DWORD PTR _smove$[ebp], edx
 
-; 1851 : 		
+; 1851 : 
 ; 1852 : 		pmove->forward = pmove->forward.Normalize();
 
-	lea	eax, DWORD PTR $T8153[ebp]
+	lea	eax, DWORD PTR $T8152[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 20					; 00000014H
@@ -10457,7 +10457,7 @@ $L7223:
 
 ; 1853 : 		pmove->right = pmove->right.Normalize();
 
-	lea	ecx, DWORD PTR $T8154[ebp]
+	lea	ecx, DWORD PTR $T8153[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 32					; 00000020H
@@ -10543,7 +10543,7 @@ $L7229:
 
 ; 1863 : 		wishdir = wishdir.Normalize();
 
-	lea	edx, DWORD PTR $T8155[ebp]
+	lea	edx, DWORD PTR $T8154[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _wishdir$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -10643,12 +10643,12 @@ $L7232:
 	mov	DWORD PTR _accelspeed$[ebp], ecx
 $L7233:
 
-; 1882 : 		
-; 1883 : 		pmove->velocity += wishdir * accelspeed;	
+; 1882 : 
+; 1883 : 		pmove->velocity += wishdir * accelspeed;
 
 	mov	edx, DWORD PTR _accelspeed$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T8156[ebp]
+	lea	eax, DWORD PTR $T8155[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _wishdir$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -10664,7 +10664,7 @@ $L7233:
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	edx, DWORD PTR [ecx+16]
 	push	edx
-	lea	eax, DWORD PTR $T8157[ebp]
+	lea	eax, DWORD PTR $T8156[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
@@ -10893,7 +10893,7 @@ _i$ = -16
 	jmp	$L7251
 $L7252:
 
-; 1940 : 	
+; 1940 : 
 ; 1941 : 	Vector test = pmove->origin;
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -10902,7 +10902,7 @@ $L7252:
 	lea	ecx, DWORD PTR _test$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
-; 1942 : 	
+; 1942 : 
 ; 1943 : 	for( int i = 0; i < 36; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
@@ -10976,8 +10976,8 @@ _TEXT	SEGMENT
 _i$ = -4
 _trace$ = -72
 _newOrigin$ = -84
-$T8168 = -152
-$T8169 = -220
+$T8167 = -152
+$T8168 = -220
 ?PM_UnDuck@@YAXXZ PROC NEAR				; PM_UnDuck, COMDAT
 
 ; 1955 : {
@@ -11067,7 +11067,7 @@ $L7266:
 	jmp	SHORT $L7267
 $L7268:
 
-; 1969 : 	
+; 1969 : 
 ; 1970 : 	trace = pmove->PM_PlayerTrace( newOrigin, newOrigin, PM_NORMAL, -1 );
 
 	push	-1
@@ -11078,7 +11078,7 @@ $L7268:
 	lea	ecx, DWORD PTR _newOrigin$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	edx, DWORD PTR $T8168[ebp]
+	lea	edx, DWORD PTR $T8167[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [eax+324992]
@@ -11111,7 +11111,7 @@ $L7268:
 	lea	ecx, DWORD PTR _newOrigin$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	edx, DWORD PTR $T8169[ebp]
+	lea	edx, DWORD PTR $T8168[ebp]
 	push	edx
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [eax+324992]
@@ -11164,7 +11164,7 @@ $L7272:
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [eax+140], 0
 
-; 1990 : 		
+; 1990 : 
 ; 1991 : 		pmove->origin = newOrigin;
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -11443,21 +11443,21 @@ $L7292:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L8172
+	je	SHORT $L8171
 	mov	DWORD PTR -40+[ebp], 0
 	mov	DWORD PTR -40+[ebp+4], 0
-	jmp	SHORT $L8173
-$L8172:
+	jmp	SHORT $L8172
+$L8171:
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	fld	DWORD PTR [eax+140]
 	fdiv	QWORD PTR __real@8@4008fa00000000000000
 	fsubr	QWORD PTR __real@8@3fff8000000000000000
 	fstp	QWORD PTR -40+[ebp]
-$L8173:
+$L8172:
 	fld	QWORD PTR -40+[ebp]
 	fstp	DWORD PTR _time$[ebp]
 
-; 2049 : 			
+; 2049 : 
 ; 2050 : 			if ( pmove->bInDuck )
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -11636,15 +11636,14 @@ __real@4@4006c800000000000000 DD 043480000r	; 200
 CONST	ENDS
 ;	COMDAT ?PM_LadderMove@@YAXPAUphysent_s@@@Z
 _TEXT	SEGMENT
-$T8192 = -292
-$T8193 = -304
-$T8194 = -316
-$T8195 = -328
-$T8196 = -340
-$T8197 = -352
-$T8198 = -364
-$T8199 = -376
-$T8200 = -388
+$T8192 = -304
+$T8193 = -316
+$T8194 = -328
+$T8195 = -340
+$T8196 = -352
+$T8197 = -364
+$T8198 = -376
+$T8199 = -388
 _pLadder$ = 8
 _ladderCenter$ = -12
 _trace$ = -68
@@ -11663,12 +11662,13 @@ _lateral$7338 = -180
 _tmp$7339 = -192
 _normal$7340 = -196
 _perp$7343 = -208
-$T8186 = -220
-$T8187 = -232
-$T8188 = -244
-$T8189 = -256
-$T8190 = -268
-$T8191 = -280
+$T8185 = -220
+$T8186 = -232
+$T8187 = -244
+$T8188 = -256
+$T8189 = -268
+$T8190 = -280
+$T8191 = -292
 ?PM_LadderMove@@YAXPAUphysent_s@@@Z PROC NEAR		; PM_LadderMove, COMDAT
 
 ; 2099 : {
@@ -11735,18 +11735,18 @@ $L7316:
 ; 2111 : 	ladderCenter = pLadder->origin + ( modelmins + modelmaxs ) * 0.5f;
 
 	push	1056964608				; 3f000000H
-	lea	ecx, DWORD PTR $T8187[ebp]
+	lea	ecx, DWORD PTR $T8186[ebp]
 	push	ecx
 	lea	edx, DWORD PTR _modelmaxs$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T8186[ebp]
+	lea	eax, DWORD PTR $T8185[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _modelmins$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T8188[ebp]
+	lea	ecx, DWORD PTR $T8187[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pLadder$[ebp]
 	add	ecx, 36					; 00000024H
@@ -11980,7 +11980,7 @@ $L7330:
 ; 2149 : 			pmove->velocity = trace.plane.normal * 270;
 
 	push	1132920832				; 43870000H
-	lea	eax, DWORD PTR $T8189[ebp]
+	lea	eax, DWORD PTR $T8188[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _trace$[ebp+32]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -12033,7 +12033,7 @@ $L7335:
 
 	mov	ecx, DWORD PTR _forward$7323[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T8190[ebp]
+	lea	edx, DWORD PTR $T8189[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vpn$7325[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -12048,7 +12048,7 @@ $L7335:
 
 	mov	ecx, DWORD PTR _right$7324[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T8191[ebp]
+	lea	edx, DWORD PTR $T8190[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _v_right$7326[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -12057,7 +12057,7 @@ $L7335:
 	call	??YVector@@QAEAAV0@ABV0@@Z		; Vector::operator+=
 
 ; 2164 : 
-; 2165 : 				
+; 2165 : 
 ; 2166 : 				// Perpendicular in the ladder plane
 ; 2167 : 				Vector perp = CrossProduct( Vector(0,0,1), trace.plane.normal );
 
@@ -12066,10 +12066,10 @@ $L7335:
 	push	1065353216				; 3f800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T8192[ebp]
+	lea	ecx, DWORD PTR $T8191[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	ecx, DWORD PTR $T8193[ebp]
+	lea	ecx, DWORD PTR $T8192[ebp]
 	push	ecx
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
@@ -12079,7 +12079,7 @@ $L7335:
 
 ; 2168 : 				perp = perp.Normalize();
 
-	lea	edx, DWORD PTR $T8194[ebp]
+	lea	edx, DWORD PTR $T8193[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _perp$7343[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -12107,7 +12107,7 @@ $L7335:
 
 	mov	eax, DWORD PTR _normal$7340[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8195[ebp]
+	lea	ecx, DWORD PTR $T8194[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _trace$[ebp+32]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -12125,7 +12125,7 @@ $L7335:
 
 	lea	eax, DWORD PTR _cross$7337[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8196[ebp]
+	lea	ecx, DWORD PTR $T8195[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _velocity$7336[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -12148,7 +12148,7 @@ $L7335:
 	push	eax
 	lea	ecx, DWORD PTR _trace$[ebp+32]
 	push	ecx
-	lea	edx, DWORD PTR $T8197[ebp]
+	lea	edx, DWORD PTR $T8196[ebp]
 	push	edx
 	call	?CrossProduct@@YA?AVVector@@ABV1@0@Z	; CrossProduct
 	add	esp, 12					; 0000000cH
@@ -12165,12 +12165,12 @@ $L7335:
 	fchs
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T8198[ebp]
+	lea	ecx, DWORD PTR $T8197[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _tmp$7339[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T8199[ebp]
+	lea	edx, DWORD PTR $T8198[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _lateral$7338[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -12197,7 +12197,7 @@ $L7335:
 ; 2189 : 					pmove->velocity += trace.plane.normal * MAX_CLIMB_SPEED;
 
 	push	1128792064				; 43480000H
-	lea	ecx, DWORD PTR $T8200[ebp]
+	lea	ecx, DWORD PTR $T8199[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _trace$[ebp+32]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -12290,8 +12290,8 @@ PUBLIC	??9Vector@@QBEHABV0@@Z				; Vector::operator!=
 EXTRN	?VectorITransform@matrix4x4@@QBE?AVVector@@ABV2@@Z:NEAR ; matrix4x4::VectorITransform
 ;	COMDAT ?PM_Ladder@@YAPAUphysent_s@@XZ
 _TEXT	SEGMENT
-$T8209 = -116
-$T8210 = -128
+$T8208 = -116
+$T8209 = -128
 _pe$ = -4
 _offset$ = -16
 _test$ = -28
@@ -12341,7 +12341,7 @@ $L7366:
 	lea	edx, DWORD PTR [ecx+eax+134996]
 	mov	DWORD PTR _pe$[ebp], edx
 
-; 2209 : 		
+; 2209 : 
 ; 2210 : 		if( pe->model && (modtype_t)pmove->PM_GetModelType( pe->model ) == mod_brush && pe->skin == CONTENTS_LADDER )
 
 	mov	eax, DWORD PTR _pe$[ebp]
@@ -12383,7 +12383,7 @@ $L7366:
 
 	lea	eax, DWORD PTR _offset$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8209[ebp]
+	lea	ecx, DWORD PTR $T8208[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 56					; 00000038H
@@ -12430,7 +12430,7 @@ $L7366:
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	edx, 56					; 00000038H
 	push	edx
-	lea	eax, DWORD PTR $T8210[ebp]
+	lea	eax, DWORD PTR $T8209[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _entityToWorld$7376[ebp]
 	call	?VectorITransform@matrix4x4@@QBE?AVVector@@ABV2@@Z ; matrix4x4::VectorITransform
@@ -12464,7 +12464,7 @@ $L7375:
 	jmp	$L7367
 $L7378:
 
-; 2230 : 			
+; 2230 : 
 ; 2231 : 			return pe;
 
 	mov	eax, DWORD PTR _pe$[ebp]
@@ -13675,8 +13675,8 @@ _TEXT	ENDS
 PUBLIC	?PM_PushEntity@@YA?AUpmtrace_s@@ABVVector@@@Z	; PM_PushEntity
 ;	COMDAT ?PM_PushEntity@@YA?AUpmtrace_s@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T8233 = -92
-$T8234 = -160
+$T8232 = -92
+$T8233 = -160
 _push$ = 12
 ___$ReturnUdt$ = 8
 _trace$ = -68
@@ -13702,12 +13702,12 @@ _end$ = -80
 	lea	ecx, DWORD PTR _end$[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
-; 2292 : 		
+; 2292 : 
 ; 2293 : 	end = pmove->origin + push;
 
 	mov	eax, DWORD PTR _push$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8233[ebp]
+	lea	ecx, DWORD PTR $T8232[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 56					; 00000038H
@@ -13731,7 +13731,7 @@ _end$ = -80
 	add	ecx, 56					; 00000038H
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	eax, DWORD PTR $T8234[ebp]
+	lea	eax, DWORD PTR $T8233[ebp]
 	push	eax
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [ecx+324992]
@@ -13741,7 +13741,7 @@ _end$ = -80
 	lea	edi, DWORD PTR _trace$[ebp]
 	rep movsd
 
-; 2296 : 	
+; 2296 : 
 ; 2297 : 	pmove->origin = trace.endpos;
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -13793,7 +13793,7 @@ $L7399:
 	call	??0pmtrace_s@@QAE@ABU0@@Z		; pmtrace_s::pmtrace_s
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 2307 : }	
+; 2307 : }
 
 	pop	edi
 	pop	esi
@@ -13823,10 +13823,10 @@ __real@4@3ffee666660000000000 DD 03f666666r	; 0.9
 CONST	ENDS
 ;	COMDAT ?PM_Physics_Toss@@YAXXZ
 _TEXT	SEGMENT
-$T8239 = -112
-$T8240 = -180
-$T8243 = -200
-$T8244 = -268
+$T8238 = -112
+$T8239 = -180
+$T8242 = -200
+$T8243 = -268
 _trace$ = -68
 _move$ = -80
 _backoff$ = -84
@@ -13941,7 +13941,7 @@ $L7410:
 	add	ecx, 92					; 0000005cH
 	call	??YVector@@QAEAAV0@ABV0@@Z		; Vector::operator+=
 
-; 2346 : 	
+; 2346 : 
 ; 2347 : 	PM_CheckVelocity();
 
 	call	?PM_CheckVelocity@@YAXXZ		; PM_CheckVelocity
@@ -13952,7 +13952,7 @@ $L7410:
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	ecx, DWORD PTR [eax+16]
 	push	ecx
-	lea	edx, DWORD PTR $T8239[ebp]
+	lea	edx, DWORD PTR $T8238[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
@@ -13978,7 +13978,7 @@ $L7410:
 
 	lea	edx, DWORD PTR _move$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T8240[ebp]
+	lea	eax, DWORD PTR $T8239[ebp]
 	push	eax
 	call	?PM_PushEntity@@YA?AUpmtrace_s@@ABVVector@@@Z ; PM_PushEntity
 	add	esp, 8
@@ -14021,7 +14021,7 @@ $L7410:
 	jmp	$L7403
 $L7413:
 
-; 2363 : 	
+; 2363 : 
 ; 2364 : 	if (trace.fraction == 1)
 
 	cmp	DWORD PTR _trace$[ebp+16], 1065353216	; 3f800000H
@@ -14216,7 +14216,7 @@ $L7425:
 	fmul	DWORD PTR __real@4@3ffee666660000000000
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T8243[ebp]
+	lea	ecx, DWORD PTR $T8242[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 92					; 0000005cH
@@ -14232,7 +14232,7 @@ $L7425:
 
 	lea	eax, DWORD PTR _move$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T8244[ebp]
+	lea	ecx, DWORD PTR $T8243[ebp]
 	push	ecx
 	call	?PM_PushEntity@@YA?AUpmtrace_s@@ABVVector@@@Z ; PM_PushEntity
 	add	esp, 8
@@ -14252,7 +14252,7 @@ $L7427:
 	call	??ZVector@@QAEAAV0@ABV0@@Z		; Vector::operator-=
 $L7421:
 
-; 2412 : 	
+; 2412 : 
 ; 2413 : // check for in water
 ; 2414 : 	PM_CheckWater();
 
@@ -14323,12 +14323,12 @@ _TEXT	ENDS
 PUBLIC	?PM_NoClip@@YAXXZ				; PM_NoClip
 ;	COMDAT ?PM_NoClip@@YAXXZ
 _TEXT	SEGMENT
-$T8255 = -32
-$T8256 = -44
-$T8257 = -56
-$T8258 = -68
-$T8259 = -80
-$T8260 = -92
+$T8254 = -32
+$T8255 = -44
+$T8256 = -56
+$T8257 = -68
+$T8258 = -80
+$T8259 = -92
 _wishvel$ = -12
 _fmove$ = -16
 _smove$ = -20
@@ -14364,10 +14364,10 @@ _smove$ = -20
 	mov	eax, DWORD PTR [edx+283756]
 	mov	DWORD PTR _smove$[ebp], eax
 
-; 2432 : 	
+; 2432 : 
 ; 2433 : 	pmove->forward = pmove->forward.Normalize();
 
-	lea	ecx, DWORD PTR $T8255[ebp]
+	lea	ecx, DWORD PTR $T8254[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 20					; 00000014H
@@ -14381,9 +14381,9 @@ _smove$ = -20
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
 
-; 2434 : 	pmove->right = pmove->right.Normalize(); 
+; 2434 : 	pmove->right = pmove->right.Normalize();
 
-	lea	ecx, DWORD PTR $T8256[ebp]
+	lea	ecx, DWORD PTR $T8255[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 32					; 00000020H
@@ -14403,17 +14403,17 @@ _smove$ = -20
 
 	mov	ecx, DWORD PTR _smove$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T8258[ebp]
+	lea	edx, DWORD PTR $T8257[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 32					; 00000020H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	eax, DWORD PTR $T8259[ebp]
+	lea	eax, DWORD PTR $T8258[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _fmove$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T8257[ebp]
+	lea	edx, DWORD PTR $T8256[ebp]
 	push	edx
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	ecx, 20					; 00000014H
@@ -14446,7 +14446,7 @@ _smove$ = -20
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	edx, DWORD PTR [ecx+16]
 	push	edx
-	lea	eax, DWORD PTR $T8260[ebp]
+	lea	eax, DWORD PTR $T8259[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _wishvel$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -14455,7 +14455,7 @@ _smove$ = -20
 	add	ecx, 56					; 00000038H
 	call	??YVector@@QAEAAV0@ABV0@@Z		; Vector::operator+=
 
-; 2441 : 	
+; 2441 : 
 ; 2442 : 	// Zero out the velocity so that we don't accumulate a huge downward velocity from
 ; 2443 : 	//  gravity, etc.
 ; 2444 : 	pmove->velocity = g_vecZero;
@@ -14567,7 +14567,7 @@ $L7449:
 	fmul	QWORD PTR __real@8@3ffea666666666666800
 	fstp	DWORD PTR _fraction$[ebp]
 
-; 2478 : 	
+; 2478 : 
 ; 2479 : 	pmove->velocity *= fraction; //Crop it down!.
 
 	mov	ecx, DWORD PTR _fraction$[ebp]
@@ -14809,7 +14809,7 @@ $L7465:
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [eax+172], 1148846080		; 447a0000H
 
-; 2538 : 			{ 
+; 2538 : 			{
 
 	push	3
 	push	0
@@ -14820,7 +14820,7 @@ $L7465:
 	cmp	DWORD PTR -20+[ebp], 3
 	ja	$L7468
 	mov	edx, DWORD PTR -20+[ebp]
-	jmp	DWORD PTR $L8273[edx*4]
+	jmp	DWORD PTR $L8272[edx*4]
 $L7471:
 
 ; 2539 : 			case 0:
@@ -15088,7 +15088,7 @@ $L7489:
 	jmp	SHORT $L7490
 $L7491:
 
-; 2604 : 		
+; 2604 : 
 ; 2605 : 			pmove->velocity[2] = sqrt(2 * 800 * 56.0);
 
 	push	1089855488				; 40f5e000H
@@ -15168,7 +15168,7 @@ $L7452:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L8273:
+$L8272:
 	DD	$L7471
 	DD	$L7473
 	DD	$L7475
@@ -15190,15 +15190,15 @@ __real@8@3ffbcccccd0000000000 DQ 03fb99999a0000000r ; 0.1
 CONST	ENDS
 ;	COMDAT ?PM_CheckWaterJump@@YAXXZ
 _TEXT	SEGMENT
-$T8276 = -136
-$T8277 = -148
-$T8278 = -160
-$T8279 = -172
-$T8280 = -240
-$T8281 = -252
-$T8282 = -264
-$T8283 = -276
-$T8284 = -344
+$T8275 = -136
+$T8276 = -148
+$T8277 = -160
+$T8278 = -172
+$T8279 = -240
+$T8280 = -252
+$T8281 = -264
+$T8282 = -276
+$T8283 = -344
 _vecStart$ = -12
 _vecEnd$ = -24
 _flatforward$ = -36
@@ -15315,7 +15315,7 @@ $L7506:
 
 ; 2654 : 	flatvelocity = flatvelocity.Normalize();
 
-	lea	eax, DWORD PTR $T8276[ebp]
+	lea	eax, DWORD PTR $T8275[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _flatvelocity$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -15326,7 +15326,7 @@ $L7506:
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR _flatvelocity$[ebp+8], eax
 
-; 2655 : 	
+; 2655 : 
 ; 2656 : 	// see if near an edge
 ; 2657 : 	flatforward[0] = pmove->forward[0];
 
@@ -15358,7 +15358,7 @@ $L7506:
 
 ; 2660 : 	flatforward = flatforward.Normalize();
 
-	lea	eax, DWORD PTR $T8277[ebp]
+	lea	eax, DWORD PTR $T8276[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _flatforward$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -15416,12 +15416,12 @@ $L7509:
 ; 2669 : 	vecEnd = vecStart + flatforward * 24;
 
 	push	1103101952				; 41c00000H
-	lea	ecx, DWORD PTR $T8278[ebp]
+	lea	ecx, DWORD PTR $T8277[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _flatforward$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T8279[ebp]
+	lea	edx, DWORD PTR $T8278[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecStart$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -15432,7 +15432,7 @@ $L7509:
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR _vecEnd$[ebp+8], eax
 
-; 2670 : 	
+; 2670 : 
 ; 2671 : 	// Trace, this trace should use the point sized collision hull
 ; 2672 : 	savehull = pmove->usehull;
 
@@ -15455,7 +15455,7 @@ $L7509:
 	lea	ecx, DWORD PTR _vecStart$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	ecx, DWORD PTR $T8280[ebp]
+	lea	ecx, DWORD PTR $T8279[ebp]
 	push	ecx
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [edx+324992]
@@ -15505,12 +15505,12 @@ $L7509:
 ; 2678 : 		vecEnd = vecStart + flatforward * 24;
 
 	push	1103101952				; 41c00000H
-	lea	ecx, DWORD PTR $T8281[ebp]
+	lea	ecx, DWORD PTR $T8280[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _flatforward$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	edx, DWORD PTR $T8282[ebp]
+	lea	edx, DWORD PTR $T8281[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecStart$[ebp]
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
@@ -15524,7 +15524,7 @@ $L7509:
 ; 2679 : 		pmove->movedir = tr.plane.normal * -50;
 
 	push	-1035468800				; c2480000H
-	lea	ecx, DWORD PTR $T8283[ebp]
+	lea	ecx, DWORD PTR $T8282[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _tr$[ebp+32]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
@@ -15548,7 +15548,7 @@ $L7509:
 	lea	ecx, DWORD PTR _vecStart$[ebp]
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	push	eax
-	lea	ecx, DWORD PTR $T8284[ebp]
+	lea	ecx, DWORD PTR $T8283[ebp]
 	push	ecx
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	call	DWORD PTR [edx+324992]
@@ -15695,7 +15695,7 @@ $L7525:
 	test	ah, 65					; 00000041H
 	jne	SHORT $L7527
 
-; 2708 : 			// NOTE:  In the original game dll , there were no breaks after these cases, causing the first one to 
+; 2708 : 			// NOTE:  In the original game dll , there were no breaks after these cases, causing the first one to
 ; 2709 : 			// cascade into the second
 ; 2710 : 			//switch ( RandomLong(0,1) )
 ; 2711 : 			//{
@@ -15808,12 +15808,12 @@ $L7536:
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [eax+148], 0
 
-; 2742 : 			
+; 2742 : 
 ; 2743 : 			PM_UpdateStepSound();
 
 	call	?PM_UpdateStepSound@@YAXXZ		; PM_UpdateStepSound
 
-; 2744 : 			
+; 2744 : 
 ; 2745 : 			// play step sound for current texture
 ; 2746 : 			PM_PlayStepSound( PM_MapTextureTypeStepType( pmove->chtexturetype ), fvol );
 
@@ -15864,7 +15864,7 @@ $L7536:
 $L7538:
 
 ; 2757 : 
-; 2758 : 	if ( pmove->onground != -1 ) 
+; 2758 : 	if ( pmove->onground != -1 )
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [eax+224], -1
@@ -15931,7 +15931,7 @@ $L7544:
 	cmp	DWORD PTR -4+[ebp], 3
 	ja	$L7547
 	mov	eax, DWORD PTR -4+[ebp]
-	jmp	DWORD PTR $L8301[eax*4]
+	jmp	DWORD PTR $L8300[eax*4]
 $L7550:
 
 ; 2778 : 		case 0:
@@ -16010,7 +16010,7 @@ $L7547:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L8301:
+$L8300:
 	DD	$L7550
 	DD	$L7552
 	DD	$L7554
@@ -16053,7 +16053,7 @@ _up$ = -48
 	lea	ecx, DWORD PTR _up$[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
-; 2806 :     
+; 2806 : 
 ; 2807 : 	AngleVectors (angles, forward, right, up);
 
 	lea	ecx, DWORD PTR _up$[ebp]
@@ -16071,7 +16071,7 @@ _up$ = -48
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+80
 	add	esp, 16					; 00000010H
 
-; 2808 :     
+; 2808 : 
 ; 2809 : 	side = DotProduct (velocity, right);
 
 	lea	eax, DWORD PTR _right$[ebp]
@@ -16082,22 +16082,22 @@ _up$ = -48
 	add	esp, 8
 	fst	DWORD PTR _side$[ebp]
 
-; 2810 :     
+; 2810 : 
 ; 2811 : 	sign = side < 0 ? -1 : 1;
 
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L8304
+	je	SHORT $L8303
 	mov	DWORD PTR -52+[ebp], -1
-	jmp	SHORT $L8305
-$L8304:
+	jmp	SHORT $L8304
+$L8303:
 	mov	DWORD PTR -52+[ebp], 1
-$L8305:
+$L8304:
 	fild	DWORD PTR -52+[ebp]
 	fstp	DWORD PTR _sign$[ebp]
 
-; 2812 :     
+; 2812 : 
 ; 2813 : 	side = fabs(side);
 
 	fld	DWORD PTR _side$[ebp]
@@ -16107,13 +16107,13 @@ $L8305:
 	add	esp, 8
 	fstp	DWORD PTR _side$[ebp]
 
-; 2814 :     
+; 2814 : 
 ; 2815 : 	value = rollangle;
 
 	mov	edx, DWORD PTR _rollangle$[ebp]
 	mov	DWORD PTR _value$[ebp], edx
 
-; 2816 :     
+; 2816 : 
 ; 2817 : 	if (side < rollspeed)
 
 	fld	DWORD PTR _side$[ebp]
@@ -16140,7 +16140,7 @@ $L7570:
 	mov	DWORD PTR _side$[ebp], eax
 $L7571:
 
-; 2825 :   
+; 2825 : 
 ; 2826 : 	return side * sign;
 
 	fld	DWORD PTR _side$[ebp]
@@ -16165,7 +16165,7 @@ __real@8@4002a000000000000000 DQ 04024000000000000r ; 10
 CONST	ENDS
 ;	COMDAT ?PM_DropPunchAngle@@YAXAAVVector@@@Z
 _TEXT	SEGMENT
-$T8308 = -16
+$T8307 = -16
 _punchangle$ = 8
 _len$ = -4
 ?PM_DropPunchAngle@@YAXAAVVector@@@Z PROC NEAR		; PM_DropPunchAngle, COMDAT
@@ -16189,7 +16189,7 @@ _len$ = -4
 
 ; 2840 : 	punchangle = punchangle.Normalize();
 
-	lea	eax, DWORD PTR $T8308[ebp]
+	lea	eax, DWORD PTR $T8307[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _punchangle$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -16218,14 +16218,14 @@ _len$ = -4
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L8309
+	jne	SHORT $L8308
 	fld	DWORD PTR _len$[ebp]
 	fstp	QWORD PTR -24+[ebp]
-	jmp	SHORT $L8310
-$L8309:
+	jmp	SHORT $L8309
+$L8308:
 	mov	DWORD PTR -24+[ebp], 0
 	mov	DWORD PTR -24+[ebp+4], 0
-$L8310:
+$L8309:
 	fld	QWORD PTR -24+[ebp]
 	fstp	DWORD PTR _len$[ebp]
 
@@ -16338,15 +16338,15 @@ _fRatio$7585 = -24
 	fcomp	DWORD PTR _maxspeed$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L8315
+	jne	SHORT $L8314
 	mov	eax, DWORD PTR _maxspeed$[ebp]
 	mov	DWORD PTR -36+[ebp], eax
-	jmp	SHORT $L8316
-$L8315:
+	jmp	SHORT $L8315
+$L8314:
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	fld	DWORD PTR [ecx+500]
 	fstp	DWORD PTR -36+[ebp]
-$L8316:
+$L8315:
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	eax, DWORD PTR -36+[ebp]
 	mov	DWORD PTR [edx+500], eax
@@ -16474,7 +16474,7 @@ $L7588:
 	cmp	DWORD PTR [ecx+208], 0
 	jne	$L7589
 
-; 2902 : 		v_angle = pmove->cmd.viewangles;          
+; 2902 : 		v_angle = pmove->cmd.viewangles;
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	add	edx, 283740				; 0004545cH
@@ -16780,7 +16780,7 @@ _pLadder$ = -4
 
 ; 2970 : 
 ; 2971 : 	// Are we running server code?
-; 2972 : 	pmove->server = server;                
+; 2972 : 	pmove->server = server;
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	ecx, DWORD PTR _server$[ebp]
@@ -16794,14 +16794,14 @@ _pLadder$ = -4
 
 ; 2976 : 
 ; 2977 : 	// Assume we don't touch anything
-; 2978 : 	pmove->numtouch = 0;                    
+; 2978 : 	pmove->numtouch = 0;
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [edx+283788], 0
 
 ; 2979 : 
 ; 2980 : 	// # of msec to apply movement
-; 2981 : 	pmove->frametime = pmove->cmd.msec * 0.001;    
+; 2981 : 	pmove->frametime = pmove->cmd.msec * 0.001;
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	xor	ecx, ecx
@@ -16987,7 +16987,7 @@ $L7616:
 
 	call	?PM_Duck@@YAXXZ				; PM_Duck
 
-; 3035 : 	
+; 3035 : 
 ; 3036 : 	// Don't run ladder code if dead or on a train
 ; 3037 : 	if ( !pmove->dead && !(pmove->flags & FL_ONTRAIN) )
 
@@ -17034,38 +17034,16 @@ $L7618:
 	mov	DWORD PTR [eax+220], 3
 $L7620:
 
-; 3050 : 
-; 3051 : 	// Slow down, I'm pulling it! (a box maybe) but only when I'm standing on ground
-; 3052 : 	if ( ( pmove->onground != -1 ) && ( pmove->cmd.buttons & IN_USE) )
-
-	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
-	cmp	DWORD PTR [ecx+224], -1
-	je	SHORT $L7621
-	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
-	xor	eax, eax
-	mov	ax, WORD PTR [edx+283766]
-	and	eax, 32					; 00000020H
-	test	eax, eax
-	je	SHORT $L7621
-
-; 3054 : 		pmove->velocity *= 0.3f;
-
-	push	1050253722				; 3e99999aH
-	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
-	add	ecx, 92					; 0000005cH
-	call	??XVector@@QAEAAV0@M@Z			; Vector::operator*=
-$L7621:
-
 ; 3059 : 	{
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	edx, DWORD PTR [ecx+220]
 	mov	DWORD PTR -12+[ebp], edx
 	cmp	DWORD PTR -12+[ebp], 10			; 0000000aH
-	ja	SHORT $L7626
+	ja	SHORT $L7625
 	mov	eax, DWORD PTR -12+[ebp]
-	jmp	DWORD PTR $L8327[eax*4]
-$L7626:
+	jmp	DWORD PTR $L8326[eax*4]
+$L7625:
 
 ; 3060 : 	default:
 ; 3061 : 		pmove->Con_DPrintf("Bogus pmove player movetype %i on (%i) 0=cl 1=sv\n", pmove->movetype, pmove->server);
@@ -17083,15 +17061,15 @@ $L7626:
 
 ; 3062 : 		break;
 
-	jmp	$L7623
-$L7628:
+	jmp	$L7622
+$L7627:
 
 ; 3063 : 
 ; 3064 : 	case MOVETYPE_NONE:
 ; 3065 : 		break;
 
-	jmp	$L7623
-$L7629:
+	jmp	$L7622
+$L7628:
 
 ; 3066 : 
 ; 3067 : 	case MOVETYPE_NOCLIP:
@@ -17101,8 +17079,8 @@ $L7629:
 
 ; 3069 : 		break;
 
-	jmp	$L7623
-$L7630:
+	jmp	$L7622
+$L7629:
 
 ; 3070 : 
 ; 3071 : 	case MOVETYPE_TOSS:
@@ -17113,12 +17091,12 @@ $L7630:
 
 ; 3074 : 		break;
 
-	jmp	$L7623
-$L7631:
+	jmp	$L7622
+$L7630:
 
 ; 3075 : 
 ; 3076 : 	case MOVETYPE_FLY:
-; 3077 : 	
+; 3077 : 
 ; 3078 : 		PM_CheckWater();
 
 	call	?PM_CheckWater@@YAHXZ			; PM_CheckWater
@@ -17134,22 +17112,22 @@ $L7631:
 	mov	cx, WORD PTR [eax+283766]
 	and	ecx, 2
 	test	ecx, ecx
-	je	SHORT $L7632
+	je	SHORT $L7631
 
 ; 3085 : 			if ( !pLadder )
 
 	cmp	DWORD PTR _pLadder$[ebp], 0
-	jne	SHORT $L7633
+	jne	SHORT $L7632
 
 ; 3087 : 				PM_Jump ();
 
 	call	?PM_Jump@@YAXXZ				; PM_Jump
-$L7633:
+$L7632:
 
 ; 3090 : 		else
 
-	jmp	SHORT $L7634
-$L7632:
+	jmp	SHORT $L7633
+$L7631:
 
 ; 3092 : 			pmove->oldbuttons &= ~IN_JUMP;
 
@@ -17158,9 +17136,9 @@ $L7632:
 	and	al, -3					; fffffffdH
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [ecx+200], eax
-$L7634:
+$L7633:
 
-; 3094 : 		
+; 3094 : 
 ; 3095 : 		// perform the move accounting for any base velocity.
 ; 3096 : 		pmove->velocity += pmove->basevelocity;
 
@@ -17188,8 +17166,8 @@ $L7634:
 
 ; 3101 : 		break;
 
-	jmp	$L7623
-$L7635:
+	jmp	$L7622
+$L7634:
 
 ; 3102 : 
 ; 3103 : 	case MOVETYPE_WALK:
@@ -17197,12 +17175,12 @@ $L7635:
 
 	call	?PM_InWater@@YAHXZ			; PM_InWater
 	test	eax, eax
-	jne	SHORT $L7636
+	jne	SHORT $L7635
 
 ; 3106 : 			PM_AddCorrectGravity();
 
 	call	?PM_AddCorrectGravity@@YAXXZ		; PM_AddCorrectGravity
-$L7636:
+$L7635:
 
 ; 3108 : 
 ; 3109 : 		// If we are leaping out of the water, just update the counters.
@@ -17213,7 +17191,7 @@ $L7636:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L7637
+	jne	SHORT $L7636
 
 ; 3112 : 			PM_WaterJump();
 
@@ -17232,30 +17210,30 @@ $L7636:
 ; 3117 : 			return;
 
 	jmp	$L7606
-$L7637:
+$L7636:
 
 ; 3119 : 
 ; 3120 : 		// If we are swimming in the water, see if we are nudging against a place we can jump up out
 ; 3121 : 		//  of, and, if so, start out jump.  Otherwise, if we are not moving up, then reset jump timer to 0
-; 3122 : 		if ( pmove->waterlevel >= 2 && pmove->watertype != CONTENT_FOG) 
+; 3122 : 		if ( pmove->waterlevel >= 2 && pmove->watertype != CONTENT_FOG)
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [edx+228], 2
-	jl	$L7638
+	jl	$L7637
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [eax+232], -19		; ffffffedH
-	je	$L7638
+	je	$L7637
 
 ; 3124 : 			if ( pmove->waterlevel == 2 )
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [ecx+228], 2
-	jne	SHORT $L7639
+	jne	SHORT $L7638
 
 ; 3126 : 				PM_CheckWaterJump();
 
 	call	?PM_CheckWaterJump@@YAXXZ		; PM_CheckWaterJump
-$L7639:
+$L7638:
 
 ; 3128 : 
 ; 3129 : 			// If we are falling again, then we must not trying to jump out of water any more.
@@ -17268,19 +17246,19 @@ $L7639:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L7640
+	je	SHORT $L7639
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	fld	DWORD PTR [edx+204]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L7640
+	jne	SHORT $L7639
 
 ; 3132 : 				pmove->waterjumptime = 0;
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [eax+204], 0
-$L7640:
+$L7639:
 
 ; 3134 : 
 ; 3135 : 			// Was jump button pressed?
@@ -17291,7 +17269,7 @@ $L7640:
 	mov	dx, WORD PTR [ecx+283766]
 	and	edx, 2
 	test	edx, edx
-	je	SHORT $L7641
+	je	SHORT $L7640
 
 ; 3138 : 				PM_Jump ();
 
@@ -17299,8 +17277,8 @@ $L7640:
 
 ; 3140 : 			else
 
-	jmp	SHORT $L7642
-$L7641:
+	jmp	SHORT $L7641
+$L7640:
 
 ; 3142 : 				pmove->oldbuttons &= ~IN_JUMP;
 
@@ -17309,7 +17287,7 @@ $L7641:
 	and	ecx, -3					; fffffffdH
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [edx+200], ecx
-$L7642:
+$L7641:
 
 ; 3144 : 
 ; 3145 : 			// Perform regular water movement
@@ -17317,7 +17295,7 @@ $L7642:
 
 	call	?PM_WaterMove@@YAXXZ			; PM_WaterMove
 
-; 3147 : 			
+; 3147 : 
 ; 3148 : 			pmove->velocity -= pmove->basevelocity;
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
@@ -17335,8 +17313,8 @@ $L7642:
 
 ; 3153 : 		else
 
-	jmp	$L7643
-$L7638:
+	jmp	$L7642
+$L7637:
 
 ; 3157 : 			// Was jump button pressed?
 ; 3158 : 			if ( pmove->cmd.buttons & IN_JUMP )
@@ -17346,22 +17324,22 @@ $L7638:
 	mov	dx, WORD PTR [ecx+283766]
 	and	edx, 2
 	test	edx, edx
-	je	SHORT $L7644
+	je	SHORT $L7643
 
 ; 3160 : 				if ( !pLadder )
 
 	cmp	DWORD PTR _pLadder$[ebp], 0
-	jne	SHORT $L7645
+	jne	SHORT $L7644
 
 ; 3162 : 					PM_Jump ();
 
 	call	?PM_Jump@@YAXXZ				; PM_Jump
-$L7645:
+$L7644:
 
 ; 3165 : 			else
 
-	jmp	SHORT $L7646
-$L7644:
+	jmp	SHORT $L7645
+$L7643:
 
 ; 3167 : 				pmove->oldbuttons &= ~IN_JUMP;
 
@@ -17370,16 +17348,16 @@ $L7644:
 	and	ecx, -3					; fffffffdH
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [edx+200], ecx
-$L7646:
+$L7645:
 
 ; 3169 : 
-; 3170 : 			// Fricion is handled before we add in any base velocity. That way, if we are on a conveyor, 
+; 3170 : 			// Fricion is handled before we add in any base velocity. That way, if we are on a conveyor,
 ; 3171 : 			//  we don't slow when standing still, relative to the conveyor.
 ; 3172 : 			if ( pmove->onground != -1 )
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [eax+224], -1
-	je	SHORT $L7647
+	je	SHORT $L7646
 
 ; 3174 : 				pmove->velocity[2] = 0.0;
 
@@ -17391,7 +17369,7 @@ $L7646:
 ; 3175 : 				PM_Friction();
 
 	call	?PM_Friction@@YAXXZ			; PM_Friction
-$L7647:
+$L7646:
 
 ; 3177 : 
 ; 3178 : 			// Make sure velocity is valid.
@@ -17405,7 +17383,7 @@ $L7647:
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [ecx+224], -1
-	je	SHORT $L7648
+	je	SHORT $L7647
 
 ; 3184 : 				PM_WalkMove();
 
@@ -17413,13 +17391,13 @@ $L7647:
 
 ; 3186 : 			else
 
-	jmp	SHORT $L7649
-$L7648:
+	jmp	SHORT $L7648
+$L7647:
 
 ; 3188 : 				PM_AirMove();  // Take into account movement when in air.
 
 	call	?PM_AirMove@@YAXXZ			; PM_AirMove
-$L7649:
+$L7648:
 
 ; 3190 : 
 ; 3191 : 			// Set final flags.
@@ -17440,7 +17418,7 @@ $L7649:
 	add	ecx, 92					; 0000005cH
 	call	??ZVector@@QAEAAV0@ABV0@@Z		; Vector::operator-=
 
-; 3198 : 				
+; 3198 : 
 ; 3199 : 			// Make sure velocity is valid.
 ; 3200 : 			PM_CheckVelocity();
 
@@ -17452,12 +17430,12 @@ $L7649:
 
 	call	?PM_InWater@@YAHXZ			; PM_InWater
 	test	eax, eax
-	jne	SHORT $L7650
+	jne	SHORT $L7649
 
 ; 3205 : 				PM_FixupGravityVelocity();
 
 	call	?PM_FixupGravityVelocity@@YAXXZ		; PM_FixupGravityVelocity
-$L7650:
+$L7649:
 
 ; 3207 : 
 ; 3208 : 			// If we are on ground, no downward velocity.
@@ -17465,7 +17443,7 @@ $L7650:
 
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [eax+224], -1
-	je	SHORT $L7651
+	je	SHORT $L7650
 
 ; 3211 : 				pmove->velocity[2] = 0;
 
@@ -17473,7 +17451,7 @@ $L7650:
 	add	ecx, 92					; 0000005cH
 	call	??BVector@@QAEPAMXZ			; Vector::operator float *
 	mov	DWORD PTR [eax+8], 0
-$L7651:
+$L7650:
 
 ; 3213 : 
 ; 3214 : 			// See if we landed on the ground with enough force to play
@@ -17481,14 +17459,14 @@ $L7651:
 ; 3216 : 			PM_CheckFalling();
 
 	call	?PM_CheckFalling@@YAXXZ			; PM_CheckFalling
-$L7643:
+$L7642:
 
 ; 3218 : 
 ; 3219 : 		// Did we enter or leave the water?
 ; 3220 : 		PM_PlayWaterSounds();
 
 	call	?PM_PlayWaterSounds@@YAXXZ		; PM_PlayWaterSounds
-$L7623:
+$L7622:
 $L7606:
 
 ; 3223 : }
@@ -17499,18 +17477,18 @@ $L7606:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L8327:
-	DD	$L7628
-	DD	$L7626
-	DD	$L7626
-	DD	$L7635
-	DD	$L7626
-	DD	$L7631
+$L8326:
+	DD	$L7627
+	DD	$L7625
+	DD	$L7625
+	DD	$L7634
+	DD	$L7625
 	DD	$L7630
-	DD	$L7626
 	DD	$L7629
-	DD	$L7626
-	DD	$L7630
+	DD	$L7625
+	DD	$L7628
+	DD	$L7625
+	DD	$L7629
 ?PM_PlayerMove@@YAXH@Z ENDP				; PM_PlayerMove
 _TEXT	ENDS
 PUBLIC	__real@8@3ffc8000000000000000
@@ -17584,17 +17562,17 @@ _zi$ = -32
 ; 3238 : 	for (z = -0.125 ; z <= 0.125 ; z += 0.125)
 
 	mov	DWORD PTR _z$[ebp], -1107296256		; be000000H
-	jmp	SHORT $L7661
-$L7662:
+	jmp	SHORT $L7660
+$L7661:
 	fld	DWORD PTR _z$[ebp]
 	fadd	QWORD PTR __real@8@3ffc8000000000000000
 	fstp	DWORD PTR _z$[ebp]
-$L7661:
+$L7660:
 	fld	DWORD PTR _z$[ebp]
 	fcomp	QWORD PTR __real@8@3ffc8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7663
+	je	SHORT $L7662
 
 ; 3240 : 		rgv3tStuckTable[idx][0] = x;
 
@@ -17631,8 +17609,8 @@ $L7661:
 
 ; 3244 : 	}
 
-	jmp	SHORT $L7662
-$L7663:
+	jmp	SHORT $L7661
+$L7662:
 
 ; 3245 : 	x = z = 0;
 
@@ -17644,17 +17622,17 @@ $L7663:
 ; 3247 : 	for (y = -0.125 ; y <= 0.125 ; y += 0.125)
 
 	mov	DWORD PTR _y$[ebp], -1107296256		; be000000H
-	jmp	SHORT $L7664
-$L7665:
+	jmp	SHORT $L7663
+$L7664:
 	fld	DWORD PTR _y$[ebp]
 	fadd	QWORD PTR __real@8@3ffc8000000000000000
 	fstp	DWORD PTR _y$[ebp]
-$L7664:
+$L7663:
 	fld	DWORD PTR _y$[ebp]
 	fcomp	QWORD PTR __real@8@3ffc8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7666
+	je	SHORT $L7665
 
 ; 3249 : 		rgv3tStuckTable[idx][0] = x;
 
@@ -17691,8 +17669,8 @@ $L7664:
 
 ; 3253 : 	}
 
-	jmp	SHORT $L7665
-$L7666:
+	jmp	SHORT $L7664
+$L7665:
 
 ; 3254 : 	y = z = 0;
 
@@ -17704,17 +17682,17 @@ $L7666:
 ; 3256 : 	for (x = -0.125 ; x <= 0.125 ; x += 0.125)
 
 	mov	DWORD PTR _x$[ebp], -1107296256		; be000000H
-	jmp	SHORT $L7667
-$L7668:
+	jmp	SHORT $L7666
+$L7667:
 	fld	DWORD PTR _x$[ebp]
 	fadd	QWORD PTR __real@8@3ffc8000000000000000
 	fstp	DWORD PTR _x$[ebp]
-$L7667:
+$L7666:
 	fld	DWORD PTR _x$[ebp]
 	fcomp	QWORD PTR __real@8@3ffc8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7669
+	je	SHORT $L7668
 
 ; 3258 : 		rgv3tStuckTable[idx][0] = x;
 
@@ -17751,55 +17729,55 @@ $L7667:
 
 ; 3262 : 	}
 
-	jmp	SHORT $L7668
-$L7669:
+	jmp	SHORT $L7667
+$L7668:
 
 ; 3263 : 
 ; 3264 : 	// Remaining multi axis nudges.
 ; 3265 : 	for ( x = - 0.125; x <= 0.125; x += 0.250 )
 
 	mov	DWORD PTR _x$[ebp], -1107296256		; be000000H
-	jmp	SHORT $L7670
-$L7671:
+	jmp	SHORT $L7669
+$L7670:
 	fld	DWORD PTR _x$[ebp]
 	fadd	QWORD PTR __real@8@3ffd8000000000000000
 	fstp	DWORD PTR _x$[ebp]
-$L7670:
+$L7669:
 	fld	DWORD PTR _x$[ebp]
 	fcomp	QWORD PTR __real@8@3ffc8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	$L7672
+	je	$L7671
 
 ; 3267 : 		for ( y = - 0.125; y <= 0.125; y += 0.250 )
 
 	mov	DWORD PTR _y$[ebp], -1107296256		; be000000H
-	jmp	SHORT $L7673
-$L7674:
+	jmp	SHORT $L7672
+$L7673:
 	fld	DWORD PTR _y$[ebp]
 	fadd	QWORD PTR __real@8@3ffd8000000000000000
 	fstp	DWORD PTR _y$[ebp]
-$L7673:
+$L7672:
 	fld	DWORD PTR _y$[ebp]
 	fcomp	QWORD PTR __real@8@3ffc8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7675
+	je	SHORT $L7674
 
 ; 3269 : 			for ( z = - 0.125; z <= 0.125; z += 0.250 )
 
 	mov	DWORD PTR _z$[ebp], -1107296256		; be000000H
-	jmp	SHORT $L7676
-$L7677:
+	jmp	SHORT $L7675
+$L7676:
 	fld	DWORD PTR _z$[ebp]
 	fadd	QWORD PTR __real@8@3ffd8000000000000000
 	fstp	DWORD PTR _z$[ebp]
-$L7676:
+$L7675:
 	fld	DWORD PTR _z$[ebp]
 	fcomp	QWORD PTR __real@8@3ffc8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7678
+	je	SHORT $L7677
 
 ; 3271 : 				rgv3tStuckTable[idx][0] = x;
 
@@ -17836,18 +17814,18 @@ $L7676:
 
 ; 3275 : 			}
 
-	jmp	SHORT $L7677
-$L7678:
+	jmp	SHORT $L7676
+$L7677:
 
 ; 3276 : 		}
 
-	jmp	$L7674
-$L7675:
+	jmp	$L7673
+$L7674:
 
 ; 3277 : 	}
 
-	jmp	$L7671
-$L7672:
+	jmp	$L7670
+$L7671:
 
 ; 3278 : 
 ; 3279 : 	// Big Moves.
@@ -17873,14 +17851,14 @@ $L7672:
 ; 3285 : 	for (i = 0; i < 3; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L7679
-$L7680:
+	jmp	SHORT $L7678
+$L7679:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L7679:
+$L7678:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	SHORT $L7681
+	jge	SHORT $L7680
 
 ; 3287 : 		// Z moves
 ; 3288 : 		z = zi[i];
@@ -17924,8 +17902,8 @@ $L7679:
 
 ; 3293 : 	}
 
-	jmp	SHORT $L7680
-$L7681:
+	jmp	SHORT $L7679
+$L7680:
 
 ; 3294 : 
 ; 3295 : 	x = z = 0;
@@ -17939,17 +17917,17 @@ $L7681:
 ; 3298 : 	for (y = -2.0f ; y <= 2.0f ; y += 2.0)
 
 	mov	DWORD PTR _y$[ebp], -1073741824		; c0000000H
-	jmp	SHORT $L7682
-$L7683:
+	jmp	SHORT $L7681
+$L7682:
 	fld	DWORD PTR _y$[ebp]
 	fadd	QWORD PTR __real@8@40008000000000000000
 	fstp	DWORD PTR _y$[ebp]
-$L7682:
+$L7681:
 	fld	DWORD PTR _y$[ebp]
 	fcomp	DWORD PTR __real@4@40008000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7684
+	je	SHORT $L7683
 
 ; 3300 : 		rgv3tStuckTable[idx][0] = x;
 
@@ -17986,8 +17964,8 @@ $L7682:
 
 ; 3304 : 	}
 
-	jmp	SHORT $L7683
-$L7684:
+	jmp	SHORT $L7682
+$L7683:
 
 ; 3305 : 	y = z = 0;
 
@@ -17999,17 +17977,17 @@ $L7684:
 ; 3307 : 	for (x = -2.0f ; x <= 2.0f ; x += 2.0f)
 
 	mov	DWORD PTR _x$[ebp], -1073741824		; c0000000H
-	jmp	SHORT $L7685
-$L7686:
+	jmp	SHORT $L7684
+$L7685:
 	fld	DWORD PTR _x$[ebp]
 	fadd	DWORD PTR __real@4@40008000000000000000
 	fstp	DWORD PTR _x$[ebp]
-$L7685:
+$L7684:
 	fld	DWORD PTR _x$[ebp]
 	fcomp	DWORD PTR __real@4@40008000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7687
+	je	SHORT $L7686
 
 ; 3309 : 		rgv3tStuckTable[idx][0] = x;
 
@@ -18046,22 +18024,22 @@ $L7685:
 
 ; 3313 : 	}
 
-	jmp	SHORT $L7686
-$L7687:
+	jmp	SHORT $L7685
+$L7686:
 
 ; 3314 : 
 ; 3315 : 	// Remaining multi axis nudges.
 ; 3316 : 	for (i = 0 ; i < 3; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L7688
-$L7689:
+	jmp	SHORT $L7687
+$L7688:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L7688:
+$L7687:
 	cmp	DWORD PTR _i$[ebp], 3
-	jge	$L7690
+	jge	$L7689
 
 ; 3318 : 		z = zi[i];
 
@@ -18069,36 +18047,36 @@ $L7688:
 	mov	edx, DWORD PTR _zi$[ebp+ecx*4]
 	mov	DWORD PTR _z$[ebp], edx
 
-; 3319 : 		
+; 3319 : 
 ; 3320 : 		for (x = -2.0f ; x <= 2.0f ; x += 2.0f)
 
 	mov	DWORD PTR _x$[ebp], -1073741824		; c0000000H
-	jmp	SHORT $L7691
-$L7692:
+	jmp	SHORT $L7690
+$L7691:
 	fld	DWORD PTR _x$[ebp]
 	fadd	DWORD PTR __real@4@40008000000000000000
 	fstp	DWORD PTR _x$[ebp]
-$L7691:
+$L7690:
 	fld	DWORD PTR _x$[ebp]
 	fcomp	DWORD PTR __real@4@40008000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7693
+	je	SHORT $L7692
 
 ; 3322 : 			for (y = -2.0f ; y <= 2.0f ; y += 2.0)
 
 	mov	DWORD PTR _y$[ebp], -1073741824		; c0000000H
-	jmp	SHORT $L7694
-$L7695:
+	jmp	SHORT $L7693
+$L7694:
 	fld	DWORD PTR _y$[ebp]
 	fadd	QWORD PTR __real@8@40008000000000000000
 	fstp	DWORD PTR _y$[ebp]
-$L7694:
+$L7693:
 	fld	DWORD PTR _y$[ebp]
 	fcomp	DWORD PTR __real@4@40008000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L7696
+	je	SHORT $L7695
 
 ; 3324 : 				rgv3tStuckTable[idx][0] = x;
 
@@ -18135,24 +18113,24 @@ $L7694:
 
 ; 3328 : 			}
 
-	jmp	SHORT $L7695
-$L7696:
+	jmp	SHORT $L7694
+$L7695:
 
 ; 3329 : 		}
 
-	jmp	$L7692
-$L7693:
+	jmp	$L7691
+$L7692:
 
 ; 3330 : 	}
 
-	jmp	$L7689
-$L7690:
+	jmp	$L7688
+$L7689:
 
 ; 3331 : 
 ; 3332 : 	assert( idx < sizeof( rgv3tStuckTable ) / sizeof( rgv3tStuckTable[0] ));
 
 	cmp	DWORD PTR _idx$[ebp], 54		; 00000036H
-	jb	SHORT $L8330
+	jb	SHORT $L8329
 	movsx	eax, WORD PTR ?__LINE__Var@?1??PM_CreateStuckTable@@YAXXZ@4FA ; `PM_CreateStuckTable'::`2'::__LINE__Var
 	add	eax, 106				; 0000006aH
 	push	eax
@@ -18160,7 +18138,7 @@ $L7690:
 	push	OFFSET FLAT:??_C@_0DP@DHFH@idx?5?$DM?5sizeof?$CI?5rgv3tStuckTable?5?$CJ?5@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L8330:
+$L8329:
 
 ; 3333 : }
 
@@ -18197,7 +18175,7 @@ _server$ = 12
 ; 3343 : 	assert( pm_shared_initialized );
 
 	cmp	DWORD PTR _pm_shared_initialized, 0
-	jne	SHORT $L8337
+	jne	SHORT $L8336
 	movsx	eax, WORD PTR ?__LINE__Var@?1??PM_Move@@YAXPAUplayermove_s@@H@Z@4FA ; `PM_Move'::`2'::__LINE__Var
 	add	eax, 1
 	push	eax
@@ -18205,7 +18183,7 @@ _server$ = 12
 	push	OFFSET FLAT:??_C@_0BG@MKFG@pm_shared_initialized?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L8337:
+$L8336:
 
 ; 3344 : 
 ; 3345 : 	pmove = ppmove;
@@ -18213,7 +18191,7 @@ $L8337:
 	mov	edx, DWORD PTR _ppmove$[ebp]
 	mov	DWORD PTR ?pmove@@3PAUplayermove_s@@A, edx ; pmove
 
-; 3346 : 	
+; 3346 : 
 ; 3347 : 	PM_PlayerMove( ( server != 0 ) ? true : false );
 
 	cmp	DWORD PTR _server$[ebp], 0
@@ -18228,7 +18206,7 @@ $L8337:
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [ecx+224], -1
-	je	SHORT $L7706
+	je	SHORT $L7705
 
 ; 3351 : 		pmove->flags |= FL_ONGROUND;
 
@@ -18240,8 +18218,8 @@ $L8337:
 
 ; 3353 : 	else
 
-	jmp	SHORT $L7707
-$L7706:
+	jmp	SHORT $L7706
+$L7705:
 
 ; 3355 : 		pmove->flags &= ~FL_ONGROUND;
 
@@ -18250,7 +18228,7 @@ $L7706:
 	and	ah, -3					; fffffffdH
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [ecx+184], eax
-$L7707:
+$L7706:
 
 ; 3357 : 
 ; 3358 : 	// In single player, reset friction after each movement to FrictionModifier Triggers work still.
@@ -18258,16 +18236,16 @@ $L7707:
 
 	mov	edx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [edx+8], 0
-	jne	SHORT $L7708
+	jne	SHORT $L7707
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	cmp	DWORD PTR [eax+220], 3
-	jne	SHORT $L7708
+	jne	SHORT $L7707
 
 ; 3361 : 		pmove->friction = 1.0f;
 
 	mov	ecx, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	DWORD PTR [ecx+196], 1065353216		; 3f800000H
-$L7708:
+$L7707:
 
 ; 3363 : }
 
@@ -18297,11 +18275,11 @@ _ent$ = 8
 ; 3367 : 	if ( ent >= 0 && ent <= pmove->numvisent )
 
 	cmp	DWORD PTR _ent$[ebp], 0
-	jl	SHORT $L7712
+	jl	SHORT $L7711
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	ecx, DWORD PTR _ent$[ebp]
 	cmp	ecx, DWORD PTR [eax+149332]
-	jg	SHORT $L7712
+	jg	SHORT $L7711
 
 ; 3369 : 		return pmove->visents[ ent ].info;
 
@@ -18309,13 +18287,13 @@ _ent$ = 8
 	imul	edx, 224				; 000000e0H
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	eax, DWORD PTR [eax+edx+149416]
-	jmp	SHORT $L7711
-$L7712:
+	jmp	SHORT $L7710
+$L7711:
 
 ; 3371 : 	return -1;
 
 	or	eax, -1
-$L7711:
+$L7710:
 
 ; 3372 : }
 
@@ -18345,11 +18323,11 @@ _ent$ = 8
 ; 3376 : 	if ( ent >= 0 && ent <= pmove->numphysent)
 
 	cmp	DWORD PTR _ent$[ebp], 0
-	jl	SHORT $L7716
+	jl	SHORT $L7715
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	ecx, DWORD PTR _ent$[ebp]
 	cmp	ecx, DWORD PTR [eax+588]
-	jg	SHORT $L7716
+	jg	SHORT $L7715
 
 ; 3378 : 		return pmove->physents[ ent ].info;
 
@@ -18357,13 +18335,13 @@ _ent$ = 8
 	imul	edx, 224				; 000000e0H
 	mov	eax, DWORD PTR ?pmove@@3PAUplayermove_s@@A ; pmove
 	mov	eax, DWORD PTR [eax+edx+672]
-	jmp	SHORT $L7715
-$L7716:
+	jmp	SHORT $L7714
+$L7715:
 
 ; 3380 : 	return -1;
 
 	or	eax, -1
-$L7715:
+$L7714:
 
 ; 3381 : }
 
@@ -18404,7 +18382,7 @@ _ppmove$ = 8
 ; 3385 : 	assert( !pm_shared_initialized );
 
 	cmp	DWORD PTR _pm_shared_initialized, 0
-	je	SHORT $L8344
+	je	SHORT $L8343
 	movsx	eax, WORD PTR ?__LINE__Var@?1??PM_Init@@YAXPAUplayermove_s@@@Z@4FA ; `PM_Init'::`2'::__LINE__Var
 	add	eax, 1
 	push	eax
@@ -18412,7 +18390,7 @@ _ppmove$ = 8
 	push	OFFSET FLAT:??_C@_0BH@ECMO@?$CBpm_shared_initialized?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L8344:
+$L8343:
 
 ; 3386 : 
 ; 3387 : 	pmove = ppmove;

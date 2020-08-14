@@ -598,9 +598,9 @@ _bFound$ = -16
 	mov	edx, DWORD PTR [ecx+388]
 	mov	DWORD PTR -20+[ebp], edx
 	cmp	DWORD PTR -20+[ebp], 1
-	je	SHORT $L36509
-	jmp	$L36518
-$L36509:
+	je	SHORT $L36517
+	jmp	$L36526
+$L36517:
 
 ; 70   : 	case 1:
 ; 71   : 		// teleport the spectator to the next spawn point
@@ -622,13 +622,13 @@ $L36509:
 ; 79   : 		bFound = FALSE;
 
 	mov	DWORD PTR _bFound$[ebp], 0
-$L36511:
+$L36519:
 
 ; 80   : 		while (1)
 
 	mov	edx, 1
 	test	edx, edx
-	je	SHORT $L36512
+	je	SHORT $L36520
 
 ; 82   : 			pCurrentGoal = FIND_ENTITY_BY_CLASSNAME(pCurrentGoal, "info_player_deathmatch");
 
@@ -644,7 +644,7 @@ $L36511:
 
 	mov	ecx, DWORD PTR _pCurrentGoal$[ebp]
 	cmp	ecx, DWORD PTR _pPreviousGoal$[ebp]
-	jne	SHORT $L36514
+	jne	SHORT $L36522
 
 ; 86   : 				ALERT(at_console, "Could not find a spawn spot.\n");
 
@@ -655,8 +655,8 @@ $L36511:
 
 ; 87   : 				break;
 
-	jmp	SHORT $L36512
-$L36514:
+	jmp	SHORT $L36520
+$L36522:
 
 ; 89   : 			// Found a non-world entity, set success, otherwise, look for the next one.
 ; 90   : 			if (!FNullEnt(pCurrentGoal))
@@ -666,7 +666,7 @@ $L36514:
 	call	?FNullEnt@@YAHPBUedict_s@@@Z		; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L36516
+	jne	SHORT $L36524
 
 ; 92   : 				bFound = TRUE;
 
@@ -674,24 +674,24 @@ $L36514:
 
 ; 93   : 				break;
 
-	jmp	SHORT $L36512
-$L36516:
+	jmp	SHORT $L36520
+$L36524:
 
 ; 95   : 		}
 
-	jmp	SHORT $L36511
-$L36512:
+	jmp	SHORT $L36519
+$L36520:
 
 ; 96   : 
 ; 97   : 		if (!bFound)  // Didn't find a good spot.
 
 	cmp	DWORD PTR _bFound$[ebp], 0
-	jne	SHORT $L36517
+	jne	SHORT $L36525
 
 ; 98   : 			break;
 
-	jmp	SHORT $L36506
-$L36517:
+	jmp	SHORT $L36514
+$L36525:
 
 ; 99   : 		
 ; 100  : 		pGoal = pCurrentGoal;
@@ -725,8 +725,8 @@ $L36517:
 
 ; 104  : 		break;
 
-	jmp	SHORT $L36506
-$L36518:
+	jmp	SHORT $L36514
+$L36526:
 
 ; 105  : 	default:
 ; 106  : 		ALERT(at_console, "Unknown spectator impulse\n");
@@ -735,7 +735,7 @@ $L36518:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36506:
+$L36514:
 
 ; 109  : 
 ; 110  : 	pev->impulse = 0;
@@ -811,7 +811,7 @@ _pent$ = 8
 	push	esi
 	push	edi
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L36848
+	je	SHORT $L36856
 	mov	eax, DWORD PTR _pent$[ebp]
 	push	eax
 	call	?OFFSET@@YAHPBUedict_s@@@Z		; OFFSET
@@ -820,12 +820,12 @@ _pent$ = 8
 	call	?FNullEnt@@YAHH@Z			; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L36848
+	jne	SHORT $L36856
 	mov	DWORD PTR -4+[ebp], 0
-	jmp	SHORT $L36849
-$L36848:
+	jmp	SHORT $L36857
+$L36856:
 	mov	DWORD PTR -4+[ebp], 1
-$L36849:
+$L36857:
 	mov	eax, DWORD PTR -4+[ebp]
 	pop	edi
 	pop	esi
@@ -935,14 +935,14 @@ _this$ = -4
 	mov	edx, DWORD PTR [ecx+420]
 	and	edx, 67108864				; 04000000H
 	test	edx, edx
-	jne	SHORT $L36524
+	jne	SHORT $L36532
 
 ; 124  : 		pev->flags = FL_SPECTATOR;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [ecx+420], 67108864		; 04000000H
-$L36524:
+$L36532:
 
 ; 126  : 
 ; 127  : 	pev->solid	   = SOLID_NOT;
@@ -963,13 +963,13 @@ $L36524:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+388], 0
-	je	SHORT $L36525
+	je	SHORT $L36533
 
 ; 131  : 		SpectatorImpulseCommand();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SpectatorImpulseCommand@CBaseSpectator@@AAEXXZ ; CBaseSpectator::SpectatorImpulseCommand
-$L36525:
+$L36533:
 
 ; 132  : }
 

@@ -6,11 +6,98 @@
 --------------------Configuration: client - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP46.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /Op /I ".\\" /I "..\engine" /I "..\common" /I "..\game_shared" /I ".\render" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "CLIENT_DLL" /Fo"..\temp\client\!release/" /Fd"..\temp\client\!release/" /FD /c 
+"Z:\XashXTSRC\client\ammo.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP46.tmp" 
+Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP47.tmp" with contents
+[
+msvcrt.lib user32.lib /nologo /subsystem:windows /dll /pdb:none /machine:I386 /nodefaultlib:"libc.lib" /out:"..\temp\client\!release/client.dll" /implib:"..\temp\client\!release/client.lib" /libpath:"..\common\libs" 
+"\XashXTSRC\temp\client\!release\ammo.obj"
+"\XashXTSRC\temp\client\!release\ammo_secondary.obj"
+"\XashXTSRC\temp\client\!release\ammohistory.obj"
+"\XashXTSRC\temp\client\!release\battery.obj"
+"\XashXTSRC\temp\client\!release\bone_setup.obj"
+"\XashXTSRC\temp\client\!release\cdll_int.obj"
+"\XashXTSRC\temp\client\!release\common.obj"
+"\XashXTSRC\temp\client\!release\death.obj"
+"\XashXTSRC\temp\client\!release\flashlight.obj"
+"\XashXTSRC\temp\client\!release\geiger.obj"
+"\XashXTSRC\temp\client\!release\health.obj"
+"\XashXTSRC\temp\client\!release\hud.obj"
+"\XashXTSRC\temp\client\!release\hud_msg.obj"
+"\XashXTSRC\temp\client\!release\hud_redraw.obj"
+"\XashXTSRC\temp\client\!release\hud_update.obj"
+"\XashXTSRC\temp\client\!release\ikcontext.obj"
+"\XashXTSRC\temp\client\!release\input.obj"
+"\XashXTSRC\temp\client\!release\inputw32.obj"
+"\XashXTSRC\temp\client\!release\jigglebones.obj"
+"\XashXTSRC\temp\client\!release\mathlib.obj"
+"\XashXTSRC\temp\client\!release\matrix.obj"
+"\XashXTSRC\temp\client\!release\menu.obj"
+"\XashXTSRC\temp\client\!release\message.obj"
+"\XashXTSRC\temp\client\!release\motd.obj"
+"\XashXTSRC\temp\client\!release\parsemsg.obj"
+"\XashXTSRC\temp\client\!release\playermove.obj"
+"\XashXTSRC\temp\client\!release\procbones.obj"
+"\XashXTSRC\temp\client\!release\r_backend.obj"
+"\XashXTSRC\temp\client\!release\r_brushdecals.obj"
+"\XashXTSRC\temp\client\!release\r_cull.obj"
+"\XashXTSRC\temp\client\!release\r_debug.obj"
+"\XashXTSRC\temp\client\!release\r_frustum.obj"
+"\XashXTSRC\temp\client\!release\r_grass.obj"
+"\XashXTSRC\temp\client\!release\r_light.obj"
+"\XashXTSRC\temp\client\!release\r_lightmap.obj"
+"\XashXTSRC\temp\client\!release\r_main.obj"
+"\XashXTSRC\temp\client\!release\r_misc.obj"
+"\XashXTSRC\temp\client\!release\r_movie.obj"
+"\XashXTSRC\temp\client\!release\r_opengl.obj"
+"\XashXTSRC\temp\client\!release\r_particle.obj"
+"\XashXTSRC\temp\client\!release\r_postprocess.obj"
+"\XashXTSRC\temp\client\!release\r_shader.obj"
+"\XashXTSRC\temp\client\!release\r_shadows.obj"
+"\XashXTSRC\temp\client\!release\r_sprite.obj"
+"\XashXTSRC\temp\client\!release\r_studio.obj"
+"\XashXTSRC\temp\client\!release\r_studiodecal.obj"
+"\XashXTSRC\temp\client\!release\r_subview.obj"
+"\XashXTSRC\temp\client\!release\r_surf.obj"
+"\XashXTSRC\temp\client\!release\r_tempents.obj"
+"\XashXTSRC\temp\client\!release\r_view.obj"
+"\XashXTSRC\temp\client\!release\r_warp.obj"
+"\XashXTSRC\temp\client\!release\r_weather.obj"
+"\XashXTSRC\temp\client\!release\r_world.obj"
+"\XashXTSRC\temp\client\!release\saytext.obj"
+"\XashXTSRC\temp\client\!release\scoreboard.obj"
+"\XashXTSRC\temp\client\!release\status_icons.obj"
+"\XashXTSRC\temp\client\!release\statusbar.obj"
+"\XashXTSRC\temp\client\!release\stringlib.obj"
+"\XashXTSRC\temp\client\!release\text_message.obj"
+"\XashXTSRC\temp\client\!release\train.obj"
+"\XashXTSRC\temp\client\!release\tri.obj"
+"\XashXTSRC\temp\client\!release\utils.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP47.tmp"
+Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP48.bat" with contents
+[
+@echo off
+copy \XashXTSRC\temp\client\!release\client.dll "Z:\client.dll"
+]
+Creating command line "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP48.bat"
+Compiling...
+Command line warning D4002 : ignoring unknown option '/Op'
+ammo.cpp
+Linking...
+   Creating library ..\temp\client\!release/client.lib and object ..\temp\client\!release/client.exp
+<h3>Output Window</h3>
+Performing Custom Build Step on \XashXTSRC\temp\client\!release\client.dll
+Скопировано файлов:         1.
 
 
 
 <h3>Results</h3>
-client.dll - 0 error(s), 0 warning(s)
+client.dll - 0 error(s), 1 warning(s)
 </pre>
 </body>
 </html>

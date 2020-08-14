@@ -644,6 +644,8 @@ $L25386:
 	ret	16					; 00000010H
 ??_H@YGXPAXIHP6EX0@Z@Z ENDP				; `vector constructor iterator'
 _TEXT	ENDS
+PUBLIC	?IsTeamplay@CGameRules@@UAEHXZ			; CGameRules::IsTeamplay
+PUBLIC	?GetGameDescription@CGameRules@@UAEPBDXZ	; CGameRules::GetGameDescription
 PUBLIC	?UpdateGameMode@CGameRules@@UAEXPAVCBasePlayer@@@Z ; CGameRules::UpdateGameMode
 PUBLIC	?FPlayerCanTakeDamage@CGameRules@@UAEHPAVCBasePlayer@@PAVCBaseEntity@@@Z ; CGameRules::FPlayerCanTakeDamage
 PUBLIC	?ShouldAutoAim@CGameRules@@UAEHPAVCBasePlayer@@PAUedict_s@@@Z ; CGameRules::ShouldAutoAim
@@ -701,8 +703,6 @@ PUBLIC	?FAllowMonsters@CHalfLifeRules@@UAEHXZ		; CHalfLifeRules::FAllowMonsters
 PUBLIC	?GetTeamID@CHalfLifeRules@@UAEPBDPAVCBaseEntity@@@Z ; CHalfLifeRules::GetTeamID
 PUBLIC	?PlayerRelationship@CHalfLifeRules@@UAEHPAVCBaseEntity@@0@Z ; CHalfLifeRules::PlayerRelationship
 PUBLIC	??_7CHalfLifeRules@@6B@				; CHalfLifeRules::`vftable'
-PUBLIC	?IsTeamplay@CGameRules@@UAEHXZ			; CGameRules::IsTeamplay
-PUBLIC	?GetGameDescription@CGameRules@@UAEPBDXZ	; CGameRules::GetGameDescription
 EXTRN	?GetPlayerSpawnSpot@CGameRules@@UAEPAUedict_s@@PAVCBasePlayer@@@Z:NEAR ; CGameRules::GetPlayerSpawnSpot
 EXTRN	?CanHavePlayerItem@CGameRules@@UAEHPAVCBasePlayer@@PAVCBasePlayerItem@@@Z:NEAR ; CGameRules::CanHavePlayerItem
 EXTRN	?CanHaveAmmo@CGameRules@@UAEHPAVCBasePlayer@@PBDH@Z:NEAR ; CGameRules::CanHaveAmmo
@@ -1478,14 +1478,14 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _pPlayer$[ebp]
 	cmp	DWORD PTR [eax+2980], 0
-	jne	SHORT $L38493
+	jne	SHORT $L38507
 
 ; 74   : 		// player doesn't have an active item!
 ; 75   : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L38492
-$L38493:
+	jmp	SHORT $L38506
+$L38507:
 
 ; 77   : 
 ; 78   : 	if ( !pPlayer->m_pActiveItem->CanHolster() )
@@ -1497,19 +1497,19 @@ $L38493:
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+364]
 	test	eax, eax
-	jne	SHORT $L38494
+	jne	SHORT $L38508
 
 ; 80   : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L38492
-$L38494:
+	jmp	SHORT $L38506
+$L38508:
 
 ; 82   : 
 ; 83   : 	return TRUE;
 
 	mov	eax, 1
-$L38492:
+$L38506:
 
 ; 84   : }
 
@@ -1715,7 +1715,7 @@ _pWeaponEntity$ = -8
 ; 124  : 	CBaseEntity	*pWeaponEntity = NULL;
 
 	mov	DWORD PTR _pWeaponEntity$[ebp], 0
-$L38526:
+$L38540:
 
 ; 125  : 
 ; 126  : // LRC what's wrong with allowing "game_player_equip" entities in single player? (The
@@ -1729,7 +1729,7 @@ $L38526:
 	add	esp, 8
 	mov	DWORD PTR _pWeaponEntity$[ebp], eax
 	cmp	DWORD PTR _pWeaponEntity$[ebp], 0
-	je	SHORT $L38527
+	je	SHORT $L38541
 
 ; 130  : 		pWeaponEntity->Touch( pPlayer );
 
@@ -1742,8 +1742,8 @@ $L38526:
 
 ; 131  : 	}
 
-	jmp	SHORT $L38526
-$L38527:
+	jmp	SHORT $L38540
+$L38541:
 
 ; 132  : }
 

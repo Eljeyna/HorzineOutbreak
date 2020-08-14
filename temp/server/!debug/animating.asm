@@ -818,7 +818,7 @@ _TEXT	SEGMENT
 	mov	al, BYTE PTR _?$S22@?1??DataMapInit@@YAPAUdatamap_s@@PAVCBaseAnimating@@@Z@4EA
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L37659
+	jne	SHORT $L37667
 	mov	cl, BYTE PTR _?$S22@?1??DataMapInit@@YAPAUdatamap_s@@PAVCBaseAnimating@@@Z@4EA
 	or	cl, 1
 	mov	BYTE PTR _?$S22@?1??DataMapInit@@YAPAUdatamap_s@@PAVCBaseAnimating@@@Z@4EA, cl
@@ -828,7 +828,7 @@ _TEXT	SEGMENT
 	push	OFFSET FLAT:_$E23
 	call	_atexit
 	add	esp, 4
-$L37659:
+$L37667:
 	call	?GetBaseMap@CBaseAnimating@@SAPAUdatamap_s@@XZ ; CBaseAnimating::GetBaseMap
 	mov	DWORD PTR ?m_DataMap@CBaseAnimating@@2Udatamap_s@@A+12, eax
 
@@ -841,14 +841,14 @@ $L37659:
 
 	mov	edx, 1
 	test	edx, edx
-	je	SHORT $L37678
+	je	SHORT $L37686
 	mov	DWORD PTR ?m_DataMap@CBaseAnimating@@2Udatamap_s@@A+4, 5
 	mov	DWORD PTR ?m_DataMap@CBaseAnimating@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCBaseAnimating@@@Z@4PAUtypedescription_s@@A+24
-	jmp	SHORT $L37679
-$L37678:
+	jmp	SHORT $L37687
+$L37686:
 	mov	DWORD PTR ?m_DataMap@CBaseAnimating@@2Udatamap_s@@A+4, 1
 	mov	DWORD PTR ?m_DataMap@CBaseAnimating@@2Udatamap_s@@A, OFFSET FLAT:_?dataDesc@?1??DataMapInit@@YAPAUdatamap_s@@PAVCBaseAnimating@@@Z@4PAUtypedescription_s@@A
-$L37679:
+$L37687:
 	mov	eax, OFFSET FLAT:?m_DataMap@CBaseAnimating@@2Udatamap_s@@A ; CBaseAnimating::m_DataMap
 	pop	edi
 	pop	esi
@@ -946,7 +946,7 @@ __unwindtable$??1CDatadescGeneratedNameHolder@@QAE@XZ DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ??1CDatadescGeneratedNameHolder@@QAE@XZ
 _TEXT	SEGMENT
-$T38292 = -24
+$T38300 = -24
 __$EHRec$ = -12
 _this$ = -16
 _i$ = -20
@@ -991,8 +991,8 @@ $L30214:
 	add	ecx, 8
 	call	??A?$CUtlArray@PADV?$CUtlMemory@PADH@@@@QAEAAPADH@Z ; CUtlArray<char *,CUtlMemory<char *,int> >::operator[]
 	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR $T38292[ebp], edx
-	mov	eax, DWORD PTR $T38292[ebp]
+	mov	DWORD PTR $T38300[ebp], edx
+	mov	eax, DWORD PTR $T38300[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -1140,16 +1140,16 @@ _mod$ = -4
 ; 46   : 	if( !g_fPhysicInitialized || modelindex <= 1 )
 
 	cmp	DWORD PTR ?g_fPhysicInitialized@@3HA, 0	; g_fPhysicInitialized
-	je	SHORT $L37689
+	je	SHORT $L37697
 	cmp	DWORD PTR _modelindex$[ebp], 1
-	jg	SHORT $L37688
-$L37689:
+	jg	SHORT $L37696
+$L37697:
 
 ; 47   : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L37687
-$L37688:
+	jmp	SHORT $L37695
+$L37696:
 
 ; 48   : 
 ; 49   : 	model_t *mod = (model_t *)MODEL_HANDLE( modelindex );
@@ -1164,22 +1164,22 @@ $L37688:
 ; 51   : 	if( mod && mod->type == mod_studio )
 
 	cmp	DWORD PTR _mod$[ebp], 0
-	je	SHORT $L37692
+	je	SHORT $L37700
 	mov	ecx, DWORD PTR _mod$[ebp]
 	cmp	DWORD PTR [ecx+68], 3
-	jne	SHORT $L37692
+	jne	SHORT $L37700
 
 ; 52   : 		return mod->cache.data;
 
 	mov	edx, DWORD PTR _mod$[ebp]
 	mov	eax, DWORD PTR [edx+388]
-	jmp	SHORT $L37687
-$L37692:
+	jmp	SHORT $L37695
+$L37700:
 
 ; 53   : 	return NULL;
 
 	xor	eax, eax
-$L37687:
+$L37695:
 
 ; 54   : }
 
@@ -1238,7 +1238,7 @@ _this$ = -4
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37698
+	je	SHORT $L37706
 
 ; 64   : 		flInterval = (gpGlobals->time - pev->animtime);
 
@@ -1255,7 +1255,7 @@ _this$ = -4
 	fcomp	QWORD PTR __real@8@3ff583126e978d4fe000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L37698
+	je	SHORT $L37706
 
 ; 67   : 			pev->animtime = gpGlobals->time;
 
@@ -1268,8 +1268,8 @@ _this$ = -4
 ; 68   : 			return 0.0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	$L37696
-$L37698:
+	jmp	$L37704
+$L37706:
 
 ; 71   : 	if (! pev->animtime)
 
@@ -1279,12 +1279,12 @@ $L37698:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37699
+	je	SHORT $L37707
 
 ; 72   : 		flInterval = 0.0;
 
 	mov	DWORD PTR _flInterval$[ebp], 0
-$L37699:
+$L37707:
 
 ; 73   : 	
 ; 74   : 	pev->frame += flInterval * m_flFrameRate * pev->framerate;
@@ -1319,21 +1319,21 @@ $L37699:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L37701
+	jne	SHORT $L37709
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+304]
 	fcomp	QWORD PTR __real@8@40078000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	$L37700
-$L37701:
+	jne	$L37708
+$L37709:
 
 ; 79   : 		if (m_fSequenceLoops)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1808], 0
-	je	SHORT $L37702
+	je	SHORT $L37710
 
 ; 80   : 			pev->frame -= (int)(pev->frame / 256.0) * 256.0;
 
@@ -1355,8 +1355,8 @@ $L37701:
 
 ; 81   : 		else
 
-	jmp	SHORT $L37704
-$L37702:
+	jmp	SHORT $L37712
+$L37710:
 
 ; 82   : 			pev->frame = (pev->frame < 0.0) ? 0 : 255;
 
@@ -1366,29 +1366,29 @@ $L37702:
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38314
+	je	SHORT $L38322
 	mov	DWORD PTR -12+[ebp], 0
-	jmp	SHORT $L38315
-$L38314:
+	jmp	SHORT $L38323
+$L38322:
 	mov	DWORD PTR -12+[ebp], 255		; 000000ffH
-$L38315:
+$L38323:
 	fild	DWORD PTR -12+[ebp]
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	fstp	DWORD PTR [edx+304]
-$L37704:
+$L37712:
 
 ; 83   : 		m_fSequenceFinished = TRUE;	// just in case it wasn't caught in GetEvents
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+1804], 1
-$L37700:
+$L37708:
 
 ; 85   : 
 ; 86   : 	return flInterval;
 
 	fld	DWORD PTR _flInterval$[ebp]
-$L37696:
+$L37704:
 
 ; 87   : }
 
@@ -1481,8 +1481,8 @@ CONST	ENDS
 _TEXT	SEGMENT
 _this$ = -4
 _delta$ = -8
-_flYawDiff$37714 = -12
-_gaityaw$37722 = -16
+_flYawDiff$37722 = -12
+_gaityaw$37730 = -16
 _flYaw$ = -20
 _iTorsoAdjust$ = -24
 ?StudioGaitFrameAdvance@CBaseAnimating@@QAEMXZ PROC NEAR ; CBaseAnimating::StudioGaitFrameAdvance, COMDAT
@@ -1502,20 +1502,20 @@ _iTorsoAdjust$ = -24
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+300], 0
-	je	SHORT $L37710
+	je	SHORT $L37718
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+228]
 	test	eax, eax
-	je	SHORT $L37709
+	je	SHORT $L37717
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	eax, DWORD PTR [edx+160]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L37709
-$L37710:
+	je	SHORT $L37717
+$L37718:
 
 ; 93   : 		if( IsPlayer( ))
 
@@ -1524,7 +1524,7 @@ $L37710:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+224]
 	test	eax, eax
-	je	SHORT $L37711
+	je	SHORT $L37719
 
 ; 95   : 			// reset torso controllers
 ; 96   : 			pev->controller[0] = 0x7F;
@@ -1550,13 +1550,13 @@ $L37710:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	mov	BYTE PTR [ecx+319], 127			; 0000007fH
-$L37711:
+$L37719:
 
 ; 101  : 		return 0.0f;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	$L37708
-$L37709:
+	jmp	$L37716
+$L37717:
 
 ; 103  : 
 ; 104  : 	float delta = gpGlobals->frametime;
@@ -1585,14 +1585,14 @@ $L37709:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	$L37713
+	je	$L37721
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+36]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	$L37713
+	je	$L37721
 
 ; 110  : 		float flYawDiff = pev->angles[YAW] - m_flGaitYaw;
 
@@ -1603,7 +1603,7 @@ $L37709:
 	mov	edx, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [eax+4]
 	fsub	DWORD PTR [edx+48]
-	fst	DWORD PTR _flYawDiff$37714[ebp]
+	fst	DWORD PTR _flYawDiff$37722[ebp]
 
 ; 111  : 		flYawDiff = flYawDiff - (int)(flYawDiff / 360) * 360;
 
@@ -1612,33 +1612,33 @@ $L37709:
 	imul	eax, 360				; 00000168H
 	mov	DWORD PTR -28+[ebp], eax
 	fild	DWORD PTR -28+[ebp]
-	fsubr	DWORD PTR _flYawDiff$37714[ebp]
-	fstp	DWORD PTR _flYawDiff$37714[ebp]
+	fsubr	DWORD PTR _flYawDiff$37722[ebp]
+	fstp	DWORD PTR _flYawDiff$37722[ebp]
 
 ; 112  : 
 ; 113  : 		if( flYawDiff > 180 ) flYawDiff -= 360;
 
-	fld	DWORD PTR _flYawDiff$37714[ebp]
+	fld	DWORD PTR _flYawDiff$37722[ebp]
 	fcomp	DWORD PTR __real@4@4006b400000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37716
-	fld	DWORD PTR _flYawDiff$37714[ebp]
+	jne	SHORT $L37724
+	fld	DWORD PTR _flYawDiff$37722[ebp]
 	fsub	DWORD PTR __real@4@4007b400000000000000
-	fstp	DWORD PTR _flYawDiff$37714[ebp]
-$L37716:
+	fstp	DWORD PTR _flYawDiff$37722[ebp]
+$L37724:
 
 ; 114  : 		if( flYawDiff < -180 ) flYawDiff += 360;
 
-	fld	DWORD PTR _flYawDiff$37714[ebp]
+	fld	DWORD PTR _flYawDiff$37722[ebp]
 	fcomp	DWORD PTR __real@4@c006b400000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37717
-	fld	DWORD PTR _flYawDiff$37714[ebp]
+	je	SHORT $L37725
+	fld	DWORD PTR _flYawDiff$37722[ebp]
 	fadd	DWORD PTR __real@4@4007b400000000000000
-	fstp	DWORD PTR _flYawDiff$37714[ebp]
-$L37717:
+	fstp	DWORD PTR _flYawDiff$37722[ebp]
+$L37725:
 
 ; 115  : 
 ; 116  : 		if( delta < 0.25f )
@@ -1647,29 +1647,29 @@ $L37717:
 	fcomp	DWORD PTR __real@4@3ffd8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37718
+	je	SHORT $L37726
 
 ; 117  : 			flYawDiff *= delta * 4.0f;
 
 	fld	DWORD PTR _delta$[ebp]
 	fmul	DWORD PTR __real@4@40018000000000000000
-	fmul	DWORD PTR _flYawDiff$37714[ebp]
-	fstp	DWORD PTR _flYawDiff$37714[ebp]
+	fmul	DWORD PTR _flYawDiff$37722[ebp]
+	fstp	DWORD PTR _flYawDiff$37722[ebp]
 
 ; 118  : 		else flYawDiff *= delta;
 
-	jmp	SHORT $L37719
-$L37718:
-	fld	DWORD PTR _flYawDiff$37714[ebp]
+	jmp	SHORT $L37727
+$L37726:
+	fld	DWORD PTR _flYawDiff$37722[ebp]
 	fmul	DWORD PTR _delta$[ebp]
-	fstp	DWORD PTR _flYawDiff$37714[ebp]
-$L37719:
+	fstp	DWORD PTR _flYawDiff$37722[ebp]
+$L37727:
 
 ; 119  : 
 ; 120  : 		m_flGaitYaw += flYawDiff;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	fld	DWORD PTR _flYawDiff$37714[ebp]
+	fld	DWORD PTR _flYawDiff$37722[ebp]
 	fadd	DWORD PTR [eax+48]
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	DWORD PTR [ecx+48]
@@ -1696,8 +1696,8 @@ $L37719:
 
 ; 125  : 	else
 
-	jmp	SHORT $L37721
-$L37713:
+	jmp	SHORT $L37729
+$L37721:
 
 ; 127  : 		float gaityaw = RAD2DEG( atan2( pev->velocity.y, pev->velocity.x ));
 
@@ -1715,35 +1715,35 @@ $L37713:
 	add	esp, 16					; 00000010H
 	fst	DWORD PTR -36+[ebp]
 	fmul	DWORD PTR __real@4@4004e52ee10000000000
-	fst	DWORD PTR _gaityaw$37722[ebp]
+	fst	DWORD PTR _gaityaw$37730[ebp]
 
 ; 128  : 		m_flGaitYaw = bound( -180.0f, gaityaw, 180.0f );
 
 	fcomp	DWORD PTR __real@4@c006b400000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38330
-	fld	DWORD PTR _gaityaw$37722[ebp]
+	jne	SHORT $L38338
+	fld	DWORD PTR _gaityaw$37730[ebp]
 	fcomp	DWORD PTR __real@4@4006b400000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38328
-	mov	ecx, DWORD PTR _gaityaw$37722[ebp]
+	je	SHORT $L38336
+	mov	ecx, DWORD PTR _gaityaw$37730[ebp]
 	mov	DWORD PTR -40+[ebp], ecx
-	jmp	SHORT $L38329
-$L38328:
+	jmp	SHORT $L38337
+$L38336:
 	mov	DWORD PTR -40+[ebp], 1127481344		; 43340000H
-$L38329:
+$L38337:
 	mov	edx, DWORD PTR -40+[ebp]
 	mov	DWORD PTR -44+[ebp], edx
-	jmp	SHORT $L38331
-$L38330:
+	jmp	SHORT $L38339
+$L38338:
 	mov	DWORD PTR -44+[ebp], -1020002304	; c3340000H
-$L38331:
+$L38339:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR -44+[ebp]
 	mov	DWORD PTR [eax+48], ecx
-$L37721:
+$L37729:
 
 ; 130  : 
 ; 131  : 	// calc side to side turning
@@ -1775,11 +1775,11 @@ $L37721:
 	fcomp	DWORD PTR __real@4@c006b400000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37727
+	je	SHORT $L37735
 	fld	DWORD PTR _flYaw$[ebp]
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flYaw$[ebp]
-$L37727:
+$L37735:
 
 ; 136  : 	if( flYaw > 180.0f ) flYaw -= 360.0f;
 
@@ -1787,11 +1787,11 @@ $L37727:
 	fcomp	DWORD PTR __real@4@4006b400000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37728
+	jne	SHORT $L37736
 	fld	DWORD PTR _flYaw$[ebp]
 	fsub	DWORD PTR __real@4@4007b400000000000000
 	fstp	DWORD PTR _flYaw$[ebp]
-$L37728:
+$L37736:
 
 ; 137  : 
 ; 138  : 	flYaw = (int)flYaw;
@@ -1810,17 +1810,17 @@ $L37728:
 	fcomp	DWORD PTR __real@4@bfff8000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37730
+	jne	SHORT $L37738
 	fld	DWORD PTR _flYaw$[ebp]
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37730
+	je	SHORT $L37738
 
 ; 142  : 		flYaw = 0.0f;
 
 	mov	DWORD PTR _flYaw$[ebp], 0
-$L37730:
+$L37738:
 
 ; 143  : 
 ; 144  : 	if( flYaw > 120.0f )
@@ -1829,7 +1829,7 @@ $L37730:
 	fcomp	DWORD PTR __real@4@4005f000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37731
+	jne	SHORT $L37739
 
 ; 146  : 		m_flGaitYaw -= 180.0f;
 
@@ -1855,13 +1855,13 @@ $L37730:
 
 ; 150  : 	else if( flYaw < -120.0f )
 
-	jmp	SHORT $L37733
-$L37731:
+	jmp	SHORT $L37741
+$L37739:
 	fld	DWORD PTR _flYaw$[ebp]
 	fcomp	DWORD PTR __real@4@c005f000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37733
+	je	SHORT $L37741
 
 ; 152  : 		m_flGaitYaw += 180.0f;
 
@@ -1884,7 +1884,7 @@ $L37731:
 	fld	DWORD PTR _flYaw$[ebp]
 	fadd	DWORD PTR __real@4@4006b400000000000000
 	fstp	DWORD PTR _flYaw$[ebp]
-$L37733:
+$L37741:
 
 ; 156  : 
 ; 157  : 	// classic Half-Life method
@@ -1897,7 +1897,7 @@ $L37733:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L38334
+	jne	SHORT $L38342
 	fld	DWORD PTR _flYaw$[ebp]
 	fdiv	DWORD PTR __real@4@40018000000000000000
 	fadd	DWORD PTR __real@4@4003f000000000000000
@@ -1905,22 +1905,22 @@ $L37733:
 	fcomp	DWORD PTR __real@4@4006ff00000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L38332
+	je	SHORT $L38340
 	fld	DWORD PTR _flYaw$[ebp]
 	fdiv	DWORD PTR __real@4@40018000000000000000
 	fadd	DWORD PTR __real@4@4003f000000000000000
 	fdiv	DWORD PTR __real@4@3ffcf0f0f10000000000
 	fstp	DWORD PTR -56+[ebp]
-	jmp	SHORT $L38333
-$L38332:
+	jmp	SHORT $L38341
+$L38340:
 	mov	DWORD PTR -56+[ebp], 1132396544		; 437f0000H
-$L38333:
+$L38341:
 	mov	ecx, DWORD PTR -56+[ebp]
 	mov	DWORD PTR -60+[ebp], ecx
-	jmp	SHORT $L38335
-$L38334:
+	jmp	SHORT $L38343
+$L38342:
 	mov	DWORD PTR -60+[ebp], 0
-$L38335:
+$L38343:
 	fld	DWORD PTR -60+[ebp]
 	call	__ftol
 	mov	BYTE PTR _iTorsoAdjust$[ebp], al
@@ -1993,7 +1993,7 @@ $L38335:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37736
+	je	SHORT $L37744
 
 ; 170  : 		pev->angles[YAW] += 360.0f;
 
@@ -2008,7 +2008,7 @@ $L38335:
 	fadd	DWORD PTR __real@4@4007b400000000000000
 	mov	eax, DWORD PTR -64+[ebp]
 	fstp	DWORD PTR [eax]
-$L37736:
+$L37744:
 
 ; 171  : 
 ; 172  : 	CalcGaitFrame( GetModelPtr(), pev->gaitsequence, pev->fuser1, m_flGaitMovement );
@@ -2035,7 +2035,7 @@ $L37736:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [ecx+1812]
-$L37708:
+$L37716:
 
 ; 175  : }
 
@@ -2785,8 +2785,8 @@ _pmodel$ = -8
 	ret	0
 ?GetSequenceFlags@CBaseAnimating@@QAEHXZ ENDP		; CBaseAnimating::GetSequenceFlags
 _TEXT	ENDS
-PUBLIC	__real@4@40078000000000000000
 PUBLIC	?DispatchAnimEvents@CBaseAnimating@@QAEXM@Z	; CBaseAnimating::DispatchAnimEvents
+PUBLIC	__real@4@40078000000000000000
 PUBLIC	??_C@_0BN@MEKN@Gibbed?5monster?5is?5thinking?$CB?6?$AA@ ; `string'
 EXTRN	?GetAnimationEvent@@YAHPAXHPAUMonsterEvent_t@@MMH@Z:NEAR ; GetAnimationEvent
 ;	COMDAT ??_C@_0BN@MEKN@Gibbed?5monster?5is?5thinking?$CB?6?$AA@
@@ -2838,7 +2838,7 @@ _index$ = -28
 ; 290  : 	if ( !pmodel )
 
 	cmp	DWORD PTR _pmodel$[ebp], 0
-	jne	SHORT $L37789
+	jne	SHORT $L37797
 
 ; 292  : 		ALERT( at_aiconsole, "Gibbed monster is thinking!\n" );
 
@@ -2849,8 +2849,8 @@ _index$ = -28
 
 ; 293  : 		return;
 
-	jmp	$L37786
-$L37789:
+	jmp	$L37794
+$L37797:
 
 ; 295  : 
 ; 296  : 	// FIXME: I have to do this or some events get missed, and this is probably causing the problem below
@@ -2911,25 +2911,25 @@ $L37789:
 	fcomp	DWORD PTR __real@4@40078000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37794
+	je	SHORT $L37802
 	fld	DWORD PTR _flEnd$[ebp]
 	fcomp	QWORD PTR __real@8@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L37793
-$L37794:
+	je	SHORT $L37801
+$L37802:
 
 ; 306  : 		m_fSequenceFinished = TRUE;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1804], 1
-$L37793:
+$L37801:
 
 ; 307  : 
 ; 308  : 	int index = 0;
 
 	mov	DWORD PTR _index$[ebp], 0
-$L37797:
+$L37805:
 
 ; 309  : 
 ; 310  : 	while ( (index = GetAnimationEvent( pmodel, pev->sequence, &event, flStart, flEnd, index ) ) != 0 )
@@ -2952,7 +2952,7 @@ $L37797:
 	add	esp, 24					; 00000018H
 	mov	DWORD PTR _index$[ebp], eax
 	cmp	DWORD PTR _index$[ebp], 0
-	je	SHORT $L37798
+	je	SHORT $L37806
 
 ; 312  : 		HandleAnimEvent( &event );
 
@@ -2965,9 +2965,9 @@ $L37797:
 
 ; 313  : 	}
 
-	jmp	SHORT $L37797
-$L37798:
-$L37786:
+	jmp	SHORT $L37805
+$L37806:
+$L37794:
 
 ; 314  : }
 
@@ -3255,13 +3255,13 @@ EXTRN	?VectorITransform@matrix4x4@@QBE?AVVector@@ABV2@@Z:NEAR ; matrix4x4::Vecto
 EXTRN	?GetParentToWorldTransform@CBaseEntity@@QAE?AVmatrix4x4@@XZ:NEAR ; CBaseEntity::GetParentToWorldTransform
 ;	COMDAT ?GetAttachment@CBaseAnimating@@QAEXHAAVVector@@0@Z
 _TEXT	SEGMENT
-$T38400 = -132
-$T38401 = -144
+$T38408 = -132
+$T38409 = -144
 _iAttachment$ = 8
 _origin$ = 12
 _angles$ = 16
 _this$ = -4
-_parentSpace$37829 = -68
+_parentSpace$37837 = -68
 ?GetAttachment@CBaseAnimating@@QAEXHAAVVector@@0@Z PROC NEAR ; CBaseAnimating::GetAttachment, COMDAT
 
 ; 359  : {
@@ -3300,25 +3300,25 @@ _parentSpace$37829 = -68
 	add	ecx, 148				; 00000094H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L37828
+	je	SHORT $L37836
 
 ; 364  : 		matrix4x4 parentSpace = GetParentToWorldTransform();
 
-	lea	eax, DWORD PTR $T38400[ebp]
+	lea	eax, DWORD PTR $T38408[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetParentToWorldTransform@CBaseEntity@@QAE?AVmatrix4x4@@XZ ; CBaseEntity::GetParentToWorldTransform
 	push	eax
-	lea	ecx, DWORD PTR _parentSpace$37829[ebp]
+	lea	ecx, DWORD PTR _parentSpace$37837[ebp]
 	call	??0matrix4x4@@QAE@ABV0@@Z		; matrix4x4::matrix4x4
 
 ; 365  : 		origin = parentSpace.VectorITransform( origin );
 
 	mov	ecx, DWORD PTR _origin$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T38401[ebp]
+	lea	edx, DWORD PTR $T38409[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _parentSpace$37829[ebp]
+	lea	ecx, DWORD PTR _parentSpace$37837[ebp]
 	call	?VectorITransform@matrix4x4@@QBE?AVVector@@ABV2@@Z ; matrix4x4::VectorITransform
 	mov	ecx, DWORD PTR _origin$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -3327,7 +3327,7 @@ _parentSpace$37829 = -68
 	mov	DWORD PTR [ecx+4], edx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [ecx+8], eax
-$L37828:
+$L37836:
 
 ; 367  : }
 
@@ -3522,15 +3522,15 @@ PUBLIC	?GetAttachment@CBaseAnimating@@QAEHPBDAAVVector@@1@Z ; CBaseAnimating::Ge
 PUBLIC	?GetBoneSetup@CBaseAnimating@@QAEPAVCStudioBoneSetup@@XZ ; CBaseAnimating::GetBoneSetup
 ;	COMDAT ?GetAttachment@CBaseAnimating@@QAEHPBDAAVVector@@1@Z
 _TEXT	SEGMENT
-$T38412 = -140
-$T38413 = -152
+$T38420 = -140
+$T38421 = -152
 _pszAttachment$ = 8
 _origin$ = 12
 _angles$ = 16
 _this$ = -4
 _pStudioHdr$ = -8
 _nAttachment$ = -12
-_parentSpace$37843 = -76
+_parentSpace$37851 = -76
 ?GetAttachment@CBaseAnimating@@QAEHPBDAAVVector@@1@Z PROC NEAR ; CBaseAnimating::GetAttachment, COMDAT
 
 ; 370  : {
@@ -3552,10 +3552,10 @@ _parentSpace$37843 = -76
 ; 372  : 	if( !pStudioHdr ) return -1;
 
 	cmp	DWORD PTR _pStudioHdr$[ebp], 0
-	jne	SHORT $L37839
+	jne	SHORT $L37847
 	or	eax, -1
-	jmp	$L37837
-$L37839:
+	jmp	$L37845
+$L37847:
 
 ; 373  : 
 ; 374  : 	int nAttachment = pStudioHdr->FindAttachment( pszAttachment );
@@ -3569,10 +3569,10 @@ $L37839:
 ; 375  : 	if( nAttachment == -1 ) return -1;
 
 	cmp	DWORD PTR _nAttachment$[ebp], -1
-	jne	SHORT $L37841
+	jne	SHORT $L37849
 	or	eax, -1
-	jmp	SHORT $L37837
-$L37841:
+	jmp	SHORT $L37845
+$L37849:
 
 ; 376  : 
 ; 377  : 	GET_ATTACHMENT( edict(), nAttachment, origin, angles );
@@ -3598,25 +3598,25 @@ $L37841:
 	add	ecx, 148				; 00000094H
 	call	??BEHANDLE@@QAEHXZ			; EHANDLE::operator int
 	test	eax, eax
-	je	SHORT $L37842
+	je	SHORT $L37850
 
 ; 381  : 		matrix4x4 parentSpace = GetParentToWorldTransform();
 
-	lea	edx, DWORD PTR $T38412[ebp]
+	lea	edx, DWORD PTR $T38420[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetParentToWorldTransform@CBaseEntity@@QAE?AVmatrix4x4@@XZ ; CBaseEntity::GetParentToWorldTransform
 	push	eax
-	lea	ecx, DWORD PTR _parentSpace$37843[ebp]
+	lea	ecx, DWORD PTR _parentSpace$37851[ebp]
 	call	??0matrix4x4@@QAE@ABV0@@Z		; matrix4x4::matrix4x4
 
 ; 382  : 		origin = parentSpace.VectorITransform( origin );
 
 	mov	eax, DWORD PTR _origin$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T38413[ebp]
+	lea	ecx, DWORD PTR $T38421[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _parentSpace$37843[ebp]
+	lea	ecx, DWORD PTR _parentSpace$37851[ebp]
 	call	?VectorITransform@matrix4x4@@QBE?AVVector@@ABV2@@Z ; matrix4x4::VectorITransform
 	mov	edx, DWORD PTR _origin$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -3625,13 +3625,13 @@ $L37841:
 	mov	DWORD PTR [edx+4], ecx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
-$L37842:
+$L37850:
 
 ; 384  : 
 ; 385  : 	return nAttachment;
 
 	mov	eax, DWORD PTR _nAttachment$[ebp]
-$L37837:
+$L37845:
 
 ; 386  : }
 
@@ -3675,20 +3675,20 @@ _i$ = -12
 ; 200  : 		for( int i = 0; i < m_pStudioHeader->numattachments; i++, pattachment++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L37545
-$L37546:
+	jmp	SHORT $L37553
+$L37554:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
 	mov	edx, DWORD PTR _pattachment$[ebp]
 	add	edx, 88					; 00000058H
 	mov	DWORD PTR _pattachment$[ebp], edx
-$L37545:
+$L37553:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+18968]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+212]
-	jge	SHORT $L37547
+	jge	SHORT $L37555
 
 ; 202  : 			if( !Q_stricmp( pAttachmentName, pattachment->name )) 
 
@@ -3700,25 +3700,25 @@ $L37545:
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L37548
+	jne	SHORT $L37556
 
 ; 203  : 				return i + 1;
 
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
-	jmp	SHORT $L37540
-$L37548:
+	jmp	SHORT $L37548
+$L37556:
 
 ; 204  : 		}
 
-	jmp	SHORT $L37546
-$L37547:
+	jmp	SHORT $L37554
+$L37555:
 
 ; 205  : 
 ; 206  : 		return 0;
 
 	xor	eax, eax
-$L37540:
+$L37548:
 
 ; 207  : 	}
 
@@ -3739,8 +3739,8 @@ _iGoalSequence$ = 12
 _piDir$ = 16
 _this$ = -4
 _pmodel$ = -8
-_iDir$37854 = -12
-_sequence$37855 = -16
+_iDir$37862 = -12
+_sequence$37863 = -16
 ?FindTransition@CBaseAnimating@@QAEHHHPAH@Z PROC NEAR	; CBaseAnimating::FindTransition, COMDAT
 
 ; 391  : {
@@ -3769,12 +3769,12 @@ _sequence$37855 = -16
 ; 394  : 	if (piDir == NULL)
 
 	cmp	DWORD PTR _piDir$[ebp], 0
-	jne	SHORT $L37857
+	jne	SHORT $L37865
 
 ; 396  : 		int iDir;
 ; 397  : 		int sequence = ::FindTransition( pmodel, iEndingSequence, iGoalSequence, &iDir );
 
-	lea	edx, DWORD PTR _iDir$37854[ebp]
+	lea	edx, DWORD PTR _iDir$37862[ebp]
 	push	edx
 	mov	eax, DWORD PTR _iGoalSequence$[ebp]
 	push	eax
@@ -3784,24 +3784,24 @@ _sequence$37855 = -16
 	push	edx
 	call	?FindTransition@@YAHPAXHHPAH@Z		; FindTransition
 	add	esp, 16					; 00000010H
-	mov	DWORD PTR _sequence$37855[ebp], eax
+	mov	DWORD PTR _sequence$37863[ebp], eax
 
 ; 398  : 		if (iDir != 1)
 
-	cmp	DWORD PTR _iDir$37854[ebp], 1
-	je	SHORT $L37856
+	cmp	DWORD PTR _iDir$37862[ebp], 1
+	je	SHORT $L37864
 
 ; 399  : 			return -1;
 
 	or	eax, -1
-	jmp	SHORT $L37851
-$L37856:
+	jmp	SHORT $L37859
+$L37864:
 
 ; 401  : 			return sequence;
 
-	mov	eax, DWORD PTR _sequence$37855[ebp]
-	jmp	SHORT $L37851
-$L37857:
+	mov	eax, DWORD PTR _sequence$37863[ebp]
+	jmp	SHORT $L37859
+$L37865:
 
 ; 403  : 
 ; 404  : 	return ::FindTransition( pmodel, iEndingSequence, iGoalSequence, piDir );
@@ -3816,7 +3816,7 @@ $L37857:
 	push	eax
 	call	?FindTransition@@YAHPAXHHPAH@Z		; FindTransition
 	add	esp, 16					; 00000010H
-$L37851:
+$L37859:
 
 ; 405  : }
 
@@ -4002,10 +4002,10 @@ PUBLIC	?ExtractBbox@CBaseAnimating@@QAEHHAAVVector@@0@Z ; CBaseAnimating::Extrac
 EXTRN	?ExtractBbox@@YAHPAXHAAVVector@@1@Z:NEAR	; ExtractBbox
 ;	COMDAT ?ExtractBbox@CBaseAnimating@@QAEHHAAVVector@@0@Z
 _TEXT	SEGMENT
+_this$ = -4
 _sequence$ = 8
 _mins$ = 12
 _maxs$ = 16
-_this$ = -4
 ?ExtractBbox@CBaseAnimating@@QAEHHAAVVector@@0@Z PROC NEAR ; CBaseAnimating::ExtractBbox, COMDAT
 
 ; 431  : {
@@ -4088,8 +4088,8 @@ _this$ = -4
 _TEXT	ENDS
 PUBLIC	??0Vector@@QAE@XZ				; Vector::Vector
 PUBLIC	??0Vector@@QAE@MMM@Z				; Vector::Vector
-PUBLIC	__real@8@3ff98efa351294e9c800
 PUBLIC	?SetSequenceBox@CBaseAnimating@@QAEXXZ		; CBaseAnimating::SetSequenceBox
+PUBLIC	__real@8@3ff98efa351294e9c800
 EXTRN	_cos:NEAR
 EXTRN	_sin:NEAR
 EXTRN	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsAngles
@@ -4104,17 +4104,17 @@ _TEXT	SEGMENT
 _this$ = -4
 _mins$ = -16
 _maxs$ = -28
-_yaw$37894 = -32
-_xvector$37895 = -44
-_yvector$37896 = -56
-_bounds$37897 = -80
-_rmin$37899 = -92
-_rmax$37900 = -104
-_base$37901 = -116
-_transformed$37902 = -128
-_i$37903 = -132
-_j$37907 = -136
-_k$37911 = -140
+_yaw$37902 = -32
+_xvector$37903 = -44
+_yvector$37904 = -56
+_bounds$37905 = -80
+_rmin$37907 = -92
+_rmax$37908 = -104
+_base$37909 = -116
+_transformed$37910 = -128
+_i$37911 = -132
+_j$37915 = -136
+_k$37919 = -140
 ?SetSequenceBox@CBaseAnimating@@QAEXXZ PROC NEAR	; CBaseAnimating::SetSequenceBox, COMDAT
 
 ; 444  : {
@@ -4149,7 +4149,7 @@ _k$37911 = -140
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ExtractBbox@CBaseAnimating@@QAEHHAAVVector@@0@Z ; CBaseAnimating::ExtractBbox
 	test	eax, eax
-	je	$L37893
+	je	$L37901
 
 ; 450  : 		// expand box for rotation
 ; 451  : 		// find min / max for rotations
@@ -4159,59 +4159,59 @@ _k$37911 = -140
 	call	?GetAbsAngles@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsAngles
 	fld	DWORD PTR [eax+4]
 	fmul	QWORD PTR __real@8@3ff98efa351294e9c800
-	fstp	DWORD PTR _yaw$37894[ebp]
+	fstp	DWORD PTR _yaw$37902[ebp]
 
 ; 453  : 		
 ; 454  : 		Vector xvector, yvector;
 
-	lea	ecx, DWORD PTR _xvector$37895[ebp]
+	lea	ecx, DWORD PTR _xvector$37903[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
-	lea	ecx, DWORD PTR _yvector$37896[ebp]
+	lea	ecx, DWORD PTR _yvector$37904[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 455  : 		xvector.x = cos(yaw);
 
-	fld	DWORD PTR _yaw$37894[ebp]
+	fld	DWORD PTR _yaw$37902[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	call	_cos
 	add	esp, 8
-	fstp	DWORD PTR _xvector$37895[ebp]
+	fstp	DWORD PTR _xvector$37903[ebp]
 
 ; 456  : 		xvector.y = sin(yaw);
 
-	fld	DWORD PTR _yaw$37894[ebp]
+	fld	DWORD PTR _yaw$37902[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	call	_sin
 	add	esp, 8
-	fstp	DWORD PTR _xvector$37895[ebp+4]
+	fstp	DWORD PTR _xvector$37903[ebp+4]
 
 ; 457  : 		yvector.x = -sin(yaw);
 
-	fld	DWORD PTR _yaw$37894[ebp]
+	fld	DWORD PTR _yaw$37902[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	call	_sin
 	add	esp, 8
 	fchs
-	fstp	DWORD PTR _yvector$37896[ebp]
+	fstp	DWORD PTR _yvector$37904[ebp]
 
 ; 458  : 		yvector.y = cos(yaw);
 
-	fld	DWORD PTR _yaw$37894[ebp]
+	fld	DWORD PTR _yaw$37902[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	call	_cos
 	add	esp, 8
-	fstp	DWORD PTR _yvector$37896[ebp+4]
+	fstp	DWORD PTR _yvector$37904[ebp+4]
 
 ; 459  : 		Vector bounds[2];
 
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	push	2
 	push	12					; 0000000cH
-	lea	edx, DWORD PTR _bounds$37897[ebp]
+	lea	edx, DWORD PTR _bounds$37905[ebp]
 	push	edx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
 
@@ -4219,20 +4219,20 @@ _k$37911 = -140
 ; 461  : 		bounds[0] = mins;
 
 	mov	eax, DWORD PTR _mins$[ebp]
-	mov	DWORD PTR _bounds$37897[ebp], eax
+	mov	DWORD PTR _bounds$37905[ebp], eax
 	mov	ecx, DWORD PTR _mins$[ebp+4]
-	mov	DWORD PTR _bounds$37897[ebp+4], ecx
+	mov	DWORD PTR _bounds$37905[ebp+4], ecx
 	mov	edx, DWORD PTR _mins$[ebp+8]
-	mov	DWORD PTR _bounds$37897[ebp+8], edx
+	mov	DWORD PTR _bounds$37905[ebp+8], edx
 
 ; 462  : 		bounds[1] = maxs;
 
 	mov	eax, DWORD PTR _maxs$[ebp]
-	mov	DWORD PTR _bounds$37897[ebp+12], eax
+	mov	DWORD PTR _bounds$37905[ebp+12], eax
 	mov	ecx, DWORD PTR _maxs$[ebp+4]
-	mov	DWORD PTR _bounds$37897[ebp+16], ecx
+	mov	DWORD PTR _bounds$37905[ebp+16], ecx
 	mov	edx, DWORD PTR _maxs$[ebp+8]
-	mov	DWORD PTR _bounds$37897[ebp+20], edx
+	mov	DWORD PTR _bounds$37905[ebp+20], edx
 
 ; 463  : 		
 ; 464  : 		Vector rmin( 9999, 9999, 9999 );
@@ -4240,7 +4240,7 @@ _k$37911 = -140
 	push	1176255488				; 461c3c00H
 	push	1176255488				; 461c3c00H
 	push	1176255488				; 461c3c00H
-	lea	ecx, DWORD PTR _rmin$37899[ebp]
+	lea	ecx, DWORD PTR _rmin$37907[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 
 ; 465  : 		Vector rmax( -9999, -9999, -9999 );
@@ -4248,221 +4248,221 @@ _k$37911 = -140
 	push	-971228160				; c61c3c00H
 	push	-971228160				; c61c3c00H
 	push	-971228160				; c61c3c00H
-	lea	ecx, DWORD PTR _rmax$37900[ebp]
+	lea	ecx, DWORD PTR _rmax$37908[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 
 ; 466  : 		Vector base, transformed;
 
-	lea	ecx, DWORD PTR _base$37901[ebp]
+	lea	ecx, DWORD PTR _base$37909[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
-	lea	ecx, DWORD PTR _transformed$37902[ebp]
+	lea	ecx, DWORD PTR _transformed$37910[ebp]
 	call	??0Vector@@QAE@XZ			; Vector::Vector
 
 ; 467  : 
 ; 468  : 		for (int i = 0; i <= 1; i++ )
 
-	mov	DWORD PTR _i$37903[ebp], 0
-	jmp	SHORT $L37904
-$L37905:
-	mov	eax, DWORD PTR _i$37903[ebp]
+	mov	DWORD PTR _i$37911[ebp], 0
+	jmp	SHORT $L37912
+$L37913:
+	mov	eax, DWORD PTR _i$37911[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$37903[ebp], eax
-$L37904:
-	cmp	DWORD PTR _i$37903[ebp], 1
-	jg	$L37906
+	mov	DWORD PTR _i$37911[ebp], eax
+$L37912:
+	cmp	DWORD PTR _i$37911[ebp], 1
+	jg	$L37914
 
 ; 470  : 			base.x = bounds[i].x;
 
-	mov	ecx, DWORD PTR _i$37903[ebp]
+	mov	ecx, DWORD PTR _i$37911[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _bounds$37897[ebp+ecx]
-	mov	DWORD PTR _base$37901[ebp], edx
+	mov	edx, DWORD PTR _bounds$37905[ebp+ecx]
+	mov	DWORD PTR _base$37909[ebp], edx
 
 ; 471  : 			for ( int j = 0; j <= 1; j++ )
 
-	mov	DWORD PTR _j$37907[ebp], 0
-	jmp	SHORT $L37908
-$L37909:
-	mov	eax, DWORD PTR _j$37907[ebp]
+	mov	DWORD PTR _j$37915[ebp], 0
+	jmp	SHORT $L37916
+$L37917:
+	mov	eax, DWORD PTR _j$37915[ebp]
 	add	eax, 1
-	mov	DWORD PTR _j$37907[ebp], eax
-$L37908:
-	cmp	DWORD PTR _j$37907[ebp], 1
-	jg	$L37910
+	mov	DWORD PTR _j$37915[ebp], eax
+$L37916:
+	cmp	DWORD PTR _j$37915[ebp], 1
+	jg	$L37918
 
 ; 473  : 				base.y = bounds[j].y;
 
-	mov	ecx, DWORD PTR _j$37907[ebp]
+	mov	ecx, DWORD PTR _j$37915[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _bounds$37897[ebp+ecx+4]
-	mov	DWORD PTR _base$37901[ebp+4], edx
+	mov	edx, DWORD PTR _bounds$37905[ebp+ecx+4]
+	mov	DWORD PTR _base$37909[ebp+4], edx
 
 ; 474  : 				for ( int k = 0; k <= 1; k++ )
 
-	mov	DWORD PTR _k$37911[ebp], 0
-	jmp	SHORT $L37912
-$L37913:
-	mov	eax, DWORD PTR _k$37911[ebp]
+	mov	DWORD PTR _k$37919[ebp], 0
+	jmp	SHORT $L37920
+$L37921:
+	mov	eax, DWORD PTR _k$37919[ebp]
 	add	eax, 1
-	mov	DWORD PTR _k$37911[ebp], eax
-$L37912:
-	cmp	DWORD PTR _k$37911[ebp], 1
-	jg	$L37914
+	mov	DWORD PTR _k$37919[ebp], eax
+$L37920:
+	cmp	DWORD PTR _k$37919[ebp], 1
+	jg	$L37922
 
 ; 476  : 					base.z = bounds[k].z;
 
-	mov	ecx, DWORD PTR _k$37911[ebp]
+	mov	ecx, DWORD PTR _k$37919[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _bounds$37897[ebp+ecx+8]
-	mov	DWORD PTR _base$37901[ebp+8], edx
+	mov	edx, DWORD PTR _bounds$37905[ebp+ecx+8]
+	mov	DWORD PTR _base$37909[ebp+8], edx
 
 ; 477  : 					
 ; 478  : 				// transform the point
 ; 479  : 					transformed.x = xvector.x*base.x + yvector.x*base.y;
 
-	fld	DWORD PTR _xvector$37895[ebp]
-	fmul	DWORD PTR _base$37901[ebp]
-	fld	DWORD PTR _yvector$37896[ebp]
-	fmul	DWORD PTR _base$37901[ebp+4]
+	fld	DWORD PTR _xvector$37903[ebp]
+	fmul	DWORD PTR _base$37909[ebp]
+	fld	DWORD PTR _yvector$37904[ebp]
+	fmul	DWORD PTR _base$37909[ebp+4]
 	faddp	ST(1), ST(0)
-	fstp	DWORD PTR _transformed$37902[ebp]
+	fstp	DWORD PTR _transformed$37910[ebp]
 
 ; 480  : 					transformed.y = xvector.y*base.x + yvector.y*base.y;
 
-	fld	DWORD PTR _xvector$37895[ebp+4]
-	fmul	DWORD PTR _base$37901[ebp]
-	fld	DWORD PTR _yvector$37896[ebp+4]
-	fmul	DWORD PTR _base$37901[ebp+4]
+	fld	DWORD PTR _xvector$37903[ebp+4]
+	fmul	DWORD PTR _base$37909[ebp]
+	fld	DWORD PTR _yvector$37904[ebp+4]
+	fmul	DWORD PTR _base$37909[ebp+4]
 	faddp	ST(1), ST(0)
-	fstp	DWORD PTR _transformed$37902[ebp+4]
+	fstp	DWORD PTR _transformed$37910[ebp+4]
 
 ; 481  : 					transformed.z = base.z;
 
-	mov	eax, DWORD PTR _base$37901[ebp+8]
-	mov	DWORD PTR _transformed$37902[ebp+8], eax
+	mov	eax, DWORD PTR _base$37909[ebp+8]
+	mov	DWORD PTR _transformed$37910[ebp+8], eax
 
 ; 482  : 					
 ; 483  : 					if (transformed.x < rmin.x)
 
-	fld	DWORD PTR _transformed$37902[ebp]
-	fcomp	DWORD PTR _rmin$37899[ebp]
+	fld	DWORD PTR _transformed$37910[ebp]
+	fcomp	DWORD PTR _rmin$37907[ebp]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37915
+	je	SHORT $L37923
 
 ; 484  : 						rmin.x = transformed.x;
 
-	mov	ecx, DWORD PTR _transformed$37902[ebp]
-	mov	DWORD PTR _rmin$37899[ebp], ecx
-$L37915:
+	mov	ecx, DWORD PTR _transformed$37910[ebp]
+	mov	DWORD PTR _rmin$37907[ebp], ecx
+$L37923:
 
 ; 485  : 					if (transformed.x > rmax.x)
 
-	fld	DWORD PTR _transformed$37902[ebp]
-	fcomp	DWORD PTR _rmax$37900[ebp]
+	fld	DWORD PTR _transformed$37910[ebp]
+	fcomp	DWORD PTR _rmax$37908[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37916
+	jne	SHORT $L37924
 
 ; 486  : 						rmax.x = transformed.x;
 
-	mov	edx, DWORD PTR _transformed$37902[ebp]
-	mov	DWORD PTR _rmax$37900[ebp], edx
-$L37916:
+	mov	edx, DWORD PTR _transformed$37910[ebp]
+	mov	DWORD PTR _rmax$37908[ebp], edx
+$L37924:
 
 ; 487  : 					if (transformed.y < rmin.y)
 
-	fld	DWORD PTR _transformed$37902[ebp+4]
-	fcomp	DWORD PTR _rmin$37899[ebp+4]
+	fld	DWORD PTR _transformed$37910[ebp+4]
+	fcomp	DWORD PTR _rmin$37907[ebp+4]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37917
+	je	SHORT $L37925
 
 ; 488  : 						rmin.y = transformed.y;
 
-	mov	eax, DWORD PTR _transformed$37902[ebp+4]
-	mov	DWORD PTR _rmin$37899[ebp+4], eax
-$L37917:
+	mov	eax, DWORD PTR _transformed$37910[ebp+4]
+	mov	DWORD PTR _rmin$37907[ebp+4], eax
+$L37925:
 
 ; 489  : 					if (transformed.y > rmax.y)
 
-	fld	DWORD PTR _transformed$37902[ebp+4]
-	fcomp	DWORD PTR _rmax$37900[ebp+4]
+	fld	DWORD PTR _transformed$37910[ebp+4]
+	fcomp	DWORD PTR _rmax$37908[ebp+4]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37918
+	jne	SHORT $L37926
 
 ; 490  : 						rmax.y = transformed.y;
 
-	mov	ecx, DWORD PTR _transformed$37902[ebp+4]
-	mov	DWORD PTR _rmax$37900[ebp+4], ecx
-$L37918:
+	mov	ecx, DWORD PTR _transformed$37910[ebp+4]
+	mov	DWORD PTR _rmax$37908[ebp+4], ecx
+$L37926:
 
 ; 491  : 					if (transformed.z < rmin.z)
 
-	fld	DWORD PTR _transformed$37902[ebp+8]
-	fcomp	DWORD PTR _rmin$37899[ebp+8]
+	fld	DWORD PTR _transformed$37910[ebp+8]
+	fcomp	DWORD PTR _rmin$37907[ebp+8]
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L37919
+	je	SHORT $L37927
 
 ; 492  : 						rmin.z = transformed.z;
 
-	mov	edx, DWORD PTR _transformed$37902[ebp+8]
-	mov	DWORD PTR _rmin$37899[ebp+8], edx
-$L37919:
+	mov	edx, DWORD PTR _transformed$37910[ebp+8]
+	mov	DWORD PTR _rmin$37907[ebp+8], edx
+$L37927:
 
 ; 493  : 					if (transformed.z > rmax.z)
 
-	fld	DWORD PTR _transformed$37902[ebp+8]
-	fcomp	DWORD PTR _rmax$37900[ebp+8]
+	fld	DWORD PTR _transformed$37910[ebp+8]
+	fcomp	DWORD PTR _rmax$37908[ebp+8]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37920
+	jne	SHORT $L37928
 
 ; 494  : 						rmax.z = transformed.z;
 
-	mov	eax, DWORD PTR _transformed$37902[ebp+8]
-	mov	DWORD PTR _rmax$37900[ebp+8], eax
-$L37920:
+	mov	eax, DWORD PTR _transformed$37910[ebp+8]
+	mov	DWORD PTR _rmax$37908[ebp+8], eax
+$L37928:
 
 ; 495  : 				}
+
+	jmp	$L37921
+$L37922:
+
+; 496  : 			}
+
+	jmp	$L37917
+$L37918:
+
+; 497  : 		}
 
 	jmp	$L37913
 $L37914:
 
-; 496  : 			}
-
-	jmp	$L37909
-$L37910:
-
-; 497  : 		}
-
-	jmp	$L37905
-$L37906:
-
 ; 498  : 		rmin.z = 0;
 
-	mov	DWORD PTR _rmin$37899[ebp+8], 0
+	mov	DWORD PTR _rmin$37907[ebp+8], 0
 
 ; 499  : 		rmax.z = rmin.z + 1;
 
-	fld	DWORD PTR _rmin$37899[ebp+8]
+	fld	DWORD PTR _rmin$37907[ebp+8]
 	fadd	DWORD PTR __real@4@3fff8000000000000000
-	fstp	DWORD PTR _rmax$37900[ebp+8]
+	fstp	DWORD PTR _rmax$37908[ebp+8]
 
 ; 500  : 		UTIL_SetSize( pev, rmin, rmax );
 
-	lea	ecx, DWORD PTR _rmax$37900[ebp]
+	lea	ecx, DWORD PTR _rmax$37908[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _rmin$37899[ebp]
+	lea	edx, DWORD PTR _rmin$37907[ebp]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	push	ecx
 	call	?UTIL_SetSize@@YAXPAUentvars_s@@ABVVector@@1@Z ; UTIL_SetSize
 	add	esp, 12					; 0000000cH
-$L37893:
+$L37901:
 
 ; 502  : }
 
@@ -4915,19 +4915,19 @@ _this$ = -4
 ; 297  : 	assert( nGrowSize >= 0 );
 
 	cmp	DWORD PTR _nGrowSize$[ebp], 0
-	jge	SHORT $L38470
+	jge	SHORT $L38478
 	push	297					; 00000129H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0P@MOH@nGrowSize?5?$DO?$DN?50?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L38470:
+$L38478:
 
 ; 298  : 	if (m_nAllocationCount)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L37972
+	je	SHORT $L37980
 
 ; 300  : 		m_pMemory = (T*)malloc( m_nAllocationCount * sizeof(T) );
 
@@ -4939,7 +4939,7 @@ $L38470:
 	add	esp, 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L37972:
+$L37980:
 
 ; 302  : }
 
@@ -5017,13 +5017,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L38475
+	je	SHORT $L38483
 	push	424					; 000001a8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L38475:
+$L38483:
 
 ; 425  : 	assert( IsIdxValid(i) );
 
@@ -5033,13 +5033,13 @@ $L38475:
 	call	?IsIdxValid@?$CUtlMemory@PADH@@QBE_NH@Z	; CUtlMemory<char *,int>::IsIdxValid
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L38476
+	jne	SHORT $L38484
 	push	425					; 000001a9H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@MLLF@IsIdxValid?$CIi?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L38476:
+$L38484:
 
 ; 426  : 	return m_pMemory[i];
 
@@ -5079,13 +5079,13 @@ _this$ = -4
 	call	?IsReadOnly@?$CUtlMemory@PADH@@QBE_NXZ	; CUtlMemory<char *,int>::IsReadOnly
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L38479
+	je	SHORT $L38487
 	push	488					; 000001e8H
 	push	OFFSET FLAT:??_C@_0CF@KIKJ@z?3?2xashxtsrc?2game_shared?2utlmemo@ ; `string'
 	push	OFFSET FLAT:??_C@_0O@KBCN@?$CBIsReadOnly?$CI?$CJ?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L38479:
+$L38487:
 
 ; 489  : 	return m_pMemory;
 
@@ -5161,12 +5161,12 @@ _i$ = -8
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _i$[ebp], ecx
-$L38005:
+$L38013:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L38006
+	jl	SHORT $L38014
 
 ; 729  : 		Destruct(&Element(i));
 
@@ -5180,8 +5180,8 @@ $L38005:
 
 ; 730  : 	}
 
-	jmp	SHORT $L38005
-$L38006:
+	jmp	SHORT $L38013
+$L38014:
 
 ; 731  : 
 ; 732  : 	m_Size = 0;
@@ -5251,16 +5251,16 @@ _this$ = -4
 ; 521  : 	return ( ((int) i) >= 0 ) && ( ((int) i) < m_nAllocationCount );
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jl	SHORT $L38488
+	jl	SHORT $L38496
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+4]
-	jge	SHORT $L38488
+	jge	SHORT $L38496
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L38489
-$L38488:
+	jmp	SHORT $L38497
+$L38496:
 	mov	DWORD PTR -8+[ebp], 0
-$L38489:
+$L38497:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 522  : }
@@ -5296,13 +5296,13 @@ _this$ = -4
 	call	?IsExternallyAllocated@?$CUtlMemory@PADH@@QBE_NXZ ; CUtlMemory<char *,int>::IsExternallyAllocated
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L38038
+	jne	SHORT $L38046
 
 ; 648  : 		if (m_pMemory)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	je	SHORT $L38039
+	je	SHORT $L38047
 
 ; 650  : 			free( (void*)m_pMemory );
 
@@ -5316,13 +5316,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax], 0
-$L38039:
+$L38047:
 
 ; 653  : 		m_nAllocationCount = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+4], 0
-$L38038:
+$L38046:
 
 ; 655  : }
 

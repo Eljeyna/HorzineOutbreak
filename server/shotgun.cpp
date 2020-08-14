@@ -55,6 +55,7 @@ public:
 	void PrimaryAttack( void );
 	//void SecondaryAttack( void );
 	BOOL Deploy( );
+	void Holster( void );
 	void Reload( void );
 	void WeaponIdle( void );
 	int m_fInReload;
@@ -136,7 +137,13 @@ int CShotgun::GetItemInfo(ItemInfo *p)
 
 BOOL CShotgun::Deploy( )
 {
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 	return DefaultDeploy( "models/v_shotgun.mdl", "models/p_shotgun.mdl", SHOTGUN_DRAW, "shotgun" );
+}
+
+void CShotgun::Holster( void )
+{
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 }
 
 void CShotgun::PrimaryAttack()

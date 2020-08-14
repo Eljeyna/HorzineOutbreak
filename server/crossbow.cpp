@@ -397,6 +397,7 @@ int CCrossbow::GetItemInfo(ItemInfo *p)
 
 BOOL CCrossbow::Deploy( )
 {
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 	if (m_iClip)
 		return DefaultDeploy( "models/v_crossbow.mdl", "models/p_crossbow.mdl", CROSSBOW_DRAW1, "bow" );
 	return DefaultDeploy( "models/v_crossbow.mdl", "models/p_crossbow.mdl", CROSSBOW_DRAW2, "bow" );
@@ -404,6 +405,7 @@ BOOL CCrossbow::Deploy( )
 
 void CCrossbow::Holster( void )
 {
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
 
 	if ( m_fInZoom )

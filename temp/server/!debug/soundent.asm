@@ -986,19 +986,19 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+12]
 	and	ecx, 39					; 00000027H
 	test	ecx, ecx
-	je	SHORT $L36602
+	je	SHORT $L36610
 
 ; 58   : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L36601
-$L36602:
+	jmp	SHORT $L36609
+$L36610:
 
 ; 60   : 
 ; 61   : 	return FALSE;
 
 	xor	eax, eax
-$L36601:
+$L36609:
 
 ; 62   : }
 
@@ -1032,19 +1032,19 @@ _this$ = -4
 	mov	ecx, DWORD PTR [eax+12]
 	and	ecx, 88					; 00000058H
 	test	ecx, ecx
-	je	SHORT $L36607
+	je	SHORT $L36615
 
 ; 71   : 		return TRUE;
 
 	mov	eax, 1
-	jmp	SHORT $L36606
-$L36607:
+	jmp	SHORT $L36614
+$L36615:
 
 ; 73   : 
 ; 74   : 	return FALSE;
 
 	xor	eax, eax
-$L36606:
+$L36614:
 
 ; 75   : }
 
@@ -1137,7 +1137,7 @@ _TEXT	SEGMENT
 _this$ = -4
 _iSound$ = -8
 _iPreviousSound$ = -12
-_iNext$36622 = -16
+_iNext$36630 = -16
 ?Think@CSoundEnt@@UAEXXZ PROC NEAR			; CSoundEnt::Think, COMDAT
 
 ; 94   : {
@@ -1173,13 +1173,13 @@ _iNext$36622 = -16
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+1768]
 	mov	DWORD PTR _iSound$[ebp], ecx
-$L36619:
+$L36627:
 
 ; 102  : 
 ; 103  : 	while ( iSound != SOUNDLIST_EMPTY )
 
 	cmp	DWORD PTR _iSound$[ebp], -1
-	je	$L36620
+	je	$L36628
 
 ; 105  : 		if ( m_SoundPool[ iSound ].m_flExpireTime <= gpGlobals->time && m_SoundPool[ iSound ].m_flExpireTime != SOUND_NEVER_EXPIRE )
 
@@ -1191,7 +1191,7 @@ $L36619:
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L36621
+	je	SHORT $L36629
 	mov	edx, DWORD PTR _iSound$[ebp]
 	shl	edx, 5
 	mov	eax, DWORD PTR _this$[ebp]
@@ -1199,7 +1199,7 @@ $L36619:
 	fcomp	DWORD PTR __real@4@bfff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L36621
+	jne	SHORT $L36629
 
 ; 107  : 			int iNext = m_SoundPool[ iSound ].m_iNext;
 
@@ -1207,7 +1207,7 @@ $L36619:
 	shl	ecx, 5
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+ecx+1804]
-	mov	DWORD PTR _iNext$36622[ebp], eax
+	mov	DWORD PTR _iNext$36630[ebp], eax
 
 ; 108  : 
 ; 109  : 			// move this sound back into the free list
@@ -1223,13 +1223,13 @@ $L36619:
 ; 111  : 
 ; 112  : 			iSound = iNext;
 
-	mov	eax, DWORD PTR _iNext$36622[ebp]
+	mov	eax, DWORD PTR _iNext$36630[ebp]
 	mov	DWORD PTR _iSound$[ebp], eax
 
 ; 114  : 		else
 
-	jmp	SHORT $L36623
-$L36621:
+	jmp	SHORT $L36631
+$L36629:
 
 ; 116  : 			iPreviousSound = iSound;
 
@@ -1243,19 +1243,19 @@ $L36621:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+edx+1804]
 	mov	DWORD PTR _iSound$[ebp], ecx
-$L36623:
+$L36631:
 
 ; 119  : 	}
 
-	jmp	$L36619
-$L36620:
+	jmp	$L36627
+$L36628:
 
 ; 120  : 
 ; 121  : 	if ( m_fShowReport )
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1776], 0
-	je	SHORT $L36624
+	je	SHORT $L36632
 
 ; 123  : 		ALERT ( at_aiconsole, "Soundlist: %d / %d  (%d)\n", ISoundsInList( SOUNDLISTTYPE_ACTIVE ),ISoundsInList( SOUNDLISTTYPE_FREE ), ISoundsInList( SOUNDLISTTYPE_ACTIVE ) - m_cLastActiveSounds );
 
@@ -1285,7 +1285,7 @@ $L36620:
 	call	?ISoundsInList@CSoundEnt@@QAEHH@Z	; CSoundEnt::ISoundsInList
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+1772], eax
-$L36624:
+$L36632:
 
 ; 126  : 
 ; 127  : }
@@ -1342,19 +1342,19 @@ _iPrevious$ = 12
 ; 143  : 	if ( !pSoundEnt )
 
 	cmp	DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A, 0 ; pSoundEnt
-	jne	SHORT $L36634
+	jne	SHORT $L36642
 
 ; 145  : 		// no sound ent!
 ; 146  : 		return;
 
-	jmp	SHORT $L36633
-$L36634:
+	jmp	SHORT $L36641
+$L36642:
 
 ; 148  : 
 ; 149  : 	if ( iPrevious != SOUNDLIST_EMPTY )
 
 	cmp	DWORD PTR _iPrevious$[ebp], -1
-	je	SHORT $L36635
+	je	SHORT $L36643
 
 ; 151  : 		// iSound is not the head of the active list, so
 ; 152  : 		// must fix the index for the Previous sound
@@ -1372,8 +1372,8 @@ $L36634:
 
 ; 156  : 	else 
 
-	jmp	SHORT $L36636
-$L36635:
+	jmp	SHORT $L36644
+$L36643:
 
 ; 158  : 		// the sound we're freeing IS the head of the active list.
 ; 159  : 		pSoundEnt->m_iActiveSound = pSoundEnt->m_SoundPool [ iSound ].m_iNext;
@@ -1384,7 +1384,7 @@ $L36635:
 	mov	eax, DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A ; pSoundEnt
 	mov	ecx, DWORD PTR [eax+ecx+1804]
 	mov	DWORD PTR [edx+1768], ecx
-$L36636:
+$L36644:
 
 ; 161  : 
 ; 162  : 	// make iSound the head of the Free list.
@@ -1402,7 +1402,7 @@ $L36636:
 	mov	edx, DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A ; pSoundEnt
 	mov	eax, DWORD PTR _iSound$[ebp]
 	mov	DWORD PTR [edx+1764], eax
-$L36633:
+$L36641:
 
 ; 165  : }
 
@@ -1444,7 +1444,7 @@ _iNewSound$ = -8
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1764], -1
-	jne	SHORT $L36642
+	jne	SHORT $L36650
 
 ; 177  : 		// no free sound!
 ; 178  : 		ALERT ( at_console, "Free Sound List is full!\n" );
@@ -1457,8 +1457,8 @@ _iNewSound$ = -8
 ; 179  : 		return SOUNDLIST_EMPTY;
 
 	or	eax, -1
-	jmp	SHORT $L36640
-$L36642:
+	jmp	SHORT $L36648
+$L36650:
 
 ; 181  : 
 ; 182  : 	// there is at least one sound available, so move it to the
@@ -1502,7 +1502,7 @@ $L36642:
 ; 193  : 	return iNewSound;
 
 	mov	eax, DWORD PTR _iNewSound$[ebp]
-$L36640:
+$L36648:
 
 ; 194  : }
 
@@ -1545,13 +1545,13 @@ _iThisSound$ = -4
 ; 204  : 	if ( !pSoundEnt )
 
 	cmp	DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A, 0 ; pSoundEnt
-	jne	SHORT $L36651
+	jne	SHORT $L36659
 
 ; 206  : 		// no sound ent!
 ; 207  : 		return;
 
-	jmp	$L36649
-$L36651:
+	jmp	$L36657
+$L36659:
 
 ; 209  : 
 ; 210  : 	iThisSound = pSoundEnt->IAllocSound();
@@ -1564,7 +1564,7 @@ $L36651:
 ; 212  : 	if ( iThisSound == SOUNDLIST_EMPTY )
 
 	cmp	DWORD PTR _iThisSound$[ebp], -1
-	jne	SHORT $L36652
+	jne	SHORT $L36660
 
 ; 214  : 		ALERT ( at_console, "Could not AllocSound() for InsertSound() (DLL)\n" );
 
@@ -1575,8 +1575,8 @@ $L36651:
 
 ; 215  : 		return;
 
-	jmp	SHORT $L36649
-$L36652:
+	jmp	SHORT $L36657
+$L36660:
 
 ; 217  : 
 ; 218  : 	pSoundEnt->m_SoundPool[ iThisSound ].m_vecOrigin = vecOrigin;
@@ -1618,7 +1618,7 @@ $L36652:
 	shl	edx, 5
 	mov	eax, DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A ; pSoundEnt
 	fstp	DWORD PTR [eax+edx+1800]
-$L36649:
+$L36657:
 
 ; 222  : }
 
@@ -1677,14 +1677,14 @@ _iSound$ = -12
 ; 237  : 	for ( i = 0 ; i < MAX_WORLD_SOUNDS ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36660
-$L36661:
+	jmp	SHORT $L36668
+$L36669:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36660:
+$L36668:
 	cmp	DWORD PTR _i$[ebp], 64			; 00000040H
-	jge	SHORT $L36662
+	jge	SHORT $L36670
 
 ; 239  : 		m_SoundPool[ i ].Clear();
 
@@ -1705,8 +1705,8 @@ $L36660:
 
 ; 241  : 	}
 
-	jmp	SHORT $L36661
-$L36662:
+	jmp	SHORT $L36669
+$L36670:
 
 ; 242  : 
 ; 243  : 	m_SoundPool[ i - 1 ].m_iNext = SOUNDLIST_EMPTY;// terminate the list here.
@@ -1723,16 +1723,16 @@ $L36662:
 ; 247  : 	for ( i = 0 ; i < gpGlobals->maxClients ; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36663
-$L36664:
+	jmp	SHORT $L36671
+$L36672:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36663:
+$L36671:
 	mov	edx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+144]
-	jge	SHORT $L36665
+	jge	SHORT $L36673
 
 ; 249  : 		iSound = pSoundEnt->IAllocSound();
 
@@ -1744,7 +1744,7 @@ $L36663:
 ; 251  : 		if ( iSound == SOUNDLIST_EMPTY )
 
 	cmp	DWORD PTR _iSound$[ebp], -1
-	jne	SHORT $L36666
+	jne	SHORT $L36674
 
 ; 253  : 			ALERT ( at_console, "Could not AllocSound() for Client Reserve! (DLL)\n" );
 
@@ -1755,8 +1755,8 @@ $L36663:
 
 ; 254  : 			return;
 
-	jmp	SHORT $L36657
-$L36666:
+	jmp	SHORT $L36665
+$L36674:
 
 ; 256  : 
 ; 257  : 		pSoundEnt->m_SoundPool[ iSound ].m_flExpireTime = SOUND_NEVER_EXPIRE;
@@ -1768,8 +1768,8 @@ $L36666:
 
 ; 258  : 	}
 
-	jmp	SHORT $L36664
-$L36665:
+	jmp	SHORT $L36672
+$L36673:
 
 ; 259  : 
 ; 260  : 	if ( CVAR_GET_FLOAT("displaysoundlist") == 1 )
@@ -1780,7 +1780,7 @@ $L36665:
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L36668
+	je	SHORT $L36676
 
 ; 262  : 		m_fShowReport = TRUE;
 
@@ -1789,15 +1789,15 @@ $L36665:
 
 ; 264  : 	else
 
-	jmp	SHORT $L36670
-$L36668:
+	jmp	SHORT $L36678
+$L36676:
 
 ; 266  : 		m_fShowReport = FALSE;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+1776], 0
-$L36670:
-$L36657:
+$L36678:
+$L36665:
 
 ; 268  : }
 
@@ -1840,7 +1840,7 @@ _iThisSound$ = -12
 ; 279  : 	if ( iListType == SOUNDLISTTYPE_FREE )
 
 	cmp	DWORD PTR _iListType$[ebp], 1
-	jne	SHORT $L36677
+	jne	SHORT $L36685
 
 ; 281  : 		iThisSound = m_iFreeSound;
 
@@ -1850,10 +1850,10 @@ _iThisSound$ = -12
 
 ; 283  : 	else if ( iListType == SOUNDLISTTYPE_ACTIVE )
 
-	jmp	SHORT $L36680
-$L36677:
+	jmp	SHORT $L36688
+$L36685:
 	cmp	DWORD PTR _iListType$[ebp], 2
-	jne	SHORT $L36679
+	jne	SHORT $L36687
 
 ; 285  : 		iThisSound = m_iActiveSound;
 
@@ -1863,8 +1863,8 @@ $L36677:
 
 ; 287  : 	else
 
-	jmp	SHORT $L36680
-$L36679:
+	jmp	SHORT $L36688
+$L36687:
 
 ; 289  : 		ALERT ( at_console, "Unknown Sound List Type!\n" );
 
@@ -1872,31 +1872,31 @@ $L36679:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36680:
+$L36688:
 
 ; 291  : 
 ; 292  : 	if ( iThisSound == SOUNDLIST_EMPTY )
 
 	cmp	DWORD PTR _iThisSound$[ebp], -1
-	jne	SHORT $L36682
+	jne	SHORT $L36690
 
 ; 294  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L36674
-$L36682:
+	jmp	SHORT $L36682
+$L36690:
 
 ; 296  : 
 ; 297  : 	i = 0;
 
 	mov	DWORD PTR _i$[ebp], 0
-$L36684:
+$L36692:
 
 ; 298  : 
 ; 299  : 	while ( iThisSound != SOUNDLIST_EMPTY )
 
 	cmp	DWORD PTR _iThisSound$[ebp], -1
-	je	SHORT $L36685
+	je	SHORT $L36693
 
 ; 301  : 		i++;
 
@@ -1915,14 +1915,14 @@ $L36684:
 
 ; 304  : 	}
 
-	jmp	SHORT $L36684
-$L36685:
+	jmp	SHORT $L36692
+$L36693:
 
 ; 305  : 
 ; 306  : 	return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-$L36674:
+$L36682:
 
 ; 307  : }
 
@@ -1951,20 +1951,20 @@ _TEXT	SEGMENT
 ; 314  : 	if ( !pSoundEnt )
 
 	cmp	DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A, 0 ; pSoundEnt
-	jne	SHORT $L36689
+	jne	SHORT $L36697
 
 ; 316  : 		return SOUNDLIST_EMPTY;
 
 	or	eax, -1
-	jmp	SHORT $L36688
-$L36689:
+	jmp	SHORT $L36696
+$L36697:
 
 ; 318  : 
 ; 319  : 	return pSoundEnt->m_iActiveSound;
 
 	mov	eax, DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A ; pSoundEnt
 	mov	eax, DWORD PTR [eax+1768]
-$L36688:
+$L36696:
 
 ; 320  : }
 
@@ -1993,20 +1993,20 @@ _TEXT	SEGMENT
 ; 327  : 	if ( !pSoundEnt )
 
 	cmp	DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A, 0 ; pSoundEnt
-	jne	SHORT $L36693
+	jne	SHORT $L36701
 
 ; 329  : 		return SOUNDLIST_EMPTY;
 
 	or	eax, -1
-	jmp	SHORT $L36692
-$L36693:
+	jmp	SHORT $L36700
+$L36701:
 
 ; 331  : 
 ; 332  : 	return pSoundEnt->m_iFreeSound;
 
 	mov	eax, DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A ; pSoundEnt
 	mov	eax, DWORD PTR [eax+1764]
-$L36692:
+$L36700:
 
 ; 333  : }
 
@@ -2049,19 +2049,19 @@ _iIndex$ = 8
 ; 341  : 	if ( !pSoundEnt )
 
 	cmp	DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A, 0 ; pSoundEnt
-	jne	SHORT $L36697
+	jne	SHORT $L36705
 
 ; 343  : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L36696
-$L36697:
+	jmp	SHORT $L36704
+$L36705:
 
 ; 345  : 
 ; 346  : 	if ( iIndex > ( MAX_WORLD_SOUNDS - 1 ) )
 
 	cmp	DWORD PTR _iIndex$[ebp], 63		; 0000003fH
-	jle	SHORT $L36698
+	jle	SHORT $L36706
 
 ; 348  : 		ALERT ( at_console, "SoundPointerForIndex() - Index too large!\n" );
 
@@ -2073,14 +2073,14 @@ $L36697:
 ; 349  : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L36696
-$L36698:
+	jmp	SHORT $L36704
+$L36706:
 
 ; 351  : 
 ; 352  : 	if ( iIndex < 0 )
 
 	cmp	DWORD PTR _iIndex$[ebp], 0
-	jge	SHORT $L36700
+	jge	SHORT $L36708
 
 ; 354  : 		ALERT ( at_console, "SoundPointerForIndex() - Index < 0!\n" );
 
@@ -2092,8 +2092,8 @@ $L36698:
 ; 355  : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L36696
-$L36700:
+	jmp	SHORT $L36704
+$L36708:
 
 ; 357  : 
 ; 358  : 	return &pSoundEnt->m_SoundPool[ iIndex ];
@@ -2102,7 +2102,7 @@ $L36700:
 	shl	eax, 5
 	mov	ecx, DWORD PTR ?pSoundEnt@@3PAVCSoundEnt@@A ; pSoundEnt
 	lea	eax, DWORD PTR [ecx+eax+1780]
-$L36696:
+$L36704:
 
 ; 359  : }
 
@@ -2152,12 +2152,12 @@ _iReturn$ = -4
 ; 372  : 	if ( iReturn < 0 || iReturn > gpGlobals->maxClients )
 
 	cmp	DWORD PTR _iReturn$[ebp], 0
-	jl	SHORT $L36707
+	jl	SHORT $L36715
 	mov	ecx, DWORD PTR ?gpGlobals@@3PAUglobalvars_t@@A ; gpGlobals
 	mov	edx, DWORD PTR _iReturn$[ebp]
 	cmp	edx, DWORD PTR [ecx+144]
-	jle	SHORT $L36706
-$L36707:
+	jle	SHORT $L36714
+$L36715:
 
 ; 374  : 		ALERT ( at_console, "** ClientSoundIndex returning a bogus value! **\n" );
 
@@ -2165,7 +2165,7 @@ $L36707:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36706:
+$L36714:
 
 ; 376  : #endif // _DEBUG
 ; 377  : 
@@ -2405,8 +2405,8 @@ _TEXT	ENDS
 PUBLIC	?GET_PRIVATE@@YAPAXPAUedict_s@@@Z		; GET_PRIVATE
 PUBLIC	?SetClassname@CBaseEntity@@QAEXPBD@Z		; CBaseEntity::SetClassname
 PUBLIC	?ENT@@YAPAUedict_s@@PBUentvars_s@@@Z		; ENT
-PUBLIC	??0CSoundEnt@@QAE@XZ				; CSoundEnt::CSoundEnt
 PUBLIC	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z		; VARS
+PUBLIC	??0CSoundEnt@@QAE@XZ				; CSoundEnt::CSoundEnt
 PUBLIC	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z		; CBaseEntity::operator new
 PUBLIC	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z		; CBaseEntity::operator delete
 EXTRN	__except_list:DWORD
@@ -2425,8 +2425,8 @@ __unwindtable$?GetClassPtr@@YAPAVCSoundEnt@@PAV1@PBD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?GetClassPtr@@YAPAVCSoundEnt@@PAV1@PBD@Z
 _TEXT	SEGMENT
-$T37217 = -20
-$T37218 = -24
+$T37225 = -20
+$T37226 = -24
 __$EHRec$ = -12
 _newEnt$ = 8
 _className$ = 12
@@ -2457,7 +2457,7 @@ _pev$ = -16
 ; 1097 : 	if (pev == NULL)
 
 	cmp	DWORD PTR _pev$[ebp], 0
-	jne	SHORT $L36752
+	jne	SHORT $L36760
 
 ; 1098 : 		pev = VARS(CREATE_ENTITY());
 
@@ -2466,7 +2466,7 @@ _pev$ = -16
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
 	mov	DWORD PTR _pev$[ebp], eax
-$L36752:
+$L36760:
 
 ; 1099 : 
 ; 1100 : 	// get the private data
@@ -2485,7 +2485,7 @@ $L36752:
 ; 1103 : 	if (newEnt == NULL) 
 
 	cmp	DWORD PTR _newEnt$[ebp], 0
-	jne	SHORT $L36754
+	jne	SHORT $L36762
 
 ; 1105 : 		// allocate private data 
 ; 1106 : 		newEnt = new(pev) T;
@@ -2495,21 +2495,21 @@ $L36752:
 	push	3828					; 00000ef4H
 	call	??2CBaseEntity@@SAPAXIPAUentvars_s@@@Z	; CBaseEntity::operator new
 	add	esp, 8
-	mov	DWORD PTR $T37218[ebp], eax
+	mov	DWORD PTR $T37226[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T37218[ebp], 0
-	je	SHORT $L37219
-	mov	ecx, DWORD PTR $T37218[ebp]
+	cmp	DWORD PTR $T37226[ebp], 0
+	je	SHORT $L37227
+	mov	ecx, DWORD PTR $T37226[ebp]
 	call	??0CSoundEnt@@QAE@XZ			; CSoundEnt::CSoundEnt
 	mov	DWORD PTR -28+[ebp], eax
-	jmp	SHORT $L37220
-$L37219:
+	jmp	SHORT $L37228
+$L37227:
 	mov	DWORD PTR -28+[ebp], 0
-$L37220:
+$L37228:
 	mov	eax, DWORD PTR -28+[ebp]
-	mov	DWORD PTR $T37217[ebp], eax
+	mov	DWORD PTR $T37225[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T37217[ebp]
+	mov	ecx, DWORD PTR $T37225[ebp]
 	mov	DWORD PTR _newEnt$[ebp], ecx
 
 ; 1107 : 		newEnt->pev = pev;
@@ -2517,7 +2517,7 @@ $L37220:
 	mov	edx, DWORD PTR _newEnt$[ebp]
 	mov	eax, DWORD PTR _pev$[ebp]
 	mov	DWORD PTR [edx+4], eax
-$L36754:
+$L36762:
 
 ; 1109 : 	newEnt->SetClassname( className );
 
@@ -2547,7 +2547,7 @@ text$x	SEGMENT
 __unwindfunclet$?GetClassPtr@@YAPAVCSoundEnt@@PAV1@PBD@Z$0:
 	mov	eax, DWORD PTR _pev$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR $T37218[ebp]
+	mov	ecx, DWORD PTR $T37226[ebp]
 	push	ecx
 	call	??3CBaseEntity@@SAXPAXPAUentvars_s@@@Z	; CBaseEntity::operator delete
 	add	esp, 8
@@ -2781,8 +2781,8 @@ PUBLIC	?StartMessage@CBaseEntity@@UAEXPAVCBasePlayer@@@Z ; CBaseEntity::StartMes
 PUBLIC	?GetPosition@CBaseEntity@@UAEMXZ		; CBaseEntity::GetPosition
 PUBLIC	?OnChangeParent@CBaseEntity@@UAEXXZ		; CBaseEntity::OnChangeParent
 PUBLIC	?OnClearParent@CBaseEntity@@UAEXXZ		; CBaseEntity::OnClearParent
-PUBLIC	?ObjectCaps@CSoundEnt@@UAEHXZ			; CSoundEnt::ObjectCaps
 PUBLIC	?OnRemove@CBaseEntity@@UAEXXZ			; CBaseEntity::OnRemove
+PUBLIC	?ObjectCaps@CSoundEnt@@UAEHXZ			; CSoundEnt::ObjectCaps
 PUBLIC	??_7CSoundEnt@@6B@				; CSoundEnt::`vftable'
 PUBLIC	?Classify@CBaseEntity@@UAEHXZ			; CBaseEntity::Classify
 PUBLIC	?DeathNotice@CBaseEntity@@UAEXPAUentvars_s@@@Z	; CBaseEntity::DeathNotice
@@ -3963,26 +3963,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37317
+	je	SHORT $L37325
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37317
+	je	SHORT $L37325
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37317
+	je	SHORT $L37325
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37318
-$L37317:
+	jmp	SHORT $L37326
+$L37325:
 	mov	DWORD PTR -8+[ebp], 0
-$L37318:
+$L37326:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -4165,19 +4165,19 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+368], 0
-	jne	SHORT $L37335
+	jne	SHORT $L37343
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	fld	DWORD PTR [eax+352]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L37335
+	jne	SHORT $L37343
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37336
-$L37335:
+	jmp	SHORT $L37344
+$L37343:
 	mov	DWORD PTR -8+[ebp], 0
-$L37336:
+$L37344:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -4265,26 +4265,26 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+204]
 	test	eax, eax
-	jne	SHORT $L37343
+	jne	SHORT $L37351
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [edx+208]
 	test	eax, eax
-	je	SHORT $L37344
-$L37343:
+	je	SHORT $L37352
+$L37351:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+364]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L37344
+	je	SHORT $L37352
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L37345
-$L37344:
+	jmp	SHORT $L37353
+$L37352:
 	mov	DWORD PTR -8+[ebp], 0
-$L37345:
+$L37353:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -5009,8 +5009,8 @@ PUBLIC	??DVector@@QBE?AV0@M@Z				; Vector::operator*
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37392 = -16
-$T37393 = -28
+$T37400 = -16
+$T37401 = -28
 ?Center@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR		; CBaseEntity::Center, COMDAT
 
 ; 714  : 	virtual Vector Center( ) { return (pev->absmax + pev->absmin) * 0.5; }; // center point of entity
@@ -5023,13 +5023,13 @@ $T37393 = -28
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T37393[ebp]
+	lea	eax, DWORD PTR $T37401[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 196				; 000000c4H
 	push	edx
-	lea	eax, DWORD PTR $T37392[ebp]
+	lea	eax, DWORD PTR $T37400[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -5091,7 +5091,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37398 = -16
+$T37406 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -5121,7 +5121,7 @@ $T37398 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37398[ebp]
+	lea	ecx, DWORD PTR $T37406[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -5175,7 +5175,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37403 = -16
+$T37411 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -5202,7 +5202,7 @@ $T37403 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37403[ebp]
+	lea	ecx, DWORD PTR $T37411[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -5221,7 +5221,7 @@ EXTRN	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ:NEAR ; CBaseEntity::GetAbsOrig
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37406 = -16
+$T37414 = -16
 ?EyePosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EyePosition, COMDAT
 
 ; 715  : 	virtual Vector EyePosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of eyes
@@ -5237,7 +5237,7 @@ $T37406 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T37406[ebp]
+	lea	edx, DWORD PTR $T37414[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -5259,7 +5259,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37409 = -16
+$T37417 = -16
 ?EarPosition@CBaseEntity@@UAE?AVVector@@XZ PROC NEAR	; CBaseEntity::EarPosition, COMDAT
 
 ; 716  : 	virtual Vector EarPosition( ) { return GetAbsOrigin() + pev->view_ofs; };			// position of ears
@@ -5275,7 +5275,7 @@ $T37409 = -16
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 372				; 00000174H
 	push	ecx
-	lea	edx, DWORD PTR $T37409[ebp]
+	lea	edx, DWORD PTR $T37417[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
@@ -5297,7 +5297,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37412 = -16
+$T37420 = -16
 ?BodyTarget@CBaseEntity@@UAE?AVVector@@ABV2@@Z PROC NEAR ; CBaseEntity::BodyTarget, COMDAT
 
 ; 717  : 	virtual Vector BodyTarget( const Vector &posSrc ) { return Center( ); };		// position to shoot at
@@ -5309,7 +5309,7 @@ $T37412 = -16
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T37412[ebp]
+	lea	eax, DWORD PTR $T37420[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]

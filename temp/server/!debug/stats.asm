@@ -608,13 +608,13 @@ _pName$ = 8
 ; 25   : 	if ( !pName )
 
 	cmp	DWORD PTR _pName$[ebp], 0
-	jne	SHORT $L39515
+	jne	SHORT $L39529
 
 ; 26   : 		return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-	jmp	$L39514
-$L39515:
+	jmp	$L39528
+$L39529:
 
 ; 27   : 
 ; 28   : 	if ( !strcmp( pName, "9mm" ) )
@@ -625,13 +625,13 @@ $L39515:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39516
+	jne	SHORT $L39530
 
 ; 29   : 		return gSkillData.plrDmg9MM;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+224
-	jmp	$L39514
-$L39516:
+	jmp	$L39528
+$L39530:
 
 ; 30   : 	if ( !strcmp( pName, "357" ) )
 
@@ -641,13 +641,13 @@ $L39516:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39518
+	jne	SHORT $L39532
 
 ; 31   : 		return gSkillData.plrDmg357;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+228
-	jmp	$L39514
-$L39518:
+	jmp	$L39528
+$L39532:
 
 ; 32   : 	if ( !strcmp( pName, "ARgrenades" ) )
 
@@ -657,13 +657,13 @@ $L39518:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39520
+	jne	SHORT $L39534
 
 ; 33   : 		return gSkillData.plrDmgM203Grenade;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+236
-	jmp	$L39514
-$L39520:
+	jmp	$L39528
+$L39534:
 
 ; 34   : 	if ( !strcmp( pName, "buckshot" ) )
 
@@ -673,13 +673,13 @@ $L39520:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39522
+	jne	SHORT $L39536
 
 ; 35   : 		return gSkillData.plrDmgBuckshot;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+240
-	jmp	$L39514
-$L39522:
+	jmp	$L39528
+$L39536:
 
 ; 36   : 	if ( !strcmp( pName, "bolts") )
 
@@ -689,13 +689,13 @@ $L39522:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39524
+	jne	SHORT $L39538
 
 ; 37   : 		return gSkillData.plrDmgCrossbowMonster;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+248
-	jmp	$L39514
-$L39524:
+	jmp	$L39528
+$L39538:
 
 ; 38   : 	if ( !strcmp( pName, "rockets") )
 
@@ -705,13 +705,13 @@ $L39524:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39526
+	jne	SHORT $L39540
 
 ; 39   : 		return gSkillData.plrDmgRPG;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+252
-	jmp	SHORT $L39514
-$L39526:
+	jmp	SHORT $L39528
+$L39540:
 
 ; 40   : 	if ( !strcmp( pName, "uranium") )
 
@@ -721,13 +721,13 @@ $L39526:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39528
+	jne	SHORT $L39542
 
 ; 41   : 		return gSkillData.plrDmgGauss;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+256
-	jmp	SHORT $L39514
-$L39528:
+	jmp	SHORT $L39528
+$L39542:
 
 ; 42   : 	if ( !strcmp( pName, "Hand Grenade") )
 
@@ -737,13 +737,13 @@ $L39528:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39530
+	jne	SHORT $L39544
 
 ; 43   : 		return gSkillData.plrDmgHandGrenade;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+272
-	jmp	SHORT $L39514
-$L39530:
+	jmp	SHORT $L39528
+$L39544:
 
 ; 44   : 	if ( !strcmp( pName, "Satchel Charge") )
 
@@ -753,13 +753,13 @@ $L39530:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39532
+	jne	SHORT $L39546
 
 ; 45   : 		return gSkillData.plrDmgSatchel;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+276
-	jmp	SHORT $L39514
-$L39532:
+	jmp	SHORT $L39528
+$L39546:
 
 ; 46   : 	if ( !strcmp( pName, "Trip Mine") )
 
@@ -769,19 +769,19 @@ $L39532:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L39534
+	jne	SHORT $L39548
 
 ; 47   : 		return gSkillData.plrDmgTripmine;
 
 	fld	DWORD PTR ?gSkillData@@3Uskilldata_t@@A+280
-	jmp	SHORT $L39514
-$L39534:
+	jmp	SHORT $L39528
+$L39548:
 
 ; 48   : 
 ; 49   : 	return 0;
 
 	fld	DWORD PTR __real@4@00000000000000000000
-$L39514:
+$L39528:
 
 ; 50   : }
 
@@ -846,12 +846,12 @@ _fp$ = -4
 ; 58   : 	if ( !fp )
 
 	cmp	DWORD PTR _fp$[ebp], 0
-	jne	SHORT $L39546
+	jne	SHORT $L39560
 
 ; 59   : 		return;
 
-	jmp	SHORT $L39542
-$L39546:
+	jmp	SHORT $L39556
+$L39560:
 
 ; 60   : 	fprintf( fp, "%6.2f, %6.2f, %6.2f, %s, %2d\n", dataTime, health, ammo, pMapname, skillLevel );
 
@@ -880,7 +880,7 @@ $L39546:
 	push	eax
 	call	_fclose
 	add	esp, 4
-$L39542:
+$L39556:
 
 ; 62   : }
 
@@ -922,9 +922,9 @@ _TEXT	SEGMENT
 _pPlayer$ = 8
 _i$ = -4
 _ammoCount$ = -132
-_p$39578 = -136
-_II$39582 = -180
-_index$39583 = -184
+_p$39592 = -136
+_II$39596 = -180
+_index$39597 = -184
 _ammo$ = -188
 _health$ = -192
 _ammoDelta$ = -196
@@ -965,7 +965,7 @@ _forceWrite$ = -204
 	fcomp	DWORD PTR ?gStats@@3UTESTSTATS@@A+24
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L39574
+	je	SHORT $L39588
 
 ; 93   : 		gStats.lastGameTime = gpGlobals->time;
 
@@ -977,7 +977,7 @@ _forceWrite$ = -204
 
 	mov	edx, DWORD PTR ?gStats@@3UTESTSTATS@@A+20
 	mov	DWORD PTR ?gStats@@3UTESTSTATS@@A+16, edx
-$L39574:
+$L39588:
 
 ; 96   : 
 ; 97   : 	gStats.gameTime += gpGlobals->time - gStats.lastGameTime;
@@ -998,27 +998,27 @@ $L39574:
 ; 100  : 	for (i = 0; i < MAX_ITEM_TYPES; i++)
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L39575
-$L39576:
+	jmp	SHORT $L39589
+$L39590:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L39575:
+$L39589:
 	cmp	DWORD PTR _i$[ebp], 6
-	jge	$L39577
+	jge	$L39591
 
 ; 102  : 		CBasePlayerItem *p = pPlayer->m_rgpPlayerItems[i];
 
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR _pPlayer$[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4+2956]
-	mov	DWORD PTR _p$39578[ebp], eax
-$L39580:
+	mov	DWORD PTR _p$39592[ebp], eax
+$L39594:
 
 ; 103  : 		while (p)
 
-	cmp	DWORD PTR _p$39578[ebp], 0
-	je	$L39581
+	cmp	DWORD PTR _p$39592[ebp], 0
+	je	$L39595
 
 ; 105  : 			ItemInfo II;
 ; 106  : 			
@@ -1026,60 +1026,60 @@ $L39580:
 
 	push	44					; 0000002cH
 	push	0
-	lea	ecx, DWORD PTR _II$39582[ebp]
+	lea	ecx, DWORD PTR _II$39596[ebp]
 	push	ecx
 	call	_memset
 	add	esp, 12					; 0000000cH
 
 ; 108  : 			p->GetItemInfo(&II);
 
-	lea	edx, DWORD PTR _II$39582[ebp]
+	lea	edx, DWORD PTR _II$39596[ebp]
 	push	edx
-	mov	eax, DWORD PTR _p$39578[ebp]
+	mov	eax, DWORD PTR _p$39592[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _p$39578[ebp]
+	mov	ecx, DWORD PTR _p$39592[ebp]
 	call	DWORD PTR [edx+352]
 
 ; 109  : 
 ; 110  : 			int index = pPlayer->GetAmmoIndex(II.pszAmmo1);
 
-	mov	eax, DWORD PTR _II$39582[ebp+8]
+	mov	eax, DWORD PTR _II$39596[ebp+8]
 	push	eax
 	call	?GetAmmoIndex@CBasePlayer@@SAHPBD@Z	; CBasePlayer::GetAmmoIndex
 	add	esp, 4
-	mov	DWORD PTR _index$39583[ebp], eax
+	mov	DWORD PTR _index$39597[ebp], eax
 
 ; 111  : 			if ( index >= 0 )
 
-	cmp	DWORD PTR _index$39583[ebp], 0
-	jl	SHORT $L39584
+	cmp	DWORD PTR _index$39597[ebp], 0
+	jl	SHORT $L39598
 
 ; 112  : 				ammoCount[ index ] += ((CBasePlayerWeapon *)p)->m_iClip;
 
-	mov	ecx, DWORD PTR _index$39583[ebp]
+	mov	ecx, DWORD PTR _index$39597[ebp]
 	mov	edx, DWORD PTR _ammoCount$[ebp+ecx*4]
-	mov	eax, DWORD PTR _p$39578[ebp]
+	mov	eax, DWORD PTR _p$39592[ebp]
 	add	edx, DWORD PTR [eax+1864]
-	mov	ecx, DWORD PTR _index$39583[ebp]
+	mov	ecx, DWORD PTR _index$39597[ebp]
 	mov	DWORD PTR _ammoCount$[ebp+ecx*4], edx
-$L39584:
+$L39598:
 
 ; 113  : 			
 ; 114  : 			p = p->m_pNext;
 
-	mov	edx, DWORD PTR _p$39578[ebp]
+	mov	edx, DWORD PTR _p$39592[ebp]
 	mov	eax, DWORD PTR [edx+1820]
-	mov	DWORD PTR _p$39578[ebp], eax
+	mov	DWORD PTR _p$39592[ebp], eax
 
 ; 115  : 		}
 
-	jmp	$L39580
-$L39581:
+	jmp	$L39594
+$L39595:
 
 ; 116  : 	}
 
-	jmp	$L39576
-$L39577:
+	jmp	$L39590
+$L39591:
 
 ; 117  : 
 ; 118  : 	float ammo = 0;
@@ -1089,14 +1089,14 @@ $L39577:
 ; 119  : 	for (i = 1; i < MAX_AMMO_SLOTS; i++)
 
 	mov	DWORD PTR _i$[ebp], 1
-	jmp	SHORT $L39587
-$L39588:
+	jmp	SHORT $L39601
+$L39602:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L39587:
+$L39601:
 	cmp	DWORD PTR _i$[ebp], 32			; 00000020H
-	jge	SHORT $L39589
+	jge	SHORT $L39603
 
 ; 121  : 		ammo += ammoCount[i] * AmmoDamage( CBasePlayerItem::AmmoInfoArray[i].pszName );
 
@@ -1114,8 +1114,8 @@ $L39587:
 
 ; 122  : 	}
 
-	jmp	SHORT $L39588
-$L39589:
+	jmp	SHORT $L39602
+$L39603:
 
 ; 123  : 
 ; 124  : 	float health = pPlayer->pev->health + pPlayer->pev->armorvalue * 2;	// Armor is 2X health
@@ -1159,17 +1159,17 @@ $L39589:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39594
+	je	SHORT $L39608
 	fld	DWORD PTR ?gStats@@3UTESTSTATS@@A+4
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39594
+	jne	SHORT $L39608
 
 ; 129  : 		forceWrite = 1;
 
 	mov	DWORD PTR _forceWrite$[ebp], 1
-$L39594:
+$L39608:
 
 ; 130  : 
 ; 131  : 	if ( (ammoDelta > AMMO_THRESHOLD || healthDelta > HEALTH_THRESHOLD) && !forceWrite )
@@ -1178,15 +1178,15 @@ $L39594:
 	fcomp	DWORD PTR __real@4@4002a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L39596
+	je	SHORT $L39610
 	fld	DWORD PTR _healthDelta$[ebp]
 	fcomp	DWORD PTR __real@4@4002a000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L39595
-$L39596:
+	jne	SHORT $L39609
+$L39610:
 	cmp	DWORD PTR _forceWrite$[ebp], 0
-	jne	SHORT $L39595
+	jne	SHORT $L39609
 
 ; 133  : 		if ( gStats.nextOutputTime == 0 )
 
@@ -1194,13 +1194,13 @@ $L39596:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L39597
+	je	SHORT $L39611
 
 ; 134  : 			gStats.dataTime = gStats.gameTime;
 
 	mov	eax, DWORD PTR ?gStats@@3UTESTSTATS@@A+20
 	mov	DWORD PTR ?gStats@@3UTESTSTATS@@A+16, eax
-$L39597:
+$L39611:
 
 ; 135  : 
 ; 136  : 		gStats.lastAmmo = ammo;
@@ -1223,22 +1223,22 @@ $L39597:
 
 ; 141  : 	else if ( (gStats.nextOutputTime != 0 && gStats.nextOutputTime < gStats.gameTime) || forceWrite )
 
-	jmp	$L39599
-$L39595:
+	jmp	$L39613
+$L39609:
 	fld	DWORD PTR ?gStats@@3UTESTSTATS@@A+12
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L39601
+	jne	SHORT $L39615
 	fld	DWORD PTR ?gStats@@3UTESTSTATS@@A+12
 	fcomp	DWORD PTR ?gStats@@3UTESTSTATS@@A+20
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L39600
-$L39601:
+	jne	SHORT $L39614
+$L39615:
 	cmp	DWORD PTR _forceWrite$[ebp], 0
-	je	SHORT $L39599
-$L39600:
+	je	SHORT $L39613
+$L39614:
 
 ; 143  : 		UpdateStatsFile( gStats.dataTime, (char *)STRING(gpGlobals->mapname), health, ammo, (int)CVAR_GET_FLOAT("skill") );
 
@@ -1282,7 +1282,7 @@ $L39600:
 ; 148  : 		gStats.nextOutputTime = 0;
 
 	mov	DWORD PTR ?gStats@@3UTESTSTATS@@A+12, 0
-$L39599:
+$L39613:
 
 ; 150  : }
 

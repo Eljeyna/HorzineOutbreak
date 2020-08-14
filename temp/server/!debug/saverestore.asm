@@ -2287,13 +2287,13 @@ _this$ = -4
 ; 199  : 	if ( pEntity == NULL )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	jne	SHORT $L36513
+	jne	SHORT $L36521
 
 ; 200  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L36512
-$L36513:
+	jmp	SHORT $L36520
+$L36521:
 
 ; 201  : 	return EntityIndex( pEntity->pev );
 
@@ -2302,7 +2302,7 @@ $L36513:
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?EntityIndex@CSaveRestoreBuffer@@QAEHPAUentvars_s@@@Z ; CSaveRestoreBuffer::EntityIndex
-$L36512:
+$L36520:
 
 ; 202  : }
 
@@ -2335,13 +2335,13 @@ _this$ = -4
 ; 206  : 	if ( pevLookup == NULL )
 
 	cmp	DWORD PTR _pevLookup$[ebp], 0
-	jne	SHORT $L36518
+	jne	SHORT $L36526
 
 ; 207  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L36517
-$L36518:
+	jmp	SHORT $L36525
+$L36526:
 
 ; 208  : 	return EntityIndex( ENT( pevLookup ) );
 
@@ -2352,7 +2352,7 @@ $L36518:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?EntityIndex@CSaveRestoreBuffer@@QAEHPAUedict_s@@@Z ; CSaveRestoreBuffer::EntityIndex
-$L36517:
+$L36525:
 
 ; 209  : }
 
@@ -2476,33 +2476,33 @@ _pTable$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L36528
+	je	SHORT $L36536
 	cmp	DWORD PTR _pentLookup$[ebp], 0
-	jne	SHORT $L36527
-$L36528:
+	jne	SHORT $L36535
+$L36536:
 
 ; 219  : 		return -1;
 
 	or	eax, -1
-	jmp	SHORT $L36526
-$L36527:
+	jmp	SHORT $L36534
+$L36535:
 
 ; 222  : 	ENTITYTABLE *pTable;
 ; 223  : 
 ; 224  : 	for ( i = 0; i < m_pdata->tableCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36531
-$L36532:
+	jmp	SHORT $L36539
+$L36540:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36531:
+$L36539:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	SHORT $L36533
+	jge	SHORT $L36541
 
 ; 226  : 		pTable = m_pdata->pTable + i;
 
@@ -2519,23 +2519,23 @@ $L36531:
 	mov	eax, DWORD PTR _pTable$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	ecx, DWORD PTR _pentLookup$[ebp]
-	jne	SHORT $L36534
+	jne	SHORT $L36542
 
 ; 228  : 			return i;
 
 	mov	eax, DWORD PTR _i$[ebp]
-	jmp	SHORT $L36526
-$L36534:
+	jmp	SHORT $L36534
+$L36542:
 
 ; 229  : 	}
 
-	jmp	SHORT $L36532
-$L36533:
+	jmp	SHORT $L36540
+$L36541:
 
 ; 230  : 	return -1;
 
 	or	eax, -1
-$L36526:
+$L36534:
 
 ; 231  : }
 
@@ -2570,33 +2570,33 @@ _pTable$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L36540
+	je	SHORT $L36548
 	cmp	DWORD PTR _entityIndex$[ebp], 0
-	jge	SHORT $L36539
-$L36540:
+	jge	SHORT $L36547
+$L36548:
 
 ; 236  : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L36538
-$L36539:
+	jmp	SHORT $L36546
+$L36547:
 
 ; 239  : 	ENTITYTABLE *pTable;
 ; 240  : 
 ; 241  : 	for ( i = 0; i < m_pdata->tableCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36543
-$L36544:
+	jmp	SHORT $L36551
+$L36552:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36543:
+$L36551:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+32]
-	jge	SHORT $L36545
+	jge	SHORT $L36553
 
 ; 243  : 		pTable = m_pdata->pTable + i;
 
@@ -2613,24 +2613,24 @@ $L36543:
 	mov	eax, DWORD PTR _pTable$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	cmp	ecx, DWORD PTR _entityIndex$[ebp]
-	jne	SHORT $L36546
+	jne	SHORT $L36554
 
 ; 245  : 			return pTable->pent;
 
 	mov	edx, DWORD PTR _pTable$[ebp]
 	mov	eax, DWORD PTR [edx+4]
-	jmp	SHORT $L36538
-$L36546:
+	jmp	SHORT $L36546
+$L36554:
 
 ; 246  : 	}
 
-	jmp	SHORT $L36544
-$L36545:
+	jmp	SHORT $L36552
+$L36553:
 
 ; 247  : 	return NULL;
 
 	xor	eax, eax
-$L36538:
+$L36546:
 
 ; 248  : }
 
@@ -2664,16 +2664,16 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L36553
+	je	SHORT $L36561
 	cmp	DWORD PTR _entityIndex$[ebp], 0
-	jge	SHORT $L36552
-$L36553:
+	jge	SHORT $L36560
+$L36561:
 
 ; 253  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L36551
-$L36552:
+	jmp	SHORT $L36559
+$L36560:
 
 ; 254  : 	if ( entityIndex > m_pdata->tableCount )
 
@@ -2681,13 +2681,13 @@ $L36552:
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR _entityIndex$[ebp]
 	cmp	eax, DWORD PTR [edx+32]
-	jle	SHORT $L36554
+	jle	SHORT $L36562
 
 ; 255  : 		return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L36551
-$L36554:
+	jmp	SHORT $L36559
+$L36562:
 
 ; 256  : 
 ; 257  : 	m_pdata->pTable[ entityIndex ].flags |= flags;
@@ -2715,7 +2715,7 @@ $L36554:
 	imul	ecx, 24					; 00000018H
 	mov	edx, DWORD PTR [eax+40]
 	mov	eax, DWORD PTR [edx+ecx+16]
-$L36551:
+$L36559:
 
 ; 260  : }
 
@@ -2748,12 +2748,12 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	jne	SHORT $L36559
+	jne	SHORT $L36567
 
 ; 265  : 		return;
 
-	jmp	SHORT $L36558
-$L36559:
+	jmp	SHORT $L36566
+$L36567:
 
 ; 266  : 
 ; 267  : 	if ( m_pdata->size < size )
@@ -2762,7 +2762,7 @@ $L36559:
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR [edx+8]
 	cmp	eax, DWORD PTR _size$[ebp]
-	jge	SHORT $L36560
+	jge	SHORT $L36568
 
 ; 268  : 		size = m_pdata->size;
 
@@ -2770,7 +2770,7 @@ $L36559:
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR [edx+8]
 	mov	DWORD PTR _size$[ebp], eax
-$L36560:
+$L36568:
 
 ; 269  : 
 ; 270  : 	m_pdata->pCurrentData -= size;
@@ -2792,7 +2792,7 @@ $L36560:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	mov	DWORD PTR [ecx+8], edx
-$L36558:
+$L36566:
 
 ; 272  : }
 
@@ -2826,7 +2826,7 @@ _hash$ = -8
 ; 298  : 	unsigned int	hash = 0;
 
 	mov	DWORD PTR _hash$[ebp], 0
-$L36567:
+$L36575:
 
 ; 299  : 
 ; 300  : 	while ( *pszToken )
@@ -2834,7 +2834,7 @@ $L36567:
 	mov	eax, DWORD PTR _pszToken$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L36568
+	je	SHORT $L36576
 
 ; 301  : 		hash = _rotr( hash, 4 ) ^ *pszToken++;
 
@@ -2850,8 +2850,8 @@ $L36567:
 	mov	eax, DWORD PTR _pszToken$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _pszToken$[ebp], eax
-	jmp	SHORT $L36567
-$L36568:
+	jmp	SHORT $L36575
+$L36576:
 
 ; 302  : 
 ; 303  : 	return hash;
@@ -2895,7 +2895,7 @@ _pszToken$ = 8
 _this$ = -4
 _hash$ = -8
 _i$ = -12
-_index$36589 = -16
+_index$36597 = -16
 ?TokenHash@CSaveRestoreBuffer@@QAEGPBD@Z PROC NEAR	; CSaveRestoreBuffer::TokenHash, COMDAT
 
 ; 307  : {
@@ -2934,12 +2934,12 @@ _index$36589 = -16
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	cmp	DWORD PTR [ecx+20], 0
-	je	SHORT $L36579
+	je	SHORT $L36587
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	cmp	DWORD PTR [eax+24], 0
-	jne	SHORT $L36578
-$L36579:
+	jne	SHORT $L36586
+$L36587:
 
 ; 314  : 		ALERT( at_error, "No token table array in TokenHash()!" );
 
@@ -2947,33 +2947,33 @@ $L36579:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36578:
+$L36586:
 
 ; 315  : #endif
 ; 316  : 
 ; 317  : 	for ( int i=0; i<m_pdata->tokenCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36582
-$L36583:
+	jmp	SHORT $L36590
+$L36591:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L36582:
+$L36590:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+20]
-	jge	$L36584
+	jge	$L36592
 
 ; 319  : #if _DEBUG
 ; 320  : 		static qboolean beentheredonethat = FALSE;
 ; 321  : 		if ( i > 50 && !beentheredonethat )
 
 	cmp	DWORD PTR _i$[ebp], 50			; 00000032H
-	jle	SHORT $L36587
+	jle	SHORT $L36595
 	cmp	DWORD PTR _?beentheredonethat@?5??TokenHash@CSaveRestoreBuffer@@QAEGPBD@Z@4HA, 0
-	jne	SHORT $L36587
+	jne	SHORT $L36595
 
 ; 323  : 			beentheredonethat = TRUE;
 
@@ -2985,7 +2985,7 @@ $L36582:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36587:
+$L36595:
 
 ; 326  : #endif
 ; 327  : 
@@ -2994,24 +2994,24 @@ $L36587:
 	mov	edx, DWORD PTR _hash$[ebp]
 	and	edx, 65535				; 0000ffffH
 	add	edx, DWORD PTR _i$[ebp]
-	mov	DWORD PTR _index$36589[ebp], edx
+	mov	DWORD PTR _index$36597[ebp], edx
 
 ; 329  : 		if ( index >= m_pdata->tokenCount )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
-	mov	edx, DWORD PTR _index$36589[ebp]
+	mov	edx, DWORD PTR _index$36597[ebp]
 	cmp	edx, DWORD PTR [ecx+20]
-	jl	SHORT $L36590
+	jl	SHORT $L36598
 
 ; 330  : 			index -= m_pdata->tokenCount;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
-	mov	edx, DWORD PTR _index$36589[ebp]
+	mov	edx, DWORD PTR _index$36597[ebp]
 	sub	edx, DWORD PTR [ecx+20]
-	mov	DWORD PTR _index$36589[ebp], edx
-$L36590:
+	mov	DWORD PTR _index$36597[ebp], edx
+$L36598:
 
 ; 331  : 
 ; 332  : 		if ( !m_pdata->pTokens[index] || strcmp( pszToken, m_pdata->pTokens[index] ) == 0 )
@@ -3019,13 +3019,13 @@ $L36590:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	mov	edx, DWORD PTR [ecx+24]
-	mov	eax, DWORD PTR _index$36589[ebp]
+	mov	eax, DWORD PTR _index$36597[ebp]
 	cmp	DWORD PTR [edx+eax*4], 0
-	je	SHORT $L36592
+	je	SHORT $L36600
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR [edx+24]
-	mov	ecx, DWORD PTR _index$36589[ebp]
+	mov	ecx, DWORD PTR _index$36597[ebp]
 	mov	edx, DWORD PTR [eax+ecx*4]
 	push	edx
 	mov	eax, DWORD PTR _pszToken$[ebp]
@@ -3033,28 +3033,28 @@ $L36590:
 	call	_strcmp
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $L36591
-$L36592:
+	jne	SHORT $L36599
+$L36600:
 
 ; 334  : 			m_pdata->pTokens[index] = (char *)pszToken;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR [edx+24]
-	mov	ecx, DWORD PTR _index$36589[ebp]
+	mov	ecx, DWORD PTR _index$36597[ebp]
 	mov	edx, DWORD PTR _pszToken$[ebp]
 	mov	DWORD PTR [eax+ecx*4], edx
 
 ; 335  : 			return index;
 
-	mov	ax, WORD PTR _index$36589[ebp]
-	jmp	SHORT $L36572
-$L36591:
+	mov	ax, WORD PTR _index$36597[ebp]
+	jmp	SHORT $L36580
+$L36599:
 
 ; 337  : 	}
 
-	jmp	$L36583
-$L36584:
+	jmp	$L36591
+$L36592:
 
 ; 338  : 		
 ; 339  : 	// Token hash table full!!! 
@@ -3069,7 +3069,7 @@ $L36584:
 ; 342  : 	return 0;
 
 	xor	ax, ax
-$L36572:
+$L36580:
 
 ; 343  : }
 
@@ -3138,22 +3138,22 @@ _value$ = 24
 _count$ = 28
 _this$ = -4
 _iCount$ = -8
-_pValue$36618 = -12
-_nValue$36620 = -16
-_pValue$36623 = -20
-_flValue$36625 = -24
-_pValue$36628 = -28
-_bValue$36630 = -32
-_pValue$36633 = -36
-_nValue$36635 = -40
-_pValue$36637 = -44
-_sValue$36639 = -48
-_pValue$36643 = -52
-_vecValue$36645 = -64
-_pValue$36649 = -68
-_chValue$36651 = -72
-_pValue$36653 = -76
-_funcName$36655 = -80
+_pValue$36626 = -12
+_nValue$36628 = -16
+_pValue$36631 = -20
+_flValue$36633 = -24
+_pValue$36636 = -28
+_bValue$36638 = -32
+_pValue$36641 = -36
+_nValue$36643 = -40
+_pValue$36645 = -44
+_sValue$36647 = -48
+_pValue$36651 = -52
+_vecValue$36653 = -64
+_pValue$36657 = -68
+_chValue$36659 = -72
+_pValue$36661 = -76
+_funcName$36663 = -80
 ?Log@CSave@@AAEXPAUdatamap_s@@PBD1W4_fieldtypes@@PAXH@Z PROC NEAR ; CSave::Log, COMDAT
 
 ; 346  : {
@@ -3187,43 +3187,43 @@ _funcName$36655 = -80
 ; 354  : 	for ( int iCount = 0; iCount < count; iCount++ )
 
 	mov	DWORD PTR _iCount$[ebp], 0
-	jmp	SHORT $L36610
-$L36611:
+	jmp	SHORT $L36618
+$L36619:
 	mov	edx, DWORD PTR _iCount$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _iCount$[ebp], edx
-$L36610:
+$L36618:
 	mov	eax, DWORD PTR _iCount$[ebp]
 	cmp	eax, DWORD PTR _count$[ebp]
-	jge	$L36612
+	jge	$L36620
 
 ; 357  : 		{
 
 	mov	ecx, DWORD PTR _fieldType$[ebp]
 	mov	DWORD PTR -84+[ebp], ecx
 	cmp	DWORD PTR -84+[ebp], 17			; 00000011H
-	ja	$L36657
+	ja	$L36665
 	mov	eax, DWORD PTR -84+[ebp]
 	xor	edx, edx
-	mov	dl, BYTE PTR $L37688[eax]
-	jmp	DWORD PTR $L37689[edx*4]
-$L36617:
+	mov	dl, BYTE PTR $L37696[eax]
+	jmp	DWORD PTR $L37697[edx*4]
+$L36625:
 
 ; 360  : 				short *pValue = ( short* )( value );
 
 	mov	ecx, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36618[ebp], ecx
+	mov	DWORD PTR _pValue$36626[ebp], ecx
 
 ; 361  : 				short nValue = pValue[iCount];
 
 	mov	edx, DWORD PTR _iCount$[ebp]
-	mov	eax, DWORD PTR _pValue$36618[ebp]
+	mov	eax, DWORD PTR _pValue$36626[ebp]
 	mov	cx, WORD PTR [eax+edx*2]
-	mov	WORD PTR _nValue$36620[ebp], cx
+	mov	WORD PTR _nValue$36628[ebp], cx
 
 ; 362  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%d", nValue );
 
-	movsx	edx, WORD PTR _nValue$36620[ebp]
+	movsx	edx, WORD PTR _nValue$36628[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_02MECO@?$CFd?$AA@	; `string'
 	push	256					; 00000100H
@@ -3241,24 +3241,24 @@ $L36617:
 
 ; 364  : 				break;
 
-	jmp	$L36614
-$L36622:
+	jmp	$L36622
+$L36630:
 
 ; 369  : 				float *pValue = ( float* )( value );
 
 	mov	eax, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36623[ebp], eax
+	mov	DWORD PTR _pValue$36631[ebp], eax
 
 ; 370  : 				float flValue = pValue[iCount];
 
 	mov	ecx, DWORD PTR _iCount$[ebp]
-	mov	edx, DWORD PTR _pValue$36623[ebp]
+	mov	edx, DWORD PTR _pValue$36631[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
-	mov	DWORD PTR _flValue$36625[ebp], eax
+	mov	DWORD PTR _flValue$36633[ebp], eax
 
 ; 371  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%f", flValue );
 
-	fld	DWORD PTR _flValue$36625[ebp]
+	fld	DWORD PTR _flValue$36633[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	push	OFFSET FLAT:??_C@_02JBAA@?$CFf?$AA@	; `string'
@@ -3277,24 +3277,24 @@ $L36622:
 
 ; 373  : 				break;
 
-	jmp	$L36614
-$L36627:
+	jmp	$L36622
+$L36635:
 
 ; 377  : 				bool *pValue = ( bool* )( value );
 
 	mov	ecx, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36628[ebp], ecx
+	mov	DWORD PTR _pValue$36636[ebp], ecx
 
 ; 378  : 				bool bValue = pValue[iCount];
 
-	mov	edx, DWORD PTR _pValue$36628[ebp]
+	mov	edx, DWORD PTR _pValue$36636[ebp]
 	add	edx, DWORD PTR _iCount$[ebp]
 	mov	al, BYTE PTR [edx]
-	mov	BYTE PTR _bValue$36630[ebp], al
+	mov	BYTE PTR _bValue$36638[ebp], al
 
 ; 379  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%d", ( int )( bValue ) );
 
-	mov	ecx, DWORD PTR _bValue$36630[ebp]
+	mov	ecx, DWORD PTR _bValue$36638[ebp]
 	and	ecx, 255				; 000000ffH
 	push	ecx
 	push	OFFSET FLAT:??_C@_02MECO@?$CFd?$AA@	; `string'
@@ -3313,24 +3313,24 @@ $L36627:
 
 ; 381  : 				break;
 
-	jmp	$L36614
-$L36632:
+	jmp	$L36622
+$L36640:
 
 ; 385  : 				int *pValue = ( int* )( value );
 
 	mov	edx, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36633[ebp], edx
+	mov	DWORD PTR _pValue$36641[ebp], edx
 
 ; 386  : 				int nValue = pValue[iCount];
 
 	mov	eax, DWORD PTR _iCount$[ebp]
-	mov	ecx, DWORD PTR _pValue$36633[ebp]
+	mov	ecx, DWORD PTR _pValue$36641[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4]
-	mov	DWORD PTR _nValue$36635[ebp], edx
+	mov	DWORD PTR _nValue$36643[ebp], edx
 
 ; 387  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%d", nValue );
 
-	mov	eax, DWORD PTR _nValue$36635[ebp]
+	mov	eax, DWORD PTR _nValue$36643[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_02MECO@?$CFd?$AA@	; `string'
 	push	256					; 00000100H
@@ -3348,24 +3348,24 @@ $L36632:
 
 ; 389  : 				break;
 
-	jmp	$L36614
-$L36636:
+	jmp	$L36622
+$L36644:
 
 ; 395  : 				string_t *pValue = ( string_t* )( value );
 
 	mov	ecx, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36637[ebp], ecx
+	mov	DWORD PTR _pValue$36645[ebp], ecx
 
 ; 396  : 				string_t sValue = pValue[iCount];
 
 	mov	edx, DWORD PTR _iCount$[ebp]
-	mov	eax, DWORD PTR _pValue$36637[ebp]
+	mov	eax, DWORD PTR _pValue$36645[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4]
-	mov	DWORD PTR _sValue$36639[ebp], ecx
+	mov	DWORD PTR _sValue$36647[ebp], ecx
 
 ; 397  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%s", ( char* )STRING( sValue ) );
 
-	mov	edx, DWORD PTR _sValue$36639[ebp]
+	mov	edx, DWORD PTR _sValue$36647[ebp]
 	push	edx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
@@ -3386,33 +3386,33 @@ $L36636:
 
 ; 399  : 				break;					
 
-	jmp	$L36614
-$L36642:
+	jmp	$L36622
+$L36650:
 
 ; 404  : 				Vector *pValue = ( Vector* )( value );
 
 	mov	eax, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36643[ebp], eax
+	mov	DWORD PTR _pValue$36651[ebp], eax
 
 ; 405  : 				Vector vecValue = pValue[iCount];
 
 	mov	ecx, DWORD PTR _iCount$[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _pValue$36643[ebp]
+	mov	edx, DWORD PTR _pValue$36651[ebp]
 	add	edx, ecx
 	push	edx
-	lea	ecx, DWORD PTR _vecValue$36645[ebp]
+	lea	ecx, DWORD PTR _vecValue$36653[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 406  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "(%f %f %f)", vecValue.x, vecValue.y, vecValue.z );
 
-	fld	DWORD PTR _vecValue$36645[ebp+8]
+	fld	DWORD PTR _vecValue$36653[ebp+8]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	fld	DWORD PTR _vecValue$36645[ebp+4]
+	fld	DWORD PTR _vecValue$36653[ebp+4]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	fld	DWORD PTR _vecValue$36645[ebp]
+	fld	DWORD PTR _vecValue$36653[ebp]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	push	OFFSET FLAT:??_C@_0L@IEAL@?$CI?$CFf?5?$CFf?5?$CFf?$CJ?$AA@ ; `string'
@@ -3431,31 +3431,31 @@ $L36642:
 
 ; 408  : 				break;
 
-	jmp	$L36614
-$L36647:
+	jmp	$L36622
+$L36655:
 
 ; 412  : 				if( count != 1 ) break;
 
 	cmp	DWORD PTR _count$[ebp], 1
-	je	SHORT $L36648
-	jmp	$L36614
-$L36648:
+	je	SHORT $L36656
+	jmp	$L36622
+$L36656:
 
 ; 413  : 				char *pValue = ( char* )( value );
 
 	mov	eax, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36649[ebp], eax
+	mov	DWORD PTR _pValue$36657[ebp], eax
 
 ; 414  : 				char chValue = pValue[iCount];
 
-	mov	ecx, DWORD PTR _pValue$36649[ebp]
+	mov	ecx, DWORD PTR _pValue$36657[ebp]
 	add	ecx, DWORD PTR _iCount$[ebp]
 	mov	dl, BYTE PTR [ecx]
-	mov	BYTE PTR _chValue$36651[ebp], dl
+	mov	BYTE PTR _chValue$36659[ebp], dl
 
 ; 415  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%d", chValue );
 
-	movsx	eax, BYTE PTR _chValue$36651[ebp]
+	movsx	eax, BYTE PTR _chValue$36659[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_02MECO@?$CFd?$AA@	; `string'
 	push	256					; 00000100H
@@ -3473,28 +3473,28 @@ $L36648:
 
 ; 417  : 				break;
 
-	jmp	SHORT $L36614
-$L36652:
+	jmp	SHORT $L36622
+$L36660:
 
 ; 421  : 				const int *pValue = (int *)value;
 
 	mov	ecx, DWORD PTR _value$[ebp]
-	mov	DWORD PTR _pValue$36653[ebp], ecx
+	mov	DWORD PTR _pValue$36661[ebp], ecx
 
 ; 422  : 				const char *funcName = UTIL_FunctionToName( pMap, (void *)( *pValue ));
 
-	mov	edx, DWORD PTR _pValue$36653[ebp]
+	mov	edx, DWORD PTR _pValue$36661[ebp]
 	mov	eax, DWORD PTR [edx]
 	push	eax
 	mov	ecx, DWORD PTR _pMap$[ebp]
 	push	ecx
 	call	?UTIL_FunctionToName@@YAPBDPAUdatamap_s@@PAX@Z ; UTIL_FunctionToName
 	add	esp, 8
-	mov	DWORD PTR _funcName$36655[ebp], eax
+	mov	DWORD PTR _funcName$36663[ebp], eax
 
 ; 423  : 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%s", funcName );
 
-	mov	edx, DWORD PTR _funcName$36655[ebp]
+	mov	edx, DWORD PTR _funcName$36663[ebp]
 	push	edx
 	push	OFFSET FLAT:??_C@_02DILL@?$CFs?$AA@	; `string'
 	push	256					; 00000100H
@@ -3509,8 +3509,8 @@ $L36652:
 	push	OFFSET FLAT:_?szBuf@?1??Log@CSave@@AAEXPAUdatamap_s@@PBD1W4_fieldtypes@@PAXH@Z@4PADA
 	call	?Q_strncat@@YAIPADPBDI@Z		; Q_strncat
 	add	esp, 12					; 0000000cH
-$L36657:
-$L36614:
+$L36665:
+$L36622:
 
 ; 430  : 
 ; 431  : 		// Add space data.
@@ -3519,7 +3519,7 @@ $L36614:
 	mov	eax, DWORD PTR _iCount$[ebp]
 	add	eax, 1
 	cmp	eax, DWORD PTR _count$[ebp]
-	je	SHORT $L36658
+	je	SHORT $L36666
 
 ; 434  : 			Q_strncpy( szTempBuf, " ", sizeof( szTempBuf ) );
 
@@ -3539,8 +3539,8 @@ $L36614:
 
 ; 437  : 		else
 
-	jmp	SHORT $L36660
-$L36658:
+	jmp	SHORT $L36668
+$L36666:
 
 ; 439  : 			Q_strncpy( szTempBuf, "\n", sizeof( szTempBuf ) );
 
@@ -3557,12 +3557,12 @@ $L36658:
 	push	OFFSET FLAT:_?szBuf@?1??Log@CSave@@AAEXPAUdatamap_s@@PBD1W4_fieldtypes@@PAXH@Z@4PADA
 	call	?Q_strncat@@YAIPADPBDI@Z		; Q_strncat
 	add	esp, 12					; 0000000cH
-$L36660:
+$L36668:
 
 ; 442  : 	}
 
-	jmp	$L36611
-$L36612:
+	jmp	$L36619
+$L36620:
 
 ; 443  : 
 ; 444  : 	ALERT( at_console, szBuf );
@@ -3580,17 +3580,17 @@ $L36612:
 	mov	esp, ebp
 	pop	ebp
 	ret	24					; 00000018H
-$L37689:
-	DD	$L36622
-	DD	$L36636
-	DD	$L36642
-	DD	$L36632
-	DD	$L36652
-	DD	$L36627
-	DD	$L36617
-	DD	$L36647
-	DD	$L36657
-$L37688:
+$L37697:
+	DD	$L36630
+	DD	$L36644
+	DD	$L36650
+	DD	$L36640
+	DD	$L36660
+	DD	$L36635
+	DD	$L36625
+	DD	$L36655
+	DD	$L36665
+$L37696:
 	DB	0
 	DB	1
 	DB	8
@@ -3823,7 +3823,7 @@ _this$ = -4
 _i$ = -8
 _tmp$ = -20
 _input$ = -32
-_tmp$36705 = -36
+_tmp$36713 = -36
 ?WriteTime@CSave@@QAEXPBDPBMH@Z PROC NEAR		; CSave::WriteTime, COMDAT
 
 ; 468  : {
@@ -3858,21 +3858,21 @@ _tmp$36705 = -36
 ; 473  : 	for ( i = 0; i < count; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36702
-$L36703:
+	jmp	SHORT $L36710
+$L36711:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36702:
+$L36710:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _count$[ebp]
-	jge	SHORT $L36704
+	jge	SHORT $L36712
 
 ; 475  : 		float tmp = data[0];
 
 	mov	ecx, DWORD PTR _data$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	DWORD PTR _tmp$36705[ebp], edx
+	mov	DWORD PTR _tmp$36713[ebp], edx
 
 ; 476  : 
 ; 477  : 		// Always encode time as a delta from the current time so it can be re-based if loaded in a new level
@@ -3881,22 +3881,22 @@ $L36702:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L36706
+	je	SHORT $L36714
 
 ; 480  : 			tmp -= m_pdata->time;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
-	fld	DWORD PTR _tmp$36705[ebp]
+	fld	DWORD PTR _tmp$36713[ebp]
 	fsub	DWORD PTR [edx+1360]
-	fstp	DWORD PTR _tmp$36705[ebp]
-$L36706:
+	fstp	DWORD PTR _tmp$36713[ebp]
+$L36714:
 
 ; 481  : 
 ; 482  : 		BufferData( (const char *)&tmp, sizeof(float) );
 
 	push	4
-	lea	eax, DWORD PTR _tmp$36705[ebp]
+	lea	eax, DWORD PTR _tmp$36713[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?BufferData@CSave@@AAEXPBDH@Z		; CSave::BufferData
@@ -3909,8 +3909,8 @@ $L36706:
 
 ; 484  : 	}
 
-	jmp	SHORT $L36703
-$L36704:
+	jmp	SHORT $L36711
+$L36712:
 
 ; 485  : }
 
@@ -3980,7 +3980,7 @@ _count$ = 16
 _this$ = -4
 _i$ = -8
 _size$ = -12
-_pString$36728 = -16
+_pString$36736 = -16
 ?WriteString@CSave@@QAEXPBDPBHH@Z PROC NEAR		; CSave::WriteString, COMDAT
 
 ; 498  : {
@@ -4006,15 +4006,15 @@ _pString$36728 = -16
 ; 506  : 	for ( i = 0; i < count; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36722
-$L36723:
+	jmp	SHORT $L36730
+$L36731:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36722:
+$L36730:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _count$[ebp]
-	jge	SHORT $L36724
+	jge	SHORT $L36732
 
 ; 507  : 		size += strlen( STRING( stringId[i] ) ) + 1;
 
@@ -4030,8 +4030,8 @@ $L36722:
 	mov	edx, DWORD PTR _size$[ebp]
 	lea	eax, DWORD PTR [edx+eax+1]
 	mov	DWORD PTR _size$[ebp], eax
-	jmp	SHORT $L36723
-$L36724:
+	jmp	SHORT $L36731
+$L36732:
 
 ; 508  : 
 ; 509  : 	BufferHeader( pname, size );
@@ -4046,15 +4046,15 @@ $L36724:
 ; 510  : 	for ( i = 0; i < count; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36725
-$L36726:
+	jmp	SHORT $L36733
+$L36734:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36725:
+$L36733:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _count$[ebp]
-	jge	SHORT $L36727
+	jge	SHORT $L36735
 
 ; 512  : 		const char *pString = STRING(stringId[i]);
 
@@ -4064,25 +4064,25 @@ $L36725:
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
-	mov	DWORD PTR _pString$36728[ebp], eax
+	mov	DWORD PTR _pString$36736[ebp], eax
 
 ; 513  : 		BufferData( pString, strlen(pString)+1 );
 
-	mov	edx, DWORD PTR _pString$36728[ebp]
+	mov	edx, DWORD PTR _pString$36736[ebp]
 	push	edx
 	call	_strlen
 	add	esp, 4
 	add	eax, 1
 	push	eax
-	mov	eax, DWORD PTR _pString$36728[ebp]
+	mov	eax, DWORD PTR _pString$36736[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?BufferData@CSave@@AAEXPBDH@Z		; CSave::BufferData
 
 ; 514  : 	}
 
-	jmp	SHORT $L36726
-$L36727:
+	jmp	SHORT $L36734
+$L36735:
 
 ; 515  : #endif
 ; 516  : }
@@ -4186,11 +4186,11 @@ PUBLIC	??GVector@@QBE?AV0@ABV0@@Z			; Vector::operator-
 PUBLIC	?WritePositionVector@CSave@@QAEXPBDABVVector@@@Z ; CSave::WritePositionVector
 ;	COMDAT ?WritePositionVector@CSave@@QAEXPBDABVVector@@@Z
 _TEXT	SEGMENT
-$T37713 = -28
+$T37721 = -28
 _pname$ = 8
 _value$ = 12
 _this$ = -4
-_tmp$36749 = -16
+_tmp$36757 = -16
 ?WritePositionVector@CSave@@QAEXPBDABVVector@@@Z PROC NEAR ; CSave::WritePositionVector, COMDAT
 
 ; 530  : {
@@ -4207,11 +4207,11 @@ _tmp$36749 = -16
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L36748
+	je	SHORT $L36756
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	cmp	DWORD PTR [edx+1324], 0
-	je	SHORT $L36748
+	je	SHORT $L36756
 
 ; 533  : 		Vector tmp = value - m_pdata->vecLandmarkOffset;
 
@@ -4219,23 +4219,23 @@ _tmp$36749 = -16
 	mov	ecx, DWORD PTR [eax+24]
 	add	ecx, 1348				; 00000544H
 	push	ecx
-	lea	edx, DWORD PTR $T37713[ebp]
+	lea	edx, DWORD PTR $T37721[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _value$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	push	eax
-	lea	ecx, DWORD PTR _tmp$36749[ebp]
+	lea	ecx, DWORD PTR _tmp$36757[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 534  : 		WriteVector( pname, tmp );
 
-	lea	eax, DWORD PTR _tmp$36749[ebp]
+	lea	eax, DWORD PTR _tmp$36757[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pname$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?WriteVector@CSave@@QAEXPBDABVVector@@@Z ; CSave::WriteVector
-$L36748:
+$L36756:
 
 ; 536  : 
 ; 537  : 	WriteVector( pname, value );
@@ -4263,7 +4263,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T37716 = -16
+$T37724 = -16
 ??GVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator-, COMDAT
 
 ; 150  : 	inline Vector operator-(const Vector& v) const	{ return Vector(x-v.x, y-v.y, z-v.z);	   }
@@ -4293,7 +4293,7 @@ $T37716 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T37716[ebp]
+	lea	ecx, DWORD PTR $T37724[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4345,7 +4345,7 @@ _TEXT	ENDS
 PUBLIC	?WritePositionVector@CSave@@QAEXPBDPBMH@Z	; CSave::WritePositionVector
 ;	COMDAT ?WritePositionVector@CSave@@QAEXPBDPBMH@Z
 _TEXT	SEGMENT
-$T37721 = -56
+$T37729 = -56
 _pname$ = 8
 _value$ = 12
 _count$ = 16
@@ -4353,7 +4353,7 @@ _this$ = -4
 _i$ = -8
 _tmp$ = -20
 _input$ = -32
-_tmp$36764 = -44
+_tmp$36772 = -44
 ?WritePositionVector@CSave@@QAEXPBDPBMH@Z PROC NEAR	; CSave::WritePositionVector, COMDAT
 
 ; 541  : {
@@ -4388,15 +4388,15 @@ _tmp$36764 = -44
 ; 546  : 	for ( i = 0; i < count; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36761
-$L36762:
+	jmp	SHORT $L36769
+$L36770:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36761:
+$L36769:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _count$[ebp]
-	jge	SHORT $L36763
+	jge	SHORT $L36771
 
 ; 548  : 		Vector tmp( value[0], value[1], value[2] );
 
@@ -4409,7 +4409,7 @@ $L36761:
 	mov	edx, DWORD PTR _value$[ebp]
 	mov	eax, DWORD PTR [edx]
 	push	eax
-	lea	ecx, DWORD PTR _tmp$36764[ebp]
+	lea	ecx, DWORD PTR _tmp$36772[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 
 ; 549  : 
@@ -4417,11 +4417,11 @@ $L36761:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+24], 0
-	je	SHORT $L36765
+	je	SHORT $L36773
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	cmp	DWORD PTR [eax+1324], 0
-	je	SHORT $L36765
+	je	SHORT $L36773
 
 ; 551  : 			tmp = tmp - m_pdata->vecLandmarkOffset;
 
@@ -4429,23 +4429,23 @@ $L36761:
 	mov	edx, DWORD PTR [ecx+24]
 	add	edx, 1348				; 00000544H
 	push	edx
-	lea	eax, DWORD PTR $T37721[ebp]
+	lea	eax, DWORD PTR $T37729[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _tmp$36764[ebp]
+	lea	ecx, DWORD PTR _tmp$36772[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _tmp$36764[ebp], ecx
+	mov	DWORD PTR _tmp$36772[ebp], ecx
 	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR _tmp$36764[ebp+4], edx
+	mov	DWORD PTR _tmp$36772[ebp+4], edx
 	mov	eax, DWORD PTR [eax+8]
-	mov	DWORD PTR _tmp$36764[ebp+8], eax
-$L36765:
+	mov	DWORD PTR _tmp$36772[ebp+8], eax
+$L36773:
 
 ; 552  : 
 ; 553  : 		BufferData( (const char *)&tmp.x, sizeof(float) * 3 );
 
 	push	12					; 0000000cH
-	lea	ecx, DWORD PTR _tmp$36764[ebp]
+	lea	ecx, DWORD PTR _tmp$36772[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?BufferData@CSave@@AAEXPBDH@Z		; CSave::BufferData
@@ -4458,8 +4458,8 @@ $L36765:
 
 ; 555  : 	}
 
-	jmp	$L36762
-$L36763:
+	jmp	$L36770
+$L36771:
 
 ; 556  : }
 
@@ -4513,7 +4513,7 @@ _functionName$ = -8
 ; 562  : 	if ( functionName )
 
 	cmp	DWORD PTR _functionName$[ebp], 0
-	je	SHORT $L36778
+	je	SHORT $L36786
 
 ; 563  : 		BufferField( pname, strlen(functionName) + 1, functionName );
 
@@ -4532,8 +4532,8 @@ _functionName$ = -8
 
 ; 564  : 	else
 
-	jmp	SHORT $L36779
-$L36778:
+	jmp	SHORT $L36787
+$L36786:
 
 ; 565  : 		ALERT( at_error, "Invalid function pointer in class %s!\n", pRootMap->dataClassName );
 
@@ -4544,7 +4544,7 @@ $L36778:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L36779:
+$L36787:
 
 ; 566  : }
 
@@ -4580,8 +4580,8 @@ _pev$ = 8
 _pkvd$ = 12
 _pField$ = -4
 _i$ = -8
-_pEntity$36810 = -12
-_pEntity$36814 = -16
+_pEntity$36818 = -12
+_pEntity$36822 = -16
 ?EntvarsKeyvalue@@YAXPAUentvars_s@@PAUKeyValueData_s@@@Z PROC NEAR ; EntvarsKeyvalue, COMDAT
 
 ; 569  : {
@@ -4598,14 +4598,14 @@ _pEntity$36814 = -16
 ; 572  : 	for ( int i = 0; i < ENTVARS_COUNT; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36787
-$L36788:
+	jmp	SHORT $L36795
+$L36796:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36787:
+$L36795:
 	cmp	DWORD PTR _i$[ebp], 97			; 00000061H
-	jae	$L36789
+	jae	$L36797
 
 ; 574  : 		pField = &gEntvarsDescription[i];
 
@@ -4627,7 +4627,7 @@ $L36787:
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	$L36790
+	jne	$L36798
 
 ; 579  : 			{
 
@@ -4635,12 +4635,12 @@ $L36787:
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR -20+[ebp], ecx
 	cmp	DWORD PTR -20+[ebp], 17			; 00000011H
-	ja	$L36807
+	ja	$L36815
 	mov	eax, DWORD PTR -20+[ebp]
 	xor	edx, edx
-	mov	dl, BYTE PTR $L37726[eax]
-	jmp	DWORD PTR $L37727[edx*4]
-$L36795:
+	mov	dl, BYTE PTR $L37734[eax]
+	jmp	DWORD PTR $L37735[edx*4]
+$L36803:
 
 ; 580  : 			case FIELD_MODELNAME:
 ; 581  : 			case FIELD_SOUNDNAME:
@@ -4659,8 +4659,8 @@ $L36795:
 
 ; 584  : 				break;
 
-	jmp	SHORT $L36792
-$L36798:
+	jmp	SHORT $L36800
+$L36806:
 
 ; 585  : 
 ; 586  : 			case FIELD_TIME:
@@ -4680,8 +4680,8 @@ $L36798:
 
 ; 589  : 				break;
 
-	jmp	SHORT $L36792
-$L36801:
+	jmp	SHORT $L36800
+$L36809:
 
 ; 590  : 
 ; 591  : 			case FIELD_INTEGER:
@@ -4699,8 +4699,8 @@ $L36801:
 
 ; 593  : 				break;
 
-	jmp	SHORT $L36792
-$L36804:
+	jmp	SHORT $L36800
+$L36812:
 
 ; 594  : 
 ; 595  : 			case FIELD_POSITION_VECTOR:
@@ -4719,8 +4719,8 @@ $L36804:
 
 ; 598  : 				break;
 
-	jmp	SHORT $L36792
-$L36807:
+	jmp	SHORT $L36800
+$L36815:
 
 ; 599  : 			case FIELD_EVARS:
 ; 600  : 			case FIELD_CLASSPTR:
@@ -4733,7 +4733,7 @@ $L36807:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36792:
+$L36800:
 
 ; 607  : 
 ; 608  : 			// g-cont. HACKHACK to set origin and angles properly
@@ -4746,7 +4746,7 @@ $L36792:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	SHORT $L36809
+	je	SHORT $L36817
 
 ; 611  : 				CBaseEntity *pEntity = CBaseEntity::Instance( pev );
 
@@ -4754,23 +4754,23 @@ $L36792:
 	push	edx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$36810[ebp], eax
+	mov	DWORD PTR _pEntity$36818[ebp], eax
 
 ; 612  : 				if( pEntity ) pEntity->SetAbsOrigin( pev->origin );
 
-	cmp	DWORD PTR _pEntity$36810[ebp], 0
-	je	SHORT $L36811
+	cmp	DWORD PTR _pEntity$36818[ebp], 0
+	je	SHORT $L36819
 	mov	eax, DWORD PTR _pev$[ebp]
 	add	eax, 8
 	push	eax
-	mov	ecx, DWORD PTR _pEntity$36810[ebp]
+	mov	ecx, DWORD PTR _pEntity$36818[ebp]
 	call	?SetAbsOrigin@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsOrigin
-$L36811:
+$L36819:
 
 ; 614  : 			else if( FStrEq( pField->fieldName, "angles" ))
 
-	jmp	$L36815
-$L36809:
+	jmp	$L36823
+$L36817:
 	push	OFFSET FLAT:??_C@_06MFB@angles?$AA@	; `string'
 	mov	ecx, DWORD PTR _pField$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -4778,7 +4778,7 @@ $L36809:
 	call	?FStrEq@@YAHPBD0@Z			; FStrEq
 	add	esp, 8
 	test	eax, eax
-	je	$L36815
+	je	$L36823
 
 ; 616  : 				CBaseEntity *pEntity = CBaseEntity::Instance( pev );
 
@@ -4786,47 +4786,47 @@ $L36809:
 	push	eax
 	call	?Instance@CBaseEntity@@SAPAV1@PAUentvars_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	DWORD PTR _pEntity$36814[ebp], eax
+	mov	DWORD PTR _pEntity$36822[ebp], eax
 
 ; 617  : 				if( pEntity )
 
-	cmp	DWORD PTR _pEntity$36814[ebp], 0
-	je	$L36815
+	cmp	DWORD PTR _pEntity$36822[ebp], 0
+	je	$L36823
 
 ; 619  : 					if( pEntity->ObjectCaps() & FCAP_SET_MOVEDIR )
 
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	call	DWORD PTR [edx+24]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L36816
+	je	SHORT $L36824
 
 ; 621  : 						UTIL_SetMovedir( pEntity );
 
-	mov	eax, DWORD PTR _pEntity$36814[ebp]
+	mov	eax, DWORD PTR _pEntity$36822[ebp]
 	push	eax
 	call	?UTIL_SetMovedir@@YAXPAVCBaseEntity@@@Z	; UTIL_SetMovedir
 	add	esp, 4
 
 ; 623  : 					else if( pEntity->ObjectCaps() & FCAP_HOLD_ANGLES )
 
-	jmp	SHORT $L36818
-$L36816:
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	jmp	SHORT $L36826
+$L36824:
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	call	DWORD PTR [edx+24]
 	and	eax, 1024				; 00000400H
 	test	eax, eax
-	je	SHORT $L36818
+	je	SHORT $L36826
 
 ; 625  : 						pEntity->m_vecTempAngles = pev->angles;
 
 	mov	eax, DWORD PTR _pev$[ebp]
 	add	eax, 80					; 00000050H
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	add	ecx, 76					; 0000004cH
 	mov	edx, DWORD PTR [eax]
 	mov	DWORD PTR [ecx], edx
@@ -4845,21 +4845,21 @@ $L36816:
 	mov	DWORD PTR [ecx+4], eax
 	mov	edx, DWORD PTR ?g_vecZero@@3VVector@@B+8
 	mov	DWORD PTR [ecx+8], edx
-$L36818:
+$L36826:
 
 ; 628  : 					pEntity->SetAbsAngles( pev->angles );
 
 	mov	eax, DWORD PTR _pev$[ebp]
 	add	eax, 80					; 00000050H
 	push	eax
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	call	?SetAbsAngles@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetAbsAngles
 
 ; 629  : 					pEntity->m_fSetAngles = TRUE;
 
-	mov	ecx, DWORD PTR _pEntity$36814[ebp]
+	mov	ecx, DWORD PTR _pEntity$36822[ebp]
 	mov	DWORD PTR [ecx+72], 1
-$L36815:
+$L36823:
 
 ; 632  : 
 ; 633  : 			pkvd->fHandled = TRUE;
@@ -4869,14 +4869,14 @@ $L36815:
 
 ; 634  : 			return;
 
-	jmp	SHORT $L36784
-$L36790:
+	jmp	SHORT $L36792
+$L36798:
 
 ; 636  : 	}
 
-	jmp	$L36788
-$L36789:
-$L36784:
+	jmp	$L36796
+$L36797:
+$L36792:
 
 ; 637  : }
 
@@ -4886,13 +4886,13 @@ $L36784:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$L37727:
-	DD	$L36798
-	DD	$L36795
-	DD	$L36804
-	DD	$L36801
-	DD	$L36807
-$L37726:
+$L37735:
+	DD	$L36806
+	DD	$L36803
+	DD	$L36812
+	DD	$L36809
+	DD	$L36815
+$L37734:
 	DB	0
 	DB	1
 	DB	4
@@ -5117,7 +5117,7 @@ _pLeafObject$ = 8
 _pLeafMap$ = 12
 _pCurMap$ = 16
 _this$ = -4
-_status$36832 = -8
+_status$36840 = -8
 ?DoWriteAll@CSave@@QAEHPBXPAUdatamap_s@@1@Z PROC NEAR	; CSave::DoWriteAll, COMDAT
 
 ; 649  : {
@@ -5135,7 +5135,7 @@ _status$36832 = -8
 
 	mov	eax, DWORD PTR _pCurMap$[ebp]
 	cmp	DWORD PTR [eax+12], 0
-	je	SHORT $L36833
+	je	SHORT $L36841
 
 ; 653  : 		int status = DoWriteAll( pLeafObject, pLeafMap, pCurMap->baseMap );
 
@@ -5148,18 +5148,18 @@ _status$36832 = -8
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoWriteAll@CSave@@QAEHPBXPAUdatamap_s@@1@Z ; CSave::DoWriteAll
-	mov	DWORD PTR _status$36832[ebp], eax
+	mov	DWORD PTR _status$36840[ebp], eax
 
 ; 654  : 		if( !status )
 
-	cmp	DWORD PTR _status$36832[ebp], 0
-	jne	SHORT $L36833
+	cmp	DWORD PTR _status$36840[ebp], 0
+	jne	SHORT $L36841
 
 ; 655  : 			return status;
 
-	mov	eax, DWORD PTR _status$36832[ebp]
-	jmp	SHORT $L36830
-$L36833:
+	mov	eax, DWORD PTR _status$36840[ebp]
+	jmp	SHORT $L36838
+$L36841:
 
 ; 657  : 
 ; 658  : 	return WriteFields( pCurMap->dataClassName, pLeafObject, pLeafMap, pCurMap->dataDesc, pCurMap->dataNumFields );
@@ -5179,7 +5179,7 @@ $L36833:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?WriteFields@CSave@@QAEHPBDPBXPAUdatamap_s@@PAUtypedescription_s@@H@Z ; CSave::WriteFields
-$L36830:
+$L36838:
 
 ; 659  : }
 
@@ -5207,6 +5207,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?WriteFields@CSave@@QAEHPBDPBXPAUdatamap_s@@PAUtypedescription_s@@H@Z
 _TEXT	SEGMENT
+_pOutputData$36866 = -288
 _pname$ = 8
 _pBaseData$ = 12
 _pMap$ = 16
@@ -5219,8 +5220,7 @@ _actualCount$ = -16
 _emptyCount$ = -20
 _entityArray$ = -276
 _pTest$ = -280
-_pOutputData$36851 = -284
-_pOutputData$36858 = -288
+_pOutputData$36859 = -284
 ?WriteFields@CSave@@QAEHPBDPBXPAUdatamap_s@@PAUtypedescription_s@@H@Z PROC NEAR ; CSave::WriteFields, COMDAT
 
 ; 662  : {
@@ -5245,15 +5245,15 @@ _pOutputData$36858 = -288
 ; 669  : 	for ( i = 0; i < fieldCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36848
-$L36849:
+	jmp	SHORT $L36856
+$L36857:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36848:
+$L36856:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _fieldCount$[ebp]
-	jge	SHORT $L36850
+	jge	SHORT $L36858
 
 ; 671  : 		void *pOutputData;
 ; 672  : 		pOutputData = ((char *)pBaseData + pFields[i].fieldOffset );
@@ -5263,7 +5263,7 @@ $L36848:
 	mov	eax, DWORD PTR _pFields$[ebp]
 	mov	ecx, DWORD PTR _pBaseData$[ebp]
 	add	ecx, DWORD PTR [eax+edx+8]
-	mov	DWORD PTR _pOutputData$36851[ebp], ecx
+	mov	DWORD PTR _pOutputData$36859[ebp], ecx
 
 ; 673  : 		if ( DataEmpty( (const char *)pOutputData, pFields[i].fieldSize * gSizes[pFields[i].fieldType] ) )
 
@@ -5278,24 +5278,24 @@ $L36848:
 	mov	edx, DWORD PTR [eax+edx]
 	imul	ecx, DWORD PTR _gSizes[edx*4]
 	push	ecx
-	mov	eax, DWORD PTR _pOutputData$36851[ebp]
+	mov	eax, DWORD PTR _pOutputData$36859[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DataEmpty@CSave@@AAEHPBDH@Z		; CSave::DataEmpty
 	test	eax, eax
-	je	SHORT $L36854
+	je	SHORT $L36862
 
 ; 674  : 			emptyCount++;
 
 	mov	ecx, DWORD PTR _emptyCount$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _emptyCount$[ebp], ecx
-$L36854:
+$L36862:
 
 ; 675  : 	}
 
-	jmp	SHORT $L36849
-$L36850:
+	jmp	SHORT $L36857
+$L36858:
 
 ; 676  : 
 ; 677  : 	// Empty fields will not be written, write out the actual number of fields to be written
@@ -5319,15 +5319,15 @@ $L36850:
 ; 681  : 	for ( i = 0; i < fieldCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36855
-$L36856:
+	jmp	SHORT $L36863
+$L36864:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L36855:
+$L36863:
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR _fieldCount$[ebp]
-	jge	$L36857
+	jge	$L36865
 
 ; 683  : 		void *pOutputData;
 ; 684  : 		pTest = &pFields[ i ];
@@ -5343,7 +5343,7 @@ $L36855:
 	mov	eax, DWORD PTR _pTest$[ebp]
 	mov	ecx, DWORD PTR _pBaseData$[ebp]
 	add	ecx, DWORD PTR [eax+8]
-	mov	DWORD PTR _pOutputData$36858[ebp], ecx
+	mov	DWORD PTR _pOutputData$36866[ebp], ecx
 
 ; 686  : 
 ; 687  : 		// UNDONE: Must we do this twice?
@@ -5356,17 +5356,17 @@ $L36855:
 	mov	edx, DWORD PTR [ecx]
 	imul	eax, DWORD PTR _gSizes[edx*4]
 	push	eax
-	mov	eax, DWORD PTR _pOutputData$36858[ebp]
+	mov	eax, DWORD PTR _pOutputData$36866[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DataEmpty@CSave@@AAEHPBDH@Z		; CSave::DataEmpty
 	test	eax, eax
-	je	SHORT $L36861
+	je	SHORT $L36869
 
 ; 689  : 			continue;
 
-	jmp	SHORT $L36856
-$L36861:
+	jmp	SHORT $L36864
+$L36869:
 
 ; 695  : 		{
 
@@ -5374,10 +5374,10 @@ $L36861:
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR -292+[ebp], edx
 	cmp	DWORD PTR -292+[ebp], 17		; 00000011H
-	ja	$L36909
+	ja	$L36917
 	mov	eax, DWORD PTR -292+[ebp]
-	jmp	DWORD PTR $L37742[eax*4]
-$L36866:
+	jmp	DWORD PTR $L37750[eax*4]
+$L36874:
 
 ; 696  : 		case FIELD_FLOAT:
 ; 697  : 			WriteFloat( pTest->fieldName, (float *)pOutputData, pTest->fieldSize );
@@ -5386,7 +5386,7 @@ $L36866:
 	xor	edx, edx
 	mov	dx, WORD PTR [ecx+12]
 	push	edx
-	mov	eax, DWORD PTR _pOutputData$36858[ebp]
+	mov	eax, DWORD PTR _pOutputData$36866[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pTest$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -5396,8 +5396,8 @@ $L36866:
 
 ; 698  : 			break;
 
-	jmp	$L36863
-$L36868:
+	jmp	$L36871
+$L36876:
 
 ; 699  : 		case FIELD_TIME:
 ; 700  : 			WriteTime( pTest->fieldName, (float *)pOutputData, pTest->fieldSize );
@@ -5406,7 +5406,7 @@ $L36868:
 	xor	ecx, ecx
 	mov	cx, WORD PTR [eax+12]
 	push	ecx
-	mov	edx, DWORD PTR _pOutputData$36858[ebp]
+	mov	edx, DWORD PTR _pOutputData$36866[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pTest$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -5416,8 +5416,8 @@ $L36868:
 
 ; 701  : 			break;
 
-	jmp	$L36863
-$L36870:
+	jmp	$L36871
+$L36878:
 
 ; 702  : 		case FIELD_MODELNAME:
 ; 703  : 		case FIELD_SOUNDNAME:
@@ -5428,7 +5428,7 @@ $L36870:
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+12]
 	push	eax
-	mov	ecx, DWORD PTR _pOutputData$36858[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36866[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pTest$[ebp]
 	mov	eax, DWORD PTR [edx+4]
@@ -5438,8 +5438,8 @@ $L36870:
 
 ; 706  : 			break;
 
-	jmp	$L36863
-$L36872:
+	jmp	$L36871
+$L36880:
 
 ; 707  : 		case FIELD_CLASSPTR:
 ; 708  : 		case FIELD_EVARS:
@@ -5452,7 +5452,7 @@ $L36872:
 	xor	edx, edx
 	mov	dx, WORD PTR [ecx+12]
 	cmp	edx, 64					; 00000040H
-	jle	SHORT $L36873
+	jle	SHORT $L36881
 
 ; 713  : 				ALERT( at_error, "Can't save more than %d entities in an array!!!\n", MAX_ENTITYARRAY );
 
@@ -5461,22 +5461,22 @@ $L36872:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L36873:
+$L36881:
 
 ; 714  : 			for ( j = 0; j < pTest->fieldSize; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L36875
-$L36876:
+	jmp	SHORT $L36883
+$L36884:
 	mov	eax, DWORD PTR _j$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L36875:
+$L36883:
 	mov	ecx, DWORD PTR _pTest$[ebp]
 	xor	edx, edx
 	mov	dx, WORD PTR [ecx+12]
 	cmp	DWORD PTR _j$[ebp], edx
-	jge	$L36877
+	jge	$L36885
 
 ; 717  : 				{
 
@@ -5487,16 +5487,16 @@ $L36875:
 	sub	edx, 2
 	mov	DWORD PTR -296+[ebp], edx
 	cmp	DWORD PTR -296+[ebp], 4
-	ja	$L36879
+	ja	$L36887
 	mov	eax, DWORD PTR -296+[ebp]
-	jmp	DWORD PTR $L37743[eax*4]
-$L36882:
+	jmp	DWORD PTR $L37751[eax*4]
+$L36890:
 
 ; 718  : 					case FIELD_EVARS:
 ; 719  : 						entityArray[j] = EntityIndex( ((entvars_t **)pOutputData)[j] );
 
 	mov	ecx, DWORD PTR _j$[ebp]
-	mov	edx, DWORD PTR _pOutputData$36858[ebp]
+	mov	edx, DWORD PTR _pOutputData$36866[ebp]
 	mov	eax, DWORD PTR [edx+ecx*4]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -5506,14 +5506,14 @@ $L36882:
 
 ; 720  : 					break;
 
-	jmp	$L36879
-$L36884:
+	jmp	$L36887
+$L36892:
 
 ; 721  : 					case FIELD_CLASSPTR:
 ; 722  : 						entityArray[j] = EntityIndex( ((CBaseEntity **)pOutputData)[j] );
 
 	mov	edx, DWORD PTR _j$[ebp]
-	mov	eax, DWORD PTR _pOutputData$36858[ebp]
+	mov	eax, DWORD PTR _pOutputData$36866[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -5523,14 +5523,14 @@ $L36884:
 
 ; 723  : 					break;
 
-	jmp	SHORT $L36879
-$L36886:
+	jmp	SHORT $L36887
+$L36894:
 
 ; 724  : 					case FIELD_EDICT:
 ; 725  : 						entityArray[j] = EntityIndex( ((edict_t **)pOutputData)[j] );
 
 	mov	eax, DWORD PTR _j$[ebp]
-	mov	ecx, DWORD PTR _pOutputData$36858[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36866[ebp]
 	mov	edx, DWORD PTR [ecx+eax*4]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -5540,14 +5540,14 @@ $L36886:
 
 ; 726  : 					break;
 
-	jmp	SHORT $L36879
-$L36888:
+	jmp	SHORT $L36887
+$L36896:
 
 ; 727  : 					case FIELD_ENTITY:
 ; 728  : 						entityArray[j] = EntityIndex( ((EOFFSET *)pOutputData)[j] );
 
 	mov	edx, DWORD PTR _j$[ebp]
-	mov	eax, DWORD PTR _pOutputData$36858[ebp]
+	mov	eax, DWORD PTR _pOutputData$36866[ebp]
 	mov	ecx, DWORD PTR [eax+edx*4]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -5557,14 +5557,14 @@ $L36888:
 
 ; 729  : 					break;
 
-	jmp	SHORT $L36879
-$L36890:
+	jmp	SHORT $L36887
+$L36898:
 
 ; 730  : 					case FIELD_EHANDLE:
 ; 731  : 						entityArray[j] = EntityIndex( (CBaseEntity *)(((EHANDLE *)pOutputData)[j]) );
 
 	mov	eax, DWORD PTR _j$[ebp]
-	mov	ecx, DWORD PTR _pOutputData$36858[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36866[ebp]
 	lea	ecx, DWORD PTR [ecx+eax*8]
 	call	??BEHANDLE@@QAEPAVCBaseEntity@@XZ	; EHANDLE::operator CBaseEntity *
 	push	eax
@@ -5572,12 +5572,12 @@ $L36890:
 	call	?EntityIndex@CSaveRestoreBuffer@@QAEHPAVCBaseEntity@@@Z ; CSaveRestoreBuffer::EntityIndex
 	mov	edx, DWORD PTR _j$[ebp]
 	mov	DWORD PTR _entityArray$[ebp+edx*4], eax
-$L36879:
+$L36887:
 
 ; 734  : 			}
 
-	jmp	$L36876
-$L36877:
+	jmp	$L36884
+$L36885:
 
 ; 735  : 			WriteInt( pTest->fieldName, entityArray, pTest->fieldSize );
 
@@ -5595,8 +5595,8 @@ $L36877:
 
 ; 736  : 			break;
 
-	jmp	$L36863
-$L36893:
+	jmp	$L36871
+$L36901:
 
 ; 737  : 		case FIELD_POSITION_VECTOR:
 ; 738  : 			WritePositionVector( pTest->fieldName, (float *)pOutputData, pTest->fieldSize );
@@ -5605,7 +5605,7 @@ $L36893:
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+12]
 	push	eax
-	mov	ecx, DWORD PTR _pOutputData$36858[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36866[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pTest$[ebp]
 	mov	eax, DWORD PTR [edx+4]
@@ -5615,8 +5615,8 @@ $L36893:
 
 ; 739  : 			break;
 
-	jmp	$L36863
-$L36895:
+	jmp	$L36871
+$L36903:
 
 ; 740  : 		case FIELD_VECTOR:
 ; 741  : 			WriteVector( pTest->fieldName, (float *)pOutputData, pTest->fieldSize );
@@ -5625,7 +5625,7 @@ $L36895:
 	xor	edx, edx
 	mov	dx, WORD PTR [ecx+12]
 	push	edx
-	mov	eax, DWORD PTR _pOutputData$36858[ebp]
+	mov	eax, DWORD PTR _pOutputData$36866[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pTest$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
@@ -5635,8 +5635,8 @@ $L36895:
 
 ; 742  : 			break;
 
-	jmp	$L36863
-$L36897:
+	jmp	$L36871
+$L36905:
 
 ; 743  : 		case FIELD_BOOLEAN:
 ; 744  : 		case FIELD_INTEGER:
@@ -5646,7 +5646,7 @@ $L36897:
 	xor	ecx, ecx
 	mov	cx, WORD PTR [eax+12]
 	push	ecx
-	mov	edx, DWORD PTR _pOutputData$36858[ebp]
+	mov	edx, DWORD PTR _pOutputData$36866[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pTest$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -5656,13 +5656,13 @@ $L36897:
 
 ; 746  : 			break;
 
-	jmp	$L36863
-$L36899:
+	jmp	$L36871
+$L36907:
 
 ; 747  : 		case FIELD_SHORT:
 ; 748  : 			WriteData( pTest->fieldName, 2 * pTest->fieldSize, ((char *)pOutputData) );
 
-	mov	edx, DWORD PTR _pOutputData$36858[ebp]
+	mov	edx, DWORD PTR _pOutputData$36866[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pTest$[ebp]
 	xor	ecx, ecx
@@ -5677,13 +5677,13 @@ $L36899:
 
 ; 749  : 			break;
 
-	jmp	$L36863
-$L36901:
+	jmp	$L36871
+$L36909:
 
 ; 750  : 		case FIELD_CHARACTER:
 ; 751  : 			WriteData( pTest->fieldName, pTest->fieldSize, ((char *)pOutputData) );
 
-	mov	ecx, DWORD PTR _pOutputData$36858[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36866[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pTest$[ebp]
 	xor	eax, eax
@@ -5697,8 +5697,8 @@ $L36901:
 
 ; 752  : 			break;
 
-	jmp	SHORT $L36863
-$L36903:
+	jmp	SHORT $L36871
+$L36911:
 
 ; 753  : 		// For now, just write the address out, we're not going to change memory while doing this yet!
 ; 754  : 		case FIELD_POINTER:
@@ -5708,7 +5708,7 @@ $L36903:
 	xor	ecx, ecx
 	mov	cx, WORD PTR [eax+12]
 	push	ecx
-	mov	edx, DWORD PTR _pOutputData$36858[ebp]
+	mov	edx, DWORD PTR _pOutputData$36866[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pTest$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -5718,8 +5718,8 @@ $L36903:
 
 ; 756  : 			break;
 
-	jmp	SHORT $L36863
-$L36906:
+	jmp	SHORT $L36871
+$L36914:
 
 ; 757  : 		case FIELD_FUNCTION:
 ; 758  : 			WriteFunction( pMap, pTest->fieldName, (int *)(char *)pOutputData, pTest->fieldSize );
@@ -5728,7 +5728,7 @@ $L36906:
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+12]
 	push	eax
-	mov	ecx, DWORD PTR _pOutputData$36858[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36866[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pTest$[ebp]
 	mov	eax, DWORD PTR [edx+4]
@@ -5740,8 +5740,8 @@ $L36906:
 
 ; 759  : 			break;
 
-	jmp	SHORT $L36863
-$L36909:
+	jmp	SHORT $L36871
+$L36917:
 
 ; 760  : 		default:
 ; 761  : 			ALERT( at_error, "Bad field type\n" );
@@ -5750,12 +5750,12 @@ $L36909:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36863:
+$L36871:
 
 ; 764  : 	}
 
-	jmp	$L36856
-$L36857:
+	jmp	$L36864
+$L36865:
 
 ; 765  : 
 ; 766  : 	return 1;
@@ -5770,31 +5770,31 @@ $L36857:
 	mov	esp, ebp
 	pop	ebp
 	ret	20					; 00000014H
-$L37742:
-	DD	$L36866
-	DD	$L36870
-	DD	$L36872
-	DD	$L36872
-	DD	$L36872
-	DD	$L36872
-	DD	$L36872
-	DD	$L36895
-	DD	$L36893
+$L37750:
+	DD	$L36874
+	DD	$L36878
+	DD	$L36880
+	DD	$L36880
+	DD	$L36880
+	DD	$L36880
+	DD	$L36880
 	DD	$L36903
-	DD	$L36897
-	DD	$L36906
-	DD	$L36897
-	DD	$L36899
 	DD	$L36901
-	DD	$L36868
-	DD	$L36870
-	DD	$L36870
-$L37743:
-	DD	$L36888
-	DD	$L36884
+	DD	$L36911
+	DD	$L36905
+	DD	$L36914
+	DD	$L36905
+	DD	$L36907
+	DD	$L36909
+	DD	$L36876
+	DD	$L36878
+	DD	$L36878
+$L37751:
+	DD	$L36896
+	DD	$L36892
+	DD	$L36898
 	DD	$L36890
-	DD	$L36882
-	DD	$L36886
+	DD	$L36894
 ?WriteFields@CSave@@QAEHPBDPBXPAUdatamap_s@@PAUtypedescription_s@@H@Z ENDP ; CSave::WriteFields
 _TEXT	ENDS
 PUBLIC	?Get@EHANDLE@@QAEPAUedict_s@@XZ			; EHANDLE::Get
@@ -5961,15 +5961,15 @@ _i$ = -8
 ; 779  : 	for ( int i = 0; i < size; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36923
-$L36924:
+	jmp	SHORT $L36931
+$L36932:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36923:
+$L36931:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _size$[ebp]
-	jge	SHORT $L36925
+	jge	SHORT $L36933
 
 ; 781  : 		if ( pdata[i] )
 
@@ -5977,23 +5977,23 @@ $L36923:
 	add	edx, DWORD PTR _i$[ebp]
 	movsx	eax, BYTE PTR [edx]
 	test	eax, eax
-	je	SHORT $L36926
+	je	SHORT $L36934
 
 ; 782  : 			return 0;
 
 	xor	eax, eax
-	jmp	SHORT $L36921
-$L36926:
+	jmp	SHORT $L36929
+$L36934:
 
 ; 783  : 	}
 
-	jmp	SHORT $L36924
-$L36925:
+	jmp	SHORT $L36932
+$L36933:
 
 ; 784  : 	return 1;
 
 	mov	eax, 1
-$L36921:
+$L36929:
 
 ; 785  : }
 
@@ -6087,7 +6087,7 @@ _hashvalue$ = -8
 ; 796  : 	if ( size > 1<<(sizeof(short)*8) )
 
 	cmp	DWORD PTR _size$[ebp], 65536		; 00010000H
-	jbe	SHORT $L36940
+	jbe	SHORT $L36948
 
 ; 797  : 		ALERT( at_error, "CSave :: BufferHeader() size parameter exceeds 'short'!" );
 
@@ -6095,7 +6095,7 @@ _hashvalue$ = -8
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36940:
+$L36948:
 
 ; 798  : 	BufferData( (const char *)&size, sizeof(short) );
 
@@ -6152,12 +6152,12 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	jne	SHORT $L36951
+	jne	SHORT $L36959
 
 ; 805  : 		return;
 
-	jmp	SHORT $L36950
-$L36951:
+	jmp	SHORT $L36958
+$L36959:
 
 ; 806  : 
 ; 807  : 	if ( m_pdata->size + size > m_pdata->bufferSize )
@@ -6169,7 +6169,7 @@ $L36951:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	cmp	eax, DWORD PTR [edx+12]
-	jle	SHORT $L36952
+	jle	SHORT $L36960
 
 ; 809  : 		ALERT( at_error, "Save/Restore overflow!" );
 
@@ -6189,8 +6189,8 @@ $L36951:
 
 ; 811  : 		return;
 
-	jmp	SHORT $L36950
-$L36952:
+	jmp	SHORT $L36958
+$L36960:
 
 ; 813  : 
 ; 814  : 	memcpy( m_pdata->pCurrentData, pdata, size );
@@ -6225,7 +6225,7 @@ $L36952:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	mov	DWORD PTR [ecx+8], edx
-$L36950:
+$L36958:
 
 ; 817  : }
 
@@ -6265,10 +6265,10 @@ _timeData$ = -36
 _position$ = -48
 _pent$ = -52
 _pString$ = -56
-_pOutputData$36988 = -60
-_pInputData$36990 = -64
-_string$37014 = -68
-$T37760 = -80
+_pOutputData$36996 = -60
+_pInputData$36998 = -64
+_string$37022 = -68
+$T37768 = -80
 ?ReadField@CRestore@@QAEHPBXPAUdatamap_s@@PAUtypedescription_s@@HHHPADPAX@Z PROC NEAR ; CRestore::ReadField, COMDAT
 
 ; 827  : {
@@ -6301,7 +6301,7 @@ $T37760 = -80
 	push	0
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T37760[ebp]
+	lea	ecx, DWORD PTR $T37768[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _position$[ebp], ecx
@@ -6315,7 +6315,7 @@ $T37760 = -80
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+24], 0
-	je	SHORT $L36978
+	je	SHORT $L36986
 
 ; 840  : 		time = m_pdata->time;
 
@@ -6329,7 +6329,7 @@ $T37760 = -80
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	cmp	DWORD PTR [eax+1324], 0
-	je	SHORT $L36978
+	je	SHORT $L36986
 
 ; 842  : 			position = m_pdata->vecLandmarkOffset;
 
@@ -6342,21 +6342,21 @@ $T37760 = -80
 	mov	DWORD PTR _position$[ebp+4], ecx
 	mov	edx, DWORD PTR [edx+8]
 	mov	DWORD PTR _position$[ebp+8], edx
-$L36978:
+$L36986:
 
 ; 844  : 
 ; 845  : 	for ( i = 0; i < fieldCount; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L36979
-$L36980:
+	jmp	SHORT $L36987
+$L36988:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L36979:
+$L36987:
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR _fieldCount$[ebp]
-	jge	$L36981
+	jge	$L36989
 
 ; 847  : 		fieldNumber = (i+startField)%fieldCount;
 
@@ -6384,34 +6384,34 @@ $L36979:
 	call	_stricmp
 	add	esp, 8
 	test	eax, eax
-	jne	$L36982
+	jne	$L36990
 
 ; 851  : 			if ( !m_global || !(pTest->flags & FTYPEDESC_GLOBAL) )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+28], 0
-	je	SHORT $L36984
+	je	SHORT $L36992
 	mov	edx, DWORD PTR _pTest$[ebp]
 	movsx	eax, WORD PTR [edx+14]
 	and	eax, 1
 	test	eax, eax
-	jne	$L36987
-$L36984:
+	jne	$L36995
+$L36992:
 
 ; 853  : 				for ( j = 0; j < pTest->fieldSize; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L36985
-$L36986:
+	jmp	SHORT $L36993
+$L36994:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L36985:
+$L36993:
 	mov	edx, DWORD PTR _pTest$[ebp]
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+12]
 	cmp	DWORD PTR _j$[ebp], eax
-	jge	$L36987
+	jge	$L36995
 
 ; 855  : 					void *pOutputData = ((char *)pBaseData + pTest->fieldOffset + (j*gSizes[pTest->fieldType]) );
 
@@ -6423,7 +6423,7 @@ $L36985:
 	mov	eax, DWORD PTR _j$[ebp]
 	imul	eax, DWORD PTR _gSizes[ecx*4]
 	add	edx, eax
-	mov	DWORD PTR _pOutputData$36988[ebp], edx
+	mov	DWORD PTR _pOutputData$36996[ebp], edx
 
 ; 856  : 					void *pInputData = (char *)pData + j * gSizes[pTest->fieldType];
 
@@ -6433,7 +6433,7 @@ $L36985:
 	imul	eax, DWORD PTR _gSizes[edx*4]
 	mov	ecx, DWORD PTR _pData$[ebp]
 	add	ecx, eax
-	mov	DWORD PTR _pInputData$36990[ebp], ecx
+	mov	DWORD PTR _pInputData$36998[ebp], ecx
 
 ; 859  : 					{
 
@@ -6441,15 +6441,15 @@ $L36985:
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR -84+[ebp], eax
 	cmp	DWORD PTR -84+[ebp], 17			; 00000011H
-	ja	$L37081
+	ja	$L37089
 	mov	ecx, DWORD PTR -84+[ebp]
-	jmp	DWORD PTR $L37761[ecx*4]
-$L36996:
+	jmp	DWORD PTR $L37769[ecx*4]
+$L37004:
 
 ; 860  : 					case FIELD_TIME:
 ; 861  : 						timeData = *(float *)pInputData;
 
-	mov	edx, DWORD PTR _pInputData$36990[ebp]
+	mov	edx, DWORD PTR _pInputData$36998[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR _timeData$[ebp], eax
 
@@ -6462,27 +6462,27 @@ $L36996:
 
 ; 864  : 						*((float *)pOutputData) = timeData;
 
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	mov	edx, DWORD PTR _timeData$[ebp]
 	mov	DWORD PTR [ecx], edx
 
 ; 865  : 						break;
 
-	jmp	$L36993
-$L36999:
+	jmp	$L37001
+$L37007:
 
 ; 866  : 					case FIELD_FLOAT:
 ; 867  : 						*((float *)pOutputData) = *(float *)pInputData;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
 
 ; 868  : 						break;
 
-	jmp	$L36993
-$L37002:
+	jmp	$L37001
+$L37010:
 
 ; 869  : 					case FIELD_MODELNAME:
 ; 870  : 					case FIELD_SOUNDNAME:
@@ -6496,31 +6496,31 @@ $L37002:
 ; 874  : 						for ( stringCount = 0; stringCount < j; stringCount++ )
 
 	mov	DWORD PTR _stringCount$[ebp], 0
-	jmp	SHORT $L37004
-$L37005:
+	jmp	SHORT $L37012
+$L37013:
 	mov	ecx, DWORD PTR _stringCount$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _stringCount$[ebp], ecx
-$L37004:
+$L37012:
 	mov	edx, DWORD PTR _stringCount$[ebp]
 	cmp	edx, DWORD PTR _j$[ebp]
-	jge	SHORT $L37006
-$L37008:
+	jge	SHORT $L37014
+$L37016:
 
 ; 876  : 							while (*pString)
 
 	mov	eax, DWORD PTR _pString$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L37009
+	je	SHORT $L37017
 
 ; 877  : 								pString++;
 
 	mov	edx, DWORD PTR _pString$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _pString$[ebp], edx
-	jmp	SHORT $L37008
-$L37009:
+	jmp	SHORT $L37016
+$L37017:
 
 ; 878  : 							pString++;
 
@@ -6530,72 +6530,72 @@ $L37009:
 
 ; 879  : 						}
 
-	jmp	SHORT $L37005
-$L37006:
+	jmp	SHORT $L37013
+$L37014:
 
 ; 880  : 						pInputData = pString;
 
 	mov	ecx, DWORD PTR _pString$[ebp]
-	mov	DWORD PTR _pInputData$36990[ebp], ecx
+	mov	DWORD PTR _pInputData$36998[ebp], ecx
 
 ; 881  : 						if ( strlen( (char *)pInputData ) == 0 )
 
-	mov	edx, DWORD PTR _pInputData$36990[ebp]
+	mov	edx, DWORD PTR _pInputData$36998[ebp]
 	push	edx
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L37011
+	jne	SHORT $L37019
 
 ; 882  : 							*((int *)pOutputData) = 0;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [eax], 0
 
 ; 883  : 						else
 
-	jmp	SHORT $L37021
-$L37011:
+	jmp	SHORT $L37029
+$L37019:
 
 ; 885  : 							int string;
 ; 886  : 
 ; 887  : 							string = ALLOC_STRING( (char *)pInputData );
 
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+268
 	add	esp, 4
-	mov	DWORD PTR _string$37014[ebp], eax
+	mov	DWORD PTR _string$37022[ebp], eax
 
 ; 888  : 							
 ; 889  : 							*((int *)pOutputData) = string;
 
-	mov	edx, DWORD PTR _pOutputData$36988[ebp]
-	mov	eax, DWORD PTR _string$37014[ebp]
+	mov	edx, DWORD PTR _pOutputData$36996[ebp]
+	mov	eax, DWORD PTR _string$37022[ebp]
 	mov	DWORD PTR [edx], eax
 
 ; 890  : 
 ; 891  : 							if ( !FStringNull( string ) && m_precache )
 
-	mov	ecx, DWORD PTR _string$37014[ebp]
+	mov	ecx, DWORD PTR _string$37022[ebp]
 	push	ecx
 	call	?FStringNull@@YAHH@Z			; FStringNull
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L37021
+	jne	SHORT $L37029
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+32], 0
-	je	SHORT $L37021
+	je	SHORT $L37029
 
 ; 893  : 								if ( pTest->fieldType == FIELD_MODELNAME )
 
 	mov	eax, DWORD PTR _pTest$[ebp]
 	cmp	DWORD PTR [eax], 16			; 00000010H
-	jne	SHORT $L37018
+	jne	SHORT $L37026
 
 ; 894  : 									PRECACHE_MODEL( (char *)STRING( string ) );
 
-	mov	ecx, DWORD PTR _string$37014[ebp]
+	mov	ecx, DWORD PTR _string$37022[ebp]
 	push	ecx
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
@@ -6605,32 +6605,32 @@ $L37011:
 
 ; 895  : 								else if ( pTest->fieldType == FIELD_SOUNDNAME )
 
-	jmp	SHORT $L37021
-$L37018:
+	jmp	SHORT $L37029
+$L37026:
 	mov	edx, DWORD PTR _pTest$[ebp]
 	cmp	DWORD PTR [edx], 17			; 00000011H
-	jne	SHORT $L37021
+	jne	SHORT $L37029
 
 ; 896  : 									PRECACHE_SOUND( (char *)STRING( string ) );
 
-	mov	eax, DWORD PTR _string$37014[ebp]
+	mov	eax, DWORD PTR _string$37022[ebp]
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+264
 	add	esp, 4
 	push	eax
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+4
 	add	esp, 4
-$L37021:
+$L37029:
 
 ; 899  : 						break;
 
-	jmp	$L36993
-$L37023:
+	jmp	$L37001
+$L37031:
 
 ; 900  : 					case FIELD_EVARS:
 ; 901  : 						entityIndex = *( int *)pInputData;
 
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR _entityIndex$[ebp], edx
 
@@ -6645,7 +6645,7 @@ $L37023:
 ; 903  : 						if ( pent )
 
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L37025
+	je	SHORT $L37033
 
 ; 904  : 							*((entvars_t **)pOutputData) = VARS(pent);
 
@@ -6653,29 +6653,29 @@ $L37023:
 	push	ecx
 	call	?VARS@@YAPAUentvars_s@@PAUedict_s@@@Z	; VARS
 	add	esp, 4
-	mov	edx, DWORD PTR _pOutputData$36988[ebp]
+	mov	edx, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [edx], eax
 
 ; 905  : 						else
 
-	jmp	SHORT $L37027
-$L37025:
+	jmp	SHORT $L37035
+$L37033:
 
 ; 906  : 							*((entvars_t **)pOutputData) = NULL;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [eax], 0
-$L37027:
+$L37035:
 
 ; 907  : 						break;
 
-	jmp	$L36993
-$L37029:
+	jmp	$L37001
+$L37037:
 
 ; 908  : 					case FIELD_CLASSPTR:
 ; 909  : 						entityIndex = *( int *)pInputData;
 
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR _entityIndex$[ebp], edx
 
@@ -6690,7 +6690,7 @@ $L37029:
 ; 911  : 						if ( pent )
 
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L37031
+	je	SHORT $L37039
 
 ; 912  : 							*((CBaseEntity **)pOutputData) = CBaseEntity::Instance(pent);
 
@@ -6698,29 +6698,29 @@ $L37029:
 	push	ecx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-	mov	edx, DWORD PTR _pOutputData$36988[ebp]
+	mov	edx, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [edx], eax
 
 ; 913  : 						else
 
-	jmp	SHORT $L37033
-$L37031:
+	jmp	SHORT $L37041
+$L37039:
 
 ; 914  : 							*((CBaseEntity **)pOutputData) = NULL;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [eax], 0
-$L37033:
+$L37041:
 
 ; 915  : 						break;
 
-	jmp	$L36993
-$L37035:
+	jmp	$L37001
+$L37043:
 
 ; 916  : 					case FIELD_EDICT:
 ; 917  : 						entityIndex = *( int *)pInputData;
 
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR _entityIndex$[ebp], edx
 
@@ -6734,14 +6734,14 @@ $L37035:
 
 ; 919  : 						*((edict_t **)pOutputData) = pent;
 
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	mov	edx, DWORD PTR _pent$[ebp]
 	mov	DWORD PTR [ecx], edx
 
 ; 920  : 						break;
 
-	jmp	$L36993
-$L37038:
+	jmp	$L37001
+$L37046:
 
 ; 921  : 					case FIELD_EHANDLE:
 ; 922  : 						// Input and Output sizes are different!
@@ -6753,13 +6753,13 @@ $L37038:
 	sub	edx, DWORD PTR _gSizes[ecx*4]
 	mov	eax, DWORD PTR _j$[ebp]
 	imul	eax, edx
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	add	ecx, eax
-	mov	DWORD PTR _pOutputData$36988[ebp], ecx
+	mov	DWORD PTR _pOutputData$36996[ebp], ecx
 
 ; 924  : 						entityIndex = *( int *)pInputData;
 
-	mov	edx, DWORD PTR _pInputData$36990[ebp]
+	mov	edx, DWORD PTR _pInputData$36998[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	DWORD PTR _entityIndex$[ebp], eax
 
@@ -6774,7 +6774,7 @@ $L37038:
 ; 926  : 						if ( pent )
 
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L37042
+	je	SHORT $L37050
 
 ; 927  : 							*((EHANDLE *)pOutputData) = CBaseEntity::Instance(pent);
 
@@ -6783,30 +6783,30 @@ $L37038:
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
 	push	eax
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	call	??4EHANDLE@@QAEPAVCBaseEntity@@PAV1@@Z	; EHANDLE::operator=
 
 ; 928  : 						else
 
-	jmp	SHORT $L37044
-$L37042:
+	jmp	SHORT $L37052
+$L37050:
 
 ; 929  : 							*((EHANDLE *)pOutputData) = NULL;
 
 	push	0
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	call	??4EHANDLE@@QAEPAVCBaseEntity@@PAV1@@Z	; EHANDLE::operator=
-$L37044:
+$L37052:
 
 ; 930  : 						break;
 
-	jmp	$L36993
-$L37046:
+	jmp	$L37001
+$L37054:
 
 ; 931  : 					case FIELD_ENTITY:
 ; 932  : 						entityIndex = *( int *)pInputData;
 
-	mov	eax, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pInputData$36998[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _entityIndex$[ebp], ecx
 
@@ -6821,7 +6821,7 @@ $L37046:
 ; 934  : 						if ( pent )
 
 	cmp	DWORD PTR _pent$[ebp], 0
-	je	SHORT $L37048
+	je	SHORT $L37056
 
 ; 935  : 							*((EOFFSET *)pOutputData) = OFFSET(pent);
 
@@ -6829,141 +6829,141 @@ $L37046:
 	push	eax
 	call	?OFFSET@@YAHPBUedict_s@@@Z		; OFFSET
 	add	esp, 4
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [ecx], eax
 
 ; 936  : 						else
 
-	jmp	SHORT $L37050
-$L37048:
+	jmp	SHORT $L37058
+$L37056:
 
 ; 937  : 							*((EOFFSET *)pOutputData) = 0;
 
-	mov	edx, DWORD PTR _pOutputData$36988[ebp]
+	mov	edx, DWORD PTR _pOutputData$36996[ebp]
 	mov	DWORD PTR [edx], 0
-$L37050:
+$L37058:
 
 ; 938  : 						break;
 
-	jmp	$L36993
-$L37052:
+	jmp	$L37001
+$L37060:
 
 ; 939  : 					case FIELD_VECTOR:
 ; 940  : 						((float *)pOutputData)[0] = ((float *)pInputData)[0];
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
 
 ; 941  : 						((float *)pOutputData)[1] = ((float *)pInputData)[1];
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	mov	DWORD PTR [eax+4], edx
 
 ; 942  : 						((float *)pOutputData)[2] = ((float *)pInputData)[2];
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx+8]
 	mov	DWORD PTR [eax+8], edx
 
 ; 943  : 						break;
 
-	jmp	$L36993
-$L37059:
+	jmp	$L37001
+$L37067:
 
 ; 944  : 					case FIELD_POSITION_VECTOR:
 ; 945  : 						((float *)pOutputData)[0] = ((float *)pInputData)[0] + position.x;
 
-	mov	eax, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pInputData$36998[ebp]
 	fld	DWORD PTR _position$[ebp]
 	fadd	DWORD PTR [eax]
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	fstp	DWORD PTR [ecx]
 
 ; 946  : 						((float *)pOutputData)[1] = ((float *)pInputData)[1] + position.y;
 
-	mov	edx, DWORD PTR _pInputData$36990[ebp]
+	mov	edx, DWORD PTR _pInputData$36998[ebp]
 	fld	DWORD PTR _position$[ebp+4]
 	fadd	DWORD PTR [edx+4]
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
 	fstp	DWORD PTR [eax+4]
 
 ; 947  : 						((float *)pOutputData)[2] = ((float *)pInputData)[2] + position.z;
 
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	fld	DWORD PTR _position$[ebp+8]
 	fadd	DWORD PTR [ecx+8]
-	mov	edx, DWORD PTR _pOutputData$36988[ebp]
+	mov	edx, DWORD PTR _pOutputData$36996[ebp]
 	fstp	DWORD PTR [edx+8]
 
 ; 948  : 						break;
 
-	jmp	SHORT $L36993
-$L37066:
+	jmp	SHORT $L37001
+$L37074:
 
 ; 949  : 					case FIELD_BOOLEAN:
 ; 950  : 					case FIELD_INTEGER:
 ; 951  : 						*((int *)pOutputData) = *( int *)pInputData;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
 
 ; 952  : 						break;
 
-	jmp	SHORT $L36993
-$L37069:
+	jmp	SHORT $L37001
+$L37077:
 
 ; 953  : 					case FIELD_SHORT:
 ; 954  : 						*((short *)pOutputData) = *( short *)pInputData;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	dx, WORD PTR [ecx]
 	mov	WORD PTR [eax], dx
 
 ; 955  : 						break;
 
-	jmp	SHORT $L36993
-$L37072:
+	jmp	SHORT $L37001
+$L37080:
 
 ; 956  : 					case FIELD_CHARACTER:
 ; 957  : 						*((char *)pOutputData) = *( char *)pInputData;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	dl, BYTE PTR [ecx]
 	mov	BYTE PTR [eax], dl
 
 ; 958  : 						break;
 
-	jmp	SHORT $L36993
-$L37075:
+	jmp	SHORT $L37001
+$L37083:
 
 ; 959  : 					case FIELD_POINTER:
 ; 960  : 						*((int *)pOutputData) = *( int *)pInputData;
 
-	mov	eax, DWORD PTR _pOutputData$36988[ebp]
-	mov	ecx, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pOutputData$36996[ebp]
+	mov	ecx, DWORD PTR _pInputData$36998[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
 
 ; 961  : 						break;
 
-	jmp	SHORT $L36993
-$L37078:
+	jmp	SHORT $L37001
+$L37086:
 
 ; 962  : 					case FIELD_FUNCTION:
 ; 963  : 						ReadFunction( pMap, (void **)pOutputData, (const char *)pInputData );
 
-	mov	eax, DWORD PTR _pInputData$36990[ebp]
+	mov	eax, DWORD PTR _pInputData$36998[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pOutputData$36988[ebp]
+	mov	ecx, DWORD PTR _pOutputData$36996[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pMap$[ebp]
 	push	edx
@@ -6972,8 +6972,8 @@ $L37078:
 
 ; 964  : 						break;
 
-	jmp	SHORT $L36993
-$L37081:
+	jmp	SHORT $L37001
+$L37089:
 
 ; 965  : 					default:
 ; 966  : 						ALERT( at_error, "Bad field type\n" );
@@ -6982,29 +6982,29 @@ $L37081:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L36993:
+$L37001:
 
 ; 968  : 				}
 
-	jmp	$L36986
-$L36987:
+	jmp	$L36994
+$L36995:
 
 ; 970  : 			return fieldNumber;
 
 	mov	eax, DWORD PTR _fieldNumber$[ebp]
-	jmp	SHORT $L36964
-$L36982:
+	jmp	SHORT $L36972
+$L36990:
 
 ; 972  : 	}
 
-	jmp	$L36980
-$L36981:
+	jmp	$L36988
+$L36989:
 
 ; 973  : 
 ; 974  : 	return -1;
 
 	or	eax, -1
-$L36964:
+$L36972:
 
 ; 975  : }
 
@@ -7014,25 +7014,25 @@ $L36964:
 	mov	esp, ebp
 	pop	ebp
 	ret	32					; 00000020H
-$L37761:
-	DD	$L36999
-	DD	$L37002
+$L37769:
+	DD	$L37007
+	DD	$L37010
+	DD	$L37054
+	DD	$L37037
 	DD	$L37046
-	DD	$L37029
-	DD	$L37038
-	DD	$L37023
-	DD	$L37035
-	DD	$L37052
-	DD	$L37059
-	DD	$L37075
-	DD	$L37066
-	DD	$L37078
-	DD	$L37066
-	DD	$L37069
-	DD	$L37072
-	DD	$L36996
-	DD	$L37002
-	DD	$L37002
+	DD	$L37031
+	DD	$L37043
+	DD	$L37060
+	DD	$L37067
+	DD	$L37083
+	DD	$L37074
+	DD	$L37086
+	DD	$L37074
+	DD	$L37077
+	DD	$L37080
+	DD	$L37004
+	DD	$L37010
+	DD	$L37010
 ?ReadField@CRestore@@QAEHPBXPAUdatamap_s@@PAUtypedescription_s@@HHHPADPAX@Z ENDP ; CRestore::ReadField
 _TEXT	ENDS
 PUBLIC	??_C@_0BF@KILF@Bad?5ent?5in?5OFFSET?$CI?$CJ?6?$AA@ ; `string'
@@ -7366,7 +7366,7 @@ _header$ = -28
 	call	?TokenHash@CSaveRestoreBuffer@@QAEGPBD@Z ; CSaveRestoreBuffer::TokenHash
 	and	eax, 65535				; 0000ffffH
 	cmp	esi, eax
-	je	SHORT $L37105
+	je	SHORT $L37113
 
 ; 996  : //		ALERT( at_error, "Expected %s found %s!\n", pname, BufferPointer() );
 ; 997  : 		BufferRewind( 2*sizeof(short) );
@@ -7378,8 +7378,8 @@ _header$ = -28
 ; 998  : 		return 0;
 
 	xor	eax, eax
-	jmp	$L37095
-$L37105:
+	jmp	$L37103
+$L37113:
 
 ; 1000 : 
 ; 1001 : 	// Skip over the struct name
@@ -7399,23 +7399,23 @@ $L37105:
 ; 1007 : 	for ( i = 0; i < fieldCount; i++ )
 
 	mov	WORD PTR _i$[ebp], 0
-	jmp	SHORT $L37107
-$L37108:
+	jmp	SHORT $L37115
+$L37116:
 	mov	cx, WORD PTR _i$[ebp]
 	add	cx, 1
 	mov	WORD PTR _i$[ebp], cx
-$L37107:
+$L37115:
 	mov	edx, DWORD PTR _i$[ebp]
 	and	edx, 65535				; 0000ffffH
 	cmp	edx, DWORD PTR _fieldCount$[ebp]
-	jge	SHORT $L37109
+	jge	SHORT $L37117
 
 ; 1009 : 		// Don't clear global fields
 ; 1010 : 		if ( !m_global || !(pFields[i].flags & FTYPEDESC_GLOBAL) )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+28], 0
-	je	SHORT $L37111
+	je	SHORT $L37119
 	mov	ecx, DWORD PTR _i$[ebp]
 	and	ecx, 65535				; 0000ffffH
 	imul	ecx, 24					; 00000018H
@@ -7423,8 +7423,8 @@ $L37107:
 	movsx	eax, WORD PTR [edx+ecx+14]
 	and	eax, 1
 	test	eax, eax
-	jne	SHORT $L37110
-$L37111:
+	jne	SHORT $L37118
+$L37119:
 
 ; 1011 : 			memset( ((char *)pBaseData + pFields[i].fieldOffset), 0, pFields[i].fieldSize * gSizes[pFields[i].fieldType] );
 
@@ -7451,27 +7451,27 @@ $L37111:
 	push	ecx
 	call	_memset
 	add	esp, 12					; 0000000cH
-$L37110:
+$L37118:
 
 ; 1012 : 	}
 
-	jmp	$L37108
-$L37109:
+	jmp	$L37116
+$L37117:
 
 ; 1013 : 
 ; 1014 : 	for ( i = 0; i < fileCount; i++ )
 
 	mov	WORD PTR _i$[ebp], 0
-	jmp	SHORT $L37113
-$L37114:
+	jmp	SHORT $L37121
+$L37122:
 	mov	dx, WORD PTR _i$[ebp]
 	add	dx, 1
 	mov	WORD PTR _i$[ebp], dx
-$L37113:
+$L37121:
 	mov	eax, DWORD PTR _i$[ebp]
 	and	eax, 65535				; 0000ffffH
 	cmp	eax, DWORD PTR _fileCount$[ebp]
-	jge	SHORT $L37115
+	jge	SHORT $L37123
 
 ; 1016 : 		BufferReadHeader( &header );
 
@@ -7516,14 +7516,14 @@ $L37113:
 
 ; 1019 : 	}
 
-	jmp	SHORT $L37114
-$L37115:
+	jmp	SHORT $L37122
+$L37123:
 
 ; 1020 : 	
 ; 1021 : 	return 1;
 
 	mov	eax, 1
-$L37095:
+$L37103:
 
 ; 1022 : }
 
@@ -7542,7 +7542,7 @@ _pLeafObject$ = 8
 _pLeafMap$ = 12
 _pCurMap$ = 16
 _this$ = -4
-_status$37123 = -8
+_status$37131 = -8
 ?DoReadAll@CRestore@@QAEHPAXPAUdatamap_s@@1@Z PROC NEAR	; CRestore::DoReadAll, COMDAT
 
 ; 1029 : {
@@ -7560,7 +7560,7 @@ _status$37123 = -8
 
 	mov	eax, DWORD PTR _pCurMap$[ebp]
 	cmp	DWORD PTR [eax+12], 0
-	je	SHORT $L37124
+	je	SHORT $L37132
 
 ; 1033 : 		int status = DoReadAll( pLeafObject, pLeafMap, pCurMap->baseMap );
 
@@ -7573,18 +7573,18 @@ _status$37123 = -8
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?DoReadAll@CRestore@@QAEHPAXPAUdatamap_s@@1@Z ; CRestore::DoReadAll
-	mov	DWORD PTR _status$37123[ebp], eax
+	mov	DWORD PTR _status$37131[ebp], eax
 
 ; 1034 : 		if ( !status )
 
-	cmp	DWORD PTR _status$37123[ebp], 0
-	jne	SHORT $L37124
+	cmp	DWORD PTR _status$37131[ebp], 0
+	jne	SHORT $L37132
 
 ; 1035 : 			return status;
 
-	mov	eax, DWORD PTR _status$37123[ebp]
-	jmp	SHORT $L37121
-$L37124:
+	mov	eax, DWORD PTR _status$37131[ebp]
+	jmp	SHORT $L37129
+$L37132:
 
 ; 1037 : 
 ; 1038 : 	return ReadFields( pCurMap->dataClassName, pLeafObject, pLeafMap, pCurMap->dataDesc, pCurMap->dataNumFields );
@@ -7604,7 +7604,7 @@ $L37124:
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ReadFields@CRestore@@QAEHPBDPBXPAUdatamap_s@@PAUtypedescription_s@@H@Z ; CRestore::ReadFields
-$L37121:
+$L37129:
 
 ; 1039 : }
 
@@ -7893,13 +7893,13 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	jne	SHORT $L37161
+	jne	SHORT $L37169
 
 ; 1091 : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L37160
-$L37161:
+	jmp	SHORT $L37168
+$L37169:
 
 ; 1092 : 
 ; 1093 : 	return m_pdata->pCurrentData;
@@ -7907,7 +7907,7 @@ $L37161:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR [edx+4]
-$L37160:
+$L37168:
 
 ; 1094 : }
 
@@ -7974,17 +7974,17 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L37170
+	je	SHORT $L37178
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Empty@CRestore@@QAEHXZ			; CRestore::Empty
 	test	eax, eax
-	je	SHORT $L37169
-$L37170:
+	je	SHORT $L37177
+$L37178:
 
 ; 1101 : 		return;
 
-	jmp	$L37166
-$L37169:
+	jmp	$L37174
+$L37177:
 
 ; 1102 : 
 ; 1103 : 	if ( (m_pdata->size + size) > m_pdata->bufferSize )
@@ -7996,7 +7996,7 @@ $L37169:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	cmp	eax, DWORD PTR [edx+12]
-	jle	SHORT $L37171
+	jle	SHORT $L37179
 
 ; 1105 : 		ALERT( at_error, "Restore overflow!" );
 
@@ -8016,14 +8016,14 @@ $L37169:
 
 ; 1107 : 		return;
 
-	jmp	SHORT $L37166
-$L37171:
+	jmp	SHORT $L37174
+$L37179:
 
 ; 1109 : 
 ; 1110 : 	if ( pOutput )
 
 	cmp	DWORD PTR _pOutput$[ebp], 0
-	je	SHORT $L37173
+	je	SHORT $L37181
 
 ; 1111 : 		memcpy( pOutput, m_pdata->pCurrentData, size );
 
@@ -8037,7 +8037,7 @@ $L37171:
 	push	eax
 	call	_memcpy
 	add	esp, 12					; 0000000cH
-$L37173:
+$L37181:
 
 ; 1112 : 	m_pdata->pCurrentData += size;
 
@@ -8058,7 +8058,7 @@ $L37173:
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	mov	DWORD PTR [ecx+8], edx
-$L37166:
+$L37174:
 
 ; 1114 : }
 
@@ -8086,7 +8086,7 @@ _this$ = -4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+24], 0
-	je	SHORT $L37792
+	je	SHORT $L37800
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	mov	eax, DWORD PTR _this$[ebp]
@@ -8096,12 +8096,12 @@ _this$ = -4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	cmp	edx, DWORD PTR [ecx+12]
-	jge	SHORT $L37792
+	jge	SHORT $L37800
 	mov	DWORD PTR -8+[ebp], 0
-	jmp	SHORT $L37793
-$L37792:
+	jmp	SHORT $L37801
+$L37800:
 	mov	DWORD PTR -8+[ebp], 1
-$L37793:
+$L37801:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -8137,7 +8137,7 @@ _this$ = -4
 	call	_strlen
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L37181
+	jne	SHORT $L37189
 
 ; 1119 : 		*pValue = NULL;
 
@@ -8146,8 +8146,8 @@ _this$ = -4
 
 ; 1120 : 	else
 
-	jmp	SHORT $L37182
-$L37181:
+	jmp	SHORT $L37190
+$L37189:
 
 ; 1121 : 		*pValue = UTIL_FunctionFromName( pMap, pszFunctionName );
 
@@ -8159,7 +8159,7 @@ $L37181:
 	add	esp, 8
 	mov	ecx, DWORD PTR _pValue$[ebp]
 	mov	DWORD PTR [ecx], eax
-$L37182:
+$L37190:
 
 ; 1122 : 
 ; 1123 : 	return 0;

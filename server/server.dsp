@@ -185,6 +185,10 @@ SOURCE=.\ropes\CElectrifiedWire.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\chainsaw.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\client.cpp
 # End Source File
 # Begin Source File
@@ -374,6 +378,10 @@ SOURCE=..\game_shared\mathlib.cpp
 # Begin Source File
 
 SOURCE=..\game_shared\matrix.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\medsyringe.cpp
 # End Source File
 # Begin Source File
 

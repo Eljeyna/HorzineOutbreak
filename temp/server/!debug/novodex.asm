@@ -2272,6 +2272,7 @@ CONST	ENDS
 FLAT	GROUP _DATA, CONST, _BSS, CRT$XCA, CRT$XCU, CRT$XCL, CRT$XCC, CRT$XCZ
 	ASSUME	CS: FLAT, DS: FLAT, SS: FLAT
 endif
+PUBLIC	?gContactReport@@3VContactReport@@A		; gContactReport
 PUBLIC	?WorldPhysic@@3PAVIPhysicLayer@@A		; WorldPhysic
 PUBLIC	?NovodexPhysic@@3VCPhysicNovodex@@A		; NovodexPhysic
 PUBLIC	??_C@_0BD@EIOC@NxCreatePhysicsSDK?$AA@		; `string'
@@ -2279,8 +2280,8 @@ PUBLIC	??_C@_0BE@CEEP@NxReleasePhysicsSDK?$AA@		; `string'
 PUBLIC	??_C@_0BA@FME@NxGetCookingLib?$AA@		; `string'
 PUBLIC	??_C@_0N@FCEP@NxGetUtilLib?$AA@			; `string'
 PUBLIC	?gDebugRenderer@@3VDebugRenderer@@A		; gDebugRenderer
-PUBLIC	?gContactReport@@3VContactReport@@A		; gContactReport
 _BSS	SEGMENT
+?gContactReport@@3VContactReport@@A DD 01H DUP (?)	; gContactReport
 ?NovodexPhysic@@3VCPhysicNovodex@@A DB 0554H DUP (?)	; NovodexPhysic
 _pNxCreatePhysicsSDK DD 01H DUP (?)
 _pNxGetCookingLib DD 01H DUP (?)
@@ -2288,9 +2289,6 @@ _pNxReleasePhysicsSDK DD 01H DUP (?)
 _pNxGetUtilLib DD 01H DUP (?)
 _hPhysics DD	01H DUP (?)
 ?gDebugRenderer@@3VDebugRenderer@@A DB 01H DUP (?)	; gDebugRenderer
-	ALIGN	4
-
-?gContactReport@@3VContactReport@@A DD 01H DUP (?)	; gContactReport
 _BSS	ENDS
 CONST	SEGMENT
 _NxPiF64 DQ	0400921fb54442d18r		; 3.14159
@@ -3056,12 +3054,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L41689
+	je	SHORT $L41697
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L41689:
+$L41697:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -3236,12 +3234,12 @@ _this$ = -4
 	sub	ecx, 1
 	mov	DWORD PTR -8+[ebp], ecx
 	cmp	DWORD PTR -8+[ebp], 205			; 000000cdH
-	ja	$L45910
+	ja	$L45918
 	mov	eax, DWORD PTR -8+[ebp]
 	xor	edx, edx
-	mov	dl, BYTE PTR $L51684[eax]
-	jmp	DWORD PTR $L51685[edx*4]
-$L45900:
+	mov	dl, BYTE PTR $L51692[eax]
+	jmp	DWORD PTR $L51693[edx*4]
+$L45908:
 
 ; 27   : 		case NXE_INVALID_PARAMETER:
 ; 28   : 			ALERT( at_error, "invalid parameter: %s\n", message );
@@ -3255,8 +3253,8 @@ $L45900:
 
 ; 29   : 			break;
 
-	jmp	SHORT $L45897
-$L45902:
+	jmp	SHORT $L45905
+$L45910:
 
 ; 30   : 		case NXE_INVALID_OPERATION:
 ; 31   : 			ALERT( at_error, "invalid operation: %s\n", message );
@@ -3270,8 +3268,8 @@ $L45902:
 
 ; 32   : 			break;
 
-	jmp	SHORT $L45897
-$L45904:
+	jmp	SHORT $L45905
+$L45912:
 
 ; 33   : 		case NXE_OUT_OF_MEMORY:
 ; 34   : 			ALERT( at_error, "out of memory: %s\n", message );
@@ -3285,8 +3283,8 @@ $L45904:
 
 ; 35   : 			break;
 
-	jmp	SHORT $L45897
-$L45906:
+	jmp	SHORT $L45905
+$L45914:
 
 ; 36   : 		case NXE_DB_INFO:
 ; 37   : 			ALERT( at_console, "%s\n", message );
@@ -3300,8 +3298,8 @@ $L45906:
 
 ; 38   : 			break;
 
-	jmp	SHORT $L45897
-$L45908:
+	jmp	SHORT $L45905
+$L45916:
 
 ; 39   : 		case NXE_DB_WARNING:
 ; 40   : 			if( !m_fHideWarning )
@@ -3310,7 +3308,7 @@ $L45908:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+4]
 	test	eax, eax
-	jne	SHORT $L45909
+	jne	SHORT $L45917
 
 ; 41   : 				ALERT( at_warning, "%s\n", message );
 
@@ -3320,12 +3318,12 @@ $L45908:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L45909:
+$L45917:
 
 ; 42   : 			break;
 
-	jmp	SHORT $L45897
-$L45910:
+	jmp	SHORT $L45905
+$L45918:
 
 ; 43   : 		default:
 ; 44   : 			ALERT( at_error, "unknown error: %s\n", message );
@@ -3336,7 +3334,7 @@ $L45910:
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L45897:
+$L45905:
 
 ; 47   : 	}
 
@@ -3346,14 +3344,14 @@ $L45897:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
-$L51685:
-	DD	$L45900
-	DD	$L45902
-	DD	$L45904
-	DD	$L45906
+$L51693:
 	DD	$L45908
 	DD	$L45910
-$L51684:
+	DD	$L45912
+	DD	$L45914
+	DD	$L45916
+	DD	$L45918
+$L51692:
 	DB	0
 	DB	1
 	DB	2
@@ -3666,12 +3664,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L49061
+	je	SHORT $L49069
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L49061:
+$L49069:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -3857,12 +3855,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L41493
+	je	SHORT $L41501
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L41493:
+$L41501:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -3872,11 +3870,11 @@ $L41493:
 	ret	4
 ??_GNxUserContactReport@@MAEPAXI@Z ENDP			; NxUserContactReport::`scalar deleting destructor'
 _TEXT	ENDS
+PUBLIC	??_EContactReport@@UAEPAXI@Z			; ContactReport::`vector deleting destructor'
 PUBLIC	??0NxUserContactReport@@QAE@XZ			; NxUserContactReport::NxUserContactReport
 PUBLIC	?onContactNotify@ContactReport@@UAEXAAVNxContactPair@@I@Z ; ContactReport::onContactNotify
 PUBLIC	??_7ContactReport@@6B@				; ContactReport::`vftable'
 PUBLIC	??_GContactReport@@UAEPAXI@Z			; ContactReport::`scalar deleting destructor'
-PUBLIC	??_EContactReport@@UAEPAXI@Z			; ContactReport::`vector deleting destructor'
 ;	COMDAT ??_7ContactReport@@6B@
 CONST	SEGMENT
 ??_7ContactReport@@6B@ DD FLAT:?onContactNotify@ContactReport@@UAEXAAVNxContactPair@@I@Z ; ContactReport::`vftable'
@@ -3924,19 +3922,19 @@ __real@4@3ffe8000000000000000 DD 03f000000r	; 0.5
 CONST	ENDS
 ;	COMDAT ?onContactNotify@ContactReport@@UAEXAAVNxContactPair@@I@Z
 _TEXT	SEGMENT
+_this$ = -4
 _e1$ = -8
 _e2$ = -12
-_basevelocity$49159 = -24
-_basevelocity$49164 = -36
-$T51714 = -48
-$T51715 = -60
-$T51716 = -72
-$T51717 = -84
-$T51718 = -96
-$T51719 = -108
+_basevelocity$49167 = -24
+_basevelocity$49172 = -36
+$T51722 = -48
+$T51723 = -60
+$T51724 = -72
+$T51725 = -84
+$T51726 = -96
+$T51727 = -108
 _pair$ = 8
 _events$ = 12
-_this$ = -4
 ?onContactNotify@ContactReport@@UAEXAAVNxContactPair@@I@Z PROC NEAR ; ContactReport::onContactNotify, COMDAT
 
 ; 122  : 	{
@@ -3954,12 +3952,12 @@ _this$ = -4
 	mov	eax, DWORD PTR _events$[ebp]
 	and	eax, 8
 	test	eax, eax
-	jne	SHORT $L49151
+	jne	SHORT $L49159
 
 ; 124  : 			return;
 
-	jmp	$L49150
-$L49151:
+	jmp	$L49158
+$L49159:
 
 ; 125  : 
 ; 126  : 		edict_t *e1 = (edict_t *)pair.actors[0]->userData;
@@ -3980,12 +3978,12 @@ $L49151:
 ; 129  : 		if( !e1 || !e2 ) return;
 
 	cmp	DWORD PTR _e1$[ebp], 0
-	je	SHORT $L49157
+	je	SHORT $L49165
 	cmp	DWORD PTR _e2$[ebp], 0
-	jne	SHORT $L49156
-$L49157:
-	jmp	$L49150
-$L49156:
+	jne	SHORT $L49164
+$L49165:
+	jmp	$L49158
+$L49164:
 
 ; 130  : 
 ; 131  : 		if( e1->v.flags & FL_CONVEYOR )
@@ -3994,7 +3992,7 @@ $L49156:
 	mov	edx, DWORD PTR [ecx+548]
 	and	edx, 4
 	test	edx, edx
-	je	SHORT $L49158
+	je	SHORT $L49166
 
 ; 133  : 			Vector basevelocity = e1->v.movedir * e1->v.speed * CONVEYOR_SCALE_FACTOR;
 
@@ -4004,12 +4002,12 @@ $L49156:
 	fmul	DWORD PTR __real@4@3ffe8000000000000000
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T51715[ebp]
+	lea	ecx, DWORD PTR $T51723[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _e1$[ebp]
 	mov	eax, DWORD PTR [edx+632]
 	push	eax
-	lea	ecx, DWORD PTR $T51714[ebp]
+	lea	ecx, DWORD PTR $T51722[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _e1$[ebp]
 	add	ecx, 196				; 000000c4H
@@ -4017,16 +4015,16 @@ $L49156:
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR _basevelocity$49159[ebp]
+	lea	ecx, DWORD PTR _basevelocity$49167[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 134  : 			pair.actors[1]->setLinearMomentum( basevelocity );
 
-	lea	edx, DWORD PTR _basevelocity$49159[ebp]
+	lea	edx, DWORD PTR _basevelocity$49167[ebp]
 	push	edx
-	lea	ecx, DWORD PTR $T51716[ebp]
+	lea	ecx, DWORD PTR $T51724[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T51716[ebp]
+	lea	eax, DWORD PTR $T51724[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pair$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -4034,7 +4032,7 @@ $L49156:
 	mov	eax, DWORD PTR [edx+4]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+256]
-$L49158:
+$L49166:
 
 ; 136  : 
 ; 137  : 		if( e2->v.flags & FL_CONVEYOR )
@@ -4043,7 +4041,7 @@ $L49158:
 	mov	ecx, DWORD PTR [eax+548]
 	and	ecx, 4
 	test	ecx, ecx
-	je	SHORT $L49163
+	je	SHORT $L49171
 
 ; 139  : 			Vector basevelocity = e2->v.movedir * e2->v.speed * CONVEYOR_SCALE_FACTOR;
 
@@ -4053,12 +4051,12 @@ $L49158:
 	fmul	DWORD PTR __real@4@3ffe8000000000000000
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	eax, DWORD PTR $T51718[ebp]
+	lea	eax, DWORD PTR $T51726[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _e2$[ebp]
 	mov	edx, DWORD PTR [ecx+632]
 	push	edx
-	lea	eax, DWORD PTR $T51717[ebp]
+	lea	eax, DWORD PTR $T51725[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _e2$[ebp]
 	add	ecx, 196				; 000000c4H
@@ -4066,16 +4064,16 @@ $L49158:
 	mov	ecx, eax
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR _basevelocity$49164[ebp]
+	lea	ecx, DWORD PTR _basevelocity$49172[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
 
 ; 140  : 			pair.actors[0]->setLinearMomentum( basevelocity );
 
-	lea	ecx, DWORD PTR _basevelocity$49164[ebp]
+	lea	ecx, DWORD PTR _basevelocity$49172[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T51719[ebp]
+	lea	ecx, DWORD PTR $T51727[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T51719[ebp]
+	lea	edx, DWORD PTR $T51727[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pair$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -4083,16 +4081,16 @@ $L49158:
 	mov	eax, DWORD PTR [edx]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+256]
-$L49163:
+$L49171:
 
 ; 142  : 
 ; 143  : 		if( e1 && e1->v.solid != SOLID_NOT )
 
 	cmp	DWORD PTR _e1$[ebp], 0
-	je	SHORT $L49168
+	je	SHORT $L49176
 	mov	eax, DWORD PTR _e1$[ebp]
 	cmp	DWORD PTR [eax+396], 0
-	je	SHORT $L49168
+	je	SHORT $L49176
 
 ; 145  : 			// FIXME: build trace info
 ; 146  : 			DispatchTouch( e1, e2 );
@@ -4103,16 +4101,16 @@ $L49163:
 	push	edx
 	call	?DispatchTouch@@YAXPAUedict_s@@0@Z	; DispatchTouch
 	add	esp, 8
-$L49168:
+$L49176:
 
 ; 148  : 
 ; 149  : 		if( e2 && e2->v.solid != SOLID_NOT )
 
 	cmp	DWORD PTR _e2$[ebp], 0
-	je	SHORT $L49169
+	je	SHORT $L49177
 	mov	eax, DWORD PTR _e2$[ebp]
 	cmp	DWORD PTR [eax+396], 0
-	je	SHORT $L49169
+	je	SHORT $L49177
 
 ; 151  : 			// FIXME: build trace info
 ; 152  : 			DispatchTouch( e1, e2 );
@@ -4123,8 +4121,8 @@ $L49168:
 	push	edx
 	call	?DispatchTouch@@YAXPAUedict_s@@0@Z	; DispatchTouch
 	add	esp, 8
-$L49169:
-$L49150:
+$L49177:
+$L49158:
 
 ; 154  : 	}
 
@@ -4178,7 +4176,7 @@ _TEXT	SEGMENT
 _fl$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T51728 = -16
+$T51736 = -16
 ??DVector@@QBE?AV0@M@Z PROC NEAR			; Vector::operator*, COMDAT
 
 ; 153  : 	inline Vector operator*(float fl) const		{ return Vector(x*fl, y*fl, z*fl);	   }
@@ -4205,7 +4203,7 @@ $T51728 = -16
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T51728[ebp]
+	lea	ecx, DWORD PTR $T51736[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -4310,12 +4308,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L49184
+	je	SHORT $L49192
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L49184:
+$L49192:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -4347,6 +4345,7 @@ _this$ = -4
 	ret	0
 ??0NxUserContactReport@@QAE@XZ ENDP			; NxUserContactReport::NxUserContactReport
 _TEXT	ENDS
+PUBLIC	??0NxVec3@@QAE@MMM@Z				; NxVec3::NxVec3
 PUBLIC	??4NxVec3@@QAEABV0@ABV0@@Z			; NxVec3::operator=
 PUBLIC	??_C@_0CI@NOCF@InitPhysic?3?5physics?5already?5init@ ; `string'
 PUBLIC	??_C@_0DA@OFMN@InitPhysic?3?5PhysX?5support?5is?5dis@ ; `string'
@@ -4361,7 +4360,6 @@ PUBLIC	??0NxSceneDesc@@QAE@XZ				; NxSceneDesc::NxSceneDesc
 PUBLIC	??_C@_0M@PIGM@sv_maxspeed?$AA@			; `string'
 PUBLIC	__real@4@00000000000000000000
 PUBLIC	??0NxMaterialDesc@@QAE@XZ			; NxMaterialDesc::NxMaterialDesc
-PUBLIC	??0NxVec3@@QAE@MMM@Z				; NxVec3::NxVec3
 EXTRN	?GameInitNullPhysics@@YAXXZ:NEAR		; GameInitNullPhysics
 EXTRN	?Sys_LoadLibrary@@YA_NPBDPAPAUHINSTANCE__@@PBUdllfunc_s@@@Z:NEAR ; Sys_LoadLibrary
 EXTRN	?Sys_FreeLibrary@@YAXPAPAUHINSTANCE__@@@Z:NEAR	; Sys_FreeLibrary
@@ -4422,11 +4420,11 @@ _sceneDesc$ = -172
 _defaultMaterial$ = -176
 _conveyorMat$ = -224
 _conveyorMaterial$ = -228
-$T51739 = -256
-$T51740 = -268
-$T51741 = -280
-$T51742 = -292
-$T51743 = -304
+$T51747 = -256
+$T51748 = -268
+$T51749 = -280
+$T51750 = -292
+$T51751 = -304
 ?InitPhysic@CPhysicNovodex@@UAEXXZ PROC NEAR		; CPhysicNovodex::InitPhysic, COMDAT
 
 ; 158  : {
@@ -4443,7 +4441,7 @@ $T51743 = -304
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L49191
+	je	SHORT $L49199
 
 ; 161  : 		ALERT( at_error, "InitPhysic: physics already initalized\n" );
 
@@ -4454,20 +4452,20 @@ $T51743 = -304
 
 ; 162  : 		return;
 
-	jmp	$L49190
-$L49191:
+	jmp	$L49198
+$L49199:
 
 ; 164  : 
 ; 165  : 	if( g_allow_physx != NULL && g_allow_physx->value == 0.0f )
 
 	cmp	DWORD PTR ?g_allow_physx@@3PAUcvar_s@@A, 0 ; g_allow_physx
-	je	SHORT $L49193
+	je	SHORT $L49201
 	mov	ecx, DWORD PTR ?g_allow_physx@@3PAUcvar_s@@A ; g_allow_physx
 	fld	DWORD PTR [ecx+12]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L49193
+	je	SHORT $L49201
 
 ; 167  : 		ALERT( at_console, "InitPhysic: PhysX support is disabled by user.\n" );
 
@@ -4482,8 +4480,8 @@ $L49191:
 
 ; 169  : 		return;
 
-	jmp	$L49190
-$L49193:
+	jmp	$L49198
+$L49201:
 
 ; 171  : 
 ; 172  : 	// trying to load dlls from mod-folder
@@ -4496,7 +4494,7 @@ $L49193:
 	add	esp, 12					; 0000000cH
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L49197
+	jne	SHORT $L49205
 
 ; 175  : 		// NOTE: using '*' symbol to force loading dll from system path not game folder (Nvidia PhysX drivers)
 ; 176  : 		if( !Sys_LoadLibrary( "*PhysXLoader.dll", &hPhysics, NxPhysics ))
@@ -4508,7 +4506,7 @@ $L49193:
 	add	esp, 12					; 0000000cH
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L49197
+	jne	SHORT $L49205
 
 ; 178  : 			ALERT( at_error, "InitPhysic: failed to loading NxPhysics.dll.\nPhysics abstraction layer will be disabled.\n" );
 
@@ -4523,14 +4521,14 @@ $L49193:
 
 ; 180  : 			return;
 
-	jmp	$L49190
-$L49197:
+	jmp	$L49198
+$L49205:
 
 ; 183  : 
 ; 184  : 	m_pPhysics = pNxCreatePhysicsSDK( NX_PHYSICS_SDK_VERSION, NULL, &m_ErrorStream );
 
 	push	0
-	lea	ecx, DWORD PTR $T51739[ebp]
+	lea	ecx, DWORD PTR $T51747[ebp]
 	call	??0NxPhysicsSDKDesc@@QAE@XZ		; NxPhysicsSDKDesc::NxPhysicsSDKDesc
 	push	eax
 	mov	edx, DWORD PTR _this$[ebp]
@@ -4548,7 +4546,7 @@ $L49197:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+4], 0
-	jne	SHORT $L49201
+	jne	SHORT $L49209
 
 ; 188  : 		ALERT( at_error, "InitPhysic: failed to initalize physics engine\n" );
 
@@ -4569,8 +4567,8 @@ $L49197:
 
 ; 191  : 		return;
 
-	jmp	$L49190
-$L49201:
+	jmp	$L49198
+$L49209:
 
 ; 193  : 
 ; 194  : 	m_pCooking = pNxGetCookingLib( NX_PHYSICS_SDK_VERSION );
@@ -4586,7 +4584,7 @@ $L49201:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1352], 0
-	jne	SHORT $L49203
+	jne	SHORT $L49211
 
 ; 198  : 		ALERT( at_warning, "InitPhysic: failed to initalize cooking library\n" );
 
@@ -4594,7 +4592,7 @@ $L49201:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L49203:
+$L49211:
 
 ; 200  : 
 ; 201  : 	m_pUtils = pNxGetUtilLib();
@@ -4608,7 +4606,7 @@ $L49203:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1356], 0
-	jne	SHORT $L49205
+	jne	SHORT $L49213
 
 ; 205  : 		ALERT( at_warning, "InitPhysic: failed to initalize util library\n" );
 
@@ -4616,7 +4614,7 @@ $L49203:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 8
-$L49205:
+$L49213:
 
 ; 207  : 
 ; 208  : 	float maxSpeed = CVAR_GET_FLOAT( "sv_maxspeed" );
@@ -4778,7 +4776,7 @@ $L49205:
 	push	-1001914368				; c4480000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T51740[ebp]
+	lea	ecx, DWORD PTR $T51748[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	lea	ecx, DWORD PTR _sceneDesc$[ebp]
@@ -4806,7 +4804,7 @@ $L49205:
 	push	-956301312				; c7000000H
 	push	-956301312				; c7000000H
 	push	-956301312				; c7000000H
-	lea	ecx, DWORD PTR $T51741[ebp]
+	lea	ecx, DWORD PTR $T51749[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -4818,7 +4816,7 @@ $L49205:
 	push	1191182336				; 47000000H
 	push	1191182336				; 47000000H
 	push	1191182336				; 47000000H
-	lea	ecx, DWORD PTR $T51742[ebp]
+	lea	ecx, DWORD PTR $T51750[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -4954,7 +4952,7 @@ $L49205:
 	push	1065353216				; 3f800000H
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T51743[ebp]
+	lea	ecx, DWORD PTR $T51751[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	mov	eax, DWORD PTR _conveyorMaterial$[ebp]
@@ -4975,7 +4973,7 @@ $L49205:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+284], 0
-$L49190:
+$L49198:
 
 ; 260  : }
 
@@ -5606,16 +5604,16 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	jne	SHORT $L49221
-	jmp	SHORT $L49220
-$L49221:
+	jne	SHORT $L49229
+	jmp	SHORT $L49228
+$L49229:
 
 ; 265  : 
 ; 266  : 	if( m_pCooking )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1352], 0
-	je	SHORT $L49222
+	je	SHORT $L49230
 
 ; 267  : 		m_pCooking->NxCloseCooking();
 
@@ -5625,7 +5623,7 @@ $L49221:
 	mov	edx, DWORD PTR [eax+1352]
 	mov	eax, DWORD PTR [edx]
 	call	DWORD PTR [eax+16]
-$L49222:
+$L49230:
 
 ; 268  : 
 ; 269  : 	m_pPhysics->releaseScene( *m_pScene );
@@ -5664,7 +5662,7 @@ $L49222:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+8], 0
-$L49220:
+$L49228:
 
 ; 275  : }
 
@@ -5730,7 +5728,7 @@ CONST	ENDS
 _TEXT	SEGMENT
 _flTime$ = 8
 _this$ = -4
-_gravity$49238 = -16
+_gravity$49246 = -16
 ?Update@CPhysicNovodex@@UAEXM@Z PROC NEAR		; CPhysicNovodex::Update, COMDAT
 
 ; 283  : {
@@ -5747,22 +5745,22 @@ _gravity$49238 = -16
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
-	je	SHORT $L49233
+	je	SHORT $L49241
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+20
 	cmp	eax, 2
-	je	SHORT $L49232
-$L49233:
+	je	SHORT $L49240
+$L49241:
 
 ; 285  : 		return;
 
-	jmp	$L49231
-$L49232:
+	jmp	$L49239
+$L49240:
 
 ; 286  : 
 ; 287  : 	if( g_psv_gravity )
 
 	cmp	DWORD PTR ?g_psv_gravity@@3PAUcvar_s@@A, 0 ; g_psv_gravity
-	je	$L49239
+	je	$L49247
 
 ; 289  : 		// clamp gravity
 ; 290  : 		if( g_psv_gravity->value < 0.0f )
@@ -5772,7 +5770,7 @@ $L49232:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L49235
+	je	SHORT $L49243
 
 ; 291  : 			CVAR_SET_FLOAT( "sv_gravity", 0.0f );
 
@@ -5780,7 +5778,7 @@ $L49232:
 	push	OFFSET FLAT:??_C@_0L@GIJ@sv_gravity?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+236
 	add	esp, 8
-$L49235:
+$L49243:
 
 ; 292  : 		if( g_psv_gravity->value > 800.0f )
 
@@ -5789,7 +5787,7 @@ $L49235:
 	fcomp	DWORD PTR __real@4@4008c800000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L49237
+	jne	SHORT $L49245
 
 ; 293  : 			CVAR_SET_FLOAT( "sv_gravity", 800.0f );
 
@@ -5797,17 +5795,17 @@ $L49235:
 	push	OFFSET FLAT:??_C@_0L@GIJ@sv_gravity?$AA@ ; `string'
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+236
 	add	esp, 8
-$L49237:
+$L49245:
 
 ; 294  : 
 ; 295  : 		NxVec3 gravity;
 
-	lea	ecx, DWORD PTR _gravity$49238[ebp]
+	lea	ecx, DWORD PTR _gravity$49246[ebp]
 	call	??0NxVec3@@QAE@XZ			; NxVec3::NxVec3
 
 ; 296  : 		m_pScene->getGravity( gravity );
 
-	lea	eax, DWORD PTR _gravity$49238[ebp]
+	lea	eax, DWORD PTR _gravity$49246[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+8]
@@ -5822,10 +5820,10 @@ $L49237:
 	mov	eax, DWORD PTR ?g_psv_gravity@@3PAUcvar_s@@A ; g_psv_gravity
 	fld	DWORD PTR [eax+12]
 	fchs
-	fcomp	DWORD PTR _gravity$49238[ebp+8]
+	fcomp	DWORD PTR _gravity$49246[ebp+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L49239
+	jne	SHORT $L49247
 
 ; 300  : 			ALERT( at_aiconsole, "gravity changed from %g to %g\n", gravity.z, -(g_psv_gravity->value));
 
@@ -5834,7 +5832,7 @@ $L49237:
 	fchs
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	fld	DWORD PTR _gravity$49238[ebp+8]
+	fld	DWORD PTR _gravity$49246[ebp+8]
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	push	OFFSET FLAT:??_C@_0BP@HBPI@gravity?5changed?5from?5?$CFg?5to?5?$CFg?6?$AA@ ; `string'
@@ -5847,11 +5845,11 @@ $L49237:
 	mov	edx, DWORD PTR ?g_psv_gravity@@3PAUcvar_s@@A ; g_psv_gravity
 	fld	DWORD PTR [edx+12]
 	fchs
-	fstp	DWORD PTR _gravity$49238[ebp+8]
+	fstp	DWORD PTR _gravity$49246[ebp+8]
 
 ; 302  : 			m_pScene->setGravity( gravity );
 
-	lea	eax, DWORD PTR _gravity$49238[ebp]
+	lea	eax, DWORD PTR _gravity$49246[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+8]
@@ -5859,7 +5857,7 @@ $L49237:
 	mov	eax, DWORD PTR [edx+8]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+20]
-$L49239:
+$L49247:
 
 ; 305  : 
 ; 306  : 	if( g_sync_physic.value )
@@ -5868,7 +5866,7 @@ $L49239:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L49241
+	jne	SHORT $L49249
 
 ; 308  : 		m_pScene->simulate( flTime );
 
@@ -5904,19 +5902,19 @@ $L49239:
 
 ; 312  : 	else
 
-	jmp	SHORT $L49242
-$L49241:
+	jmp	SHORT $L49250
+$L49249:
 
 ; 314  : 		if( m_fNeedFetchResults )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+284], 0
-	je	SHORT $L49243
+	je	SHORT $L49251
 
 ; 315  : 			return; // waiting
 
-	jmp	SHORT $L49231
-$L49243:
+	jmp	SHORT $L49239
+$L49251:
 
 ; 316  : 
 ; 317  : 		m_pScene->simulate( flTime );
@@ -5934,8 +5932,8 @@ $L49243:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+284], 1
-$L49242:
-$L49231:
+$L49250:
+$L49239:
 
 ; 320  : }
 
@@ -5979,23 +5977,23 @@ _stats$ = -84
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
-	je	SHORT $L49249
+	je	SHORT $L49257
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+20
 	cmp	eax, 2
-	je	SHORT $L49248
-$L49249:
+	je	SHORT $L49256
+$L49257:
 
 ; 325  : 		return;
 
-	jmp	$L49247
-$L49248:
+	jmp	$L49255
+$L49256:
 
 ; 326  : 
 ; 327  : 	if( m_fNeedFetchResults )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+284], 0
-	je	SHORT $L49250
+	je	SHORT $L49258
 
 ; 329  : 		m_pScene->flushStream();
 
@@ -6022,26 +6020,26 @@ $L49248:
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+284], 0
-$L49250:
+$L49258:
 
 ; 333  : 
 ; 334  : 	// fill physics stats
 ; 335  : 	if( !p_speeds || p_speeds->value <= 0.0f )
 
 	cmp	DWORD PTR ?p_speeds@@3PAUcvar_s@@A, 0	; p_speeds
-	je	SHORT $L49252
+	je	SHORT $L49260
 	mov	ecx, DWORD PTR ?p_speeds@@3PAUcvar_s@@A	; p_speeds
 	fld	DWORD PTR [ecx+12]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L49251
-$L49252:
+	je	SHORT $L49259
+$L49260:
 
 ; 336  : 		return;
 
-	jmp	SHORT $L49247
-$L49251:
+	jmp	SHORT $L49255
+$L49259:
 
 ; 337  : 
 ; 338  : 	NxSceneStats stats;
@@ -6067,9 +6065,9 @@ $L49251:
 	call	__ftol
 	mov	DWORD PTR -88+[ebp], eax
 	cmp	DWORD PTR -88+[ebp], 1
-	je	SHORT $L49259
-	jmp	SHORT $L49256
-$L49259:
+	je	SHORT $L49267
+	jmp	SHORT $L49264
+$L49267:
 
 ; 343  : 	case 1:
 ; 344  : 		Q_snprintf( p_speeds_msg, sizeof( p_speeds_msg ), "%3i active bodies, %3i actors\n%3i static shapes, %3i dynamic shapes",
@@ -6090,8 +6088,8 @@ $L49259:
 	push	edx
 	call	?Q_snprintf@@YAHPADIPBDZZ		; Q_snprintf
 	add	esp, 28					; 0000001cH
-$L49256:
-$L49247:
+$L49264:
+$L49255:
 
 ; 348  : }
 
@@ -6285,18 +6283,18 @@ _pActor$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
-	je	SHORT $L49266
+	je	SHORT $L49274
 	cmp	DWORD PTR _pEdict$[ebp], 0
-	je	SHORT $L49266
+	je	SHORT $L49274
 	mov	ecx, DWORD PTR _pEdict$[ebp]
 	cmp	DWORD PTR [ecx], 0
-	je	SHORT $L49265
-$L49266:
+	je	SHORT $L49273
+$L49274:
 
 ; 353  : 		return; // scene purge all the objects automatically
 
-	jmp	SHORT $L49264
-$L49265:
+	jmp	SHORT $L49272
+$L49273:
 
 ; 354  : 
 ; 355  : 	CBaseEntity *pEntity = CBaseEntity::Instance( pEdict );
@@ -6319,7 +6317,7 @@ $L49265:
 ; 358  : 	if( pActor ) m_pScene->releaseActor( *pActor );
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L49269
+	je	SHORT $L49277
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
@@ -6328,13 +6326,13 @@ $L49265:
 	mov	edx, DWORD PTR [eax+8]
 	mov	eax, DWORD PTR [edx]
 	call	DWORD PTR [eax+32]
-$L49269:
+$L49277:
 
 ; 359  : 	pEntity->m_pUserData = NULL;
 
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	DWORD PTR [ecx+244], 0
-$L49264:
+$L49272:
 
 ; 360  : }
 
@@ -6525,17 +6523,17 @@ _verts$ = -40
 _i$ = -44
 _j$ = -48
 _$S29$ = -52
-_e$49306 = -56
-_v$49307 = -60
+_e$49314 = -56
+_v$49315 = -60
 _meshDesc$ = -88
 _buf$ = -104
 _status$ = -108
-$T51789 = -112
-$T51790 = -116
-$T51795 = -120
-$T51796 = -124
-$T51797 = -132
-$T51798 = -136
+$T51797 = -112
+$T51798 = -116
+$T51803 = -120
+$T51804 = -124
+$T51805 = -132
+$T51806 = -136
 __$EHRec$ = -12
 ?ConvexMeshFromBmodel@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z PROC NEAR ; CPhysicNovodex::ConvexMeshFromBmodel, COMDAT
 
@@ -6558,19 +6556,19 @@ __$EHRec$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1352], 0
-	jne	SHORT $L49275
+	jne	SHORT $L49283
 
 ; 365  : 		return NULL; // don't spam console about missed NxCooking.dll
 
 	xor	eax, eax
-	jmp	$L49274
-$L49275:
+	jmp	$L49282
+$L49283:
 
 ; 366  : 
 ; 367  : 	if( modelindex == 1 )
 
 	cmp	DWORD PTR _modelindex$[ebp], 1
-	jne	SHORT $L49276
+	jne	SHORT $L49284
 
 ; 369  : 		ALERT( at_error, "ConvexMeshFromBmodel: can't create convex hull from worldmodel\n" );
 
@@ -6582,8 +6580,8 @@ $L49275:
 ; 370  : 		return NULL; // don't create rigidbody from world
 
 	xor	eax, eax
-	jmp	$L49274
-$L49276:
+	jmp	$L49282
+$L49284:
 
 ; 374  : 
 ; 375  : 	// get a world struct
@@ -6595,7 +6593,7 @@ $L49276:
 	add	esp, 4
 	mov	DWORD PTR _bmodel$[ebp], eax
 	cmp	DWORD PTR _bmodel$[ebp], 0
-	jne	SHORT $L49280
+	jne	SHORT $L49288
 
 ; 378  : 		ALERT( at_error, "ConvexMeshFromBmodel: unbale to fetch model pointer %i\n", modelindex );
 
@@ -6609,15 +6607,15 @@ $L49276:
 ; 379  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49274
-$L49280:
+	jmp	$L49282
+$L49288:
 
 ; 381  : 
 ; 382  : 	if( bmodel->nummodelsurfaces <= 0 )
 
 	mov	eax, DWORD PTR _bmodel$[ebp]
 	cmp	DWORD PTR [eax+116], 0
-	jg	SHORT $L49282
+	jg	SHORT $L49290
 
 ; 384  : 		ALERT( at_aiconsole, "ConvexMeshFromBmodel: %s has no visible surfaces\n", bmodel->name );
 
@@ -6636,8 +6634,8 @@ $L49280:
 ; 386  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49274
-$L49282:
+	jmp	$L49282
+$L49290:
 
 ; 388  : 
 ; 389  : 	int numVerts = 0, totalVerts = 0;
@@ -6667,19 +6665,19 @@ $L49282:
 ; 397  : 	for( i = 0; i < bmodel->nummodelsurfaces; i++, psurf++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49291
-$L49292:
+	jmp	SHORT $L49299
+$L49300:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
 	mov	edx, DWORD PTR _psurf$[ebp]
 	add	edx, 92					; 0000005cH
 	mov	DWORD PTR _psurf$[ebp], edx
-$L49291:
+$L49299:
 	mov	eax, DWORD PTR _bmodel$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+116]
-	jge	SHORT $L49293
+	jge	SHORT $L49301
 
 ; 398  : 		totalVerts += psurf->numedges;
 
@@ -6687,8 +6685,8 @@ $L49291:
 	mov	eax, DWORD PTR _totalVerts$[ebp]
 	add	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _totalVerts$[ebp], eax
-	jmp	SHORT $L49292
-$L49293:
+	jmp	SHORT $L49300
+$L49301:
 
 ; 399  : 
 ; 400  : 	// create a temp vertices array
@@ -6701,27 +6699,27 @@ $L49293:
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51790[ebp], eax
+	mov	DWORD PTR $T51798[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T51790[ebp], 0
-	je	SHORT $L51791
+	cmp	DWORD PTR $T51798[ebp], 0
+	je	SHORT $L51799
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	mov	eax, DWORD PTR _$S29$[ebp]
 	push	eax
 	push	12					; 0000000cH
-	mov	ecx, DWORD PTR $T51790[ebp]
+	mov	ecx, DWORD PTR $T51798[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
-	mov	edx, DWORD PTR $T51790[ebp]
+	mov	edx, DWORD PTR $T51798[ebp]
 	mov	DWORD PTR -140+[ebp], edx
-	jmp	SHORT $L51792
-$L51791:
+	jmp	SHORT $L51800
+$L51799:
 	mov	DWORD PTR -140+[ebp], 0
-$L51792:
+$L51800:
 	mov	eax, DWORD PTR -140+[ebp]
-	mov	DWORD PTR $T51789[ebp], eax
+	mov	DWORD PTR $T51797[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T51789[ebp]
+	mov	ecx, DWORD PTR $T51797[ebp]
 	mov	DWORD PTR _verts$[ebp], ecx
 
 ; 402  : 
@@ -6738,33 +6736,33 @@ $L51792:
 ; 404  : 	for( i = 0; i < bmodel->nummodelsurfaces; i++, psurf++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49300
-$L49301:
+	jmp	SHORT $L49308
+$L49309:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
 	mov	ecx, DWORD PTR _psurf$[ebp]
 	add	ecx, 92					; 0000005cH
 	mov	DWORD PTR _psurf$[ebp], ecx
-$L49300:
+$L49308:
 	mov	edx, DWORD PTR _bmodel$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+116]
-	jge	$L49302
+	jge	$L49310
 
 ; 406  : 		for( j = 0; j < psurf->numedges; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L49303
-$L49304:
+	jmp	SHORT $L49311
+$L49312:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L49303:
+$L49311:
 	mov	edx, DWORD PTR _psurf$[ebp]
 	mov	eax, DWORD PTR _j$[ebp]
 	cmp	eax, DWORD PTR [edx+16]
-	jge	$L49305
+	jge	$L49313
 
 ; 408  : 			int e = bmodel->surfedges[psurf->firstedge+j];
 
@@ -6774,33 +6772,33 @@ $L49303:
 	mov	eax, DWORD PTR _bmodel$[ebp]
 	mov	ecx, DWORD PTR [eax+188]
 	mov	edx, DWORD PTR [ecx+edx*4]
-	mov	DWORD PTR _e$49306[ebp], edx
+	mov	DWORD PTR _e$49314[ebp], edx
 
 ; 409  : 			int v = (e > 0) ? bmodel->edges[e].v[0] : bmodel->edges[-e].v[1];
 
-	cmp	DWORD PTR _e$49306[ebp], 0
-	jle	SHORT $L51793
+	cmp	DWORD PTR _e$49314[ebp], 0
+	jle	SHORT $L51801
 	mov	eax, DWORD PTR _bmodel$[ebp]
 	mov	ecx, DWORD PTR [eax+156]
-	mov	edx, DWORD PTR _e$49306[ebp]
+	mov	edx, DWORD PTR _e$49314[ebp]
 	mov	ax, WORD PTR [ecx+edx*8]
 	mov	WORD PTR -144+[ebp], ax
-	jmp	SHORT $L51794
-$L51793:
-	mov	ecx, DWORD PTR _e$49306[ebp]
+	jmp	SHORT $L51802
+$L51801:
+	mov	ecx, DWORD PTR _e$49314[ebp]
 	neg	ecx
 	mov	edx, DWORD PTR _bmodel$[ebp]
 	mov	eax, DWORD PTR [edx+156]
 	mov	cx, WORD PTR [eax+ecx*8+2]
 	mov	WORD PTR -144+[ebp], cx
-$L51794:
+$L51802:
 	mov	edx, DWORD PTR -144+[ebp]
 	and	edx, 65535				; 0000ffffH
-	mov	DWORD PTR _v$49307[ebp], edx
+	mov	DWORD PTR _v$49315[ebp], edx
 
 ; 410  : 			verts[numVerts++] = bmodel->vertexes[v].position;
 
-	mov	eax, DWORD PTR _v$49307[ebp]
+	mov	eax, DWORD PTR _v$49315[ebp]
 	imul	eax, 12					; 0000000cH
 	mov	ecx, DWORD PTR _bmodel$[ebp]
 	mov	edx, DWORD PTR [ecx+148]
@@ -6821,13 +6819,13 @@ $L51794:
 
 ; 411  : 		}
 
-	jmp	$L49304
-$L49305:
+	jmp	$L49312
+$L49313:
 
 ; 412  : 	}
 
-	jmp	$L49301
-$L49302:
+	jmp	$L49309
+$L49310:
 
 ; 413  : 
 ; 414  : 	NxConvexMeshDesc meshDesc;
@@ -6890,8 +6888,8 @@ $L49302:
 ; 423  : 	delete [] verts;
 
 	mov	ecx, DWORD PTR _verts$[ebp]
-	mov	DWORD PTR $T51795[ebp], ecx
-	mov	edx, DWORD PTR $T51795[ebp]
+	mov	DWORD PTR $T51803[ebp], ecx
+	mov	edx, DWORD PTR $T51803[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -6902,7 +6900,7 @@ $L49302:
 	mov	eax, DWORD PTR _status$[ebp]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L49313
+	jne	SHORT $L49321
 
 ; 427  : 		ALERT( at_error, "failed to create convex mesh from %s\n", bmodel->name );
 
@@ -6915,20 +6913,20 @@ $L49302:
 
 ; 428  : 		return NULL;
 
-	mov	DWORD PTR $T51796[ebp], 0
+	mov	DWORD PTR $T51804[ebp], 0
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _buf$[ebp]
 	call	??1MemoryWriteBuffer@@UAE@XZ		; MemoryWriteBuffer::~MemoryWriteBuffer
-	mov	eax, DWORD PTR $T51796[ebp]
-	jmp	$L49274
-$L49313:
+	mov	eax, DWORD PTR $T51804[ebp]
+	jmp	$L49282
+$L49321:
 
 ; 430  : 
 ; 431  : 	pHull = m_pPhysics->createConvexMesh( MemoryReadBuffer( buf.data ));
 
 	mov	edx, DWORD PTR _buf$[ebp+12]
 	push	edx
-	lea	ecx, DWORD PTR $T51797[ebp]
+	lea	ecx, DWORD PTR $T51805[ebp]
 	call	??0MemoryReadBuffer@@QAE@PBE@Z		; MemoryReadBuffer::MemoryReadBuffer
 	mov	DWORD PTR -148+[ebp], eax
 	mov	eax, DWORD PTR -148+[ebp]
@@ -6944,31 +6942,31 @@ $L49313:
 	call	DWORD PTR [eax+72]
 	mov	DWORD PTR _pHull$[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
-	lea	ecx, DWORD PTR $T51797[ebp]
+	lea	ecx, DWORD PTR $T51805[ebp]
 	call	??1MemoryReadBuffer@@UAE@XZ		; MemoryReadBuffer::~MemoryReadBuffer
 
 ; 432  : 	if( !pHull ) ALERT( at_error, "failed to create convex mesh from %s\n", bmodel->name );
 
 	cmp	DWORD PTR _pHull$[ebp], 0
-	jne	SHORT $L49317
+	jne	SHORT $L49325
 	mov	ecx, DWORD PTR _bmodel$[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0CG@IDLA@failed?5to?5create?5convex?5mesh?5fro@ ; `string'
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49317:
+$L49325:
 
 ; 433  : 
 ; 434  : 	return pHull;
 
 	mov	edx, DWORD PTR _pHull$[ebp]
-	mov	DWORD PTR $T51798[ebp], edx
+	mov	DWORD PTR $T51806[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _buf$[ebp]
 	call	??1MemoryWriteBuffer@@UAE@XZ		; MemoryWriteBuffer::~MemoryWriteBuffer
-	mov	eax, DWORD PTR $T51798[ebp]
-$L49274:
+	mov	eax, DWORD PTR $T51806[ebp]
+$L49282:
 
 ; 435  : }
 
@@ -6984,7 +6982,7 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?ConvexMeshFromBmodel@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$0:
-	mov	eax, DWORD PTR $T51790[ebp]
+	mov	eax, DWORD PTR $T51798[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
@@ -6994,7 +6992,7 @@ __unwindfunclet$?ConvexMeshFromBmodel@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUent
 	call	??1MemoryWriteBuffer@@UAE@XZ		; MemoryWriteBuffer::~MemoryWriteBuffer
 	ret	0
 __unwindfunclet$?ConvexMeshFromBmodel@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$2:
-	lea	ecx, DWORD PTR $T51797[ebp]
+	lea	ecx, DWORD PTR $T51805[ebp]
 	call	??1MemoryReadBuffer@@UAE@XZ		; MemoryReadBuffer::~MemoryReadBuffer
 	ret	0
 __ehhandler$?ConvexMeshFromBmodel@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z:
@@ -7169,18 +7167,18 @@ _totalElems$ = -32
 _pMesh$ = -36
 _psurf$ = -40
 _indices$ = -44
-_face$49348 = -48
-_reverse$49349 = -52
-_k$49350 = -56
-_j$49351 = -60
+_face$49356 = -48
+_reverse$49357 = -52
+_k$49358 = -56
+_j$49359 = -60
 _meshDesc$ = -112
 _buf$ = -128
 _status$ = -132
-$T51816 = -136
-$T51817 = -140
-$T51818 = -144
-$T51819 = -152
-$T51820 = -156
+$T51824 = -136
+$T51825 = -140
+$T51826 = -144
+$T51827 = -152
+$T51828 = -156
 __$EHRec$ = -12
 ?TriangleMeshFromBmodel@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z PROC NEAR ; CPhysicNovodex::TriangleMeshFromBmodel, COMDAT
 
@@ -7203,19 +7201,19 @@ __$EHRec$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1352], 0
-	jne	SHORT $L49324
+	jne	SHORT $L49332
 
 ; 440  : 		return NULL; // don't spam console about missed NxCooking.dll
 
 	xor	eax, eax
-	jmp	$L49323
-$L49324:
+	jmp	$L49331
+$L49332:
 
 ; 441  : 
 ; 442  : 	if( modelindex == 1 )
 
 	cmp	DWORD PTR _modelindex$[ebp], 1
-	jne	SHORT $L49325
+	jne	SHORT $L49333
 
 ; 444  : 		ALERT( at_error, "TriangleMeshFromBmodel: can't create triangle mesh from worldmodel\n" );
 
@@ -7227,8 +7225,8 @@ $L49324:
 ; 445  : 		return NULL; // don't create rigidbody from world
 
 	xor	eax, eax
-	jmp	$L49323
-$L49325:
+	jmp	$L49331
+$L49333:
 
 ; 449  : 
 ; 450  : 	// get a world struct
@@ -7240,7 +7238,7 @@ $L49325:
 	add	esp, 4
 	mov	DWORD PTR _bmodel$[ebp], eax
 	cmp	DWORD PTR _bmodel$[ebp], 0
-	jne	SHORT $L49329
+	jne	SHORT $L49337
 
 ; 453  : 		ALERT( at_error, "TriangleMeshFromBmodel: unable to fetch model pointer %i\n", modelindex );
 
@@ -7254,15 +7252,15 @@ $L49325:
 ; 454  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49323
-$L49329:
+	jmp	$L49331
+$L49337:
 
 ; 456  : 
 ; 457  : 	if( bmodel->nummodelsurfaces <= 0 )
 
 	mov	eax, DWORD PTR _bmodel$[ebp]
 	cmp	DWORD PTR [eax+116], 0
-	jg	SHORT $L49331
+	jg	SHORT $L49339
 
 ; 459  : 		ALERT( at_aiconsole, "TriangleMeshFromBmodel: %s has no visible surfaces\n", bmodel->name );
 
@@ -7281,8 +7279,8 @@ $L49329:
 ; 461  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49323
-$L49331:
+	jmp	$L49331
+$L49339:
 
 ; 463  : 
 ; 464  : 	// don't build hulls for water
@@ -7292,7 +7290,7 @@ $L49331:
 	mov	ecx, DWORD PTR [eax+80]
 	and	ecx, 4
 	test	ecx, ecx
-	je	SHORT $L49333
+	je	SHORT $L49341
 
 ; 467  : 		m_fDisableWarning = TRUE;
 
@@ -7302,8 +7300,8 @@ $L49331:
 ; 468  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49323
-$L49333:
+	jmp	$L49331
+$L49341:
 
 ; 470  : 
 ; 471  : 	int i, numElems = 0, totalElems = 0;
@@ -7321,16 +7319,16 @@ $L49333:
 ; 476  : 	for( i = 0; i < bmodel->nummodelsurfaces; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49339
-$L49340:
+	jmp	SHORT $L49347
+$L49348:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L49339:
+$L49347:
 	mov	ecx, DWORD PTR _bmodel$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+116]
-	jge	SHORT $L49341
+	jge	SHORT $L49349
 
 ; 478  : 		psurf = &bmodel->surfaces[bmodel->firstmodelsurface + i];
 
@@ -7353,8 +7351,8 @@ $L49339:
 
 ; 480  : 	}
 
-	jmp	SHORT $L49340
-$L49341:
+	jmp	SHORT $L49348
+$L49349:
 
 ; 481  : 
 ; 482  : 	// create a temp indices array
@@ -7366,24 +7364,24 @@ $L49341:
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51816[ebp], eax
-	mov	eax, DWORD PTR $T51816[ebp]
+	mov	DWORD PTR $T51824[ebp], eax
+	mov	eax, DWORD PTR $T51824[ebp]
 	mov	DWORD PTR _indices$[ebp], eax
 
 ; 484  : 
 ; 485  : 	for( i = 0; i < bmodel->nummodelsurfaces; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49345
-$L49346:
+	jmp	SHORT $L49353
+$L49354:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L49345:
+$L49353:
 	mov	edx, DWORD PTR _bmodel$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+116]
-	jge	$L49347
+	jge	$L49355
 
 ; 487  : 		msurface_t *face = &bmodel->surfaces[bmodel->firstmodelsurface + i];
 
@@ -7394,43 +7392,43 @@ $L49345:
 	mov	eax, DWORD PTR _bmodel$[ebp]
 	mov	ecx, DWORD PTR [eax+180]
 	add	ecx, edx
-	mov	DWORD PTR _face$49348[ebp], ecx
+	mov	DWORD PTR _face$49356[ebp], ecx
 
 ; 488  : 		bool reverse = (face->flags & SURF_PLANEBACK) ? true : false;
 
-	mov	edx, DWORD PTR _face$49348[ebp]
+	mov	edx, DWORD PTR _face$49356[ebp]
 	mov	eax, DWORD PTR [edx+8]
 	and	eax, 2
 	test	eax, eax
 	setne	cl
-	mov	BYTE PTR _reverse$49349[ebp], cl
+	mov	BYTE PTR _reverse$49357[ebp], cl
 
 ; 489  : 		int k = face->firstedge;
 
-	mov	edx, DWORD PTR _face$49348[ebp]
+	mov	edx, DWORD PTR _face$49356[ebp]
 	mov	eax, DWORD PTR [edx+12]
-	mov	DWORD PTR _k$49350[ebp], eax
+	mov	DWORD PTR _k$49358[ebp], eax
 
 ; 490  : 
 ; 491  : 		// build the triangles from polygons
 ; 492  : 		for( int j = 0; j < face->numedges - 2; j++ )
 
-	mov	DWORD PTR _j$49351[ebp], 0
-	jmp	SHORT $L49352
-$L49353:
-	mov	ecx, DWORD PTR _j$49351[ebp]
+	mov	DWORD PTR _j$49359[ebp], 0
+	jmp	SHORT $L49360
+$L49361:
+	mov	ecx, DWORD PTR _j$49359[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _j$49351[ebp], ecx
-$L49352:
-	mov	edx, DWORD PTR _face$49348[ebp]
+	mov	DWORD PTR _j$49359[ebp], ecx
+$L49360:
+	mov	edx, DWORD PTR _face$49356[ebp]
 	mov	eax, DWORD PTR [edx+16]
 	sub	eax, 2
-	cmp	DWORD PTR _j$49351[ebp], eax
-	jge	SHORT $L49354
+	cmp	DWORD PTR _j$49359[ebp], eax
+	jge	SHORT $L49362
 
 ; 494  : 			indices[numElems*3+0] = ConvertEdgeToIndex( bmodel, k );
 
-	mov	ecx, DWORD PTR _k$49350[ebp]
+	mov	ecx, DWORD PTR _k$49358[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _bmodel$[ebp]
 	push	edx
@@ -7443,8 +7441,8 @@ $L49352:
 
 ; 495  : 			indices[numElems*3+1] = ConvertEdgeToIndex( bmodel, k + j + 2 );
 
-	mov	eax, DWORD PTR _j$49351[ebp]
-	mov	ecx, DWORD PTR _k$49350[ebp]
+	mov	eax, DWORD PTR _j$49359[ebp]
+	mov	ecx, DWORD PTR _k$49358[ebp]
 	lea	edx, DWORD PTR [ecx+eax+2]
 	push	edx
 	mov	eax, DWORD PTR _bmodel$[ebp]
@@ -7458,8 +7456,8 @@ $L49352:
 
 ; 496  : 			indices[numElems*3+2] = ConvertEdgeToIndex( bmodel, k + j + 1 );
 
-	mov	eax, DWORD PTR _j$49351[ebp]
-	mov	ecx, DWORD PTR _k$49350[ebp]
+	mov	eax, DWORD PTR _j$49359[ebp]
+	mov	ecx, DWORD PTR _k$49358[ebp]
 	lea	edx, DWORD PTR [ecx+eax+1]
 	push	edx
 	mov	eax, DWORD PTR _bmodel$[ebp]
@@ -7479,13 +7477,13 @@ $L49352:
 
 ; 498  : 		}
 
-	jmp	$L49353
-$L49354:
+	jmp	$L49361
+$L49362:
 
 ; 499  : 	}
 
-	jmp	$L49346
-$L49347:
+	jmp	$L49354
+$L49355:
 
 ; 500  : 
 ; 501  : 	NxTriangleMeshDesc meshDesc;
@@ -7562,8 +7560,8 @@ $L49347:
 ; 513  : 	delete [] indices;
 
 	mov	ecx, DWORD PTR _indices$[ebp]
-	mov	DWORD PTR $T51817[ebp], ecx
-	mov	edx, DWORD PTR $T51817[ebp]
+	mov	DWORD PTR $T51825[ebp], ecx
+	mov	edx, DWORD PTR $T51825[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -7574,7 +7572,7 @@ $L49347:
 	mov	eax, DWORD PTR _status$[ebp]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L49362
+	jne	SHORT $L49370
 
 ; 517  : 		ALERT( at_error, "failed to create triangle mesh from %s\n", bmodel->name );
 
@@ -7587,20 +7585,20 @@ $L49347:
 
 ; 518  : 		return NULL;
 
-	mov	DWORD PTR $T51818[ebp], 0
+	mov	DWORD PTR $T51826[ebp], 0
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _buf$[ebp]
 	call	??1MemoryWriteBuffer@@UAE@XZ		; MemoryWriteBuffer::~MemoryWriteBuffer
-	mov	eax, DWORD PTR $T51818[ebp]
-	jmp	$L49323
-$L49362:
+	mov	eax, DWORD PTR $T51826[ebp]
+	jmp	$L49331
+$L49370:
 
 ; 520  : 
 ; 521  : 	pMesh = m_pPhysics->createTriangleMesh( MemoryReadBuffer( buf.data ));
 
 	mov	edx, DWORD PTR _buf$[ebp+12]
 	push	edx
-	lea	ecx, DWORD PTR $T51819[ebp]
+	lea	ecx, DWORD PTR $T51827[ebp]
 	call	??0MemoryReadBuffer@@QAE@PBE@Z		; MemoryReadBuffer::MemoryReadBuffer
 	mov	DWORD PTR -160+[ebp], eax
 	mov	eax, DWORD PTR -160+[ebp]
@@ -7616,31 +7614,31 @@ $L49362:
 	call	DWORD PTR [eax+32]
 	mov	DWORD PTR _pMesh$[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR $T51819[ebp]
+	lea	ecx, DWORD PTR $T51827[ebp]
 	call	??1MemoryReadBuffer@@UAE@XZ		; MemoryReadBuffer::~MemoryReadBuffer
 
 ; 522  : 	if( !pMesh ) ALERT( at_error, "failed to create triangle mesh from %s\n", bmodel->name );
 
 	cmp	DWORD PTR _pMesh$[ebp], 0
-	jne	SHORT $L49366
+	jne	SHORT $L49374
 	mov	ecx, DWORD PTR _bmodel$[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0CI@KDID@failed?5to?5create?5triangle?5mesh?5f@ ; `string'
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49366:
+$L49374:
 
 ; 523  : 
 ; 524  : 	return pMesh;
 
 	mov	edx, DWORD PTR _pMesh$[ebp]
-	mov	DWORD PTR $T51820[ebp], edx
+	mov	DWORD PTR $T51828[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _buf$[ebp]
 	call	??1MemoryWriteBuffer@@UAE@XZ		; MemoryWriteBuffer::~MemoryWriteBuffer
-	mov	eax, DWORD PTR $T51820[ebp]
-$L49323:
+	mov	eax, DWORD PTR $T51828[ebp]
+$L49331:
 
 ; 525  : }
 
@@ -7660,7 +7658,7 @@ __unwindfunclet$?TriangleMeshFromBmodel@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PA
 	call	??1MemoryWriteBuffer@@UAE@XZ		; MemoryWriteBuffer::~MemoryWriteBuffer
 	ret	0
 __unwindfunclet$?TriangleMeshFromBmodel@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z$1:
-	lea	ecx, DWORD PTR $T51819[ebp]
+	lea	ecx, DWORD PTR $T51827[ebp]
 	call	??1MemoryReadBuffer@@UAE@XZ		; MemoryReadBuffer::~MemoryReadBuffer
 	ret	0
 __ehhandler$?TriangleMeshFromBmodel@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z:
@@ -7890,26 +7888,26 @@ _j$ = -24
 ; 532  : 	for( int j = 0; j < 3; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L49377
-$L49378:
+	jmp	SHORT $L49385
+$L49386:
 	mov	eax, DWORD PTR _j$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L49377:
+$L49385:
 	cmp	DWORD PTR _j$[ebp], 3
-	jge	$L49379
+	jge	$L49387
 
 ; 534  : 		if( !panim || panim->offset[j+3] == 0 )
 
 	cmp	DWORD PTR _panim$[ebp], 0
-	je	SHORT $L49381
+	je	SHORT $L49389
 	mov	ecx, DWORD PTR _j$[ebp]
 	mov	edx, DWORD PTR _panim$[ebp]
 	xor	eax, eax
 	mov	ax, WORD PTR [edx+ecx*2+6]
 	test	eax, eax
-	jne	SHORT $L49380
-$L49381:
+	jne	SHORT $L49388
+$L49389:
 
 ; 536  : 			angle[j] = pbone->value[j+3]; // default;
 
@@ -7923,8 +7921,8 @@ $L49381:
 
 ; 538  : 		else
 
-	jmp	SHORT $L49382
-$L49380:
+	jmp	SHORT $L49390
+$L49388:
 
 ; 540  : 			panimvalue = (mstudioanimvalue_t *)((byte *)panim + panim->offset[j+3]);
 
@@ -7967,12 +7965,12 @@ $L49380:
 	mov	edx, DWORD PTR _j$[ebp]
 	mov	ecx, DWORD PTR -36+[ebp]
 	mov	DWORD PTR [eax+edx*4], ecx
-$L49382:
+$L49390:
 
 ; 544  : 	}
 
-	jmp	$L49378
-$L49379:
+	jmp	$L49386
+$L49387:
 
 ; 545  : 
 ; 546  : 	AngleQuaternion( angle, q );
@@ -8067,14 +8065,14 @@ _j$ = -12
 ; 553  : 	for( int j = 0; j < 3; j++ )
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L49393
-$L49394:
+	jmp	SHORT $L49401
+$L49402:
 	mov	eax, DWORD PTR _j$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _j$[ebp], eax
-$L49393:
+$L49401:
 	cmp	DWORD PTR _j$[ebp], 3
-	jge	SHORT $L49395
+	jge	SHORT $L49403
 
 ; 555  : 		pos[j] = pbone->value[j]; // default;
 
@@ -8090,13 +8088,13 @@ $L49393:
 ; 557  : 		if( panim && panim->offset[j] != 0 )
 
 	cmp	DWORD PTR _panim$[ebp], 0
-	je	SHORT $L49396
+	je	SHORT $L49404
 	mov	eax, DWORD PTR _j$[ebp]
 	mov	ecx, DWORD PTR _panim$[ebp]
 	xor	edx, edx
 	mov	dx, WORD PTR [ecx+eax*2]
 	test	edx, edx
-	je	SHORT $L49396
+	je	SHORT $L49404
 
 ; 559  : 			panimvalue = (mstudioanimvalue_t *)((byte *)panim + panim->offset[j]);
 
@@ -8126,12 +8124,12 @@ $L49393:
 	fadd	DWORD PTR [ecx]
 	mov	edx, DWORD PTR -16+[ebp]
 	fstp	DWORD PTR [edx]
-$L49396:
+$L49404:
 
 ; 562  : 	}
 
-	jmp	$L49394
-$L49395:
+	jmp	$L49402
+$L49403:
 
 ; 563  : }
 
@@ -8188,6 +8186,8 @@ EXTRN	??0UserStream@@QAE@PBD_N@Z:NEAR			; UserStream::UserStream
 EXTRN	??1UserStream@@UAE@XZ:NEAR			; UserStream::~UserStream
 EXTRN	__chkstk:NEAR
 _BSS	SEGMENT
+	ALIGN	4
+
 _?pos@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4PAVVector@@A DB 0600H DUP (?)
 _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA DB 01H DUP (?)
 	ALIGN	4
@@ -8268,29 +8268,29 @@ _numVerts$ = -8668
 _numElems$ = -8672
 _tmp$ = -8684
 _j$ = -8688
-_pmesh$49509 = -8692
-_ptricmds$49512 = -8696
-_vertexState$49518 = -8700
-_tri_strip$49519 = -8704
+_pmesh$49517 = -8692
+_ptricmds$49520 = -8696
+_vertexState$49526 = -8700
+_tri_strip$49527 = -8704
 _meshDesc$ = -8732
 _status$ = -8736
-$T51849 = -8760
-$T51850 = -8808
-$T51851 = -8812
-$T51852 = -8876
-$T51853 = -8880
-$T51854 = -8944
-$T51855 = -8948
-$T51856 = -8952
-$T51859 = -8956
-$T51860 = -8960
-$T51863 = -8964
-$T51864 = -8976
-$T51865 = -9000
-$T51866 = -9004
-$T51867 = -9008
-$T51868 = -9012
-$T51869 = -9036
+$T51857 = -8760
+$T51858 = -8808
+$T51859 = -8812
+$T51860 = -8876
+$T51861 = -8880
+$T51862 = -8944
+$T51863 = -8948
+$T51864 = -8952
+$T51867 = -8956
+$T51868 = -8960
+$T51871 = -8964
+$T51872 = -8976
+$T51873 = -9000
+$T51874 = -9004
+$T51875 = -9008
+$T51876 = -9012
+$T51877 = -9036
 __$EHRec$ = -12
 ?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z PROC NEAR ; CPhysicNovodex::ConvexMeshFromStudio, COMDAT
 
@@ -8317,7 +8317,7 @@ __$EHRec$ = -12
 	call	?UTIL_GetModelType@@YA?AW4modtype_t@@H@Z ; UTIL_GetModelType
 	add	esp, 4
 	cmp	eax, 3
-	je	SHORT $L49404
+	je	SHORT $L49412
 
 ; 569  : 		ALERT( at_error, "CollisionFromStudio: not a studio model\n" );
 
@@ -8329,8 +8329,8 @@ __$EHRec$ = -12
 ; 570  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49403
-$L49404:
+	jmp	$L49411
+$L49412:
 
 ; 572  : 
 ; 573  : 	model_t *smodel = (model_t *)MODEL_HANDLE( modelindex );
@@ -8351,11 +8351,11 @@ $L49404:
 ; 576  : 	if( !phdr || phdr->numbones < 1 )
 
 	cmp	DWORD PTR _phdr$[ebp], 0
-	je	SHORT $L49411
+	je	SHORT $L49419
 	mov	ecx, DWORD PTR _phdr$[ebp]
 	cmp	DWORD PTR [ecx+140], 1
-	jge	SHORT $L49410
-$L49411:
+	jge	SHORT $L49418
+$L49419:
 
 ; 578  : 		ALERT( at_error, "CollisionFromStudio: bad model header\n" );
 
@@ -8367,8 +8367,8 @@ $L49411:
 ; 579  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49403
-$L49410:
+	jmp	$L49411
+$L49418:
 
 ; 583  : 	NxConvexMesh *pHull = NULL;
 
@@ -8395,7 +8395,7 @@ $L49410:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CheckFileTimes@CPhysicNovodex@@AAEHPBD0@Z ; CPhysicNovodex::CheckFileTimes
 	test	eax, eax
-	je	$L49415
+	je	$L49423
 
 ; 589  : 		// hull is never than studiomodel. Trying to load it
 ; 590  : 		pHull = m_pPhysics->createConvexMesh( UserStream( szHullFilename, true ));
@@ -8403,7 +8403,7 @@ $L49410:
 	push	1
 	lea	eax, DWORD PTR _szHullFilename$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T51849[ebp]
+	lea	ecx, DWORD PTR $T51857[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -9040+[ebp], eax
 	mov	ecx, DWORD PTR -9040+[ebp]
@@ -8419,27 +8419,27 @@ $L49410:
 	call	DWORD PTR [edx+72]
 	mov	DWORD PTR _pHull$[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T51849[ebp]
+	lea	ecx, DWORD PTR $T51857[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 591  : 
 ; 592  : 		if( !pHull )
 
 	cmp	DWORD PTR _pHull$[ebp], 0
-	jne	SHORT $L49417
+	jne	SHORT $L49425
 
 ; 594  : 			// we failed to loading existed hull and can't cooking new :(
 ; 595  : 			if( m_pCooking == NULL )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1352], 0
-	jne	SHORT $L49418
+	jne	SHORT $L49426
 
 ; 596  : 				return NULL; // don't spam console about missed nxCooking.dll
 
 	xor	eax, eax
-	jmp	$L49403
-$L49418:
+	jmp	$L49411
+$L49426:
 
 ; 597  : 
 ; 598  : 			// trying to rebuild hull
@@ -8454,33 +8454,33 @@ $L49418:
 
 ; 601  : 		else
 
-	jmp	SHORT $L49420
-$L49417:
+	jmp	SHORT $L49428
+$L49425:
 
 ; 603  : 			// all is ok
 ; 604  : 			return pHull;
 
 	mov	eax, DWORD PTR _pHull$[ebp]
-	jmp	$L49403
-$L49420:
+	jmp	$L49411
+$L49428:
 
 ; 607  : 	else
 
-	jmp	SHORT $L49421
-$L49415:
+	jmp	SHORT $L49429
+$L49423:
 
 ; 609  : 		// can't cooking new hull because nxCooking.dll is missed
 ; 610  : 		if( m_pCooking == NULL )
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1352], 0
-	jne	SHORT $L49422
+	jne	SHORT $L49430
 
 ; 611  : 			return NULL; // don't spam console about missed nxCooking.dll
 
 	xor	eax, eax
-	jmp	$L49403
-$L49422:
+	jmp	$L49411
+$L49430:
 
 ; 612  : 
 ; 613  : 		// trying to rebuild hull
@@ -8492,7 +8492,7 @@ $L49422:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49421:
+$L49429:
 
 ; 616  : 
 ; 617  : 	// at this point nxCooking instance is always valid
@@ -8522,7 +8522,7 @@ $L49421:
 
 	mov	ecx, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [ecx+156], 0
-	je	SHORT $L49430
+	je	SHORT $L49438
 
 ; 626  : 		ALERT( at_error, "CollisionFromStudio: bad sequence group (must be 0)\n" );
 
@@ -8534,8 +8534,8 @@ $L49421:
 ; 627  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49403
-$L49430:
+	jmp	$L49411
+$L49438:
 
 ; 629  : 
 ; 630  : 	mstudioanim_t *panim = (mstudioanim_t *)((byte *)phdr + pseqgroup->data + pseqdesc->animindex);
@@ -8560,7 +8560,7 @@ $L49430:
 	mov	cl, BYTE PTR _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA
 	and	ecx, 1
 	test	ecx, ecx
-	jne	SHORT $L49442
+	jne	SHORT $L49450
 	mov	dl, BYTE PTR _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA
 	or	dl, 1
 	mov	BYTE PTR _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA, dl
@@ -8572,7 +8572,7 @@ $L49430:
 	push	OFFSET FLAT:_$E31
 	call	_atexit
 	add	esp, 4
-$L49442:
+$L49450:
 
 ; 633  : 	static Vector4D q[MAXSTUDIOBONES];
 
@@ -8580,7 +8580,7 @@ $L49442:
 	mov	al, BYTE PTR _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA
 	and	eax, 2
 	test	eax, eax
-	jne	SHORT $L49447
+	jne	SHORT $L49455
 	mov	cl, BYTE PTR _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA
 	or	cl, 2
 	mov	BYTE PTR _?$S30@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4EA, cl
@@ -8592,14 +8592,14 @@ $L49442:
 	push	OFFSET FLAT:_$E32
 	call	_atexit
 	add	esp, 4
-$L49447:
+$L49455:
 
 ; 634  : 
 ; 635  : 	for( int i = 0; i < phdr->numbones; i++, pbone++, panim++ ) 
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49451
-$L49452:
+	jmp	SHORT $L49459
+$L49460:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
@@ -8609,11 +8609,11 @@ $L49452:
 	mov	ecx, DWORD PTR _panim$[ebp]
 	add	ecx, 12					; 0000000cH
 	mov	DWORD PTR _panim$[ebp], ecx
-$L49451:
+$L49459:
 	mov	edx, DWORD PTR _phdr$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+140]
-	jge	SHORT $L49453
+	jge	SHORT $L49461
 
 ; 637  : 		StudioCalcBoneQuaterion( pbone, panim, q[i] );
 
@@ -8643,8 +8643,8 @@ $L49451:
 
 ; 639  : 	}
 
-	jmp	$L49452
-$L49453:
+	jmp	$L49460
+$L49461:
 
 ; 640  : 
 ; 641  : 	pbone = (mstudiobone_t *)((byte *)phdr + phdr->boneindex);
@@ -8677,16 +8677,16 @@ $L49453:
 ; 646  : 	for( i = 0; i < phdr->numbones; i++ ) 
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49460
-$L49461:
+	jmp	SHORT $L49468
+$L49469:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L49460:
+$L49468:
 	mov	edx, DWORD PTR _phdr$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+140]
-	jge	$L49462
+	jge	$L49470
 
 ; 648  : 		// initialize bonematrix
 ; 649  : 		bonematrix = matrix3x4( pos[i], q[i] );
@@ -8699,7 +8699,7 @@ $L49460:
 	imul	edx, 12					; 0000000cH
 	add	edx, OFFSET FLAT:_?pos@?BJ@??ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z@4PAVVector@@A
 	push	edx
-	lea	ecx, DWORD PTR $T51850[ebp]
+	lea	ecx, DWORD PTR $T51858[ebp]
 	call	??0matrix3x4@@QAE@ABVVector@@ABVVector4D@@@Z ; matrix3x4::matrix3x4
 	push	eax
 	lea	ecx, DWORD PTR _bonematrix$[ebp]
@@ -8712,17 +8712,17 @@ $L49460:
 	imul	eax, 112				; 00000070H
 	mov	ecx, DWORD PTR _pbone$[ebp]
 	cmp	DWORD PTR [ecx+eax+32], -1
-	jne	SHORT $L49464
+	jne	SHORT $L49472
 
 ; 652  : 			bonetransform[i] = transform.ConcatTransforms( bonematrix );
 
 	sub	esp, 64					; 00000040H
 	mov	ecx, esp
-	mov	DWORD PTR $T51851[ebp], esp
+	mov	DWORD PTR $T51859[ebp], esp
 	lea	edx, DWORD PTR _bonematrix$[ebp]
 	push	edx
 	call	??0matrix4x4@@QAE@ABV0@@Z		; matrix4x4::matrix4x4
-	lea	eax, DWORD PTR $T51852[ebp]
+	lea	eax, DWORD PTR $T51860[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _transform$[ebp]
 	call	?ConcatTransforms@matrix4x4@@QAE?AV1@V1@@Z ; matrix4x4::ConcatTransforms
@@ -8734,15 +8734,15 @@ $L49460:
 
 ; 653  : 		else bonetransform[i] = bonetransform[pbone[i].parent].ConcatTransforms( bonematrix );
 
-	jmp	SHORT $L49467
-$L49464:
+	jmp	SHORT $L49475
+$L49472:
 	sub	esp, 64					; 00000040H
 	mov	ecx, esp
-	mov	DWORD PTR $T51853[ebp], esp
+	mov	DWORD PTR $T51861[ebp], esp
 	lea	edx, DWORD PTR _bonematrix$[ebp]
 	push	edx
 	call	??0matrix4x4@@QAE@ABV0@@Z		; matrix4x4::matrix4x4
-	lea	eax, DWORD PTR $T51854[ebp]
+	lea	eax, DWORD PTR $T51862[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 112				; 00000070H
@@ -8756,12 +8756,12 @@ $L49464:
 	shl	ecx, 6
 	lea	ecx, DWORD PTR _bonetransform$[ebp+ecx]
 	call	??4matrix4x4@@QAEAAV0@ABV0@@Z		; matrix4x4::operator=
-$L49467:
+$L49475:
 
 ; 654  : 	}
 
-	jmp	$L49461
-$L49462:
+	jmp	$L49469
+$L49470:
 
 ; 655  : 
 ; 656  : 	mstudiobodyparts_t *pbodypart = (mstudiobodyparts_t *)((byte *)phdr + phdr->bodypartindex);
@@ -8795,27 +8795,27 @@ $L49462:
 	push	ecx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51856[ebp], eax
+	mov	DWORD PTR $T51864[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	cmp	DWORD PTR $T51856[ebp], 0
-	je	SHORT $L51857
+	cmp	DWORD PTR $T51864[ebp], 0
+	je	SHORT $L51865
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	mov	edx, DWORD PTR _$S33$[ebp]
 	push	edx
 	push	12					; 0000000cH
-	mov	eax, DWORD PTR $T51856[ebp]
+	mov	eax, DWORD PTR $T51864[ebp]
 	push	eax
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
-	mov	ecx, DWORD PTR $T51856[ebp]
+	mov	ecx, DWORD PTR $T51864[ebp]
 	mov	DWORD PTR -9048+[ebp], ecx
-	jmp	SHORT $L51858
-$L51857:
+	jmp	SHORT $L51866
+$L51865:
 	mov	DWORD PTR -9048+[ebp], 0
-$L51858:
+$L51866:
 	mov	edx, DWORD PTR -9048+[ebp]
-	mov	DWORD PTR $T51855[ebp], edx
+	mov	DWORD PTR $T51863[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	eax, DWORD PTR $T51855[ebp]
+	mov	eax, DWORD PTR $T51863[ebp]
 	mov	DWORD PTR _m_verts$[ebp], eax
 
 ; 660  : 	byte *pvertbone = ((byte *)phdr + psubmodel->vertinfoindex);
@@ -8836,27 +8836,27 @@ $L51858:
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51860[ebp], eax
+	mov	DWORD PTR $T51868[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
-	cmp	DWORD PTR $T51860[ebp], 0
-	je	SHORT $L51861
+	cmp	DWORD PTR $T51868[ebp], 0
+	je	SHORT $L51869
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	mov	eax, DWORD PTR _$S34$[ebp]
 	push	eax
 	push	12					; 0000000cH
-	mov	ecx, DWORD PTR $T51860[ebp]
+	mov	ecx, DWORD PTR $T51868[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
-	mov	edx, DWORD PTR $T51860[ebp]
+	mov	edx, DWORD PTR $T51868[ebp]
 	mov	DWORD PTR -9052+[ebp], edx
-	jmp	SHORT $L51862
-$L51861:
+	jmp	SHORT $L51870
+$L51869:
 	mov	DWORD PTR -9052+[ebp], 0
-$L51862:
+$L51870:
 	mov	eax, DWORD PTR -9052+[ebp]
-	mov	DWORD PTR $T51859[ebp], eax
+	mov	DWORD PTR $T51867[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T51859[ebp]
+	mov	ecx, DWORD PTR $T51867[ebp]
 	mov	DWORD PTR _verts$[ebp], ecx
 
 ; 662  : 	NxU32 *indices = new NxU32[psubmodel->numverts * 24];
@@ -8868,8 +8868,8 @@ $L51862:
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51863[ebp], eax
-	mov	ecx, DWORD PTR $T51863[ebp]
+	mov	DWORD PTR $T51871[ebp], eax
+	mov	ecx, DWORD PTR $T51871[ebp]
 	mov	DWORD PTR _indices$[ebp], ecx
 
 ; 663  : 	int numVerts = 0, numElems = 0;
@@ -8887,16 +8887,16 @@ $L51862:
 ; 667  : 	for( i = 0; i < psubmodel->numverts; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49501
-$L49502:
+	jmp	SHORT $L49509
+$L49510:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L49501:
+$L49509:
 	mov	eax, DWORD PTR _psubmodel$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+80]
-	jge	SHORT $L49503
+	jge	SHORT $L49511
 
 ; 668  : 		m_verts[i] = bonetransform[pvertbone[i]].VectorTransform( pstudioverts[i] );
 
@@ -8905,7 +8905,7 @@ $L49501:
 	mov	eax, DWORD PTR _pstudioverts$[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR $T51864[ebp]
+	lea	ecx, DWORD PTR $T51872[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pvertbone$[ebp]
 	add	edx, DWORD PTR _i$[ebp]
@@ -8924,23 +8924,23 @@ $L49501:
 	mov	DWORD PTR [edx+4], ecx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
-	jmp	SHORT $L49502
-$L49503:
+	jmp	SHORT $L49510
+$L49511:
 
 ; 669  : 
 ; 670  : 	for( int j = 0; j < psubmodel->nummesh; j++ ) 
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L49506
-$L49507:
+	jmp	SHORT $L49514
+$L49515:
 	mov	ecx, DWORD PTR _j$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _j$[ebp], ecx
-$L49506:
+$L49514:
 	mov	edx, DWORD PTR _psubmodel$[ebp]
 	mov	eax, DWORD PTR _j$[ebp]
 	cmp	eax, DWORD PTR [edx+72]
-	jge	$L49508
+	jge	$L49516
 
 ; 672  : 		mstudiomesh_t *pmesh = (mstudiomesh_t *)((byte *)phdr + psubmodel->meshindex) + j;
 
@@ -8950,43 +8950,43 @@ $L49506:
 	mov	eax, DWORD PTR _j$[ebp]
 	imul	eax, 20					; 00000014H
 	add	edx, eax
-	mov	DWORD PTR _pmesh$49509[ebp], edx
+	mov	DWORD PTR _pmesh$49517[ebp], edx
 
 ; 673  : 		short *ptricmds = (short *)((byte *)phdr + pmesh->triindex);
 
-	mov	ecx, DWORD PTR _pmesh$49509[ebp]
+	mov	ecx, DWORD PTR _pmesh$49517[ebp]
 	mov	edx, DWORD PTR _phdr$[ebp]
 	add	edx, DWORD PTR [ecx+4]
-	mov	DWORD PTR _ptricmds$49512[ebp], edx
-$L49516:
+	mov	DWORD PTR _ptricmds$49520[ebp], edx
+$L49524:
 
 ; 674  : 
 ; 675  : 		while( i = *( ptricmds++ ))
 
-	mov	eax, DWORD PTR _ptricmds$49512[ebp]
+	mov	eax, DWORD PTR _ptricmds$49520[ebp]
 	movsx	ecx, WORD PTR [eax]
 	mov	DWORD PTR _i$[ebp], ecx
 	mov	edx, DWORD PTR _i$[ebp]
-	mov	eax, DWORD PTR _ptricmds$49512[ebp]
+	mov	eax, DWORD PTR _ptricmds$49520[ebp]
 	add	eax, 2
-	mov	DWORD PTR _ptricmds$49512[ebp], eax
+	mov	DWORD PTR _ptricmds$49520[ebp], eax
 	test	edx, edx
-	je	$L49517
+	je	$L49525
 
 ; 677  : 			int	vertexState = 0;
 
-	mov	DWORD PTR _vertexState$49518[ebp], 0
+	mov	DWORD PTR _vertexState$49526[ebp], 0
 
 ; 678  : 			qboolean	tri_strip;
 ; 679  : 
 ; 680  : 			if( i < 0 )
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jge	SHORT $L49520
+	jge	SHORT $L49528
 
 ; 682  : 				tri_strip = false;
 
-	mov	DWORD PTR _tri_strip$49519[ebp], 0
+	mov	DWORD PTR _tri_strip$49527[ebp], 0
 
 ; 683  : 				i = -i;
 
@@ -8996,38 +8996,38 @@ $L49516:
 
 ; 685  : 			else
 
-	jmp	SHORT $L49521
-$L49520:
+	jmp	SHORT $L49529
+$L49528:
 
 ; 686  : 				tri_strip = true;
 
-	mov	DWORD PTR _tri_strip$49519[ebp], 1
-$L49521:
+	mov	DWORD PTR _tri_strip$49527[ebp], 1
+$L49529:
 
 ; 687  : 
 ; 688  : 			for( ; i > 0; i--, ptricmds += 4 )
 
-	jmp	SHORT $L49522
-$L49523:
+	jmp	SHORT $L49530
+$L49531:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-	mov	eax, DWORD PTR _ptricmds$49512[ebp]
+	mov	eax, DWORD PTR _ptricmds$49520[ebp]
 	add	eax, 8
-	mov	DWORD PTR _ptricmds$49512[ebp], eax
-$L49522:
+	mov	DWORD PTR _ptricmds$49520[ebp], eax
+$L49530:
 	cmp	DWORD PTR _i$[ebp], 0
-	jle	$L49524
+	jle	$L49532
 
 ; 690  : 				// build in indices
 ; 691  : 				if( vertexState++ < 3 )
 
-	mov	ecx, DWORD PTR _vertexState$49518[ebp]
-	mov	edx, DWORD PTR _vertexState$49518[ebp]
+	mov	ecx, DWORD PTR _vertexState$49526[ebp]
+	mov	edx, DWORD PTR _vertexState$49526[ebp]
 	add	edx, 1
-	mov	DWORD PTR _vertexState$49518[ebp], edx
+	mov	DWORD PTR _vertexState$49526[ebp], edx
 	cmp	ecx, 3
-	jge	SHORT $L49525
+	jge	SHORT $L49533
 
 ; 693  : 					indices[numElems++] = numVerts;
 
@@ -9041,18 +9041,18 @@ $L49522:
 
 ; 695  : 				else if( tri_strip )
 
-	jmp	$L49530
-$L49525:
-	cmp	DWORD PTR _tri_strip$49519[ebp], 0
-	je	$L49527
+	jmp	$L49538
+$L49533:
+	cmp	DWORD PTR _tri_strip$49527[ebp], 0
+	je	$L49535
 
 ; 697  : 					// flip triangles between clockwise and counter clockwise
 ; 698  : 					if( vertexState & 1 )
 
-	mov	ecx, DWORD PTR _vertexState$49518[ebp]
+	mov	ecx, DWORD PTR _vertexState$49526[ebp]
 	and	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L49528
+	je	SHORT $L49536
 
 ; 700  : 						// draw triangle [n-2 n-1 n]
 ; 701  : 						indices[numElems++] = numVerts - 2;
@@ -9089,8 +9089,8 @@ $L49525:
 
 ; 705  : 					else
 
-	jmp	SHORT $L49529
-$L49528:
+	jmp	SHORT $L49537
+$L49536:
 
 ; 707  : 						// draw triangle [n-1 n-2 n]
 ; 708  : 						indices[numElems++] = numVerts - 1;
@@ -9124,17 +9124,17 @@ $L49528:
 	mov	ecx, DWORD PTR _numElems$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _numElems$[ebp], ecx
-$L49529:
+$L49537:
 
 ; 713  : 				else
 
-	jmp	SHORT $L49530
-$L49527:
+	jmp	SHORT $L49538
+$L49535:
 
 ; 715  : 					// draw triangle fan [0 n-1 n]
 ; 716  : 					indices[numElems++] = numVerts - ( vertexState - 1 );
 
-	mov	edx, DWORD PTR _vertexState$49518[ebp]
+	mov	edx, DWORD PTR _vertexState$49526[ebp]
 	sub	edx, 1
 	mov	eax, DWORD PTR _numVerts$[ebp]
 	sub	eax, edx
@@ -9165,12 +9165,12 @@ $L49527:
 	mov	edx, DWORD PTR _numElems$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _numElems$[ebp], edx
-$L49530:
+$L49538:
 
 ; 720  : 
 ; 721  : 				verts[numVerts++] = m_verts[ptricmds[0]];
 
-	mov	eax, DWORD PTR _ptricmds$49512[ebp]
+	mov	eax, DWORD PTR _ptricmds$49520[ebp]
 	movsx	ecx, WORD PTR [eax]
 	imul	ecx, 12					; 0000000cH
 	mov	edx, DWORD PTR _m_verts$[ebp]
@@ -9191,18 +9191,18 @@ $L49530:
 
 ; 722  : 			}
 
-	jmp	$L49523
-$L49524:
+	jmp	$L49531
+$L49532:
 
 ; 723  : 		}
 
-	jmp	$L49516
-$L49517:
+	jmp	$L49524
+$L49525:
 
 ; 724  : 	}
 
-	jmp	$L49507
-$L49508:
+	jmp	$L49515
+$L49516:
 
 ; 725  : 
 ; 726  : 	NxConvexMeshDesc meshDesc;
@@ -9264,7 +9264,7 @@ $L49508:
 	push	0
 	lea	eax, DWORD PTR _szHullFilename$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T51865[ebp]
+	lea	ecx, DWORD PTR $T51873[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -9056+[ebp], eax
 	mov	ecx, DWORD PTR -9056+[ebp]
@@ -9282,15 +9282,15 @@ $L49508:
 	call	DWORD PTR [edx+24]
 	mov	BYTE PTR _status$[ebp], al
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T51865[ebp]
+	lea	ecx, DWORD PTR $T51873[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 737  : 
 ; 738  : 	delete [] verts;
 
 	mov	eax, DWORD PTR _verts$[ebp]
-	mov	DWORD PTR $T51866[ebp], eax
-	mov	ecx, DWORD PTR $T51866[ebp]
+	mov	DWORD PTR $T51874[ebp], eax
+	mov	ecx, DWORD PTR $T51874[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -9298,8 +9298,8 @@ $L49508:
 ; 739  : 	delete [] m_verts;
 
 	mov	edx, DWORD PTR _m_verts$[ebp]
-	mov	DWORD PTR $T51867[ebp], edx
-	mov	eax, DWORD PTR $T51867[ebp]
+	mov	DWORD PTR $T51875[ebp], edx
+	mov	eax, DWORD PTR $T51875[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -9307,8 +9307,8 @@ $L49508:
 ; 740  : 	delete [] indices;
 
 	mov	ecx, DWORD PTR _indices$[ebp]
-	mov	DWORD PTR $T51868[ebp], ecx
-	mov	edx, DWORD PTR $T51868[ebp]
+	mov	DWORD PTR $T51876[ebp], ecx
+	mov	edx, DWORD PTR $T51876[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -9319,7 +9319,7 @@ $L49508:
 	mov	eax, DWORD PTR _status$[ebp]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L49539
+	jne	SHORT $L49547
 
 ; 744  : 		ALERT( at_error, "failed to create convex mesh from %s\n", smodel->name );
 
@@ -9333,8 +9333,8 @@ $L49508:
 ; 745  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49403
-$L49539:
+	jmp	$L49411
+$L49547:
 
 ; 747  : 
 ; 748  : 	pHull = m_pPhysics->createConvexMesh( UserStream( szHullFilename, true ));
@@ -9342,7 +9342,7 @@ $L49539:
 	push	1
 	lea	edx, DWORD PTR _szHullFilename$[ebp]
 	push	edx
-	lea	ecx, DWORD PTR $T51869[ebp]
+	lea	ecx, DWORD PTR $T51877[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -9064+[ebp], eax
 	mov	eax, DWORD PTR -9064+[ebp]
@@ -9358,26 +9358,26 @@ $L49539:
 	call	DWORD PTR [eax+72]
 	mov	DWORD PTR _pHull$[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T51869[ebp]
+	lea	ecx, DWORD PTR $T51877[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 749  : 	if( !pHull ) ALERT( at_error, "failed to create convex mesh from %s\n", smodel->name );
 
 	cmp	DWORD PTR _pHull$[ebp], 0
-	jne	SHORT $L49541
+	jne	SHORT $L49549
 	mov	ecx, DWORD PTR _smodel$[ebp]
 	push	ecx
 	push	OFFSET FLAT:??_C@_0CG@IDLA@failed?5to?5create?5convex?5mesh?5fro@ ; `string'
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49541:
+$L49549:
 
 ; 750  : 
 ; 751  : 	return pHull;
 
 	mov	eax, DWORD PTR _pHull$[ebp]
-$L49403:
+$L49411:
 
 ; 752  : }
 
@@ -9393,27 +9393,27 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$0:
-	lea	ecx, DWORD PTR $T51849[ebp]
+	lea	ecx, DWORD PTR $T51857[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __unwindfunclet$?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$1:
-	mov	eax, DWORD PTR $T51856[ebp]
+	mov	eax, DWORD PTR $T51864[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$2:
-	mov	eax, DWORD PTR $T51860[ebp]
+	mov	eax, DWORD PTR $T51868[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$3:
-	lea	ecx, DWORD PTR $T51865[ebp]
+	lea	ecx, DWORD PTR $T51873[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __unwindfunclet$?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z$4:
-	lea	ecx, DWORD PTR $T51869[ebp]
+	lea	ecx, DWORD PTR $T51877[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __ehhandler$?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z:
@@ -9922,30 +9922,30 @@ _numElems$ = -8680
 _tmp$ = -8692
 _pskinref$ = -8696
 _j$ = -8700
-_pmesh$49671 = -8704
-_ptricmds$49674 = -8708
-_vertexState$49682 = -8712
-_tri_strip$49683 = -8716
+_pmesh$49679 = -8704
+_ptricmds$49682 = -8708
+_vertexState$49690 = -8712
+_tri_strip$49691 = -8716
 _meshDesc$ = -8768
 _status$ = -8772
-$T51900 = -8796
-$T51901 = -8844
-$T51902 = -8892
-$T51903 = -8896
-$T51904 = -8960
-$T51905 = -8964
-$T51906 = -9028
-$T51907 = -9032
-$T51908 = -9036
-$T51911 = -9040
-$T51912 = -9044
-$T51915 = -9048
-$T51916 = -9060
-$T51917 = -9084
-$T51918 = -9088
-$T51919 = -9092
-$T51920 = -9096
-$T51921 = -9120
+$T51908 = -8796
+$T51909 = -8844
+$T51910 = -8892
+$T51911 = -8896
+$T51912 = -8960
+$T51913 = -8964
+$T51914 = -9028
+$T51915 = -9032
+$T51916 = -9036
+$T51919 = -9040
+$T51920 = -9044
+$T51923 = -9048
+$T51924 = -9060
+$T51925 = -9084
+$T51926 = -9088
+$T51927 = -9092
+$T51928 = -9096
+$T51929 = -9120
 __$EHRec$ = -12
 ?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z PROC NEAR ; CPhysicNovodex::TriangleMeshFromStudio, COMDAT
 
@@ -9972,7 +9972,7 @@ __$EHRec$ = -12
 	call	?UTIL_GetModelType@@YA?AW4modtype_t@@H@Z ; UTIL_GetModelType
 	add	esp, 4
 	cmp	eax, 3
-	je	SHORT $L49549
+	je	SHORT $L49557
 
 ; 758  : 		ALERT( at_error, "TriangleMeshFromStudio: not a studio model\n" );
 
@@ -9984,8 +9984,8 @@ __$EHRec$ = -12
 ; 759  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49548
-$L49549:
+	jmp	$L49556
+$L49557:
 
 ; 761  : 
 ; 762  : 	model_t *smodel = (model_t *)MODEL_HANDLE( modelindex );
@@ -10010,11 +10010,11 @@ $L49549:
 ; 766  : 	if( !phdr || phdr->numbones < 1 )
 
 	cmp	DWORD PTR _phdr$[ebp], 0
-	je	SHORT $L49557
+	je	SHORT $L49565
 	mov	ecx, DWORD PTR _phdr$[ebp]
 	cmp	DWORD PTR [ecx+140], 1
-	jge	SHORT $L49556
-$L49557:
+	jge	SHORT $L49564
+$L49565:
 
 ; 768  : 		ALERT( at_error, "TriangleMeshFromStudio: bad model header\n" );
 
@@ -10026,8 +10026,8 @@ $L49557:
 ; 769  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49548
-$L49556:
+	jmp	$L49556
+$L49564:
 
 ; 771  : 
 ; 772  : 	mstudiotexture_t *ptexture = (mstudiotexture_t *)((byte *)phdr + phdr->textureindex);
@@ -10041,16 +10041,16 @@ $L49556:
 ; 774  : 	for( int i = 0; i < phdr->numtextures; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49563
-$L49564:
+	jmp	SHORT $L49571
+$L49572:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L49563:
+$L49571:
 	mov	edx, DWORD PTR _phdr$[ebp]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+180]
-	jge	SHORT $L49565
+	jge	SHORT $L49573
 
 ; 776  : 		// skip this mesh it's probably foliage or somewhat
 ; 777  : 		if( ptexture[i].flags & STUDIO_NF_MASKED )
@@ -10061,12 +10061,12 @@ $L49563:
 	mov	eax, DWORD PTR [edx+ecx+64]
 	and	eax, 64					; 00000040H
 	test	eax, eax
-	je	SHORT $L49566
+	je	SHORT $L49574
 
 ; 778  : 			continue;
 
-	jmp	SHORT $L49564
-$L49566:
+	jmp	SHORT $L49572
+$L49574:
 
 ; 779  : 		solidMeshes++;
 
@@ -10076,15 +10076,15 @@ $L49566:
 
 ; 780  : 	}
 
-	jmp	SHORT $L49564
-$L49565:
+	jmp	SHORT $L49572
+$L49573:
 
 ; 781  : 
 ; 782  : 	// model is non-solid
 ; 783  : 	if( !solidMeshes )
 
 	cmp	DWORD PTR _solidMeshes$[ebp], 0
-	jne	SHORT $L49567
+	jne	SHORT $L49575
 
 ; 785  : 		m_fDisableWarning = TRUE;
 
@@ -10094,8 +10094,8 @@ $L49565:
 ; 786  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49548
-$L49567:
+	jmp	$L49556
+$L49575:
 
 ; 790  : 	NxTriangleMesh *pMesh = NULL;
 
@@ -10122,10 +10122,10 @@ $L49567:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?CheckFileTimes@CPhysicNovodex@@AAEHPBD0@Z ; CPhysicNovodex::CheckFileTimes
 	test	eax, eax
-	je	$L49570
+	je	$L49578
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+280], 0
-	jne	$L49570
+	jne	$L49578
 
 ; 796  : 		// hull is never than studiomodel. Trying to load it
 ; 797  : 		pMesh = m_pPhysics->createTriangleMesh( UserStream( szMeshFilename, true ));
@@ -10133,7 +10133,7 @@ $L49567:
 	push	1
 	lea	edx, DWORD PTR _szMeshFilename$[ebp]
 	push	edx
-	lea	ecx, DWORD PTR $T51900[ebp]
+	lea	ecx, DWORD PTR $T51908[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -9124+[ebp], eax
 	mov	eax, DWORD PTR -9124+[ebp]
@@ -10149,27 +10149,27 @@ $L49567:
 	call	DWORD PTR [eax+32]
 	mov	DWORD PTR _pMesh$[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T51900[ebp]
+	lea	ecx, DWORD PTR $T51908[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 798  : 
 ; 799  : 		if( !pMesh )
 
 	cmp	DWORD PTR _pMesh$[ebp], 0
-	jne	SHORT $L49572
+	jne	SHORT $L49580
 
 ; 801  : 			// we failed to loading existed hull and can't cooking new :(
 ; 802  : 			if( m_pCooking == NULL )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+1352], 0
-	jne	SHORT $L49573
+	jne	SHORT $L49581
 
 ; 803  : 				return NULL; // don't spam console about missed nxCooking.dll
 
 	xor	eax, eax
-	jmp	$L49548
-$L49573:
+	jmp	$L49556
+$L49581:
 
 ; 804  : 
 ; 805  : 			// trying to rebuild hull
@@ -10184,33 +10184,33 @@ $L49573:
 
 ; 808  : 		else
 
-	jmp	SHORT $L49575
-$L49572:
+	jmp	SHORT $L49583
+$L49580:
 
 ; 810  : 			// all is ok
 ; 811  : 			return pMesh;
 
 	mov	eax, DWORD PTR _pMesh$[ebp]
-	jmp	$L49548
-$L49575:
+	jmp	$L49556
+$L49583:
 
 ; 814  : 	else
 
-	jmp	SHORT $L49576
-$L49570:
+	jmp	SHORT $L49584
+$L49578:
 
 ; 816  : 		// can't cooking new hull because nxCooking.dll is missed
 ; 817  : 		if( m_pCooking == NULL )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+1352], 0
-	jne	SHORT $L49577
+	jne	SHORT $L49585
 
 ; 818  : 			return NULL; // don't spam console about missed nxCooking.dll
 
 	xor	eax, eax
-	jmp	$L49548
-$L49577:
+	jmp	$L49556
+$L49585:
 
 ; 819  : 
 ; 820  : 		// trying to rebuild hull
@@ -10222,7 +10222,7 @@ $L49577:
 	push	1
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49576:
+$L49584:
 
 ; 823  : 
 ; 824  : 	// at this point nxCooking instance is always valid
@@ -10252,7 +10252,7 @@ $L49576:
 
 	mov	edx, DWORD PTR _pseqdesc$[ebp]
 	cmp	DWORD PTR [edx+156], 0
-	je	SHORT $L49585
+	je	SHORT $L49593
 
 ; 833  : 		ALERT( at_error, "TriangleMeshFromStudio: bad sequence group (must be 0)\n" );
 
@@ -10264,8 +10264,8 @@ $L49576:
 ; 834  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49548
-$L49585:
+	jmp	$L49556
+$L49593:
 
 ; 836  : 
 ; 837  : 	mstudioanim_t *panim = (mstudioanim_t *)((byte *)phdr + pseqgroup->data + pseqdesc->animindex);
@@ -10290,7 +10290,7 @@ $L49585:
 	mov	dl, BYTE PTR _?$S35@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4EA
 	and	edx, 1
 	test	edx, edx
-	jne	SHORT $L49597
+	jne	SHORT $L49605
 	mov	al, BYTE PTR _?$S35@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4EA
 	or	al, 1
 	mov	BYTE PTR _?$S35@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4EA, al
@@ -10302,7 +10302,7 @@ $L49585:
 	push	OFFSET FLAT:_$E36
 	call	_atexit
 	add	esp, 4
-$L49597:
+$L49605:
 
 ; 840  : 	static Vector4D q[MAXSTUDIOBONES];
 
@@ -10310,7 +10310,7 @@ $L49597:
 	mov	cl, BYTE PTR _?$S35@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4EA
 	and	ecx, 2
 	test	ecx, ecx
-	jne	SHORT $L49602
+	jne	SHORT $L49610
 	mov	dl, BYTE PTR _?$S35@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4EA
 	or	dl, 2
 	mov	BYTE PTR _?$S35@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4EA, dl
@@ -10322,14 +10322,14 @@ $L49597:
 	push	OFFSET FLAT:_$E37
 	call	_atexit
 	add	esp, 4
-$L49602:
+$L49610:
 
 ; 841  : 
 ; 842  : 	for( i = 0; i < phdr->numbones; i++, pbone++, panim++ ) 
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49605
-$L49606:
+	jmp	SHORT $L49613
+$L49614:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
@@ -10339,11 +10339,11 @@ $L49606:
 	mov	edx, DWORD PTR _panim$[ebp]
 	add	edx, 12					; 0000000cH
 	mov	DWORD PTR _panim$[ebp], edx
-$L49605:
+$L49613:
 	mov	eax, DWORD PTR _phdr$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+140]
-	jge	SHORT $L49607
+	jge	SHORT $L49615
 
 ; 844  : 		StudioCalcBoneQuaterion( pbone, panim, q[i] );
 
@@ -10373,8 +10373,8 @@ $L49605:
 
 ; 846  : 	}
 
-	jmp	SHORT $L49606
-$L49607:
+	jmp	SHORT $L49614
+$L49615:
 
 ; 847  : 
 ; 848  : 	pbone = (mstudiobone_t *)((byte *)phdr + phdr->boneindex);
@@ -10405,7 +10405,7 @@ $L49607:
 	add	ecx, 140				; 0000008cH
 	call	??9Vector@@QBEHABV0@@Z			; Vector::operator!=
 	test	eax, eax
-	je	SHORT $L49614
+	je	SHORT $L49622
 
 ; 852  : 		transform = matrix3x4( g_vecZero, g_vecZero, pev->startpos );
 
@@ -10414,7 +10414,7 @@ $L49607:
 	push	edx
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
 	push	OFFSET FLAT:?g_vecZero@@3VVector@@B	; g_vecZero
-	lea	ecx, DWORD PTR $T51901[ebp]
+	lea	ecx, DWORD PTR $T51909[ebp]
 	call	??0matrix3x4@@QAE@ABVVector@@00@Z	; matrix3x4::matrix3x4
 	push	eax
 	lea	ecx, DWORD PTR _transform$[ebp]
@@ -10422,27 +10422,27 @@ $L49607:
 
 ; 853  : 	else transform.Identity();
 
-	jmp	SHORT $L49616
-$L49614:
+	jmp	SHORT $L49624
+$L49622:
 	lea	ecx, DWORD PTR _transform$[ebp]
 	call	?Identity@matrix4x4@@QAEXXZ		; matrix4x4::Identity
-$L49616:
+$L49624:
 
 ; 854  : 
 ; 855  : 	// compute bones for default anim
 ; 856  : 	for( i = 0; i < phdr->numbones; i++ ) 
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49617
-$L49618:
+	jmp	SHORT $L49625
+$L49626:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L49617:
+$L49625:
 	mov	ecx, DWORD PTR _phdr$[ebp]
 	mov	edx, DWORD PTR _i$[ebp]
 	cmp	edx, DWORD PTR [ecx+140]
-	jge	$L49619
+	jge	$L49627
 
 ; 858  : 		// initialize bonematrix
 ; 859  : 		bonematrix = matrix3x4( pos[i], q[i] );
@@ -10455,7 +10455,7 @@ $L49617:
 	imul	ecx, 12					; 0000000cH
 	add	ecx, OFFSET FLAT:_?pos@?CA@??TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z@4PAVVector@@A
 	push	ecx
-	lea	ecx, DWORD PTR $T51902[ebp]
+	lea	ecx, DWORD PTR $T51910[ebp]
 	call	??0matrix3x4@@QAE@ABVVector@@ABVVector4D@@@Z ; matrix3x4::matrix3x4
 	push	eax
 	lea	ecx, DWORD PTR _bonematrix$[ebp]
@@ -10468,17 +10468,17 @@ $L49617:
 	imul	edx, 112				; 00000070H
 	mov	eax, DWORD PTR _pbone$[ebp]
 	cmp	DWORD PTR [eax+edx+32], -1
-	jne	SHORT $L49621
+	jne	SHORT $L49629
 
 ; 862  : 			bonetransform[i] = transform.ConcatTransforms( bonematrix );
 
 	sub	esp, 64					; 00000040H
 	mov	ecx, esp
-	mov	DWORD PTR $T51903[ebp], esp
+	mov	DWORD PTR $T51911[ebp], esp
 	lea	edx, DWORD PTR _bonematrix$[ebp]
 	push	edx
 	call	??0matrix4x4@@QAE@ABV0@@Z		; matrix4x4::matrix4x4
-	lea	eax, DWORD PTR $T51904[ebp]
+	lea	eax, DWORD PTR $T51912[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _transform$[ebp]
 	call	?ConcatTransforms@matrix4x4@@QAE?AV1@V1@@Z ; matrix4x4::ConcatTransforms
@@ -10490,15 +10490,15 @@ $L49617:
 
 ; 863  : 		else bonetransform[i] = bonetransform[pbone[i].parent].ConcatTransforms( bonematrix );
 
-	jmp	SHORT $L49624
-$L49621:
+	jmp	SHORT $L49632
+$L49629:
 	sub	esp, 64					; 00000040H
 	mov	ecx, esp
-	mov	DWORD PTR $T51905[ebp], esp
+	mov	DWORD PTR $T51913[ebp], esp
 	lea	edx, DWORD PTR _bonematrix$[ebp]
 	push	edx
 	call	??0matrix4x4@@QAE@ABV0@@Z		; matrix4x4::matrix4x4
-	lea	eax, DWORD PTR $T51906[ebp]
+	lea	eax, DWORD PTR $T51914[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _i$[ebp]
 	imul	ecx, 112				; 00000070H
@@ -10512,12 +10512,12 @@ $L49621:
 	shl	ecx, 6
 	lea	ecx, DWORD PTR _bonetransform$[ebp+ecx]
 	call	??4matrix4x4@@QAEAAV0@ABV0@@Z		; matrix4x4::operator=
-$L49624:
+$L49632:
 
 ; 864  : 	}
 
-	jmp	$L49618
-$L49619:
+	jmp	$L49626
+$L49627:
 
 ; 865  : 
 ; 866  : 	mstudiobodyparts_t *pbodypart = (mstudiobodyparts_t *)((byte *)phdr + phdr->bodypartindex);
@@ -10551,27 +10551,27 @@ $L49619:
 	push	ecx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51908[ebp], eax
+	mov	DWORD PTR $T51916[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	cmp	DWORD PTR $T51908[ebp], 0
-	je	SHORT $L51909
+	cmp	DWORD PTR $T51916[ebp], 0
+	je	SHORT $L51917
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	mov	edx, DWORD PTR _$S38$[ebp]
 	push	edx
 	push	12					; 0000000cH
-	mov	eax, DWORD PTR $T51908[ebp]
+	mov	eax, DWORD PTR $T51916[ebp]
 	push	eax
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
-	mov	ecx, DWORD PTR $T51908[ebp]
+	mov	ecx, DWORD PTR $T51916[ebp]
 	mov	DWORD PTR -9132+[ebp], ecx
-	jmp	SHORT $L51910
-$L51909:
+	jmp	SHORT $L51918
+$L51917:
 	mov	DWORD PTR -9132+[ebp], 0
-$L51910:
+$L51918:
 	mov	edx, DWORD PTR -9132+[ebp]
-	mov	DWORD PTR $T51907[ebp], edx
+	mov	DWORD PTR $T51915[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	eax, DWORD PTR $T51907[ebp]
+	mov	eax, DWORD PTR $T51915[ebp]
 	mov	DWORD PTR _m_verts$[ebp], eax
 
 ; 870  : 	byte *pvertbone = ((byte *)phdr + psubmodel->vertinfoindex);
@@ -10592,27 +10592,27 @@ $L51910:
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51912[ebp], eax
+	mov	DWORD PTR $T51920[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
-	cmp	DWORD PTR $T51912[ebp], 0
-	je	SHORT $L51913
+	cmp	DWORD PTR $T51920[ebp], 0
+	je	SHORT $L51921
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	mov	eax, DWORD PTR _$S39$[ebp]
 	push	eax
 	push	12					; 0000000cH
-	mov	ecx, DWORD PTR $T51912[ebp]
+	mov	ecx, DWORD PTR $T51920[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
-	mov	edx, DWORD PTR $T51912[ebp]
+	mov	edx, DWORD PTR $T51920[ebp]
 	mov	DWORD PTR -9136+[ebp], edx
-	jmp	SHORT $L51914
-$L51913:
+	jmp	SHORT $L51922
+$L51921:
 	mov	DWORD PTR -9136+[ebp], 0
-$L51914:
+$L51922:
 	mov	eax, DWORD PTR -9136+[ebp]
-	mov	DWORD PTR $T51911[ebp], eax
+	mov	DWORD PTR $T51919[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	ecx, DWORD PTR $T51911[ebp]
+	mov	ecx, DWORD PTR $T51919[ebp]
 	mov	DWORD PTR _verts$[ebp], ecx
 
 ; 872  : 	NxU32 *indices = new NxU32[psubmodel->numverts * 24];
@@ -10624,8 +10624,8 @@ $L51914:
 	push	eax
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T51915[ebp], eax
-	mov	ecx, DWORD PTR $T51915[ebp]
+	mov	DWORD PTR $T51923[ebp], eax
+	mov	ecx, DWORD PTR $T51923[ebp]
 	mov	DWORD PTR _indices$[ebp], ecx
 
 ; 873  : 	int numVerts = 0, numElems = 0;
@@ -10643,16 +10643,16 @@ $L51914:
 ; 877  : 	for( i = 0; i < psubmodel->numverts; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49658
-$L49659:
+	jmp	SHORT $L49666
+$L49667:
 	mov	edx, DWORD PTR _i$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-$L49658:
+$L49666:
 	mov	eax, DWORD PTR _psubmodel$[ebp]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+80]
-	jge	SHORT $L49660
+	jge	SHORT $L49668
 
 ; 878  : 		m_verts[i] = bonetransform[pvertbone[i]].VectorTransform( pstudioverts[i] );
 
@@ -10661,7 +10661,7 @@ $L49658:
 	mov	eax, DWORD PTR _pstudioverts$[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR $T51916[ebp]
+	lea	ecx, DWORD PTR $T51924[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pvertbone$[ebp]
 	add	edx, DWORD PTR _i$[ebp]
@@ -10680,8 +10680,8 @@ $L49658:
 	mov	DWORD PTR [edx+4], ecx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [edx+8], eax
-	jmp	SHORT $L49659
-$L49660:
+	jmp	SHORT $L49667
+$L49668:
 
 ; 879  : 
 ; 880  : 	ptexture = (mstudiotexture_t *)((byte *)phdr + phdr->textureindex);
@@ -10702,16 +10702,16 @@ $L49660:
 ; 883  : 	for( int j = 0; j < psubmodel->nummesh; j++ ) 
 
 	mov	DWORD PTR _j$[ebp], 0
-	jmp	SHORT $L49668
-$L49669:
+	jmp	SHORT $L49676
+$L49677:
 	mov	edx, DWORD PTR _j$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _j$[ebp], edx
-$L49668:
+$L49676:
 	mov	eax, DWORD PTR _psubmodel$[ebp]
 	mov	ecx, DWORD PTR _j$[ebp]
 	cmp	ecx, DWORD PTR [eax+72]
-	jge	$L49670
+	jge	$L49678
 
 ; 885  : 		mstudiomesh_t *pmesh = (mstudiomesh_t *)((byte *)phdr + psubmodel->meshindex) + j;
 
@@ -10721,29 +10721,29 @@ $L49668:
 	mov	ecx, DWORD PTR _j$[ebp]
 	imul	ecx, 20					; 00000014H
 	add	eax, ecx
-	mov	DWORD PTR _pmesh$49671[ebp], eax
+	mov	DWORD PTR _pmesh$49679[ebp], eax
 
 ; 886  : 		short *ptricmds = (short *)((byte *)phdr + pmesh->triindex);
 
-	mov	edx, DWORD PTR _pmesh$49671[ebp]
+	mov	edx, DWORD PTR _pmesh$49679[ebp]
 	mov	eax, DWORD PTR _phdr$[ebp]
 	add	eax, DWORD PTR [edx+4]
-	mov	DWORD PTR _ptricmds$49674[ebp], eax
+	mov	DWORD PTR _ptricmds$49682[ebp], eax
 
 ; 887  : 
 ; 888  : 		if( phdr->numtextures != 0 && phdr->textureindex != 0 )
 
 	mov	ecx, DWORD PTR _phdr$[ebp]
 	cmp	DWORD PTR [ecx+180], 0
-	je	SHORT $L49678
+	je	SHORT $L49686
 	mov	edx, DWORD PTR _phdr$[ebp]
 	cmp	DWORD PTR [edx+184], 0
-	je	SHORT $L49678
+	je	SHORT $L49686
 
 ; 890  : 			// skip this mesh it's probably foliage or somewhat
 ; 891  : 			if( ptexture[pskinref[pmesh->skinref]].flags & STUDIO_NF_MASKED )
 
-	mov	eax, DWORD PTR _pmesh$49671[ebp]
+	mov	eax, DWORD PTR _pmesh$49679[ebp]
 	mov	ecx, DWORD PTR [eax+8]
 	mov	edx, DWORD PTR _pskinref$[ebp]
 	movsx	eax, WORD PTR [edx+ecx*2]
@@ -10752,40 +10752,40 @@ $L49668:
 	mov	edx, DWORD PTR [ecx+eax+64]
 	and	edx, 64					; 00000040H
 	test	edx, edx
-	je	SHORT $L49678
+	je	SHORT $L49686
 
 ; 892  : 				continue;
 
-	jmp	$L49669
-$L49678:
+	jmp	$L49677
+$L49686:
 
 ; 894  : 
 ; 895  : 		while( i = *( ptricmds++ ))
 
-	mov	eax, DWORD PTR _ptricmds$49674[ebp]
+	mov	eax, DWORD PTR _ptricmds$49682[ebp]
 	movsx	ecx, WORD PTR [eax]
 	mov	DWORD PTR _i$[ebp], ecx
 	mov	edx, DWORD PTR _i$[ebp]
-	mov	eax, DWORD PTR _ptricmds$49674[ebp]
+	mov	eax, DWORD PTR _ptricmds$49682[ebp]
 	add	eax, 2
-	mov	DWORD PTR _ptricmds$49674[ebp], eax
+	mov	DWORD PTR _ptricmds$49682[ebp], eax
 	test	edx, edx
-	je	$L49681
+	je	$L49689
 
 ; 897  : 			int	vertexState = 0;
 
-	mov	DWORD PTR _vertexState$49682[ebp], 0
+	mov	DWORD PTR _vertexState$49690[ebp], 0
 
 ; 898  : 			qboolean	tri_strip;
 ; 899  : 
 ; 900  : 			if( i < 0 )
 
 	cmp	DWORD PTR _i$[ebp], 0
-	jge	SHORT $L49684
+	jge	SHORT $L49692
 
 ; 902  : 				tri_strip = false;
 
-	mov	DWORD PTR _tri_strip$49683[ebp], 0
+	mov	DWORD PTR _tri_strip$49691[ebp], 0
 
 ; 903  : 				i = -i;
 
@@ -10795,38 +10795,38 @@ $L49678:
 
 ; 905  : 			else
 
-	jmp	SHORT $L49685
-$L49684:
+	jmp	SHORT $L49693
+$L49692:
 
 ; 906  : 				tri_strip = true;
 
-	mov	DWORD PTR _tri_strip$49683[ebp], 1
-$L49685:
+	mov	DWORD PTR _tri_strip$49691[ebp], 1
+$L49693:
 
 ; 907  : 
 ; 908  : 			for( ; i > 0; i--, ptricmds += 4 )
 
-	jmp	SHORT $L49686
-$L49687:
+	jmp	SHORT $L49694
+$L49695:
 	mov	edx, DWORD PTR _i$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _i$[ebp], edx
-	mov	eax, DWORD PTR _ptricmds$49674[ebp]
+	mov	eax, DWORD PTR _ptricmds$49682[ebp]
 	add	eax, 8
-	mov	DWORD PTR _ptricmds$49674[ebp], eax
-$L49686:
+	mov	DWORD PTR _ptricmds$49682[ebp], eax
+$L49694:
 	cmp	DWORD PTR _i$[ebp], 0
-	jle	$L49688
+	jle	$L49696
 
 ; 910  : 				// build in indices
 ; 911  : 				if( vertexState++ < 3 )
 
-	mov	ecx, DWORD PTR _vertexState$49682[ebp]
-	mov	edx, DWORD PTR _vertexState$49682[ebp]
+	mov	ecx, DWORD PTR _vertexState$49690[ebp]
+	mov	edx, DWORD PTR _vertexState$49690[ebp]
 	add	edx, 1
-	mov	DWORD PTR _vertexState$49682[ebp], edx
+	mov	DWORD PTR _vertexState$49690[ebp], edx
 	cmp	ecx, 3
-	jge	SHORT $L49689
+	jge	SHORT $L49697
 
 ; 913  : 					indices[numElems++] = numVerts;
 
@@ -10840,18 +10840,18 @@ $L49686:
 
 ; 915  : 				else if( tri_strip )
 
-	jmp	$L49694
-$L49689:
-	cmp	DWORD PTR _tri_strip$49683[ebp], 0
-	je	$L49691
+	jmp	$L49702
+$L49697:
+	cmp	DWORD PTR _tri_strip$49691[ebp], 0
+	je	$L49699
 
 ; 917  : 					// flip triangles between clockwise and counter clockwise
 ; 918  : 					if( vertexState & 1 )
 
-	mov	ecx, DWORD PTR _vertexState$49682[ebp]
+	mov	ecx, DWORD PTR _vertexState$49690[ebp]
 	and	ecx, 1
 	test	ecx, ecx
-	je	SHORT $L49692
+	je	SHORT $L49700
 
 ; 920  : 						// draw triangle [n-2 n-1 n]
 ; 921  : 						indices[numElems++] = numVerts - 2;
@@ -10888,8 +10888,8 @@ $L49689:
 
 ; 925  : 					else
 
-	jmp	SHORT $L49693
-$L49692:
+	jmp	SHORT $L49701
+$L49700:
 
 ; 927  : 						// draw triangle [n-1 n-2 n]
 ; 928  : 						indices[numElems++] = numVerts - 1;
@@ -10923,17 +10923,17 @@ $L49692:
 	mov	ecx, DWORD PTR _numElems$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _numElems$[ebp], ecx
-$L49693:
+$L49701:
 
 ; 933  : 				else
 
-	jmp	SHORT $L49694
-$L49691:
+	jmp	SHORT $L49702
+$L49699:
 
 ; 935  : 					// draw triangle fan [0 n-1 n]
 ; 936  : 					indices[numElems++] = numVerts - ( vertexState - 1 );
 
-	mov	edx, DWORD PTR _vertexState$49682[ebp]
+	mov	edx, DWORD PTR _vertexState$49690[ebp]
 	sub	edx, 1
 	mov	eax, DWORD PTR _numVerts$[ebp]
 	sub	eax, edx
@@ -10964,12 +10964,12 @@ $L49691:
 	mov	edx, DWORD PTR _numElems$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _numElems$[ebp], edx
-$L49694:
+$L49702:
 
 ; 940  : 
 ; 941  : 				verts[numVerts++] = m_verts[ptricmds[0]];
 
-	mov	eax, DWORD PTR _ptricmds$49674[ebp]
+	mov	eax, DWORD PTR _ptricmds$49682[ebp]
 	movsx	ecx, WORD PTR [eax]
 	imul	ecx, 12					; 0000000cH
 	mov	edx, DWORD PTR _m_verts$[ebp]
@@ -10990,18 +10990,18 @@ $L49694:
 
 ; 942  : 			}
 
-	jmp	$L49687
-$L49688:
+	jmp	$L49695
+$L49696:
 
 ; 943  : 		}
 
-	jmp	$L49678
-$L49681:
+	jmp	$L49686
+$L49689:
 
 ; 944  : 	}
 
-	jmp	$L49669
-$L49670:
+	jmp	$L49677
+$L49678:
 
 ; 945  : 
 ; 946  : 	NxTriangleMeshDesc meshDesc;
@@ -11061,7 +11061,7 @@ $L49670:
 	push	0
 	lea	ecx, DWORD PTR _szMeshFilename$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T51917[ebp]
+	lea	ecx, DWORD PTR $T51925[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -9140+[ebp], eax
 	mov	edx, DWORD PTR -9140+[ebp]
@@ -11079,15 +11079,15 @@ $L49670:
 	call	DWORD PTR [eax+20]
 	mov	BYTE PTR _status$[ebp], al
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T51917[ebp]
+	lea	ecx, DWORD PTR $T51925[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 957  : 
 ; 958  : 	delete [] verts;
 
 	mov	ecx, DWORD PTR _verts$[ebp]
-	mov	DWORD PTR $T51918[ebp], ecx
-	mov	edx, DWORD PTR $T51918[ebp]
+	mov	DWORD PTR $T51926[ebp], ecx
+	mov	edx, DWORD PTR $T51926[ebp]
 	push	edx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -11095,8 +11095,8 @@ $L49670:
 ; 959  : 	delete [] m_verts;
 
 	mov	eax, DWORD PTR _m_verts$[ebp]
-	mov	DWORD PTR $T51919[ebp], eax
-	mov	ecx, DWORD PTR $T51919[ebp]
+	mov	DWORD PTR $T51927[ebp], eax
+	mov	ecx, DWORD PTR $T51927[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -11104,8 +11104,8 @@ $L49670:
 ; 960  : 	delete [] indices;
 
 	mov	edx, DWORD PTR _indices$[ebp]
-	mov	DWORD PTR $T51920[ebp], edx
-	mov	eax, DWORD PTR $T51920[ebp]
+	mov	DWORD PTR $T51928[ebp], edx
+	mov	eax, DWORD PTR $T51928[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -11116,7 +11116,7 @@ $L49670:
 	mov	ecx, DWORD PTR _status$[ebp]
 	and	ecx, 255				; 000000ffH
 	test	ecx, ecx
-	jne	SHORT $L49703
+	jne	SHORT $L49711
 
 ; 964  : 		ALERT( at_error, "failed to create triangle mesh from %s\n", smodel->name );
 
@@ -11130,8 +11130,8 @@ $L49670:
 ; 965  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49548
-$L49703:
+	jmp	$L49556
+$L49711:
 
 ; 967  : 
 ; 968  : 	pMesh = m_pPhysics->createTriangleMesh( UserStream( szMeshFilename, true ));
@@ -11139,7 +11139,7 @@ $L49703:
 	push	1
 	lea	eax, DWORD PTR _szMeshFilename$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T51921[ebp]
+	lea	ecx, DWORD PTR $T51929[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -9148+[ebp], eax
 	mov	ecx, DWORD PTR -9148+[ebp]
@@ -11155,26 +11155,26 @@ $L49703:
 	call	DWORD PTR [edx+32]
 	mov	DWORD PTR _pMesh$[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T51921[ebp]
+	lea	ecx, DWORD PTR $T51929[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 969  : 	if( !pMesh ) ALERT( at_error, "failed to create triangle mesh from %s\n", smodel->name );
 
 	cmp	DWORD PTR _pMesh$[ebp], 0
-	jne	SHORT $L49705
+	jne	SHORT $L49713
 	mov	eax, DWORD PTR _smodel$[ebp]
 	push	eax
 	push	OFFSET FLAT:??_C@_0CI@KDID@failed?5to?5create?5triangle?5mesh?5f@ ; `string'
 	push	4
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49705:
+$L49713:
 
 ; 970  : 
 ; 971  : 	return pMesh;
 
 	mov	eax, DWORD PTR _pMesh$[ebp]
-$L49548:
+$L49556:
 
 ; 972  : }
 
@@ -11190,27 +11190,27 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z$0:
-	lea	ecx, DWORD PTR $T51900[ebp]
+	lea	ecx, DWORD PTR $T51908[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __unwindfunclet$?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z$1:
-	mov	eax, DWORD PTR $T51908[ebp]
+	mov	eax, DWORD PTR $T51916[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z$2:
-	mov	eax, DWORD PTR $T51912[ebp]
+	mov	eax, DWORD PTR $T51920[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
 	pop	ecx
 	ret	0
 __unwindfunclet$?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z$3:
-	lea	ecx, DWORD PTR $T51917[ebp]
+	lea	ecx, DWORD PTR $T51925[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __unwindfunclet$?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z$4:
-	lea	ecx, DWORD PTR $T51921[ebp]
+	lea	ecx, DWORD PTR $T51929[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __ehhandler$?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z:
@@ -11270,26 +11270,26 @@ _this$ = -4
 	fcomp	DWORD PTR [ecx]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L51937
+	je	SHORT $L51945
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [edx+4]
 	fcomp	DWORD PTR [eax+4]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L51937
+	je	SHORT $L51945
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _v$[ebp]
 	fld	DWORD PTR [ecx+8]
 	fcomp	DWORD PTR [edx+8]
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	je	SHORT $L51937
+	je	SHORT $L51945
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L51938
-$L51937:
+	jmp	SHORT $L51946
+$L51945:
 	mov	DWORD PTR -8+[ebp], 0
-$L51938:
+$L51946:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -12137,17 +12137,17 @@ _pCollision$ = -12
 ; 976  : 	if( !pObject || !m_pPhysics )
 
 	cmp	DWORD PTR _pObject$[ebp], 0
-	je	SHORT $L49713
+	je	SHORT $L49721
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	jne	SHORT $L49712
-$L49713:
+	jne	SHORT $L49720
+$L49721:
 
 ; 977  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49711
-$L49712:
+	jmp	$L49719
+$L49720:
 
 ; 978  : 
 ; 979  : 	// check for bspmodel
@@ -12165,11 +12165,11 @@ $L49712:
 ; 982  : 	if( !model || model->type == mod_bad )
 
 	cmp	DWORD PTR _model$[ebp], 0
-	je	SHORT $L49717
+	je	SHORT $L49725
 	mov	ecx, DWORD PTR _model$[ebp]
 	cmp	DWORD PTR [ecx+68], -1
-	jne	SHORT $L49716
-$L49717:
+	jne	SHORT $L49724
+$L49725:
 
 ; 984  : 		ALERT( at_aiconsole, "ConvexMeshFromEntity: entity %s has NULL model\n", pObject->GetClassname( )); 
 
@@ -12184,8 +12184,8 @@ $L49717:
 ; 985  : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49711
-$L49716:
+	jmp	$L49719
+$L49724:
 
 ; 987  : 
 ; 988  : 	NxConvexMesh *pCollision = NULL;
@@ -12198,11 +12198,11 @@ $L49716:
 	mov	eax, DWORD PTR [edx+68]
 	mov	DWORD PTR -16+[ebp], eax
 	cmp	DWORD PTR -16+[ebp], 0
-	je	SHORT $L49724
+	je	SHORT $L49732
 	cmp	DWORD PTR -16+[ebp], 3
-	je	SHORT $L49725
-	jmp	SHORT $L49721
-$L49724:
+	je	SHORT $L49733
+	jmp	SHORT $L49729
+$L49732:
 
 ; 993  : 	case mod_brush:
 ; 994  : 		pCollision = ConvexMeshFromBmodel( pObject->pev, pObject->pev->modelindex );	
@@ -12220,8 +12220,8 @@ $L49724:
 
 ; 995  : 		break;
 
-	jmp	SHORT $L49721
-$L49725:
+	jmp	SHORT $L49729
+$L49733:
 
 ; 996  : 	case mod_studio:
 ; 997  : 		pCollision = ConvexMeshFromStudio( pObject->pev, pObject->pev->modelindex );	
@@ -12236,16 +12236,16 @@ $L49725:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ConvexMeshFromStudio@CPhysicNovodex@@AAEPAVNxConvexMesh@@PAUentvars_s@@H@Z ; CPhysicNovodex::ConvexMeshFromStudio
 	mov	DWORD PTR _pCollision$[ebp], eax
-$L49721:
+$L49729:
 
 ; 1000 : 
 ; 1001 : 	if( !pCollision && !m_fDisableWarning )
 
 	cmp	DWORD PTR _pCollision$[ebp], 0
-	jne	SHORT $L49726
+	jne	SHORT $L49734
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+276], 0
-	jne	SHORT $L49726
+	jne	SHORT $L49734
 
 ; 1002 : 		ALERT( at_warning, "ConvexMeshFromEntity: %i has missing collision\n", pObject->pev->modelindex ); 
 
@@ -12257,7 +12257,7 @@ $L49721:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49726:
+$L49734:
 
 ; 1003 : 	m_fDisableWarning = FALSE;
 
@@ -12268,7 +12268,7 @@ $L49726:
 ; 1005 : 	return pCollision;
 
 	mov	eax, DWORD PTR _pCollision$[ebp]
-$L49711:
+$L49719:
 
 ; 1006 : }
 
@@ -12343,17 +12343,17 @@ _pCollision$ = -12
 ; 1010 : 	if( !pObject || !m_pPhysics )
 
 	cmp	DWORD PTR _pObject$[ebp], 0
-	je	SHORT $L49733
+	je	SHORT $L49741
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	jne	SHORT $L49732
-$L49733:
+	jne	SHORT $L49740
+$L49741:
 
 ; 1011 : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49731
-$L49732:
+	jmp	$L49739
+$L49740:
 
 ; 1012 : 
 ; 1013 : 	// check for bspmodel
@@ -12371,11 +12371,11 @@ $L49732:
 ; 1016 : 	if( !model || model->type == mod_bad )
 
 	cmp	DWORD PTR _model$[ebp], 0
-	je	SHORT $L49737
+	je	SHORT $L49745
 	mov	ecx, DWORD PTR _model$[ebp]
 	cmp	DWORD PTR [ecx+68], -1
-	jne	SHORT $L49736
-$L49737:
+	jne	SHORT $L49744
+$L49745:
 
 ; 1018 : 		ALERT( at_aiconsole, "TriangleMeshFromEntity: entity %s has NULL model\n", pObject->GetClassname( )); 
 
@@ -12390,8 +12390,8 @@ $L49737:
 ; 1019 : 		return NULL;
 
 	xor	eax, eax
-	jmp	$L49731
-$L49736:
+	jmp	$L49739
+$L49744:
 
 ; 1021 : 
 ; 1022 : 	NxTriangleMesh *pCollision = NULL;
@@ -12404,11 +12404,11 @@ $L49736:
 	mov	eax, DWORD PTR [edx+68]
 	mov	DWORD PTR -16+[ebp], eax
 	cmp	DWORD PTR -16+[ebp], 0
-	je	SHORT $L49744
+	je	SHORT $L49752
 	cmp	DWORD PTR -16+[ebp], 3
-	je	SHORT $L49745
-	jmp	SHORT $L49741
-$L49744:
+	je	SHORT $L49753
+	jmp	SHORT $L49749
+$L49752:
 
 ; 1027 : 	case mod_brush:
 ; 1028 : 		pCollision = TriangleMeshFromBmodel( pObject->pev, pObject->pev->modelindex );	
@@ -12426,8 +12426,8 @@ $L49744:
 
 ; 1029 : 		break;
 
-	jmp	SHORT $L49741
-$L49745:
+	jmp	SHORT $L49749
+$L49753:
 
 ; 1030 : 	case mod_studio:
 ; 1031 : 		pCollision = TriangleMeshFromStudio( pObject->pev, pObject->pev->modelindex );	
@@ -12442,16 +12442,16 @@ $L49745:
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?TriangleMeshFromStudio@CPhysicNovodex@@AAEPAVNxTriangleMesh@@PAUentvars_s@@H@Z ; CPhysicNovodex::TriangleMeshFromStudio
 	mov	DWORD PTR _pCollision$[ebp], eax
-$L49741:
+$L49749:
 
 ; 1034 : 
 ; 1035 : 	if( !pCollision && !m_fDisableWarning )
 
 	cmp	DWORD PTR _pCollision$[ebp], 0
-	jne	SHORT $L49746
+	jne	SHORT $L49754
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+276], 0
-	jne	SHORT $L49746
+	jne	SHORT $L49754
 
 ; 1036 : 		ALERT( at_warning, "TriangleMeshFromEntity: %s has missing collision\n", pObject->GetClassname( )); 
 
@@ -12462,7 +12462,7 @@ $L49741:
 	push	3
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+244
 	add	esp, 12					; 0000000cH
-$L49746:
+$L49754:
 
 ; 1037 : 	m_fDisableWarning = FALSE;
 
@@ -12473,7 +12473,7 @@ $L49746:
 ; 1039 : 	return pCollision;
 
 	mov	eax, DWORD PTR _pCollision$[ebp]
-$L49731:
+$L49739:
 
 ; 1040 : }
 
@@ -12509,17 +12509,17 @@ _this$ = -4
 	call	?FNullEnt@@YAHPAVCBaseEntity@@@Z	; FNullEnt
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L49753
+	jne	SHORT $L49761
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	cmp	DWORD PTR [ecx+244], 0
-	jne	SHORT $L49752
-$L49753:
+	jne	SHORT $L49760
+$L49761:
 
 ; 1045 : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L49751
-$L49752:
+	jmp	SHORT $L49759
+$L49760:
 
 ; 1046 : #if defined (HAS_PHYSIC_VEHICLE)
 ; 1047 : 	if( pObject->m_iActorType == ACTOR_VEHICLE )
@@ -12532,7 +12532,7 @@ $L49752:
 
 	mov	edx, DWORD PTR _pObject$[ebp]
 	mov	eax, DWORD PTR [edx+244]
-$L49751:
+$L49759:
 
 ; 1054 : }
 
@@ -12564,17 +12564,17 @@ _this$ = -4
 ; 1058 : 	if( !pObject || !pObject->userData )
 
 	cmp	DWORD PTR _pObject$[ebp], 0
-	je	SHORT $L49760
+	je	SHORT $L49768
 	mov	eax, DWORD PTR _pObject$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	jne	SHORT $L49759
-$L49760:
+	jne	SHORT $L49767
+$L49768:
 
 ; 1059 : 		return NULL;
 
 	xor	eax, eax
-	jmp	SHORT $L49758
-$L49759:
+	jmp	SHORT $L49766
+$L49767:
 
 ; 1060 : 
 ; 1061 : 	return CBaseEntity::Instance( (edict_t *)pObject->userData );
@@ -12584,7 +12584,7 @@ $L49759:
 	push	edx
 	call	?Instance@CBaseEntity@@SAPAV1@PAUedict_s@@@Z ; CBaseEntity::Instance
 	add	esp, 4
-$L49758:
+$L49766:
 
 ; 1062 : }
 
@@ -12648,12 +12648,12 @@ _meshShapeDesc$ = -376
 _pActor$ = -380
 _pose$ = -428
 _mat$ = -492
-$T51961 = -496
-$T51962 = -500
-$T51963 = -564
-$T51964 = -576
-$T51965 = -588
-$T51966 = -592
+$T51969 = -496
+$T51970 = -500
+$T51971 = -564
+$T51972 = -576
+$T51973 = -588
+$T51974 = -592
 __$EHRec$ = -12
 ?CreateBodyFromEntity@CPhysicNovodex@@UAEPAXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::CreateBodyFromEntity, COMDAT
 
@@ -12683,10 +12683,10 @@ __$EHRec$ = -12
 ; 1067 : 	if( !pCollision ) return NULL;
 
 	cmp	DWORD PTR _pCollision$[ebp], 0
-	jne	SHORT $L49767
+	jne	SHORT $L49775
 	xor	eax, eax
-	jmp	$L49765
-$L49767:
+	jmp	$L49773
+$L49775:
 
 ; 1068 : 
 ; 1069 : 	NxBodyDesc BodyDesc;
@@ -12740,8 +12740,8 @@ $L49767:
 ; 1080 : 	ActorDesc.shapes.pushBack( &meshShapeDesc );
 
 	lea	eax, DWORD PTR _meshShapeDesc$[ebp]
-	mov	DWORD PTR $T51961[ebp], eax
-	lea	ecx, DWORD PTR $T51961[ebp]
+	mov	DWORD PTR $T51969[ebp], eax
+	lea	ecx, DWORD PTR $T51969[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
@@ -12762,7 +12762,7 @@ $L49767:
 ; 1083 : 	if( !pActor )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49773
+	jne	SHORT $L49781
 
 ; 1085 : 		ALERT( at_error, "failed to create rigidbody from entity %s\n", pObject->GetClassname( ));
 
@@ -12776,7 +12776,7 @@ $L49767:
 
 ; 1086 : 		return NULL;
 
-	mov	DWORD PTR $T51962[ebp], 0
+	mov	DWORD PTR $T51970[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
@@ -12786,9 +12786,9 @@ $L49767:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
-	mov	eax, DWORD PTR $T51962[ebp]
-	jmp	$L49765
-$L49773:
+	mov	eax, DWORD PTR $T51970[ebp]
+	jmp	$L49773
+$L49781:
 
 ; 1088 : 
 ; 1089 : 	pActor->setName( pObject->GetClassname( ));
@@ -12821,7 +12821,7 @@ $L49773:
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T51963[ebp]
+	lea	ecx, DWORD PTR $T51971[ebp]
 	call	??0matrix4x4@@QAE@ABVVector@@0M@Z	; matrix4x4::matrix4x4
 	mov	ecx, eax
 	call	?CopyToArray@matrix4x4@@QBEXPAM@Z	; matrix4x4::CopyToArray
@@ -12848,9 +12848,9 @@ $L49773:
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	?GetLocalVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetLocalVelocity
 	push	eax
-	lea	ecx, DWORD PTR $T51964[ebp]
+	lea	ecx, DWORD PTR $T51972[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T51964[ebp]
+	lea	eax, DWORD PTR $T51972[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -12862,9 +12862,9 @@ $L49773:
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	?GetLocalAvelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetLocalAvelocity
 	push	eax
-	lea	ecx, DWORD PTR $T51965[ebp]
+	lea	ecx, DWORD PTR $T51973[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T51965[ebp]
+	lea	eax, DWORD PTR $T51973[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -12886,7 +12886,7 @@ $L49773:
 ; 1102 : 	return pActor;
 
 	mov	eax, DWORD PTR _pActor$[ebp]
-	mov	DWORD PTR $T51966[ebp], eax
+	mov	DWORD PTR $T51974[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
@@ -12899,8 +12899,8 @@ $L49773:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
-	mov	eax, DWORD PTR $T51966[ebp]
-$L49765:
+	mov	eax, DWORD PTR $T51974[ebp]
+$L49773:
 
 ; 1103 : }
 
@@ -14082,7 +14082,7 @@ __$EHRec$ = -12
 	mov	eax, DWORD PTR _init$[ebp]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L39943
+	je	SHORT $L39951
 
 ; 144  : 		t.zero();
 
@@ -14094,7 +14094,7 @@ __$EHRec$ = -12
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?id@NxMat33@@QAEXXZ			; NxMat33::id
-$L39943:
+$L39951:
 
 ; 147  : 	}
 
@@ -15103,12 +15103,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L45185
+	je	SHORT $L45193
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L45185:
+$L45193:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -15314,13 +15314,13 @@ _this$ = -4
 	call	?isFinite@NxMat34@@QBE_NXZ		; NxMat34::isFinite
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L45195
+	jne	SHORT $L45203
 
 ; 338  : 		return false;
 
 	xor	al, al
-	jmp	SHORT $L45194
-$L45195:
+	jmp	SHORT $L45202
+$L45203:
 
 ; 339  : 	if(group>=32)
 
@@ -15328,13 +15328,13 @@ $L45195:
 	xor	ecx, ecx
 	mov	cx, WORD PTR [eax+60]
 	cmp	ecx, 32					; 00000020H
-	jl	SHORT $L45196
+	jl	SHORT $L45204
 
 ; 340  : 		return false;	// We only support 32 different groups
 
 	xor	al, al
-	jmp	SHORT $L45194
-$L45196:
+	jmp	SHORT $L45202
+$L45204:
 
 ; 341  : 	// dsullins: I removed this bogus shapeFlags check because it was preventing core dumps from loading
 ; 342  : 	//if(shapeFlags&0xffff0000)
@@ -15343,13 +15343,13 @@ $L45196:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+4], 10			; 0000000aH
-	jl	SHORT $L45197
+	jl	SHORT $L45205
 
 ; 345  : 		return false;
 
 	xor	al, al
-	jmp	SHORT $L45194
-$L45197:
+	jmp	SHORT $L45202
+$L45205:
 
 ; 346  : 	if(materialIndex==0xffff)
 
@@ -15357,13 +15357,13 @@ $L45197:
 	xor	ecx, ecx
 	mov	cx, WORD PTR [eax+62]
 	cmp	ecx, 65535				; 0000ffffH
-	jne	SHORT $L45198
+	jne	SHORT $L45206
 
 ; 347  : 		return false;	// 0xffff is reserved for internal usage
 
 	xor	al, al
-	jmp	SHORT $L45194
-$L45198:
+	jmp	SHORT $L45202
+$L45206:
 
 ; 348  : 	if (skinWidth != -1 && skinWidth < 0)
 
@@ -15372,24 +15372,24 @@ $L45198:
 	fcomp	DWORD PTR __real@4@bfff8000000000000000
 	fnstsw	ax
 	test	ah, 64					; 00000040H
-	jne	SHORT $L45199
+	jne	SHORT $L45207
 	mov	eax, DWORD PTR _this$[ebp]
 	fld	DWORD PTR [eax+76]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L45199
+	je	SHORT $L45207
 
 ; 349  : 		return false;
 
 	xor	al, al
-	jmp	SHORT $L45194
-$L45199:
+	jmp	SHORT $L45202
+$L45207:
 
 ; 350  : 	return true;
 
 	mov	al, 1
-$L45194:
+$L45202:
 
 ; 351  : 	}
 
@@ -15424,10 +15424,10 @@ _this$ = -4
 	call	?isFinite@NxMat33@@QBE_NXZ		; NxMat33::isFinite
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L39958
+	jne	SHORT $L39966
 	xor	al, al
-	jmp	SHORT $L39957
-$L39958:
+	jmp	SHORT $L39965
+$L39966:
 
 ; 175  : 	if(!t.isFinite())	return false;
 
@@ -15436,15 +15436,15 @@ $L39958:
 	call	?isFinite@NxVec3@@QBE_NXZ		; NxVec3::isFinite
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L39959
+	jne	SHORT $L39967
 	xor	al, al
-	jmp	SHORT $L39957
-$L39959:
+	jmp	SHORT $L39965
+$L39967:
 
 ; 176  : 	return true;
 
 	mov	al, 1
-$L39957:
+$L39965:
 
 ; 177  : 	}
 
@@ -15481,7 +15481,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52089
+	je	SHORT $L52097
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	push	eax
@@ -15489,7 +15489,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52089
+	je	SHORT $L52097
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+8]
 	push	edx
@@ -15497,12 +15497,12 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52089
+	je	SHORT $L52097
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L52090
-$L52089:
+	jmp	SHORT $L52098
+$L52097:
 	mov	DWORD PTR -8+[ebp], 0
-$L52090:
+$L52098:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 724  : 	}
@@ -15586,7 +15586,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	$L52095
+	je	$L52103
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	push	eax
@@ -15594,7 +15594,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	$L52095
+	je	$L52103
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+8]
 	push	edx
@@ -15602,7 +15602,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	$L52095
+	je	$L52103
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
@@ -15610,7 +15610,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	$L52095
+	je	$L52103
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+16]
 	push	eax
@@ -15618,7 +15618,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52095
+	je	SHORT $L52103
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+20]
 	push	edx
@@ -15626,7 +15626,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52095
+	je	SHORT $L52103
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
 	push	ecx
@@ -15634,7 +15634,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52095
+	je	SHORT $L52103
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+28]
 	push	eax
@@ -15642,7 +15642,7 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52095
+	je	SHORT $L52103
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+32]
 	push	edx
@@ -15650,12 +15650,12 @@ _this$ = -4
 	add	esp, 4
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L52095
+	je	SHORT $L52103
 	mov	DWORD PTR -8+[ebp], 1
-	jmp	SHORT $L52096
-$L52095:
+	jmp	SHORT $L52104
+$L52103:
 	mov	DWORD PTR -8+[ebp], 0
-$L52096:
+$L52104:
 	mov	al, BYTE PTR -8+[ebp]
 
 ; 1088 : 	}
@@ -15685,12 +15685,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L46756
+	je	SHORT $L46764
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L46756:
+$L46764:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -15783,10 +15783,10 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+108], 0
-	jne	SHORT $L46765
+	jne	SHORT $L46773
 	xor	al, al
-	jmp	SHORT $L46764
-$L46765:
+	jmp	SHORT $L46772
+$L46773:
 
 ; 98   : #ifdef NX_SUPPORT_CONVEX_SCALE
 ; 99   : 	if(scale<=0.0f)	return false;
@@ -15795,7 +15795,7 @@ $L46765:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?isValid@NxShapeDesc@@UBE_NXZ		; NxShapeDesc::isValid
-$L46764:
+$L46772:
 
 ; 102  : 	}
 
@@ -15917,14 +15917,14 @@ _ActorDesc$ = -256
 _boxDesc$ = -376
 _pActor$ = -380
 _vecOffset$ = -392
-$T52121 = -404
-$T52122 = -408
-$T52123 = -412
-$T52124 = -416
-$T52125 = -428
-$T52128 = -440
-$T52129 = -452
-$T52130 = -456
+$T52129 = -404
+$T52130 = -408
+$T52131 = -412
+$T52132 = -416
+$T52133 = -428
+$T52136 = -440
+$T52137 = -452
+$T52138 = -456
 __$EHRec$ = -12
 ?CreateBoxFromEntity@CPhysicNovodex@@UAEPAXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::CreateBoxFromEntity, COMDAT
 
@@ -15971,7 +15971,7 @@ __$EHRec$ = -12
 ; 1119 : 	boxDesc.dimensions = pObject->pev->size * PADDING_FACTOR;
 
 	push	1056629064				; 3efae148H
-	lea	ecx, DWORD PTR $T52121[ebp]
+	lea	ecx, DWORD PTR $T52129[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pObject$[ebp]
 	mov	ecx, DWORD PTR [edx+4]
@@ -16000,8 +16000,8 @@ __$EHRec$ = -12
 ; 1124 : 	ActorDesc.shapes.pushBack( &boxDesc );
 
 	lea	ecx, DWORD PTR _boxDesc$[ebp]
-	mov	DWORD PTR $T52122[ebp], ecx
-	lea	edx, DWORD PTR $T52122[ebp]
+	mov	DWORD PTR $T52130[ebp], ecx
+	lea	edx, DWORD PTR $T52130[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
@@ -16023,7 +16023,7 @@ __$EHRec$ = -12
 ; 1128 : 	if( !pActor )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49796
+	jne	SHORT $L49804
 
 ; 1130 : 		ALERT( at_error, "failed to create rigidbody from entity %s\n", pObject->GetClassname( ));
 
@@ -16037,7 +16037,7 @@ __$EHRec$ = -12
 
 ; 1131 : 		return NULL;
 
-	mov	DWORD PTR $T52123[ebp], 0
+	mov	DWORD PTR $T52131[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _boxDesc$[ebp]
 	call	??1NxBoxShapeDesc@@UAE@XZ		; NxBoxShapeDesc::~NxBoxShapeDesc
@@ -16047,9 +16047,9 @@ __$EHRec$ = -12
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
-	mov	eax, DWORD PTR $T52123[ebp]
-	jmp	$L49789
-$L49796:
+	mov	eax, DWORD PTR $T52131[ebp]
+	jmp	$L49797
+$L49804:
 
 ; 1133 : 
 ; 1134 : 	Vector vecOffset = (pObject->IsMonster()) ? Vector( 0, 0, pObject->pev->maxs.z / 2.0f ) : g_vecZero;
@@ -16059,7 +16059,7 @@ $L49796:
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	DWORD PTR [edx+232]
 	test	eax, eax
-	je	SHORT $L52126
+	je	SHORT $L52134
 	mov	eax, DWORD PTR _pObject$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+240]
@@ -16068,16 +16068,16 @@ $L49796:
 	fstp	DWORD PTR [esp]
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T52125[ebp]
+	lea	ecx, DWORD PTR $T52133[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	DWORD PTR -460+[ebp], eax
-	jmp	SHORT $L52127
-$L52126:
+	jmp	SHORT $L52135
+$L52134:
 	mov	DWORD PTR -460+[ebp], OFFSET FLAT:?g_vecZero@@3VVector@@B ; g_vecZero
-$L52127:
+$L52135:
 	mov	edx, DWORD PTR -460+[ebp]
-	mov	DWORD PTR $T52124[ebp], edx
-	mov	eax, DWORD PTR $T52124[ebp]
+	mov	DWORD PTR $T52132[ebp], edx
+	mov	eax, DWORD PTR $T52132[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecOffset$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
@@ -16097,16 +16097,16 @@ $L52127:
 
 	lea	eax, DWORD PTR _vecOffset$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52129[ebp]
+	lea	ecx, DWORD PTR $T52137[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	ecx, DWORD PTR $T52128[ebp]
+	lea	ecx, DWORD PTR $T52136[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52128[ebp]
+	lea	edx, DWORD PTR $T52136[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -16128,7 +16128,7 @@ $L52127:
 ; 1141 : 	return pActor;
 
 	mov	eax, DWORD PTR _pActor$[ebp]
-	mov	DWORD PTR $T52130[ebp], eax
+	mov	DWORD PTR $T52138[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _boxDesc$[ebp]
 	call	??1NxBoxShapeDesc@@UAE@XZ		; NxBoxShapeDesc::~NxBoxShapeDesc
@@ -16138,8 +16138,8 @@ $L52127:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
-	mov	eax, DWORD PTR $T52130[ebp]
-$L49789:
+	mov	eax, DWORD PTR $T52138[ebp]
+$L49797:
 
 ; 1142 : }
 
@@ -16176,7 +16176,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T52142 = -16
+$T52150 = -16
 ??HVector@@QBE?AV0@ABV0@@Z PROC NEAR			; Vector::operator+, COMDAT
 
 ; 149  : 	inline Vector operator+(const Vector& v) const	{ return Vector(x+v.x, y+v.y, z+v.z);	   }
@@ -16206,7 +16206,7 @@ $T52142 = -16
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T52142[ebp]
+	lea	ecx, DWORD PTR $T52150[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -16370,12 +16370,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L46886
+	je	SHORT $L46894
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L46886:
+$L46894:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -16464,10 +16464,10 @@ _this$ = -4
 	call	?isFinite@NxVec3@@QBE_NXZ		; NxVec3::isFinite
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L46895
+	jne	SHORT $L46903
 	xor	al, al
-	jmp	SHORT $L46894
-$L46895:
+	jmp	SHORT $L46902
+$L46903:
 
 ; 76   : 	if(dimensions.x<0.0f)				return false;
 
@@ -16476,10 +16476,10 @@ $L46895:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L46896
+	je	SHORT $L46904
 	xor	al, al
-	jmp	SHORT $L46894
-$L46896:
+	jmp	SHORT $L46902
+$L46904:
 
 ; 77   : 	if(dimensions.y<0.0f)				return false;
 
@@ -16488,10 +16488,10 @@ $L46896:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L46897
+	je	SHORT $L46905
 	xor	al, al
-	jmp	SHORT $L46894
-$L46897:
+	jmp	SHORT $L46902
+$L46905:
 
 ; 78   : 	if(dimensions.z<0.0f)				return false;
 
@@ -16500,16 +16500,16 @@ $L46897:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L46898
+	je	SHORT $L46906
 	xor	al, al
-	jmp	SHORT $L46894
-$L46898:
+	jmp	SHORT $L46902
+$L46906:
 
 ; 79   : 	return NxShapeDesc::isValid();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?isValid@NxShapeDesc@@UBE_NXZ		; NxShapeDesc::isValid
-$L46894:
+$L46902:
 
 ; 80   : 	}
 
@@ -16521,10 +16521,10 @@ $L46894:
 	ret	0
 ?isValid@NxBoxShapeDesc@@UBE_NXZ ENDP			; NxBoxShapeDesc::isValid
 _TEXT	ENDS
+PUBLIC	??1NxTriangleMeshShapeDesc@@UAE@XZ		; NxTriangleMeshShapeDesc::~NxTriangleMeshShapeDesc
 PUBLIC	??_C@_0CL@FINK@failed?5to?5create?5kinematic?5from?5@ ; `string'
 PUBLIC	?hideWarning@NxErrorStream@@QAEX_N@Z		; NxErrorStream::hideWarning
 PUBLIC	??0NxTriangleMeshShapeDesc@@QAE@XZ		; NxTriangleMeshShapeDesc::NxTriangleMeshShapeDesc
-PUBLIC	??1NxTriangleMeshShapeDesc@@UAE@XZ		; NxTriangleMeshShapeDesc::~NxTriangleMeshShapeDesc
 EXTRN	?UTIL_CanRotate@@YAHPAVCBaseEntity@@@Z:NEAR	; UTIL_CanRotate
 ;	COMDAT ??_C@_0CL@FINK@failed?5to?5create?5kinematic?5from?5@
 ; File z:\xashxtsrc\server\novodex.cpp
@@ -16560,10 +16560,10 @@ _meshShapeDesc$ = -380
 _pActor$ = -384
 _pose$ = -432
 _mat$ = -496
-$T52165 = -500
-$T52166 = -504
-$T52167 = -568
-$T52168 = -572
+$T52173 = -500
+$T52174 = -504
+$T52175 = -568
+$T52176 = -572
 __$EHRec$ = -12
 ?CreateKinematicBodyFromEntity@CPhysicNovodex@@UAEPAXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::CreateKinematicBodyFromEntity, COMDAT
 
@@ -16593,10 +16593,10 @@ __$EHRec$ = -12
 ; 1147 : 	if( !pCollision ) return NULL;
 
 	cmp	DWORD PTR _pCollision$[ebp], 0
-	jne	SHORT $L49809
+	jne	SHORT $L49817
 	xor	eax, eax
-	jmp	$L49807
-$L49809:
+	jmp	$L49815
+$L49817:
 
 ; 1148 : 
 ; 1149 : 	NxBodyDesc BodyDesc;
@@ -16633,14 +16633,14 @@ $L49809:
 	call	?UTIL_CanRotate@@YAHPAVCBaseEntity@@@Z	; UTIL_CanRotate
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $L49813
+	jne	SHORT $L49821
 
 ; 1156 : 		BodyDesc.flags |= NX_BF_FROZEN_ROT; // entity missed origin-brush
 
 	mov	edx, DWORD PTR _BodyDesc$[ebp+108]
 	or	edx, 112				; 00000070H
 	mov	DWORD PTR _BodyDesc$[ebp+108], edx
-$L49813:
+$L49821:
 
 ; 1157 : 
 ; 1158 : 	ActorDesc.body = &BodyDesc;
@@ -16667,8 +16667,8 @@ $L49813:
 ; 1163 : 	ActorDesc.shapes.pushBack( &meshShapeDesc );
 
 	lea	edx, DWORD PTR _meshShapeDesc$[ebp]
-	mov	DWORD PTR $T52165[ebp], edx
-	lea	eax, DWORD PTR $T52165[ebp]
+	mov	DWORD PTR $T52173[ebp], edx
+	lea	eax, DWORD PTR $T52173[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
@@ -16703,7 +16703,7 @@ $L49813:
 ; 1168 : 	if( !pActor )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49816
+	jne	SHORT $L49824
 
 ; 1170 : 		ALERT( at_error, "failed to create kinematic from entity %s\n", pObject->GetClassname( ));
 
@@ -16717,7 +16717,7 @@ $L49813:
 
 ; 1171 : 		return NULL;
 
-	mov	DWORD PTR $T52166[ebp], 0
+	mov	DWORD PTR $T52174[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxTriangleMeshShapeDesc@@UAE@XZ	; NxTriangleMeshShapeDesc::~NxTriangleMeshShapeDesc
@@ -16727,9 +16727,9 @@ $L49813:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
-	mov	eax, DWORD PTR $T52166[ebp]
-	jmp	$L49807
-$L49816:
+	mov	eax, DWORD PTR $T52174[ebp]
+	jmp	$L49815
+$L49824:
 
 ; 1173 : 
 ; 1174 : 	pActor->setName( pObject->GetClassname( ));
@@ -16762,7 +16762,7 @@ $L49816:
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T52167[ebp]
+	lea	ecx, DWORD PTR $T52175[ebp]
 	call	??0matrix4x4@@QAE@ABVVector@@0M@Z	; matrix4x4::matrix4x4
 	mov	ecx, eax
 	call	?CopyToArray@matrix4x4@@QBEXPAM@Z	; matrix4x4::CopyToArray
@@ -16799,7 +16799,7 @@ $L49816:
 ; 1185 : 	return pActor;
 
 	mov	eax, DWORD PTR _pActor$[ebp]
-	mov	DWORD PTR $T52168[ebp], eax
+	mov	DWORD PTR $T52176[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
@@ -16812,8 +16812,8 @@ $L49816:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
-	mov	eax, DWORD PTR $T52168[ebp]
-$L49807:
+	mov	eax, DWORD PTR $T52176[ebp]
+$L49815:
 
 ; 1186 : }
 
@@ -16875,11 +16875,11 @@ _this$ = -4
 	ret	4
 ?hideWarning@NxErrorStream@@QAEX_N@Z ENDP		; NxErrorStream::hideWarning
 _TEXT	ENDS
+PUBLIC	??_7NxTriangleMeshShapeDesc@@6B@		; NxTriangleMeshShapeDesc::`vftable'
+PUBLIC	??_GNxTriangleMeshShapeDesc@@UAEPAXI@Z		; NxTriangleMeshShapeDesc::`scalar deleting destructor'
 PUBLIC	??_ENxTriangleMeshShapeDesc@@UAEPAXI@Z		; NxTriangleMeshShapeDesc::`vector deleting destructor'
 PUBLIC	?setToDefault@NxTriangleMeshShapeDesc@@UAEXXZ	; NxTriangleMeshShapeDesc::setToDefault
 PUBLIC	?isValid@NxTriangleMeshShapeDesc@@UBE_NXZ	; NxTriangleMeshShapeDesc::isValid
-PUBLIC	??_7NxTriangleMeshShapeDesc@@6B@		; NxTriangleMeshShapeDesc::`vftable'
-PUBLIC	??_GNxTriangleMeshShapeDesc@@UAEPAXI@Z		; NxTriangleMeshShapeDesc::`scalar deleting destructor'
 ;	COMDAT ??_7NxTriangleMeshShapeDesc@@6B@
 ; File z:\xashxtsrc\phys_shared\nxtrianglemeshshapedesc.h
 CONST	SEGMENT
@@ -16971,12 +16971,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L46087
+	je	SHORT $L46095
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L46087:
+$L46095:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -17074,10 +17074,10 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+108], 0
-	jne	SHORT $L46096
+	jne	SHORT $L46104
 	xor	al, al
-	jmp	SHORT $L46095
-$L46096:
+	jmp	SHORT $L46103
+$L46104:
 
 ; 110  : #ifdef NX_SUPPORT_MESH_SCALE
 ; 111  : 	if(scale<=0.0f)	return false;
@@ -17086,7 +17086,7 @@ $L46096:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?isValid@NxShapeDesc@@UBE_NXZ		; NxShapeDesc::isValid
-$L46095:
+$L46103:
 
 ; 114  : 	}
 
@@ -17131,10 +17131,10 @@ _mat$ = -132
 _ActorDesc$ = -236
 _meshShapeDesc$ = -356
 _pActor$ = -360
-$T52201 = -424
-$T52202 = -428
-$T52203 = -432
-$T52204 = -436
+$T52209 = -424
+$T52210 = -428
+$T52211 = -432
+$T52212 = -436
 __$EHRec$ = -12
 ?CreateStaticBodyFromEntity@CPhysicNovodex@@UAEPAXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::CreateStaticBodyFromEntity, COMDAT
 
@@ -17164,10 +17164,10 @@ __$EHRec$ = -12
 ; 1191 : 	if( !pCollision ) return NULL;
 
 	cmp	DWORD PTR _pCollision$[ebp], 0
-	jne	SHORT $L49828
+	jne	SHORT $L49836
 	xor	eax, eax
-	jmp	$L49826
-$L49828:
+	jmp	$L49834
+$L49836:
 
 ; 1192 : 
 ; 1193 : 	NxMat34 pose;
@@ -17189,7 +17189,7 @@ $L49828:
 	mov	ecx, DWORD PTR _pObject$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	push	eax
-	lea	ecx, DWORD PTR $T52201[ebp]
+	lea	ecx, DWORD PTR $T52209[ebp]
 	call	??0matrix4x4@@QAE@ABVVector@@0M@Z	; matrix4x4::matrix4x4
 	mov	ecx, eax
 	call	?CopyToArray@matrix4x4@@QBEXPAM@Z	; matrix4x4::CopyToArray
@@ -17240,12 +17240,12 @@ $L49828:
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, 4
 	test	eax, eax
-	je	SHORT $L49834
+	je	SHORT $L49842
 
 ; 1206 : 		meshShapeDesc.materialIndex = 1;
 
 	mov	WORD PTR _meshShapeDesc$[ebp+62], 1
-$L49834:
+$L49842:
 
 ; 1207 : 	meshShapeDesc.meshData = pCollision;
 
@@ -17255,8 +17255,8 @@ $L49834:
 ; 1208 : 	ActorDesc.shapes.pushBack( &meshShapeDesc );
 
 	lea	edx, DWORD PTR _meshShapeDesc$[ebp]
-	mov	DWORD PTR $T52202[ebp], edx
-	lea	eax, DWORD PTR $T52202[ebp]
+	mov	DWORD PTR $T52210[ebp], edx
+	lea	eax, DWORD PTR $T52210[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
@@ -17277,7 +17277,7 @@ $L49834:
 ; 1211 : 	if( !pActor )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49837
+	jne	SHORT $L49845
 
 ; 1213 : 		ALERT( at_error, "failed to create static from entity %s\n", pObject->GetClassname( ));
 
@@ -17291,7 +17291,7 @@ $L49834:
 
 ; 1214 : 		return NULL;
 
-	mov	DWORD PTR $T52203[ebp], 0
+	mov	DWORD PTR $T52211[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxTriangleMeshShapeDesc@@UAE@XZ	; NxTriangleMeshShapeDesc::~NxTriangleMeshShapeDesc
@@ -17301,9 +17301,9 @@ $L49834:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
-	mov	eax, DWORD PTR $T52203[ebp]
-	jmp	SHORT $L49826
-$L49837:
+	mov	eax, DWORD PTR $T52211[ebp]
+	jmp	SHORT $L49834
+$L49845:
 
 ; 1216 : 
 ; 1217 : 	pActor->setName( pObject->GetClassname( ));
@@ -17332,7 +17332,7 @@ $L49837:
 ; 1222 : 	return pActor;
 
 	mov	eax, DWORD PTR _pActor$[ebp]
-	mov	DWORD PTR $T52204[ebp], eax
+	mov	DWORD PTR $T52212[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxTriangleMeshShapeDesc@@UAE@XZ	; NxTriangleMeshShapeDesc::~NxTriangleMeshShapeDesc
@@ -17342,8 +17342,8 @@ $L49837:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
-	mov	eax, DWORD PTR $T52204[ebp]
-$L49826:
+	mov	eax, DWORD PTR $T52212[ebp]
+$L49834:
 
 ; 1223 : }
 
@@ -17742,13 +17742,13 @@ __unwindtable$?UpdateEntityPos@CPhysicNovodex@@UAE_NPAVCBaseEntity@@@Z DD 0fffff
 xdata$x	ENDS
 ;	COMDAT ?UpdateEntityPos@CPhysicNovodex@@UAE_NPAVCBaseEntity@@@Z
 _TEXT	SEGMENT
-$T52224 = -244
-$T52225 = -256
-$T52226 = -268
-$T52227 = -280
-$T52228 = -292
-$T52229 = -304
-$T52230 = -308
+$T52232 = -244
+$T52233 = -256
+$T52234 = -268
+$T52235 = -280
+$T52236 = -292
+$T52237 = -304
+$T52238 = -308
 __$EHRec$ = -12
 _pEntity$ = 8
 _this$ = -16
@@ -17788,21 +17788,21 @@ _vecPrevOrigin$ = -232
 ; 1458 : 	if( !pActor || pActor->isSleeping( ))
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L49859
+	je	SHORT $L49867
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+320]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L49858
-$L49859:
+	je	SHORT $L49866
+$L49867:
 
 ; 1459 : 		return false;
 
 	xor	al, al
-	jmp	$L49856
-$L49858:
+	jmp	$L49864
+$L49866:
 
 ; 1460 : 
 ; 1461 : 	NxMat34 pose = pActor->getGlobalPose();
@@ -17834,7 +17834,7 @@ $L49858:
 ; 1466 : 
 ; 1467 : 	Vector angles = m.GetAngles();
 
-	lea	edx, DWORD PTR $T52224[ebp]
+	lea	edx, DWORD PTR $T52232[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _m$[ebp]
 	call	?GetAngles@matrix4x4@@QAE?AVVector@@XZ	; matrix4x4::GetAngles
@@ -17844,7 +17844,7 @@ $L49858:
 
 ; 1468 : 	Vector origin = m.GetOrigin();
 
-	lea	eax, DWORD PTR $T52225[ebp]
+	lea	eax, DWORD PTR $T52233[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _m$[ebp]
 	call	?GetOrigin@matrix4x4@@QBE?AVVector@@XZ	; matrix4x4::GetOrigin
@@ -17856,32 +17856,32 @@ $L49858:
 ; 1470 : 	// store actor velocities too
 ; 1471 : 	pEntity->SetLocalVelocity( pActor->getLinearVelocity() );
 
-	lea	ecx, DWORD PTR $T52227[ebp]
+	lea	ecx, DWORD PTR $T52235[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pActor$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+232]
 	push	eax
-	lea	ecx, DWORD PTR $T52226[ebp]
+	lea	ecx, DWORD PTR $T52234[ebp]
 	call	??0Vector@@QAE@ABVNxVec3@@@Z		; Vector::Vector
-	lea	ecx, DWORD PTR $T52226[ebp]
+	lea	ecx, DWORD PTR $T52234[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?SetLocalVelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalVelocity
 
 ; 1472 : 	pEntity->SetLocalAvelocity( pActor->getAngularVelocity() );
 
-	lea	edx, DWORD PTR $T52229[ebp]
+	lea	edx, DWORD PTR $T52237[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+236]
 	push	eax
-	lea	ecx, DWORD PTR $T52228[ebp]
+	lea	ecx, DWORD PTR $T52236[ebp]
 	call	??0Vector@@QAE@ABVNxVec3@@@Z		; Vector::Vector
-	lea	eax, DWORD PTR $T52228[ebp]
+	lea	eax, DWORD PTR $T52236[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?SetLocalAvelocity@CBaseEntity@@QAEXABVVector@@@Z ; CBaseEntity::SetLocalAvelocity
@@ -17921,12 +17921,12 @@ $L49858:
 ; 1478 : 
 ; 1479 : 	return true;
 
-	mov	BYTE PTR $T52230[ebp], 1
+	mov	BYTE PTR $T52238[ebp], 1
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
-	mov	al, BYTE PTR $T52230[ebp]
-$L49856:
+	mov	al, BYTE PTR $T52238[ebp]
+$L49864:
 
 ; 1480 : }
 
@@ -18127,8 +18127,8 @@ _TEXT	ENDS
 PUBLIC	??BVector4D@@QBE?BVVector@@XZ			; Vector4D::operator Vector const 
 ;	COMDAT ?GetOrigin@matrix4x4@@QBE?AVVector@@XZ
 _TEXT	SEGMENT
-$T52242 = -16
-$T52243 = -28
+$T52250 = -16
+$T52251 = -28
 ___$ReturnUdt$ = 8
 _this$ = -4
 ?GetOrigin@matrix4x4@@QBE?AVVector@@XZ PROC NEAR	; matrix4x4::GetOrigin, COMDAT
@@ -18142,15 +18142,15 @@ _this$ = -4
 	push	esi
 	push	edi
 	mov	DWORD PTR _this$[ebp], ecx
-	lea	eax, DWORD PTR $T52243[ebp]
+	lea	eax, DWORD PTR $T52251[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 48					; 00000030H
 	call	??BVector4D@@QBE?BVVector@@XZ		; Vector4D::operator Vector const 
 	push	eax
-	lea	ecx, DWORD PTR $T52242[ebp]
+	lea	ecx, DWORD PTR $T52250[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
-	lea	ecx, DWORD PTR $T52242[ebp]
+	lea	ecx, DWORD PTR $T52250[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
@@ -18165,7 +18165,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ??BVector4D@@QBE?BVVector@@XZ
 _TEXT	SEGMENT
-$T52246 = -16
+$T52254 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ??BVector4D@@QBE?BVVector@@XZ PROC NEAR			; Vector4D::operator Vector const , COMDAT
@@ -18188,7 +18188,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	push	edx
-	lea	ecx, DWORD PTR $T52246[ebp]
+	lea	ecx, DWORD PTR $T52254[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -18592,9 +18592,9 @@ __unwindtable$?UpdateActorPos@CPhysicNovodex@@UAE_NPAVCBaseEntity@@@Z DD 0ffffff
 xdata$x	ENDS
 ;	COMDAT ?UpdateActorPos@CPhysicNovodex@@UAE_NPAVCBaseEntity@@@Z
 _TEXT	SEGMENT
-$T52259 = -208
-$T52260 = -220
-$T52261 = -224
+$T52267 = -208
+$T52268 = -220
+$T52269 = -224
 __$EHRec$ = -12
 _pEntity$ = 8
 _this$ = -16
@@ -18630,10 +18630,10 @@ _m$ = -196
 ; 1485 : 	if( !pActor ) return false;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49879
+	jne	SHORT $L49887
 	xor	al, al
-	jmp	$L49877
-$L49879:
+	jmp	$L49885
+$L49887:
 
 ; 1486 : 
 ; 1487 : 	NxMat34 pose;
@@ -18691,16 +18691,16 @@ $L49879:
 	call	DWORD PTR [edx+364]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L49883
+	jne	SHORT $L49891
 
 ; 1498 : 		pActor->setLinearVelocity( pEntity->GetLocalVelocity() );
 
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?GetLocalVelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetLocalVelocity
 	push	eax
-	lea	ecx, DWORD PTR $T52259[ebp]
+	lea	ecx, DWORD PTR $T52267[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T52259[ebp]
+	lea	eax, DWORD PTR $T52267[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -18712,25 +18712,25 @@ $L49879:
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?GetLocalAvelocity@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetLocalAvelocity
 	push	eax
-	lea	ecx, DWORD PTR $T52260[ebp]
+	lea	ecx, DWORD PTR $T52268[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T52260[ebp]
+	lea	eax, DWORD PTR $T52268[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+228]
-$L49883:
+$L49891:
 
 ; 1501 : 
 ; 1502 : 	return true;
 
-	mov	BYTE PTR $T52261[ebp], 1
+	mov	BYTE PTR $T52269[ebp], 1
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
-	mov	al, BYTE PTR $T52261[ebp]
-$L49877:
+	mov	al, BYTE PTR $T52269[ebp]
+$L49885:
 
 ; 1503 : }
 
@@ -18782,10 +18782,10 @@ _pActor$ = -8
 ; 1508 : 	if( !pActor ) return false;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49892
+	jne	SHORT $L49900
 	xor	al, al
-	jmp	SHORT $L49890
-$L49892:
+	jmp	SHORT $L49898
+$L49900:
 
 ; 1509 : 	return pActor->isSleeping();
 
@@ -18793,7 +18793,7 @@ $L49892:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+320]
-$L49890:
+$L49898:
 
 ; 1510 : }
 
@@ -18822,18 +18822,18 @@ __unwindtable$?UpdateEntityAABB@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z DD 0fffff
 xdata$x	ENDS
 ;	COMDAT ?UpdateEntityAABB@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z
 _TEXT	SEGMENT
-$T52273 = -64
-$T52274 = -76
-$T52275 = -88
-$T52276 = -100
-$T52277 = -112
+$T52281 = -64
+$T52282 = -76
+$T52283 = -88
+$T52284 = -100
+$T52285 = -112
 __$EHRec$ = -12
 _pEntity$ = 8
 _this$ = -16
 _pActor$ = -20
 _i$ = -24
-_pShape$49904 = -28
-_bbox$49905 = -52
+_pShape$49912 = -28
+_bbox$49913 = -52
 ?UpdateEntityAABB@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::UpdateEntityAABB, COMDAT
 
 ; 1513 : {
@@ -18863,19 +18863,19 @@ _bbox$49905 = -52
 ; 1516 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L49899
+	je	SHORT $L49907
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	ja	SHORT $L49898
-$L49899:
+	ja	SHORT $L49906
+$L49907:
 
 ; 1517 : 		return;
 
-	jmp	$L49896
-$L49898:
+	jmp	$L49904
+$L49906:
 
 ; 1518 : 
 ; 1519 : 	ClearBounds( pEntity->pev->absmin, pEntity->pev->absmax );
@@ -18895,18 +18895,18 @@ $L49898:
 ; 1521 : 	for( uint i = 0; i < pActor->getNbShapes(); i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L49901
-$L49902:
+	jmp	SHORT $L49909
+$L49910:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L49901:
+$L49909:
 	mov	edx, DWORD PTR _pActor$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+76]
 	cmp	DWORD PTR _i$[ebp], eax
-	jae	$L49903
+	jae	$L49911
 
 ; 1523 : 		NxShape *pShape = pActor->getShapes()[i];
 
@@ -18916,11 +18916,11 @@ $L49901:
 	call	DWORD PTR [edx+80]
 	mov	ecx, DWORD PTR _i$[ebp]
 	mov	edx, DWORD PTR [eax+ecx*4]
-	mov	DWORD PTR _pShape$49904[ebp], edx
+	mov	DWORD PTR _pShape$49912[ebp], edx
 
 ; 1524 : 		NxBounds3 bbox;
 
-	lea	ecx, DWORD PTR _bbox$49905[ebp]
+	lea	ecx, DWORD PTR _bbox$49913[ebp]
 	call	??0NxBounds3@@QAE@XZ			; NxBounds3::NxBounds3
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
@@ -18928,19 +18928,19 @@ $L49901:
 ; 1526 : 		// already transformed as OBB
 ; 1527 : 		pShape->getWorldBounds( bbox );
 
-	lea	eax, DWORD PTR _bbox$49905[ebp]
+	lea	eax, DWORD PTR _bbox$49913[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pShape$49904[ebp]
+	mov	ecx, DWORD PTR _pShape$49912[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pShape$49904[ebp]
+	mov	ecx, DWORD PTR _pShape$49912[ebp]
 	call	DWORD PTR [edx+16]
 
 ; 1528 : 
 ; 1529 : 		AddPointToBounds( bbox.min, pEntity->pev->absmin, pEntity->pev->absmax );
 
-	lea	eax, DWORD PTR _bbox$49905[ebp]
+	lea	eax, DWORD PTR _bbox$49913[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52273[ebp]
+	lea	ecx, DWORD PTR $T52281[ebp]
 	call	??0Vector@@QAE@ABVNxVec3@@@Z		; Vector::Vector
 	push	0
 	mov	ecx, DWORD PTR _pEntity$[ebp]
@@ -18951,16 +18951,16 @@ $L49901:
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 196				; 000000c4H
 	push	ecx
-	lea	edx, DWORD PTR $T52273[ebp]
+	lea	edx, DWORD PTR $T52281[ebp]
 	push	edx
 	call	?AddPointToBounds@@YAXABVVector@@AAV1@1M@Z ; AddPointToBounds
 	add	esp, 16					; 00000010H
 
 ; 1530 : 		AddPointToBounds( bbox.max, pEntity->pev->absmin, pEntity->pev->absmax );
 
-	lea	eax, DWORD PTR _bbox$49905[ebp+12]
+	lea	eax, DWORD PTR _bbox$49913[ebp+12]
 	push	eax
-	lea	ecx, DWORD PTR $T52274[ebp]
+	lea	ecx, DWORD PTR $T52282[ebp]
 	call	??0Vector@@QAE@ABVNxVec3@@@Z		; Vector::Vector
 	push	0
 	mov	ecx, DWORD PTR _pEntity$[ebp]
@@ -18971,7 +18971,7 @@ $L49901:
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 196				; 000000c4H
 	push	ecx
-	lea	edx, DWORD PTR $T52274[ebp]
+	lea	edx, DWORD PTR $T52282[ebp]
 	push	edx
 	call	?AddPointToBounds@@YAXABVVector@@AAV1@1M@Z ; AddPointToBounds
 	add	esp, 16					; 00000010H
@@ -18979,10 +18979,10 @@ $L49901:
 ; 1531 : 	}
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _bbox$49905[ebp]
+	lea	ecx, DWORD PTR _bbox$49913[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
-	jmp	$L49902
-$L49903:
+	jmp	$L49910
+$L49911:
 
 ; 1532 : 
 ; 1533 : 	// shrink AABB by 1 units in each axis
@@ -19054,7 +19054,7 @@ $L49903:
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 8
 	push	ecx
-	lea	edx, DWORD PTR $T52275[ebp]
+	lea	edx, DWORD PTR $T52283[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -19076,7 +19076,7 @@ $L49903:
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 8
 	push	edx
-	lea	eax, DWORD PTR $T52276[ebp]
+	lea	eax, DWORD PTR $T52284[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -19098,7 +19098,7 @@ $L49903:
 	mov	edx, DWORD PTR [ecx+4]
 	add	edx, 220				; 000000dcH
 	push	edx
-	lea	eax, DWORD PTR $T52277[ebp]
+	lea	eax, DWORD PTR $T52285[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -19113,7 +19113,7 @@ $L49903:
 	mov	DWORD PTR [ecx+4], edx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [ecx+8], eax
-$L49896:
+$L49904:
 
 ; 1545 : }
 
@@ -19129,7 +19129,7 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?UpdateEntityAABB@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z$0:
-	lea	ecx, DWORD PTR _bbox$49905[ebp]
+	lea	ecx, DWORD PTR _bbox$49913[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
 	ret	0
 __ehhandler$?UpdateEntityAABB@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z:
@@ -19139,7 +19139,7 @@ text$x	ENDS
 ?UpdateEntityAABB@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z ENDP ; CPhysicNovodex::UpdateEntityAABB
 ;	COMDAT ??GVector@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
-$T52287 = -16
+$T52295 = -16
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
@@ -19172,7 +19172,7 @@ _this$ = -4
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T52287[ebp]
+	lea	ecx, DWORD PTR $T52295[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -19243,7 +19243,7 @@ _bodyDesc$ = -260
 ; 1601 : 	if( !pActor )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49916
+	jne	SHORT $L49924
 
 ; 1603 : 		ALERT( at_warning, "SaveBody: physic entity %i missed actor!\n", pEntity->m_iActorType );
 
@@ -19258,8 +19258,8 @@ _bodyDesc$ = -260
 
 ; 1604 : 		return;
 
-	jmp	$L49914
-$L49916:
+	jmp	$L49922
+$L49924:
 
 ; 1606 : 
 ; 1607 : 	NxActorDesc actorDesc;
@@ -19335,7 +19335,7 @@ $L49916:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+1604]
 	cmp	eax, 1
-	jne	SHORT $L49920
+	jne	SHORT $L49928
 
 ; 1621 : 		// update movement variables
 ; 1622 : 		UpdateEntityPos( pEntity );
@@ -19346,7 +19346,7 @@ $L49916:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	DWORD PTR [eax+116]
-$L49920:
+$L49928:
 
 ; 1624 : }
 
@@ -19356,7 +19356,7 @@ $L49920:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _actorDesc$[ebp]
 	call	??1NxActorDesc@@QAE@XZ			; NxActorDesc::~NxActorDesc
-$L49914:
+$L49922:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -19420,16 +19420,16 @@ __unwindtable$?RestoreBody@CPhysicNovodex@@UAEPAXPAVCBaseEntity@@@Z DD 0ffffffff
 xdata$x	ENDS
 ;	COMDAT ?RestoreBody@CPhysicNovodex@@UAEPAXPAVCBaseEntity@@@Z
 _TEXT	SEGMENT
-$T52300 = -808
-$T52301 = -812
-$T52302 = -824
-$T52303 = -828
-$T52304 = -832
-$T52305 = -836
-$T52306 = -840
-$T52307 = -844
-$T52308 = -848
-$T52309 = -852
+$T52308 = -808
+$T52309 = -812
+$T52310 = -824
+$T52311 = -828
+$T52312 = -832
+$T52313 = -836
+$T52314 = -840
+$T52315 = -844
+$T52316 = -848
+$T52317 = -852
 __$EHRec$ = -12
 _pEntity$ = 8
 _this$ = -16
@@ -19465,10 +19465,10 @@ _pActor$ = -804
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
-	jne	SHORT $L49925
+	jne	SHORT $L49933
 	xor	eax, eax
-	jmp	$L49924
-$L49925:
+	jmp	$L49932
+$L49933:
 
 ; 1637 : 
 ; 1638 : 	NxConvexShapeDesc meshShapeDesc;
@@ -19511,10 +19511,10 @@ $L49925:
 	sub	eax, 1
 	mov	DWORD PTR -856+[ebp], eax
 	cmp	DWORD PTR -856+[ebp], 3
-	ja	$L49947
+	ja	$L49955
 	mov	ecx, DWORD PTR -856+[ebp]
-	jmp	DWORD PTR $L52319[ecx*4]
-$L49935:
+	jmp	DWORD PTR $L52327[ecx*4]
+$L49943:
 
 ; 1646 : 	case ACTOR_DYNAMIC:
 ; 1647 : 		meshShapeDesc.meshData = ConvexMeshFromEntity( pEntity );
@@ -19528,8 +19528,8 @@ $L49935:
 ; 1648 : 		if( !meshShapeDesc.meshData ) return NULL;
 
 	cmp	DWORD PTR _meshShapeDesc$[ebp+108], 0
-	jne	SHORT $L49936
-	mov	DWORD PTR $T52300[ebp], 0
+	jne	SHORT $L49944
+	mov	DWORD PTR $T52308[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
@@ -19545,29 +19545,29 @@ $L49935:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
-	mov	eax, DWORD PTR $T52300[ebp]
-	jmp	$L49924
-$L49936:
+	mov	eax, DWORD PTR $T52308[ebp]
+	jmp	$L49932
+$L49944:
 
 ; 1649 : 		ActorDesc.shapes.pushBack( &meshShapeDesc );
 
 	lea	eax, DWORD PTR _meshShapeDesc$[ebp]
-	mov	DWORD PTR $T52301[ebp], eax
-	lea	ecx, DWORD PTR $T52301[ebp]
+	mov	DWORD PTR $T52309[ebp], eax
+	lea	ecx, DWORD PTR $T52309[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
 
 ; 1650 : 		break;
 
-	jmp	$L49932
-$L49939:
+	jmp	$L49940
+$L49947:
 
 ; 1651 : 	case ACTOR_CHARACTER:
 ; 1652 : 		boxDesc.dimensions = pEntity->pev->size * PADDING_FACTOR;
 
 	push	1056629064				; 3efae148H
-	lea	edx, DWORD PTR $T52302[ebp]
+	lea	edx, DWORD PTR $T52310[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -19580,16 +19580,16 @@ $L49939:
 ; 1653 : 		ActorDesc.shapes.pushBack( &boxDesc );
 
 	lea	ecx, DWORD PTR _boxDesc$[ebp]
-	mov	DWORD PTR $T52303[ebp], ecx
-	lea	edx, DWORD PTR $T52303[ebp]
+	mov	DWORD PTR $T52311[ebp], ecx
+	lea	edx, DWORD PTR $T52311[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
 
 ; 1654 : 		break;
 
-	jmp	$L49932
-$L49942:
+	jmp	$L49940
+$L49950:
 
 ; 1655 : 	case ACTOR_KINEMATIC:
 ; 1656 : 	case ACTOR_STATIC:
@@ -19604,8 +19604,8 @@ $L49942:
 ; 1658 : 		if( !triMeshShapeDesc.meshData ) return NULL;
 
 	cmp	DWORD PTR _triMeshShapeDesc$[ebp+108], 0
-	jne	SHORT $L49943
-	mov	DWORD PTR $T52304[ebp], 0
+	jne	SHORT $L49951
+	mov	DWORD PTR $T52312[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
@@ -19621,9 +19621,9 @@ $L49942:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
-	mov	eax, DWORD PTR $T52304[ebp]
-	jmp	$L49924
-$L49943:
+	mov	eax, DWORD PTR $T52312[ebp]
+	jmp	$L49932
+$L49951:
 
 ; 1659 : 		if( pEntity->pev->flags & FL_CONVEYOR )
 
@@ -19632,26 +19632,26 @@ $L49943:
 	mov	eax, DWORD PTR [edx+420]
 	and	eax, 4
 	test	eax, eax
-	je	SHORT $L49945
+	je	SHORT $L49953
 
 ; 1660 : 			triMeshShapeDesc.materialIndex = 1;
 
 	mov	WORD PTR _triMeshShapeDesc$[ebp+62], 1
-$L49945:
+$L49953:
 
 ; 1661 : 		ActorDesc.shapes.pushBack( &triMeshShapeDesc );
 
 	lea	ecx, DWORD PTR _triMeshShapeDesc$[ebp]
-	mov	DWORD PTR $T52305[ebp], ecx
-	lea	edx, DWORD PTR $T52305[ebp]
+	mov	DWORD PTR $T52313[ebp], ecx
+	lea	edx, DWORD PTR $T52313[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
 
 ; 1662 : 		break;
 
-	jmp	SHORT $L49932
-$L49947:
+	jmp	SHORT $L49940
+$L49955:
 
 ; 1663 : 	default:
 ; 1664 : 		ALERT( at_error, "RestoreBody: invalid actor type %i\n", pEntity->m_iActorType );
@@ -19667,7 +19667,7 @@ $L49947:
 
 ; 1665 : 		return NULL;
 
-	mov	DWORD PTR $T52306[ebp], 0
+	mov	DWORD PTR $T52314[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
@@ -19683,9 +19683,9 @@ $L49947:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
-	mov	eax, DWORD PTR $T52306[ebp]
-	jmp	$L49924
-$L49932:
+	mov	eax, DWORD PTR $T52314[ebp]
+	jmp	$L49932
+$L49940:
 
 ; 1667 : 
 ; 1668 : 	if( ActorDesc.shapes.size() <= 0 )
@@ -19693,11 +19693,11 @@ $L49932:
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?size@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QBEIXZ ; NxArray<NxShapeDesc *,NxAllocatorDefault>::size
 	test	eax, eax
-	ja	SHORT $L49950
+	ja	SHORT $L49958
 
 ; 1669 : 		return NULL; // failed to create shape
 
-	mov	DWORD PTR $T52307[ebp], 0
+	mov	DWORD PTR $T52315[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	call	??1NxBodyDesc@@QAE@XZ			; NxBodyDesc::~NxBodyDesc
@@ -19713,9 +19713,9 @@ $L49932:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
-	mov	eax, DWORD PTR $T52307[ebp]
-	jmp	$L49924
-$L49950:
+	mov	eax, DWORD PTR $T52315[ebp]
+	jmp	$L49932
+$L49958:
 
 ; 1670 : 
 ; 1671 : 	NxMat34 pose;
@@ -19742,7 +19742,7 @@ $L49950:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+1604]
 	cmp	eax, 3
-	jne	SHORT $L49955
+	jne	SHORT $L49963
 
 ; 1677 : 		angles = g_vecZero;	// no angles for NPC and client
 
@@ -19752,7 +19752,7 @@ $L49950:
 	mov	DWORD PTR _angles$[ebp+4], edx
 	mov	eax, DWORD PTR ?g_vecZero@@3VVector@@B+8
 	mov	DWORD PTR _angles$[ebp+8], eax
-$L49955:
+$L49963:
 
 ; 1678 : 
 ; 1679 : 	matrix4x4	m( pEntity->GetAbsOrigin(), angles, 1.0f );
@@ -19788,7 +19788,7 @@ $L49955:
 	xor	edx, edx
 	mov	dl, BYTE PTR [ecx+1604]
 	cmp	edx, 4
-	je	SHORT $L49957
+	je	SHORT $L49965
 
 ; 1686 : 		BodyDesc.flags = pEntity->m_iBodyFlags;
 
@@ -19808,7 +19808,7 @@ $L49955:
 	xor	eax, eax
 	mov	al, BYTE PTR [edx+1604]
 	cmp	eax, 2
-	je	SHORT $L49958
+	je	SHORT $L49966
 
 ; 1692 : 			BodyDesc.linearVelocity = pEntity->GetAbsVelocity(); 
 
@@ -19825,14 +19825,14 @@ $L49955:
 	push	eax
 	lea	ecx, DWORD PTR _BodyDesc$[ebp+76]
 	call	??4NxVec3@@QAEABV0@ABVVector@@@Z	; NxVec3::operator=
-$L49958:
+$L49966:
 
 ; 1695 : 
 ; 1696 : 		ActorDesc.body = &BodyDesc;
 
 	lea	ecx, DWORD PTR _BodyDesc$[ebp]
 	mov	DWORD PTR _ActorDesc$[ebp+48], ecx
-$L49957:
+$L49965:
 
 ; 1698 :   
 ; 1699 : 	ActorDesc.density = DENSITY_FACTOR;
@@ -19871,7 +19871,7 @@ $L49957:
 	xor	edx, edx
 	mov	dl, BYTE PTR [ecx+1604]
 	cmp	edx, 2
-	jne	SHORT $L49959
+	jne	SHORT $L49967
 
 ; 1706 : 		m_ErrorStream.hideWarning( true );
 
@@ -19879,7 +19879,7 @@ $L49957:
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1344				; 00000540H
 	call	?hideWarning@NxErrorStream@@QAEX_N@Z	; NxErrorStream::hideWarning
-$L49959:
+$L49967:
 
 ; 1707 : 
 ; 1708 : 	NxActor *pActor = m_pScene->createActor( ActorDesc );
@@ -19901,7 +19901,7 @@ $L49959:
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [eax+1604]
 	cmp	ecx, 2
-	jne	SHORT $L49961
+	jne	SHORT $L49969
 
 ; 1711 : 		m_ErrorStream.hideWarning( false );
 
@@ -19909,13 +19909,13 @@ $L49959:
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 1344				; 00000540H
 	call	?hideWarning@NxErrorStream@@QAEX_N@Z	; NxErrorStream::hideWarning
-$L49961:
+$L49969:
 
 ; 1712 : 
 ; 1713 : 	if( !pActor )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	$L49962
+	jne	$L49970
 
 ; 1715 : 		ALERT( at_error, "RestoreBody: unbale to create actor with type (%i)\n", pEntity->m_iActorType );
 
@@ -19930,7 +19930,7 @@ $L49961:
 
 ; 1716 : 		return NULL;
 
-	mov	DWORD PTR $T52308[ebp], 0
+	mov	DWORD PTR $T52316[ebp], 0
 	mov	BYTE PTR __$EHRec$[ebp+8], 4
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
@@ -19949,9 +19949,9 @@ $L49961:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
-	mov	eax, DWORD PTR $T52308[ebp]
-	jmp	$L49924
-$L49962:
+	mov	eax, DWORD PTR $T52316[ebp]
+	jmp	$L49932
+$L49970:
 
 ; 1718 : 
 ; 1719 : 	// apply specific actor params
@@ -19976,12 +19976,12 @@ $L49962:
 
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	cmp	DWORD PTR [edx+1624], 0
-	je	SHORT $L49965
+	je	SHORT $L49973
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [eax+1604]
 	cmp	ecx, 1
-	jne	SHORT $L49965
+	jne	SHORT $L49973
 
 ; 1724 : 		pActor->putToSleep();
 
@@ -19989,13 +19989,13 @@ $L49962:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+352]
-$L49965:
+$L49973:
 
 ; 1725 : 
 ; 1726 : 	return pActor;
 
 	mov	ecx, DWORD PTR _pActor$[ebp]
-	mov	DWORD PTR $T52309[ebp], ecx
+	mov	DWORD PTR $T52317[ebp], ecx
 	mov	BYTE PTR __$EHRec$[ebp+8], 4
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
@@ -20014,8 +20014,8 @@ $L49965:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _meshShapeDesc$[ebp]
 	call	??1NxConvexShapeDesc@@UAE@XZ		; NxConvexShapeDesc::~NxConvexShapeDesc
-	mov	eax, DWORD PTR $T52309[ebp]
-$L49924:
+	mov	eax, DWORD PTR $T52317[ebp]
+$L49932:
 
 ; 1727 : }
 
@@ -20027,11 +20027,11 @@ $L49924:
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-$L52319:
-	DD	$L49935
-	DD	$L49942
-	DD	$L49939
-	DD	$L49942
+$L52327:
+	DD	$L49943
+	DD	$L49950
+	DD	$L49947
+	DD	$L49950
 _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
@@ -20116,9 +20116,9 @@ _m$ = -92
 ; 1732 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49973
-	jmp	SHORT $L49971
-$L49973:
+	jne	SHORT $L49981
+	jmp	SHORT $L49979
+$L49981:
 
 ; 1733 : 
 ; 1734 : 	NxMat33 rot;
@@ -20156,7 +20156,7 @@ $L49973:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _rot$[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
-$L49971:
+$L49979:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -20825,7 +20825,7 @@ _this$ = -4
 _TEXT	ENDS
 ;	COMDAT ?SetOrigin@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52340 = -20
+$T52348 = -20
 _pEntity$ = 8
 _origin$ = 12
 _this$ = -4
@@ -20853,24 +20853,24 @@ _pActor$ = -8
 ; 1743 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49983
-	jmp	SHORT $L49981
-$L49983:
+	jne	SHORT $L49991
+	jmp	SHORT $L49989
+$L49991:
 
 ; 1744 : 
 ; 1745 : 	pActor->setGlobalPosition( origin );
 
 	mov	ecx, DWORD PTR _origin$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52340[ebp]
+	lea	ecx, DWORD PTR $T52348[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52340[ebp]
+	lea	edx, DWORD PTR $T52348[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+24]
-$L49981:
+$L49989:
 
 ; 1746 : }
 
@@ -20884,7 +20884,7 @@ $L49981:
 _TEXT	ENDS
 ;	COMDAT ?SetVelocity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52343 = -20
+$T52351 = -20
 _pEntity$ = 8
 _velocity$ = 12
 _this$ = -4
@@ -20912,24 +20912,24 @@ _pActor$ = -8
 ; 1751 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49991
-	jmp	SHORT $L49989
-$L49991:
+	jne	SHORT $L49999
+	jmp	SHORT $L49997
+$L49999:
 
 ; 1752 : 
 ; 1753 : 	pActor->setLinearVelocity( velocity );
 
 	mov	ecx, DWORD PTR _velocity$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52343[ebp]
+	lea	ecx, DWORD PTR $T52351[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52343[ebp]
+	lea	edx, DWORD PTR $T52351[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+224]
-$L49989:
+$L49997:
 
 ; 1754 : }
 
@@ -20943,7 +20943,7 @@ $L49989:
 _TEXT	ENDS
 ;	COMDAT ?SetAvelocity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52346 = -20
+$T52354 = -20
 _pEntity$ = 8
 _velocity$ = 12
 _this$ = -4
@@ -20971,24 +20971,24 @@ _pActor$ = -8
 ; 1759 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L49999
-	jmp	SHORT $L49997
-$L49999:
+	jne	SHORT $L50007
+	jmp	SHORT $L50005
+$L50007:
 
 ; 1760 : 
 ; 1761 : 	pActor->setAngularVelocity( velocity );
 
 	mov	ecx, DWORD PTR _velocity$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52346[ebp]
+	lea	ecx, DWORD PTR $T52354[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52346[ebp]
+	lea	edx, DWORD PTR $T52354[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+228]
-$L49997:
+$L50005:
 
 ; 1762 : }
 
@@ -21002,7 +21002,7 @@ $L49997:
 _TEXT	ENDS
 ;	COMDAT ?MoveObject@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52349 = -20
+$T52357 = -20
 _pEntity$ = 8
 _finalPos$ = 12
 _this$ = -4
@@ -21030,24 +21030,24 @@ _pActor$ = -8
 ; 1767 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L50007
-	jmp	SHORT $L50005
-$L50007:
+	jne	SHORT $L50015
+	jmp	SHORT $L50013
+$L50015:
 
 ; 1768 : 
 ; 1769 : 	pActor->moveGlobalPosition( finalPos );
 
 	mov	ecx, DWORD PTR _finalPos$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52349[ebp]
+	lea	ecx, DWORD PTR $T52357[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52349[ebp]
+	lea	edx, DWORD PTR $T52357[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+56]
-$L50005:
+$L50013:
 
 ; 1770 : }
 
@@ -21108,9 +21108,9 @@ _m$ = -92
 ; 1775 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L50015
-	jmp	SHORT $L50013
-$L50015:
+	jne	SHORT $L50023
+	jmp	SHORT $L50021
+$L50023:
 
 ; 1776 : 
 ; 1777 : 	NxMat33 rot;
@@ -21148,7 +21148,7 @@ $L50015:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _rot$[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
-$L50013:
+$L50021:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -21171,7 +21171,7 @@ text$x	ENDS
 ?RotateObject@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z ENDP ; CPhysicNovodex::RotateObject
 ;	COMDAT ?SetLinearMomentum@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52361 = -20
+$T52369 = -20
 _pEntity$ = 8
 _velocity$ = 12
 _this$ = -4
@@ -21199,24 +21199,24 @@ _pActor$ = -8
 ; 1786 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L50025
-	jmp	SHORT $L50023
-$L50025:
+	jne	SHORT $L50033
+	jmp	SHORT $L50031
+$L50033:
 
 ; 1787 : 
 ; 1788 : 	pActor->setLinearMomentum( velocity );
 
 	mov	ecx, DWORD PTR _velocity$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52361[ebp]
+	lea	ecx, DWORD PTR $T52369[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52361[ebp]
+	lea	edx, DWORD PTR $T52369[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+256]
-$L50023:
+$L50031:
 
 ; 1789 : }
 
@@ -21246,9 +21246,9 @@ __real@4@3ff1d1b7170000000000 DD 038d1b717r	; 0.0001
 CONST	ENDS
 ;	COMDAT ?AddImpulse@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1M@Z
 _TEXT	SEGMENT
-$T52364 = -24
-$T52365 = -36
-$T52366 = -48
+$T52372 = -24
+$T52373 = -36
+$T52374 = -48
 _pEntity$ = 8
 _impulse$ = 12
 _position$ = 16
@@ -21279,9 +21279,9 @@ _coeff$ = -12
 ; 1794 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L50035
-	jmp	SHORT $L50033
-$L50035:
+	jne	SHORT $L50043
+	jmp	SHORT $L50041
+$L50043:
 
 ; 1795 : 
 ; 1796 : 	NxF32 coeff = (1000.0f / pActor->getMass()) * factor;
@@ -21305,14 +21305,14 @@ $L50035:
 	fcomp	DWORD PTR __real@4@40028000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L50037
+	je	SHORT $L50045
 
 ; 1801 : 		coeff *= 0.0001f;
 
 	fld	DWORD PTR _coeff$[ebp]
 	fmul	DWORD PTR __real@4@3ff1d1b7170000000000
 	fstp	DWORD PTR _coeff$[ebp]
-$L50037:
+$L50045:
 
 ; 1803 : 
 ; 1804 : 	pActor->addForceAtPos( NxVec3(impulse * coeff), (NxVec3)position, NX_IMPULSE );
@@ -21321,24 +21321,24 @@ $L50037:
 	push	1
 	mov	eax, DWORD PTR _position$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52364[ebp]
+	lea	ecx, DWORD PTR $T52372[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
 	push	eax
 	mov	ecx, DWORD PTR _coeff$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T52366[ebp]
+	lea	edx, DWORD PTR $T52374[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _impulse$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T52365[ebp]
+	lea	ecx, DWORD PTR $T52373[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
 	push	eax
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+272]
-$L50033:
+$L50041:
 
 ; 1805 : }
 
@@ -21352,7 +21352,7 @@ $L50033:
 _TEXT	ENDS
 ;	COMDAT ?AddForce@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52375 = -20
+$T52383 = -20
 _pEntity$ = 8
 _force$ = 12
 _this$ = -4
@@ -21380,26 +21380,26 @@ _pActor$ = -8
 ; 1810 : 	if( !pActor ) return;
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	jne	SHORT $L50048
-	jmp	SHORT $L50046
-$L50048:
+	jne	SHORT $L50056
+	jmp	SHORT $L50054
+$L50056:
 
 ; 1811 : 
 ; 1812 : 	pActor->addForce( force, NX_FORCE );
 
 	mov	ecx, DWORD PTR _force$[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52375[ebp]
+	lea	ecx, DWORD PTR $T52383[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
 	push	1
 	push	0
-	lea	edx, DWORD PTR $T52375[ebp]
+	lea	edx, DWORD PTR $T52383[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+288]
-$L50046:
+$L50054:
 
 ; 1813 : }
 
@@ -21437,15 +21437,15 @@ __unwindtable$?CreateForceField@CPhysicNovodex@@AAEPAXPAVCBaseEntity@@ABVVector@
 xdata$x	ENDS
 ;	COMDAT ?CreateForceField@CPhysicNovodex@@AAEPAXPAVCBaseEntity@@ABVVector@@@Z
 _TEXT	SEGMENT
-$T52378 = -408
-$T52379 = -420
-$T52380 = -432
-$T52381 = -444
-$T52382 = -456
-$T52383 = -468
-$T52384 = -480
-$T52385 = -484
-$T52386 = -488
+$T52386 = -408
+$T52387 = -420
+$T52388 = -432
+$T52389 = -444
+$T52390 = -456
+$T52391 = -468
+$T52392 = -480
+$T52393 = -484
+$T52394 = -488
 __$EHRec$ = -12
 _pEntity$ = 8
 _this$ = -16
@@ -21483,7 +21483,7 @@ _box$ = -396
 	push	1045220557				; 3e4ccccdH
 	push	0
 	push	1065353216				; 3f800000H
-	lea	ecx, DWORD PTR $T52378[ebp]
+	lea	ecx, DWORD PTR $T52386[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	lea	ecx, DWORD PTR _linearKernelDesc$[ebp]
@@ -21532,15 +21532,15 @@ _box$ = -396
 ; 1833 : 	box.dimensions = (pEntity->pev->size - Vector( 2, 2, 2 )) * 0.5f;
 
 	push	1056964608				; 3f000000H
-	lea	ecx, DWORD PTR $T52381[ebp]
+	lea	ecx, DWORD PTR $T52389[ebp]
 	push	ecx
 	push	1073741824				; 40000000H
 	push	1073741824				; 40000000H
 	push	1073741824				; 40000000H
-	lea	ecx, DWORD PTR $T52379[ebp]
+	lea	ecx, DWORD PTR $T52387[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	edx, DWORD PTR $T52380[ebp]
+	lea	edx, DWORD PTR $T52388[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -21562,12 +21562,12 @@ _box$ = -396
 	fstp	DWORD PTR [esp]
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T52383[ebp]
+	lea	ecx, DWORD PTR $T52391[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
-	lea	eax, DWORD PTR $T52384[ebp]
+	lea	eax, DWORD PTR $T52392[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52382[ebp]
+	lea	ecx, DWORD PTR $T52390[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -21583,8 +21583,8 @@ _box$ = -396
 ; 1836 : 	fieldDesc.includeGroupShapes.push_back( &box );
 
 	lea	ecx, DWORD PTR _box$[ebp]
-	mov	DWORD PTR $T52385[ebp], ecx
-	lea	edx, DWORD PTR $T52385[ebp]
+	mov	DWORD PTR $T52393[ebp], ecx
+	lea	edx, DWORD PTR $T52393[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _fieldDesc$[ebp+56]
 	call	?push_back@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxForceFieldShapeDesc@@@Z ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::push_back
@@ -21599,7 +21599,7 @@ _box$ = -396
 	mov	eax, DWORD PTR [edx+8]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+56]
-	mov	DWORD PTR $T52386[ebp], eax
+	mov	DWORD PTR $T52394[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 	lea	ecx, DWORD PTR _box$[ebp]
 	call	??1NxBoxForceFieldShapeDesc@@UAE@XZ	; NxBoxForceFieldShapeDesc::~NxBoxForceFieldShapeDesc
@@ -21609,7 +21609,7 @@ _box$ = -396
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _linearKernelDesc$[ebp]
 	call	??1NxForceFieldLinearKernelDesc@@QAE@XZ	; NxForceFieldLinearKernelDesc::~NxForceFieldLinearKernelDesc
-	mov	eax, DWORD PTR $T52386[ebp]
+	mov	eax, DWORD PTR $T52394[ebp]
 
 ; 1838 : }
 
@@ -22309,12 +22309,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L46175
+	je	SHORT $L46183
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L46175:
+$L46183:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -22442,12 +22442,12 @@ _this$ = -4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $L46560
+	je	SHORT $L46568
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
-$L46560:
+$L46568:
 	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
@@ -22539,10 +22539,10 @@ _this$ = -4
 	call	?isFinite@NxVec3@@QBE_NXZ		; NxVec3::isFinite
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L46569
+	jne	SHORT $L46577
 	xor	al, al
-	jmp	SHORT $L46568
-$L46569:
+	jmp	SHORT $L46576
+$L46577:
 
 ; 89   : 	if(dimensions.x<0.0f)				return false;
 
@@ -22551,10 +22551,10 @@ $L46569:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L46570
+	je	SHORT $L46578
 	xor	al, al
-	jmp	SHORT $L46568
-$L46570:
+	jmp	SHORT $L46576
+$L46578:
 
 ; 90   : 	if(dimensions.y<0.0f)				return false;
 
@@ -22563,10 +22563,10 @@ $L46570:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L46571
+	je	SHORT $L46579
 	xor	al, al
-	jmp	SHORT $L46568
-$L46571:
+	jmp	SHORT $L46576
+$L46579:
 
 ; 91   : 	if(dimensions.z<0.0f)				return false;
 
@@ -22575,16 +22575,16 @@ $L46571:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L46572
+	je	SHORT $L46580
 	xor	al, al
-	jmp	SHORT $L46568
-$L46572:
+	jmp	SHORT $L46576
+$L46580:
 
 ; 92   : 	return NxForceFieldShapeDesc::isValid();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?isValid@NxForceFieldShapeDesc@@UBE_NXZ	; NxForceFieldShapeDesc::isValid
-$L46568:
+$L46576:
 
 ; 93   : 	}
 
@@ -22750,7 +22750,7 @@ __unwindtable$?FLoadTree@CPhysicNovodex@@UAEHPAD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?FLoadTree@CPhysicNovodex@@UAEHPAD@Z
 _TEXT	SEGMENT
-$T52484 = -300
+$T52492 = -300
 __$EHRec$ = -12
 _szMapName$ = 8
 _this$ = -16
@@ -22775,28 +22775,28 @@ _szHullFilename$ = -276
 ; 1842 : 	if( !szMapName || !*szMapName || !m_pPhysics )
 
 	cmp	DWORD PTR _szMapName$[ebp], 0
-	je	SHORT $L50077
+	je	SHORT $L50085
 	mov	eax, DWORD PTR _szMapName$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L50077
+	je	SHORT $L50085
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+4], 0
-	jne	SHORT $L50076
-$L50077:
+	jne	SHORT $L50084
+$L50085:
 
 ; 1843 : 		return 0;
 
 	xor	eax, eax
-	jmp	$L50075
-$L50076:
+	jmp	$L50083
+$L50084:
 
 ; 1844 : 
 ; 1845 : 	if( m_fLoaded )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+272], 0
-	je	$L50078
+	je	$L50086
 
 ; 1847 : 		if( !Q_stricmp( szMapName, m_szMapName ))
 
@@ -22809,21 +22809,21 @@ $L50076:
 	call	?Q_strnicmp@@YAHPBD0H@Z			; Q_strnicmp
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	jne	SHORT $L50079
+	jne	SHORT $L50087
 
 ; 1849 : 			// stay on same map - no reload
 ; 1850 : 			return 1;
 
 	mov	eax, 1
-	jmp	$L50075
-$L50079:
+	jmp	$L50083
+$L50087:
 
 ; 1852 : 
 ; 1853 : 		if( m_pSceneActor )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+292], 0
-	je	SHORT $L50080
+	je	SHORT $L50088
 
 ; 1854 : 			m_pScene->releaseActor( *m_pSceneActor );
 
@@ -22836,7 +22836,7 @@ $L50079:
 	mov	eax, DWORD PTR [edx+8]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+32]
-$L50080:
+$L50088:
 
 ; 1855 : 		m_pSceneActor = NULL;
 
@@ -22848,7 +22848,7 @@ $L50080:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+288], 0
-	je	SHORT $L50081
+	je	SHORT $L50089
 
 ; 1858 : 			m_pPhysics->releaseTriangleMesh( *m_pSceneMesh );
 
@@ -22861,7 +22861,7 @@ $L50080:
 	mov	eax, DWORD PTR [edx+4]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+36]
-$L50081:
+$L50089:
 
 ; 1859 : 		m_pSceneMesh = NULL;
 
@@ -22873,7 +22873,7 @@ $L50081:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+272], 0
-$L50078:
+$L50086:
 
 ; 1863 : 
 ; 1864 : 	// save off mapname
@@ -22915,7 +22915,7 @@ $L50078:
 	push	1
 	lea	eax, DWORD PTR _szHullFilename$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52484[ebp]
+	lea	ecx, DWORD PTR $T52492[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -304+[ebp], eax
 	mov	ecx, DWORD PTR -304+[ebp]
@@ -22932,7 +22932,7 @@ $L50078:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+288], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T52484[ebp]
+	lea	ecx, DWORD PTR $T52492[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 1871 : 	m_fWorldChanged = FALSE;
@@ -22948,7 +22948,7 @@ $L50078:
 	cmp	DWORD PTR [eax+288], 0
 	setne	cl
 	mov	eax, ecx
-$L50075:
+$L50083:
 
 ; 1874 : }
 
@@ -22964,7 +22964,7 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?FLoadTree@CPhysicNovodex@@UAEHPAD@Z$0:
-	lea	ecx, DWORD PTR $T52484[ebp]
+	lea	ecx, DWORD PTR $T52492[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __ehhandler$?FLoadTree@CPhysicNovodex@@UAEHPAD@Z:
@@ -23007,21 +23007,21 @@ _iCompare$ = -532
 ; 1878 : 	if( !szMapName || !*szMapName || !m_pPhysics )
 
 	cmp	DWORD PTR _szMapName$[ebp], 0
-	je	SHORT $L50090
+	je	SHORT $L50098
 	mov	eax, DWORD PTR _szMapName$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L50090
+	je	SHORT $L50098
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+4], 0
-	jne	SHORT $L50089
-$L50090:
+	jne	SHORT $L50097
+$L50098:
 
 ; 1879 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L50088
-$L50089:
+	jmp	$L50096
+$L50097:
 
 ; 1882 : 	char szHullFilename[MAX_PATH];
 ; 1883 : 
@@ -23065,12 +23065,12 @@ $L50089:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+392
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	je	SHORT $L50096
+	je	SHORT $L50104
 
 ; 1892 : 		if( iCompare > 0 )
 
 	cmp	DWORD PTR _iCompare$[ebp], 0
-	jle	SHORT $L50097
+	jle	SHORT $L50105
 
 ; 1894 : 			// BSP file is newer.
 ; 1895 : 			ALERT ( at_console, ".BIN file will be updated\n\n" );
@@ -23083,23 +23083,23 @@ $L50089:
 ; 1896 : 			retValue = FALSE;
 
 	mov	DWORD PTR _retValue$[ebp], 0
-$L50097:
+$L50105:
 
 ; 1899 : 	else
 
-	jmp	SHORT $L50099
-$L50096:
+	jmp	SHORT $L50107
+$L50104:
 
 ; 1901 : 		retValue = FALSE;
 
 	mov	DWORD PTR _retValue$[ebp], 0
-$L50099:
+$L50107:
 
 ; 1903 : 
 ; 1904 : 	return retValue;
 
 	mov	eax, DWORD PTR _retValue$[ebp]
-$L50088:
+$L50096:
 
 ; 1905 : }
 
@@ -23154,19 +23154,19 @@ _szModelFilepath$ = -528
 ; 1909 : 	if( !model || !*model || !hullfile )
 
 	cmp	DWORD PTR _model$[ebp], 0
-	je	SHORT $L50107
+	je	SHORT $L50115
 	mov	eax, DWORD PTR _model$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L50107
+	je	SHORT $L50115
 	cmp	DWORD PTR _hullfile$[ebp], 0
-	jne	SHORT $L50106
-$L50107:
+	jne	SHORT $L50114
+$L50115:
 
 ; 1910 : 		return;
 
-	jmp	$L50105
-$L50106:
+	jmp	$L50113
+$L50114:
 
 ; 1911 : 
 ; 1912 : 	size_t baseFolderLength = Q_strlen( "models/" );
@@ -23204,7 +23204,7 @@ $L50106:
 
 	movsx	eax, BYTE PTR _szModelFilepath$[ebp]
 	test	eax, eax
-	je	SHORT $L50112
+	je	SHORT $L50120
 
 ; 1921 : 		Q_snprintf( hullfile, size, "cache/%s/%s.hull", szModelFilepath, szModelBasename );
 
@@ -23222,8 +23222,8 @@ $L50106:
 
 ; 1922 : 	else
 
-	jmp	SHORT $L50114
-$L50112:
+	jmp	SHORT $L50122
+$L50120:
 
 ; 1923 : 		Q_snprintf( hullfile, size, "cache/%s.hull", szModelBasename );
 
@@ -23236,8 +23236,8 @@ $L50112:
 	push	ecx
 	call	?Q_snprintf@@YAHPADIPBDZZ		; Q_snprintf
 	add	esp, 16					; 00000010H
-$L50114:
-$L50105:
+$L50122:
+$L50113:
 
 ; 1924 : }
 
@@ -23284,19 +23284,19 @@ _szModelFilepath$ = -528
 ; 1928 : 	if( !model || !*model || !hullfile )
 
 	cmp	DWORD PTR _model$[ebp], 0
-	je	SHORT $L50123
+	je	SHORT $L50131
 	mov	eax, DWORD PTR _model$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L50123
+	je	SHORT $L50131
 	cmp	DWORD PTR _hullfile$[ebp], 0
-	jne	SHORT $L50122
-$L50123:
+	jne	SHORT $L50130
+$L50131:
 
 ; 1929 : 		return;
 
-	jmp	$L50121
-$L50122:
+	jmp	$L50129
+$L50130:
 
 ; 1930 : 
 ; 1931 : 	size_t baseFolderLength = Q_strlen( "models/" );
@@ -23334,7 +23334,7 @@ $L50122:
 
 	movsx	eax, BYTE PTR _szModelFilepath$[ebp]
 	test	eax, eax
-	je	SHORT $L50127
+	je	SHORT $L50135
 
 ; 1940 : 		Q_snprintf( hullfile, size, "cache/%s/%s.mesh", szModelFilepath, szModelBasename );
 
@@ -23352,8 +23352,8 @@ $L50122:
 
 ; 1941 : 	else
 
-	jmp	SHORT $L50129
-$L50127:
+	jmp	SHORT $L50137
+$L50135:
 
 ; 1942 : 		Q_snprintf( hullfile, size, "cache/%s.mesh", szModelBasename );
 
@@ -23366,8 +23366,8 @@ $L50127:
 	push	ecx
 	call	?Q_snprintf@@YAHPADIPBDZZ		; Q_snprintf
 	add	esp, 16					; 00000010H
+$L50137:
 $L50129:
-$L50121:
 
 ; 1943 : }
 
@@ -23401,24 +23401,24 @@ _iCompare$ = -12
 ; 1951 : 	if( !szFile1 || !*szFile1 || !szFile2 || !*szFile2 )
 
 	cmp	DWORD PTR _szFile1$[ebp], 0
-	je	SHORT $L50137
+	je	SHORT $L50145
 	mov	eax, DWORD PTR _szFile1$[ebp]
 	movsx	ecx, BYTE PTR [eax]
 	test	ecx, ecx
-	je	SHORT $L50137
+	je	SHORT $L50145
 	cmp	DWORD PTR _szFile2$[ebp], 0
-	je	SHORT $L50137
+	je	SHORT $L50145
 	mov	edx, DWORD PTR _szFile2$[ebp]
 	movsx	eax, BYTE PTR [edx]
 	test	eax, eax
-	jne	SHORT $L50136
-$L50137:
+	jne	SHORT $L50144
+$L50145:
 
 ; 1952 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	SHORT $L50135
-$L50136:
+	jmp	SHORT $L50143
+$L50144:
 
 ; 1953 : 
 ; 1954 : 	BOOL retValue = TRUE;
@@ -23438,34 +23438,34 @@ $L50136:
 	call	DWORD PTR ?g_engfuncs@@3Uenginefuncs_s@@A+392
 	add	esp, 12					; 0000000cH
 	test	eax, eax
-	je	SHORT $L50142
+	je	SHORT $L50150
 
 ; 1959 : 		if( iCompare > 0 )
 
 	cmp	DWORD PTR _iCompare$[ebp], 0
-	jle	SHORT $L50143
+	jle	SHORT $L50151
 
 ; 1961 : 			// MDL file is newer.
 ; 1962 : 			retValue = FALSE;
 
 	mov	DWORD PTR _retValue$[ebp], 0
-$L50143:
+$L50151:
 
 ; 1965 : 	else
 
-	jmp	SHORT $L50144
-$L50142:
+	jmp	SHORT $L50152
+$L50150:
 
 ; 1967 : 		retValue = FALSE;
 
 	mov	DWORD PTR _retValue$[ebp], 0
-$L50144:
+$L50152:
 
 ; 1969 : 
 ; 1970 : 	return retValue;
 
 	mov	eax, DWORD PTR _retValue$[ebp]
-$L50135:
+$L50143:
 
 ; 1971 : }
 
@@ -23506,21 +23506,21 @@ _e$ = -8
 ; 1979 : 	return (e > 0) ? model->edges[e].v[0] : model->edges[-e].v[1];
 
 	cmp	DWORD PTR _e$[ebp], 0
-	jle	SHORT $L52502
+	jle	SHORT $L52510
 	mov	ecx, DWORD PTR _model$[ebp]
 	mov	edx, DWORD PTR [ecx+156]
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	cx, WORD PTR [edx+eax*8]
 	mov	WORD PTR -12+[ebp], cx
-	jmp	SHORT $L52503
-$L52502:
+	jmp	SHORT $L52511
+$L52510:
 	mov	edx, DWORD PTR _e$[ebp]
 	neg	edx
 	mov	eax, DWORD PTR _model$[ebp]
 	mov	ecx, DWORD PTR [eax+156]
 	mov	dx, WORD PTR [ecx+edx*8+2]
 	mov	WORD PTR -12+[ebp], dx
-$L52503:
+$L52511:
 	mov	eax, DWORD PTR -12+[ebp]
 	and	eax, 65535				; 0000ffffH
 
@@ -23581,15 +23581,16 @@ __unwindtable$?BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z DD 0ffffffffH
 xdata$x	ENDS
 ;	COMDAT ?BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z
 _TEXT	SEGMENT
-_k$50176 = -40
-_j$50178 = -44
+_indices$ = -36
+_k$50184 = -40
+_j$50186 = -44
 _levelDesc$ = -96
 _szHullFilename$ = -356
-_status$50192 = -360
-$T52506 = -364
-$T52508 = -388
-$T52509 = -392
-$T52510 = -416
+_status$50200 = -360
+$T52514 = -364
+$T52516 = -388
+$T52517 = -392
+$T52518 = -416
 __$EHRec$ = -12
 _szMapName$ = 8
 _this$ = -16
@@ -23597,7 +23598,6 @@ _i$ = -20
 _numElems$ = -24
 _totalElems$ = -28
 _psurf$ = -32
-_indices$ = -36
 ?BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z PROC NEAR	; CPhysicNovodex::BuildCollisionTree, COMDAT
 
 ; 1983 : {
@@ -23619,13 +23619,13 @@ _indices$ = -36
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	jne	SHORT $L50155
+	jne	SHORT $L50163
 
 ; 1985 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L50154
-$L50155:
+	jmp	$L50162
+$L50163:
 
 ; 1986 : 	 
 ; 1987 : 	// get a world struct
@@ -23638,7 +23638,7 @@ $L50155:
 	mov	DWORD PTR [ecx+12], eax
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+12], 0
-	jne	SHORT $L50157
+	jne	SHORT $L50165
 
 ; 1990 : 		ALERT( at_error, "BuildCollisionTree: unbale to fetch world pointer %s\n", szMapName );
 
@@ -23652,15 +23652,15 @@ $L50155:
 ; 1991 : 		return FALSE;
 
 	xor	eax, eax
-	jmp	$L50154
-$L50157:
+	jmp	$L50162
+$L50165:
 
 ; 1993 : 
 ; 1994 : 	if( m_pSceneActor )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+292], 0
-	je	SHORT $L50159
+	je	SHORT $L50167
 
 ; 1995 : 		m_pScene->releaseActor( *m_pSceneActor );
 
@@ -23673,7 +23673,7 @@ $L50157:
 	mov	eax, DWORD PTR [edx+8]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+32]
-$L50159:
+$L50167:
 
 ; 1996 : 	m_pSceneActor = NULL;
 
@@ -23685,7 +23685,7 @@ $L50159:
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+288], 0
-	je	SHORT $L50160
+	je	SHORT $L50168
 
 ; 1999 : 		m_pPhysics->releaseTriangleMesh( *m_pSceneMesh );
 
@@ -23698,7 +23698,7 @@ $L50159:
 	mov	eax, DWORD PTR [edx+4]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+36]
-$L50160:
+$L50168:
 
 ; 2000 : 	m_pSceneMesh = NULL;
 
@@ -23739,17 +23739,17 @@ $L50160:
 ; 2012 : 	for( i = 0; i < m_pWorldModel->nummodelsurfaces; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L50166
-$L50167:
+	jmp	SHORT $L50174
+$L50175:
 	mov	eax, DWORD PTR _i$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _i$[ebp], eax
-$L50166:
+$L50174:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	eax, DWORD PTR _i$[ebp]
 	cmp	eax, DWORD PTR [edx+116]
-	jge	SHORT $L50168
+	jge	SHORT $L50176
 
 ; 2014 : 		psurf = &m_pWorldModel->surfaces[m_pWorldModel->firstmodelsurface + i];
 
@@ -23771,12 +23771,12 @@ $L50166:
 	mov	eax, DWORD PTR [edx+8]
 	and	eax, 20					; 00000014H
 	test	eax, eax
-	je	SHORT $L50169
+	je	SHORT $L50177
 
 ; 2017 : 			continue;
 
-	jmp	SHORT $L50167
-$L50169:
+	jmp	SHORT $L50175
+$L50177:
 
 ; 2018 : 
 ; 2019 : 		totalElems += (psurf->numedges - 2);
@@ -23789,8 +23789,8 @@ $L50169:
 
 ; 2020 : 	}
 
-	jmp	SHORT $L50167
-$L50168:
+	jmp	SHORT $L50175
+$L50176:
 
 ; 2021 : 
 ; 2022 : 	NxU32 *indices = new NxU32[totalElems * 3];
@@ -23801,25 +23801,25 @@ $L50168:
 	push	edx
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T52506[ebp], eax
-	mov	eax, DWORD PTR $T52506[ebp]
+	mov	DWORD PTR $T52514[ebp], eax
+	mov	eax, DWORD PTR $T52514[ebp]
 	mov	DWORD PTR _indices$[ebp], eax
 
 ; 2023 : 
 ; 2024 : 	for( i = 0; i < m_pWorldModel->nummodelsurfaces; i++ )
 
 	mov	DWORD PTR _i$[ebp], 0
-	jmp	SHORT $L50173
-$L50174:
+	jmp	SHORT $L50181
+$L50182:
 	mov	ecx, DWORD PTR _i$[ebp]
 	add	ecx, 1
 	mov	DWORD PTR _i$[ebp], ecx
-$L50173:
+$L50181:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	ecx, DWORD PTR _i$[ebp]
 	cmp	ecx, DWORD PTR [eax+116]
-	jge	$L50175
+	jge	$L50183
 
 ; 2026 : 		psurf = &m_pWorldModel->surfaces[m_pWorldModel->firstmodelsurface + i];
 
@@ -23838,7 +23838,7 @@ $L50173:
 
 	mov	eax, DWORD PTR _psurf$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
-	mov	DWORD PTR _k$50176[ebp], ecx
+	mov	DWORD PTR _k$50184[ebp], ecx
 
 ; 2028 : 
 ; 2029 : 		// don't create collision for water
@@ -23848,32 +23848,32 @@ $L50173:
 	mov	eax, DWORD PTR [edx+8]
 	and	eax, 20					; 00000014H
 	test	eax, eax
-	je	SHORT $L50177
+	je	SHORT $L50185
 
 ; 2031 : 			continue;
 
-	jmp	SHORT $L50174
-$L50177:
+	jmp	SHORT $L50182
+$L50185:
 
 ; 2032 : 
 ; 2033 : 		for( int j = 0; j < psurf->numedges - 2; j++ )
 
-	mov	DWORD PTR _j$50178[ebp], 0
-	jmp	SHORT $L50179
-$L50180:
-	mov	ecx, DWORD PTR _j$50178[ebp]
+	mov	DWORD PTR _j$50186[ebp], 0
+	jmp	SHORT $L50187
+$L50188:
+	mov	ecx, DWORD PTR _j$50186[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _j$50178[ebp], ecx
-$L50179:
+	mov	DWORD PTR _j$50186[ebp], ecx
+$L50187:
 	mov	edx, DWORD PTR _psurf$[ebp]
 	mov	eax, DWORD PTR [edx+16]
 	sub	eax, 2
-	cmp	DWORD PTR _j$50178[ebp], eax
-	jge	SHORT $L50181
+	cmp	DWORD PTR _j$50186[ebp], eax
+	jge	SHORT $L50189
 
 ; 2035 : 			indices[numElems*3+0] = ConvertEdgeToIndex( m_pWorldModel, k );
 
-	mov	ecx, DWORD PTR _k$50176[ebp]
+	mov	ecx, DWORD PTR _k$50184[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
@@ -23887,8 +23887,8 @@ $L50179:
 
 ; 2036 : 			indices[numElems*3+1] = ConvertEdgeToIndex( m_pWorldModel, k + j + 2 );
 
-	mov	eax, DWORD PTR _j$50178[ebp]
-	mov	ecx, DWORD PTR _k$50176[ebp]
+	mov	eax, DWORD PTR _j$50186[ebp]
+	mov	ecx, DWORD PTR _k$50184[ebp]
 	lea	edx, DWORD PTR [ecx+eax+2]
 	push	edx
 	mov	eax, DWORD PTR _this$[ebp]
@@ -23903,8 +23903,8 @@ $L50179:
 
 ; 2037 : 			indices[numElems*3+2] = ConvertEdgeToIndex( m_pWorldModel, k + j + 1 );
 
-	mov	edx, DWORD PTR _j$50178[ebp]
-	mov	eax, DWORD PTR _k$50176[ebp]
+	mov	edx, DWORD PTR _j$50186[ebp]
+	mov	eax, DWORD PTR _k$50184[ebp]
 	lea	ecx, DWORD PTR [eax+edx+1]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
@@ -23925,20 +23925,20 @@ $L50179:
 
 ; 2039 : 		}
 
-	jmp	$L50180
-$L50181:
+	jmp	$L50188
+$L50189:
 
 ; 2040 : 	}
 
-	jmp	$L50174
-$L50175:
+	jmp	$L50182
+$L50183:
 
 ; 2041 : 
 ; 2042 : 	NX_ASSERT( totalElems == numElems );
 
 	mov	ecx, DWORD PTR _totalElems$[ebp]
 	cmp	ecx, DWORD PTR _numElems$[ebp]
-	je	SHORT $L52507
+	je	SHORT $L52515
 	movsx	edx, WORD PTR ?__LINE__Var@?1??BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z@4FA ; `CPhysicNovodex::BuildCollisionTree'::`2'::__LINE__Var
 	add	edx, 59					; 0000003bH
 	push	edx
@@ -23946,7 +23946,7 @@ $L50175:
 	push	OFFSET FLAT:??_C@_0BH@BNBF@totalElems?5?$DN?$DN?5numElems?$AA@ ; `string'
 	call	__assert
 	add	esp, 12					; 0000000cH
-$L52507:
+$L52515:
 
 ; 2043 : 
 ; 2044 : 	// build physical model
@@ -24009,7 +24009,7 @@ $L52507:
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+1352], 0
-	je	$L50191
+	je	$L50199
 
 ; 2059 : 		m_pCooking->NxInitCooking();
 
@@ -24027,7 +24027,7 @@ $L52507:
 	push	0
 	lea	eax, DWORD PTR _szHullFilename$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52508[ebp]
+	lea	ecx, DWORD PTR $T52516[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -420+[ebp], eax
 	mov	ecx, DWORD PTR -420+[ebp]
@@ -24043,18 +24043,18 @@ $L52507:
 	mov	eax, DWORD PTR [edx+1352]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+20]
-	mov	BYTE PTR _status$50192[ebp], al
+	mov	BYTE PTR _status$50200[ebp], al
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T52508[ebp]
+	lea	ecx, DWORD PTR $T52516[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
-$L50191:
+$L50199:
 
 ; 2062 : 
 ; 2063 : 	delete [] indices;
 
 	mov	eax, DWORD PTR _indices$[ebp]
-	mov	DWORD PTR $T52509[ebp], eax
-	mov	ecx, DWORD PTR $T52509[ebp]
+	mov	DWORD PTR $T52517[ebp], eax
+	mov	ecx, DWORD PTR $T52517[ebp]
 	push	ecx
 	call	??3@YAXPAX@Z				; operator delete
 	add	esp, 4
@@ -24065,7 +24065,7 @@ $L50191:
 	push	1
 	lea	edx, DWORD PTR _szHullFilename$[ebp]
 	push	edx
-	lea	ecx, DWORD PTR $T52510[ebp]
+	lea	ecx, DWORD PTR $T52518[ebp]
 	call	??0UserStream@@QAE@PBD_N@Z		; UserStream::UserStream
 	mov	DWORD PTR -428+[ebp], eax
 	mov	eax, DWORD PTR -428+[ebp]
@@ -24082,7 +24082,7 @@ $L50191:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+288], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T52510[ebp]
+	lea	ecx, DWORD PTR $T52518[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 
 ; 2066 : 	m_fWorldChanged = TRUE;
@@ -24098,7 +24098,7 @@ $L50191:
 	cmp	DWORD PTR [eax+288], 0
 	setne	cl
 	mov	eax, ecx
-$L50154:
+$L50162:
 
 ; 2069 : }
 
@@ -24114,11 +24114,11 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z$0:
-	lea	ecx, DWORD PTR $T52508[ebp]
+	lea	ecx, DWORD PTR $T52516[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __unwindfunclet$?BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z$1:
-	lea	ecx, DWORD PTR $T52510[ebp]
+	lea	ecx, DWORD PTR $T52518[ebp]
 	call	??1UserStream@@UAE@XZ			; UserStream::~UserStream
 	ret	0
 __ehhandler$?BuildCollisionTree@CPhysicNovodex@@UAEHPAD@Z:
@@ -24159,7 +24159,7 @@ _this$ = -16
 _levelShapeDesc$ = -136
 _ActorDesc$ = -240
 _pSceneShape$ = -244
-$T52521 = -248
+$T52529 = -248
 __$EHRec$ = -12
 ?SetupWorld@CPhysicNovodex@@UAEXXZ PROC NEAR		; CPhysicNovodex::SetupWorld, COMDAT
 
@@ -24182,19 +24182,19 @@ __$EHRec$ = -12
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+292], 0
-	je	SHORT $L50200
+	je	SHORT $L50208
 
 ; 2074 : 		return;	// already loaded
 
-	jmp	$L50199
-$L50200:
+	jmp	$L50207
+$L50208:
 
 ; 2075 : 
 ; 2076 : 	if( !m_pSceneMesh )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+288], 0
-	jne	SHORT $L50201
+	jne	SHORT $L50209
 
 ; 2078 : 		ALERT( at_error, "*collision tree not ready!\n" );
 
@@ -24205,8 +24205,8 @@ $L50200:
 
 ; 2079 : 		return;
 
-	jmp	$L50199
-$L50201:
+	jmp	$L50207
+$L50209:
 
 ; 2081 : 
 ; 2082 : 	// get a world struct
@@ -24219,7 +24219,7 @@ $L50201:
 	mov	DWORD PTR [edx+12], eax
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+12], 0
-	jne	SHORT $L50204
+	jne	SHORT $L50212
 
 ; 2085 : 		ALERT( at_error, "SetupWorld: unbale to fetch world pointer %s\n", m_szMapName );
 
@@ -24233,8 +24233,8 @@ $L50201:
 
 ; 2086 : 		return;
 
-	jmp	$L50199
-$L50204:
+	jmp	$L50207
+$L50212:
 
 ; 2088 : 
 ; 2089 : 	NxTriangleMeshShapeDesc levelShapeDesc;
@@ -24265,8 +24265,8 @@ $L50204:
 ; 2094 : 	ActorDesc.shapes.pushBack( &levelShapeDesc );
 
 	lea	ecx, DWORD PTR _levelShapeDesc$[ebp]
-	mov	DWORD PTR $T52521[ebp], ecx
-	lea	edx, DWORD PTR $T52521[ebp]
+	mov	DWORD PTR $T52529[ebp], ecx
+	lea	edx, DWORD PTR $T52529[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _ActorDesc$[ebp+88]
 	call	?pushBack@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXABQAVNxShapeDesc@@@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::pushBack
@@ -24320,7 +24320,7 @@ $L50204:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _levelShapeDesc$[ebp]
 	call	??1NxTriangleMeshShapeDesc@@UAE@XZ	; NxTriangleMeshShapeDesc::~NxTriangleMeshShapeDesc
-$L50199:
+$L50207:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -24365,16 +24365,16 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+4], 0
-	je	SHORT $L50215
+	je	SHORT $L50223
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+8], 0
-	jne	SHORT $L50214
-$L50215:
+	jne	SHORT $L50222
+$L50223:
 
 ; 2106 : 		return;
 
-	jmp	SHORT $L50213
-$L50214:
+	jmp	SHORT $L50221
+$L50222:
 
 ; 2107 : 
 ; 2108 : 	gDebugRenderer.renderData( *m_pScene->getDebugRenderable( ));
@@ -24388,7 +24388,7 @@ $L50214:
 	push	eax
 	mov	ecx, OFFSET FLAT:?gDebugRenderer@@3VDebugRenderer@@A ; gDebugRenderer
 	call	?renderData@DebugRenderer@@QBEXABVNxDebugRenderable@@@Z ; DebugRenderer::renderData
-$L50213:
+$L50221:
 
 ; 2109 : }
 
@@ -24449,7 +24449,7 @@ _Triangles$ = -28
 	mov	eax, DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+28
 	call	DWORD PTR [eax+8]
 	add	esp, 4
-$L49110:
+$L49118:
 
 ; 79   : 		while( NbPoints-- )
 
@@ -24458,7 +24458,7 @@ $L49110:
 	sub	edx, 1
 	mov	DWORD PTR _NbPoints$[ebp], edx
 	test	ecx, ecx
-	je	SHORT $L49111
+	je	SHORT $L49119
 
 ; 81   : 			setupColor( Points->color );
 
@@ -24484,8 +24484,8 @@ $L49110:
 
 ; 84   : 		}
 
-	jmp	SHORT $L49110
-$L49111:
+	jmp	SHORT $L49118
+$L49119:
 
 ; 85   : 		Tri->End();
 
@@ -24513,7 +24513,7 @@ $L49111:
 	mov	eax, DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+28
 	call	DWORD PTR [eax+8]
 	add	esp, 4
-$L49116:
+$L49124:
 
 ; 92   : 		while( NbLines-- )
 
@@ -24522,7 +24522,7 @@ $L49116:
 	sub	edx, 1
 	mov	DWORD PTR _NbLines$[ebp], edx
 	test	ecx, ecx
-	je	SHORT $L49117
+	je	SHORT $L49125
 
 ; 94   : 			setupColor( Lines->color );
 
@@ -24557,8 +24557,8 @@ $L49116:
 
 ; 98   : 		}
 
-	jmp	SHORT $L49116
-$L49117:
+	jmp	SHORT $L49124
+$L49125:
 
 ; 99   : 		Tri->End();
 
@@ -24586,7 +24586,7 @@ $L49117:
 	mov	edx, DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+28
 	call	DWORD PTR [edx+8]
 	add	esp, 4
-$L49123:
+$L49131:
 
 ; 106  : 		while( NbTris-- )
 
@@ -24595,7 +24595,7 @@ $L49123:
 	sub	ecx, 1
 	mov	DWORD PTR _NbTris$[ebp], ecx
 	test	eax, eax
-	je	SHORT $L49124
+	je	SHORT $L49132
 
 ; 108  : 			setupColor( Triangles->color );
 
@@ -24639,8 +24639,8 @@ $L49123:
 
 ; 113  : 		}
 
-	jmp	SHORT $L49123
-$L49124:
+	jmp	SHORT $L49131
+$L49132:
 
 ; 114  : 		Tri->End();
 
@@ -24902,32 +24902,32 @@ _this$ = -4
 ; 2118 : 	if( !p_speeds || p_speeds->value <= 0.0f )
 
 	cmp	DWORD PTR ?p_speeds@@3PAUcvar_s@@A, 0	; p_speeds
-	je	SHORT $L50222
+	je	SHORT $L50230
 	mov	eax, DWORD PTR ?p_speeds@@3PAUcvar_s@@A	; p_speeds
 	fld	DWORD PTR [eax+12]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	je	SHORT $L50221
-$L50222:
+	je	SHORT $L50229
+$L50230:
 
 ; 2119 : 		return false;
 
 	xor	al, al
-	jmp	SHORT $L50220
-$L50221:
+	jmp	SHORT $L50228
+$L50229:
 
 ; 2120 : 
 ; 2121 : 	if( !out || !size ) return false;
 
 	cmp	DWORD PTR _out$[ebp], 0
-	je	SHORT $L50224
+	je	SHORT $L50232
 	cmp	DWORD PTR _size$[ebp], 0
-	jne	SHORT $L50223
-$L50224:
+	jne	SHORT $L50231
+$L50232:
 	xor	al, al
-	jmp	SHORT $L50220
-$L50223:
+	jmp	SHORT $L50228
+$L50231:
 
 ; 2122 : 	Q_strncpy( out, p_speeds_msg, size );
 
@@ -24945,7 +24945,7 @@ $L50223:
 ; 2124 : 	return true;
 
 	mov	al, 1
-$L50220:
+$L50228:
 
 ; 2125 : }
 
@@ -24969,12 +24969,12 @@ _TEXT	SEGMENT
 _this$ = -4
 _msg$ = -1028
 _iScrWidth$ = -1032
-_x$50233 = -1036
-_y$50234 = -1040
-_height$50235 = -1044
-_p$50236 = -1048
-_start$50237 = -1052
-_end$50238 = -1056
+_x$50241 = -1036
+_y$50242 = -1040
+_height$50243 = -1044
+_p$50244 = -1048
+_start$50245 = -1052
+_end$50246 = -1056
 ?DrawPSpeeds@CPhysicNovodex@@UAEXXZ PROC NEAR		; CPhysicNovodex::DrawPSpeeds, COMDAT
 
 ; 2133 : {
@@ -25006,7 +25006,7 @@ _end$50238 = -1056
 	call	?P_SpeedsMessage@CPhysicNovodex@@AAE_NPADI@Z ; CPhysicNovodex::P_SpeedsMessage
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	$L50241
+	je	$L50249
 
 ; 2139 : 		int	x, y, height;
 ; 2140 : 		char	*p, *start, *end;
@@ -25015,16 +25015,16 @@ _end$50238 = -1056
 
 	mov	ecx, DWORD PTR _iScrWidth$[ebp]
 	sub	ecx, 320				; 00000140H
-	mov	DWORD PTR _x$50233[ebp], ecx
+	mov	DWORD PTR _x$50241[ebp], ecx
 
 ; 2143 : 		y = 128;
 
-	mov	DWORD PTR _y$50234[ebp], 128		; 00000080H
+	mov	DWORD PTR _y$50242[ebp], 128		; 00000080H
 
 ; 2144 : 
 ; 2145 : 		DrawConsoleStringLen( NULL, NULL, &height );
 
-	lea	edx, DWORD PTR _height$50235[ebp]
+	lea	edx, DWORD PTR _height$50243[ebp]
 	push	edx
 	push	0
 	push	0
@@ -25043,75 +25043,75 @@ _end$50238 = -1056
 ; 2148 : 		p = start = msg;
 
 	lea	eax, DWORD PTR _msg$[ebp]
-	mov	DWORD PTR _start$50237[ebp], eax
-	mov	ecx, DWORD PTR _start$50237[ebp]
-	mov	DWORD PTR _p$50236[ebp], ecx
-$L50239:
+	mov	DWORD PTR _start$50245[ebp], eax
+	mov	ecx, DWORD PTR _start$50245[ebp]
+	mov	DWORD PTR _p$50244[ebp], ecx
+$L50247:
 
 ; 2151 : 			end = Q_strchr( p, '\n' );
 
 	push	10					; 0000000aH
-	mov	edx, DWORD PTR _p$50236[ebp]
+	mov	edx, DWORD PTR _p$50244[ebp]
 	push	edx
 	call	?Q_strchr@@YAPADPBDD@Z			; Q_strchr
 	add	esp, 8
-	mov	DWORD PTR _end$50238[ebp], eax
+	mov	DWORD PTR _end$50246[ebp], eax
 
 ; 2152 : 			if( end ) msg[end-start] = '\0';
 
-	cmp	DWORD PTR _end$50238[ebp], 0
-	je	SHORT $L50242
-	mov	eax, DWORD PTR _end$50238[ebp]
-	sub	eax, DWORD PTR _start$50237[ebp]
+	cmp	DWORD PTR _end$50246[ebp], 0
+	je	SHORT $L50250
+	mov	eax, DWORD PTR _end$50246[ebp]
+	sub	eax, DWORD PTR _start$50245[ebp]
 	mov	BYTE PTR _msg$[ebp+eax], 0
-$L50242:
+$L50250:
 
 ; 2153 : 
 ; 2154 : 			DrawConsoleString( x, y, p );
 
-	mov	ecx, DWORD PTR _p$50236[ebp]
+	mov	ecx, DWORD PTR _p$50244[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _y$50234[ebp]
+	mov	edx, DWORD PTR _y$50242[ebp]
 	push	edx
-	mov	eax, DWORD PTR _x$50233[ebp]
+	mov	eax, DWORD PTR _x$50241[ebp]
 	push	eax
 	call	DWORD PTR ?g_physfuncs@@3Userver_physics_api_s@@A+32
 	add	esp, 12					; 0000000cH
 
 ; 2155 : 			y += height;
 
-	mov	ecx, DWORD PTR _y$50234[ebp]
-	add	ecx, DWORD PTR _height$50235[ebp]
-	mov	DWORD PTR _y$50234[ebp], ecx
+	mov	ecx, DWORD PTR _y$50242[ebp]
+	add	ecx, DWORD PTR _height$50243[ebp]
+	mov	DWORD PTR _y$50242[ebp], ecx
 
 ; 2156 : 
 ; 2157 : 			if( end )
 
-	cmp	DWORD PTR _end$50238[ebp], 0
-	je	SHORT $L50243
+	cmp	DWORD PTR _end$50246[ebp], 0
+	je	SHORT $L50251
 
 ; 2158 : 				p = end + 1;
 
-	mov	edx, DWORD PTR _end$50238[ebp]
+	mov	edx, DWORD PTR _end$50246[ebp]
 	add	edx, 1
-	mov	DWORD PTR _p$50236[ebp], edx
+	mov	DWORD PTR _p$50244[ebp], edx
 
 ; 2159 : 			else
 
-	jmp	SHORT $L50244
-$L50243:
+	jmp	SHORT $L50252
+$L50251:
 
 ; 2160 : 				break;
 
-	jmp	SHORT $L50241
-$L50244:
+	jmp	SHORT $L50249
+$L50252:
 
 ; 2161 : 		} while( 1 );
 
 	mov	eax, 1
 	test	eax, eax
-	jne	$L50239
-$L50241:
+	jne	$L50247
+$L50249:
 
 ; 2163 : }
 
@@ -25126,7 +25126,7 @@ _TEXT	ENDS
 ;	COMDAT ?FreeAllBodies@CPhysicNovodex@@UAEXXZ
 _TEXT	SEGMENT
 _this$ = -4
-_actor$50253 = -8
+_actor$50261 = -8
 ?FreeAllBodies@CPhysicNovodex@@UAEXXZ PROC NEAR		; CPhysicNovodex::FreeAllBodies, COMDAT
 
 ; 2166 : {
@@ -25143,9 +25143,9 @@ _actor$50253 = -8
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
-	jne	SHORT $L50249
-	jmp	SHORT $L50248
-$L50249:
+	jne	SHORT $L50257
+	jmp	SHORT $L50256
+$L50257:
 
 ; 2168 : 
 ; 2169 : 	// throw all bodies
@@ -25158,7 +25158,7 @@ $L50249:
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+252]
 	test	eax, eax
-	je	SHORT $L50252
+	je	SHORT $L50260
 
 ; 2172 : 		NxActor *actor = m_pScene->getActors()[0];
 
@@ -25169,11 +25169,11 @@ $L50249:
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+256]
 	mov	eax, DWORD PTR [eax]
-	mov	DWORD PTR _actor$50253[ebp], eax
+	mov	DWORD PTR _actor$50261[ebp], eax
 
 ; 2173 : 		m_pScene->releaseActor( *actor );
 
-	mov	ecx, DWORD PTR _actor$50253[ebp]
+	mov	ecx, DWORD PTR _actor$50261[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+8]
@@ -25184,14 +25184,14 @@ $L50249:
 
 ; 2174 : 	}
 
-	jmp	SHORT $L50249
-$L50252:
+	jmp	SHORT $L50257
+$L50260:
 
 ; 2175 : 	m_pSceneActor = NULL;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+292], 0
-$L50248:
+$L50256:
 
 ; 2176 : }
 
@@ -25210,12 +25210,12 @@ _this$ = -4
 _pActor$ = -8
 _pShape$ = -12
 _vecOffset$ = -24
-$T52558 = -28
-$T52559 = -40
-$T52562 = -52
-$T52563 = -64
-$T52564 = -76
-$T52565 = -88
+$T52566 = -28
+$T52567 = -40
+$T52570 = -52
+$T52571 = -64
+$T52572 = -76
+$T52573 = -88
 ?TeleportCharacter@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::TeleportCharacter, COMDAT
 
 ; 2179 : {
@@ -25239,31 +25239,31 @@ $T52565 = -88
 ; 2181 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50260
+	je	SHORT $L50268
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	ja	SHORT $L50259
-$L50260:
+	ja	SHORT $L50267
+$L50268:
 
 ; 2182 : 		return;
 
-	jmp	$L50257
-$L50259:
+	jmp	$L50265
+$L50267:
 
 ; 2183 : 
 ; 2184 : 	if( m_fNeedFetchResults )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+284], 0
-	je	SHORT $L50261
+	je	SHORT $L50269
 
 ; 2185 : 		return;
 
-	jmp	$L50257
-$L50261:
+	jmp	$L50265
+$L50269:
 
 ; 2186 : 
 ; 2187 : 	NxBoxShape *pShape = (NxBoxShape *)pActor->getShapes()[0];
@@ -25282,7 +25282,7 @@ $L50261:
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+232]
 	test	eax, eax
-	je	SHORT $L52560
+	je	SHORT $L52568
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+240]
@@ -25291,16 +25291,16 @@ $L50261:
 	fstp	DWORD PTR [esp]
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T52559[ebp]
+	lea	ecx, DWORD PTR $T52567[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	DWORD PTR -92+[ebp], eax
-	jmp	SHORT $L52561
-$L52560:
+	jmp	SHORT $L52569
+$L52568:
 	mov	DWORD PTR -92+[ebp], OFFSET FLAT:?g_vecZero@@3VVector@@B ; g_vecZero
-$L52561:
+$L52569:
 	mov	edx, DWORD PTR -92+[ebp]
-	mov	DWORD PTR $T52558[ebp], edx
-	mov	eax, DWORD PTR $T52558[ebp]
+	mov	DWORD PTR $T52566[ebp], edx
+	mov	eax, DWORD PTR $T52566[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecOffset$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
@@ -25309,16 +25309,16 @@ $L52561:
 ; 2190 : 	pShape->setDimensions( pEntity->pev->size * PADDING_FACTOR );
 
 	push	1056629064				; 3efae148H
-	lea	ecx, DWORD PTR $T52563[ebp]
+	lea	ecx, DWORD PTR $T52571[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [edx+4]
 	add	ecx, 244				; 000000f4H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T52562[ebp]
+	lea	ecx, DWORD PTR $T52570[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T52562[ebp]
+	lea	eax, DWORD PTR $T52570[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pShape$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -25329,22 +25329,22 @@ $L52561:
 
 	lea	eax, DWORD PTR _vecOffset$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52565[ebp]
+	lea	ecx, DWORD PTR $T52573[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	ecx, DWORD PTR $T52564[ebp]
+	lea	ecx, DWORD PTR $T52572[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52564[ebp]
+	lea	edx, DWORD PTR $T52572[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+24]
-$L50257:
+$L50265:
 
 ; 2192 : }
 
@@ -25405,19 +25405,19 @@ __$EHRec$ = -12
 ; 2197 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50277
+	je	SHORT $L50285
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	ja	SHORT $L50276
-$L50277:
+	ja	SHORT $L50284
+$L50285:
 
 ; 2198 : 		return;
 
-	jmp	SHORT $L50274
-$L50276:
+	jmp	SHORT $L50282
+$L50284:
 
 ; 2199 : 
 ; 2200 : 	NxMat34 pose;
@@ -25471,7 +25471,7 @@ $L50276:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
-$L50274:
+$L50282:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -25499,12 +25499,12 @@ _this$ = -4
 _pActor$ = -8
 _pShape$ = -12
 _vecOffset$ = -24
-$T52577 = -28
-$T52578 = -40
-$T52581 = -52
-$T52582 = -64
-$T52583 = -76
-$T52584 = -88
+$T52585 = -28
+$T52586 = -40
+$T52589 = -52
+$T52590 = -64
+$T52591 = -76
+$T52592 = -88
 ?MoveCharacter@CPhysicNovodex@@UAEXPAVCBaseEntity@@@Z PROC NEAR ; CPhysicNovodex::MoveCharacter, COMDAT
 
 ; 2212 : {
@@ -25520,7 +25520,7 @@ $T52584 = -88
 ; 2213 : 	if( !pEntity || pEntity->m_vecOldPosition == pEntity->pev->origin )
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L50286
+	je	SHORT $L50294
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	add	ecx, 8
@@ -25529,13 +25529,13 @@ $T52584 = -88
 	add	ecx, 1632				; 00000660H
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	SHORT $L50285
-$L50286:
+	je	SHORT $L50293
+$L50294:
 
 ; 2214 : 		return;
 
-	jmp	$L50284
-$L50285:
+	jmp	$L50292
+$L50293:
 
 ; 2215 : 
 ; 2216 : 	NxActor *pActor = ActorFromEntity( pEntity );
@@ -25549,31 +25549,31 @@ $L50285:
 ; 2217 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50289
+	je	SHORT $L50297
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	ja	SHORT $L50288
-$L50289:
+	ja	SHORT $L50296
+$L50297:
 
 ; 2218 : 		return;
 
-	jmp	$L50284
-$L50288:
+	jmp	$L50292
+$L50296:
 
 ; 2219 : 
 ; 2220 : 	if( m_fNeedFetchResults )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+284], 0
-	je	SHORT $L50290
+	je	SHORT $L50298
 
 ; 2221 : 		return;
 
-	jmp	$L50284
-$L50290:
+	jmp	$L50292
+$L50298:
 
 ; 2222 : 
 ; 2223 : 	NxBoxShape *pShape = (NxBoxShape *)pActor->getShapes()[0];
@@ -25592,7 +25592,7 @@ $L50290:
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+264], 3
-	je	SHORT $L50293
+	je	SHORT $L50301
 
 ; 2227 : 		pActor->raiseActorFlag( NX_AF_DISABLE_COLLISION );
 
@@ -25604,14 +25604,14 @@ $L50290:
 
 ; 2228 : 	else pActor->clearActorFlag( NX_AF_DISABLE_COLLISION );
 
-	jmp	SHORT $L50294
-$L50293:
+	jmp	SHORT $L50302
+$L50301:
 	push	1
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+104]
-$L50294:
+$L50302:
 
 ; 2229 : 
 ; 2230 : 	Vector vecOffset = (pEntity->IsMonster()) ? Vector( 0, 0, pEntity->pev->maxs.z / 2.0f ) : g_vecZero;
@@ -25621,7 +25621,7 @@ $L50294:
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	DWORD PTR [edx+232]
 	test	eax, eax
-	je	SHORT $L52579
+	je	SHORT $L52587
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	fld	DWORD PTR [ecx+240]
@@ -25630,16 +25630,16 @@ $L50294:
 	fstp	DWORD PTR [esp]
 	push	0
 	push	0
-	lea	ecx, DWORD PTR $T52578[ebp]
+	lea	ecx, DWORD PTR $T52586[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	mov	DWORD PTR -92+[ebp], eax
-	jmp	SHORT $L52580
-$L52579:
+	jmp	SHORT $L52588
+$L52587:
 	mov	DWORD PTR -92+[ebp], OFFSET FLAT:?g_vecZero@@3VVector@@B ; g_vecZero
-$L52580:
+$L52588:
 	mov	edx, DWORD PTR -92+[ebp]
-	mov	DWORD PTR $T52577[ebp], edx
-	mov	eax, DWORD PTR $T52577[ebp]
+	mov	DWORD PTR $T52585[ebp], edx
+	mov	eax, DWORD PTR $T52585[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vecOffset$[ebp]
 	call	??0Vector@@QAE@ABV0@@Z			; Vector::Vector
@@ -25648,16 +25648,16 @@ $L52580:
 ; 2232 : 	pShape->setDimensions( pEntity->pev->size * PADDING_FACTOR );
 
 	push	1056629064				; 3efae148H
-	lea	ecx, DWORD PTR $T52582[ebp]
+	lea	ecx, DWORD PTR $T52590[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [edx+4]
 	add	ecx, 244				; 000000f4H
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T52581[ebp]
+	lea	ecx, DWORD PTR $T52589[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T52581[ebp]
+	lea	eax, DWORD PTR $T52589[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pShape$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -25668,16 +25668,16 @@ $L52580:
 
 	lea	eax, DWORD PTR _vecOffset$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52584[ebp]
+	lea	ecx, DWORD PTR $T52592[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	call	?GetAbsOrigin@CBaseEntity@@QBEABVVector@@XZ ; CBaseEntity::GetAbsOrigin
 	mov	ecx, eax
 	call	??HVector@@QBE?AV0@ABV0@@Z		; Vector::operator+
 	push	eax
-	lea	ecx, DWORD PTR $T52583[ebp]
+	lea	ecx, DWORD PTR $T52591[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52583[ebp]
+	lea	edx, DWORD PTR $T52591[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -25696,7 +25696,7 @@ $L52580:
 	mov	DWORD PTR [ecx+4], edx
 	mov	eax, DWORD PTR [eax+8]
 	mov	DWORD PTR [ecx+8], eax
-$L50284:
+$L50292:
 
 ; 2235 : }
 
@@ -25749,21 +25749,21 @@ __$EHRec$ = -12
 ; 2239 : 	if( !pEntity || ( pEntity->pev->movetype != MOVETYPE_PUSH && pEntity->pev->movetype != MOVETYPE_PUSHSTEP ))
 
 	cmp	DWORD PTR _pEntity$[ebp], 0
-	je	SHORT $L50307
+	je	SHORT $L50315
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+264], 7
-	je	SHORT $L50306
+	je	SHORT $L50314
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	DWORD PTR [eax+264], 13			; 0000000dH
-	je	SHORT $L50306
-$L50307:
+	je	SHORT $L50314
+$L50315:
 
 ; 2240 : 		return;	// probably not a mover
 
-	jmp	$L50305
-$L50306:
+	jmp	$L50313
+$L50314:
 
 ; 2241 : 
 ; 2242 : 	NxActor *pActor = ActorFromEntity( pEntity );
@@ -25777,31 +25777,31 @@ $L50306:
 ; 2243 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50310
+	je	SHORT $L50318
 	mov	edx, DWORD PTR _pActor$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+76]
 	test	eax, eax
-	ja	SHORT $L50309
-$L50310:
+	ja	SHORT $L50317
+$L50318:
 
 ; 2244 : 		return;
 
-	jmp	$L50305
-$L50309:
+	jmp	$L50313
+$L50317:
 
 ; 2245 : 
 ; 2246 : 	if( m_fNeedFetchResults )
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [ecx+284], 0
-	je	SHORT $L50311
+	je	SHORT $L50319
 
 ; 2247 : 		return;
 
-	jmp	$L50305
-$L50311:
+	jmp	$L50313
+$L50319:
 
 ; 2248 : 
 ; 2249 : 	if( pEntity->pev->solid == SOLID_NOT || pEntity->pev->solid == SOLID_TRIGGER )
@@ -25809,12 +25809,12 @@ $L50311:
 	mov	edx, DWORD PTR _pEntity$[ebp]
 	mov	eax, DWORD PTR [edx+4]
 	cmp	DWORD PTR [eax+268], 0
-	je	SHORT $L50313
+	je	SHORT $L50321
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [ecx+4]
 	cmp	DWORD PTR [edx+268], 1
-	jne	SHORT $L50312
-$L50313:
+	jne	SHORT $L50320
+$L50321:
 
 ; 2250 : 		pActor->raiseActorFlag( NX_AF_DISABLE_COLLISION );
 
@@ -25826,14 +25826,14 @@ $L50313:
 
 ; 2251 : 	else pActor->clearActorFlag( NX_AF_DISABLE_COLLISION );
 
-	jmp	SHORT $L50314
-$L50312:
+	jmp	SHORT $L50322
+$L50320:
 	push	1
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+104]
-$L50314:
+$L50322:
 
 ; 2252 : 
 ; 2253 : 	NxMat34 pose;
@@ -25887,7 +25887,7 @@ $L50314:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _pose$[ebp]
 	call	??1NxMat34@@QAE@XZ			; NxMat34::~NxMat34
-$L50305:
+$L50313:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -25937,25 +25937,25 @@ _pActor$ = -8
 ; 2267 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50325
+	je	SHORT $L50333
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	ja	SHORT $L50324
-$L50325:
+	ja	SHORT $L50332
+$L50333:
 
 ; 2268 : 		return;
 
-	jmp	SHORT $L50322
-$L50324:
+	jmp	SHORT $L50330
+$L50332:
 
 ; 2269 : 
 ; 2270 : 	if( fEnable )
 
 	cmp	DWORD PTR _fEnable$[ebp], 0
-	je	SHORT $L50326
+	je	SHORT $L50334
 
 ; 2272 : 		pActor->clearActorFlag( NX_AF_DISABLE_COLLISION );
 
@@ -25975,8 +25975,8 @@ $L50324:
 
 ; 2275 : 	else
 
-	jmp	SHORT $L50327
-$L50326:
+	jmp	SHORT $L50335
+$L50334:
 
 ; 2277 : 		pActor->raiseActorFlag( NX_AF_DISABLE_COLLISION );
 
@@ -25993,8 +25993,8 @@ $L50326:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+360]
-$L50327:
-$L50322:
+$L50335:
+$L50330:
 
 ; 2280 : }
 
@@ -26035,25 +26035,25 @@ _pActor$ = -8
 ; 2285 : 	if( !pActor || pActor->getNbShapes() <= 0 )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50335
+	je	SHORT $L50343
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	ja	SHORT $L50334
-$L50335:
+	ja	SHORT $L50342
+$L50343:
 
 ; 2286 : 		return;
 
-	jmp	SHORT $L50332
-$L50334:
+	jmp	SHORT $L50340
+$L50342:
 
 ; 2287 : 
 ; 2288 : 	if( fEnable )
 
 	cmp	DWORD PTR _fEnable$[ebp], 0
-	je	SHORT $L50336
+	je	SHORT $L50344
 
 ; 2289 : 		pActor->raiseBodyFlag( NX_BF_KINEMATIC );
 
@@ -26065,8 +26065,8 @@ $L50334:
 
 ; 2290 : 	else
 
-	jmp	SHORT $L50337
-$L50336:
+	jmp	SHORT $L50345
+$L50344:
 
 ; 2291 : 		pActor->clearBodyFlag( NX_BF_KINEMATIC );
 
@@ -26075,8 +26075,8 @@ $L50336:
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+360]
-$L50337:
-$L50332:
+$L50345:
+$L50340:
 
 ; 2292 : }
 
@@ -26154,44 +26154,44 @@ _trace_mins$ = -32
 _trace_maxs$ = -44
 _pMesh$ = -48
 _pHeadNode$ = -52
-_pShape$50356 = -56
-_shapeType$50357 = -60
-_indices$50358 = -64
-_verts$50359 = -68
-_triangle$50360 = -104
-_NbTris$50362 = -108
-_pConvexShape$50364 = -112
-_cm$50366 = -116
-_pTriangleMeshShape$50371 = -120
-_trm$50373 = -124
-_points$50379 = -220
-_ext$50381 = -232
-_cnt$50382 = -244
-_bounds$50383 = -268
-_obb$50384 = -328
-_i$50385 = -332
-_pBoxShape$50389 = -336
-_absRot$50391 = -372
-_absPos$50393 = -384
-_j$50398 = -388
-_i0$50402 = -392
-_i1$50403 = -396
-_i2$50404 = -400
-_absRot$50406 = -436
-_absPos$50408 = -448
-_i0$50413 = -452
-_i1$50414 = -456
-_i2$50415 = -460
-_v0$50416 = -472
-_v1$50417 = -484
-_v2$50418 = -496
+_pShape$50364 = -56
+_shapeType$50365 = -60
+_indices$50366 = -64
+_verts$50367 = -68
+_triangle$50368 = -104
+_NbTris$50370 = -108
+_pConvexShape$50372 = -112
+_cm$50374 = -116
+_pTriangleMeshShape$50379 = -120
+_trm$50381 = -124
+_points$50387 = -220
+_ext$50389 = -232
+_cnt$50390 = -244
+_bounds$50391 = -268
+_obb$50392 = -328
+_i$50393 = -332
+_pBoxShape$50397 = -336
+_absRot$50399 = -372
+_absPos$50401 = -384
+_j$50406 = -388
+_i0$50410 = -392
+_i1$50411 = -396
+_i2$50412 = -400
+_absRot$50414 = -436
+_absPos$50416 = -448
+_i0$50421 = -452
+_i1$50422 = -456
+_i2$50423 = -460
+_v0$50424 = -472
+_v1$50425 = -484
+_v2$50426 = -496
 _trm$ = -616
-$T52600 = -628
-$T52601 = -688
-$T52602 = -700
-$T52603 = -712
-$T52604 = -724
-$T52605 = -736
+$T52608 = -628
+$T52609 = -688
+$T52610 = -700
+$T52611 = -712
+$T52612 = -724
+$T52613 = -736
 __$EHRec$ = -12
 ?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z PROC NEAR ; CPhysicNovodex::SweepTest, COMDAT
 
@@ -26222,13 +26222,13 @@ __$EHRec$ = -12
 ; 2298 : 	if( !pActor || pActor->getNbShapes() <= 0 || pActor->readActorFlag( NX_AF_DISABLE_COLLISION ))
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50349
+	je	SHORT $L50357
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	jbe	SHORT $L50349
+	jbe	SHORT $L50357
 	push	1
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -26236,8 +26236,8 @@ __$EHRec$ = -12
 	call	DWORD PTR [edx+108]
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L50348
-$L50349:
+	je	SHORT $L50356
+$L50357:
 
 ; 2300 : 		// bad actor?
 ; 2301 : 		tr->allsolid = false;
@@ -26247,8 +26247,8 @@ $L50349:
 
 ; 2302 : 		return;
 
-	jmp	$L50346
-$L50348:
+	jmp	$L50354
+$L50356:
 
 ; 2304 : 
 ; 2305 : 	Vector trace_mins, trace_maxs;
@@ -26295,7 +26295,7 @@ $L50348:
 	add	esp, 16					; 00000010H
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L50352
+	jne	SHORT $L50360
 
 ; 2311 : 		tr->allsolid = false;
 
@@ -26304,8 +26304,8 @@ $L50348:
 
 ; 2312 : 		return;
 
-	jmp	$L50346
-$L50352:
+	jmp	$L50354
+$L50360:
 
 ; 2314 : 
 ; 2315 : 	mmesh_t *pMesh = pTouch->m_BodyMesh.CheckMesh( pTouch->GetAbsOrigin(), pTouch->GetAbsAngles( ));
@@ -26332,7 +26332,7 @@ $L50352:
 ; 2318 : 	if( !pMesh )
 
 	cmp	DWORD PTR _pMesh$[ebp], 0
-	jne	$L50355
+	jne	$L50363
 
 ; 2320 : 		// update cache or build from scratch
 ; 2321 : 		NxShape *pShape = pActor->getShapes()[0];
@@ -26342,15 +26342,15 @@ $L50352:
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+80]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _pShape$50356[ebp], ecx
+	mov	DWORD PTR _pShape$50364[ebp], ecx
 
 ; 2322 : 		int shapeType = pShape->getType();
 
-	mov	edx, DWORD PTR _pShape$50356[ebp]
+	mov	edx, DWORD PTR _pShape$50364[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _pShape$50356[ebp]
+	mov	ecx, DWORD PTR _pShape$50364[ebp]
 	call	DWORD PTR [eax+92]
-	mov	DWORD PTR _shapeType$50357[ebp], eax
+	mov	DWORD PTR _shapeType$50365[ebp], eax
 
 ; 2323 : 		const NxU32 *indices;
 ; 2324 : 		const NxVec3 *verts;
@@ -26359,7 +26359,7 @@ $L50352:
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	push	3
 	push	12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50360[ebp]
+	lea	ecx, DWORD PTR _triangle$50368[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
 
@@ -26367,110 +26367,110 @@ $L50352:
 ; 2327 : 
 ; 2328 : 		if( shapeType == NX_SHAPE_CONVEX )
 
-	cmp	DWORD PTR _shapeType$50357[ebp], 5
-	jne	SHORT $L50363
+	cmp	DWORD PTR _shapeType$50365[ebp], 5
+	jne	SHORT $L50371
 
 ; 2330 : 			NxConvexShape *pConvexShape = (NxConvexShape *)pShape;
 
-	mov	edx, DWORD PTR _pShape$50356[ebp]
-	mov	DWORD PTR _pConvexShape$50364[ebp], edx
+	mov	edx, DWORD PTR _pShape$50364[ebp]
+	mov	DWORD PTR _pConvexShape$50372[ebp], edx
 
 ; 2331 : 			NxConvexMesh& cm = pConvexShape->getConvexMesh();
 
-	mov	eax, DWORD PTR _pConvexShape$50364[ebp]
+	mov	eax, DWORD PTR _pConvexShape$50372[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _pConvexShape$50364[ebp]
+	mov	ecx, DWORD PTR _pConvexShape$50372[ebp]
 	call	DWORD PTR [edx+164]
-	mov	DWORD PTR _cm$50366[ebp], eax
+	mov	DWORD PTR _cm$50374[ebp], eax
 
 ; 2332 : 
 ; 2333 : 			NbTris = cm.getCount( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _cm$50366[ebp]
+	mov	eax, DWORD PTR _cm$50374[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _cm$50366[ebp]
+	mov	ecx, DWORD PTR _cm$50374[ebp]
 	call	DWORD PTR [edx+8]
-	mov	DWORD PTR _NbTris$50362[ebp], eax
+	mov	DWORD PTR _NbTris$50370[ebp], eax
 
 ; 2334 : 			indices = (const NxU32 *)cm.getBase( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _cm$50366[ebp]
+	mov	eax, DWORD PTR _cm$50374[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _cm$50366[ebp]
+	mov	ecx, DWORD PTR _cm$50374[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _indices$50358[ebp], eax
+	mov	DWORD PTR _indices$50366[ebp], eax
 
 ; 2335 : 			verts = (const NxVec3 *)cm.getBase( 0, NX_ARRAY_VERTICES );
 
 	push	1
 	push	0
-	mov	eax, DWORD PTR _cm$50366[ebp]
+	mov	eax, DWORD PTR _cm$50374[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _cm$50366[ebp]
+	mov	ecx, DWORD PTR _cm$50374[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _verts$50359[ebp], eax
+	mov	DWORD PTR _verts$50367[ebp], eax
 
 ; 2337 : 		else if( shapeType == NX_SHAPE_MESH )
 
-	jmp	SHORT $L50377
-$L50363:
-	cmp	DWORD PTR _shapeType$50357[ebp], 6
-	jne	SHORT $L50370
+	jmp	SHORT $L50385
+$L50371:
+	cmp	DWORD PTR _shapeType$50365[ebp], 6
+	jne	SHORT $L50378
 
 ; 2339 : 			NxTriangleMeshShape *pTriangleMeshShape = (NxTriangleMeshShape *)pShape;
 
-	mov	eax, DWORD PTR _pShape$50356[ebp]
-	mov	DWORD PTR _pTriangleMeshShape$50371[ebp], eax
+	mov	eax, DWORD PTR _pShape$50364[ebp]
+	mov	DWORD PTR _pTriangleMeshShape$50379[ebp], eax
 
 ; 2340 : 			NxTriangleMesh& trm = pTriangleMeshShape->getTriangleMesh();
 
-	mov	ecx, DWORD PTR _pTriangleMeshShape$50371[ebp]
+	mov	ecx, DWORD PTR _pTriangleMeshShape$50379[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pTriangleMeshShape$50371[ebp]
+	mov	ecx, DWORD PTR _pTriangleMeshShape$50379[ebp]
 	call	DWORD PTR [edx+164]
-	mov	DWORD PTR _trm$50373[ebp], eax
+	mov	DWORD PTR _trm$50381[ebp], eax
 
 ; 2341 : 
 ; 2342 : 			NbTris = trm.getCount( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _trm$50373[ebp]
+	mov	eax, DWORD PTR _trm$50381[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _trm$50373[ebp]
+	mov	ecx, DWORD PTR _trm$50381[ebp]
 	call	DWORD PTR [edx+8]
-	mov	DWORD PTR _NbTris$50362[ebp], eax
+	mov	DWORD PTR _NbTris$50370[ebp], eax
 
 ; 2343 : 			indices = (const NxU32 *)trm.getBase( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _trm$50373[ebp]
+	mov	eax, DWORD PTR _trm$50381[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _trm$50373[ebp]
+	mov	ecx, DWORD PTR _trm$50381[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _indices$50358[ebp], eax
+	mov	DWORD PTR _indices$50366[ebp], eax
 
 ; 2344 : 			verts = (const NxVec3 *)trm.getBase( 0, NX_ARRAY_VERTICES );
 
 	push	1
 	push	0
-	mov	eax, DWORD PTR _trm$50373[ebp]
+	mov	eax, DWORD PTR _trm$50381[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _trm$50373[ebp]
+	mov	ecx, DWORD PTR _trm$50381[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _verts$50359[ebp], eax
+	mov	DWORD PTR _verts$50367[ebp], eax
 
 ; 2346 : 		else if( shapeType != NX_SHAPE_BOX )
 
-	jmp	SHORT $L50377
-$L50370:
-	cmp	DWORD PTR _shapeType$50357[ebp], 2
-	je	SHORT $L50377
+	jmp	SHORT $L50385
+$L50378:
+	cmp	DWORD PTR _shapeType$50365[ebp], 2
+	je	SHORT $L50385
 
 ; 2348 : 			// unsupported mesh type, so skip them
 ; 2349 : 			tr->allsolid = false;
@@ -26480,40 +26480,40 @@ $L50370:
 
 ; 2350 : 			return;
 
-	jmp	$L50346
-$L50377:
+	jmp	$L50354
+$L50385:
 
 ; 2352 : 
 ; 2353 : 		if( shapeType == NX_SHAPE_BOX )
 
-	cmp	DWORD PTR _shapeType$50357[ebp], 2
-	jne	$L50378
+	cmp	DWORD PTR _shapeType$50365[ebp], 2
+	jne	$L50386
 
 ; 2355 : 			NxVec3	points[8];
 
 	push	OFFSET FLAT:??0NxVec3@@QAE@XZ		; NxVec3::NxVec3
 	push	8
 	push	12					; 0000000cH
-	lea	ecx, DWORD PTR _points$50379[ebp]
+	lea	ecx, DWORD PTR _points$50387[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
 
 ; 2356 : 			NxVec3	ext, cnt;
 
-	lea	ecx, DWORD PTR _ext$50381[ebp]
+	lea	ecx, DWORD PTR _ext$50389[ebp]
 	call	??0NxVec3@@QAE@XZ			; NxVec3::NxVec3
-	lea	ecx, DWORD PTR _cnt$50382[ebp]
+	lea	ecx, DWORD PTR _cnt$50390[ebp]
 	call	??0NxVec3@@QAE@XZ			; NxVec3::NxVec3
 
 ; 2357 : 			NxBounds3	bounds;
 
-	lea	ecx, DWORD PTR _bounds$50383[ebp]
+	lea	ecx, DWORD PTR _bounds$50391[ebp]
 	call	??0NxBounds3@@QAE@XZ			; NxBounds3::NxBounds3
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
 ; 2358 : 			NxBox	obb;
 
-	lea	ecx, DWORD PTR _obb$50384[ebp]
+	lea	ecx, DWORD PTR _obb$50392[ebp]
 	call	??0NxBox@@QAE@XZ			; NxBox::NxBox
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
 
@@ -26537,19 +26537,19 @@ $L50377:
 ; 2362 : 
 ; 2363 : 			for( uint i = 0; i < pActor->getNbShapes(); i++ )
 
-	mov	DWORD PTR _i$50385[ebp], 0
-	jmp	SHORT $L50386
-$L50387:
-	mov	ecx, DWORD PTR _i$50385[ebp]
+	mov	DWORD PTR _i$50393[ebp], 0
+	jmp	SHORT $L50394
+$L50395:
+	mov	ecx, DWORD PTR _i$50393[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _i$50385[ebp], ecx
-$L50386:
+	mov	DWORD PTR _i$50393[ebp], ecx
+$L50394:
 	mov	edx, DWORD PTR _pActor$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+76]
-	cmp	DWORD PTR _i$50385[ebp], eax
-	jae	$L50388
+	cmp	DWORD PTR _i$50393[ebp], eax
+	jae	$L50396
 
 ; 2365 : 				NxBoxShape *pBoxShape = (NxBoxShape *)pActor->getShapes()[i];
 
@@ -26557,66 +26557,66 @@ $L50386:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+80]
-	mov	ecx, DWORD PTR _i$50385[ebp]
+	mov	ecx, DWORD PTR _i$50393[ebp]
 	mov	edx, DWORD PTR [eax+ecx*4]
-	mov	DWORD PTR _pBoxShape$50389[ebp], edx
+	mov	DWORD PTR _pBoxShape$50397[ebp], edx
 
 ; 2366 : 				NxMat33 absRot = pBoxShape->getGlobalOrientation();
 
-	lea	eax, DWORD PTR _absRot$50391[ebp]
+	lea	eax, DWORD PTR _absRot$50399[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pBoxShape$50389[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50397[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pBoxShape$50389[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50397[ebp]
 	call	DWORD PTR [edx+72]
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
 
 ; 2367 : 				NxVec3 absPos = pBoxShape->getGlobalPosition();
 
-	lea	eax, DWORD PTR $T52600[ebp]
+	lea	eax, DWORD PTR $T52608[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pBoxShape$50389[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50397[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pBoxShape$50389[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50397[ebp]
 	call	DWORD PTR [edx+68]
 	push	eax
-	lea	ecx, DWORD PTR _absPos$50393[ebp]
+	lea	ecx, DWORD PTR _absPos$50401[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2368 : 
 ; 2369 : 				// don't use pBoxShape->getWorldAABB it's caused to broke suspension and deadlocks !!!
 ; 2370 : 				pBoxShape->getWorldBounds( bounds );
 
-	lea	eax, DWORD PTR _bounds$50383[ebp]
+	lea	eax, DWORD PTR _bounds$50391[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pBoxShape$50389[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50397[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pBoxShape$50389[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50397[ebp]
 	call	DWORD PTR [edx+16]
 
 ; 2371 : 				bounds.getExtents( ext );
 
-	lea	eax, DWORD PTR _ext$50381[ebp]
+	lea	eax, DWORD PTR _ext$50389[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _bounds$50383[ebp]
+	lea	ecx, DWORD PTR _bounds$50391[ebp]
 	call	?getExtents@NxBounds3@@QBEXAAVNxVec3@@@Z ; NxBounds3::getExtents
 
 ; 2372 : 				bounds.getCenter( cnt );
 
-	lea	ecx, DWORD PTR _cnt$50382[ebp]
+	lea	ecx, DWORD PTR _cnt$50390[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _bounds$50383[ebp]
+	lea	ecx, DWORD PTR _bounds$50391[ebp]
 	call	?getCenter@NxBounds3@@QBEXAAVNxVec3@@@Z	; NxBounds3::getCenter
 
 ; 2373 : 				obb = NxBox( cnt, ext, absRot );
 
-	lea	edx, DWORD PTR _absRot$50391[ebp]
+	lea	edx, DWORD PTR _absRot$50399[ebp]
 	push	edx
-	lea	eax, DWORD PTR _ext$50381[ebp]
+	lea	eax, DWORD PTR _ext$50389[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _cnt$50382[ebp]
+	lea	ecx, DWORD PTR _cnt$50390[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52601[ebp]
+	lea	ecx, DWORD PTR $T52609[ebp]
 	call	??0NxBox@@QAE@ABVNxVec3@@0ABVNxMat33@@@Z ; NxBox::NxBox
 	mov	DWORD PTR -740+[ebp], eax
 	mov	edx, DWORD PTR -740+[ebp]
@@ -26624,10 +26624,10 @@ $L50386:
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
 	mov	eax, DWORD PTR -744+[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _obb$50384[ebp]
+	lea	ecx, DWORD PTR _obb$50392[ebp]
 	call	??4NxBox@@QAEAAV0@ABV0@@Z		; NxBox::operator=
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
-	lea	ecx, DWORD PTR $T52601[ebp]
+	lea	ecx, DWORD PTR $T52609[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 
 ; 2374 : 
@@ -26639,13 +26639,13 @@ $L50386:
 	mov	eax, DWORD PTR [edx+1356]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+28]
-	mov	DWORD PTR _indices$50358[ebp], eax
+	mov	DWORD PTR _indices$50366[ebp], eax
 
 ; 2376 : 				m_pUtils->NxComputeBoxPoints( obb, points );
 
-	lea	eax, DWORD PTR _points$50379[ebp]
+	lea	eax, DWORD PTR _points$50387[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _obb$50384[ebp]
+	lea	ecx, DWORD PTR _obb$50392[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+1356]
@@ -26656,83 +26656,83 @@ $L50386:
 
 ; 2377 : 				verts = (const NxVec3 *)points;
 
-	lea	ecx, DWORD PTR _points$50379[ebp]
-	mov	DWORD PTR _verts$50359[ebp], ecx
+	lea	ecx, DWORD PTR _points$50387[ebp]
+	mov	DWORD PTR _verts$50367[ebp], ecx
 
 ; 2378 : 
 ; 2379 : 				for( int j = 0; j < 12; j++ )
 
-	mov	DWORD PTR _j$50398[ebp], 0
-	jmp	SHORT $L50399
-$L50400:
-	mov	edx, DWORD PTR _j$50398[ebp]
+	mov	DWORD PTR _j$50406[ebp], 0
+	jmp	SHORT $L50407
+$L50408:
+	mov	edx, DWORD PTR _j$50406[ebp]
 	add	edx, 1
-	mov	DWORD PTR _j$50398[ebp], edx
-$L50399:
-	cmp	DWORD PTR _j$50398[ebp], 12		; 0000000cH
-	jge	$L50401
+	mov	DWORD PTR _j$50406[ebp], edx
+$L50407:
+	cmp	DWORD PTR _j$50406[ebp], 12		; 0000000cH
+	jge	$L50409
 
 ; 2381 : 					NxU32 i0 = *indices++;
 
-	mov	eax, DWORD PTR _indices$50358[ebp]
+	mov	eax, DWORD PTR _indices$50366[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _i0$50402[ebp], ecx
-	mov	edx, DWORD PTR _indices$50358[ebp]
+	mov	DWORD PTR _i0$50410[ebp], ecx
+	mov	edx, DWORD PTR _indices$50366[ebp]
 	add	edx, 4
-	mov	DWORD PTR _indices$50358[ebp], edx
+	mov	DWORD PTR _indices$50366[ebp], edx
 
 ; 2382 : 					NxU32 i1 = *indices++;
 
-	mov	eax, DWORD PTR _indices$50358[ebp]
+	mov	eax, DWORD PTR _indices$50366[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _i1$50403[ebp], ecx
-	mov	edx, DWORD PTR _indices$50358[ebp]
+	mov	DWORD PTR _i1$50411[ebp], ecx
+	mov	edx, DWORD PTR _indices$50366[ebp]
 	add	edx, 4
-	mov	DWORD PTR _indices$50358[ebp], edx
+	mov	DWORD PTR _indices$50366[ebp], edx
 
 ; 2383 : 					NxU32 i2 = *indices++;
 
-	mov	eax, DWORD PTR _indices$50358[ebp]
+	mov	eax, DWORD PTR _indices$50366[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _i2$50404[ebp], ecx
-	mov	edx, DWORD PTR _indices$50358[ebp]
+	mov	DWORD PTR _i2$50412[ebp], ecx
+	mov	edx, DWORD PTR _indices$50366[ebp]
 	add	edx, 4
-	mov	DWORD PTR _indices$50358[ebp], edx
+	mov	DWORD PTR _indices$50366[ebp], edx
 
 ; 2384 : 					triangle[0] = verts[i0];
 
-	mov	eax, DWORD PTR _i0$50402[ebp]
+	mov	eax, DWORD PTR _i0$50410[ebp]
 	imul	eax, 12					; 0000000cH
-	mov	ecx, DWORD PTR _verts$50359[ebp]
+	mov	ecx, DWORD PTR _verts$50367[ebp]
 	add	ecx, eax
 	push	ecx
-	lea	ecx, DWORD PTR _triangle$50360[ebp]
+	lea	ecx, DWORD PTR _triangle$50368[ebp]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2385 : 					triangle[1] = verts[i1];
 
-	mov	edx, DWORD PTR _i1$50403[ebp]
+	mov	edx, DWORD PTR _i1$50411[ebp]
 	imul	edx, 12					; 0000000cH
-	mov	eax, DWORD PTR _verts$50359[ebp]
+	mov	eax, DWORD PTR _verts$50367[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50360[ebp+12]
+	lea	ecx, DWORD PTR _triangle$50368[ebp+12]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2386 : 					triangle[2] = verts[i2];
 
-	mov	ecx, DWORD PTR _i2$50404[ebp]
+	mov	ecx, DWORD PTR _i2$50412[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _verts$50359[ebp]
+	mov	edx, DWORD PTR _verts$50367[ebp]
 	add	edx, ecx
 	push	edx
-	lea	ecx, DWORD PTR _triangle$50360[ebp+24]
+	lea	ecx, DWORD PTR _triangle$50368[ebp+24]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2387 : 
 ; 2388 : 					pTouch->m_BodyMesh.AddMeshTrinagle( triangle );
 
-	lea	eax, DWORD PTR _triangle$50360[ebp]
+	lea	eax, DWORD PTR _triangle$50368[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pTouch$[ebp]
 	add	ecx, 248				; 000000f8H
@@ -26740,57 +26740,57 @@ $L50399:
 
 ; 2389 : 				}
 
-	jmp	$L50400
-$L50401:
+	jmp	$L50408
+$L50409:
 
 ; 2390 : 			}
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
-	lea	ecx, DWORD PTR _absRot$50391[ebp]
+	lea	ecx, DWORD PTR _absRot$50399[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
-	jmp	$L50387
-$L50388:
+	jmp	$L50395
+$L50396:
 
 ; 2391 : 		}
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _obb$50384[ebp]
+	lea	ecx, DWORD PTR _obb$50392[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _bounds$50383[ebp]
+	lea	ecx, DWORD PTR _bounds$50391[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
 
 ; 2392 : 		else
 
-	jmp	$L50405
-$L50378:
+	jmp	$L50413
+$L50386:
 
 ; 2394 : 			NxMat33 absRot = pShape->getGlobalOrientation();
 
-	lea	ecx, DWORD PTR _absRot$50406[ebp]
+	lea	ecx, DWORD PTR _absRot$50414[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _pShape$50356[ebp]
+	mov	edx, DWORD PTR _pShape$50364[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _pShape$50356[ebp]
+	mov	ecx, DWORD PTR _pShape$50364[ebp]
 	call	DWORD PTR [eax+72]
 	mov	DWORD PTR __$EHRec$[ebp+8], 4
 
 ; 2395 : 			NxVec3 absPos = pShape->getGlobalPosition();
 
-	lea	ecx, DWORD PTR $T52602[ebp]
+	lea	ecx, DWORD PTR $T52610[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _pShape$50356[ebp]
+	mov	edx, DWORD PTR _pShape$50364[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _pShape$50356[ebp]
+	mov	ecx, DWORD PTR _pShape$50364[ebp]
 	call	DWORD PTR [eax+68]
 	push	eax
-	lea	ecx, DWORD PTR _absPos$50408[ebp]
+	lea	ecx, DWORD PTR _absPos$50416[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2396 : 
 ; 2397 : 			pTouch->m_BodyMesh.InitMeshBuild( pTouch->GetModel(), NbTris );
 
-	mov	ecx, DWORD PTR _NbTris$50362[ebp]
+	mov	ecx, DWORD PTR _NbTris$50370[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pTouch$[ebp]
 	call	?GetModel@CBaseEntity@@QAEPBDXZ		; CBaseEntity::GetModel
@@ -26798,7 +26798,7 @@ $L50378:
 	mov	ecx, DWORD PTR _pTouch$[ebp]
 	add	ecx, 248				; 000000f8H
 	call	?InitMeshBuild@CMeshDesc@@QAE_NPBDH@Z	; CMeshDesc::InitMeshBuild
-$L50411:
+$L50419:
 
 ; 2398 : 
 ; 2399 : 			// NOTE: we compute triangles in abs coords because player AABB
@@ -26806,138 +26806,138 @@ $L50411:
 ; 2401 : 			// FIXME: store all meshes as local and use capsule instead of bbox
 ; 2402 : 			while( NbTris-- )
 
-	mov	edx, DWORD PTR _NbTris$50362[ebp]
-	mov	eax, DWORD PTR _NbTris$50362[ebp]
+	mov	edx, DWORD PTR _NbTris$50370[ebp]
+	mov	eax, DWORD PTR _NbTris$50370[ebp]
 	sub	eax, 1
-	mov	DWORD PTR _NbTris$50362[ebp], eax
+	mov	DWORD PTR _NbTris$50370[ebp], eax
 	test	edx, edx
-	je	$L50412
+	je	$L50420
 
 ; 2404 : 				NxU32 i0 = *indices++;
 
-	mov	ecx, DWORD PTR _indices$50358[ebp]
+	mov	ecx, DWORD PTR _indices$50366[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	DWORD PTR _i0$50413[ebp], edx
-	mov	eax, DWORD PTR _indices$50358[ebp]
+	mov	DWORD PTR _i0$50421[ebp], edx
+	mov	eax, DWORD PTR _indices$50366[ebp]
 	add	eax, 4
-	mov	DWORD PTR _indices$50358[ebp], eax
+	mov	DWORD PTR _indices$50366[ebp], eax
 
 ; 2405 : 				NxU32 i1 = *indices++;
 
-	mov	ecx, DWORD PTR _indices$50358[ebp]
+	mov	ecx, DWORD PTR _indices$50366[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	DWORD PTR _i1$50414[ebp], edx
-	mov	eax, DWORD PTR _indices$50358[ebp]
+	mov	DWORD PTR _i1$50422[ebp], edx
+	mov	eax, DWORD PTR _indices$50366[ebp]
 	add	eax, 4
-	mov	DWORD PTR _indices$50358[ebp], eax
+	mov	DWORD PTR _indices$50366[ebp], eax
 
 ; 2406 : 				NxU32 i2 = *indices++;
 
-	mov	ecx, DWORD PTR _indices$50358[ebp]
+	mov	ecx, DWORD PTR _indices$50366[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	DWORD PTR _i2$50415[ebp], edx
-	mov	eax, DWORD PTR _indices$50358[ebp]
+	mov	DWORD PTR _i2$50423[ebp], edx
+	mov	eax, DWORD PTR _indices$50366[ebp]
 	add	eax, 4
-	mov	DWORD PTR _indices$50358[ebp], eax
+	mov	DWORD PTR _indices$50366[ebp], eax
 
 ; 2407 : 				NxVec3 v0 = verts[i0];
 
-	mov	ecx, DWORD PTR _i0$50413[ebp]
+	mov	ecx, DWORD PTR _i0$50421[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _verts$50359[ebp]
+	mov	edx, DWORD PTR _verts$50367[ebp]
 	add	edx, ecx
 	push	edx
-	lea	ecx, DWORD PTR _v0$50416[ebp]
+	lea	ecx, DWORD PTR _v0$50424[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2408 : 				NxVec3 v1 = verts[i1];
 
-	mov	eax, DWORD PTR _i1$50414[ebp]
+	mov	eax, DWORD PTR _i1$50422[ebp]
 	imul	eax, 12					; 0000000cH
-	mov	ecx, DWORD PTR _verts$50359[ebp]
+	mov	ecx, DWORD PTR _verts$50367[ebp]
 	add	ecx, eax
 	push	ecx
-	lea	ecx, DWORD PTR _v1$50417[ebp]
+	lea	ecx, DWORD PTR _v1$50425[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2409 : 				NxVec3 v2 = verts[i2];
 
-	mov	edx, DWORD PTR _i2$50415[ebp]
+	mov	edx, DWORD PTR _i2$50423[ebp]
 	imul	edx, 12					; 0000000cH
-	mov	eax, DWORD PTR _verts$50359[ebp]
+	mov	eax, DWORD PTR _verts$50367[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR _v2$50418[ebp]
+	lea	ecx, DWORD PTR _v2$50426[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2410 : 
 ; 2411 : 				absRot.multiply( v0, v0 );
 
-	lea	ecx, DWORD PTR _v0$50416[ebp]
+	lea	ecx, DWORD PTR _v0$50424[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _v0$50416[ebp]
+	lea	edx, DWORD PTR _v0$50424[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _absRot$50406[ebp]
+	lea	ecx, DWORD PTR _absRot$50414[ebp]
 	call	?multiply@NxMat33@@QBEXABVNxVec3@@AAV2@@Z ; NxMat33::multiply
 
 ; 2412 : 				absRot.multiply( v1, v1 );
 
-	lea	eax, DWORD PTR _v1$50417[ebp]
+	lea	eax, DWORD PTR _v1$50425[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _v1$50417[ebp]
+	lea	ecx, DWORD PTR _v1$50425[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _absRot$50406[ebp]
+	lea	ecx, DWORD PTR _absRot$50414[ebp]
 	call	?multiply@NxMat33@@QBEXABVNxVec3@@AAV2@@Z ; NxMat33::multiply
 
 ; 2413 : 				absRot.multiply( v2, v2 );
 
-	lea	edx, DWORD PTR _v2$50418[ebp]
+	lea	edx, DWORD PTR _v2$50426[ebp]
 	push	edx
-	lea	eax, DWORD PTR _v2$50418[ebp]
+	lea	eax, DWORD PTR _v2$50426[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _absRot$50406[ebp]
+	lea	ecx, DWORD PTR _absRot$50414[ebp]
 	call	?multiply@NxMat33@@QBEXABVNxVec3@@AAV2@@Z ; NxMat33::multiply
 
 ; 2414 : 				triangle[0] = v0 + absPos;
 
-	lea	ecx, DWORD PTR _absPos$50408[ebp]
+	lea	ecx, DWORD PTR _absPos$50416[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T52603[ebp]
+	lea	edx, DWORD PTR $T52611[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _v0$50416[ebp]
+	lea	ecx, DWORD PTR _v0$50424[ebp]
 	call	??HNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator+
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50360[ebp]
+	lea	ecx, DWORD PTR _triangle$50368[ebp]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2415 : 				triangle[1] = v1 + absPos;
 
-	lea	eax, DWORD PTR _absPos$50408[ebp]
+	lea	eax, DWORD PTR _absPos$50416[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52604[ebp]
+	lea	ecx, DWORD PTR $T52612[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _v1$50417[ebp]
+	lea	ecx, DWORD PTR _v1$50425[ebp]
 	call	??HNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator+
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50360[ebp+12]
+	lea	ecx, DWORD PTR _triangle$50368[ebp+12]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2416 : 				triangle[2] = v2 + absPos;
 
-	lea	edx, DWORD PTR _absPos$50408[ebp]
+	lea	edx, DWORD PTR _absPos$50416[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T52605[ebp]
+	lea	eax, DWORD PTR $T52613[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _v2$50418[ebp]
+	lea	ecx, DWORD PTR _v2$50426[ebp]
 	call	??HNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator+
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50360[ebp+24]
+	lea	ecx, DWORD PTR _triangle$50368[ebp+24]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2417 : 
 ; 2418 : 				pTouch->m_BodyMesh.AddMeshTrinagle( triangle );
 
-	lea	ecx, DWORD PTR _triangle$50360[ebp]
+	lea	ecx, DWORD PTR _triangle$50368[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _pTouch$[ebp]
 	add	ecx, 248				; 000000f8H
@@ -26945,15 +26945,15 @@ $L50411:
 
 ; 2419 : 			}
 
-	jmp	$L50411
-$L50412:
+	jmp	$L50419
+$L50420:
 
 ; 2420 : 		}
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _absRot$50406[ebp]
+	lea	ecx, DWORD PTR _absRot$50414[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
-$L50405:
+$L50413:
 
 ; 2421 : 
 ; 2422 : 		if( !pTouch->m_BodyMesh.FinishMeshBuild( ))
@@ -26963,7 +26963,7 @@ $L50405:
 	call	?FinishMeshBuild@CMeshDesc@@QAE_NXZ	; CMeshDesc::FinishMeshBuild
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	jne	SHORT $L50422
+	jne	SHORT $L50430
 
 ; 2424 : 			ALERT( at_error, "failed to build mesh from %s\n", pTouch->GetModel() );
 
@@ -26982,8 +26982,8 @@ $L50405:
 
 ; 2426 : 			return;
 
-	jmp	$L50346
-$L50422:
+	jmp	$L50354
+$L50430:
 
 ; 2428 : 
 ; 2429 : 		// NOTE: don't care about validity this pointer
@@ -27001,7 +27001,7 @@ $L50422:
 	add	ecx, 248				; 000000f8H
 	call	?GetHeadNode@CMeshDesc@@QAEPAUareanode_s@@XZ ; CMeshDesc::GetHeadNode
 	mov	DWORD PTR _pHeadNode$[ebp], eax
-$L50355:
+$L50363:
 
 ; 2434 : 
 ; 2435 : 	TraceMesh	trm;	// a name like Doom3 :-)
@@ -27042,7 +27042,7 @@ $L50355:
 	call	?DoTrace@TraceMesh@@QAE_NXZ		; TraceMesh::DoTrace
 	and	eax, 255				; 000000ffH
 	test	eax, eax
-	je	SHORT $L50426
+	je	SHORT $L50434
 
 ; 2442 : 		if( tr->fraction < 1.0f || tr->startsolid )
 
@@ -27051,11 +27051,11 @@ $L50355:
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L50427
+	jne	SHORT $L50435
 	mov	edx, DWORD PTR _tr$[ebp]
 	cmp	DWORD PTR [edx+4], 0
-	je	SHORT $L50426
-$L50427:
+	je	SHORT $L50434
+$L50435:
 
 ; 2443 : 			tr->ent = pTouch->edict();
 
@@ -27063,14 +27063,14 @@ $L50427:
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	mov	ecx, DWORD PTR _tr$[ebp]
 	mov	DWORD PTR [ecx+48], eax
-$L50426:
+$L50434:
 
 ; 2445 : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _trm$[ebp]
 	call	??1TraceMesh@@QAE@XZ			; TraceMesh::~TraceMesh
-$L50346:
+$L50354:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -27083,23 +27083,23 @@ _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 __unwindfunclet$?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z$0:
-	lea	ecx, DWORD PTR _bounds$50383[ebp]
+	lea	ecx, DWORD PTR _bounds$50391[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
 	ret	0
 __unwindfunclet$?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z$1:
-	lea	ecx, DWORD PTR _obb$50384[ebp]
+	lea	ecx, DWORD PTR _obb$50392[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	ret	0
 __unwindfunclet$?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z$2:
-	lea	ecx, DWORD PTR _absRot$50391[ebp]
+	lea	ecx, DWORD PTR _absRot$50399[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	ret	0
 __unwindfunclet$?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z$3:
-	lea	ecx, DWORD PTR $T52601[ebp]
+	lea	ecx, DWORD PTR $T52609[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	ret	0
 __unwindfunclet$?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z$4:
-	lea	ecx, DWORD PTR _absRot$50406[ebp]
+	lea	ecx, DWORD PTR _absRot$50414[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	ret	0
 __unwindfunclet$?SweepTest@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@111PAUtrace_s@@@Z$5:
@@ -27129,14 +27129,14 @@ _this$ = -4
 	xor	ecx, ecx
 	mov	cl, BYTE PTR [eax+1352]
 	test	ecx, ecx
-	je	SHORT $L52620
+	je	SHORT $L52628
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 68					; 00000044H
 	mov	DWORD PTR -8+[ebp], edx
-	jmp	SHORT $L52621
-$L52620:
+	jmp	SHORT $L52629
+$L52628:
 	mov	DWORD PTR -8+[ebp], 0
-$L52621:
+$L52629:
 	mov	eax, DWORD PTR -8+[ebp]
 	pop	edi
 	pop	esi
@@ -27239,7 +27239,7 @@ _TEXT	ENDS
 ;	COMDAT ??HNxVec3@@QBE?AV0@ABV0@@Z
 _TEXT	SEGMENT
 _v$ = 12
-$T52630 = -16
+$T52638 = -16
 ___$ReturnUdt$ = 8
 _this$ = -4
 ??HNxVec3@@QBE?AV0@ABV0@@Z PROC NEAR			; NxVec3::operator+, COMDAT
@@ -27274,7 +27274,7 @@ _this$ = -4
 	fadd	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T52630[ebp]
+	lea	ecx, DWORD PTR $T52638[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -27929,8 +27929,8 @@ PUBLIC	?Length@Vector@@QBEMXZ				; Vector::Length
 PUBLIC	?Normalize@Vector@@QBE?AV1@XZ			; Vector::Normalize
 PUBLIC	__real@4@3ffbcccccd0000000000
 PUBLIC	__real@8@3ffe8000000000000000
-PUBLIC	__real@8@3ffbcccccd0000000000
 PUBLIC	?DotProduct@@YAMABVVector@@0@Z			; DotProduct
+PUBLIC	__real@8@3ffbcccccd0000000000
 PUBLIC	?VectorLerp@@YAXABVVector@@M0AAV1@@Z		; VectorLerp
 PUBLIC	??0NxSweepQueryHit@@QAE@XZ			; NxSweepQueryHit::NxSweepQueryHit
 EXTRN	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@PAUedict_s@@PAUgametrace_s@@@Z:NEAR ; UTIL_TraceLine
@@ -27980,40 +27980,40 @@ _tr$ = 20
 _this$ = -16
 _pActor$ = -20
 _testBox$ = -80
-_pShape$50446 = -84
-_shapeType$50447 = -88
-_triangle$50448 = -124
-_dirs$50450 = -160
-_indices$50452 = -164
-_verts$50453 = -168
-_NbTris$50454 = -172
-_pConvexShape$50456 = -176
-_cm$50458 = -180
-_pTriangleMeshShape$50463 = -184
-_trm$50465 = -188
-_points$50471 = -284
-_ext$50473 = -296
-_cnt$50474 = -308
-_bounds$50475 = -332
-_obb$50476 = -392
-_i$50477 = -396
-_pBoxShape$50481 = -400
-_absRot$50483 = -436
-_absPos$50485 = -448
-_j$50490 = -452
-_i0$50494 = -456
-_i1$50495 = -460
-_i2$50496 = -464
-_k$50497 = -468
-_absRot$50506 = -504
-_absPos$50508 = -516
-_i0$50513 = -520
-_i1$50514 = -524
-_i2$50515 = -528
-_v0$50516 = -540
-_v1$50517 = -552
-_v2$50518 = -564
-_i$50522 = -568
+_pShape$50454 = -84
+_shapeType$50455 = -88
+_triangle$50456 = -124
+_dirs$50458 = -160
+_indices$50460 = -164
+_verts$50461 = -168
+_NbTris$50462 = -172
+_pConvexShape$50464 = -176
+_cm$50466 = -180
+_pTriangleMeshShape$50471 = -184
+_trm$50473 = -188
+_points$50479 = -284
+_ext$50481 = -296
+_cnt$50482 = -308
+_bounds$50483 = -332
+_obb$50484 = -392
+_i$50485 = -396
+_pBoxShape$50489 = -400
+_absRot$50491 = -436
+_absPos$50493 = -448
+_j$50498 = -452
+_i0$50502 = -456
+_i1$50503 = -460
+_i2$50504 = -464
+_k$50505 = -468
+_absRot$50514 = -504
+_absPos$50516 = -516
+_i0$50521 = -520
+_i1$50522 = -524
+_i2$50523 = -528
+_v0$50524 = -540
+_v1$50525 = -552
+_v2$50526 = -564
+_i$50530 = -568
 _vecDir$ = -580
 _flLength$ = -584
 _result$ = -632
@@ -28021,26 +28021,26 @@ _numHits$ = -636
 _pHit$ = -640
 _flDot$ = -644
 _moveDot$ = -648
-$T52664 = -660
-$T52665 = -696
-$T52666 = -708
-$T52667 = -720
-$T52668 = -780
-$T52669 = -792
-$T52670 = -804
-$T52671 = -816
-$T52672 = -828
-$T52673 = -840
-$T52674 = -852
-$T52675 = -864
-$T52676 = -876
-$T52677 = -888
-$T52678 = -900
-$T52679 = -912
-$T52680 = -924
-$T52681 = -936
-$T52682 = -948
-$T52683 = -960
+$T52672 = -660
+$T52673 = -696
+$T52674 = -708
+$T52675 = -720
+$T52676 = -780
+$T52677 = -792
+$T52678 = -804
+$T52679 = -816
+$T52680 = -828
+$T52681 = -840
+$T52682 = -852
+$T52683 = -864
+$T52684 = -876
+$T52685 = -888
+$T52686 = -900
+$T52687 = -912
+$T52688 = -924
+$T52689 = -936
+$T52690 = -948
+$T52691 = -960
 __$EHRec$ = -12
 ?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z PROC NEAR ; CPhysicNovodex::SweepEntity, COMDAT
 
@@ -28096,23 +28096,23 @@ __$EHRec$ = -12
 ; 2455 : 	if( !pActor || pActor->getNbShapes() <= 0 || pEntity->pev->solid == SOLID_NOT )
 
 	cmp	DWORD PTR _pActor$[ebp], 0
-	je	SHORT $L50440
+	je	SHORT $L50448
 	mov	eax, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+76]
 	test	eax, eax
-	jbe	SHORT $L50440
+	jbe	SHORT $L50448
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
 	cmp	DWORD PTR [ecx+268], 0
-	jne	SHORT $L50439
-$L50440:
+	jne	SHORT $L50447
+$L50448:
 
 ; 2456 : 		return; // only dynamic solid objects can be traced
 
-	jmp	$L50437
-$L50439:
+	jmp	$L50445
+$L50447:
 
 ; 2457 : 
 ; 2458 : 	NxBox testBox;
@@ -28125,7 +28125,7 @@ $L50439:
 ; 2460 : 	// setup trace box
 ; 2461 : 	testBox.center = pEntity->Center();
 
-	lea	edx, DWORD PTR $T52664[ebp]
+	lea	edx, DWORD PTR $T52672[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	edx, DWORD PTR [eax]
@@ -28137,7 +28137,7 @@ $L50439:
 
 ; 2462 : 	testBox.rot = pActor->getGlobalOrientation();
 
-	lea	eax, DWORD PTR $T52665[ebp]
+	lea	eax, DWORD PTR $T52673[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -28152,13 +28152,13 @@ $L50439:
 	lea	ecx, DWORD PTR _testBox$[ebp+24]
 	call	??4NxMat33@@QAEABV0@ABV0@@Z		; NxMat33::operator=
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR $T52665[ebp]
+	lea	ecx, DWORD PTR $T52673[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 
 ; 2463 : 	testBox.extents = (pEntity->pev->size * 0.5f);
 
 	push	1056964608				; 3f000000H
-	lea	edx, DWORD PTR $T52666[ebp]
+	lea	edx, DWORD PTR $T52674[ebp]
 	push	edx
 	mov	eax, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -28177,7 +28177,7 @@ $L50439:
 	mov	ecx, DWORD PTR _start$[ebp]
 	call	??8Vector@@QBEHABV0@@Z			; Vector::operator==
 	test	eax, eax
-	je	$L50445
+	je	$L50453
 
 ; 2468 : 		// update cache or build from scratch
 ; 2469 : 		NxShape *pShape = pActor->getShapes()[0];
@@ -28187,28 +28187,28 @@ $L50439:
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+80]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _pShape$50446[ebp], ecx
+	mov	DWORD PTR _pShape$50454[ebp], ecx
 
 ; 2470 : 		int shapeType = pShape->getType();
 
-	mov	edx, DWORD PTR _pShape$50446[ebp]
+	mov	edx, DWORD PTR _pShape$50454[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR _pShape$50446[ebp]
+	mov	ecx, DWORD PTR _pShape$50454[ebp]
 	call	DWORD PTR [eax+92]
-	mov	DWORD PTR _shapeType$50447[ebp], eax
+	mov	DWORD PTR _shapeType$50455[ebp], eax
 
 ; 2471 : 		Vector triangle[3], dirs[3];
 
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	push	3
 	push	12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50448[ebp]
+	lea	ecx, DWORD PTR _triangle$50456[ebp]
 	push	ecx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
 	push	OFFSET FLAT:??0Vector@@QAE@XZ		; Vector::Vector
 	push	3
 	push	12					; 0000000cH
-	lea	edx, DWORD PTR _dirs$50450[ebp]
+	lea	edx, DWORD PTR _dirs$50458[ebp]
 	push	edx
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
 
@@ -28218,110 +28218,110 @@ $L50439:
 ; 2475 : 
 ; 2476 : 		if( shapeType == NX_SHAPE_CONVEX )
 
-	cmp	DWORD PTR _shapeType$50447[ebp], 5
-	jne	SHORT $L50455
+	cmp	DWORD PTR _shapeType$50455[ebp], 5
+	jne	SHORT $L50463
 
 ; 2478 : 			NxConvexShape *pConvexShape = (NxConvexShape *)pShape;
 
-	mov	eax, DWORD PTR _pShape$50446[ebp]
-	mov	DWORD PTR _pConvexShape$50456[ebp], eax
+	mov	eax, DWORD PTR _pShape$50454[ebp]
+	mov	DWORD PTR _pConvexShape$50464[ebp], eax
 
 ; 2479 : 			NxConvexMesh& cm = pConvexShape->getConvexMesh();
 
-	mov	ecx, DWORD PTR _pConvexShape$50456[ebp]
+	mov	ecx, DWORD PTR _pConvexShape$50464[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pConvexShape$50456[ebp]
+	mov	ecx, DWORD PTR _pConvexShape$50464[ebp]
 	call	DWORD PTR [edx+164]
-	mov	DWORD PTR _cm$50458[ebp], eax
+	mov	DWORD PTR _cm$50466[ebp], eax
 
 ; 2480 : 
 ; 2481 : 			NbTris = cm.getCount( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _cm$50458[ebp]
+	mov	eax, DWORD PTR _cm$50466[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _cm$50458[ebp]
+	mov	ecx, DWORD PTR _cm$50466[ebp]
 	call	DWORD PTR [edx+8]
-	mov	DWORD PTR _NbTris$50454[ebp], eax
+	mov	DWORD PTR _NbTris$50462[ebp], eax
 
 ; 2482 : 			indices = (const NxU32 *)cm.getBase( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _cm$50458[ebp]
+	mov	eax, DWORD PTR _cm$50466[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _cm$50458[ebp]
+	mov	ecx, DWORD PTR _cm$50466[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _indices$50452[ebp], eax
+	mov	DWORD PTR _indices$50460[ebp], eax
 
 ; 2483 : 			verts = (const NxVec3 *)cm.getBase( 0, NX_ARRAY_VERTICES );
 
 	push	1
 	push	0
-	mov	eax, DWORD PTR _cm$50458[ebp]
+	mov	eax, DWORD PTR _cm$50466[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _cm$50458[ebp]
+	mov	ecx, DWORD PTR _cm$50466[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _verts$50453[ebp], eax
+	mov	DWORD PTR _verts$50461[ebp], eax
 
 ; 2485 : 		else if( shapeType == NX_SHAPE_MESH )
 
-	jmp	$L50469
-$L50455:
-	cmp	DWORD PTR _shapeType$50447[ebp], 6
-	jne	SHORT $L50462
+	jmp	$L50477
+$L50463:
+	cmp	DWORD PTR _shapeType$50455[ebp], 6
+	jne	SHORT $L50470
 
 ; 2487 : 			NxTriangleMeshShape *pTriangleMeshShape = (NxTriangleMeshShape *)pShape;
 
-	mov	eax, DWORD PTR _pShape$50446[ebp]
-	mov	DWORD PTR _pTriangleMeshShape$50463[ebp], eax
+	mov	eax, DWORD PTR _pShape$50454[ebp]
+	mov	DWORD PTR _pTriangleMeshShape$50471[ebp], eax
 
 ; 2488 : 			NxTriangleMesh& trm = pTriangleMeshShape->getTriangleMesh();
 
-	mov	ecx, DWORD PTR _pTriangleMeshShape$50463[ebp]
+	mov	ecx, DWORD PTR _pTriangleMeshShape$50471[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pTriangleMeshShape$50463[ebp]
+	mov	ecx, DWORD PTR _pTriangleMeshShape$50471[ebp]
 	call	DWORD PTR [edx+164]
-	mov	DWORD PTR _trm$50465[ebp], eax
+	mov	DWORD PTR _trm$50473[ebp], eax
 
 ; 2489 : 
 ; 2490 : 			NbTris = trm.getCount( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _trm$50465[ebp]
+	mov	eax, DWORD PTR _trm$50473[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _trm$50465[ebp]
+	mov	ecx, DWORD PTR _trm$50473[ebp]
 	call	DWORD PTR [edx+8]
-	mov	DWORD PTR _NbTris$50454[ebp], eax
+	mov	DWORD PTR _NbTris$50462[ebp], eax
 
 ; 2491 : 			indices = (const NxU32 *)trm.getBase( 0, NX_ARRAY_TRIANGLES );
 
 	push	0
 	push	0
-	mov	eax, DWORD PTR _trm$50465[ebp]
+	mov	eax, DWORD PTR _trm$50473[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _trm$50465[ebp]
+	mov	ecx, DWORD PTR _trm$50473[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _indices$50452[ebp], eax
+	mov	DWORD PTR _indices$50460[ebp], eax
 
 ; 2492 : 			verts = (const NxVec3 *)trm.getBase( 0, NX_ARRAY_VERTICES );
 
 	push	1
 	push	0
-	mov	eax, DWORD PTR _trm$50465[ebp]
+	mov	eax, DWORD PTR _trm$50473[ebp]
 	mov	edx, DWORD PTR [eax]
-	mov	ecx, DWORD PTR _trm$50465[ebp]
+	mov	ecx, DWORD PTR _trm$50473[ebp]
 	call	DWORD PTR [edx+16]
-	mov	DWORD PTR _verts$50453[ebp], eax
+	mov	DWORD PTR _verts$50461[ebp], eax
 
 ; 2494 : 		else if( shapeType != NX_SHAPE_BOX )
 
-	jmp	SHORT $L50469
-$L50462:
-	cmp	DWORD PTR _shapeType$50447[ebp], 2
-	je	SHORT $L50469
+	jmp	SHORT $L50477
+$L50470:
+	cmp	DWORD PTR _shapeType$50455[ebp], 2
+	je	SHORT $L50477
 
 ; 2496 : 			// unsupported mesh type, so skip them
 ; 2497 : 			return;
@@ -28329,59 +28329,59 @@ $L50462:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _testBox$[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
-	jmp	$L50437
-$L50469:
+	jmp	$L50445
+$L50477:
 
 ; 2499 : 
 ; 2500 : 		if( shapeType == NX_SHAPE_BOX )
 
-	cmp	DWORD PTR _shapeType$50447[ebp], 2
-	jne	$L50470
+	cmp	DWORD PTR _shapeType$50455[ebp], 2
+	jne	$L50478
 
 ; 2502 : 			NxVec3	points[8];
 
 	push	OFFSET FLAT:??0NxVec3@@QAE@XZ		; NxVec3::NxVec3
 	push	8
 	push	12					; 0000000cH
-	lea	eax, DWORD PTR _points$50471[ebp]
+	lea	eax, DWORD PTR _points$50479[ebp]
 	push	eax
 	call	??_H@YGXPAXIHP6EX0@Z@Z			; `vector constructor iterator'
 
 ; 2503 : 			NxVec3	ext, cnt;
 
-	lea	ecx, DWORD PTR _ext$50473[ebp]
+	lea	ecx, DWORD PTR _ext$50481[ebp]
 	call	??0NxVec3@@QAE@XZ			; NxVec3::NxVec3
-	lea	ecx, DWORD PTR _cnt$50474[ebp]
+	lea	ecx, DWORD PTR _cnt$50482[ebp]
 	call	??0NxVec3@@QAE@XZ			; NxVec3::NxVec3
 
 ; 2504 : 			NxBounds3	bounds;
 
-	lea	ecx, DWORD PTR _bounds$50475[ebp]
+	lea	ecx, DWORD PTR _bounds$50483[ebp]
 	call	??0NxBounds3@@QAE@XZ			; NxBounds3::NxBounds3
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
 
 ; 2505 : 			NxBox	obb;
 
-	lea	ecx, DWORD PTR _obb$50476[ebp]
+	lea	ecx, DWORD PTR _obb$50484[ebp]
 	call	??0NxBox@@QAE@XZ			; NxBox::NxBox
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
 
 ; 2506 : 
 ; 2507 : 			for( uint i = 0; i < pActor->getNbShapes(); i++ )
 
-	mov	DWORD PTR _i$50477[ebp], 0
-	jmp	SHORT $L50478
-$L50479:
-	mov	ecx, DWORD PTR _i$50477[ebp]
+	mov	DWORD PTR _i$50485[ebp], 0
+	jmp	SHORT $L50486
+$L50487:
+	mov	ecx, DWORD PTR _i$50485[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _i$50477[ebp], ecx
-$L50478:
+	mov	DWORD PTR _i$50485[ebp], ecx
+$L50486:
 	mov	edx, DWORD PTR _pActor$[ebp]
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [eax+76]
-	cmp	DWORD PTR _i$50477[ebp], eax
-	jae	$L50480
+	cmp	DWORD PTR _i$50485[ebp], eax
+	jae	$L50488
 
 ; 2509 : 				NxBoxShape *pBoxShape = (NxBoxShape *)pActor->getShapes()[i];
 
@@ -28389,66 +28389,66 @@ $L50478:
 	mov	edx, DWORD PTR [ecx]
 	mov	ecx, DWORD PTR _pActor$[ebp]
 	call	DWORD PTR [edx+80]
-	mov	ecx, DWORD PTR _i$50477[ebp]
+	mov	ecx, DWORD PTR _i$50485[ebp]
 	mov	edx, DWORD PTR [eax+ecx*4]
-	mov	DWORD PTR _pBoxShape$50481[ebp], edx
+	mov	DWORD PTR _pBoxShape$50489[ebp], edx
 
 ; 2510 : 				NxMat33 absRot = pBoxShape->getGlobalOrientation();
 
-	lea	eax, DWORD PTR _absRot$50483[ebp]
+	lea	eax, DWORD PTR _absRot$50491[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pBoxShape$50481[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50489[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pBoxShape$50481[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50489[ebp]
 	call	DWORD PTR [edx+72]
 	mov	BYTE PTR __$EHRec$[ebp+8], 4
 
 ; 2511 : 				NxVec3 absPos = pBoxShape->getGlobalPosition();
 
-	lea	eax, DWORD PTR $T52667[ebp]
+	lea	eax, DWORD PTR $T52675[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pBoxShape$50481[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50489[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pBoxShape$50481[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50489[ebp]
 	call	DWORD PTR [edx+68]
 	push	eax
-	lea	ecx, DWORD PTR _absPos$50485[ebp]
+	lea	ecx, DWORD PTR _absPos$50493[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2512 : 
 ; 2513 : 				// don't use pBoxShape->getWorldAABB it's caused to broke suspension and deadlocks !!!
 ; 2514 : 				pBoxShape->getWorldBounds( bounds );
 
-	lea	eax, DWORD PTR _bounds$50475[ebp]
+	lea	eax, DWORD PTR _bounds$50483[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pBoxShape$50481[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50489[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pBoxShape$50481[ebp]
+	mov	ecx, DWORD PTR _pBoxShape$50489[ebp]
 	call	DWORD PTR [edx+16]
 
 ; 2515 : 				bounds.getExtents( ext );
 
-	lea	eax, DWORD PTR _ext$50473[ebp]
+	lea	eax, DWORD PTR _ext$50481[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _bounds$50475[ebp]
+	lea	ecx, DWORD PTR _bounds$50483[ebp]
 	call	?getExtents@NxBounds3@@QBEXAAVNxVec3@@@Z ; NxBounds3::getExtents
 
 ; 2516 : 				bounds.getCenter( cnt );
 
-	lea	ecx, DWORD PTR _cnt$50474[ebp]
+	lea	ecx, DWORD PTR _cnt$50482[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _bounds$50475[ebp]
+	lea	ecx, DWORD PTR _bounds$50483[ebp]
 	call	?getCenter@NxBounds3@@QBEXAAVNxVec3@@@Z	; NxBounds3::getCenter
 
 ; 2517 : 				obb = NxBox( cnt, ext, absRot );
 
-	lea	edx, DWORD PTR _absRot$50483[ebp]
+	lea	edx, DWORD PTR _absRot$50491[ebp]
 	push	edx
-	lea	eax, DWORD PTR _ext$50473[ebp]
+	lea	eax, DWORD PTR _ext$50481[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _cnt$50474[ebp]
+	lea	ecx, DWORD PTR _cnt$50482[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR $T52668[ebp]
+	lea	ecx, DWORD PTR $T52676[ebp]
 	call	??0NxBox@@QAE@ABVNxVec3@@0ABVNxMat33@@@Z ; NxBox::NxBox
 	mov	DWORD PTR -972+[ebp], eax
 	mov	edx, DWORD PTR -972+[ebp]
@@ -28456,10 +28456,10 @@ $L50478:
 	mov	BYTE PTR __$EHRec$[ebp+8], 5
 	mov	eax, DWORD PTR -976+[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _obb$50476[ebp]
+	lea	ecx, DWORD PTR _obb$50484[ebp]
 	call	??4NxBox@@QAEAAV0@ABV0@@Z		; NxBox::operator=
 	mov	BYTE PTR __$EHRec$[ebp+8], 4
-	lea	ecx, DWORD PTR $T52668[ebp]
+	lea	ecx, DWORD PTR $T52676[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 
 ; 2518 : 
@@ -28471,13 +28471,13 @@ $L50478:
 	mov	eax, DWORD PTR [edx+1356]
 	mov	edx, DWORD PTR [eax]
 	call	DWORD PTR [edx+28]
-	mov	DWORD PTR _indices$50452[ebp], eax
+	mov	DWORD PTR _indices$50460[ebp], eax
 
 ; 2520 : 				m_pUtils->NxComputeBoxPoints( obb, points );
 
-	lea	eax, DWORD PTR _points$50471[ebp]
+	lea	eax, DWORD PTR _points$50479[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _obb$50476[ebp]
+	lea	ecx, DWORD PTR _obb$50484[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [edx+1356]
@@ -28488,125 +28488,125 @@ $L50478:
 
 ; 2521 : 				verts = (const NxVec3 *)points;
 
-	lea	ecx, DWORD PTR _points$50471[ebp]
-	mov	DWORD PTR _verts$50453[ebp], ecx
+	lea	ecx, DWORD PTR _points$50479[ebp]
+	mov	DWORD PTR _verts$50461[ebp], ecx
 
 ; 2522 : 
 ; 2523 : 				for( int j = 0; j < 12; j++ )
 
-	mov	DWORD PTR _j$50490[ebp], 0
-	jmp	SHORT $L50491
-$L50492:
-	mov	edx, DWORD PTR _j$50490[ebp]
+	mov	DWORD PTR _j$50498[ebp], 0
+	jmp	SHORT $L50499
+$L50500:
+	mov	edx, DWORD PTR _j$50498[ebp]
 	add	edx, 1
-	mov	DWORD PTR _j$50490[ebp], edx
-$L50491:
-	cmp	DWORD PTR _j$50490[ebp], 12		; 0000000cH
-	jge	$L50493
+	mov	DWORD PTR _j$50498[ebp], edx
+$L50499:
+	cmp	DWORD PTR _j$50498[ebp], 12		; 0000000cH
+	jge	$L50501
 
 ; 2525 : 					NxU32 i0 = *indices++;
 
-	mov	eax, DWORD PTR _indices$50452[ebp]
+	mov	eax, DWORD PTR _indices$50460[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _i0$50494[ebp], ecx
-	mov	edx, DWORD PTR _indices$50452[ebp]
+	mov	DWORD PTR _i0$50502[ebp], ecx
+	mov	edx, DWORD PTR _indices$50460[ebp]
 	add	edx, 4
-	mov	DWORD PTR _indices$50452[ebp], edx
+	mov	DWORD PTR _indices$50460[ebp], edx
 
 ; 2526 : 					NxU32 i1 = *indices++;
 
-	mov	eax, DWORD PTR _indices$50452[ebp]
+	mov	eax, DWORD PTR _indices$50460[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _i1$50495[ebp], ecx
-	mov	edx, DWORD PTR _indices$50452[ebp]
+	mov	DWORD PTR _i1$50503[ebp], ecx
+	mov	edx, DWORD PTR _indices$50460[ebp]
 	add	edx, 4
-	mov	DWORD PTR _indices$50452[ebp], edx
+	mov	DWORD PTR _indices$50460[ebp], edx
 
 ; 2527 : 					NxU32 i2 = *indices++;
 
-	mov	eax, DWORD PTR _indices$50452[ebp]
+	mov	eax, DWORD PTR _indices$50460[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR _i2$50496[ebp], ecx
-	mov	edx, DWORD PTR _indices$50452[ebp]
+	mov	DWORD PTR _i2$50504[ebp], ecx
+	mov	edx, DWORD PTR _indices$50460[ebp]
 	add	edx, 4
-	mov	DWORD PTR _indices$50452[ebp], edx
+	mov	DWORD PTR _indices$50460[ebp], edx
 
 ; 2528 : 					triangle[0] = verts[i0];
 
-	mov	eax, DWORD PTR _i0$50494[ebp]
+	mov	eax, DWORD PTR _i0$50502[ebp]
 	imul	eax, 12					; 0000000cH
-	mov	ecx, DWORD PTR _verts$50453[ebp]
+	mov	ecx, DWORD PTR _verts$50461[ebp]
 	add	ecx, eax
 	push	ecx
-	lea	ecx, DWORD PTR _triangle$50448[ebp]
+	lea	ecx, DWORD PTR _triangle$50456[ebp]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2529 : 					triangle[1] = verts[i1];
 
-	mov	edx, DWORD PTR _i1$50495[ebp]
+	mov	edx, DWORD PTR _i1$50503[ebp]
 	imul	edx, 12					; 0000000cH
-	mov	eax, DWORD PTR _verts$50453[ebp]
+	mov	eax, DWORD PTR _verts$50461[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50448[ebp+12]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+12]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2530 : 					triangle[2] = verts[i2];
 
-	mov	ecx, DWORD PTR _i2$50496[ebp]
+	mov	ecx, DWORD PTR _i2$50504[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _verts$50453[ebp]
+	mov	edx, DWORD PTR _verts$50461[ebp]
 	add	edx, ecx
 	push	edx
-	lea	ecx, DWORD PTR _triangle$50448[ebp+24]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+24]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2531 : 
 ; 2532 : 					for( int k = 0; k < 3; k++ )
 
-	mov	DWORD PTR _k$50497[ebp], 0
-	jmp	SHORT $L50498
-$L50499:
-	mov	eax, DWORD PTR _k$50497[ebp]
+	mov	DWORD PTR _k$50505[ebp], 0
+	jmp	SHORT $L50506
+$L50507:
+	mov	eax, DWORD PTR _k$50505[ebp]
 	add	eax, 1
-	mov	DWORD PTR _k$50497[ebp], eax
-$L50498:
-	cmp	DWORD PTR _k$50497[ebp], 3
-	jge	$L50500
+	mov	DWORD PTR _k$50505[ebp], eax
+$L50506:
+	cmp	DWORD PTR _k$50505[ebp], 3
+	jge	$L50508
 
 ; 2534 : 						dirs[k] = absPos - triangle[k];
 
-	mov	ecx, DWORD PTR _k$50497[ebp]
+	mov	ecx, DWORD PTR _k$50505[ebp]
 	imul	ecx, 12					; 0000000cH
-	lea	edx, DWORD PTR _triangle$50448[ebp+ecx]
+	lea	edx, DWORD PTR _triangle$50456[ebp+ecx]
 	push	edx
-	lea	ecx, DWORD PTR $T52669[ebp]
+	lea	ecx, DWORD PTR $T52677[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	eax, DWORD PTR $T52669[ebp]
+	lea	eax, DWORD PTR $T52677[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52670[ebp]
+	lea	ecx, DWORD PTR $T52678[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _absPos$50485[ebp]
+	lea	ecx, DWORD PTR _absPos$50493[ebp]
 	call	??GNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator-
 	push	eax
-	mov	edx, DWORD PTR _k$50497[ebp]
+	mov	edx, DWORD PTR _k$50505[ebp]
 	imul	edx, 12					; 0000000cH
-	lea	ecx, DWORD PTR _dirs$50450[ebp+edx]
+	lea	ecx, DWORD PTR _dirs$50458[ebp+edx]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2535 : 						triangle[k] += dirs[k] * -2.0f;
 
 	push	-1073741824				; c0000000H
-	lea	eax, DWORD PTR $T52671[ebp]
+	lea	eax, DWORD PTR $T52679[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _k$50497[ebp]
+	mov	ecx, DWORD PTR _k$50505[ebp]
 	imul	ecx, 12					; 0000000cH
-	lea	ecx, DWORD PTR _dirs$50450[ebp+ecx]
+	lea	ecx, DWORD PTR _dirs$50458[ebp+ecx]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	mov	edx, DWORD PTR _k$50497[ebp]
+	mov	edx, DWORD PTR _k$50505[ebp]
 	imul	edx, 12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50448[ebp+edx]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+edx]
 	call	??YVector@@QAEAAV0@ABV0@@Z		; Vector::operator+=
 
 ; 2536 : 
@@ -28618,13 +28618,13 @@ $L50498:
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	push	1
-	mov	ecx, DWORD PTR _k$50497[ebp]
+	mov	ecx, DWORD PTR _k$50505[ebp]
 	imul	ecx, 12					; 0000000cH
-	lea	edx, DWORD PTR _triangle$50448[ebp+ecx]
+	lea	edx, DWORD PTR _triangle$50456[ebp+ecx]
 	push	edx
-	mov	eax, DWORD PTR _k$50497[ebp]
+	mov	eax, DWORD PTR _k$50505[ebp]
 	imul	eax, 12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50448[ebp+eax]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+eax]
 	push	ecx
 	call	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@PAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceLine
 	add	esp, 20					; 00000014H
@@ -28633,76 +28633,76 @@ $L50498:
 
 	mov	edx, DWORD PTR _tr$[ebp]
 	cmp	DWORD PTR [edx+4], 0
-	je	SHORT $L50504
+	je	SHORT $L50512
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
-	lea	ecx, DWORD PTR _absRot$50483[ebp]
+	lea	ecx, DWORD PTR _absRot$50491[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
-	lea	ecx, DWORD PTR _obb$50476[ebp]
+	lea	ecx, DWORD PTR _obb$50484[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _bounds$50475[ebp]
+	lea	ecx, DWORD PTR _bounds$50483[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _testBox$[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
-	jmp	$L50437
-$L50504:
+	jmp	$L50445
+$L50512:
 
 ; 2539 : 					}
 
-	jmp	$L50499
-$L50500:
+	jmp	$L50507
+$L50508:
 
 ; 2540 : 				}
 
-	jmp	$L50492
-$L50493:
+	jmp	$L50500
+$L50501:
 
 ; 2541 : 			}
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
-	lea	ecx, DWORD PTR _absRot$50483[ebp]
+	lea	ecx, DWORD PTR _absRot$50491[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
-	jmp	$L50479
-$L50480:
+	jmp	$L50487
+$L50488:
 
 ; 2542 : 		}
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
-	lea	ecx, DWORD PTR _obb$50476[ebp]
+	lea	ecx, DWORD PTR _obb$50484[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _bounds$50475[ebp]
+	lea	ecx, DWORD PTR _bounds$50483[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
 
 ; 2543 : 		else
 
-	jmp	$L50505
-$L50470:
+	jmp	$L50513
+$L50478:
 
 ; 2545 : 			NxMat33 absRot = pShape->getGlobalOrientation();
 
-	lea	eax, DWORD PTR _absRot$50506[ebp]
+	lea	eax, DWORD PTR _absRot$50514[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pShape$50446[ebp]
+	mov	ecx, DWORD PTR _pShape$50454[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pShape$50446[ebp]
+	mov	ecx, DWORD PTR _pShape$50454[ebp]
 	call	DWORD PTR [edx+72]
 	mov	BYTE PTR __$EHRec$[ebp+8], 6
 
 ; 2546 : 			NxVec3 absPos = pShape->getGlobalPosition();
 
-	lea	eax, DWORD PTR $T52672[ebp]
+	lea	eax, DWORD PTR $T52680[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _pShape$50446[ebp]
+	mov	ecx, DWORD PTR _pShape$50454[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	ecx, DWORD PTR _pShape$50446[ebp]
+	mov	ecx, DWORD PTR _pShape$50454[ebp]
 	call	DWORD PTR [edx+68]
 	push	eax
-	lea	ecx, DWORD PTR _absPos$50508[ebp]
+	lea	ecx, DWORD PTR _absPos$50516[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
-$L50511:
+$L50519:
 
 ; 2547 : 
 ; 2548 : 			// NOTE: we compute triangles in abs coords because player AABB
@@ -28710,180 +28710,180 @@ $L50511:
 ; 2550 : 			// FIXME: store all meshes as local and use capsule instead of bbox
 ; 2551 : 			while( NbTris-- )
 
-	mov	eax, DWORD PTR _NbTris$50454[ebp]
-	mov	ecx, DWORD PTR _NbTris$50454[ebp]
+	mov	eax, DWORD PTR _NbTris$50462[ebp]
+	mov	ecx, DWORD PTR _NbTris$50462[ebp]
 	sub	ecx, 1
-	mov	DWORD PTR _NbTris$50454[ebp], ecx
+	mov	DWORD PTR _NbTris$50462[ebp], ecx
 	test	eax, eax
-	je	$L50512
+	je	$L50520
 
 ; 2553 : 				NxU32 i0 = *indices++;
 
-	mov	edx, DWORD PTR _indices$50452[ebp]
+	mov	edx, DWORD PTR _indices$50460[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	DWORD PTR _i0$50513[ebp], eax
-	mov	ecx, DWORD PTR _indices$50452[ebp]
+	mov	DWORD PTR _i0$50521[ebp], eax
+	mov	ecx, DWORD PTR _indices$50460[ebp]
 	add	ecx, 4
-	mov	DWORD PTR _indices$50452[ebp], ecx
+	mov	DWORD PTR _indices$50460[ebp], ecx
 
 ; 2554 : 				NxU32 i1 = *indices++;
 
-	mov	edx, DWORD PTR _indices$50452[ebp]
+	mov	edx, DWORD PTR _indices$50460[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	DWORD PTR _i1$50514[ebp], eax
-	mov	ecx, DWORD PTR _indices$50452[ebp]
+	mov	DWORD PTR _i1$50522[ebp], eax
+	mov	ecx, DWORD PTR _indices$50460[ebp]
 	add	ecx, 4
-	mov	DWORD PTR _indices$50452[ebp], ecx
+	mov	DWORD PTR _indices$50460[ebp], ecx
 
 ; 2555 : 				NxU32 i2 = *indices++;
 
-	mov	edx, DWORD PTR _indices$50452[ebp]
+	mov	edx, DWORD PTR _indices$50460[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	DWORD PTR _i2$50515[ebp], eax
-	mov	ecx, DWORD PTR _indices$50452[ebp]
+	mov	DWORD PTR _i2$50523[ebp], eax
+	mov	ecx, DWORD PTR _indices$50460[ebp]
 	add	ecx, 4
-	mov	DWORD PTR _indices$50452[ebp], ecx
+	mov	DWORD PTR _indices$50460[ebp], ecx
 
 ; 2556 : 				NxVec3 v0 = verts[i0];
 
-	mov	edx, DWORD PTR _i0$50513[ebp]
+	mov	edx, DWORD PTR _i0$50521[ebp]
 	imul	edx, 12					; 0000000cH
-	mov	eax, DWORD PTR _verts$50453[ebp]
+	mov	eax, DWORD PTR _verts$50461[ebp]
 	add	eax, edx
 	push	eax
-	lea	ecx, DWORD PTR _v0$50516[ebp]
+	lea	ecx, DWORD PTR _v0$50524[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2557 : 				NxVec3 v1 = verts[i1];
 
-	mov	ecx, DWORD PTR _i1$50514[ebp]
+	mov	ecx, DWORD PTR _i1$50522[ebp]
 	imul	ecx, 12					; 0000000cH
-	mov	edx, DWORD PTR _verts$50453[ebp]
+	mov	edx, DWORD PTR _verts$50461[ebp]
 	add	edx, ecx
 	push	edx
-	lea	ecx, DWORD PTR _v1$50517[ebp]
+	lea	ecx, DWORD PTR _v1$50525[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2558 : 				NxVec3 v2 = verts[i2];
 
-	mov	eax, DWORD PTR _i2$50515[ebp]
+	mov	eax, DWORD PTR _i2$50523[ebp]
 	imul	eax, 12					; 0000000cH
-	mov	ecx, DWORD PTR _verts$50453[ebp]
+	mov	ecx, DWORD PTR _verts$50461[ebp]
 	add	ecx, eax
 	push	ecx
-	lea	ecx, DWORD PTR _v2$50518[ebp]
+	lea	ecx, DWORD PTR _v2$50526[ebp]
 	call	??0NxVec3@@QAE@ABV0@@Z			; NxVec3::NxVec3
 
 ; 2559 : 
 ; 2560 : 				absRot.multiply( v0, v0 );
 
-	lea	edx, DWORD PTR _v0$50516[ebp]
+	lea	edx, DWORD PTR _v0$50524[ebp]
 	push	edx
-	lea	eax, DWORD PTR _v0$50516[ebp]
+	lea	eax, DWORD PTR _v0$50524[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _absRot$50506[ebp]
+	lea	ecx, DWORD PTR _absRot$50514[ebp]
 	call	?multiply@NxMat33@@QBEXABVNxVec3@@AAV2@@Z ; NxMat33::multiply
 
 ; 2561 : 				absRot.multiply( v1, v1 );
 
-	lea	ecx, DWORD PTR _v1$50517[ebp]
+	lea	ecx, DWORD PTR _v1$50525[ebp]
 	push	ecx
-	lea	edx, DWORD PTR _v1$50517[ebp]
+	lea	edx, DWORD PTR _v1$50525[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _absRot$50506[ebp]
+	lea	ecx, DWORD PTR _absRot$50514[ebp]
 	call	?multiply@NxMat33@@QBEXABVNxVec3@@AAV2@@Z ; NxMat33::multiply
 
 ; 2562 : 				absRot.multiply( v2, v2 );
 
-	lea	eax, DWORD PTR _v2$50518[ebp]
+	lea	eax, DWORD PTR _v2$50526[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _v2$50518[ebp]
+	lea	ecx, DWORD PTR _v2$50526[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _absRot$50506[ebp]
+	lea	ecx, DWORD PTR _absRot$50514[ebp]
 	call	?multiply@NxMat33@@QBEXABVNxVec3@@AAV2@@Z ; NxMat33::multiply
 
 ; 2563 : 				triangle[0] = v0 + absPos;
 
-	lea	edx, DWORD PTR _absPos$50508[ebp]
+	lea	edx, DWORD PTR _absPos$50516[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T52673[ebp]
+	lea	eax, DWORD PTR $T52681[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _v0$50516[ebp]
+	lea	ecx, DWORD PTR _v0$50524[ebp]
 	call	??HNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator+
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50448[ebp]
+	lea	ecx, DWORD PTR _triangle$50456[ebp]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2564 : 				triangle[1] = v1 + absPos;
 
-	lea	ecx, DWORD PTR _absPos$50508[ebp]
+	lea	ecx, DWORD PTR _absPos$50516[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T52674[ebp]
+	lea	edx, DWORD PTR $T52682[ebp]
 	push	edx
-	lea	ecx, DWORD PTR _v1$50517[ebp]
+	lea	ecx, DWORD PTR _v1$50525[ebp]
 	call	??HNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator+
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50448[ebp+12]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+12]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2565 : 				triangle[2] = v2 + absPos;
 
-	lea	eax, DWORD PTR _absPos$50508[ebp]
+	lea	eax, DWORD PTR _absPos$50516[ebp]
 	push	eax
-	lea	ecx, DWORD PTR $T52675[ebp]
+	lea	ecx, DWORD PTR $T52683[ebp]
 	push	ecx
-	lea	ecx, DWORD PTR _v2$50518[ebp]
+	lea	ecx, DWORD PTR _v2$50526[ebp]
 	call	??HNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator+
 	push	eax
-	lea	ecx, DWORD PTR _triangle$50448[ebp+24]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+24]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2566 : 
 ; 2567 : 				for( int i = 0; i < 3; i++ )
 
-	mov	DWORD PTR _i$50522[ebp], 0
-	jmp	SHORT $L50523
-$L50524:
-	mov	edx, DWORD PTR _i$50522[ebp]
+	mov	DWORD PTR _i$50530[ebp], 0
+	jmp	SHORT $L50531
+$L50532:
+	mov	edx, DWORD PTR _i$50530[ebp]
 	add	edx, 1
-	mov	DWORD PTR _i$50522[ebp], edx
-$L50523:
-	cmp	DWORD PTR _i$50522[ebp], 3
-	jge	$L50525
+	mov	DWORD PTR _i$50530[ebp], edx
+$L50531:
+	cmp	DWORD PTR _i$50530[ebp], 3
+	jge	$L50533
 
 ; 2569 : 					dirs[i] = absPos - triangle[i];
 
-	mov	eax, DWORD PTR _i$50522[ebp]
+	mov	eax, DWORD PTR _i$50530[ebp]
 	imul	eax, 12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50448[ebp+eax]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+eax]
 	push	ecx
-	lea	ecx, DWORD PTR $T52676[ebp]
+	lea	ecx, DWORD PTR $T52684[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
-	lea	edx, DWORD PTR $T52676[ebp]
+	lea	edx, DWORD PTR $T52684[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T52677[ebp]
+	lea	eax, DWORD PTR $T52685[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _absPos$50508[ebp]
+	lea	ecx, DWORD PTR _absPos$50516[ebp]
 	call	??GNxVec3@@QBE?AV0@ABV0@@Z		; NxVec3::operator-
 	push	eax
-	mov	ecx, DWORD PTR _i$50522[ebp]
+	mov	ecx, DWORD PTR _i$50530[ebp]
 	imul	ecx, 12					; 0000000cH
-	lea	ecx, DWORD PTR _dirs$50450[ebp+ecx]
+	lea	ecx, DWORD PTR _dirs$50458[ebp+ecx]
 	call	??4Vector@@QAEABV0@ABVNxVec3@@@Z	; Vector::operator=
 
 ; 2570 : 					triangle[i] += dirs[i] * -2.0f;
 
 	push	-1073741824				; c0000000H
-	lea	edx, DWORD PTR $T52678[ebp]
+	lea	edx, DWORD PTR $T52686[ebp]
 	push	edx
-	mov	eax, DWORD PTR _i$50522[ebp]
+	mov	eax, DWORD PTR _i$50530[ebp]
 	imul	eax, 12					; 0000000cH
-	lea	ecx, DWORD PTR _dirs$50450[ebp+eax]
+	lea	ecx, DWORD PTR _dirs$50458[ebp+eax]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	mov	ecx, DWORD PTR _i$50522[ebp]
+	mov	ecx, DWORD PTR _i$50530[ebp]
 	imul	ecx, 12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50448[ebp+ecx]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+ecx]
 	call	??YVector@@QAEAAV0@ABV0@@Z		; Vector::operator+=
 
 ; 2571 : 
@@ -28895,13 +28895,13 @@ $L50523:
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	push	eax
 	push	1
-	mov	eax, DWORD PTR _i$50522[ebp]
+	mov	eax, DWORD PTR _i$50530[ebp]
 	imul	eax, 12					; 0000000cH
-	lea	ecx, DWORD PTR _triangle$50448[ebp+eax]
+	lea	ecx, DWORD PTR _triangle$50456[ebp+eax]
 	push	ecx
-	mov	edx, DWORD PTR _i$50522[ebp]
+	mov	edx, DWORD PTR _i$50530[ebp]
 	imul	edx, 12					; 0000000cH
-	lea	eax, DWORD PTR _triangle$50448[ebp+edx]
+	lea	eax, DWORD PTR _triangle$50456[ebp+edx]
 	push	eax
 	call	?UTIL_TraceLine@@YAXABVVector@@0W4IGNORE_MONSTERS@@PAUedict_s@@PAUgametrace_s@@@Z ; UTIL_TraceLine
 	add	esp, 20					; 00000014H
@@ -28910,40 +28910,40 @@ $L50523:
 
 	mov	ecx, DWORD PTR _tr$[ebp]
 	cmp	DWORD PTR [ecx+4], 0
-	je	SHORT $L50529
+	je	SHORT $L50537
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _absRot$50506[ebp]
+	lea	ecx, DWORD PTR _absRot$50514[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _testBox$[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
-	jmp	$L50437
-$L50529:
+	jmp	$L50445
+$L50537:
 
 ; 2574 : 				}
 
-	jmp	$L50524
-$L50525:
+	jmp	$L50532
+$L50533:
 
 ; 2575 : 			}
 
-	jmp	$L50511
-$L50512:
+	jmp	$L50519
+$L50520:
 
 ; 2576 : 		}
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
-	lea	ecx, DWORD PTR _absRot$50506[ebp]
+	lea	ecx, DWORD PTR _absRot$50514[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
-$L50505:
+$L50513:
 
 ; 2577 : 		return;
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _testBox$[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
-	jmp	$L50437
-$L50445:
+	jmp	$L50445
+$L50453:
 
 ; 2579 : 
 ; 2580 : 	// compute motion
@@ -28951,7 +28951,7 @@ $L50445:
 
 	mov	edx, DWORD PTR _start$[ebp]
 	push	edx
-	lea	eax, DWORD PTR $T52679[ebp]
+	lea	eax, DWORD PTR $T52687[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _end$[ebp]
 	call	??GVector@@QBE?AV0@ABV0@@Z		; Vector::operator-
@@ -28967,7 +28967,7 @@ $L50445:
 
 ; 2583 : 	vecDir = vecDir.Normalize();
 
-	lea	ecx, DWORD PTR $T52680[ebp]
+	lea	ecx, DWORD PTR $T52688[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vecDir$[ebp]
 	call	?Normalize@Vector@@QBE?AV1@XZ		; Vector::Normalize
@@ -28981,7 +28981,7 @@ $L50445:
 ; 2584 : 	testBox.extents = (pEntity->pev->size * 0.5f);
 
 	push	1056964608				; 3f000000H
-	lea	eax, DWORD PTR $T52681[ebp]
+	lea	eax, DWORD PTR $T52689[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _pEntity$[ebp]
 	mov	ecx, DWORD PTR [ecx+4]
@@ -29010,12 +29010,12 @@ $L50445:
 
 	mov	ecx, DWORD PTR _flLength$[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T52683[ebp]
+	lea	edx, DWORD PTR $T52691[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vecDir$[ebp]
 	call	??DVector@@QBE?AV0@M@Z			; Vector::operator*
 	push	eax
-	lea	ecx, DWORD PTR $T52682[ebp]
+	lea	ecx, DWORD PTR $T52690[ebp]
 	call	??0NxVec3@@QAE@ABVVector@@@Z		; NxVec3::NxVec3
 	push	0
 	push	-1
@@ -29025,7 +29025,7 @@ $L50445:
 	push	1
 	push	0
 	push	3
-	lea	ecx, DWORD PTR $T52682[ebp]
+	lea	ecx, DWORD PTR $T52690[ebp]
 	push	ecx
 	lea	edx, DWORD PTR _testBox$[ebp]
 	push	edx
@@ -29048,23 +29048,23 @@ $L50445:
 ; 2591 : 	if( !numHits || !result.hitShape || result.t > flLength )
 
 	cmp	DWORD PTR _numHits$[ebp], 0
-	je	SHORT $L50540
+	je	SHORT $L50548
 	cmp	DWORD PTR _result$[ebp+4], 0
-	je	SHORT $L50540
+	je	SHORT $L50548
 	fld	DWORD PTR _result$[ebp]
 	fcomp	DWORD PTR _flLength$[ebp]
 	fnstsw	ax
 	test	ah, 65					; 00000041H
-	jne	SHORT $L50539
-$L50540:
+	jne	SHORT $L50547
+$L50548:
 
 ; 2592 : 		return; // no intersection
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _testBox$[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
-	jmp	$L50437
-$L50539:
+	jmp	$L50445
+$L50547:
 
 ; 2593 : 
 ; 2594 : 	// compute fraction
@@ -29082,26 +29082,26 @@ $L50539:
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	jne	SHORT $L52686
+	jne	SHORT $L52694
 	mov	edx, DWORD PTR _tr$[ebp]
 	fld	DWORD PTR [edx+16]
 	fcomp	DWORD PTR __real@4@3fff8000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L52684
+	je	SHORT $L52692
 	mov	eax, DWORD PTR _tr$[ebp]
 	fld	DWORD PTR [eax+16]
 	fstp	DWORD PTR -980+[ebp]
-	jmp	SHORT $L52685
-$L52684:
+	jmp	SHORT $L52693
+$L52692:
 	mov	DWORD PTR -980+[ebp], 1065353216	; 3f800000H
-$L52685:
+$L52693:
 	mov	ecx, DWORD PTR -980+[ebp]
 	mov	DWORD PTR -984+[ebp], ecx
-	jmp	SHORT $L52687
-$L52686:
+	jmp	SHORT $L52695
+$L52694:
 	mov	DWORD PTR -984+[ebp], 0
-$L52687:
+$L52695:
 	mov	edx, DWORD PTR _tr$[ebp]
 	mov	eax, DWORD PTR -984+[ebp]
 	mov	DWORD PTR [edx+16], eax
@@ -29136,12 +29136,12 @@ $L52687:
 ; 2600 : 	if( pHit ) tr->pHit = pHit->edict();
 
 	cmp	DWORD PTR _pHit$[ebp], 0
-	je	SHORT $L50542
+	je	SHORT $L50550
 	mov	ecx, DWORD PTR _pHit$[ebp]
 	call	?edict@CBaseEntity@@QAEPAUedict_s@@XZ	; CBaseEntity::edict
 	mov	ecx, DWORD PTR _tr$[ebp]
 	mov	DWORD PTR [ecx+48], eax
-$L50542:
+$L50550:
 
 ; 2601 : 
 ; 2602 : 	tr->vecPlaneNormal = result.normal;
@@ -29196,25 +29196,25 @@ $L50542:
 	fcomp	DWORD PTR __real@4@3ffbcccccd0000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L50545
+	je	SHORT $L50553
 	fld	DWORD PTR _moveDot$[ebp]
 	fcomp	DWORD PTR __real@4@00000000000000000000
 	fnstsw	ax
 	test	ah, 1
-	je	SHORT $L50545
+	je	SHORT $L50553
 
 ; 2609 : 		tr->fAllSolid = true;
 
 	mov	eax, DWORD PTR _tr$[ebp]
 	mov	DWORD PTR [eax], 1
-$L50545:
+$L50553:
 
 ; 2610 : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _testBox$[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
-$L50437:
+$L50445:
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:__except_list, ecx
 	pop	edi
@@ -29231,27 +29231,27 @@ __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAU
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	ret	0
 __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z$1:
-	lea	ecx, DWORD PTR $T52665[ebp]
+	lea	ecx, DWORD PTR $T52673[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	ret	0
 __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z$2:
-	lea	ecx, DWORD PTR _bounds$50475[ebp]
+	lea	ecx, DWORD PTR _bounds$50483[ebp]
 	call	??1NxBounds3@@QAE@XZ			; NxBounds3::~NxBounds3
 	ret	0
 __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z$3:
-	lea	ecx, DWORD PTR _obb$50476[ebp]
+	lea	ecx, DWORD PTR _obb$50484[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	ret	0
 __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z$4:
-	lea	ecx, DWORD PTR _absRot$50483[ebp]
+	lea	ecx, DWORD PTR _absRot$50491[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	ret	0
 __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z$5:
-	lea	ecx, DWORD PTR $T52668[ebp]
+	lea	ecx, DWORD PTR $T52676[ebp]
 	call	??1NxBox@@QAE@XZ			; NxBox::~NxBox
 	ret	0
 __unwindfunclet$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z$6:
-	lea	ecx, DWORD PTR _absRot$50506[ebp]
+	lea	ecx, DWORD PTR _absRot$50514[ebp]
 	call	??1NxMat33@@QAE@XZ			; NxMat33::~NxMat33
 	ret	0
 __ehhandler$?SweepEntity@CPhysicNovodex@@UAEXPAVCBaseEntity@@ABVVector@@1PAUgametrace_s@@@Z:
@@ -29356,7 +29356,7 @@ _TEXT	SEGMENT
 ___$ReturnUdt$ = 8
 _this$ = -4
 _flLen$ = -8
-$T52713 = -20
+$T52721 = -20
 ?Normalize@Vector@@QBE?AV1@XZ PROC NEAR			; Vector::Normalize, COMDAT
 
 ; 232  : 	{
@@ -29407,7 +29407,7 @@ $T52713 = -20
 	fmul	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T52713[ebp]
+	lea	ecx, DWORD PTR $T52721[ebp]
 	call	??0Vector@@QAE@MMM@Z			; Vector::Vector
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -29540,7 +29540,7 @@ _TEXT	SEGMENT
 _v$ = 12
 ___$ReturnUdt$ = 8
 _this$ = -4
-$T52720 = -16
+$T52728 = -16
 ??GNxVec3@@QBE?AV0@ABV0@@Z PROC NEAR			; NxVec3::operator-, COMDAT
 
 ; 805  : 	{
@@ -29573,7 +29573,7 @@ $T52720 = -16
 	fsub	DWORD PTR [edx]
 	push	ecx
 	fstp	DWORD PTR [esp]
-	lea	ecx, DWORD PTR $T52720[ebp]
+	lea	ecx, DWORD PTR $T52728[ebp]
 	call	??0NxVec3@@QAE@MMM@Z			; NxVec3::NxVec3
 	push	eax
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
@@ -29767,7 +29767,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax+8]
 	cmp	edx, DWORD PTR [ecx+4]
-	ja	SHORT $L50571
+	ja	SHORT $L50579
 
 ; 245  : 																			reserve((1 + size()) * 2);
 
@@ -29777,7 +29777,7 @@ _this$ = -4
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?reserve@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXI@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::reserve
-$L50571:
+$L50579:
 
 ; 247  : 																		*last = x;
 
@@ -30124,7 +30124,7 @@ PUBLIC	?allocate@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@AAEPAPAVNxShap
 _TEXT	SEGMENT
 _n$ = 8
 _this$ = -4
-_s$50615 = -8
+_s$50623 = -8
 ?reserve@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAEXI@Z PROC NEAR ; NxArray<NxShapeDesc *,NxAllocatorDefault>::reserve, COMDAT
 
 ; 154  : 																		{
@@ -30142,7 +30142,7 @@ _s$50615 = -8
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?capacity@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QBEIXZ ; NxArray<NxShapeDesc *,NxAllocatorDefault>::capacity
 	cmp	eax, DWORD PTR _n$[ebp]
-	jae	SHORT $L50614
+	jae	SHORT $L50622
 
 ; 157  : 																			
 ; 158  : 																			iterator s = allocate(n);
@@ -30151,11 +30151,11 @@ _s$50615 = -8
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?allocate@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@AAEPAPAVNxShapeDesc@@I@Z ; NxArray<NxShapeDesc *,NxAllocatorDefault>::allocate
-	mov	DWORD PTR _s$50615[ebp], eax
+	mov	DWORD PTR _s$50623[ebp], eax
 
 ; 159  : 																			copy(first, last, s);
 
-	mov	ecx, DWORD PTR _s$50615[ebp]
+	mov	ecx, DWORD PTR _s$50623[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
@@ -30190,7 +30190,7 @@ _s$50615 = -8
 ; 164  : 																			memEnd = s + n;
 
 	mov	eax, DWORD PTR _n$[ebp]
-	mov	ecx, DWORD PTR _s$50615[ebp]
+	mov	ecx, DWORD PTR _s$50623[ebp]
 	lea	edx, DWORD PTR [ecx+eax*4]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+8], edx
@@ -30199,7 +30199,7 @@ _s$50615 = -8
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?size@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QBEIXZ ; NxArray<NxShapeDesc *,NxAllocatorDefault>::size
-	mov	ecx, DWORD PTR _s$50615[ebp]
+	mov	ecx, DWORD PTR _s$50623[ebp]
 	lea	edx, DWORD PTR [ecx+eax*4]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+4], edx
@@ -30207,9 +30207,9 @@ _s$50615 = -8
 ; 166  : 																			first = s; 
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _s$50615[ebp]
+	mov	edx, DWORD PTR _s$50623[ebp]
 	mov	DWORD PTR [ecx], edx
-$L50614:
+$L50622:
 
 ; 168  : 																		}
 
@@ -30301,13 +30301,13 @@ _this$ = -4
 ; 491  : 																		if(p)	allocator.free(p);
 
 	cmp	DWORD PTR _p$[ebp], 0
-	je	SHORT $L50622
+	je	SHORT $L50630
 	mov	eax, DWORD PTR _p$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 12					; 0000000cH
 	call	?free@NxAllocatorDefault@@QAEXPAX@Z	; NxAllocatorDefault::free
-$L50622:
+$L50630:
 
 ; 492  : 																		}
 
@@ -30339,12 +30339,12 @@ _this$ = -4
 ; 98   : 			if(memory)	::free(memory);	// Deleting null ptrs is valid, but still useless
 
 	cmp	DWORD PTR _memory$[ebp], 0
-	je	SHORT $L42157
+	je	SHORT $L42165
 	mov	eax, DWORD PTR _memory$[ebp]
 	push	eax
 	call	_free
 	add	esp, 4
-$L42157:
+$L42165:
 
 ; 99   : 			}
 
@@ -30375,21 +30375,21 @@ _this$ = -4
 
 ; 496  : 																		for (; f != l; ++f)
 
-	jmp	SHORT $L50625
-$L50626:
+	jmp	SHORT $L50633
+$L50634:
 	mov	eax, DWORD PTR _f$[ebp]
 	add	eax, 4
 	mov	DWORD PTR _f$[ebp], eax
-$L50625:
+$L50633:
 	mov	ecx, DWORD PTR _f$[ebp]
 	cmp	ecx, DWORD PTR _l$[ebp]
-	je	SHORT $L50627
+	je	SHORT $L50635
 
 ; 498  : 																			f->~ElemType();
 ; 499  : 																			}
 
-	jmp	SHORT $L50626
-$L50627:
+	jmp	SHORT $L50634
+$L50635:
 
 ; 500  : 																		}
 
@@ -30426,7 +30426,7 @@ _this$ = -4
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax+8]
 	cmp	edx, DWORD PTR [ecx+4]
-	ja	SHORT $L50630
+	ja	SHORT $L50638
 
 ; 245  : 																			reserve((1 + size()) * 2);
 
@@ -30436,7 +30436,7 @@ _this$ = -4
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?reserve@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAEXI@Z ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::reserve
-$L50630:
+$L50638:
 
 ; 247  : 																		*last = x;
 
@@ -30576,13 +30576,13 @@ _this$ = -4
 ; 491  : 																		if(p)	allocator.free(p);
 
 	cmp	DWORD PTR _p$[ebp], 0
-	je	SHORT $L50637
+	je	SHORT $L50645
 	mov	eax, DWORD PTR _p$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 12					; 0000000cH
 	call	?free@NxAllocatorDefault@@QAEXPAX@Z	; NxAllocatorDefault::free
-$L50637:
+$L50645:
 
 ; 492  : 																		}
 
@@ -30600,88 +30600,6 @@ _f$ = 8
 _l$ = 12
 _this$ = -4
 ?destroy@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeDesc@@0@Z PROC NEAR ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::destroy, COMDAT
-
-; 495  : 																		{
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 68					; 00000044H
-	push	ebx
-	push	esi
-	push	edi
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 496  : 																		for (; f != l; ++f)
-
-	jmp	SHORT $L50640
-$L50641:
-	mov	eax, DWORD PTR _f$[ebp]
-	add	eax, 4
-	mov	DWORD PTR _f$[ebp], eax
-$L50640:
-	mov	ecx, DWORD PTR _f$[ebp]
-	cmp	ecx, DWORD PTR _l$[ebp]
-	je	SHORT $L50642
-
-; 498  : 																			f->~ElemType();
-; 499  : 																			}
-
-	jmp	SHORT $L50641
-$L50642:
-
-; 500  : 																		}
-
-	pop	edi
-	pop	esi
-	pop	ebx
-	mov	esp, ebp
-	pop	ebp
-	ret	8
-?destroy@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeDesc@@0@Z ENDP ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::destroy
-_TEXT	ENDS
-;	COMDAT ?deallocate@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@@Z
-_TEXT	SEGMENT
-_p$ = 8
-_this$ = -4
-?deallocate@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@@Z PROC NEAR ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::deallocate, COMDAT
-
-; 490  : 																		{
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 68					; 00000044H
-	push	ebx
-	push	esi
-	push	edi
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 491  : 																		if(p)	allocator.free(p);
-
-	cmp	DWORD PTR _p$[ebp], 0
-	je	SHORT $L50645
-	mov	eax, DWORD PTR _p$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 12					; 0000000cH
-	call	?free@NxAllocatorDefault@@QAEXPAX@Z	; NxAllocatorDefault::free
-$L50645:
-
-; 492  : 																		}
-
-	pop	edi
-	pop	esi
-	pop	ebx
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-?deallocate@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@@Z ENDP ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::deallocate
-_TEXT	ENDS
-;	COMDAT ?destroy@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@0@Z
-_TEXT	SEGMENT
-_f$ = 8
-_l$ = 12
-_this$ = -4
-?destroy@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@0@Z PROC NEAR ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::destroy, COMDAT
 
 ; 495  : 																		{
 
@@ -30719,6 +30637,88 @@ $L50650:
 	mov	esp, ebp
 	pop	ebp
 	ret	8
+?destroy@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeDesc@@0@Z ENDP ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::destroy
+_TEXT	ENDS
+;	COMDAT ?deallocate@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@@Z
+_TEXT	SEGMENT
+_p$ = 8
+_this$ = -4
+?deallocate@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@@Z PROC NEAR ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::deallocate, COMDAT
+
+; 490  : 																		{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 491  : 																		if(p)	allocator.free(p);
+
+	cmp	DWORD PTR _p$[ebp], 0
+	je	SHORT $L50653
+	mov	eax, DWORD PTR _p$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 12					; 0000000cH
+	call	?free@NxAllocatorDefault@@QAEXPAX@Z	; NxAllocatorDefault::free
+$L50653:
+
+; 492  : 																		}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?deallocate@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@@Z ENDP ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::deallocate
+_TEXT	ENDS
+;	COMDAT ?destroy@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@0@Z
+_TEXT	SEGMENT
+_f$ = 8
+_l$ = 12
+_this$ = -4
+?destroy@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@0@Z PROC NEAR ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::destroy, COMDAT
+
+; 495  : 																		{
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 68					; 00000044H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 496  : 																		for (; f != l; ++f)
+
+	jmp	SHORT $L50656
+$L50657:
+	mov	eax, DWORD PTR _f$[ebp]
+	add	eax, 4
+	mov	DWORD PTR _f$[ebp], eax
+$L50656:
+	mov	ecx, DWORD PTR _f$[ebp]
+	cmp	ecx, DWORD PTR _l$[ebp]
+	je	SHORT $L50658
+
+; 498  : 																			f->~ElemType();
+; 499  : 																			}
+
+	jmp	SHORT $L50657
+$L50658:
+
+; 500  : 																		}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
 ?destroy@?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@AAEXPAPAVNxForceFieldShapeGroup@@0@Z ENDP ; NxArray<NxForceFieldShapeGroup *,NxAllocatorDefault>::destroy
 _TEXT	ENDS
 ;	COMDAT ?capacity@?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QBEIXZ
@@ -30740,17 +30740,17 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	jne	SHORT $L52775
+	jne	SHORT $L52783
 	mov	DWORD PTR -8+[ebp], 0
-	jmp	SHORT $L52776
-$L52775:
+	jmp	SHORT $L52784
+$L52783:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+8]
 	sub	eax, DWORD PTR [edx]
 	sar	eax, 2
 	mov	DWORD PTR -8+[ebp], eax
-$L52776:
+$L52784:
 	mov	eax, DWORD PTR -8+[ebp]
 
 ; 176  : 																		}
@@ -30783,18 +30783,18 @@ _this$ = -4
 
 ; 470  : 																		for (; f != l; ++p, ++f)
 
-	jmp	SHORT $L50675
-$L50676:
+	jmp	SHORT $L50683
+$L50684:
 	mov	eax, DWORD PTR _p$[ebp]
 	add	eax, 4
 	mov	DWORD PTR _p$[ebp], eax
 	mov	ecx, DWORD PTR _f$[ebp]
 	add	ecx, 4
 	mov	DWORD PTR _f$[ebp], ecx
-$L50675:
+$L50683:
 	mov	edx, DWORD PTR _f$[ebp]
 	cmp	edx, DWORD PTR _l$[ebp]
-	je	SHORT $L50677
+	je	SHORT $L50685
 
 ; 471  : 																			*p = *f;
 
@@ -30802,8 +30802,8 @@ $L50675:
 	mov	ecx, DWORD PTR _f$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
-	jmp	SHORT $L50676
-$L50677:
+	jmp	SHORT $L50684
+$L50685:
 
 ; 472  : 																		return p; 
 
@@ -30933,7 +30933,7 @@ PUBLIC	?allocate@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@AAEP
 _TEXT	SEGMENT
 _n$ = 8
 _this$ = -4
-_s$50686 = -8
+_s$50694 = -8
 ?reserve@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAEXI@Z PROC NEAR ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::reserve, COMDAT
 
 ; 154  : 																		{
@@ -30951,7 +30951,7 @@ _s$50686 = -8
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?capacity@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QBEIXZ ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::capacity
 	cmp	eax, DWORD PTR _n$[ebp]
-	jae	SHORT $L50685
+	jae	SHORT $L50693
 
 ; 157  : 																			
 ; 158  : 																			iterator s = allocate(n);
@@ -30960,11 +30960,11 @@ _s$50686 = -8
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?allocate@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@AAEPAPAVNxForceFieldShapeDesc@@I@Z ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::allocate
-	mov	DWORD PTR _s$50686[ebp], eax
+	mov	DWORD PTR _s$50694[ebp], eax
 
 ; 159  : 																			copy(first, last, s);
 
-	mov	ecx, DWORD PTR _s$50686[ebp]
+	mov	ecx, DWORD PTR _s$50694[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+4]
@@ -30999,7 +30999,7 @@ _s$50686 = -8
 ; 164  : 																			memEnd = s + n;
 
 	mov	eax, DWORD PTR _n$[ebp]
-	mov	ecx, DWORD PTR _s$50686[ebp]
+	mov	ecx, DWORD PTR _s$50694[ebp]
 	lea	edx, DWORD PTR [ecx+eax*4]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+8], edx
@@ -31008,7 +31008,7 @@ _s$50686 = -8
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?size@?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QBEIXZ ; NxArray<NxForceFieldShapeDesc *,NxAllocatorDefault>::size
-	mov	ecx, DWORD PTR _s$50686[ebp]
+	mov	ecx, DWORD PTR _s$50694[ebp]
 	lea	edx, DWORD PTR [ecx+eax*4]
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+4], edx
@@ -31016,9 +31016,9 @@ _s$50686 = -8
 ; 166  : 																			first = s; 
 
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _s$50686[ebp]
+	mov	edx, DWORD PTR _s$50694[ebp]
 	mov	DWORD PTR [ecx], edx
-$L50685:
+$L50693:
 
 ; 168  : 																		}
 
@@ -31049,17 +31049,17 @@ _this$ = -4
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax], 0
-	jne	SHORT $L52787
+	jne	SHORT $L52795
 	mov	DWORD PTR -8+[ebp], 0
-	jmp	SHORT $L52788
-$L52787:
+	jmp	SHORT $L52796
+$L52795:
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+8]
 	sub	eax, DWORD PTR [edx]
 	sar	eax, 2
 	mov	DWORD PTR -8+[ebp], eax
-$L52788:
+$L52796:
 	mov	eax, DWORD PTR -8+[ebp]
 
 ; 176  : 																		}
@@ -31092,18 +31092,18 @@ _this$ = -4
 
 ; 470  : 																		for (; f != l; ++p, ++f)
 
-	jmp	SHORT $L50692
-$L50693:
+	jmp	SHORT $L50700
+$L50701:
 	mov	eax, DWORD PTR _p$[ebp]
 	add	eax, 4
 	mov	DWORD PTR _p$[ebp], eax
 	mov	ecx, DWORD PTR _f$[ebp]
 	add	ecx, 4
 	mov	DWORD PTR _f$[ebp], ecx
-$L50692:
+$L50700:
 	mov	edx, DWORD PTR _f$[ebp]
 	cmp	edx, DWORD PTR _l$[ebp]
-	je	SHORT $L50694
+	je	SHORT $L50702
 
 ; 471  : 																			*p = *f;
 
@@ -31111,8 +31111,8 @@ $L50692:
 	mov	ecx, DWORD PTR _f$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	DWORD PTR [eax], edx
-	jmp	SHORT $L50693
-$L50694:
+	jmp	SHORT $L50701
+$L50702:
 
 ; 472  : 																		return p; 
 
