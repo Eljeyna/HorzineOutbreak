@@ -145,7 +145,7 @@ BOOL CMP5::Deploy( )
 
 void CMP5::Holster( void )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 }
@@ -153,16 +153,10 @@ void CMP5::Holster( void )
 void CMP5::PrimaryAttack()
 {
 	// don't fire underwater
-	if (m_pPlayer->pev->waterlevel == 3)
+	//if (m_pPlayer->pev->waterlevel == 3)
+	if (m_pPlayer->pev->waterlevel == 3 || m_iClip <= 0)
 	{
 		PlayEmptySound( );
-		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
-		return;
-	}
-
-	if (m_iClip <= 0)
-	{
-		PlayEmptySound();
 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 		return;
 	}

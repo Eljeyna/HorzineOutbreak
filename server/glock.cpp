@@ -112,7 +112,7 @@ BOOL CGlock::Deploy( )
 
 void CGlock::Holster( void )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 }

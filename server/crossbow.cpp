@@ -22,7 +22,7 @@
 #include "player.h"
 #include "gamerules.h"
 
-#define BOLT_AIR_VELOCITY	5000
+#define BOLT_AIR_VELOCITY	2000
 #define BOLT_WATER_VELOCITY	1000
 
 class CCrossbowBolt : public CBaseEntity
@@ -335,6 +335,8 @@ public:
 
 	int m_fInZoom; // don't save this
 	int m_fZoomInUse;
+	int m_flNextReload;
+	bool crossbow_reload;
 };
 
 LINK_ENTITY_TO_CLASS( weapon_crossbow, CCrossbow );
@@ -342,6 +344,7 @@ LINK_ENTITY_TO_CLASS( weapon_crossbow, CCrossbow );
 BEGIN_DATADESC( CCrossbow )
 	DEFINE_FIELD( m_fInZoom, FIELD_BOOLEAN ),
 	DEFINE_FIELD( m_fZoomInUse, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_flNextReload, FIELD_TIME )
 END_DATADESC()
 
 void CCrossbow::Spawn( void )
@@ -351,6 +354,8 @@ void CCrossbow::Spawn( void )
 	SET_MODEL(ENT(pev), "models/w_crossbow.mdl");
 
 	m_iDefaultAmmo = CROSSBOW_DEFAULT_GIVE;
+
+	crossbow_reload = false;
 
 	FallInit();// get ready to fall down.
 }
@@ -399,13 +404,17 @@ BOOL CCrossbow::Deploy( )
 {
 	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 	if (m_iClip)
+	{
 		return DefaultDeploy( "models/v_crossbow.mdl", "models/p_crossbow.mdl", CROSSBOW_DRAW1, "bow" );
+	}
+	m_flNextReload = gpGlobals->time + 1.5;
+	crossbow_reload = true;
 	return DefaultDeploy( "models/v_crossbow.mdl", "models/p_crossbow.mdl", CROSSBOW_DRAW2, "bow" );
 }
 
 void CCrossbow::Holster( void )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 
@@ -521,7 +530,8 @@ void CCrossbow::FireBolt( void )
 	if (m_iClip == 0)
 	{
 		PlayEmptySound( );
-		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
+		Reload();
+		//m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 		return;
 	}
 
@@ -651,6 +661,16 @@ void CCrossbow::Reload( void )
 		SecondaryAttack();
 	}
 
+	if (m_flNextReload > gpGlobals->time)
+	{
+		if (crossbow_reload && m_flNextReload - 1 <= gpGlobals->time)
+		{
+			crossbow_reload = false;
+			SendWeaponAnim( CROSSBOW_FIRE1 );
+		}
+		return;
+	}
+
 	/*if (DefaultReload( 1, CROSSBOW_RELOAD, 1.3 ))
 	{
 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/xbow_reload1.wav", RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 93 + RANDOM_LONG(0,0xF));
@@ -665,36 +685,33 @@ void CCrossbow::WeaponIdle( void )
 	ResetEmptySound( );
 	m_fZoomInUse = 0;
 
-	if ( !m_iClip )
+	if (m_flTimeWeaponIdle < gpGlobals->time)
 	{
-		if (m_flTimeWeaponIdle < gpGlobals->time)
+		float flRand = RANDOM_FLOAT(0, 1);
+		if (flRand <= 0.75)
 		{
-			float flRand = RANDOM_FLOAT(0, 1);
-			if (flRand <= 0.75)
+			/*if (m_iClip)
 			{
-				/*if (m_iClip)
-				{
-					SendWeaponAnim( CROSSBOW_IDLE1 );
-				}
-				else
-				{
-					SendWeaponAnim( CROSSBOW_IDLE2 );
-				}*/
 				SendWeaponAnim( CROSSBOW_IDLE1 );
-				m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 			}
 			else
 			{
-				if (m_iClip)
-				{
-					SendWeaponAnim( CROSSBOW_FIDGET1 );
-					m_flTimeWeaponIdle = gpGlobals->time + 90.0 / 30.0;
-				}
-				else
-				{
-					SendWeaponAnim( CROSSBOW_FIDGET2 );
-					m_flTimeWeaponIdle = gpGlobals->time + 80.0 / 30.0;
-				}
+				SendWeaponAnim( CROSSBOW_IDLE2 );
+			}*/
+			SendWeaponAnim( CROSSBOW_IDLE1 );
+			m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
+		}
+		else
+		{
+			if (m_iClip)
+			{
+				SendWeaponAnim( CROSSBOW_FIDGET1 );
+				m_flTimeWeaponIdle = gpGlobals->time + 90.0 / 30.0;
+			}
+			else
+			{
+				SendWeaponAnim( CROSSBOW_FIDGET2 );
+				m_flTimeWeaponIdle = gpGlobals->time + 80.0 / 30.0;
 			}
 		}
 	}

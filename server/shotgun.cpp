@@ -58,6 +58,7 @@ public:
 	void Holster( void );
 	void Reload( void );
 	void WeaponIdle( void );
+
 	int m_fInReload;
 	float m_flNextReload;
 	int m_iShell;
@@ -143,7 +144,7 @@ BOOL CShotgun::Deploy( )
 
 void CShotgun::Holster( void )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 }

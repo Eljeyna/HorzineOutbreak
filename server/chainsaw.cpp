@@ -24,7 +24,7 @@
 
 #define CHAINSAW_BODYHIT_VOLUME	128
 #define CHAINSAW_WALLHIT_VOLUME	512
-#define CHAINSAW_PRI_DELAY				0.01
+#define CHAINSAW_PRI_DELAY			0.1
 #define CHAINSAW_SEC_DELAY 			0.8
 
 enum chainsaw_e
@@ -58,8 +58,6 @@ public:
 
   void FindHullIntersection( const Vector &vecSrc, TraceResult &tr, float *mins, float *maxs, edict_t *pEntity );
   void PrimaryAttack( void );
-	float chainsaw_next_attack;
-	bool chainsaw_primary_attack;
 	void SecondaryAttack( void );
 	void WeaponIdle( void );
 	void ChainsawAttack( void );
@@ -67,7 +65,10 @@ public:
 	BOOL Deploy( void );
 	void Holster( void );
   void Reload( void );
+
 	TraceResult m_trHit;
+	float chainsaw_next_attack;
+	bool chainsaw_primary_attack;
   bool noAmmo;
   bool chainReload;
 };
@@ -133,6 +134,7 @@ BOOL CChainsaw::DefaultDeploy( char *szViewModel, char *szWeaponModel, int iAnim
 
 BOOL CChainsaw::Deploy( )
 {
+	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
   if (noAmmo)
   {
     m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = 0;

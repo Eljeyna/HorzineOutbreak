@@ -137,7 +137,7 @@ BOOL CPython::Deploy( )
 
 void CPython::Holster( void )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
+	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 
 	m_fInReload = FALSE;// cancel any reload in progress.
 
