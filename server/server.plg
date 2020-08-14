@@ -6,13 +6,13 @@
 --------------------Configuration: server - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP7.tmp" with contents
+Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP31.tmp" with contents
 [
 /nologo /ML /W3 /Gm /Gi /GX /ZI /Od /I ".\\" /I "..\engine" /I "..\common" /I "..\game_shared" /I "..\phys_shared" /I ".\monsters" /I ".\physics" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "DEBUG" /D "_DEBUG" /FAs /Fa"..\temp\server\!debug/" /FR"..\temp\server\!debug/" /Fo"..\temp\server\!debug/" /Fd"..\temp\server\!debug/" /FD /c 
-"Z:\XashXTSRC\server\shotgun.cpp"
+"Z:\XashXTSRC\server\monsters\aflock.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP7.tmp" 
-Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP8.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP31.tmp" 
+Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP32.tmp" with contents
 [
 msvcrt.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"..\temp\server\!debug/server.pdb" /debug /machine:I386 /nodefaultlib:"libc.lib" /def:".\server.def" /out:"..\temp\server\!debug/server.dll" /implib:"..\temp\server\!debug/server.lib" 
 "\XashXTSRC\temp\server\!debug\aflock.obj"
@@ -139,16 +139,17 @@ msvcrt.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"..\temp\server
 "\XashXTSRC\temp\server\!debug\xen.obj"
 "\XashXTSRC\temp\server\!debug\zombie.obj"
 ]
-Creating command line "link.exe @C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP8.tmp"
-Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP9.bat" with contents
+Creating command line "link.exe @C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP32.tmp"
+Creating temporary file "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP33.bat" with contents
 [
 @echo off
 copy \XashXTSRC\temp\server\!debug\server.dll "Z:\server.dll"
 ]
-Creating command line "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP9.bat"
+Creating command line "C:\DOCUME~1\Amadeus\LOCALS~1\Temp\RSP33.bat"
 Compiling...
-shotgun.cpp
+aflock.cpp
 Linking...
+   Creating library ..\temp\server\!debug/server.lib and object ..\temp\server\!debug/server.exp
 <h3>Output Window</h3>
 Custom Build in progress
 Скопировано файлов:         1.

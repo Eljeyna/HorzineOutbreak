@@ -22,7 +22,7 @@
 #include "player.h"
 #include "gamerules.h"
 
-#define BOLT_AIR_VELOCITY	2000
+#define BOLT_AIR_VELOCITY	5000
 #define BOLT_WATER_VELOCITY	1000
 
 class CCrossbowBolt : public CBaseEntity
@@ -34,7 +34,7 @@ class CCrossbowBolt : public CBaseEntity
 	int Classify ( void );
 	void BubbleThink( void );
 	void BoltTouch( CBaseEntity *pOther );
-	void ExplodeThink( void );
+	//void ExplodeThink( void );
 	virtual BOOL IsProjectile( void ) { return TRUE; }
 	void TransferReset( void );
 	void OnChangeLevel( void );
@@ -50,7 +50,7 @@ LINK_ENTITY_TO_CLASS( crossbow_bolt, CCrossbowBolt );
 
 BEGIN_DATADESC( CCrossbowBolt )
 	DEFINE_FUNCTION( BubbleThink ),
-	DEFINE_FUNCTION( ExplodeThink ),
+	//DEFINE_FUNCTION( ExplodeThink ),
 	DEFINE_FUNCTION( BoltTouch ),
 END_DATADESC()
 
@@ -251,7 +251,7 @@ void CCrossbowBolt::BubbleThink( void )
 	UTIL_BubbleTrail( GetAbsOrigin() - GetAbsVelocity() * 0.1, GetAbsOrigin(), 1 );
 }
 
-void CCrossbowBolt::ExplodeThink( void )
+/*void CCrossbowBolt::ExplodeThink( void )
 {
 	int iContents = UTIL_PointContents( GetAbsOrigin() );
 	int iScale;
@@ -291,7 +291,7 @@ void CCrossbowBolt::ExplodeThink( void )
 	::RadiusDamage( GetAbsOrigin(), pev, pevOwner, pev->dmg, 128, CLASS_NONE, DMG_BLAST|DMG_ALWAYSGIB );
 
 	UTIL_Remove(this);
-}
+}*/
 
 enum crossbow_e
 {
@@ -407,6 +407,7 @@ void CCrossbow::Holster( void )
 {
 	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
+	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 
 	if ( m_fInZoom )
 	{
@@ -414,7 +415,6 @@ void CCrossbow::Holster( void )
 		SecondaryAttack( );
 	}
 
-	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 	if (m_iClip)
 		SendWeaponAnim( CROSSBOW_HOLSTER1 );
 	else
@@ -521,6 +521,7 @@ void CCrossbow::FireBolt( void )
 	if (m_iClip == 0)
 	{
 		PlayEmptySound( );
+		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 		return;
 	}
 
@@ -650,10 +651,11 @@ void CCrossbow::Reload( void )
 		SecondaryAttack();
 	}
 
-	if (DefaultReload( 1, CROSSBOW_RELOAD, 1.3 ))
+	/*if (DefaultReload( 1, CROSSBOW_RELOAD, 1.3 ))
 	{
 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/xbow_reload1.wav", RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 93 + RANDOM_LONG(0,0xF));
-	}
+	}*/
+	DefaultReload( 1, CROSSBOW_RELOAD, 1.3 );
 }
 
 void CCrossbow::WeaponIdle( void )
