@@ -4,7 +4,7 @@
 basedir		"valve"
 gamedir		"xash"
 title		"Xash"
-startmap		"grass_test2"
+startmap		"testmap1"
 trainmap		"biolabs1"
 version		0.8 custom
 size		116339527
