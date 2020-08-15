@@ -114,7 +114,8 @@ int CAxe::GetItemInfo(ItemInfo *p)
 
 BOOL CAxe::Deploy( )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
+	if (m_pPlayer->pev->maxspeed > 0)
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
 	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "axe" );
 }
 

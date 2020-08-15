@@ -134,7 +134,8 @@ BOOL CChainsaw::DefaultDeploy( char *szViewModel, char *szWeaponModel, int iAnim
 
 BOOL CChainsaw::Deploy( )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
+	if (m_pPlayer->pev->maxspeed > 0)
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
   if (noAmmo)
   {
     m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = 0;

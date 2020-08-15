@@ -377,7 +377,8 @@ int CRpg::AddToPlayer( CBasePlayer *pPlayer )
 
 BOOL CRpg::Deploy( )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+	if (m_pPlayer->pev->maxspeed > 0)
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 	/*if ( m_iClip == 0 )
 	{
 		return DefaultDeploy( "models/v_rpg.mdl", "models/p_rpg.mdl", RPG_DRAW_UL, "rpg" );
@@ -400,8 +401,6 @@ BOOL CRpg::Deploy( )
 
 void CRpg::Holster( void )
 {
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
-
 	m_fInReload = FALSE;// cancel any reload in progress.
 
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;

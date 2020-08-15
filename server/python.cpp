@@ -129,7 +129,8 @@ BOOL CPython::Deploy( )
 		pev->body = 0;
 	}
 
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+	if (m_pPlayer->pev->maxspeed > 0)
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 
 	return DefaultDeploy( "models/v_357.mdl", "models/p_357.mdl", PYTHON_DRAW, "python" );
 }
@@ -137,8 +138,6 @@ BOOL CPython::Deploy( )
 
 void CPython::Holster( void )
 {
-	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
-
 	m_fInReload = FALSE;// cancel any reload in progress.
 
 	if ( m_fInZoom )

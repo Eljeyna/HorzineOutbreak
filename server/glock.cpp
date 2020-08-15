@@ -106,13 +106,13 @@ int CGlock::GetItemInfo(ItemInfo *p)
 BOOL CGlock::Deploy( )
 {
 	// pev->body = 1;
-	g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+	if (m_pPlayer->pev->maxspeed > 0)
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
 	return DefaultDeploy( "models/v_9mmhandgun.mdl", "models/p_9mmhandgun.mdl", GLOCK_DRAW, "onehanded" );
 }
 
 void CGlock::Holster( void )
 {
-	//g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	m_fInReload = FALSE;// cancel any reload in progress.
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 }

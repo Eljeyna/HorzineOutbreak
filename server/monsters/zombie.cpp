@@ -32,7 +32,8 @@
 #define	ZOMBIE_AE_ATTACK_LEFT		0x02
 #define	ZOMBIE_AE_ATTACK_BOTH		0x03
 
-#define ZOMBIE_FLINCH_DELAY			2		// at most one flinch every n secs
+//#define ZOMBIE_FLINCH_DELAY			2		// at most one flinch every n secs
+#define ZOMBIE_FLINCH_DELAY			0.5		// at most one flinch every n secs
 
 class CZombie : public CBaseMonster
 {
@@ -130,7 +131,8 @@ void CZombie :: SetYawSpeed ( void )
 {
 	int ys;
 
-	ys = 120;
+	//ys = 120;
+	ys = 360;
 
 #if 0
 	switch ( m_Activity )
@@ -143,19 +145,12 @@ void CZombie :: SetYawSpeed ( void )
 
 void CZombie::Grab(CBaseMonster *pHurt)
 {
-	if (victim == pHurt)
+	if (pHurt && pHurt->pev->movetype == MOVETYPE_FLY)
 	{
 		return;
 	}
 
-	victim = pHurt->MyMonsterPointer();
-
-	if (victim && victim->pev->movetype == MOVETYPE_FLY)
-	{
-		victim = NULL;
-		return;
-	}
-
+	victim = pHurt;
 	victim_movespeed = victim->pev->maxspeed;
 	g_engfuncs.pfnSetClientMaxspeed(victim->edict(), -1 );
 	pHurt->SetAbsVelocity( g_vecZero );
@@ -191,8 +186,11 @@ int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, floa
 	// HACK HACK -- until we fix this.
 	if ( IsAlive() )
 		PainSound();
-	if (flDamage > pev->health)
+	if (flDamage > pev->health || !IsAlive())
+	{
 		GrabStop();
+		UTIL_SetSize( pev, g_vecZero, g_vecZero );
+	}
 
 	return CBaseMonster::TakeDamage( pevInflictor, pevAttacker, flDamage, bitsDamageType );
 }
@@ -239,7 +237,8 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 		{
 			// do stuff for this event.
 	//		ALERT( at_console, "Slash right!\n" );
-			CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgOneSlash, DMG_SLASH );
+			//CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgOneSlash, DMG_SLASH );
+			CBaseEntity *pHurt = CheckTraceHullAttack( 40, gSkillData.zombieDmgOneSlash, DMG_SLASH );
 			if ( pHurt )
 			{
 				if ( pHurt->pev->flags & (FL_MONSTER|FL_CLIENT) )
@@ -250,8 +249,12 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 						Grab(pHurt->MyMonsterPointer());
 						//pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() - gpGlobals->v_right * 100 );
 					}
-					pHurt->pev->punchangle.z = -18;
-					pHurt->pev->punchangle.x = 5;
+					/*pHurt->pev->punchangle.z = -18;
+					pHurt->pev->punchangle.x = 5;*/
+				}
+				else
+				{
+					ALERT( at_console, "ZOMBIE_AE_ATTACK_RIGHT" );
 				}
 				// Play a random attack hit sound
 				EMIT_SOUND_DYN ( ENT(pev), CHAN_WEAPON, pAttackHitSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackHitSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
@@ -268,7 +271,8 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 		{
 			// do stuff for this event.
 	//		ALERT( at_console, "Slash left!\n" );
-			CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgOneSlash, DMG_SLASH );
+			//CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgOneSlash, DMG_SLASH );
+			CBaseEntity *pHurt = CheckTraceHullAttack( 40, gSkillData.zombieDmgOneSlash, DMG_SLASH );
 			if ( pHurt )
 			{
 				if ( pHurt->pev->flags & (FL_MONSTER|FL_CLIENT) )
@@ -279,8 +283,12 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 						Grab(pHurt->MyMonsterPointer());
 						//pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() + gpGlobals->v_right * 100 );
 					}
-					pHurt->pev->punchangle.z = 18;
-					pHurt->pev->punchangle.x = 5;
+					/*pHurt->pev->punchangle.z = 18;
+					pHurt->pev->punchangle.x = 5;*/
+				}
+				else
+				{
+					ALERT( at_console, "ZOMBIE_AE_ATTACK_LEFT" );
 				}
 				EMIT_SOUND_DYN ( ENT(pev), CHAN_WEAPON, pAttackHitSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackHitSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
 			}
@@ -295,7 +303,8 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 		case ZOMBIE_AE_ATTACK_BOTH:
 		{
 			// do stuff for this event.
-			CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgBothSlash, DMG_SLASH );
+			//CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgBothSlash, DMG_SLASH );
+			CBaseEntity *pHurt = CheckTraceHullAttack( 40, gSkillData.zombieDmgBothSlash, DMG_SLASH );
 			if ( pHurt )
 			{
 				if ( pHurt->pev->flags & (FL_MONSTER|FL_CLIENT) )
@@ -306,7 +315,11 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 						Grab(pHurt->MyMonsterPointer());
 						//pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() + gpGlobals->v_forward * -100 );
 					}
-					pHurt->pev->punchangle.x = 5;
+					//pHurt->pev->punchangle.x = 5;
+				}
+				else
+				{
+					ALERT( at_console, "ZOMBIE_AE_ATTACK_BOTH" );
 				}
 				EMIT_SOUND_DYN ( ENT(pev), CHAN_WEAPON, pAttackHitSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackHitSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
 			}
@@ -390,7 +403,7 @@ int CZombie::IgnoreConditions ( void )
 {
 	int iIgnore = CBaseMonster::IgnoreConditions();
 
-	if ((m_Activity == ACT_MELEE_ATTACK1) || (m_Activity == ACT_MELEE_ATTACK1))
+	/*if ((m_Activity == ACT_MELEE_ATTACK1) || (m_Activity == ACT_MELEE_ATTACK1))
 	{
 #if 0
 		if (pev->health < 20)
@@ -399,7 +412,8 @@ int CZombie::IgnoreConditions ( void )
 #endif
 		if (m_flNextFlinch >= gpGlobals->time)
 			iIgnore |= (bits_COND_LIGHT_DAMAGE|bits_COND_HEAVY_DAMAGE);
-	}
+	}*/
+	iIgnore |= (bits_COND_LIGHT_DAMAGE|bits_COND_HEAVY_DAMAGE);
 
 	if ((m_Activity == ACT_SMALL_FLINCH) || (m_Activity == ACT_BIG_FLINCH))
 	{
