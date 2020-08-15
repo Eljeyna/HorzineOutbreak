@@ -36,6 +36,8 @@ public:
 		SCRIPT_RUN_TO_MARK,
 	} SCRIPTSTATE;
 
+	float m_flLastYawTime;  // FPS fix
+
 	// these fields have been added in the process of reworking the state machine. (sjb)
 	EHANDLE		m_hEnemy;		 // the entity that the monster is fighting.
 	EHANDLE		m_hTargetEnt;	 // the entity that the monster is trying to reach

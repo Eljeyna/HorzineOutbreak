@@ -23,6 +23,7 @@
 #include	"cbase.h"
 #include	"monsters.h"
 #include	"schedule.h"
+#include "gamerules.h"
 
 
 //=========================================================
@@ -67,6 +68,7 @@ public:
 
 	void Grab(CBaseMonster *pHurt);
 	void GrabStop(void);
+	void Killed(entvars_t *pevAttacker, int iGib);
 
 	CBaseMonster *victim;
 	int victim_movespeed;
@@ -132,7 +134,7 @@ void CZombie :: SetYawSpeed ( void )
 	int ys;
 
 	//ys = 120;
-	ys = 360;
+	ys = 320;
 
 #if 0
 	switch ( m_Activity )
@@ -141,6 +143,28 @@ void CZombie :: SetYawSpeed ( void )
 #endif
 
 	pev->yaw_speed = ys;
+}
+
+void CZombie::Killed(entvars_t *pevAttacker, int iGib)
+{
+	GrabStop();
+	if (HasMemory(bits_MEMORY_KILLED))
+		return;
+	pev->takedamage = DAMAGE_NO;
+	pev->solid = SOLID_NOT;
+	//pev->deadflag = DEAD_DEAD;
+	FCheckAITrigger();
+
+	Remember( bits_MEMORY_KILLED );
+
+	EMIT_SOUND(ENT(pev), CHAN_WEAPON, "common/null.wav", 1, ATTN_NORM);
+	SetConditions( bits_COND_LIGHT_DAMAGE );
+	if (pev->health < 0)
+	{
+		pev->health = 0;
+	}
+	m_IdealMonsterState = MONSTERSTATE_DEAD;
+	//CBaseMonster::Killed(pevAttacker, GIB_ALWAYS);
 }
 
 void CZombie::Grab(CBaseMonster *pHurt)
@@ -152,7 +176,7 @@ void CZombie::Grab(CBaseMonster *pHurt)
 
 	victim = pHurt;
 	victim_movespeed = victim->pev->maxspeed;
-	g_engfuncs.pfnSetClientMaxspeed(victim->edict(), -1 );
+	g_engfuncs.pfnSetClientMaxspeed(victim->edict(), -1);
 	pHurt->SetAbsVelocity( g_vecZero );
 	pHurt->SetBaseVelocity( g_vecZero );
 }
@@ -178,7 +202,7 @@ int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, floa
 		SetAbsVelocity( GetAbsVelocity() + vecDir * flForce );
 		flDamage *= 0.3;
 	}
-	else if ( bitsDamageType == DMG_CLUB )
+	else if (bitsDamageType == DMG_CLUB)
 	{
 		GrabStop();
 	}
@@ -186,11 +210,6 @@ int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, floa
 	// HACK HACK -- until we fix this.
 	if ( IsAlive() )
 		PainSound();
-	if (flDamage > pev->health || !IsAlive())
-	{
-		GrabStop();
-		UTIL_SetSize( pev, g_vecZero, g_vecZero );
-	}
 
 	return CBaseMonster::TakeDamage( pevInflictor, pevAttacker, flDamage, bitsDamageType );
 }
@@ -238,7 +257,7 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 			// do stuff for this event.
 	//		ALERT( at_console, "Slash right!\n" );
 			//CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgOneSlash, DMG_SLASH );
-			CBaseEntity *pHurt = CheckTraceHullAttack( 40, gSkillData.zombieDmgOneSlash, DMG_SLASH );
+			CBaseEntity *pHurt = CheckTraceHullAttack( 32, gSkillData.zombieDmgOneSlash, DMG_SLASH );
 			if ( pHurt )
 			{
 				if ( pHurt->pev->flags & (FL_MONSTER|FL_CLIENT) )
@@ -249,13 +268,10 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 						Grab(pHurt->MyMonsterPointer());
 						//pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() - gpGlobals->v_right * 100 );
 					}
-					/*pHurt->pev->punchangle.z = -18;
-					pHurt->pev->punchangle.x = 5;*/
+					//pHurt->pev->punchangle.z = -18;
+					//pHurt->pev->punchangle.x = 5;
 				}
-				else
-				{
-					ALERT( at_console, "ZOMBIE_AE_ATTACK_RIGHT" );
-				}
+				pHurt->SetAbsVelocity( gpGlobals->v_forward * -16 );
 				// Play a random attack hit sound
 				EMIT_SOUND_DYN ( ENT(pev), CHAN_WEAPON, pAttackHitSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackHitSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
 			}
@@ -272,7 +288,7 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 			// do stuff for this event.
 	//		ALERT( at_console, "Slash left!\n" );
 			//CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgOneSlash, DMG_SLASH );
-			CBaseEntity *pHurt = CheckTraceHullAttack( 40, gSkillData.zombieDmgOneSlash, DMG_SLASH );
+			CBaseEntity *pHurt = CheckTraceHullAttack( 32, gSkillData.zombieDmgOneSlash, DMG_SLASH );
 			if ( pHurt )
 			{
 				if ( pHurt->pev->flags & (FL_MONSTER|FL_CLIENT) )
@@ -283,13 +299,10 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 						Grab(pHurt->MyMonsterPointer());
 						//pHurt->SetAbsVelocity( pHurt->GetAbsVelocity() + gpGlobals->v_right * 100 );
 					}
-					/*pHurt->pev->punchangle.z = 18;
-					pHurt->pev->punchangle.x = 5;*/
+					//pHurt->pev->punchangle.z = 18;
+					//pHurt->pev->punchangle.x = 5;
 				}
-				else
-				{
-					ALERT( at_console, "ZOMBIE_AE_ATTACK_LEFT" );
-				}
+				pHurt->SetAbsVelocity( gpGlobals->v_forward * -16 );
 				EMIT_SOUND_DYN ( ENT(pev), CHAN_WEAPON, pAttackHitSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackHitSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
 			}
 			else
@@ -304,7 +317,7 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 		{
 			// do stuff for this event.
 			//CBaseEntity *pHurt = CheckTraceHullAttack( 70, gSkillData.zombieDmgBothSlash, DMG_SLASH );
-			CBaseEntity *pHurt = CheckTraceHullAttack( 40, gSkillData.zombieDmgBothSlash, DMG_SLASH );
+			CBaseEntity *pHurt = CheckTraceHullAttack( 32, gSkillData.zombieDmgBothSlash, DMG_SLASH );
 			if ( pHurt )
 			{
 				if ( pHurt->pev->flags & (FL_MONSTER|FL_CLIENT) )
@@ -317,10 +330,7 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 					}
 					//pHurt->pev->punchangle.x = 5;
 				}
-				else
-				{
-					ALERT( at_console, "ZOMBIE_AE_ATTACK_BOTH" );
-				}
+				pHurt->SetAbsVelocity( gpGlobals->v_forward * -16 );
 				EMIT_SOUND_DYN ( ENT(pev), CHAN_WEAPON, pAttackHitSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackHitSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
 			}
 			else
@@ -355,7 +365,12 @@ void CZombie :: Spawn()
 	m_bloodColor		= BLOOD_COLOR_GREEN;
 	if (!pev->health) pev->health	= gSkillData.zombieHealth;
 	pev->view_ofs		= VEC_VIEW;// position of the eyes relative to monster's origin.
-	m_flFieldOfView		= 0.5;// indicates the width of this monster's forward view cone ( as a dotproduct result )
+
+	if (g_pGameRules->IsMultiplayer())
+		m_flFieldOfView		= VIEW_FIELD_FULL;
+	else
+		m_flFieldOfView		= 0.5;// indicates the width of this monster's forward view cone ( as a dotproduct result )
+
 	m_MonsterState		= MONSTERSTATE_NONE;
 	m_afCapability		= bits_CAP_DOORS_GROUP;
 
@@ -413,6 +428,12 @@ int CZombie::IgnoreConditions ( void )
 		if (m_flNextFlinch >= gpGlobals->time)
 			iIgnore |= (bits_COND_LIGHT_DAMAGE|bits_COND_HEAVY_DAMAGE);
 	}*/
+
+	if (victim && (VectorDistance(victim->GetAbsOrigin(), GetAbsOrigin()) > 128 || victim->pev->waterlevel != pev->waterlevel || victim->pev->movetype == MOVETYPE_FLY))
+	{
+		GrabStop();
+	}
+
 	iIgnore |= (bits_COND_LIGHT_DAMAGE|bits_COND_HEAVY_DAMAGE);
 
 	if ((m_Activity == ACT_SMALL_FLINCH) || (m_Activity == ACT_BIG_FLINCH))
