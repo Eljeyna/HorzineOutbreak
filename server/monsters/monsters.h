@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   This source code contains proprietary and confidential information of
@@ -24,7 +24,7 @@
 
 */
 
-// CHECKLOCALMOVE result types 
+// CHECKLOCALMOVE result types
 #define	LOCALMOVE_INVALID					0 // move is not possible
 #define LOCALMOVE_INVALID_DONT_TRIANGULATE	1 // move is not possible, don't try to triangulate
 #define LOCALMOVE_VALID						2 // move is possible
@@ -34,7 +34,7 @@
 #define	HITGROUP_HEAD		1
 #define	HITGROUP_CHEST		2
 #define	HITGROUP_STOMACH	3
-#define HITGROUP_LEFTARM	4	
+#define HITGROUP_LEFTARM	4
 #define HITGROUP_RIGHTARM	5
 #define HITGROUP_LEFTLEG	6
 #define HITGROUP_RIGHTLEG	7
@@ -72,7 +72,7 @@
 #define		MOVE_STRAFE				1// moves in direction specified, no matter which way monster is facing
 
 // spawn flags 256 and above are already taken by the engine
-extern void UTIL_MoveToOrigin( edict_t* pent, const Vector &vecGoal, float flDist, int iMoveType ); 
+extern void UTIL_MoveToOrigin( edict_t* pent, const Vector &vecGoal, float flDist, int iMoveType );
 
 Vector VecCheckToss ( entvars_t *pev, const Vector &vecSpot1, Vector vecSpot2, float flGravityAdj = 1.0 );
 Vector VecCheckThrow ( entvars_t *pev, const Vector &vecSpot1, Vector vecSpot2, float flSpeed, float flGravityAdj = 1.0 );
@@ -112,7 +112,7 @@ BOOL FBoxVisible ( entvars_t *pevLooker, entvars_t *pevTarget, Vector &vecTarget
 
 // trigger conditions for scripted AI
 // these MUST match the CHOICES interface in halflife.fgd for the base monster
-enum 
+enum
 {
 	AITRIGGER_NONE = 0,
 	AITRIGGER_SEEPLAYER_ANGRY_AT_PLAYER,

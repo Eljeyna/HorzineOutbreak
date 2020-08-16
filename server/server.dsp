@@ -381,10 +381,6 @@ SOURCE=..\game_shared\matrix.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\medsyringe.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\physics\meshdesc.cpp
 # End Source File
 # Begin Source File

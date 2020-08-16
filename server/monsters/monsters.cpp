@@ -1350,8 +1350,17 @@ int CBaseMonster :: CheckLocalMove ( const Vector &vecStart, const Vector &vecEn
 
 		}
 	}
+	/*if ( iReturn == LOCALMOVE_VALID && 	!(pev->flags & (FL_FLY|FL_SWIM) ) && (!pTarget || (pTarget->pev->flags & FL_ONGROUND)) )
+	{
+		// The monster can move to a spot UNDER the target, but not to it. Don't try to triangulate, go directly to the node graph.
+		// UNDONE: Magic # 64 -- this used to be pev->size.z but that won't work for small creatures like the headcrab
+		if ( fabs(vecEnd.z - GetAbsOrigin().z) > 64 )
+		{
+			iReturn = LOCALMOVE_INVALID_DONT_TRIANGULATE;
+		}
+	}*/
 
-	if ( iReturn == LOCALMOVE_VALID && 	!(pev->flags & (FL_FLY|FL_SWIM) ) && (!pTarget || (pTarget->pev->flags & FL_ONGROUND)) )
+	if ( iReturn == LOCALMOVE_VALID && 	!(pev->flags & FL_FLY) && (!pTarget || (pTarget->pev->flags & FL_ONGROUND)) )
 	{
 		// The monster can move to a spot UNDER the target, but not to it. Don't try to triangulate, go directly to the node graph.
 		// UNDONE: Magic # 64 -- this used to be pev->size.z but that won't work for small creatures like the headcrab
@@ -1840,7 +1849,7 @@ void CBaseMonster :: Move ( float flInterval )
 	// If this fails, it should be because of some dynamic entity blocking this guy.
 	// We've already checked this path, so we should wait and time out if the entity doesn't move
 	flDist = 0;
-	if ( CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID )
+	/*if ( CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID )
 	{
 		CBaseEntity *pBlocker;
 
@@ -1902,6 +1911,40 @@ void CBaseMonster :: Move ( float flInterval )
 				return;
 			}
 		}
+	}*/
+
+	if (CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID)
+	{
+		if
+		(
+			GetAbsVelocity().z == 0
+			//&& pBlocker
+			//&& fabs((GetAbsOrigin() + vecDir * flCheckDist).z - GetAbsOrigin().z) <= 256
+		)
+		{
+			Vector vecDir = gpGlobals->v_up * 320 + gpGlobals->v_forward * 150;
+			Vector vecVelocity = 200;
+
+			SetAbsVelocity( vecVelocity.Normalize() + vecDir );
+		}
+	}
+	else
+	{
+		CBaseEntity *pBlocker;
+		pBlocker = CBaseEntity::Instance( gpGlobals->trace_ent );
+		float dist = fabs((GetAbsOrigin() + vecDir * flCheckDist).z - GetAbsOrigin().z);
+		if
+		(
+			GetAbsVelocity().z == 0
+			&& pBlocker && !pBlocker->IsPlayer() && !pBlocker->IsMoving()
+			&& dist > 64 && dist <= 256
+		)
+		{
+			Vector vecDir = gpGlobals->v_up * 320 + gpGlobals->v_forward * 150;
+			Vector vecVelocity = 200;
+
+			SetAbsVelocity( vecVelocity.Normalize() + vecDir );
+		}
 	}
 
 	// close enough to the target, now advance to the next target. This is done before actually reaching
@@ -1921,7 +1964,7 @@ void CBaseMonster :: Move ( float flInterval )
 	// UNDONE: this is a hack to quit moving farther than it has looked ahead.
 	if (flCheckDist < m_flGroundSpeed * flInterval)
 	{
-		flInterval = flCheckDist / m_flGroundSpeed;
+		flInterval = flCheckDist / m_flGroundSpeed * 0.2;
 		// ALERT( at_console, "%.02f\n", flInterval );
 	}
 	MoveExecute( pTargetEnt, vecDir, flInterval );
