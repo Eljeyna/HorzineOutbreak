@@ -138,7 +138,19 @@ BOOL CChainsaw::Deploy( )
 		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
   if (noAmmo)
   {
-    m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = 0;
+		int chainsaw_ammo = m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()];
+		if (chainsaw_ammo > 0)
+		{
+			if (chainsaw_ammo < FUEL_MAX_CARRY)
+			{
+				m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = chainsaw_ammo - 1;
+			}
+			noAmmo = false;
+		}
+		else
+		{
+	    m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = 0;
+		}
   }
 	return DefaultDeploy( "models/v_chainsaw.mdl", "models/p_chainsaw.mdl", CHAINSAW_DRAW, "chainsaw", 0, 1 );
 }
