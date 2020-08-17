@@ -193,6 +193,10 @@ SOURCE=.\client.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\monsters\clot.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\combat.cpp
 # End Source File
 # Begin Source File

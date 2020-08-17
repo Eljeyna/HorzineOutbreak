@@ -198,6 +198,7 @@ void CHandGrenade::WeaponIdle( void )
 			// set attack times in the future, and weapon idle in the future so we can see the whole throw
 			// animation, weapon idle will automatically retire the weapon for us.
 			m_flTimeWeaponIdle = m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + 0.5;// ensure that the animation can finish playing
+			m_pPlayer->SelectLastItem();
 		}
 		return;
 	}

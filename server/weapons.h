@@ -116,7 +116,7 @@ public:
 #define	_9MM_MAX_CARRY			240
 #define _556_MAX_CARRY			400
 #define _357_MAX_CARRY			70
-#define BUCKSHOT_MAX_CARRY		49
+#define BUCKSHOT_MAX_CARRY		48
 #define BOLT_MAX_CARRY			40
 #define ROCKET_MAX_CARRY		10
 #define HANDGRENADE_MAX_CARRY	10

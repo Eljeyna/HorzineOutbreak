@@ -118,7 +118,10 @@ int CMP5::GetItemInfo(ItemInfo *p)
 	p->iMaxClip = MP5_MAX_CLIP;
 	p->iSlot = 2;
 	p->iPosition = 0;
-	p->iFlags = 0;
+	if (g_pGameRules->IsMultiplayer())
+		p->iFlags = ITEM_FLAG_SELECTONEMPTY;
+	else
+		p->iFlags = 0;
 	p->iId = m_iId = WEAPON_MP5;
 	p->iWeight = MP5_WEIGHT;
 
@@ -140,7 +143,7 @@ int CMP5::AddToPlayer( CBasePlayer *pPlayer )
 BOOL CMP5::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 135 );
 	return DefaultDeploy( "models/v_9mmAR.mdl", "models/p_9mmAR.mdl", MP5_DEPLOY, "mp5" );
 }
 

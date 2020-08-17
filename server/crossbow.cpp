@@ -395,7 +395,10 @@ int CCrossbow::GetItemInfo(ItemInfo *p)
 	p->iSlot = 2;
 	p->iPosition = 2;
 	p->iId = WEAPON_CROSSBOW;
-	p->iFlags = 0;
+	if (g_pGameRules->IsMultiplayer())
+		p->iFlags = ITEM_FLAG_SELECTONEMPTY;
+	else
+		p->iFlags = 0;
 	p->iWeight = CROSSBOW_WEIGHT;
 	return 1;
 }
@@ -403,7 +406,7 @@ int CCrossbow::GetItemInfo(ItemInfo *p)
 BOOL CCrossbow::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 135 );
 	if (m_iClip)
 	{
 		return DefaultDeploy( "models/v_crossbow.mdl", "models/p_crossbow.mdl", CROSSBOW_DRAW1, "bow" );

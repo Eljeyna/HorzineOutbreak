@@ -69,7 +69,7 @@ public:
 	TraceResult m_trHit;
 	float chainsaw_next_attack;
 	bool chainsaw_primary_attack;
-  bool noAmmo;
+  //bool noAmmo;
   bool chainReload;
 };
 
@@ -86,7 +86,7 @@ void CChainsaw::Spawn( void )
 	SET_MODEL(ENT(pev), "models/w_chainsaw.mdl");
   m_iDefaultAmmo = FUEL_DEFAULT_GIVE;
 	chainsaw_primary_attack = true;
-  noAmmo = false;
+  //noAmmo = false;
 
 	FallInit();// get ready to fall down.
 }
@@ -96,12 +96,9 @@ void CChainsaw::Precache( void )
 	PRECACHE_MODEL("models/v_chainsaw.mdl");
 	PRECACHE_MODEL("models/w_chainsaw.mdl");
 	PRECACHE_MODEL("models/p_chainsaw.mdl");
-	PRECACHE_SOUND("weapons/cbar_hit1.wav");
-	PRECACHE_SOUND("weapons/cbar_hit2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod1.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod3.wav");
-	PRECACHE_SOUND("weapons/cbar_miss1.wav");
+	PRECACHE_SOUND("weapons/SawIdle.wav");
+	PRECACHE_SOUND("weapons/SawFire.wav");
+	PRECACHE_SOUND("weapons/SawAttackLoop.wav");
 }
 
 int CChainsaw::GetItemInfo(ItemInfo *p)
@@ -116,6 +113,7 @@ int CChainsaw::GetItemInfo(ItemInfo *p)
 	p->iPosition = 2;
 	p->iId = WEAPON_CHAINSAW;
 	p->iWeight = CHAINSAW_WEIGHT;
+	p->iFlags = ITEM_FLAG_SELECTONEMPTY;
 	return 1;
 }
 
@@ -135,23 +133,7 @@ BOOL CChainsaw::DefaultDeploy( char *szViewModel, char *szWeaponModel, int iAnim
 BOOL CChainsaw::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
-  if (noAmmo)
-  {
-		int chainsaw_ammo = m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()];
-		if (chainsaw_ammo > 0)
-		{
-			if (chainsaw_ammo < FUEL_MAX_CARRY)
-			{
-				m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = chainsaw_ammo - 1;
-			}
-			noAmmo = false;
-		}
-		else
-		{
-	    m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = 0;
-		}
-  }
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 150 );
 	return DefaultDeploy( "models/v_chainsaw.mdl", "models/p_chainsaw.mdl", CHAINSAW_DRAW, "chainsaw", 0, 1 );
 }
 
@@ -159,15 +141,6 @@ void CChainsaw::Holster( void )
 {
   m_fInReload = FALSE;
 	chainReload = false;
-  if (m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] || m_iClip)
-	{
-    noAmmo = false;
-	}
-  else
-  {
-		m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] = 1;
-    noAmmo = true;
-  }
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 	chainsaw_next_attack = 0;
 	SendWeaponAnim( CHAINSAW_HOLSTER );
@@ -220,22 +193,9 @@ void CChainsaw::FindHullIntersection( const Vector &vecSrc, TraceResult &tr, flo
 
 void CChainsaw::PrimaryAttack( void )
 {
-  if (chainReload)
-  {
-    m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.6;
-    WeaponIdle();
-    return;
-  }
-
   if (m_pPlayer->pev->waterlevel == 3)
 	{
 		m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.1;
-		return;
-	}
-
-	if (chainsaw_next_attack > 0)
-	{
-		WeaponIdle();
 		return;
 	}
 
@@ -245,17 +205,26 @@ void CChainsaw::PrimaryAttack( void )
 		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
 		return;
 	}
+
+	if (chainsaw_next_attack > 0)
+	{
+		m_iClip--;
+		ChainsawAttack();
+		m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + CHAINSAW_PRI_DELAY;
+		return;
+	}
+
 	chainsaw_next_attack = CHAINSAW_PRI_DELAY;
 	chainsaw_primary_attack = true;
-	m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + CHAINSAW_PRI_DELAY;
-	SendWeaponAnim( CHAINSAW_ATTACK1 );
+	m_pPlayer->m_flNextAttack = gpGlobals->time + CHAINSAW_PRI_DELAY;
+	SendWeaponAnim( CHAINSAW_ATTACK2 );
 }
 
 void CChainsaw::SecondaryAttack( void )
 {
   if (chainReload)
   {
-    m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.6;
+    m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.1;
     WeaponIdle();
     return;
   }
@@ -312,7 +281,7 @@ void CChainsaw::ChainsawAttack( void )
 	{
 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + chainsaw_next_attack;
 		// play wiff or swish sound
-		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/SawAttackLoop.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
 		// player "shoot" animation
 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -350,16 +319,7 @@ void CChainsaw::ChainsawAttack( void )
 		{
 			if ( pEntity->Classify() != CLASS_NONE && pEntity->Classify() != CLASS_MACHINE )
 			{
-				// play thwack or smack sound
-				switch( RANDOM_LONG(0,2) )
-				{
-				case 0:
-					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod1.wav", 1, ATTN_NORM); break;
-				case 1:
-					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod2.wav", 1, ATTN_NORM); break;
-				case 2:
-					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod3.wav", 1, ATTN_NORM); break;
-				}
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/SawFire.wav", 1, ATTN_NORM);
 				m_pPlayer->m_iWeaponVolume = CHAINSAW_BODYHIT_VOLUME;
 				if ( !pEntity->IsAlive() )
 					  return;
@@ -385,16 +345,7 @@ void CChainsaw::ChainsawAttack( void )
 				fvolbar = 1;
 			}
 
-			// also play crowbar strike
-			switch( RANDOM_LONG(0,1) )
-			{
-			case 0:
-				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit1.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
-				break;
-			case 1:
-				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit2.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
-				break;
-			}
+			EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/SawAttackLoop.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
 		}
 
 		// delay the decal a bit
@@ -408,32 +359,37 @@ void CChainsaw::ChainsawAttack( void )
 
 void CChainsaw::Reload( void )
 {
-  if (!noAmmo)
-  {
-    m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.1;
-  	if (DefaultReload( FUEL_MAX_CLIP, CHAINSAW_HOLSTER, 1.4 ))
-    {
-      m_flTimeWeaponIdle = gpGlobals->time + 1.4;
-      chainReload = true;
-    }
-  }
+	if (DefaultReload( FUEL_MAX_CLIP, CHAINSAW_HOLSTER, 1.4 ))
+	{
+		chainsaw_next_attack = 0;
+		m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 2;
+		m_flTimeWeaponIdle = gpGlobals->time + 1.4;
+		chainReload = true;
+	}
 }
 
 void CChainsaw::WeaponIdle( void )
 {
 	ResetEmptySound( );
 
-  if (m_flTimeWeaponIdle > gpGlobals->time || !chainsaw_next_attack)
-  {
-    if (chainReload)
-    {
-			chainReload = false;
-      m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.6;
-      chainsaw_next_attack = 0;
-      SendWeaponAnim( CHAINSAW_DRAW );
-    }
+  if (m_flTimeWeaponIdle > gpGlobals->time)
 		return;
-  }
+
+	if (chainReload)
+	{
+		chainReload = false;
+		m_flTimeWeaponIdle = gpGlobals->time + 0.6;
+		chainsaw_next_attack = 0;
+		SendWeaponAnim( CHAINSAW_DRAW );
+		return;
+	}
+	else if (chainsaw_next_attack == 0)
+	{
+		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/SawIdle.wav", 1, ATTN_NORM);
+		SendWeaponAnim( CHAINSAW_IDLE );
+		m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
+		return;
+	}
 
   if (m_pPlayer->pev->waterlevel == 3)
   {
@@ -442,39 +398,10 @@ void CChainsaw::WeaponIdle( void )
     return;
   }
 
-  if (chainsaw_primary_attack)
-  {
-    if (m_iClip <= 0)
-    {
-      PlayEmptySound();
-  		m_flNextPrimaryAttack = gpGlobals->time + 0.1;
-  		return;
-    }
-    else
-    {
-      m_iClip--;
-    }
-  }
+  if (!chainsaw_primary_attack)
+		ChainsawAttack();
 
-  ChainsawAttack();
-  chainsaw_next_attack = 0;
-
-	/*int iAnim;
-	switch ( RANDOM_LONG( 0, 1 ) )
-	{
-	case 0:
-		iAnim = CHAINSAW_IDLE2;
-		break;
-
-	default:
-	case 1:
-		iAnim = CHAINSAW_IDLE3;
-		break;
-	}
-
-	SendWeaponAnim( iAnim );
-
-	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.*/
+	chainsaw_next_attack = 0;
 }
 
 class CFuelAmmo : public CBasePlayerAmmo

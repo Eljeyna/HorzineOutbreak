@@ -1849,7 +1849,7 @@ void CBaseMonster :: Move ( float flInterval )
 	// If this fails, it should be because of some dynamic entity blocking this guy.
 	// We've already checked this path, so we should wait and time out if the entity doesn't move
 	flDist = 0;
-	/*if ( CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID )
+	if ( CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID )
 	{
 		CBaseEntity *pBlocker;
 
@@ -1911,41 +1911,83 @@ void CBaseMonster :: Move ( float flInterval )
 				return;
 			}
 		}
-	}*/
-
-	if (CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID)
-	{
-		if
-		(
-			GetAbsVelocity().z == 0
-			//&& pBlocker
-			//&& fabs((GetAbsOrigin() + vecDir * flCheckDist).z - GetAbsOrigin().z) <= 256
-		)
-		{
-			Vector vecDir = gpGlobals->v_up * 320 + gpGlobals->v_forward * 150;
-			Vector vecVelocity = 200;
-
-			SetAbsVelocity( vecVelocity.Normalize() + vecDir );
-		}
 	}
-	else
+
+	/*if ( CheckLocalMove ( GetAbsOrigin(), GetAbsOrigin() + vecDir * flCheckDist, pTargetEnt, &flDist ) != LOCALMOVE_VALID )
 	{
 		CBaseEntity *pBlocker;
-		pBlocker = CBaseEntity::Instance( gpGlobals->trace_ent );
-		float dist = fabs((GetAbsOrigin() + vecDir * flCheckDist).z - GetAbsOrigin().z);
-		if
-		(
-			GetAbsVelocity().z == 0
-			&& pBlocker && !pBlocker->IsPlayer() && !pBlocker->IsMoving()
-			&& dist > 64 && dist <= 256
-		)
-		{
-			Vector vecDir = gpGlobals->v_up * 320 + gpGlobals->v_forward * 150;
-			Vector vecVelocity = 200;
 
-			SetAbsVelocity( vecVelocity.Normalize() + vecDir );
+		// Can't move, stop
+		Stop();
+		// Blocking entity is in global trace_ent
+		pBlocker = CBaseEntity::Instance( gpGlobals->trace_ent );
+		if (pBlocker)
+		{
+			DispatchBlocked( edict(), pBlocker->edict() );
 		}
-	}
+
+		if ( pBlocker && m_moveWaitTime > 0 && pBlocker->IsMoving() && !pBlocker->IsPlayer() && (gpGlobals->time-m_flMoveWaitFinished) > 3.0 )
+		{
+			// Can we still move toward our target?
+			if ( flDist < m_flGroundSpeed )
+			{
+				// No, Wait for a second
+				m_flMoveWaitFinished = gpGlobals->time + m_moveWaitTime;
+				return;
+			}
+			// Ok, still enough room to take a step
+		}
+		else
+		{
+			// try to triangulate around whatever is in the way.
+			if ( FTriangulate( GetAbsOrigin(), m_Route[ m_iRouteIndex ].vecLocation, flDist, pTargetEnt, &vecApex ) )
+			{
+				InsertWaypoint( vecApex, bits_MF_TO_DETOUR );
+				RouteSimplify( pTargetEnt );
+				//ALERT(at_console, "1\n");
+			}
+			else
+			{
+//				ALERT ( at_aiconsole, "Couldn't Triangulate\n" );
+				Stop();
+				// Only do this once until your route is cleared
+				if ( m_moveWaitTime > 0 && !(m_afMemory & bits_MEMORY_MOVE_FAILED) )
+				{
+					//ALERT(at_console, "2\n");
+					FRefreshRoute();
+					if ( FRouteClear() )
+					{
+						//ALERT(at_console, "3\n");
+						TaskFail();
+					}
+					else
+					{
+						//ALERT(at_console, "4\n");
+						// Don't get stuck
+						if ( (gpGlobals->time - m_flMoveWaitFinished) < 0.2 )
+							Remember( bits_MEMORY_MOVE_FAILED );
+
+						m_flMoveWaitFinished = gpGlobals->time + 0.1;
+					}
+				}
+				else
+				{
+					//ALERT(at_console, "5\n");
+					if (pBlocker && (!pBlocker->IsMoving()) && GetAbsVelocity().z == 0)
+					{
+						Vector vecDir = gpGlobals->v_up * 240 + gpGlobals->v_forward * 100;
+						Vector vecVelocity = 50;
+
+						SetAbsVelocity( vecVelocity.Normalize() + vecDir );
+					}
+					//TaskFail();
+					//ALERT( at_aiconsole, "%s Failed to move (%d)!\n", STRING(pev->classname), HasMemory( bits_MEMORY_MOVE_FAILED ) );
+					//ALERT( at_aiconsole, "%f, %f, %f\n", GetAbsOrigin().z, (GetAbsOrigin() + (vecDir * flCheckDist)).z, m_Route[m_iRouteIndex].vecLocation.z );
+				}
+				return;
+			}
+		}
+	}*/
 
 	// close enough to the target, now advance to the next target. This is done before actually reaching
 	// the target so that we get a nice natural turn while moving.

@@ -246,7 +246,8 @@ class CItemBattery : public CItem
 		if (pev->noise)
 			PRECACHE_SOUND( (char*)STRING(pev->noise) ); //LRC
 		else
-			PRECACHE_SOUND( "items/gunpickup2.wav" );
+			//PRECACHE_SOUND( "items/gunpickup2.wav" );
+			PRECACHE_SOUND( "items/VestPutOn.wav" );
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -264,7 +265,8 @@ class CItemBattery : public CItem
 			pPlayer->pev->armorvalue = Q_min(pPlayer->pev->armorvalue, MAX_NORMAL_BATTERY);
 
 			if (pev->noise) EMIT_SOUND( pPlayer->edict(), CHAN_ITEM, STRING(pev->noise), 1, ATTN_NORM ); //LRC
-			else EMIT_SOUND( pPlayer->edict(), CHAN_ITEM, "items/gunpickup2.wav", 1, ATTN_NORM );
+			//else EMIT_SOUND( pPlayer->edict(), CHAN_ITEM, "items/gunpickup2.wav", 1, ATTN_NORM );
+			else EMIT_SOUND( pPlayer->edict(), CHAN_ITEM, "items/VestPutOn.wav", 1, ATTN_NORM );
 
 			MESSAGE_BEGIN( MSG_ONE, gmsgItemPickup, NULL, pPlayer->pev );
 				WRITE_STRING( STRING(pev->classname) );

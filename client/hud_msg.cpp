@@ -66,7 +66,8 @@ int CHud :: InitHUDMessages( void )
 	HOOK_MESSAGE( SetupBones );
 
 	m_iFOV = 0;
-	m_iHUDColor = 0x00FFA000; // 255,160,0
+	//m_iHUDColor = 0x00FFA000; // 255,160,0
+	m_iHUDColor = RGB_YELLOWISH;
 
 	CVAR_REGISTER( "zoom_sensitivity_ratio", "1.2", 0 );
 	default_fov = CVAR_REGISTER( "default_fov", "90", 0 );

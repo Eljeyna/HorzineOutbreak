@@ -3865,6 +3865,10 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		UTIL_MakeVectors( Vector( 0, pev->v_angle.y, 0 ));
 		Create( "monster_zombie", GetAbsOrigin() + gpGlobals->v_forward * 128, GetAbsAngles( ));
 		break;
+	case 78:
+		UTIL_MakeVectors( Vector( 0, pev->v_angle.y, 0 ));
+		Create( "monster_clot", GetAbsOrigin() + gpGlobals->v_forward * 128, GetAbsAngles( ));
+		break;
 	case 101:
 		gEvilImpulse101 = TRUE;
 		GiveNamedItem( "item_suit" );
@@ -5163,6 +5167,9 @@ BOOL CBasePlayer :: SwitchWeapon( CBasePlayerItem *pWeapon )
 	{
 		m_pActiveItem->Holster( );
 	}
+
+	if (m_rgpPlayerItems[5] && (m_rgpPlayerItems[5] == pWeapon))
+		m_pLastItem = m_pActiveItem;
 
 	m_pActiveItem = pWeapon;
 	pWeapon->Deploy( );

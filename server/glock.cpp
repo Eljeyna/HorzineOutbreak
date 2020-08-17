@@ -20,6 +20,7 @@
 #include "weapons.h"
 #include "nodes.h"
 #include "player.h"
+#include "gamerules.h"
 
 enum glock_e
 {
@@ -96,7 +97,10 @@ int CGlock::GetItemInfo(ItemInfo *p)
 	p->iMaxClip = GLOCK_MAX_CLIP;
 	p->iSlot = 1;
 	p->iPosition = 0;
-	p->iFlags = 0;
+	if (g_pGameRules->IsMultiplayer())
+		p->iFlags = ITEM_FLAG_SELECTONEMPTY;
+	else
+		p->iFlags = 0;
 	p->iId = m_iId = WEAPON_GLOCK;
 	p->iWeight = GLOCK_WEIGHT;
 
@@ -107,7 +111,7 @@ BOOL CGlock::Deploy( )
 {
 	// pev->body = 1;
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 135 );
 	return DefaultDeploy( "models/v_9mmhandgun.mdl", "models/p_9mmhandgun.mdl", GLOCK_DRAW, "onehanded" );
 }
 

@@ -53,6 +53,7 @@ public:
 
 	BOOL m_fInZoom;// don't save this.
 	int m_iShell;
+	int damageFallPercent;
 };
 
 LINK_ENTITY_TO_CLASS( weapon_python, CPython );
@@ -66,7 +67,10 @@ int CPython::GetItemInfo(ItemInfo *p)
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
 	p->iMaxClip = PYTHON_MAX_CLIP;
-	p->iFlags = 0;
+	if (g_pGameRules->IsMultiplayer())
+		p->iFlags = ITEM_FLAG_SELECTONEMPTY;
+	else
+		p->iFlags = 0;
 	p->iSlot = 1;
 	p->iPosition = 1;
 	p->iId = m_iId = WEAPON_PYTHON;
@@ -95,6 +99,7 @@ void CPython::Spawn( void )
 	SET_MODEL(ENT(pev), "models/w_357.mdl");
 
 	m_iDefaultAmmo = PYTHON_DEFAULT_GIVE;
+	damageFallPercent = 0.25;
 
 	FallInit();// get ready to fall down.
 }
@@ -130,7 +135,7 @@ BOOL CPython::Deploy( )
 	}
 
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 135 );
 
 	return DefaultDeploy( "models/v_357.mdl", "models/p_357.mdl", PYTHON_DRAW, "python" );
 }

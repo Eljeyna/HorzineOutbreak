@@ -129,7 +129,10 @@ int CShotgun::GetItemInfo(ItemInfo *p)
 	p->iMaxClip = SHOTGUN_MAX_CLIP;
 	p->iSlot = 2;
 	p->iPosition = 1;
-	p->iFlags = 0;
+	if (g_pGameRules->IsMultiplayer())
+		p->iFlags = ITEM_FLAG_SELECTONEMPTY;
+	else
+		p->iFlags = 0;
 	p->iId = m_iId = WEAPON_SHOTGUN;
 	p->iWeight = SHOTGUN_WEIGHT;
 
@@ -139,7 +142,7 @@ int CShotgun::GetItemInfo(ItemInfo *p)
 BOOL CShotgun::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 135 );
 	return DefaultDeploy( "models/v_shotgun.mdl", "models/p_shotgun.mdl", SHOTGUN_DRAW, "shotgun" );
 }
 

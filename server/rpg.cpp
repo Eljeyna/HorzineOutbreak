@@ -357,7 +357,10 @@ int CRpg::GetItemInfo(ItemInfo *p)
 	p->iSlot = 3;
 	p->iPosition = 0;
 	p->iId = m_iId = WEAPON_RPG;
-	p->iFlags = 0;
+	if (g_pGameRules->IsMultiplayer())
+		p->iFlags = ITEM_FLAG_SELECTONEMPTY;
+	else
+		p->iFlags = 0;
 	p->iWeight = RPG_WEIGHT;
 
 	return 1;
@@ -378,7 +381,7 @@ int CRpg::AddToPlayer( CBasePlayer *pPlayer )
 BOOL CRpg::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 240 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 135 );
 	/*if ( m_iClip == 0 )
 	{
 		return DefaultDeploy( "models/v_rpg.mdl", "models/p_rpg.mdl", RPG_DRAW_UL, "rpg" );

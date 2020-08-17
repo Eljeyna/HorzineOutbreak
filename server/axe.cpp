@@ -29,8 +29,8 @@
 
 enum axe_e
 {
-	AXE_IDLE = 0,
-	AXE_DRAW,
+	AXE_DRAW = 0,
+	AXE_IDLE,
   AXE_ATTACK1HIT,
 	AXE_HOLSTER,
 	/*AXE_ATTACK1MISS,
@@ -89,12 +89,10 @@ void CAxe::Precache( void )
 	PRECACHE_MODEL("models/v_axe.mdl");
 	PRECACHE_MODEL("models/w_axe.mdl");
 	PRECACHE_MODEL("models/p_axe.mdl");
-	PRECACHE_SOUND("weapons/cbar_hit1.wav");
-	PRECACHE_SOUND("weapons/cbar_hit2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod1.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod3.wav");
-	PRECACHE_SOUND("weapons/cbar_miss1.wav");
+	PRECACHE_SOUND("weapons/MetalHitMelee1.wav");
+	PRECACHE_SOUND("weapons/axehitflesh.wav");
+	PRECACHE_SOUND("weapons/axe-swish.wav");
+	PRECACHE_SOUND("weapons/axedraw.wav");
 }
 
 int CAxe::GetItemInfo(ItemInfo *p)
@@ -115,7 +113,8 @@ int CAxe::GetItemInfo(ItemInfo *p)
 BOOL CAxe::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 280 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 150 );
+	EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/axedraw.wav", 1, ATTN_NORM);
 	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "axe" );
 }
 
@@ -232,7 +231,7 @@ void CAxe::AxeAttack( void )
 	{
 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + axe_next_attack;
 		// play wiff or swish sound
-		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/axe-swish.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
 		// player "shoot" animation
 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -271,15 +270,7 @@ void CAxe::AxeAttack( void )
 			if ( pEntity->Classify() != CLASS_NONE && pEntity->Classify() != CLASS_MACHINE )
 			{
 				// play thwack or smack sound
-				switch( RANDOM_LONG(0,2) )
-				{
-				case 0:
-					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod1.wav", 1, ATTN_NORM); break;
-				case 1:
-					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod2.wav", 1, ATTN_NORM); break;
-				case 2:
-					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod3.wav", 1, ATTN_NORM); break;
-				}
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/axehitflesh.wav", 1, ATTN_NORM);
 				m_pPlayer->m_iWeaponVolume = AXE_BODYHIT_VOLUME;
 				if ( !pEntity->IsAlive() )
 					  return;
@@ -306,15 +297,7 @@ void CAxe::AxeAttack( void )
 			}
 
 			// also play crowbar strike
-			switch( RANDOM_LONG(0,1) )
-			{
-			case 0:
-				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit1.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
-				break;
-			case 1:
-				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit2.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
-				break;
-			}
+			EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/MetalHitMelee1.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
 		}
 
 		// delay the decal a bit
@@ -328,28 +311,17 @@ void CAxe::AxeAttack( void )
 
 void CAxe::WeaponIdle( void )
 {
-	ResetEmptySound( );
-
-	if (m_flTimeWeaponIdle > gpGlobals->time || axe_next_attack == 0)
+	if (m_flTimeWeaponIdle > gpGlobals->time)
 		return;
+
+	if (axe_next_attack == 0)
+	{
+		SendWeaponAnim( AXE_IDLE );
+		m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 5, 10 );// how long till we do this again.
+		return;
+	}
 
 	AxeAttack();
   axe_next_attack = 0;
-
-	/*int iAnim;
-	switch ( RANDOM_LONG( 0, 1 ) )
-	{
-	case 0:
-		iAnim = AXE_IDLE2;
-		break;
-
-	default:
-	case 1:
-		iAnim = AXE_IDLE3;
-		break;
-	}
-
-	SendWeaponAnim( iAnim );
-
-	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.*/
+	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 3, 5 ) + axe_next_attack;
 }
