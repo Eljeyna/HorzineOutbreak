@@ -113,7 +113,7 @@ int CAxe::GetItemInfo(ItemInfo *p)
 BOOL CAxe::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 150 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/axedraw.wav", 1, ATTN_NORM);
 	return DefaultDeploy( "models/v_axe.mdl", "models/p_axe.mdl", AXE_DRAW, "axe" );
 }

@@ -117,7 +117,7 @@ int CCrowbar::GetItemInfo(ItemInfo *p)
 BOOL CCrowbar::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 150 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	return DefaultDeploy( "models/v_crowbar.mdl", "models/p_crowbar.mdl", CROWBAR_DRAW, "crowbar" );
 }
 

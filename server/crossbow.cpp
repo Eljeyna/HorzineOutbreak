@@ -20,10 +20,61 @@
 #include "weapons.h"
 #include "nodes.h"
 #include "player.h"
+#include "items.h"
 #include "gamerules.h"
 
 #define BOLT_AIR_VELOCITY	2000
 #define BOLT_WATER_VELOCITY	1000
+
+extern int gmsgItemPickup;
+
+class CCrossbowBoltPickup : public CItem
+{
+	DECLARE_CLASS( CCrossbowBoltPickup, CItem );
+public:
+	void Spawn( void );
+	void Precache( void );
+	BOOL MyTouch( CBasePlayer *pPlayer );
+};
+
+LINK_ENTITY_TO_CLASS( item_crossbowbolt_pickup, CCrossbowBoltPickup );
+
+void CCrossbowBoltPickup :: Spawn( void )
+{
+	Precache( );
+	SET_MODEL(ENT(pev), "models/crossbow_bolt.mdl");
+
+	CItem::Spawn();
+}
+
+void CCrossbowBoltPickup::Precache( void )
+{
+	PRECACHE_MODEL ("models/crossbow_bolt.mdl");
+	PRECACHE_SOUND("items/9mmclip1.wav");
+}
+
+BOOL CCrossbowBoltPickup::MyTouch( CBasePlayer *pPlayer )
+{
+	if ( pPlayer->pev->deadflag != DEAD_NO )
+	{
+		return FALSE;
+	}
+
+	if (pPlayer->GiveAmmo( 1, "bolts", BOLT_MAX_CARRY ) != -1)
+	{
+		MESSAGE_BEGIN( MSG_ONE, gmsgItemPickup, NULL, pPlayer->pev );
+			WRITE_STRING( STRING(pev->classname) );
+		MESSAGE_END();
+
+		EMIT_SOUND(ENT(pPlayer->pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+
+		UTIL_Remove(this);
+
+		return TRUE;
+	}
+
+	return FALSE;
+}
 
 class CCrossbowBolt : public CBaseEntity
 {
@@ -201,7 +252,13 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 	else
 	{
 		EMIT_SOUND_DYN(ENT(pev), CHAN_BODY, "weapons/xbow_hit1.wav", RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,7));
-		pev->nextthink = gpGlobals->time;// this will get changed below if the bolt is allowed to stick in what it hit.
+
+		CBaseEntity *boltPickup = CBaseEntity::Create("item_crossbowbolt_pickup", GetAbsOrigin(), GetAbsAngles());
+		boltPickup->SetLocalVelocity(g_vecZero);
+		boltPickup->SetLocalAvelocity(g_vecZero);
+		boltPickup->pev->movetype = MOVETYPE_NONE;
+
+		/*pev->nextthink = gpGlobals->time;// this will get changed below if the bolt is allowed to stick in what it hit.
 		SetThink( SUB_Remove );
 
 		if( UTIL_GetModelType( pOther->pev->modelindex ) == mod_brush || pOther->pev->solid == SOLID_CUSTOM )
@@ -220,12 +277,15 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 
 			// g-cont. Setup movewith feature
 			SetParent( pOther );
-		}
+		}*/
 
 		if( UTIL_PointContents( GetAbsOrigin() ) != CONTENTS_WATER )
 		{
 			UTIL_Sparks( GetAbsOrigin() );
 		}
+
+		SetLocalVelocity( g_vecZero );
+		Killed( pev, GIB_NEVER ); // kill crossbow bolt
 	}
 
 	/*if ( g_pGameRules->IsMultiplayer() )

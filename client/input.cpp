@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -215,11 +215,11 @@ Add a kbutton_t * to the list of pointers the engine can retrieve via KB_Find
 */
 void KB_Add( const char *name, kbutton_t *pkb )
 {
-	kblist_t *p;	
+	kblist_t *p;
 	kbutton_t *kb;
 
 	kb = (kbutton_t *)KB_Find( name );
-	
+
 	if( kb ) return;
 
 	p = ( kblist_t *)malloc( sizeof( kblist_t ));
@@ -288,7 +288,7 @@ void KeyDown( kbutton_t *b )
 
 	if( k == b->down[0] || k == b->down[1] )
 		return; // repeating key
-	
+
 	if( !b->down[0] )
 	{
 		b->down[0] = k;
@@ -302,7 +302,7 @@ void KeyDown( kbutton_t *b )
 		ALERT( at_aiconsole, "Three keys down for a button '%c' '%c' '%c'!\n", b->down[0], b->down[1], c );
 		return;
 	}
-	
+
 	if( b->state & BUTTON_DOWN ) return;	// still down
 	b->state |= (BUTTON_DOWN|IMPULSE_DOWN);	// down + impulse down
 }
@@ -315,7 +315,7 @@ KeyUp
 void KeyUp( kbutton_t *b )
 {
 	char	*c;
-	int	k;	
+	int	k;
 
 	c = CMD_ARGV( 1 );
 
@@ -433,11 +433,11 @@ float CL_KeyState( kbutton_t *key )
 {
 	float	val = 0.0f;
 	int	impulsedown, impulseup, down;
-	
+
 	impulsedown = key->state & IMPULSE_DOWN;
 	impulseup	= key->state & IMPULSE_UP;
 	down = key->state & BUTTON_DOWN;
-	
+
 	if( impulsedown && !impulseup )
 	{
 		// pressed and held this frame?
@@ -461,17 +461,17 @@ float CL_KeyState( kbutton_t *key )
 		if( down )
 		{
 			// released and re-pressed this frame
-			val = 0.75f;	
+			val = 0.75f;
 		}
 		else
 		{
 			// pressed and released this frame
-			val = 0.25f;	
+			val = 0.25f;
 		}
 	}
 
 	// clear impulses
-	key->state &= BUTTON_DOWN;		
+	key->state &= BUTTON_DOWN;
 
 	return val;
 }
@@ -487,7 +487,7 @@ void CL_AdjustAngles( float frametime, Vector &viewangles )
 {
 	float	speed;
 	float	up, down;
-	
+
 	if( in_speed.state & BUTTON_DOWN )
 	{
 		speed = frametime * cl_anglespeedkey->value;
@@ -510,10 +510,10 @@ void CL_AdjustAngles( float frametime, Vector &viewangles )
 		viewangles[PITCH] -= speed * cl_pitchspeed->value * CL_KeyState( &in_forward );
 		viewangles[PITCH] += speed * cl_pitchspeed->value * CL_KeyState( &in_back );
 	}
-	
+
 	up = CL_KeyState( &in_lookup );
 	down = CL_KeyState( &in_lookdown );
-	
+
 	viewangles[PITCH] -= speed * cl_pitchspeed->value * up;
 	viewangles[PITCH] += speed * cl_pitchspeed->value * down;
 
@@ -576,7 +576,7 @@ if active == 1 then we are 1) not playing back demos ( where our commands are ig
 ================
 */
 void CL_CreateMove( float frametime, usercmd_t *cmd, int active )
-{	
+{
 	float spd;
 	Vector viewangles, forward;
 	static Vector oldangles;
@@ -604,10 +604,10 @@ void CL_CreateMove( float frametime, usercmd_t *cmd, int active )
 		cmd->upmove -= cl_upspeed->value * CL_KeyState( &in_down );
 
 		if(!( in_klook.state & BUTTON_DOWN ))
-		{	
+		{
 			cmd->forwardmove += cl_forwardspeed->value * CL_KeyState( &in_forward );
 			cmd->forwardmove -= cl_backspeed->value * CL_KeyState( &in_back );
-		}	
+		}
 
 		// adjust for speed key
 		if( in_speed.state & BUTTON_DOWN )
@@ -682,12 +682,12 @@ int CL_ButtonBits( int bResetState )
 	{
 		bits |= IN_ATTACK;
 	}
-	
+
 	if( in_duck.state & (BUTTON_DOWN|IMPULSE_DOWN))
 	{
 		bits |= IN_DUCK;
 	}
- 
+
 	if( in_jump.state & (BUTTON_DOWN|IMPULSE_DOWN))
 	{
 		bits |= IN_JUMP;
@@ -697,7 +697,7 @@ int CL_ButtonBits( int bResetState )
 	{
 		bits |= IN_FORWARD;
 	}
-	
+
 	if( in_back.state & (BUTTON_DOWN|IMPULSE_DOWN))
 	{
 		bits |= IN_BACK;
@@ -717,17 +717,17 @@ int CL_ButtonBits( int bResetState )
 	{
 		bits |= IN_LEFT;
 	}
-	
+
 	if( in_right.state & (BUTTON_DOWN|IMPULSE_DOWN))
 	{
 		bits |= IN_RIGHT;
 	}
-	
+
 	if( in_moveleft.state & (BUTTON_DOWN|IMPULSE_DOWN))
 	{
 		bits |= IN_MOVELEFT;
 	}
-	
+
 	if( in_moveright.state & (BUTTON_DOWN|IMPULSE_DOWN))
 	{
 		bits |= IN_MOVERIGHT;
@@ -871,9 +871,12 @@ void InitInput( void )
 	cl_yawspeed	= CVAR_REGISTER ( "cl_yawspeed", "210", 0 );
 	cl_pitchspeed	= CVAR_REGISTER ( "cl_pitchspeed", "225", 0 );
 	cl_upspeed	= CVAR_REGISTER ( "cl_upspeed", "320", 0 );
-	cl_forwardspeed	= CVAR_REGISTER ( "cl_forwardspeed", "400", FCVAR_ARCHIVE );
+	/*cl_forwardspeed	= CVAR_REGISTER ( "cl_forwardspeed", "400", FCVAR_ARCHIVE );
 	cl_backspeed	= CVAR_REGISTER ( "cl_backspeed", "400", FCVAR_ARCHIVE );
-	cl_sidespeed	= CVAR_REGISTER ( "cl_sidespeed", "400", 0 );
+	cl_sidespeed	= CVAR_REGISTER ( "cl_sidespeed", "400", 0 );*/
+	cl_forwardspeed	= CVAR_REGISTER ( "cl_forwardspeed", "150", 0 );
+	cl_backspeed	= CVAR_REGISTER ( "cl_backspeed", "150", 0 );
+	cl_sidespeed	= CVAR_REGISTER ( "cl_sidespeed", "150", 0 );
 	cl_movespeedkey	= CVAR_REGISTER ( "cl_movespeedkey", "0.3", 0 );
 	cl_pitchup	= CVAR_REGISTER ( "cl_pitchup", "89", 0 );
 	cl_pitchdown	= CVAR_REGISTER ( "cl_pitchdown", "89", 0 );

@@ -591,14 +591,21 @@ void PM_UpdateStepSound( void )
 	// UNDONE: need defined numbers for run, walk, crouch, crouch run velocities!!!!
 	if ( ( pmove->flags & FL_DUCKING) || fLadder )
 	{
-		velwalk = 60;		// These constants should be based on cl_movespeedkey * cl_forwardspeed somehow
+		/*velwalk = 60;		// These constants should be based on cl_movespeedkey * cl_forwardspeed somehow
 		velrun = 80;		// UNDONE: Move walking to server
-		flduck = 100;
+		flduck = 100;*/
+
+		velwalk = 45;
+		velrun = 60;
+		flduck = 40;
 	}
 	else
 	{
-		velwalk = 120;
+		/*velwalk = 45;
 		velrun = 210;
+		flduck = 0;*/
+		velwalk = 30;
+		velrun = 120;
 		flduck = 0;
 	}
 

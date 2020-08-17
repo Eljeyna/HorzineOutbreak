@@ -133,7 +133,7 @@ BOOL CChainsaw::DefaultDeploy( char *szViewModel, char *szWeaponModel, int iAnim
 BOOL CChainsaw::Deploy( )
 {
 	if (m_pPlayer->pev->maxspeed > 0)
-		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 150 );
+		g_engfuncs.pfnSetClientMaxspeed(m_pPlayer->edict(), 0 );
 	return DefaultDeploy( "models/v_chainsaw.mdl", "models/p_chainsaw.mdl", CHAINSAW_DRAW, "chainsaw", 0, 1 );
 }
 
