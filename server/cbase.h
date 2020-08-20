@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -145,7 +145,7 @@ class CStudioBoneSetup;
 //
 // Base Entity.  All entity types derive from this
 //
-class CBaseEntity 
+class CBaseEntity
 {
 	DECLARE_CLASS_NOBASE( CBaseEntity );
 public:
@@ -159,7 +159,7 @@ public:
 
 	// path corners
 	CBaseEntity	*m_pGoalEnt;	// path corner we are heading towards
-	CBaseEntity	*m_pLink;		// used for temporary link-list operations. 
+	CBaseEntity	*m_pLink;		// used for temporary link-list operations.
 
 	int		m_iOldSolid;	// for temporare change solidity
 	int		m_iOldMoveType;	// for temporare change physics
@@ -294,7 +294,7 @@ public:
 		if( this == NULL || pev == NULL )
 			return "null";
 
-		if( pev->targetname != NULL_STRING ) 
+		if( pev->targetname != NULL_STRING )
 			return GetTargetname();
 		return GetClassname();
 	}
@@ -305,11 +305,11 @@ public:
 	void		IncrementLocalTime( float flTimeDelta );
 	float		GetMoveDoneTime( ) const;
 	void		SetMoveDoneTime( float flTime );
-		
+
 	void		SetParent( string_t newParent, CBaseEntity *pActivator );
-	
+
 	// Set the movement parent. Your local origin and angles will become relative to this parent.
-	// If iAttachment is a valid attachment on the parent, then your local origin and angles 
+	// If iAttachment is a valid attachment on the parent, then your local origin and angles
 	// are relative to the attachment on this entity.
 	void		SetParent( const CBaseEntity* pNewParent, int iAttachment = 0 );
 	void		SetParent ( int m_iNewParent, int m_iAttachment = 0 );
@@ -377,14 +377,14 @@ public:
 	void		EntityAABBToWorldAABB( const Vector &entityMins, const Vector &entityMaxs, Vector &pWorldMins, Vector &pWorldMaxs ) const;
 	void		WorldSpaceAABB( Vector &pWorldMins, Vector &pWorldMaxs ) const;
 	void		CalcNearestPoint( const Vector &vecWorldPt, Vector *pVecNearestWorldPt ) const;
-	const Vector	&CollisionToWorldSpace( const Vector &in, Vector *pResult ) const; 
+	const Vector	&CollisionToWorldSpace( const Vector &in, Vector *pResult ) const;
 	const Vector	&WorldToCollisionSpace( const Vector &in, Vector *pResult ) const;
 
 	// Classify - returns the type of group (i.e, "houndeye", or "human military" so that monsters with different classnames
 	// still realize that they are teammates. (overridden for monsters that form groups)
 	virtual int Classify ( void ) { return CLASS_NONE; };
 	virtual void DeathNotice ( entvars_t *pevChild ) { } // monster maker children use this to tell the monster maker that they have died.
-	virtual BOOL IsRigidBody( void ) { return (m_iActorType == ACTOR_DYNAMIC); } 
+	virtual BOOL IsRigidBody( void ) { return (m_iActorType == ACTOR_DYNAMIC); }
 
 	void SetMoveDir( const Vector& v ) { pev->movedir = v; }
 	void SetBaseVelocity( const Vector& v ) { pev->basevelocity = v; }
@@ -447,7 +447,7 @@ public:
 	virtual const char	*TeamID( void ) { return ""; }
 
 	virtual CBaseEntity *GetNextTarget( void );
-	
+
 	// fundamental callbacks
 	void (CBaseEntity ::*m_pfnThink)(void);
 	void (CBaseEntity ::*m_pfnTouch)( CBaseEntity *pOther );
@@ -523,25 +523,25 @@ public:
 	BOOL	IsLockedByMaster( void ) { return FALSE; }
 
 	static CBaseEntity *Instance( edict_t *pent )
-	{ 
+	{
 		if ( !pent )
 			pent = ENT(0);
-		CBaseEntity *pEnt = (CBaseEntity *)GET_PRIVATE(pent); 
-		return pEnt; 
+		CBaseEntity *pEnt = (CBaseEntity *)GET_PRIVATE(pent);
+		return pEnt;
 	}
 
 	static CBaseEntity *Instance( entvars_t *pev ) { return Instance( ENT( pev ) ); }
 	static CBaseEntity *Instance( int eoffset) { return Instance( ENT( eoffset) ); }
 
-	static CBaseMonster *GetMonsterPointer( entvars_t *pevMonster ) 
-	{ 
+	static CBaseMonster *GetMonsterPointer( entvars_t *pevMonster )
+	{
 		CBaseEntity *pEntity = Instance( pevMonster );
 		if ( pEntity )
 			return pEntity->MyMonsterPointer();
 		return NULL;
 	}
-	static CBaseMonster *GetMonsterPointer( edict_t *pentMonster ) 
-	{ 
+	static CBaseMonster *GetMonsterPointer( edict_t *pentMonster )
+	{
 		CBaseEntity *pEntity = Instance( pentMonster );
 		if ( pEntity )
 			return pEntity->MyMonsterPointer();
@@ -550,37 +550,37 @@ public:
 
 	// Ugly code to lookup all functions to make sure they are exported when set.
 #ifdef _DEBUG
-	void FunctionCheck( void *pFunction, char *name ) 
-	{ 
+	void FunctionCheck( void *pFunction, char *name )
+	{
 		if (pFunction && !UTIL_FunctionToName( GetDataDescMap(), pFunction ) )
 			ALERT( at_warning, "FUNCTION NOT IN TABLE!: %s:%s (%08lx)\n", GetClassname(), name, (unsigned long)pFunction );
 	}
 
-	BASEPTR ThinkSet( BASEPTR func, char *name ) 
-	{ 
-		m_pfnThink = func; 
-		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnThink)), name ); 
+	BASEPTR ThinkSet( BASEPTR func, char *name )
+	{
+		m_pfnThink = func;
+		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnThink)), name );
 		return func;
 	}
 
-	ENTITYFUNCPTR TouchSet( ENTITYFUNCPTR func, char *name ) 
-	{ 
-		m_pfnTouch = func; 
-		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnTouch)), name ); 
+	ENTITYFUNCPTR TouchSet( ENTITYFUNCPTR func, char *name )
+	{
+		m_pfnTouch = func;
+		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnTouch)), name );
 		return func;
 	}
 
-	USEPTR UseSet( USEPTR func, char *name ) 
-	{ 
-		m_pfnUse = func; 
-		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnUse)), name ); 
+	USEPTR UseSet( USEPTR func, char *name )
+	{
+		m_pfnUse = func;
+		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnUse)), name );
 		return func;
 	}
 
-	ENTITYFUNCPTR BlockedSet( ENTITYFUNCPTR func, char *name ) 
-	{ 
-		m_pfnBlocked = func; 
-		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnBlocked)), name ); 
+	ENTITYFUNCPTR BlockedSet( ENTITYFUNCPTR func, char *name )
+	{
+		m_pfnBlocked = func;
+		FunctionCheck( *(reinterpret_cast<void **>(&m_pfnBlocked)), name );
 		return func;
 	}
 
@@ -700,7 +700,7 @@ public:
 	}
 
 	// virtual functions used by a few classes
-	
+
 	// used by monsters that are created by the MonsterMaker
 	virtual	void UpdateOwner( void ) { return; };
 
@@ -728,8 +728,8 @@ public:
 //-----------------------------------------------------------------------------
 // Returns the entity-to-world transform
 //-----------------------------------------------------------------------------
-inline matrix4x4 &CBaseEntity::EntityToWorldTransform( void ) 
-{ 
+inline matrix4x4 &CBaseEntity::EntityToWorldTransform( void )
+{
 	if( IsPlayer( ))
 	{
 		m_local = matrix4x4( pev->origin, Vector( 0.0f, pev->angles.y, 0.0f ));
@@ -738,11 +738,11 @@ inline matrix4x4 &CBaseEntity::EntityToWorldTransform( void )
 	{
 		CalcAbsolutePosition();
 	}
-	return m_local; 
+	return m_local;
 }
 
 inline const matrix4x4 &CBaseEntity :: EntityToWorldTransform( void ) const
-{ 
+{
 	if( const_cast<CBaseEntity*>(this)->IsPlayer( ))
 	{
 		const_cast<CBaseEntity*>(this)->m_local = matrix4x4( pev->origin, Vector( 0.0f, pev->angles.y, 0.0f ));
@@ -751,10 +751,10 @@ inline const matrix4x4 &CBaseEntity :: EntityToWorldTransform( void ) const
 	{
 		const_cast<CBaseEntity*>(this)->CalcAbsolutePosition();
 	}
-	return m_local; 
+	return m_local;
 }
 
-inline const Vector &CBaseEntity :: CollisionToWorldSpace( const Vector &in, Vector *pResult ) const 
+inline const Vector &CBaseEntity :: CollisionToWorldSpace( const Vector &in, Vector *pResult ) const
 {
 	// Makes sure we don't re-use the same temp twice
 	if( UTIL_GetModelType( pev->modelindex ) != mod_brush )
@@ -785,13 +785,13 @@ inline const Vector &CBaseEntity :: WorldToCollisionSpace( const Vector &in, Vec
 }
 
 inline float CBaseEntity::GetLocalTime( void ) const
-{ 
-	return pev->ltime; 
+{
+	return pev->ltime;
 }
 
 inline void CBaseEntity::IncrementLocalTime( float flTimeDelta )
-{ 
-	pev->ltime += flTimeDelta; 
+{
+	pev->ltime += flTimeDelta;
 }
 
 inline void CBaseEntity::SetMoveDoneTime( float flDelay )
@@ -807,7 +807,7 @@ inline float CBaseEntity::GetMoveDoneTime( void ) const
 }
 
 // Ugly technique to override base member functions
-// Normally it's illegal to cast a pointer to a member function of a derived class to a pointer to a 
+// Normally it's illegal to cast a pointer to a member function of a derived class to a pointer to a
 // member function of a base class.  static_cast is a sleezy way around that problem.
 
 #ifdef _DEBUG
@@ -939,7 +939,7 @@ public:
 //
 // generic Toggle entity.
 //
-#define	SF_ITEM_USE_ONLY	256 //  ITEM_USE_ONLY = BUTTON_USE_ONLY = DOOR_USE_ONLY!!! 
+#define	SF_ITEM_USE_ONLY	256 //  ITEM_USE_ONLY = BUTTON_USE_ONLY = DOOR_USE_ONLY!!!
 
 class CBaseToggle : public CBaseAnimating
 {
@@ -1043,7 +1043,7 @@ public:
 #define SLOWFREEZE_DURATION		2
 #define SLOWFREEZE_DAMAGE		1.0
 
-#define itbd_Paralyze		0		
+#define itbd_Paralyze		0
 #define itbd_NerveGas		1
 #define itbd_Poison			2
 #define itbd_Radiation		3
@@ -1053,7 +1053,7 @@ public:
 #define itbd_SlowFreeze		7
 #define CDMG_TIMEBASED		8
 
-// when calling KILLED(), a value that governs gib behavior is expected to be 
+// when calling KILLED(), a value that governs gib behavior is expected to be
 // one of these three values
 #define GIB_NORMAL			0 // gib if entity was overkilled
 #define GIB_NEVER			1 // never gib, no matter how much death damage is done ( freezing, etc )
@@ -1080,9 +1080,9 @@ template <class T> T * GetClassPtr( T *a )
 	// get the private data
 	a = (T *)GET_PRIVATE(ENT(pev));
 
-	if (a == NULL) 
+	if (a == NULL)
 	{
-		// allocate private data 
+		// allocate private data
 		a = new(pev) T;
 		a->pev = pev;
 	}
@@ -1100,9 +1100,9 @@ template <class T> T * GetClassPtr( T *newEnt, const char *className )
 	// get the private data
 	newEnt = (T *)GET_PRIVATE(ENT(pev));
 
-	if (newEnt == NULL) 
+	if (newEnt == NULL)
 	{
-		// allocate private data 
+		// allocate private data
 		newEnt = new(pev) T;
 		newEnt->pev = pev;
 	}

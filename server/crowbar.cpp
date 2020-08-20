@@ -322,11 +322,11 @@ void CCrowbar::Swing( void )
 		}*/
 		if (crowbar_stab_attack)
 		{
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbarStab, gpGlobals->v_forward, &tr, DMG_CLUB );
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbarStab, gpGlobals->v_forward, &tr, DMG_CLUB);
 		}
 		else
 		{
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB );
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB);
 		}
 
 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );

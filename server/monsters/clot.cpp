@@ -160,6 +160,13 @@ void CClot::Killed(entvars_t *pevAttacker, int iGib)
 
 	EMIT_SOUND(ENT(pev), CHAN_WEAPON, "common/null.wav", 1, ATTN_NORM);
 	SetConditions( bits_COND_LIGHT_DAMAGE );
+
+	CBaseEntity *pOwner = CBaseEntity::Instance(pev->owner);
+	if ( pOwner )
+	{
+		pOwner->DeathNotice( pev );
+	}
+
 	if (pev->health < 0)
 	{
 		pev->health = 0;

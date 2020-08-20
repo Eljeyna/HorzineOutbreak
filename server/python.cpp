@@ -21,6 +21,9 @@
 #include "player.h"
 #include "gamerules.h"
 
+#define DAMAGE_FADE_PYTHON_PERCENT 1-0.4
+#define DAMAGE_FADE_PYTHON_MAX_TARGETS 4
+
 enum python_e
 {
 	PYTHON_IDLE1 = 0,
@@ -53,7 +56,6 @@ public:
 
 	BOOL m_fInZoom;// don't save this.
 	int m_iShell;
-	int damageFallPercent;
 };
 
 LINK_ENTITY_TO_CLASS( weapon_python, CPython );
@@ -99,7 +101,6 @@ void CPython::Spawn( void )
 	SET_MODEL(ENT(pev), "models/w_357.mdl");
 
 	m_iDefaultAmmo = PYTHON_DEFAULT_GIVE;
-	damageFallPercent = 0.25;
 
 	FallInit();// get ready to fall down.
 }
@@ -238,8 +239,33 @@ void CPython::PythonFire( float flSpread , float flCycleTime )
 
 	Vector vecSrc = m_pPlayer->GetGunPosition( );
 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
+	Vector vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
+
+	TraceResult tr;
+	UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, m_pPlayer->edict(), &tr);
+	CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);
+
 	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_1DEGREES, 8192, BULLET_PLAYER_357, 0 );
-	m_pPlayer->FireBullets( 1, vecSrc, vecAiming, Vector( flSpread, flSpread, flSpread ), 8192, BULLET_PLAYER_9MM, 0 );
+	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, Vector( flSpread, flSpread, flSpread ), 8192, BULLET_PLAYER_357, 0 );
+
+	if (pEntity)
+	{
+		pEntity->TakeDamage(pev, pev, 100, DMG_CLUB);
+		for (int i = 0; i < DAMAGE_FADE_PYTHON_MAX_TARGETS - 1; i++)
+		{
+			vecSrc += pEntity->GetAbsOrigin();
+			vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
+
+			TraceResult tr;
+			UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, NULL, &tr);
+			pEntity = CBaseEntity::Instance(tr.pHit);
+
+			if (!pEntity)
+				break;
+
+			pEntity->TakeDamage(pev, pev, 100, DMG_CLUB);
+		}
+	}
 
 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
 		// HEV suit - indicate out of ammo condition
@@ -274,7 +300,8 @@ void CPython::WeaponIdle( void )
 {
 	ResetEmptySound( );
 
-	m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
+	//m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
+	m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
 	// ALERT( at_console, "%.2f\n", gpGlobals->time - m_flSoundDelay );
 	/*if (m_flSoundDelay != 0 && m_flSoundDelay <= gpGlobals->time)

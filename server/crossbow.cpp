@@ -26,6 +26,8 @@
 #define BOLT_AIR_VELOCITY	2000
 #define BOLT_WATER_VELOCITY	1000
 
+#define DAMAGE_CROSSBOW_MAX_TARGETS 5
+
 extern int gmsgItemPickup;
 
 class CCrossbowBoltPickup : public CItem
@@ -84,6 +86,7 @@ class CCrossbowBolt : public CBaseEntity
 	void Precache( void );
 	int Classify ( void );
 	void BubbleThink( void );
+	void BoltContinue( void );
 	void BoltTouch( CBaseEntity *pOther );
 	//void ExplodeThink( void );
 	virtual BOOL IsProjectile( void ) { return TRUE; }
@@ -92,14 +95,22 @@ class CCrossbowBolt : public CBaseEntity
 	void OnTeleport( void );
 	int m_iTrail;
 
+	int currentMaxTargets;
+
 	DECLARE_DATADESC();
 public:
 	static CCrossbowBolt *BoltCreate( void );
+	CBaseEntity *damaged[DAMAGE_CROSSBOW_MAX_TARGETS];
+	Vector angle;
+	Vector vectorSrc;
+	Vector boltVelocity;
+	float boltSpeed;
 };
 
 LINK_ENTITY_TO_CLASS( crossbow_bolt, CCrossbowBolt );
 
 BEGIN_DATADESC( CCrossbowBolt )
+	DEFINE_FUNCTION( BoltContinue ),
 	DEFINE_FUNCTION( BubbleThink ),
 	//DEFINE_FUNCTION( ExplodeThink ),
 	DEFINE_FUNCTION( BoltTouch ),
@@ -110,6 +121,7 @@ CCrossbowBolt *CCrossbowBolt::BoltCreate( void )
 	// Create a new entity with CCrossbowBolt private data
 	CCrossbowBolt *pBolt = GetClassPtr( (CCrossbowBolt *)NULL );
 	pBolt->pev->classname = MAKE_STRING( "crossbow_bolt" );
+	pBolt->currentMaxTargets = 0;
 	pBolt->Spawn();
 
 	return pBolt;
@@ -187,10 +199,57 @@ void CCrossbowBolt :: TransferReset( void )
 	}
 }
 
+//костыль для пробивающей способности арбалета
+//оно работает, я не знаю как
+//ломаем физику, аееее
+void CCrossbowBolt::BoltContinue(void)
+{
+	pev->solid = SOLID_BBOX;
+	pev->movetype = MOVETYPE_FLY;
+	SetLocalVelocity(boltVelocity);
+	pev->speed = boltSpeed;
+}
+
 void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 {
-	SetTouch( NULL );
-	SetThink( NULL );
+	if (currentMaxTargets == DAMAGE_CROSSBOW_MAX_TARGETS)
+	{
+		SetTouch( NULL );
+		SetThink( NULL );
+	}
+	else
+	{
+		if (pev->solid != SOLID_NOT)
+		{
+			pev->solid = SOLID_NOT;
+			pev->movetype = MOVETYPE_NONE;
+			SetLocalVelocity( g_vecZero );
+			SetLocalAvelocity( g_vecZero );
+			SetThink( BoltContinue );
+			SetNextThink( 0.01 );
+		}
+
+		BOOL inArray;
+		for (int i = 0; i < DAMAGE_CROSSBOW_MAX_TARGETS-1; i++)
+		{
+			if (pOther == damaged[i])
+			{
+				inArray = TRUE;
+				break;
+			}
+			inArray = FALSE;
+		}
+
+		if (inArray)
+		{
+			return;
+		}
+		else
+		{
+			damaged[currentMaxTargets] = pOther;
+			currentMaxTargets++;
+		}
+	}
 
 	if (pOther->pev->takedamage)
 	{
@@ -226,7 +285,18 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 		{
 			if( pOther->IsRigidBody( ))
 			{
-				Vector vecDir = GetAbsVelocity().Normalize( );
+				CBaseEntity *boltPickup = CBaseEntity::Create("item_crossbowbolt_pickup", GetAbsOrigin(), GetAbsAngles());
+				boltPickup->SetLocalVelocity(g_vecZero);
+				boltPickup->SetLocalAvelocity(g_vecZero);
+				boltPickup->pev->movetype = MOVETYPE_NONE;
+				boltPickup->SetParent( pOther );
+				boltPickup->SetThink( SUB_Remove );
+				boltPickup->SetNextThink( 20 );
+
+				SetLocalVelocity( g_vecZero );
+				Killed( pev, GIB_NEVER ); //kill crossbow bolt :Eljeyna
+
+				/*Vector vecDir = GetAbsVelocity().Normalize( );
 				UTIL_SetOrigin( this, GetAbsOrigin() - vecDir * 12 );
 				SetLocalAngles( UTIL_VecToAngles( vecDir ));
 				pev->solid = SOLID_NOT;
@@ -240,12 +310,15 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 				SetNextThink( 240.0 );
 
 				// g-cont. Setup movewith feature
-				SetParent( pOther );
+				SetParent( pOther );*/
 			}
 			else
 			{
-				SetLocalVelocity( g_vecZero );
-				Killed( pev, GIB_NEVER );
+				if (currentMaxTargets == DAMAGE_CROSSBOW_MAX_TARGETS)
+				{
+					SetLocalVelocity( g_vecZero );
+					Killed( pev, GIB_NEVER );
+				}
 			}
 		}
 	}
@@ -257,6 +330,9 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 		boltPickup->SetLocalVelocity(g_vecZero);
 		boltPickup->SetLocalAvelocity(g_vecZero);
 		boltPickup->pev->movetype = MOVETYPE_NONE;
+		boltPickup->SetParent( pOther );
+		boltPickup->SetThink( SUB_Remove );
+		boltPickup->SetNextThink( 20 );
 
 		/*pev->nextthink = gpGlobals->time;// this will get changed below if the bolt is allowed to stick in what it hit.
 		SetThink( SUB_Remove );
@@ -285,7 +361,7 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 		}
 
 		SetLocalVelocity( g_vecZero );
-		Killed( pev, GIB_NEVER ); // kill crossbow bolt
+		Killed( pev, GIB_NEVER ); //kill crossbow bolt :Eljeyna
 	}
 
 	/*if ( g_pGameRules->IsMultiplayer() )
@@ -630,6 +706,8 @@ void CCrossbow::FireBolt( void )
 	CCrossbowBolt *pBolt = CCrossbowBolt::BoltCreate();
 	pBolt->SetAbsOrigin( vecSrc );
 	pBolt->SetAbsAngles( anglesAim );
+	pBolt->vectorSrc = vecSrc;
+	pBolt->angle = anglesAim;
 	pBolt->pev->owner = m_pPlayer->edict();
 
 	Vector vecGround;
@@ -655,6 +733,9 @@ void CCrossbow::FireBolt( void )
 	Vector avelocity( 0, 0, 10 );
 
 	pBolt->SetLocalAvelocity( avelocity );
+
+	pBolt->boltSpeed = pBolt->pev->speed;
+	pBolt->boltVelocity = pBolt->GetLocalVelocity();
 
 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
 		// HEV suit - indicate out of ammo condition

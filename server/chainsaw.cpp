@@ -58,7 +58,7 @@ public:
 
   void FindHullIntersection( const Vector &vecSrc, TraceResult &tr, float *mins, float *maxs, edict_t *pEntity );
   void PrimaryAttack( void );
-	void SecondaryAttack( void );
+	//void SecondaryAttack( void );
 	void WeaponIdle( void );
 	void ChainsawAttack( void );
   BOOL DefaultDeploy( char *szViewModel, char *szWeaponModel, int iAnim, char *szAnimExt, int skiplocal /* = 0 */, int body );
@@ -69,7 +69,6 @@ public:
 	TraceResult m_trHit;
 	float chainsaw_next_attack;
 	bool chainsaw_primary_attack;
-  //bool noAmmo;
   bool chainReload;
 };
 
@@ -99,6 +98,8 @@ void CChainsaw::Precache( void )
 	PRECACHE_SOUND("weapons/SawIdle.wav");
 	PRECACHE_SOUND("weapons/SawFire.wav");
 	PRECACHE_SOUND("weapons/SawAttackLoop.wav");
+	PRECACHE_SOUND("weapons/cbar_hit1.wav");
+	PRECACHE_SOUND("weapons/cbar_hit2.wav");
 }
 
 int CChainsaw::GetItemInfo(ItemInfo *p)
@@ -220,7 +221,7 @@ void CChainsaw::PrimaryAttack( void )
 	SendWeaponAnim( CHAINSAW_ATTACK2 );
 }
 
-void CChainsaw::SecondaryAttack( void )
+/*void CChainsaw::SecondaryAttack( void )
 {
   if (chainReload)
   {
@@ -244,7 +245,7 @@ void CChainsaw::SecondaryAttack( void )
 	chainsaw_primary_attack = false;
 	m_pPlayer->m_flNextAttack = m_flTimeWeaponIdle = gpGlobals->time + CHAINSAW_SEC_DELAY;
 	SendWeaponAnim( CHAINSAW_ATTACK2 );
-}
+}*/
 
 void CChainsaw::Smack( void )
 {
@@ -319,7 +320,7 @@ void CChainsaw::ChainsawAttack( void )
 		{
 			if ( pEntity->Classify() != CLASS_NONE && pEntity->Classify() != CLASS_MACHINE )
 			{
-				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/SawFire.wav", 1, ATTN_NORM);
+				//EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/SawFire.wav", 1, ATTN_NORM);
 				m_pPlayer->m_iWeaponVolume = CHAINSAW_BODYHIT_VOLUME;
 				if ( !pEntity->IsAlive() )
 					  return;
@@ -345,7 +346,15 @@ void CChainsaw::ChainsawAttack( void )
 				fvolbar = 1;
 			}
 
-			EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/SawAttackLoop.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+			switch( RANDOM_LONG(0,1) )
+			{
+			case 0:
+				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit1.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+				break;
+			case 1:
+				EMIT_SOUND_DYN( m_pPlayer->edict(), CHAN_ITEM, "weapons/cbar_hit2.wav", fvolbar, ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+				break;
+			}
 		}
 
 		// delay the decal a bit
