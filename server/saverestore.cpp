@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -26,11 +26,12 @@
 
 #define ENTVARS_COUNT	ARRAYSIZE( gEntvarsDescription )
 
-TYPEDESCRIPTION gEntvarsDescription[] = 
+TYPEDESCRIPTION gEntvarsDescription[] =
 {
 	DEFINE_ENTITY_FIELD( classname, FIELD_STRING ),
 	DEFINE_ENTITY_GLOBAL_FIELD( globalname, FIELD_STRING ),
-	
+
+	DEFINE_ENTITY_FIELD( startpos, FIELD_VECTOR ),
 	DEFINE_ENTITY_FIELD( origin, FIELD_POSITION_VECTOR ),
 	DEFINE_ENTITY_GLOBAL_FIELD( oldorigin, FIELD_VECTOR ),	// same as origin but not subtracted from landmark pos !!!
 	DEFINE_ENTITY_FIELD( velocity, FIELD_VECTOR ),
@@ -156,7 +157,7 @@ TYPEDESCRIPTION gEntvarsDescription[] =
 // CSave
 //
 // --------------------------------------------------------------
-static int gSizes[FIELD_TYPECOUNT] = 
+static int gSizes[FIELD_TYPECOUNT] =
 {
 	FIELD_SIZE( FIELD_FLOAT ),
 	FIELD_SIZE( FIELD_STRING ),
@@ -306,7 +307,7 @@ unsigned int CSaveRestoreBuffer :: HashString( const char *pszToken )
 unsigned short CSaveRestoreBuffer :: TokenHash( const char *pszToken )
 {
 	unsigned short	hash = (unsigned short)(HashString( pszToken ) % (unsigned)m_pdata->tokenCount );
-	
+
 #if _DEBUG
 	static int tokensparsed = 0;
 	tokensparsed++;
@@ -335,8 +336,8 @@ unsigned short CSaveRestoreBuffer :: TokenHash( const char *pszToken )
 			return index;
 		}
 	}
-		
-	// Token hash table full!!! 
+
+	// Token hash table full!!!
 	// [Consider doing overflow table(s) after the main table & limiting linear hash table search]
 	ALERT( at_error, "CSaveRestoreBuffer :: TokenHash() is COMPLETELY FULL!" );
 	return 0;
@@ -396,7 +397,7 @@ void CSave :: Log( DATAMAP *pMap, const char *pName, const char *pFieldName, FIE
 				string_t sValue = pValue[iCount];
 				Q_snprintf( szTempBuf, sizeof( szTempBuf ), "%s", ( char* )STRING( sValue ) );
 				Q_strncat( szBuf, szTempBuf, sizeof( szTempBuf ));
-				break;					
+				break;
 			}
 		case FIELD_VECTOR:
 		case FIELD_POSITION_VECTOR:
@@ -885,7 +886,7 @@ int CRestore::ReadField( const void *pBaseData, DATAMAP *pMap, TYPEDESCRIPTION *
 							int string;
 
 							string = ALLOC_STRING( (char *)pInputData );
-							
+
 							*((int *)pOutputData) = string;
 
 							if ( !FStringNull( string ) && m_precache )
@@ -1017,7 +1018,7 @@ int CRestore::ReadFields( const char *pname, const void *pBaseData, DATAMAP *pMa
 		lastField = ReadField( pBaseData, pMap, pFields, fieldCount, lastField, header.size, m_pdata->pTokens[header.token], header.pData );
 		lastField++;
 	}
-	
+
 	return 1;
 }
 
