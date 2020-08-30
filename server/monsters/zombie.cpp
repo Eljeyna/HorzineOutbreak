@@ -66,6 +66,8 @@ public:
 	int TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
 
 	void Killed(entvars_t *pevAttacker, int iGib);
+
+	float soundTime;
 };
 
 LINK_ENTITY_TO_CLASS( monster_zombie, CZombie );
@@ -292,6 +294,11 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 
 		default:
 			CBaseMonster::HandleAnimEvent( pEvent );
+			if (RANDOM_LONG(0,1) && pev->takedamage != DAMAGE_NO && soundTime <= gpGlobals->time)
+			{
+				IdleSound();
+				soundTime = gpGlobals->time + 3;
+			}
 			break;
 	}
 }
