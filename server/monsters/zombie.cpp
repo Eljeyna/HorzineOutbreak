@@ -142,29 +142,37 @@ void CZombie :: SetYawSpeed ( void )
 
 void CZombie::Killed(entvars_t *pevAttacker, int iGib)
 {
-	if (HasMemory(bits_MEMORY_KILLED))
+	CBaseMonster::Killed(pevAttacker, iGib);
+	/*if (HasMemory(bits_MEMORY_KILLED))
 		return;
 	pev->takedamage = DAMAGE_NO;
 	pev->solid = SOLID_NOT;
+
+	if (HasMemory(bits_MEMORY_KILLED))
+	{
+		CallGibMonster();
+		return;
+	}
+
 	FCheckAITrigger();
 
-	Remember( bits_MEMORY_KILLED );
+	Remember(bits_MEMORY_KILLED);
 
 	EMIT_SOUND(ENT(pev), CHAN_WEAPON, "common/null.wav", 1, ATTN_NORM);
-	SetConditions( bits_COND_LIGHT_DAMAGE );
+	SetConditions(bits_COND_LIGHT_DAMAGE);
 
 	CBaseEntity *pOwner = CBaseEntity::Instance(pev->owner);
-	if ( pOwner )
+	if (pOwner)
 	{
-		pOwner->DeathNotice( pev );
+		pOwner->DeathNotice(pev);
 	}
 
 	if (pev->health < 0)
 	{
 		pev->health = 0;
 	}
-	m_IdealMonsterState = MONSTERSTATE_DEAD;
-	//CBaseMonster::Killed(pevAttacker, GIB_ALWAYS);
+
+	m_IdealMonsterState = MONSTERSTATE_DEAD;*/
 }
 
 int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )
@@ -318,7 +326,8 @@ void CZombie :: Spawn()
 
 	pev->solid			= SOLID_SLIDEBOX;
 	pev->movetype		= MOVETYPE_STEP;
-	m_bloodColor		= BLOOD_COLOR_GREEN;
+	//m_bloodColor		= BLOOD_COLOR_GREEN;
+	m_bloodColor		= BLOOD_COLOR_RED;
 	if (!pev->health) pev->health	= gSkillData.zombieHealth;
 	pev->view_ofs		= VEC_VIEW;// position of the eyes relative to monster's origin.
 

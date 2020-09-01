@@ -148,7 +148,7 @@ void CClot :: SetYawSpeed ( void )
 void CClot::Killed(entvars_t *pevAttacker, int iGib)
 {
 	GrabStop();
-	if (HasMemory(bits_MEMORY_KILLED))
+	/*if (HasMemory(bits_MEMORY_KILLED))
 		return;
 
 	pev->takedamage = DAMAGE_NO;
@@ -171,8 +171,8 @@ void CClot::Killed(entvars_t *pevAttacker, int iGib)
 	{
 		pev->health = 0;
 	}
-	m_IdealMonsterState = MONSTERSTATE_DEAD;
-	//CBaseMonster::Killed(pevAttacker, GIB_ALWAYS);
+	m_IdealMonsterState = MONSTERSTATE_DEAD;*/
+	CBaseMonster::Killed(pevAttacker, iGib);
 }
 
 void CClot::Grab(CBaseMonster *pHurt)
@@ -370,7 +370,7 @@ void CClot :: Spawn()
 
 	pev->solid			= SOLID_SLIDEBOX;
 	pev->movetype		= MOVETYPE_STEP;
-	m_bloodColor		= BLOOD_COLOR_GREEN;
+	m_bloodColor		= BLOOD_COLOR_RED;
 	if (!pev->health) pev->health	= gSkillData.zombieHealth;
 	pev->view_ofs		= VEC_VIEW;// position of the eyes relative to monster's origin.
 

@@ -239,16 +239,16 @@ void CPython::PythonFire( float flSpread , float flCycleTime )
 
 	Vector vecSrc = m_pPlayer->GetGunPosition( );
 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
-	Vector vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
+	/*Vector vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
 
 	TraceResult tr;
 	UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, m_pPlayer->edict(), &tr);
-	CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);
+	CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);*/
 
 	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_1DEGREES, 8192, BULLET_PLAYER_357, 0 );
-	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, Vector( flSpread, flSpread, flSpread ), 8192, BULLET_PLAYER_357, 0 );
+	m_pPlayer->FireBullets( 1, vecSrc, vecAiming, Vector( flSpread, flSpread, flSpread ), 8192, BULLET_PLAYER_357, 0 );
 
-	if (pEntity)
+	/*if (pEntity)
 	{
 		pEntity->TakeDamage(pev, pev, 100, DMG_CLUB);
 		for (int i = 0; i < DAMAGE_FADE_PYTHON_MAX_TARGETS - 1; i++)
@@ -265,7 +265,7 @@ void CPython::PythonFire( float flSpread , float flCycleTime )
 
 			pEntity->TakeDamage(pev, pev, 100, DMG_CLUB);
 		}
-	}
+	}*/
 
 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
 		// HEV suit - indicate out of ammo condition
