@@ -3869,6 +3869,10 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		UTIL_MakeVectors( Vector( 0, pev->v_angle.y, 0 ));
 		Create( "monster_clot", GetAbsOrigin() + gpGlobals->v_forward * 128, GetAbsAngles( ));
 		break;
+	case 79:
+		UTIL_MakeVectors( Vector( 0, pev->v_angle.y, 0 ));
+		Create( "monster_stalker", GetAbsOrigin() + gpGlobals->v_forward * 128, GetAbsAngles( ));
+		break;
 	case 101:
 		gEvilImpulse101 = TRUE;
 		GiveNamedItem( "item_suit" );

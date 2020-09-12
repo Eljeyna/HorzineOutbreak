@@ -35,9 +35,9 @@
 
 #define ZOMBIE_FLINCH_DELAY			2		// at most one flinch every n secs
 
-class CZombie : public CBaseMonster
+class CStalker : public CBaseMonster
 {
-	DECLARE_CLASS( CZombie, CBaseMonster );
+	DECLARE_CLASS( CStalker, CBaseMonster );
 public:
 	void Spawn( void );
 	void Precache( void );
@@ -70,28 +70,28 @@ public:
 	float soundTime;
 };
 
-LINK_ENTITY_TO_CLASS( monster_zombie, CZombie );
+LINK_ENTITY_TO_CLASS( monster_stalker, CStalker );
 
-const char *CZombie::pAttackHitSounds[] =
+const char *CStalker::pAttackHitSounds[] =
 {
 	"zombie/claw_strike1.wav",
 	"zombie/claw_strike2.wav",
 	"zombie/claw_strike3.wav",
 };
 
-const char *CZombie::pAttackMissSounds[] =
+const char *CStalker::pAttackMissSounds[] =
 {
 	"zombie/claw_miss1.wav",
 	"zombie/claw_miss2.wav",
 };
 
-const char *CZombie::pAttackSounds[] =
+const char *CStalker::pAttackSounds[] =
 {
 	"zombie/zo_attack1.wav",
 	"zombie/zo_attack2.wav",
 };
 
-const char *CZombie::pIdleSounds[] =
+const char *CStalker::pIdleSounds[] =
 {
 	"zombie/zo_idle1.wav",
 	"zombie/zo_idle2.wav",
@@ -99,14 +99,14 @@ const char *CZombie::pIdleSounds[] =
 	"zombie/zo_idle4.wav",
 };
 
-const char *CZombie::pAlertSounds[] =
+const char *CStalker::pAlertSounds[] =
 {
 	"zombie/zo_alert10.wav",
 	"zombie/zo_alert20.wav",
 	"zombie/zo_alert30.wav",
 };
 
-const char *CZombie::pPainSounds[] =
+const char *CStalker::pPainSounds[] =
 {
 	"zombie/zo_pain1.wav",
 	"zombie/zo_pain2.wav",
@@ -116,7 +116,7 @@ const char *CZombie::pPainSounds[] =
 // Classify - indicates this monster's place in the
 // relationship table.
 //=========================================================
-int	CZombie :: Classify ( void )
+int	CStalker :: Classify ( void )
 {
 	return m_iClass ? m_iClass : CLASS_ALIEN_MONSTER;
 }
@@ -125,7 +125,7 @@ int	CZombie :: Classify ( void )
 // SetYawSpeed - allows each sequence to have a different
 // turn rate associated with it.
 //=========================================================
-void CZombie :: SetYawSpeed ( void )
+void CStalker :: SetYawSpeed ( void )
 {
 	int ys;
 
@@ -140,7 +140,7 @@ void CZombie :: SetYawSpeed ( void )
 	pev->yaw_speed = ys;
 }
 
-void CZombie::Killed(entvars_t *pevAttacker, int iGib)
+void CStalker::Killed(entvars_t *pevAttacker, int iGib)
 {
 	CBaseMonster::Killed(pevAttacker, iGib);
 	/*if (HasMemory(bits_MEMORY_KILLED))
@@ -175,7 +175,7 @@ void CZombie::Killed(entvars_t *pevAttacker, int iGib)
 	m_IdealMonsterState = MONSTERSTATE_DEAD;*/
 }
 
-int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )
+int CStalker :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )
 {
 	// Take 30% damage from bullets
 	if ( bitsDamageType == DMG_BULLET )
@@ -194,7 +194,7 @@ int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, floa
 	return CBaseMonster::TakeDamage( pevInflictor, pevAttacker, flDamage, bitsDamageType );
 }
 
-void CZombie :: PainSound( void )
+void CStalker :: PainSound( void )
 {
 	int pitch = 95 + RANDOM_LONG(0,9);
 
@@ -202,14 +202,14 @@ void CZombie :: PainSound( void )
 		EMIT_SOUND_DYN ( ENT(pev), CHAN_VOICE, pPainSounds[ RANDOM_LONG(0,ARRAYSIZE(pPainSounds)-1) ], 1.0, ATTN_NORM, 0, pitch );
 }
 
-void CZombie :: AlertSound( void )
+void CStalker :: AlertSound( void )
 {
 	int pitch = 95 + RANDOM_LONG(0,9);
 
 	EMIT_SOUND_DYN ( ENT(pev), CHAN_VOICE, pAlertSounds[ RANDOM_LONG(0,ARRAYSIZE(pAlertSounds)-1) ], 1.0, ATTN_NORM, 0, pitch );
 }
 
-void CZombie :: IdleSound( void )
+void CStalker :: IdleSound( void )
 {
 	int pitch = 95 + RANDOM_LONG(0,9);
 
@@ -217,7 +217,7 @@ void CZombie :: IdleSound( void )
 	EMIT_SOUND_DYN ( ENT(pev), CHAN_VOICE, pIdleSounds[ RANDOM_LONG(0,ARRAYSIZE(pIdleSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
 }
 
-void CZombie :: AttackSound( void )
+void CStalker :: AttackSound( void )
 {
 	// Play a random attack sound
 	EMIT_SOUND_DYN ( ENT(pev), CHAN_VOICE, pAttackSounds[ RANDOM_LONG(0,ARRAYSIZE(pAttackSounds)-1) ], 1.0, ATTN_NORM, 0, 100 + RANDOM_LONG(-5,5) );
@@ -228,7 +228,7 @@ void CZombie :: AttackSound( void )
 // HandleAnimEvent - catches the monster-specific messages
 // that occur when tagged animation frames are played.
 //=========================================================
-void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
+void CStalker :: HandleAnimEvent( MonsterEvent_t *pEvent )
 {
 	switch( pEvent->event )
 	{
@@ -253,6 +253,12 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 
 			if (RANDOM_LONG(0,1))
 				AttackSound();
+
+      if (pev->renderamt < 255)
+      {
+        pev->renderamt	= 255;
+        pev->rendermode = kRenderNormal;
+      }
 		}
 		break;
 
@@ -276,6 +282,12 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 
 			if (RANDOM_LONG(0,1))
 				AttackSound();
+
+      if (pev->renderamt < 255)
+      {
+        pev->renderamt	= 255;
+        pev->rendermode = kRenderNormal;
+      }
 		}
 		break;
 
@@ -297,6 +309,12 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 
 			if (RANDOM_LONG(0,1))
 				AttackSound();
+
+      if (pev->renderamt < 255)
+      {
+        pev->renderamt	= 255;
+        pev->rendermode = kRenderNormal;
+      }
 		}
 		break;
 
@@ -307,6 +325,12 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 				IdleSound();
 				soundTime = gpGlobals->time + 3;
 			}
+
+      if (pev->renderamt > 64)
+      {
+        pev->renderamt	= 64;
+        pev->rendermode = kRenderTransTexture;
+      }
 			break;
 	}
 }
@@ -314,7 +338,7 @@ void CZombie :: HandleAnimEvent( MonsterEvent_t *pEvent )
 //=========================================================
 // Spawn
 //=========================================================
-void CZombie :: Spawn()
+void CStalker :: Spawn()
 {
 	Precache( );
 
@@ -339,13 +363,16 @@ void CZombie :: Spawn()
 	m_MonsterState		= MONSTERSTATE_NONE;
 	m_afCapability		= bits_CAP_DOORS_GROUP;
 
+	pev->renderamt		= 64;
+	pev->rendermode		= kRenderTransTexture;
+
 	MonsterInit();
 }
 
 //=========================================================
 // Precache - precaches all resources this monster needs
 //=========================================================
-void CZombie :: Precache()
+void CStalker :: Precache()
 {
 	int i;
 
@@ -379,7 +406,7 @@ void CZombie :: Precache()
 
 
 
-int CZombie::IgnoreConditions ( void )
+int CStalker::IgnoreConditions ( void )
 {
 	int iIgnore = CBaseMonster::IgnoreConditions();
 
