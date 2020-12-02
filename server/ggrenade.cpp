@@ -98,6 +98,19 @@ void CGrenade::Explode( TraceResult *pTrace, int bitsDamageType )
 		WRITE_BYTE( TE_EXPLFLAG_NONE );
 	MESSAGE_END();
 
+	MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, absOrigin );
+		WRITE_BYTE(TE_DLIGHT);
+		WRITE_COORD(absOrigin.x); // X
+		WRITE_COORD(absOrigin.y); // Y
+		WRITE_COORD(absOrigin.z); // Z
+		WRITE_BYTE( 42 ); // radius * 0.1
+		WRITE_BYTE( 255 ); // r
+		WRITE_BYTE( 204 ); // g
+		WRITE_BYTE( 0 ); // b
+		WRITE_BYTE( 2 ); // time * 10
+		WRITE_BYTE( 30 ); // decay * 0.1
+	MESSAGE_END( );
+
 	CSoundEnt::InsertSound ( bits_SOUND_COMBAT, absOrigin, NORMAL_EXPLOSION_VOLUME, 3.0 );
 	entvars_t *pevOwner;
 	if ( pev->owner )

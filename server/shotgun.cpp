@@ -181,6 +181,19 @@ void CShotgun::PrimaryAttack()
 	// player "shoot" animation
 	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
+	MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, m_pPlayer->pev->origin );
+		WRITE_BYTE(TE_DLIGHT);
+		WRITE_COORD(m_pPlayer->pev->origin.x); // X
+		WRITE_COORD(m_pPlayer->pev->origin.y); // Y
+		WRITE_COORD(m_pPlayer->pev->origin.z); // Z
+		WRITE_BYTE( 38 ); // radius * 0.1
+		WRITE_BYTE( 255 ); // r
+		WRITE_BYTE( 204 ); // g
+		WRITE_BYTE( 0 ); // b
+		WRITE_BYTE( 2 ); // time * 10
+		WRITE_BYTE( 15 ); // decay * 0.1
+	MESSAGE_END( );
+
 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
 
 	Vector	vecShellVelocity = m_pPlayer->GetAbsVelocity()

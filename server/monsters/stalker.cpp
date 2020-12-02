@@ -142,37 +142,9 @@ void CStalker :: SetYawSpeed ( void )
 
 void CStalker::Killed(entvars_t *pevAttacker, int iGib)
 {
+	ALERT( at_warning, "iuser3 = %i\n", pev->iuser3 );
 	CBaseMonster::Killed(pevAttacker, iGib);
-	/*if (HasMemory(bits_MEMORY_KILLED))
-		return;
-	pev->takedamage = DAMAGE_NO;
-	pev->solid = SOLID_NOT;
-
-	if (HasMemory(bits_MEMORY_KILLED))
-	{
-		CallGibMonster();
-		return;
-	}
-
-	FCheckAITrigger();
-
-	Remember(bits_MEMORY_KILLED);
-
-	EMIT_SOUND(ENT(pev), CHAN_WEAPON, "common/null.wav", 1, ATTN_NORM);
-	SetConditions(bits_COND_LIGHT_DAMAGE);
-
-	CBaseEntity *pOwner = CBaseEntity::Instance(pev->owner);
-	if (pOwner)
-	{
-		pOwner->DeathNotice(pev);
-	}
-
-	if (pev->health < 0)
-	{
-		pev->health = 0;
-	}
-
-	m_IdealMonsterState = MONSTERSTATE_DEAD;*/
+	ALERT( at_warning, "iuser3 = %i\n", pev->iuser3 );
 }
 
 int CStalker :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )

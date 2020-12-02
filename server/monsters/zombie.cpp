@@ -65,8 +65,6 @@ public:
 	BOOL CheckRangeAttack2 ( float flDot, float flDist ) { return FALSE; }
 	int TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
 
-	void Killed(entvars_t *pevAttacker, int iGib);
-
 	float soundTime;
 };
 
@@ -138,41 +136,6 @@ void CZombie :: SetYawSpeed ( void )
 #endif
 
 	pev->yaw_speed = ys;
-}
-
-void CZombie::Killed(entvars_t *pevAttacker, int iGib)
-{
-	CBaseMonster::Killed(pevAttacker, iGib);
-	/*if (HasMemory(bits_MEMORY_KILLED))
-		return;
-	pev->takedamage = DAMAGE_NO;
-	pev->solid = SOLID_NOT;
-
-	if (HasMemory(bits_MEMORY_KILLED))
-	{
-		CallGibMonster();
-		return;
-	}
-
-	FCheckAITrigger();
-
-	Remember(bits_MEMORY_KILLED);
-
-	EMIT_SOUND(ENT(pev), CHAN_WEAPON, "common/null.wav", 1, ATTN_NORM);
-	SetConditions(bits_COND_LIGHT_DAMAGE);
-
-	CBaseEntity *pOwner = CBaseEntity::Instance(pev->owner);
-	if (pOwner)
-	{
-		pOwner->DeathNotice(pev);
-	}
-
-	if (pev->health < 0)
-	{
-		pev->health = 0;
-	}
-
-	m_IdealMonsterState = MONSTERSTATE_DEAD;*/
 }
 
 int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )

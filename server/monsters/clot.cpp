@@ -148,30 +148,6 @@ void CClot :: SetYawSpeed ( void )
 void CClot::Killed(entvars_t *pevAttacker, int iGib)
 {
 	GrabStop();
-	/*if (HasMemory(bits_MEMORY_KILLED))
-		return;
-
-	pev->takedamage = DAMAGE_NO;
-	pev->solid = SOLID_NOT;
-	//pev->deadflag = DEAD_DEAD;
-	FCheckAITrigger();
-
-	Remember( bits_MEMORY_KILLED );
-
-	EMIT_SOUND(ENT(pev), CHAN_WEAPON, "common/null.wav", 1, ATTN_NORM);
-	SetConditions( bits_COND_LIGHT_DAMAGE );
-
-	CBaseEntity *pOwner = CBaseEntity::Instance(pev->owner);
-	if ( pOwner )
-	{
-		pOwner->DeathNotice( pev );
-	}
-
-	if (pev->health < 0)
-	{
-		pev->health = 0;
-	}
-	m_IdealMonsterState = MONSTERSTATE_DEAD;*/
 	CBaseMonster::Killed(pevAttacker, iGib);
 }
 

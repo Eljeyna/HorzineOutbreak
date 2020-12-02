@@ -537,6 +537,10 @@ SOURCE=.\squeakgrenade.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\monsters\stalker.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\stats.cpp
 # End Source File
 # Begin Source File
