@@ -219,6 +219,12 @@ void CHandGrenade::WeaponIdle( void )
 
 		m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 		m_flReleaseThrow = -1;
+		if (m_pPlayer->grenadeFastSwitch)
+		{
+			m_pPlayer->grenadeFastSwitch = FALSE;
+			m_flTimeWeaponIdle = m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + 0.5;// ensure that the animation can finish playing
+			m_pPlayer->SwitchWeapon(m_pPlayer->m_pLastItem);
+		}
 		return;
 	}
 

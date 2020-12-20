@@ -64,6 +64,7 @@ public:
 	BOOL CheckRangeAttack1 ( float flDot, float flDist ) { return FALSE; }
 	BOOL CheckRangeAttack2 ( float flDot, float flDist ) { return FALSE; }
 	int TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
+	void Killed(entvars_t *pevAttacker, int iGib);
 
 	float soundTime;
 };
@@ -138,16 +139,19 @@ void CZombie :: SetYawSpeed ( void )
 	pev->yaw_speed = ys;
 }
 
+void CZombie::Killed(entvars_t *pevAttacker, int iGib)
+{
+	CBaseMonster::Killed(pevAttacker, iGib);
+}
+
 int CZombie :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )
 {
-	// Take 30% damage from bullets
 	if ( bitsDamageType == DMG_BULLET )
 	{
 		Vector vecDir = GetAbsOrigin() - (pevInflictor->absmin + pevInflictor->absmax) * 0.5;
 		vecDir = vecDir.Normalize();
 		float flForce = DamageForce( flDamage );
 		SetAbsVelocity( GetAbsVelocity() + vecDir * flForce );
-		flDamage *= 0.3;
 	}
 
 	// HACK HACK -- until we fix this.
@@ -284,7 +288,7 @@ void CZombie :: Spawn()
 	if (pev->model)
 		SET_MODEL(ENT(pev), STRING(pev->model)); //LRC
 	else
-		SET_MODEL(ENT(pev), "models/zombie.mdl");
+		SET_MODEL(ENT(pev), "models/monsters/zombie.mdl");
 	UTIL_SetSize( pev, VEC_HUMAN_HULL_MIN, VEC_HUMAN_HULL_MAX );
 
 	pev->solid			= SOLID_SLIDEBOX;
@@ -315,7 +319,7 @@ void CZombie :: Precache()
 	if (pev->model)
 		PRECACHE_MODEL((char*)STRING(pev->model)); //LRC
 	else
-		PRECACHE_MODEL("models/zombie.mdl");
+		PRECACHE_MODEL("models/monsters/zombie.mdl");
 
 	for ( i = 0; i < ARRAYSIZE( pAttackHitSounds ); i++ )
 		PRECACHE_SOUND((char *)pAttackHitSounds[i]);
@@ -334,6 +338,13 @@ void CZombie :: Precache()
 
 	for ( i = 0; i < ARRAYSIZE( pPainSounds ); i++ )
 		PRECACHE_SOUND((char *)pPainSounds[i]);
+
+	PRECACHE_MODEL("models/monsters/gibs/GibClotArm.mdl");
+	PRECACHE_MODEL("models/monsters/gibs/GibClotHead.mdl");
+	PRECACHE_MODEL("models/monsters/gibs/GibClotLeg.mdl");
+	PRECACHE_MODEL("models/monsters/gibs/GibClotThigh.mdl");
+	PRECACHE_MODEL("models/monsters/gibs/GibClotTorso.mdl");
+	PRECACHE_MODEL("models/monsters/gibs/GibLowerTorso.mdl");
 }
 
 //=========================================================

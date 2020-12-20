@@ -142,21 +142,17 @@ void CStalker :: SetYawSpeed ( void )
 
 void CStalker::Killed(entvars_t *pevAttacker, int iGib)
 {
-	ALERT( at_warning, "iuser3 = %i\n", pev->iuser3 );
 	CBaseMonster::Killed(pevAttacker, iGib);
-	ALERT( at_warning, "iuser3 = %i\n", pev->iuser3 );
 }
 
 int CStalker :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )
 {
-	// Take 30% damage from bullets
 	if ( bitsDamageType == DMG_BULLET )
 	{
 		Vector vecDir = GetAbsOrigin() - (pevInflictor->absmin + pevInflictor->absmax) * 0.5;
 		vecDir = vecDir.Normalize();
 		float flForce = DamageForce( flDamage );
 		SetAbsVelocity( GetAbsVelocity() + vecDir * flForce );
-		flDamage *= 0.3;
 	}
 
 	// HACK HACK -- until we fix this.
@@ -317,7 +313,7 @@ void CStalker :: Spawn()
 	if (pev->model)
 		SET_MODEL(ENT(pev), STRING(pev->model)); //LRC
 	else
-		SET_MODEL(ENT(pev), "models/zombie.mdl");
+		SET_MODEL(ENT(pev), "models/stalker.mdl");
 	UTIL_SetSize( pev, VEC_HUMAN_HULL_MIN, VEC_HUMAN_HULL_MAX );
 
 	pev->solid			= SOLID_SLIDEBOX;
@@ -351,7 +347,7 @@ void CStalker :: Precache()
 	if (pev->model)
 		PRECACHE_MODEL((char*)STRING(pev->model)); //LRC
 	else
-		PRECACHE_MODEL("models/zombie.mdl");
+		PRECACHE_MODEL("models/stalker.mdl");
 
 	for ( i = 0; i < ARRAYSIZE( pAttackHitSounds ); i++ )
 		PRECACHE_SOUND((char *)pAttackHitSounds[i]);

@@ -121,7 +121,7 @@ void CGrenade::Explode( TraceResult *pTrace, int bitsDamageType )
 	pev->owner = NULL; // can't traceline attack owner if this is set
 
 	//RadiusDamage ( pev, pevOwner, pev->dmg, CLASS_NONE, bitsDamageType );
-	RadiusDamage ( pev, pevOwner, pev->dmg, radius, CLASS_NONE, bitsDamageType );
+	RadiusDamageGrenade ( GetAbsOrigin(), pev, pevOwner, pev->dmg, radius, CLASS_NONE, bitsDamageType, 1.25 );
 
 	CBaseEntity *pEntity = CBaseEntity::Instance( pTrace->pHit );
 

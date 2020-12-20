@@ -3745,12 +3745,15 @@ void CBasePlayer::ImpulseCommands( )
 	switch (iImpulse)
 	{
 	case 70:
-		//кидание гранаты на "G"
+		//кидание гранаты на отдельную клавишу (по умолчанию "G")
 		if ( m_rgpPlayerItems[5] != NULL )
 		{
 			CBasePlayerWeapon *grenade = (CBasePlayerWeapon *)m_rgpPlayerItems[5];
 			if ( m_rgpPlayerItems[5] != m_pActiveItem )
+			{
+				grenadeFastSwitch = TRUE;
 				SwitchWeapon( grenade );
+			}
 			if (m_pActiveItem && grenade->m_flNextPrimaryAttack <= gpGlobals->time)
 			{
 				grenade->PrimaryAttack();
@@ -5172,10 +5175,26 @@ BOOL CBasePlayer :: SwitchWeapon( CBasePlayerItem *pWeapon )
 		m_pActiveItem->Holster( );
 	}
 
-	if (m_rgpPlayerItems[5] && (m_rgpPlayerItems[5] == pWeapon))
-		m_pLastItem = m_pActiveItem;
+	if (grenadeFastSwitch)
+	{
+		m_pGrenadeLastItem = m_pLastItem;
+	}
 
-	m_pActiveItem = pWeapon;
+	if (m_rgpPlayerItems[5] && (m_rgpPlayerItems[5] == pWeapon))
+	{
+		m_pLastItem = m_pActiveItem;
+	}
+
+	if (!grenadeFastSwitch)
+	{
+		m_pActiveItem = m_pLastItem;
+		m_pLastItem = m_pGrenadeLastItem;
+	}
+	else
+	{
+		m_pActiveItem = pWeapon;
+	}
+
 	pWeapon->Deploy( );
 
 	return TRUE;

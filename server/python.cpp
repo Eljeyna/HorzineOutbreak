@@ -250,35 +250,51 @@ void CPython::PythonFire( float flSpread , float flCycleTime )
 	EjectBrass ( m_pPlayer->EyePosition() + gpGlobals->v_up * -12 + gpGlobals->v_forward * 32 + gpGlobals->v_right * 6,
 	vecShellVelocity, m_pPlayer->GetAbsAngles().y, m_iShell, TE_BOUNCE_SHELL );
 
+	float x, y, z;
+	do {
+		x = RANDOM_FLOAT(-0.5,0.5) + RANDOM_FLOAT(-0.5,0.5);
+		y = RANDOM_FLOAT(-0.5,0.5) + RANDOM_FLOAT(-0.5,0.5);
+		z = x*x+y*y;
+	} while (z > 1);
+	Vector vecRight = gpGlobals->v_right;
+	Vector vecUp = gpGlobals->v_up;
 	Vector vecSrc = m_pPlayer->GetGunPosition( );
 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
-	/*Vector vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
+	Vector vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
+	gMultiDamage.type = DMG_BULLET | DMG_NEVERGIB;
+	Vector vecDir = vecAiming + x * flSpread * vecRight + y * flSpread * vecUp;
+
+	edict_t	*pentIgnore = ENT(pev);
 
 	TraceResult tr;
-	UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, m_pPlayer->edict(), &tr);
-	CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);*/
+	UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, pentIgnore, &tr);
+	CBaseEntity *pEntity = CBaseEntity::Instance(tr.pHit);
 
-	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_1DEGREES, 8192, BULLET_PLAYER_357, 0 );
-	m_pPlayer->FireBullets( 1, vecSrc, vecAiming, Vector( flSpread, flSpread, flSpread ), 8192, BULLET_PLAYER_357, 0 );
+	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_1DEGREES, 8192, BULLET_PLAYER_357, 0 ); // old
+	//m_pPlayer->FireBullets( 1, vecSrc, vecAiming, Vector( flSpread, flSpread, flSpread ), 8192, BULLET_PLAYER_357, 0 ); // new
 
-	/*if (pEntity)
+	ClearMultiDamage();
+
+	UTIL_BubbleTrail(vecSrc, tr.vecEndPos, (8192 * tr.flFraction) / 64.0);
+
+	if (tr.flFraction != 1.0)
 	{
-		pEntity->TakeDamage(pev, pev, 100, DMG_CLUB);
-		for (int i = 0; i < DAMAGE_FADE_PYTHON_MAX_TARGETS - 1; i++)
+		pEntity = CBaseEntity::Instance(tr.pHit);
+		pEntity->TraceAttack(pev, gSkillData.plrDmg357, vecEnd, &tr, DMG_BULLET);
+		DecalGunshot(&tr, BULLET_PLAYER_357);
+
+		for (int i = 0; i < DAMAGE_FADE_PYTHON_MAX_TARGETS; i++)
 		{
-			vecSrc += pEntity->GetAbsOrigin();
-			vecEnd = vecSrc + (gpGlobals->v_forward * 8192);
+			vecSrc = tr.vecEndPos + vecDir * 8;
+			vecEnd = vecSrc + (gpGlobals->v_forward * 4096);
+			UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, pentIgnore, &tr);
 
-			TraceResult tr;
-			UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, NULL, &tr);
 			pEntity = CBaseEntity::Instance(tr.pHit);
-
-			if (!pEntity)
-				break;
-
-			pEntity->TakeDamage(pev, pev, 100, DMG_CLUB);
+			pEntity->TraceAttack(pev, gSkillData.plrDmg357, vecEnd, &tr, DMG_BULLET);
+			DecalGunshot(&tr, BULLET_PLAYER_357);
 		}
-	}*/
+		ApplyMultiDamage(pEntity->pev, pev);
+	}
 
 	/*if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
 		// HEV suit - indicate out of ammo condition

@@ -205,8 +205,44 @@ void CGib :: SpawnRandomGibs( entvars_t *pevVictim, int cGibs, int human )
 			if ( human )
 			{
 				// human pieces
-				pGib->Spawn( "models/hgibs.mdl" );
-				pGib->pev->body = RANDOM_LONG(1,HUMAN_GIB_COUNT-1);// start at one to avoid throwing random amounts of skulls (0th gib)
+				if (pevVictim->classname == MAKE_STRING("monster_zombie"))
+				{
+					switch (cSplat)
+					{
+						case 0:
+							pGib->Spawn("models/monsters/gibs/GibClotHead.mdl");
+							break;
+						case 1:
+							pGib->Spawn("models/monsters/gibs/GibClotTorso.mdl");
+							break;
+						case 2:
+							pGib->Spawn("models/monsters/gibs/GibClotArm.mdl");
+							break;
+						case 3:
+							pGib->Spawn("models/monsters/gibs/GibClotArm.mdl");
+							break;
+						case 4:
+							pGib->Spawn("models/monsters/gibs/GibLowerTorso.mdl");
+							break;
+						case 5:
+							pGib->Spawn("models/monsters/gibs/GibClotThigh.mdl");
+							break;
+						case 6:
+							pGib->Spawn("models/monsters/gibs/GibClotThigh.mdl");
+							break;
+						case 7:
+							pGib->Spawn("models/monsters/gibs/GibClotLeg.mdl");
+							break;
+						case 8:
+							pGib->Spawn("models/monsters/gibs/GibClotLeg.mdl");
+							break;
+					}
+				}
+				else
+				{
+					pGib->Spawn( "models/hgibs.mdl" );
+					pGib->pev->body = RANDOM_LONG(1,HUMAN_GIB_COUNT-1);// start at one to avoid throwing random amounts of skulls (0th gib)
+				}
 			}
 			else
 			{
@@ -332,8 +368,16 @@ void CBaseMonster :: GibMonster( void )
 	{
 		if ( CVAR_GET_FLOAT("violence_hgibs") != 0 )	// Only the player will ever get here
 		{
-			CGib::SpawnHeadGib( pev );
-			CGib::SpawnRandomGibs( pev, 4, 1 );	// throw some human gibs.
+			/*CGib::SpawnHeadGib( pev );
+			CGib::SpawnRandomGibs( pev, 4, 1 );	// throw some human gibs.*/
+
+			if (pev->classname == MAKE_STRING("monster_zombie"))
+				CGib::SpawnRandomGibs( pev, 9, 1 );	// throw some kf gibs.
+			else
+			{
+				CGib::SpawnHeadGib( pev );
+				CGib::SpawnRandomGibs( pev, 4, 1 );	// throw some human gibs.
+			}
 		}
 		gibbed = TRUE;
 	}
@@ -1134,6 +1178,86 @@ void RadiusDamage( Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacke
 				{
 					ClearMultiDamage( );
 					pEntity->TraceAttack( pevInflictor, flAdjustedDamage, (tr.vecEndPos - vecSrc).Normalize( ), &tr, bitsDamageType );
+					ApplyMultiDamage( pevInflictor, pevAttacker );
+				}
+				else
+				{
+					pEntity->TakeDamage ( pevInflictor, pevAttacker, flAdjustedDamage, bitsDamageType );
+				}
+			}
+		}
+	}
+}
+
+void RadiusDamageGrenade( Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, float flRadius, int iClassIgnore, int bitsDamageType, float flForce )
+{
+	CBaseEntity *pEntity = NULL;
+	TraceResult	tr;
+	float		flAdjustedDamage, falloff;
+	Vector		vecSpot;
+
+	if ( flRadius )
+		falloff = flDamage / flRadius;
+	else
+		falloff = 1.0;
+
+	int bInWater = (UTIL_PointContents ( vecSrc ) == CONTENTS_WATER);
+
+	vecSrc.z += 1;// in case grenade is lying on the ground
+
+	if ( !pevAttacker )
+		pevAttacker = pevInflictor;
+
+	// iterate on all entities in the vicinity.
+	while ((pEntity = UTIL_FindEntityInSphere( pEntity, vecSrc, flRadius )) != NULL)
+	{
+		if ( pEntity->pev->takedamage != DAMAGE_NO )
+		{
+			// UNDONE: this should check a damage mask, not an ignore
+			if ( iClassIgnore != CLASS_NONE && pEntity->Classify() == iClassIgnore )
+			{// houndeyes don't hurt other houndeyes with their attack
+				continue;
+			}
+
+			// blast's don't tavel into or out of water
+			if (bInWater && pEntity->pev->waterlevel == 0)
+				continue;
+			if (!bInWater && pEntity->pev->waterlevel == 3)
+				continue;
+
+			vecSpot = pEntity->BodyTarget( vecSrc );
+
+			UTIL_TraceLine ( vecSrc, vecSpot, dont_ignore_monsters, ENT(pevInflictor), &tr );
+
+			if ( tr.flFraction == 1.0 || tr.pHit == pEntity->edict() )
+			{
+				// the explosion can 'see' this entity, so hurt them!
+				if (tr.fStartSolid)
+				{
+					// if we're stuck inside them, fixup the position and distance
+					tr.vecEndPos = vecSrc;
+					tr.flFraction = 0.0;
+				}
+
+				// decrease damage for an ent that's farther from the bomb.
+				flAdjustedDamage = ( vecSrc - tr.vecEndPos ).Length() * falloff;
+				flAdjustedDamage = flDamage - flAdjustedDamage;
+
+				if ( flAdjustedDamage < 0 )
+				{
+					flAdjustedDamage = 0;
+				}
+
+				// ALERT( at_console, "hit %s\n", STRING( pEntity->pev->classname ) );
+				if (tr.flFraction != 1.0)
+				{
+					ClearMultiDamage( );
+					pEntity->TraceAttack( pevInflictor, flAdjustedDamage, (tr.vecEndPos - vecSrc).Normalize( ), &tr, bitsDamageType );
+					if (flForce > 0)
+					{
+						Vector vecDir = pEntity->GetAbsOrigin() - (pevInflictor->absmin + pevInflictor->absmax) * 0.5;
+						pEntity->SetAbsVelocity(pEntity->GetAbsVelocity() + vecDir * flForce);
+					}
 					ApplyMultiDamage( pevInflictor, pevAttacker );
 				}
 				else

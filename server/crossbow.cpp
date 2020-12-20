@@ -23,8 +23,8 @@
 #include "items.h"
 #include "gamerules.h"
 
-#define BOLT_AIR_VELOCITY	2000
-#define BOLT_WATER_VELOCITY	1000
+#define BOLT_AIR_VELOCITY	10000
+#define BOLT_WATER_VELOCITY	2000
 
 #define DAMAGE_CROSSBOW_MAX_TARGETS 5
 
@@ -206,8 +206,8 @@ void CCrossbowBolt::BoltContinue(void)
 {
 	pev->solid = SOLID_BBOX;
 	pev->movetype = MOVETYPE_FLY;
-	SetLocalVelocity(boltVelocity);
-	pev->speed = boltSpeed;
+	SetLocalVelocity(boltVelocity * 2);
+	pev->speed = boltSpeed * 2;
 }
 
 void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
@@ -226,7 +226,7 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 			SetLocalVelocity( g_vecZero );
 			SetLocalAvelocity( g_vecZero );
 			SetThink( BoltContinue );
-			SetNextThink( 0.01 );
+			SetNextThink( 0 );
 		}
 
 		BOOL inArray;

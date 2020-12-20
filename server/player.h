@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -104,7 +104,7 @@ public:
 	string_t	m_iszKeyReleased;
 	string_t	m_iszKeyHoldDown;
 
-	DECLARE_DATADESC();	
+	DECLARE_DATADESC();
 
 	void	Spawn( void );
 	void	KeyValue( KeyValueData *pkvd );
@@ -120,25 +120,29 @@ class CBasePlayer : public CBaseMonster
 public:
 	int		random_seed;    // See that is shared between client & server for shared weapons code
 
+	BOOL grenadeFastSwitch; // throwing grenade like kf style
+	CBasePlayerItem	*m_pGrenadeLastItem; // save last quick item
+
+
 	int		m_iPlayerSound;// the index of the sound list slot reserved for this player
-	int		m_iTargetVolume;// ideal sound volume. 
+	int		m_iTargetVolume;// ideal sound volume.
 	int		m_iWeaponVolume;// how loud the player's weapon is right now.
 	int		m_iExtraSoundTypes;// additional classification for this weapon's sound
 	int		m_iWeaponFlash;// brightness of the weapon flash
 	float		m_flStopExtraSoundTime;
-	
+
 	float		m_flFlashLightTime;	// Time until next battery draw/Recharge
 	int		m_iFlashBattery;		// Flashlight Battery Draw
 
 	int		m_afButtonLast;
 	int		m_afButtonPressed;
 	int		m_afButtonReleased;
-	
+
 	edict_t		*m_pentSndLast;			// last sound entity to modify player room type
 	float		m_flSndRange;			// dist from player to sound entity
 	float		m_flSndRoomtype;
 	float		m_flFallVelocity;
-	
+
 	int		m_rgItems[MAX_ITEMS];
 	int		m_fKnownItem;		// True when a new item needs to be added
 	int		m_fNewAmmo;			// True when a new item has been added
@@ -172,7 +176,7 @@ public:
 	int		m_idrowndmg;			// track drowning damage taken
 	int		m_idrownrestored;		// track drowning damage restored
 
-	int		m_bitsHUDDamage;		// Damage bits for the current fame. These get sent to 
+	int		m_bitsHUDDamage;		// Damage bits for the current fame. These get sent to
 												// the hude via the DAMAGE message
 	BOOL		m_fInitHUD;				// True when deferred HUD restart msg needs to be sent
 	BOOL		m_fGameHUDInitialized;
@@ -185,7 +189,7 @@ public:
 	EHANDLE		m_pVehicle;
 	float		m_fDeadTime;			// the time at which the player died  (used in PlayerDeathThink())
 
-	BOOL		m_fNoPlayerSound;	// a debugging feature. Player makes no sound if this is true. 
+	BOOL		m_fNoPlayerSound;	// a debugging feature. Player makes no sound if this is true.
 	BOOL		m_fLongJump; // does this player have the longjump module?
 	int		m_iInCarState;		// player in car
 
@@ -200,7 +204,7 @@ public:
 	byte		m_iClientWeapons[MAX_WEAPON_BYTES];	// client's known weapon flags
 	int		m_iClientSndRoomtype;	// client last roomtype set by sound entity
 
-	// usable player items 
+	// usable player items
 	CBasePlayerItem	*m_rgpPlayerItems[MAX_ITEM_TYPES];
 	CBasePlayerItem	*m_pActiveItem;
 	CBasePlayerItem	*m_pClientActiveItem;  // client version of the active item
@@ -260,7 +264,7 @@ public:
 
 	// JOHN:  sends custom messages if player HUD data has changed  (eg health, ammo)
 	virtual void UpdateClientData( void );
-	
+
 	DECLARE_DATADESC();
 
 	// Player is moved across the transition by other means
@@ -270,7 +274,7 @@ public:
 	BOOL		FlashlightIsOn( void );
 	void		FlashlightTurnOn( void );
 	void		FlashlightTurnOff( void );
-	
+
 	void UpdatePlayerSound ( void );
 	void DeathSound ( void );
 
@@ -335,7 +339,7 @@ public:
 
 	void DeathMessage( entvars_t *pevKiller );
           void SendStartMessages( void );
- 
+
 	void SetCustomDecalFrames( int nFrames );
 	int GetCustomDecalFrames( void );
 
@@ -378,11 +382,11 @@ public:
 	float m_flStatusBarDisappearDelay;
 	char m_SbarString0[ SBAR_STRING_SIZE ];
 	char m_SbarString1[ SBAR_STRING_SIZE ];
-	
+
 	float m_flNextChatTime;
-	int m_iStartMessage;	
+	int m_iStartMessage;
 	int	m_iSndRoomtype;	// last roomtype set by sound entity
- 
+
 	float	m_flHoldableItemDistance;
 	Vector	m_vecHoldableItemPosition;
 	CRope*	m_pRope;

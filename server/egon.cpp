@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -99,7 +99,7 @@ public:
 		else
 			m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] = 0;
 	}
-	
+
 	enum EGON_FIRESTATE { FIRE_OFF, FIRE_CHARGE };
 	enum EGON_FIREMODE { FIRE_NARROW, FIRE_WIDE };
 private:
@@ -325,7 +325,7 @@ void CEgon::Fire( const Vector &vecOrigSrc, const Vector &vecDir )
 	Vector tmpSrc = vecOrigSrc + gpGlobals->v_up * -8 + gpGlobals->v_right * 3;
 
 	// ALERT( at_console, "." );
-	
+
 	UTIL_TraceLine( vecOrigSrc, vecDest, dont_ignore_monsters, pentIgnore, &tr );
 
 	if (tr.fAllSolid)
@@ -386,7 +386,7 @@ void CEgon::Fire( const Vector &vecOrigSrc, const Vector &vecDir )
 		}
 		timedist = ( pev->dmgtime - gpGlobals->time ) / GetPulseInterval();
 		break;
-	
+
 	case FIRE_WIDE:
 		if ( pev->dmgtime < gpGlobals->time )
 		{
@@ -534,7 +534,7 @@ void CEgon::DestroyEffect( void )
 void CEgon::EndAttack( void )
 {
 	STOP_SOUND( ENT(m_pPlayer->pev), CHAN_STATIC, EGON_SOUND_RUN );
-	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, EGON_SOUND_OFF, 0.98, ATTN_NORM, 0, 100); 
+	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, EGON_SOUND_OFF, 0.98, ATTN_NORM, 0, 100);
 	m_fireState = FIRE_OFF;
 	m_flTimeWeaponIdle = gpGlobals->time + 2.0;
 	m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 0.5;
@@ -560,7 +560,7 @@ void CEgon::WeaponIdle( void )
 		iAnim = EGON_IDLE1;
 		m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT(10,15);
 	}
-	else 
+	else
 	{
 		iAnim = EGON_FIDGET1;
 		m_flTimeWeaponIdle = gpGlobals->time + 3;
@@ -575,7 +575,7 @@ class CEgonAmmo : public CBasePlayerAmmo
 	DECLARE_CLASS( CEgonAmmo, CBasePlayerAmmo );
 
 	void Spawn( void )
-	{ 
+	{
 		Precache( );
 		SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
 		CBasePlayerAmmo::Spawn( );
@@ -585,8 +585,8 @@ class CEgonAmmo : public CBasePlayerAmmo
 		PRECACHE_MODEL ("models/w_chainammo.mdl");
 		PRECACHE_SOUND("items/9mmclip1.wav");
 	}
-	BOOL AddAmmo( CBaseEntity *pOther ) 
-	{ 
+	BOOL AddAmmo( CBaseEntity *pOther )
+	{
 		if (pOther->GiveAmmo( AMMO_URANIUMBOX_GIVE, "uranium", URANIUM_MAX_CARRY ) != -1)
 		{
 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
