@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2002, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -69,6 +69,12 @@ BOOL CHalfLifeRules::IsCoOp( void )
 //=========================================================
 BOOL CHalfLifeRules::FShouldSwitchWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pWeapon )
 {
+	if ( !pWeapon->CanDeploy() )
+	{
+		// that weapon can't deploy anyway.
+		return FALSE;
+	}
+
 	if ( !pPlayer->m_pActiveItem )
 	{
 		// player doesn't have an active item!
@@ -77,10 +83,16 @@ BOOL CHalfLifeRules::FShouldSwitchWeapon( CBasePlayer *pPlayer, CBasePlayerItem 
 
 	if ( !pPlayer->m_pActiveItem->CanHolster() )
 	{
+		// can't put away the active item.
 		return FALSE;
 	}
 
-	return TRUE;
+	if ( pWeapon->iWeight() > pPlayer->m_pActiveItem->iWeight() )
+	{
+		return TRUE;
+	}
+
+	return FALSE;
 }
 
 //=========================================================
@@ -200,7 +212,7 @@ float CHalfLifeRules :: FlWeaponRespawnTime( CBasePlayerItem *pWeapon )
 }
 
 //=========================================================
-// FlWeaponRespawnTime - Returns 0 if the weapon can respawn 
+// FlWeaponRespawnTime - Returns 0 if the weapon can respawn
 // now,  otherwise it returns the time at which it can try
 // to spawn again.
 //=========================================================
@@ -324,7 +336,7 @@ int CHalfLifeRules::DeadPlayerAmmo( CBasePlayer *pPlayer )
 //=========================================================
 int CHalfLifeRules::PlayerRelationship( CBaseEntity *pPlayer, CBaseEntity *pTarget )
 {
-	// why would a single player in half life need this? 
+	// why would a single player in half life need this?
 	return GR_NOTTEAMMATE;
 }
 

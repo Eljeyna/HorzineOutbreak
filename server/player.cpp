@@ -5179,22 +5179,18 @@ BOOL CBasePlayer :: SwitchWeapon( CBasePlayerItem *pWeapon )
 	{
 		m_pGrenadeLastItem = m_pLastItem;
 	}
+	else if (!grenadeFastSwitch)
+	{
+		m_pActiveItem = m_pLastItem;
+		m_pLastItem = m_pGrenadeLastItem;
+	}
 
 	if (m_rgpPlayerItems[5] && (m_rgpPlayerItems[5] == pWeapon))
 	{
 		m_pLastItem = m_pActiveItem;
 	}
 
-	if (!grenadeFastSwitch)
-	{
-		m_pActiveItem = m_pLastItem;
-		m_pLastItem = m_pGrenadeLastItem;
-	}
-	else
-	{
-		m_pActiveItem = pWeapon;
-	}
-
+	m_pActiveItem = pWeapon;
 	pWeapon->Deploy( );
 
 	return TRUE;

@@ -92,22 +92,22 @@ public:
 
 
 // weapon weight factors (for auto-switching)   (-1 = noswitch)
-#define CROWBAR_WEIGHT			-10 	//0
-#define AXE_WEIGHT					-10 	//0
-#define CHAINSAW_WEIGHT			-10 	//0
-#define GLOCK_WEIGHT				10 		//10
-#define PYTHON_WEIGHT				15 		//15
-#define MP5_WEIGHT					15 		//15
-#define SHOTGUN_WEIGHT			15 		//15
-#define CROSSBOW_WEIGHT			10 		//10
-#define RPG_WEIGHT					20 		//20
-#define GAUSS_WEIGHT				20 		//20
-#define EGON_WEIGHT					20 		//20
-#define HORNETGUN_WEIGHT		10 		//10
-#define HANDGRENADE_WEIGHT	5 		//5
-#define SNARK_WEIGHT				5 		//5
-#define SATCHEL_WEIGHT			-10 	//-10
-#define TRIPMINE_WEIGHT			-10 	//-10
+#define CROWBAR_WEIGHT			0
+#define AXE_WEIGHT					0
+#define CHAINSAW_WEIGHT			0
+#define GLOCK_WEIGHT				10
+#define PYTHON_WEIGHT				15
+#define MP5_WEIGHT					15
+#define SHOTGUN_WEIGHT			15
+#define CROSSBOW_WEIGHT			10
+#define RPG_WEIGHT					20
+#define GAUSS_WEIGHT				20
+#define EGON_WEIGHT					20
+#define HORNETGUN_WEIGHT		10
+#define HANDGRENADE_WEIGHT	5
+#define SNARK_WEIGHT				5
+#define SATCHEL_WEIGHT			-10
+#define TRIPMINE_WEIGHT			-10
 
 
 // weapon clip/carry ammo capacities
