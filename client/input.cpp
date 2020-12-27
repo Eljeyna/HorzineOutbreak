@@ -618,7 +618,8 @@ void CL_CreateMove( float frametime, usercmd_t *cmd, int active )
 		}
 
 		// clip to maxspeed
-		spd = gEngfuncs.GetClientMaxspeed();
+		//spd = gEngfuncs.GetClientMaxspeed();
+		spd = (cl_forwardspeed->value + cl_backspeed->value + cl_sidespeed->value) / 3;
 		if( spd != 0.0f )
 		{
 			// scale the 3 speeds so that the total velocity is not > cl.maxspeed
@@ -874,9 +875,9 @@ void InitInput( void )
 	/*cl_forwardspeed	= CVAR_REGISTER ( "cl_forwardspeed", "400", FCVAR_ARCHIVE );
 	cl_backspeed	= CVAR_REGISTER ( "cl_backspeed", "400", FCVAR_ARCHIVE );
 	cl_sidespeed	= CVAR_REGISTER ( "cl_sidespeed", "400", 0 );*/
-	cl_forwardspeed	= CVAR_REGISTER ( "cl_forwardspeed", "150", 0 );
-	cl_backspeed	= CVAR_REGISTER ( "cl_backspeed", "150", 0 );
-	cl_sidespeed	= CVAR_REGISTER ( "cl_sidespeed", "150", 0 );
+	cl_forwardspeed	= CVAR_REGISTER ( "cl_forwardspeed", "135", 0 );
+	cl_backspeed	= CVAR_REGISTER ( "cl_backspeed", "135", 0 );
+	cl_sidespeed	= CVAR_REGISTER ( "cl_sidespeed", "135", 0 );
 	cl_movespeedkey	= CVAR_REGISTER ( "cl_movespeedkey", "0.3", 0 );
 	cl_pitchup	= CVAR_REGISTER ( "cl_pitchup", "89", 0 );
 	cl_pitchdown	= CVAR_REGISTER ( "cl_pitchdown", "89", 0 );
