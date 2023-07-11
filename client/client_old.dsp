@@ -43,7 +43,8 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 1
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I ".\\" /I "..\engine" /I "..\common" /I "..\game_shared" /I ".\render" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "CLIENT_DLL" /FD /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /Op /Ob1 /I ".\\" /I "..\engine" /I "..\common" /I "..\game_shared" /I ".\render" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "CLIENT_DLL" /FD /c
+# SUBTRACT CPP /Fr /YX
 # ADD BASE MTL /nologo /D "NDEBUG" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -55,10 +56,15 @@ LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /machine:I386
 # ADD LINK32 msvcrt.lib user32.lib /nologo /subsystem:windows /dll /pdb:none /machine:I386 /nodefaultlib:"libc.lib" /libpath:"..\common\libs"
 # SUBTRACT LINK32 /map
-# Begin Special Build Tool
+# Begin Custom Build
+TargetDir=\Xash3D\xash\src_main\temp\client\!release
+InputPath=\Xash3D\xash\src_main\temp\client\!release\client.dll
 SOURCE="$(InputPath)"
-PostBuild_Cmds=copy /Y "D:\!DIFFUSION 2020\source code\client-server-launcher\temp\client\!release\client.dll" "D:\!DIFFUSION 2020\!GAME_developer\diffusion\bin\client.dll"
-# End Special Build Tool
+
+"Z:\client.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	copy $(TargetDir)\client.dll "Z:\client.dll"
+
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "client - Win32 Debug"
 
@@ -91,12 +97,12 @@ LINK32=link.exe
 # ADD LINK32 msvcrtd.lib user32.lib opengl32.lib glu32.lib /nologo /subsystem:windows /dll /incremental:yes /debug /machine:I386 /nodefaultlib:"libc" /libpath:"..\common\libs"
 # SUBTRACT LINK32 /map
 # Begin Custom Build
-TargetDir=\!DIFFUSION 2020\source code\client-server-launcher\temp\client\!debug
-InputPath=\!DIFFUSION 2020\source code\client-server-launcher\temp\client\!debug\client.dll
+TargetDir=\Xash3D\xash\src_main\temp\client\!debug
+InputPath=\Xash3D\xash\src_main\temp\client\!debug\client.dll
 SOURCE="$(InputPath)"
 
-"D:\Xash3D\xash\bin\client.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	copy $(TargetDir)\client.dll "D:\Xash3D\xash\bin\client.dll"
+"Z:\client.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	copy $(TargetDir)\client.dll "Z:\client.dll"
 
 # End Custom Build
 

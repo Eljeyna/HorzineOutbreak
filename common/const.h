@@ -759,6 +759,7 @@ enum
 	kRenderFxGlowShell,			// Glowing Shell
 	kRenderFxClampMinScale,		// Keep this sprite from getting very small (SPRITES only!)
 	kRenderFxAurora,			// set particle trail for this entity
+	kRenderFxNoShadows,			// diffusion - no dynamic shadow cast
 };
 
 typedef int		string_t;

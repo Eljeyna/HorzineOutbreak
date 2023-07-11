@@ -95,7 +95,8 @@ mspriteframe_t *CSpriteModelRenderer :: GetSpriteFrame( int frame, float yaw )
 		// are positive, so we don't have to worry about division by zero
 		float targettime = tr.time - ((int)( tr.time / fullinterval )) * fullinterval;
 
-		for( int i = 0; i < (numframes - 1); i++ )
+		int i;
+		for( i = 0; i < (numframes - 1); i++ )
 		{
 			if( pintervals[i] > targettime )
 				break;
@@ -235,20 +236,26 @@ void CSpriteModelRenderer :: SpriteComputeOrigin( cl_entity_t *e )
 	sprite_origin = e->origin; // set render origin
 
 	// link sprite with parent (if present)
-	if( e->curstate.aiment > 0 && e->curstate.movetype == MOVETYPE_FOLLOW )
+	if( e->curstate.movetype == MOVETYPE_FOLLOW )
 	{
-		cl_entity_t *parent = GET_ENTITY( e->curstate.aiment );
+		cl_entity_t *parent;
+		
+		if( e->curstate.aiment == -1 ) // diffusion - HACKHACK for viewmodel
+			parent = GET_VIEWMODEL();
+		else if( e->curstate.aiment > 0 )
+			parent = GET_ENTITY( e->curstate.aiment );
 
-		if( parent && parent->model )
+		if( parent )
 		{
-			if( parent->model->type == mod_studio && e->curstate.body > 0 )
+			if( parent->model )
 			{
-				int num = bound( 1, e->curstate.body, MAXSTUDIOATTACHMENTS );
-				sprite_origin = R_StudioAttachmentOrigin( parent, num - 1 );
-			}
-			else
-			{
-				sprite_origin = parent->origin;
+				if( parent->model->type == mod_studio && e->curstate.body > 0 )
+				{
+					int num = bound( 1, e->curstate.body, MAXSTUDIOATTACHMENTS );
+					sprite_origin = R_StudioAttachmentOrigin( parent, num - 1 );
+				}
+				else
+					sprite_origin = parent->origin;
 			}
 		}
 	}
@@ -325,12 +332,28 @@ float CSpriteModelRenderer :: GlowSightDistance( void )
 
 	float dist = (sprite_origin - RI->vieworg).Length();
 
-	if( !FBitSet( RI->params, RP_MIRRORVIEW ))
+	if( !FBitSet( RI->params, RP_MIRRORVIEW ) || !FBitSet( RI->params, RP_SHADOWVIEW ) )
 	{
 		gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
-		gEngfuncs.pEventAPI->EV_PlayerTrace( RI->vieworg, sprite_origin, PM_GLASS_IGNORE, -1, &tr );
+	//	gEngfuncs.pEventAPI->EV_PlayerTrace( RI->vieworg, sprite_origin, PM_GLASS_IGNORE, -1, &tr );
 
-		if(( 1.0f - tr.fraction ) * dist > 8.0f )
+		// diffusion FIXME - it's a workaround so glows won't be seen through non-solid models with brush-made collision
+		gEngfuncs.pEventAPI->EV_PlayerTrace( RI->vieworg, sprite_origin, PM_TRACELINE_ANYVISIBLE, -1, &tr );
+
+		physent_t *pe = gEngfuncs.pEventAPI->EV_GetPhysent( tr.ent );
+		cl_entity_t *e = NULL;
+		if( pe )
+			e = GET_ENTITY( PM_GetPhysEntInfo( tr.ent ) );
+		
+		// replace traceline with original if it's translucent, but skip if fully translucent
+		// (it's likely an invisible wall I used for collision)
+		if( e )
+		{
+			if( (e->curstate.rendermode != kRenderNormal) && (e->curstate.renderamt > 0) )
+				gEngfuncs.pEventAPI->EV_PlayerTrace( RI->vieworg, sprite_origin, PM_GLASS_IGNORE, -1, &tr );
+		}
+
+		if( (1.0f - tr.fraction) * dist > 8.0f )
 			return 0.0f;
 	}
 
@@ -357,12 +380,12 @@ float CSpriteModelRenderer :: SpriteGlowBlend( int rendermode, int renderfx, flo
 	scale = 0.0f; // variable sized glow
 
 	brightness = 19000.0 / ( dist * dist );
-	brightness = bound( 0.05f, brightness, 1.0f );
 
 	// make the glow fixed size in screen space, taking into consideration the scale setting.
 	if( scale == 0.0f ) scale = 1.0f;
-	scale *= dist * ( 1.0f / 200.0f );
+	scale *= dist * (1.0f / 200.0f);
 
+	brightness = bound( 0.1f, brightness, 1.0f );
 	return brightness;
 }
 
@@ -437,7 +460,7 @@ void CSpriteModelRenderer :: DrawSpriteQuad( mspriteframe_t *frame, const Vector
 		point = org + up * (frame->up * scale);
 		point = point + right * (frame->right * scale);
 		pglVertex3fv( point );
- 	        	pglTexCoord2f( 1.0f, 1.0f );
+		pglTexCoord2f( 1.0f, 1.0f );
 		point = org + up * (frame->down * scale);
 		point = point + right * (frame->right * scale);
 		pglVertex3fv( point );
@@ -476,7 +499,7 @@ void CSpriteModelRenderer :: DrawLighting( mspriteframe_t *frame, const Vector &
 		pglColor4f( color2[0], color2[1], color2[2], flAlpha );
 		pglVertex3fv( point );
 
- 	        	pglTexCoord2f( 1.0f, 1.0f );
+		pglTexCoord2f( 1.0f, 1.0f );
 		point = org + up * (frame->down * scale);
 		point = point + right * (frame->right * scale);
 		color2 = color + R_LightsForPoint( point, lightscale ) * 0.5f;
@@ -562,10 +585,7 @@ void CSpriteModelRenderer :: SpriteDrawModel( void )
 		pglAlphaFunc( GL_GREATER, 0.0f );
 	}
 
-	if( m_pCurrentEntity->curstate.rendermode == kRenderGlow )
-		pglDisable( GL_DEPTH_TEST );
-
-	// select properly rendermode
+	// select proper rendermode
 	switch( m_pCurrentEntity->curstate.rendermode )
 	{
 	case kRenderTransAlpha:
@@ -587,7 +607,7 @@ void CSpriteModelRenderer :: SpriteDrawModel( void )
 		pglDisable( GL_BLEND );
 		break;
 	}
-
+	
 	if( tr.fogEnabled && m_pSpriteHeader->texFormat != SPR_ALPHTEST )
 	{
 		// do software fog here
@@ -871,7 +891,8 @@ void CSpriteModelRenderer::DrawSpriteModelInternal( cl_entity_t *e )
 
 	if(!( RI->params & RP_SHADOWVIEW ))
 		SpriteDrawModel();
-	else SpriteDrawModelShadowPass();
+	else
+		SpriteDrawModelShadowPass();
 }
 
 mspriteframe_t *CSpriteModelRenderer::GetSpriteFrame( const model_t *m_pSpriteModel, int frame )

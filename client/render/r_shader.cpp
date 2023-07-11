@@ -726,6 +726,7 @@ static void GL_InitBmodelDlightUniforms( glsl_program_t *shader )
 	shader->u_FogParams = pglGetUniformLocationARB( shader->handle, "u_FogParams" );
 	shader->u_ScreenSizeInv = pglGetUniformLocationARB( shader->handle, "u_ScreenSizeInv" );
 	shader->u_RenderColor = pglGetUniformLocationARB( shader->handle, "u_RenderColor" );
+	shader->u_DynLightBrightness = pglGetUniformLocationARB( shader->handle, "u_DynLightBrightness" );
 
 	GL_BindShader( shader );
 	pglUniform1iARB( shader->u_ColorMap, GL_TEXTURE0 );
@@ -787,6 +788,7 @@ static void GL_InitSolidStudioUniforms( glsl_program_t *shader )
 	shader->u_ColorMap = pglGetUniformLocationARB( shader->handle, "u_ColorMap" );
 	shader->u_BoneQuaternion = pglGetUniformLocationARB( shader->handle, "u_BoneQuaternion" );
 	shader->u_BonePosition = pglGetUniformLocationARB( shader->handle, "u_BonePosition" );
+	shader->u_MeshScale = pglGetUniformLocationARB( shader->handle, "u_MeshScale" );
 
 	if( GL_FindShaderDirective( shader, "STUDIO_VERTEX_LIGHTING" ))
 	{
@@ -823,6 +825,11 @@ static void GL_InitStudioDlightUniforms( glsl_program_t *shader )
 	shader->u_ShadowMap = pglGetUniformLocationARB( shader->handle, "u_ShadowMap" );
 	shader->u_BoneQuaternion = pglGetUniformLocationARB( shader->handle, "u_BoneQuaternion" );
 	shader->u_BonePosition = pglGetUniformLocationARB( shader->handle, "u_BonePosition" );
+//	shader->u_BonesArray = pglGetUniformLocationARB( shader->handle, "u_BonesArray" );
+	shader->u_MeshScale = pglGetUniformLocationARB( shader->handle, "u_MeshScale" );
+	shader->u_DynLightBrightness = pglGetUniformLocationARB( shader->handle, "u_DynLightBrightness" );
+	shader->u_MeshAngles = pglGetUniformLocationARB( shader->handle, "u_MeshAngles" );
+	shader->u_RenderColor = pglGetUniformLocationARB( shader->handle, "u_RenderColor" );
 
 	shader->u_LightDir = pglGetUniformLocationARB( shader->handle, "u_LightDir" );
 	shader->u_LightDiffuse = pglGetUniformLocationARB( shader->handle, "u_LightDiffuse" );
@@ -851,6 +858,7 @@ static void GL_InitStudioDepthFillUniforms( glsl_program_t *shader )
 
 	shader->u_BoneQuaternion = pglGetUniformLocationARB( shader->handle, "u_BoneQuaternion" );
 	shader->u_BonePosition = pglGetUniformLocationARB( shader->handle, "u_BonePosition" );
+	shader->u_MeshScale = pglGetUniformLocationARB( shader->handle, "u_MeshScale" );
 
 	GL_BindShader( shader );
 	pglUniform1iARB( shader->u_ColorMap, GL_TEXTURE0 );
@@ -904,6 +912,7 @@ static void GL_InitGrassDlightUniforms( glsl_program_t *shader )
 	shader->u_GrassFadeEnd = pglGetUniformLocationARB( shader->handle, "u_GrassFadeEnd" );
 	shader->u_RealTime = pglGetUniformLocationARB( shader->handle, "u_RealTime" );
 	shader->u_FogParams = pglGetUniformLocationARB( shader->handle, "u_FogParams" );
+	shader->u_DynLightBrightness = pglGetUniformLocationARB( shader->handle, "u_DynLightBrightness" );
 
 	GL_BindShader( shader );
 	pglUniform1iARB( shader->u_ColorMap, GL_TEXTURE0 );
@@ -930,6 +939,7 @@ static void GL_InitGenericDlightUniforms( glsl_program_t *shader )
 	shader->u_LightViewProjectionMatrix = pglGetUniformLocationARB( shader->handle, "u_LightViewProjectionMatrix" );
 	shader->u_FogParams = pglGetUniformLocationARB( shader->handle, "u_FogParams" );
 	shader->u_LightScale = pglGetUniformLocationARB( shader->handle, "u_LightScale" );
+	shader->u_DynLightBrightness = pglGetUniformLocationARB( shader->handle, "u_DynLightBrightness" );
 
 	GL_BindShader( shader );
 	pglUniform1iARB( shader->u_ColorMap, GL_TEXTURE0 );
@@ -1120,7 +1130,9 @@ word GL_UberShaderForSolidBmodel( msurface_t *s, bool translucent )
 		fullBright = true;
 
 	// solid water with lightmaps looks ugly
-	if( FBitSet( s->flags, SURF_DRAWTURB ) || translucent )
+	// diffusion - allow water to use lightmap
+	// P.S. NOTENOTE - translucent is edited and completely excludes all RenderModeTexture brushes, so all glass/water uses lightmaps (not a bad thing tho)
+	if( /*FBitSet( s->flags, SURF_DRAWTURB ) || */translucent )
 		fullBright = true;
 
 	if( FBitSet( s->flags, SURF_FULLBRIGHT ) || R_FullBright( ) || fullBright )
@@ -1171,7 +1183,7 @@ word GL_UberShaderForSolidBmodel( msurface_t *s, bool translucent )
 	if( !FBitSet( s->flags, SURF_SCREEN ) && s->info->subtexture[glState.stack_position] > 0 )
 		GL_AddShaderDirective( options, "BMODEL_REFLECTION_PLANAR" );
 
-	if( tr.fogEnabled )
+	if( tr.fogEnabled && !translucent ) // diffusion - added !translucent because additive brushes looked bad
 		GL_AddShaderDirective( options, "BMODEL_FOG_EXP" );
 
 	glsl_program_t *shader = GL_FindUberShader( glname, options, &GL_InitSolidBmodelUniforms );
@@ -1199,7 +1211,7 @@ word GL_UberShaderForSolidBmodel( msurface_t *s, bool translucent )
 
 word GL_UberShaderForBmodelDlight( const plight_t *pl, msurface_t *s, bool translucent )
 {
-	bool shadows = (!pl->pointlight && !FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
+	bool shadows = (!FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
 	char glname[64];
 	char options[MAX_OPTIONS_LENGTH];
 	mextrasurf_t *es = s->info;
@@ -1214,8 +1226,8 @@ word GL_UberShaderForBmodelDlight( const plight_t *pl, msurface_t *s, bool trans
 
 	if( pl->pointlight )
 	{
-		if( es->omniLightShaderNum && es->glsl_sequence_omni == tr.glsl_valid_sequence )
-			return es->omniLightShaderNum; // valid
+		if( es->omniLightShaderNum[shadows] && es->glsl_sequence_omni[shadows] == tr.glsl_valid_sequence )
+			return es->omniLightShaderNum[shadows]; // valid
 		GL_AddShaderDirective( options, "BMODEL_LIGHT_OMNIDIRECTIONAL" );
 	}
 	else
@@ -1263,7 +1275,7 @@ word GL_UberShaderForBmodelDlight( const plight_t *pl, msurface_t *s, bool trans
 
 	if( CVAR_TO_BOOL( r_shadows ) && !tr.shadows_notsupport )
 	{
-		if( !pl->pointlight && !FBitSet( pl->flags, CF_NOSHADOWS ))
+		if( !FBitSet( pl->flags, CF_NOSHADOWS ))
 			GL_AddShaderDirective( options, "BMODEL_HAS_SHADOWS" );
 	}
 
@@ -1287,8 +1299,8 @@ word GL_UberShaderForBmodelDlight( const plight_t *pl, msurface_t *s, bool trans
 
 	if( pl->pointlight )
 	{
-		es->omniLightShaderNum = shaderNum;
-		es->glsl_sequence_omni = tr.glsl_valid_sequence;
+		es->omniLightShaderNum[shadows] = shaderNum;
+		es->glsl_sequence_omni[shadows] = tr.glsl_valid_sequence;
 	}
 	else
 	{
@@ -1339,7 +1351,7 @@ word GL_UberShaderForGrassSolid( msurface_t *s, grass_t *g )
 
 word GL_UberShaderForGrassDlight( plight_t *pl, struct grass_s *g )
 {
-	bool shadows = (!pl->pointlight && !FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
+	bool shadows = (!FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
 	char glname[64];
 	char options[MAX_OPTIONS_LENGTH];
 
@@ -1449,7 +1461,7 @@ word GL_UberShaderForSolidStudio( mstudiomaterial_t *mat, bool vertex_lighting, 
 			GL_AddShaderDirective( options, "STUDIO_LIGHT_FLATSHADE" );
 	}
 
-	if( tr.fogEnabled )
+	if( tr.fogEnabled && !fullbright ) // diffusion - added !fullbright because additive models looked bad
 		GL_AddShaderDirective( options, "STUDIO_FOG_EXP" );
 
 	glsl_program_t *shader = GL_FindUberShader( glname, options, &GL_InitSolidStudioUniforms );
@@ -1471,7 +1483,7 @@ word GL_UberShaderForSolidStudio( mstudiomaterial_t *mat, bool vertex_lighting, 
 
 word GL_UberShaderForDlightStudio( const plight_t *pl, struct mstudiomat_s *mat, bool bone_weighting, int numbones )
 {
-	bool shadows = (!pl->pointlight && !FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
+	bool shadows = (!FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
 	char glname[64];
 	char options[MAX_OPTIONS_LENGTH];
 
@@ -1480,8 +1492,8 @@ word GL_UberShaderForDlightStudio( const plight_t *pl, struct mstudiomat_s *mat,
 
 	if( pl->pointlight )
 	{
-		if( mat->omniLightShaderNum && mat->glsl_sequence_omni == tr.glsl_valid_sequence )
-			return mat->omniLightShaderNum; // valid
+		if( mat->omniLightShaderNum[shadows] && mat->glsl_sequence_omni[shadows] == tr.glsl_valid_sequence )
+			return mat->omniLightShaderNum[shadows]; // valid
 		GL_AddShaderDirective( options, "STUDIO_LIGHT_OMNIDIRECTIONAL" );
 	}
 	else
@@ -1512,7 +1524,7 @@ word GL_UberShaderForDlightStudio( const plight_t *pl, struct mstudiomat_s *mat,
 
 	if( CVAR_TO_BOOL( r_shadows ) && !tr.shadows_notsupport )
 	{
-		if( !pl->pointlight && !FBitSet( pl->flags, CF_NOSHADOWS ))
+		if( !FBitSet( pl->flags, CF_NOSHADOWS ))
 			GL_AddShaderDirective( options, "STUDIO_HAS_SHADOWS" );
 	}
 
@@ -1530,8 +1542,8 @@ word GL_UberShaderForDlightStudio( const plight_t *pl, struct mstudiomat_s *mat,
 
 	if( pl->pointlight )
 	{
-		mat->omniLightShaderNum = shaderNum;
-		mat->glsl_sequence_omni = tr.glsl_valid_sequence;
+		mat->omniLightShaderNum[shadows] = shaderNum;
+		mat->glsl_sequence_omni[shadows] = tr.glsl_valid_sequence;
 	}
 	else
 	{
@@ -1571,12 +1583,12 @@ word GL_UberShaderForStudioDecal( mstudiomaterial_t *mat )
 
 word GL_UberShaderForDlightGeneric( const plight_t *pl )
 {
-	bool shadows = (!pl->pointlight && !FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
+	bool shadows = (!FBitSet( pl->flags, CF_NOSHADOWS )) ? true : false;
 
 	if( pl->pointlight )
 	{
-		if( tr.omniLightShaderNum && tr.glsl_sequence_omni == tr.glsl_valid_sequence )
-			return tr.omniLightShaderNum; // valid
+		if( tr.omniLightShaderNum && tr.glsl_sequence_omni[shadows] == tr.glsl_valid_sequence )
+			return tr.omniLightShaderNum[shadows]; // valid
 	}
 	else
 	{
@@ -1614,8 +1626,8 @@ word GL_UberShaderForDlightGeneric( const plight_t *pl )
 
 	if( pl->pointlight )
 	{
-		tr.omniLightShaderNum = shaderNum;
-		tr.glsl_sequence_omni = tr.glsl_valid_sequence;
+		tr.omniLightShaderNum[shadows] = shaderNum;
+		tr.glsl_sequence_omni[shadows] = tr.glsl_valid_sequence;
 	}
 	else
 	{

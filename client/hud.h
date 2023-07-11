@@ -111,6 +111,7 @@ public:
 	int MsgFunc_ItemPickup( const char *pszName, int iSize, void *pbuf );
 	int MsgFunc_HideWeapon( const char *pszName, int iSize, void *pbuf );
 	int MsgFunc_AmmoX( const char *pszName, int iSize, void *pbuf );
+	int iId; // weapon id!
 
 	void SlotInput( int iSlot );
 	void _cdecl UserCmd_Slot1( void );
@@ -126,11 +127,14 @@ public:
 	void _cdecl UserCmd_Close( void );
 	void _cdecl UserCmd_NextWeapon( void );
 	void _cdecl UserCmd_PrevWeapon( void );
+
+	WEAPON	*m_pWeapon;
 private:
 	float	m_fFade;
-	WEAPON	*m_pWeapon;
+	
 	int	m_HUD_bucket0;
 	int	m_HUD_selection;
+	int m_HUD_divider;
 
 };
 

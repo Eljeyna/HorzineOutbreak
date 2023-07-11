@@ -1,5 +1,5 @@
 /*
-r_surf.cpp - dynamic and static lights
+r_light.cpp - dynamic and static lights
 Copyright (C) 2011 Uncle Mike
 
 This program is free software: you can redistribute it and/or modify
@@ -54,7 +54,9 @@ plight_t *CL_AllocPlight( int key )
 	int i;
 
 	// first look for an exact key match
-	if( key )
+	// diffusion - this bugs the lights as multiple different lights can be assigned to the same key (like flashlight and muzzleflash)
+	// so only use this when game paused
+	if( key && (tr.time == tr.oldtime) )
 	{
 		for( i = 0, pl = cl_plights; i < MAX_USER_PLIGHTS; i++, pl++ )
 		{
@@ -88,10 +90,7 @@ plight_t *CL_AllocPlight( int key )
 
 /*
 ================
-R_SetupLightProjection
-
-General setup light projections.
-Calling only once per frame
+R_GetLightVectors
 ================
 */
 void R_GetLightVectors( cl_entity_t *pEnt, Vector &origin, Vector &angles )
@@ -108,12 +107,11 @@ void R_GetLightVectors( cl_entity_t *pEnt, Vector &origin, Vector &angles )
 
 		if( pParent && pParent->model && pStudioHeader != NULL )
 		{
-			// make sure what model really has attachements
+			// make sure that model really has attachements
 			if( pEnt->curstate.body > 0 && ( pStudioHeader && pStudioHeader->numattachments > 0 ))
 			{
 				int num = bound( 1, pEnt->curstate.body, MAXSTUDIOATTACHMENTS );
 				R_StudioAttachmentTransform( pParent, num - 1, &origin, &angles );
-//				angles[PITCH] = -angles[PITCH]; // stupid quake bug
 			}
 			else if( pParent->curstate.movetype == MOVETYPE_STEP )
 			{
@@ -149,13 +147,16 @@ Calling only once per frame
 */
 void R_SetupLightProjection( plight_t *pl, const Vector &origin, const Vector &angles, float radius, float fov )
 {
+	if( pl->brightness == 0 )
+		pl->brightness = 1; // diffusion - set default
+	
 	if( pl->origin != origin || pl->angles != angles || pl->fov != fov || pl->radius != radius )
 	{
 		pl->origin = origin;
 		pl->angles = angles;
 		pl->radius = radius;
-		pl->update = true;
 		pl->fov = fov;
+		pl->update = true;
 	}
 
 	// update the frustum only if needs
@@ -163,11 +164,11 @@ void R_SetupLightProjection( plight_t *pl, const Vector &origin, const Vector &a
 	{
 		if( pl->pointlight )
 		{
-			// 'quake oriented' cubemaps probably starts from Tenebrae
-			// may be it was an optimization?
-			pl->modelviewMatrix.Identity();
-//			pl->modelviewMatrix.CreateModelview();
+			pl->modelviewMatrix.CreateModelview();
+			pl->viewMatrix = matrix4x4( pl->origin, g_vecZero );
 			pl->projectionMatrix.CreateProjection( 90.0f, 90.0f, Z_NEAR_LIGHT, pl->radius );
+
+			pl->modelviewMatrix.ConcatTranslate( -pl->origin.x, -pl->origin.y, -pl->origin.z );
 
 			pl->frustum.InitBoxFrustum( pl->origin, pl->radius );
 			pl->frustum.ComputeFrustumBounds( pl->absmin, pl->absmax );
@@ -178,33 +179,38 @@ void R_SetupLightProjection( plight_t *pl, const Vector &origin, const Vector &a
 
 			// BUGBUG: we use 5:4 aspect not an 4:3 
 			if( pl->flags & CF_ASPECT3X4 )
-				fov_y = pl->fov * (5.0f / 4.0f); 
+				fov_y = pl->fov * (5.0f / 4.0f);
 			else if( pl->flags & CF_ASPECT4X3 )
 				fov_y = pl->fov * (4.0f / 5.0f);
-			else fov_y = pl->fov;
+			else
+				fov_y = pl->fov;
 
 			// e.g. for fake cinema projectors
-			if( FBitSet( pl->flags, CF_FLIPTEXTURE ))
+			if( FBitSet( pl->flags, CF_FLIPTEXTURE ) )
 				fov_x = -pl->fov;
 			else fov_x = pl->fov;
 
 			pl->projectionMatrix.CreateProjection( fov_x, fov_y, Z_NEAR_LIGHT, pl->radius );
 			pl->modelviewMatrix.CreateModelview(); // init quake world orientation
-			pl->frustum.InitProjection( matrix4x4( pl->origin, pl->angles ), Z_NEAR_LIGHT, pl->radius, pl->fov, fov_y );
+
+			pl->viewMatrix = matrix4x4( pl->origin, pl->angles );
+
+			// transform projector by position and angles
+			pl->modelviewMatrix.ConcatRotate( -pl->angles.z, 1, 0, 0 );
+			pl->modelviewMatrix.ConcatRotate( -pl->angles.x, 0, 1, 0 );
+			pl->modelviewMatrix.ConcatRotate( -pl->angles.y, 0, 0, 1 );
+			pl->modelviewMatrix.ConcatTranslate( -pl->origin.x, -pl->origin.y, -pl->origin.z );
+
+			pl->frustum.InitProjection( pl->viewMatrix, Z_NEAR_LIGHT, pl->radius, pl->fov, fov_y );
 			pl->frustum.ComputeFrustumBounds( pl->absmin, pl->absmax );
-			pl->frustum.DisablePlane( FRUSTUM_FAR ); // only use plane.normal
+			//	pl->frustum.DisablePlane( FRUSTUM_FAR ); // only use plane.normal // diffusion - this adds too many surfaces. why is it needed?
 		}
 
-		// transform projector by position and angles
-		pl->modelviewMatrix.ConcatRotate( -pl->angles.z, 1, 0, 0 );
-		pl->modelviewMatrix.ConcatRotate( -pl->angles.x, 0, 1, 0 );
-		pl->modelviewMatrix.ConcatRotate( -pl->angles.y, 0, 0, 1 );
-		pl->modelviewMatrix.ConcatTranslate( -pl->origin.x, -pl->origin.y, -pl->origin.z );
-
-		matrix4x4 projectionView, m1, s1;
+		matrix4x4 projectionView;//, m1, s1;
 
 		projectionView = pl->projectionMatrix.Concat( pl->modelviewMatrix );
 		pl->lightviewProjMatrix = projectionView;
+
 		pl->update = false;
 	}
 }
@@ -223,21 +229,20 @@ void R_SetupLightProjectionTexture( plight_t *pl, cl_entity_t *pEnt )
 	{
 		if( !pl->projectionTexture )
 		{
-			const char *txname = gRenderfuncs.GetFileByIndex( pEnt->curstate.sequence );
+			const char* txname = gRenderfuncs.GetFileByIndex(pEnt->curstate.sequence);
 
 			if( txname && *txname )
 			{
 				const char *ext = UTIL_FileExtension( txname );
 
 				if( !Q_stricmp( ext, "dds" ) || !Q_stricmp( ext, "tga" ) || !Q_stricmp( ext, "mip" ))
-				{
-					pl->projectionTexture = LOAD_TEXTURE( txname, NULL, 0, TF_SPOTLIGHT );
-				}
+					pl->projectionTexture = LOAD_TEXTURE(txname, NULL, 0, TF_SPOTLIGHT);
 			}
 
 			if( !pl->projectionTexture )
 			{
 				ALERT( at_error, "couldn't find texture %s\n", txname );
+				gEngfuncs.Con_NPrintf(1, "%i\n", pEnt->curstate.sequence);
 				pl->projectionTexture = tr.spotlightTexture;
 			}
 		}
@@ -327,15 +332,15 @@ void R_SetupLightProjectionTexture( plight_t *pl, cl_entity_t *pEnt )
 ================
 R_SetupLightAttenuationTexture
 
-select the properly attenuation
+select the proper attenuation
 ================
 */
 void R_SetupLightAttenuationTexture( plight_t *pl, int falloff )
-{
+{	
 	if( pl->flags & CF_NOATTEN )
 	{
 		// NOTE: we can't use shadows for projectors without stub texture:
-		// because PCF shader expected it from us
+		// because PCF shader expects it from us
 		pl->lightFalloff = -1.0f; // we save branches in shader...
 		return;
 	}
@@ -349,17 +354,11 @@ void R_SetupLightAttenuationTexture( plight_t *pl, int falloff )
 	if( falloff <= 0 )
 	{
 		if( pl->radius <= 300 )
-		{
 			pl->lightFalloff = 3.5f;
-		}
 		else if( pl->radius > 300 && pl->radius <= 800 )
-		{
 			pl->lightFalloff = 1.5f;
-		}
 		else if( pl->radius > 800 )
-		{
 			pl->lightFalloff = 0.5f;
-		}
 	}
 	else
 	{
@@ -414,7 +413,7 @@ int R_CountPlights( bool countShadowLights )
 		return 0;
 
 	if( !worldmodel->lightdata || r_fullbright->value )
-		return numPlights;
+		return 0;
 
 	for( int i = 0; i < MAX_PLIGHTS; i++ )
 	{
@@ -423,13 +422,12 @@ int R_CountPlights( bool countShadowLights )
 		if( pl->die < tr.time || !pl->radius || pl->culled )
 			continue;
 
-		// TODO: allow shadows for pointlights
-		if(( pl->pointlight || FBitSet( pl->flags, CF_NOSHADOWS )) && countShadowLights )
+		if( (FBitSet( pl->flags, CF_NOSHADOWS )) && countShadowLights )
 			continue;
 
 		numPlights++;
 	}
-
+	
 	return numPlights;
 }
 
@@ -445,15 +443,16 @@ void R_PushDlights( void )
 	Vector	bbox[8];
 	plight_t	*pl;
 	dlight_t	*dl;
+	int lnum;
 
-	for( int lnum = 0; lnum < MAX_DLIGHTS; lnum++ )
+	for( lnum = 0; lnum < MAX_DLIGHTS; lnum++ )
 	{
 		dl = GET_DYNAMIC_LIGHT( lnum );
 		pl = &cl_plights[MAX_USER_PLIGHTS+lnum];
-
-		// NOTE: here we copies dlight settings 'as-is'
+		
+		// NOTE: here we copy dlight settings 'as-is'
 		// without reallocating by key because key may
-		// be set indirectly without call CL_AllocDlight
+		// be set indirectly without calling CL_AllocDlight
 		if( dl->die < tr.time || !dl->radius )
 		{
 			// light is expired. Clear it
@@ -488,7 +487,8 @@ void R_PushDlights( void )
 		// compute scissor by real frustum corners to get more precision
 		if( !R_ScissorForCorners( bbox, &pl->x, &pl->y, &pl->w, &pl->h ))
 			pl->culled = true;	// light was culled by scissor
-		else r_stats.c_plights++;
+		else
+			r_stats.c_plights++;
 	}
 }
 

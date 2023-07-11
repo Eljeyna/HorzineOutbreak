@@ -445,6 +445,7 @@ public:
 	virtual BOOL	IsMover( void ) { return FALSE; }
 	virtual BOOL	IsBreakable( void ) { return FALSE; }
 	virtual const char	*TeamID( void ) { return ""; }
+	virtual bool HasSpawnFlags(int nFlags) const;
 
 	virtual CBaseEntity *GetNextTarget( void );
 
@@ -1137,3 +1138,8 @@ public:
 };
 
 extern CBaseEntity *g_pWorld;
+
+inline bool CBaseEntity::HasSpawnFlags(int nFlags) const
+{
+	return (pev->spawnflags & nFlags) != 0;
+}

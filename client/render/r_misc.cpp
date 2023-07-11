@@ -25,6 +25,7 @@ GNU General Public License for more details.
 #include "r_shader.h"
 #include "r_view.h"
 #include "r_world.h"
+#include "ammo.h"
 
 #define DEFAULT_SMOOTHNESS	0.35f
 #define FILTER_SIZE		2
@@ -36,49 +37,144 @@ HUD_UpdateFlashlight
 update client flashlight
 ================
 */
-void HUD_UpdateFlashlight( cl_entity_t *pEnt )
+//===============================================================
+// Flashlight: players' and monsters' flashlight management
+//===============================================================
+void SetupFlashlight( cl_entity_t *pEnt )
 {
-	Vector	v_angles, forward, right, up;
-	Vector	v_origin, view_ofs;
+	Vector v_origin, v_angles;
+	Vector forward, right, up;
+	int FlashlightFOV = 65;
+	int FlashlightRadius = 600;
+	static int FlashlightTexture = LOAD_TEXTURE( "gfx/flashlight.dds", NULL, 0, TF_SPOTLIGHT );
 
-	if( UTIL_IsLocal( pEnt->index ))
+	// do not multiply flashlights if game is paused
+	if( tr.time == tr.oldtime )
+		return;
+
+	plight_t *pl = CL_AllocPlight( pEnt->index );
+	pl->brightness = 1.25;
+	if( r_shadowquality->value < 1 ) // shadows on very low, disable
+		pl->flags |= CF_NOSHADOWS;
+
+	if( UTIL_IsLocal( pEnt->index ) ) // local player
 	{
 		gEngfuncs.GetViewAngles( v_angles );
+		gEngfuncs.pfnAngleVectors( v_angles, tr.viewparams.forward, tr.viewparams.right, tr.viewparams.up );
+		v_origin = gEngfuncs.GetLocalPlayer()->origin;
+		v_origin.z = tr.viewparams.vieworg.z; // this coord seems to be falling behind a couple of frames, but it looks better when crouching
+		v_origin -= tr.viewparams.forward * 15; // move plight behind player's back so the shadows would move when rotating mouse
+		v_origin.z -= 6; // drop down plight to have longer shadows
+		FlashlightFOV = 50;
 
-		// player seen through camera. Restore firstperson view here
-		if( tr.viewparams.viewentity > tr.viewparams.maxclients )
-		{
-			V_CalcFirstPersonRefdef( &tr.viewparams );
-			v_origin = tr.viewparams.vieworg;
-		}
-		else v_origin = pEnt->origin;
-
-		gEngfuncs.pEventAPI->EV_LocalPlayerViewheight( view_ofs );
-		v_origin += view_ofs;
+		// kind of a diffuse light?..
+		plight_t *pld = CL_AllocPlight( 0 );
+		pld->effect = 1;
+		pld->entitynum = pEnt->index;
+		pld->flags |= CF_NOSHADOWS;
+		R_SetupLightProjection( pld, v_origin, v_angles, FlashlightRadius, 110 );
+		R_SetupLightProjectionTexture( pld, pEnt );
+		R_SetupLightAttenuationTexture( pld );
+		pld->color.r = pld->color.g = pld->color.b = 25;
+		pld->die = tr.time; // die at next frame
 	}
-	else
+	else // other players, in multiplayer
 	{
-		// NOTE: pitch divided by 3.0 twice. So we need apply 3^2 = 9
-		v_angles[PITCH] = pEnt->curstate.angles[PITCH] * 9.0f;
-		v_angles[YAW] = pEnt->angles[YAW];
-		v_angles[ROLL] = 0;	// no roll
-		v_origin = pEnt->origin;
-
-		// FIXME: these values are hardcoded ...
-		if( pEnt->curstate.usehull == 1 )
-			v_origin.z += 12.0f;	// VEC_DUCK_VIEW;
-		else v_origin.z += 28.0f;		// DEFAULT_VIEWHEIGHT
+		v_angles = pEnt->angles;
+		v_angles.x = -v_angles.x * 3; // ??? stupid quake bug?
+		gEngfuncs.pfnAngleVectors( v_angles, forward, NULL, NULL );
+		v_origin = pEnt->origin - forward * 20;
+		v_origin.z -= 6;
+		FlashlightFOV = 50;
 	}
 
-	plight_t	*pl = CL_AllocPlight( pEnt->curstate.number );
+	// copy the entity number - we don't need light and shadows
+	// for our own player model or weapon from our own flashlight
+	pl->entitynum = pEnt->index;
+	pl->effect = 1; // diffusion - just a flag that this is a flashlight
 
-	pl->die = tr.time + 0.05f; // die at next frame
-	pl->color.r = pl->color.g = pl->color.b = 255;
-	pl->flags = CF_NOSHADOWS;
-
-	R_SetupLightProjectionTexture( pl, pEnt );
-	R_SetupLightProjection( pl, v_origin, v_angles, 768, 50 );
+	pl->projectionTexture = FlashlightTexture;
+	R_SetupLightProjection( pl, v_origin, v_angles, FlashlightRadius, FlashlightFOV );
 	R_SetupLightAttenuationTexture( pl );
+
+	pl->color.r = pl->color.g = pl->color.b = 255;
+	pl->die = tr.time; // die at next frame
+}
+
+void SetupMuzzlelightParams( const struct cl_entity_s *e, Vector origin, int WeaponID )
+{
+	// don't create two lights
+	if( RP_LOCALCLIENT( e ) && !(RI->params & RP_THIRDPERSON) )
+		return;
+	
+	plight_t *dl = CL_AllocPlight( e->index );
+
+	dl->pointlight = true;
+	dl->projectionTexture = tr.dlightCubeTexture;
+//	dl->flags |= CF_NOSHADOWS;
+	
+	// default parameters
+	int R = 255;
+	int G = 204;
+	int B = 0;
+	int Radius = 380;
+	int Brightness = 1.5;
+	float DieTime = 0.05f;
+
+	switch( WeaponID )
+	{
+	case WEAPON_SHOTGUN:
+		Radius = 420;
+		R = 255;
+		G = 204;
+		B = 0;
+		DieTime = 0.075f;
+	break;
+	}
+
+	dl->color.r = R;
+	dl->color.g = G;
+	dl->color.b = B;
+	dl->brightness = Brightness;
+	dl->die = tr.time + DieTime;
+
+	R_SetupLightProjection( dl, origin, g_vecZero, Radius, 90.0f );
+	R_SetupLightAttenuationTexture( dl );
+}
+
+float R_FadeLight( cl_entity_t *e )
+{
+	float blend = 1.0f;
+	
+	// fade distance is not set in the light
+	if( e->curstate.iuser4 <= 0 )
+		return blend;
+
+	Vector EntOrigin = e->curstate.origin;
+
+	// calculate new, increased fade distance if we are zoomed
+	// for FOV above 70 it is assumed that distance remains unchanged
+	float FOVfactor = bound( 30, RI->fov_x, 70) / 70;
+	int FadeDistance = e->curstate.iuser4 * (1 / FOVfactor);
+	
+	// FIXME: entities in monitor/portal view are not counted
+	Vector ViewOrigin = tr.viewparams.vieworg;
+
+	// player within range, no need to fade
+	if( (ViewOrigin - EntOrigin).Length() <= FadeDistance )
+		return blend;
+
+	int EntRenderAmt = e->baseline.renderamt;
+
+	// if the distance from model origin and the player exceeds desired fade distance, start fading
+	if( (int)(ViewOrigin - EntOrigin).Length() > FadeDistance )
+		e->curstate.renderamt = EntRenderAmt - ( (int)(ViewOrigin - EntOrigin).Length() - FadeDistance );
+
+	e->curstate.renderamt = bound( 0, e->curstate.renderamt, 255);
+
+	blend = e->curstate.renderamt / 255.0f;
+
+	return blend;
 }
 
 /*
@@ -116,21 +212,14 @@ int HUD_AddEntity( int type, struct cl_entity_s *ent, const char *modelname )
 		// add in muzzleflash effect
 		if( ent->curstate.effects & EF_MUZZLEFLASH )
 		{
-			if( ent == gEngfuncs.GetViewModel( ))
-				ent->curstate.effects &= ~EF_MUZZLEFLASH;
-
-			// make sure what attachment is valid
-			if( ent->origin != ent->attachment[0] )
-                    	{
-				dlight_t *dl = gEngfuncs.pEfxAPI->CL_AllocElight( 0 );
-
-				dl->origin = ent->attachment[0];
-				dl->die = gEngfuncs.GetClientTime() + 0.05f;
-				dl->color.r = 255;
-				dl->color.g = 180;
-				dl->color.b = 64;
-				dl->radius = 100;
-			}
+			// FIXME this should be somehow done in 5001 event
+			// generic muzzle light (monster, and other players)
+			Vector Forward;
+			gEngfuncs.pfnAngleVectors( ent->angles, Forward, NULL, NULL );
+			Vector org = ent->origin + Vector( 0, 0, 50 ) + Forward * 40; // HACKHACK
+			SetupMuzzlelightParams( ent, org, -1 );
+			
+			ent->curstate.effects &= ~EF_MUZZLEFLASH;
 		}
 
 		// add light effect
@@ -138,7 +227,7 @@ int HUD_AddEntity( int type, struct cl_entity_s *ent, const char *modelname )
 		{
 			dlight_t	*dl = gEngfuncs.pEfxAPI->CL_AllocDlight( ent->curstate.number );
 			dl->origin = ent->origin;
-			dl->die = gEngfuncs.GetClientTime();	// die at next frame
+			dl->die = tr.time;	// die at next frame
 			dl->color.r = 100;
 			dl->color.g = 100;
 			dl->color.b = 100;
@@ -151,13 +240,13 @@ int HUD_AddEntity( int type, struct cl_entity_s *ent, const char *modelname )
 		{
 			if( type == ET_PLAYER )
 			{
-				HUD_UpdateFlashlight( ent );
+				SetupFlashlight( ent );
 			}
 			else
 			{
 				dlight_t	*dl = gEngfuncs.pEfxAPI->CL_AllocDlight( ent->curstate.number );
 				dl->origin = ent->origin;
-				dl->die = gEngfuncs.GetClientTime();	// die at next frame
+				dl->die = tr.time;	// die at next frame
 				dl->color.r = 255;
 				dl->color.g = 255;
 				dl->color.b = 255;
@@ -170,7 +259,7 @@ int HUD_AddEntity( int type, struct cl_entity_s *ent, const char *modelname )
 			dlight_t	*dl = gEngfuncs.pEfxAPI->CL_AllocDlight( 0 );
 			dl->origin = ent->origin;
 			dl->origin.z += 16;
-			dl->die = gEngfuncs.GetClientTime() + 0.001f; // die at next frame
+			dl->die = tr.time; // die at next frame
 			dl->color.r = 255;
 			dl->color.g = 255;
 			dl->color.b = 255;
@@ -180,102 +269,117 @@ int HUD_AddEntity( int type, struct cl_entity_s *ent, const char *modelname )
 			else dl->radius = gEngfuncs.pfnRandomLong( 400, 430 );
 		}
 
+		// diffusion - fade light special for KorteZZ :)
+		float DistanceFade = 1.0f;
+
+		if( (ent->curstate.effects & EF_PROJECTED_LIGHT) || (ent->curstate.effects & EF_DYNAMIC_LIGHT) )
+			DistanceFade = R_FadeLight( ent );
+
 		// projected light can be attached like as normal dlight
 		if( ent->curstate.effects & EF_PROJECTED_LIGHT )
 		{
-			plight_t	*pl = CL_AllocPlight( ent->curstate.number );
-			float factor = 1.0f;
-
-			if( ent->curstate.renderfx )
+			if( DistanceFade > 0 )
 			{
-				factor = tr.lightstylevalue[ent->curstate.renderfx] * (1.0f/255.0f);
-				factor = bound( 0.0f, factor, 1.0f );
+				plight_t* pl = CL_AllocPlight( ent->index );
+				float factor = 1.0f;
+
+				if( ent->curstate.renderfx )
+				{
+					factor = tr.lightstylevalue[ent->curstate.renderfx] * (1.0f / 255.0f);
+					factor = bound( 0.0f, factor, 1.0f );
+				}
+
+				if( ent->curstate.rendercolor.r == 0 && ent->curstate.rendercolor.g == 0 && ent->curstate.rendercolor.b == 0 )
+					pl->color.r = pl->color.g = pl->color.b = 255;
+				else
+				{
+					pl->color.r = ent->curstate.rendercolor.r;
+					pl->color.g = ent->curstate.rendercolor.g;
+					pl->color.b = ent->curstate.rendercolor.b;
+				}
+
+				pl->color.r *= factor;
+				pl->color.g *= factor;
+				pl->color.b *= factor;
+
+				float radius = ent->curstate.scale ? (ent->curstate.scale * 8.0f) : 500; // default light radius
+				float fov = ent->curstate.iuser2 ? ent->curstate.iuser2 : 50;
+				pl->die = tr.time; // die at next frame
+				pl->flags = ent->curstate.iuser1;
+				pl->brightness = ent->curstate.fuser1;
+
+				Vector origin, angles;
+
+				R_GetLightVectors( ent, origin, angles );
+				R_SetupLightProjectionTexture( pl, ent );
+				R_SetupLightProjection( pl, origin, angles, radius, fov );
+				R_SetupLightAttenuationTexture( pl, ent->curstate.renderamt );
+				pl->brightness *= DistanceFade;
 			}
-
-			if( ent->curstate.rendercolor.r == 0 && ent->curstate.rendercolor.g == 0 && ent->curstate.rendercolor.b == 0 )
-			{
-				pl->color.r = pl->color.g = pl->color.b = 255;
-			}
-			else
-			{
-				pl->color.r = ent->curstate.rendercolor.r;
-				pl->color.g = ent->curstate.rendercolor.g;
-				pl->color.b = ent->curstate.rendercolor.b;
-			}
-
-			pl->color.r *= factor;
-			pl->color.g *= factor;
-			pl->color.b *= factor;
-
-			float radius = ent->curstate.scale ? (ent->curstate.scale * 8.0f) : 500; // default light radius
-			float fov = ent->curstate.iuser2 ? ent->curstate.iuser2 : 50;
-			pl->die = gEngfuncs.GetClientTime() + 0.05f; // die at next frame
-			pl->flags = ent->curstate.iuser1;
-			Vector origin, angles;
-
-			R_GetLightVectors( ent, origin, angles );
-			R_SetupLightProjectionTexture( pl, ent );
-			R_SetupLightProjection( pl, origin, angles, radius, fov );
-			R_SetupLightAttenuationTexture( pl, ent->curstate.renderamt );
 		}
 
-		// dynamic light can be attached like as normal dlight
+		// dynamic light can be attached like normal dlight
 		if( ent->curstate.effects & EF_DYNAMIC_LIGHT )
 		{
-			plight_t	*pl = CL_AllocPlight( ent->curstate.number );
-			float factor = 1.0f;
-
-			if( ent->curstate.renderfx )
+			if( DistanceFade > 0 )
 			{
-				factor = tr.lightstylevalue[ent->curstate.renderfx] * (1.0f/255.0f);
-				factor = bound( 0.0f, factor, 1.0f );
-			}
+				plight_t* pl = CL_AllocPlight( ent->index );
+				float factor = 1.0f;
 
-			if( ent->curstate.rendercolor.r == 0 && ent->curstate.rendercolor.g == 0 && ent->curstate.rendercolor.b == 0 )
-			{
-				pl->color.r = pl->color.g = pl->color.b = 255;
-			}
-			else
-			{
-				pl->color.r = ent->curstate.rendercolor.r;
-				pl->color.g = ent->curstate.rendercolor.g;
-				pl->color.b = ent->curstate.rendercolor.b;
-			}
+				if( ent->curstate.renderfx )
+				{
+					factor = tr.lightstylevalue[ent->curstate.renderfx] * (1.0f / 255.0f);
+					factor = bound( 0.0f, factor, 1.0f );
+				}
 
-			pl->color.r *= factor;
-			pl->color.g *= factor;
-			pl->color.b *= factor;
+				if( ent->curstate.rendercolor.r == 0 && ent->curstate.rendercolor.g == 0 && ent->curstate.rendercolor.b == 0 )
+				{
+					pl->color.r = pl->color.g = pl->color.b = 255;
+				}
+				else
+				{
+					pl->color.r = ent->curstate.rendercolor.r;
+					pl->color.g = ent->curstate.rendercolor.g;
+					pl->color.b = ent->curstate.rendercolor.b;
+				}
 
-			float radius = ent->curstate.scale ? (ent->curstate.scale * 8.0f) : 300; // default light radius
-			pl->die = gEngfuncs.GetClientTime() + 0.05f; // die at next frame
-			pl->flags = ent->curstate.iuser1;
-			pl->projectionTexture = tr.dlightCubeTexture;
-			pl->pointlight = true;
-			Vector origin, angles;
+				pl->color.r *= factor;
+				pl->color.g *= factor;
+				pl->color.b *= factor;
 
-			R_GetLightVectors( ent, origin, angles );
+				pl->brightness = ent->curstate.fuser1;
 
-			if( pl->flags & CF_NOLIGHT_IN_SOLID )
-			{
-				pmtrace_t	tr;
+				float radius = ent->curstate.scale ? (ent->curstate.scale * 8.0f) : 300; // default light radius
+				pl->die = tr.time; // die at next frame
+				pl->flags = ent->curstate.iuser1;
+				pl->projectionTexture = tr.dlightCubeTexture;
+				pl->pointlight = true;
 
-				// test the lights who stuck in the solid geometry
-				gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
-				gEngfuncs.pEventAPI->EV_PlayerTrace( origin, origin, PM_STUDIO_IGNORE, -1, &tr );
+				Vector origin, angles;
 
-				// an experimental feature for point lights
-				if( tr.allsolid ) radius = 0.0f;
-			}
+				origin = ent->origin;
 
-			if( radius != 0.0f )
-			{
-				R_SetupLightProjection( pl, origin, angles, radius, 90.0f );
-				R_SetupLightAttenuationTexture( pl );
-			}
-			else
-			{
-				// light in solid
-				pl->radius = 0.0f;
+				if( pl->flags & CF_NOLIGHT_IN_SOLID )
+				{
+					pmtrace_t	tr;
+
+					// test the lights who stuck in the solid geometry
+					gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
+					gEngfuncs.pEventAPI->EV_PlayerTrace( origin, origin, PM_STUDIO_IGNORE, -1, &tr );
+
+					// an experimental feature for point lights
+					if( tr.allsolid ) radius = 0.0f;
+				}
+
+				if( radius != 0.0f )
+				{
+					// diffusion - pointlight doesn't need angles
+					R_SetupLightProjection( pl, origin, g_vecZero, radius, 90.0f );
+					R_SetupLightAttenuationTexture( pl );
+					pl->brightness *= DistanceFade;
+				}
+				else 
+					pl->radius = 0.0f; // light in solid
 			}
 		}
 
@@ -310,7 +414,7 @@ int HUD_AddEntity( int type, struct cl_entity_s *ent, const char *modelname )
 				if( ent->curstate.rendermode != kRenderNormal )
 					dl->radius = max( 0, ent->curstate.renderamt - 55 );
 				else dl->radius = 200;
-				dl->die = gEngfuncs.GetClientTime() + 0.01;
+				dl->die = tr.time;
 
 				gEngfuncs.pEfxAPI->R_RocketTrail( ent->prevstate.origin, ent->curstate.origin, 0 );
 			}
@@ -535,6 +639,75 @@ void HUD_EjectShell( const struct mstudioevent_s *event, const struct cl_entity_
 	gEngfuncs.pEfxAPI->R_TempModel( ShellOrigin, ShellVelocity, angles, RANDOM_LONG( 5, 10 ), shell, TE_BOUNCE_SHELL );
 }
 
+void R_MuzzleDynLight( const struct cl_entity_s *entity, int Attachment, int WeaponID )
+{
+	if( !entity )
+		return;
+	
+	SetupMuzzlelightParams( entity, entity->attachment[Attachment], WeaponID );
+}
+
+void R_MuzzleFlash( const cl_entity_t *e, int Attachment, int type )
+{
+	TEMPENTITY *pTemp;
+	int modelIndex;
+	int	flags = 0;
+	float scale;
+	int Aiment = e->index;
+
+	if( RP_NORMALPASS() )
+	{
+		if( e == GET_VIEWMODEL() )
+		{
+			flags |= EF_NOREFLECT;
+			Aiment = -1; // diffusion HACKHACK - so the muzzleflash for viewmodel would be recognized properly
+		}
+		else if( RP_LOCALCLIENT( e ) )
+			flags |= EF_REFLECTONLY;
+	}
+	else
+	{
+		if( RP_LOCALCLIENT( e ) )
+			flags |= EF_REFLECTONLY;
+	}
+
+	type = (type % 10) % 3;
+
+	switch( type )
+	{
+	case 0: modelIndex = gEngfuncs.pEventAPI->EV_FindModelIndex("sprites/muzzleflash1.spr"); break;
+	case 1: modelIndex = gEngfuncs.pEventAPI->EV_FindModelIndex("sprites/muzzleflash2.spr"); break;
+	case 2: modelIndex = gEngfuncs.pEventAPI->EV_FindModelIndex("sprites/muzzleflash3.spr"); break;
+	}
+
+	if( !modelIndex ) return;
+
+	scale = (type / 10) * 0.1f;
+	if( scale == 0.0f ) scale = 0.5f;
+
+	// must set position for right culling on render
+	if( !(pTemp = gEngfuncs.pEfxAPI->CL_TempEntAllocHigh( (float *)&e->attachment[Attachment], IEngineStudio.GetModelByIndex( modelIndex ) )) )
+		return;
+
+	pTemp->flags |= FTENT_SPRANIMATE | FTENT_SPRANIMATELOOP;
+	pTemp->entity.curstate.rendermode = kRenderGlow;
+	pTemp->entity.curstate.renderamt = 255;
+	pTemp->entity.curstate.framerate = 10;
+	pTemp->entity.curstate.renderfx = kRenderFxNoDissipation;
+	pTemp->die = tr.time + 0.05f; // die at next frame
+//	pTemp->entity.curstate.frame = RANDOM_LONG( 0, pTemp->frameMax );
+	pTemp->entity.angles[2] = RANDOM_LONG( 0, 359 );
+	pTemp->entity.curstate.scale = scale;
+
+	// muzzleflash must be properly attached to the model, for viewmodel I use hack "-1 for aiment"
+	pTemp->entity.curstate.aiment = Aiment;
+	pTemp->entity.curstate.movetype = MOVETYPE_FOLLOW;
+	pTemp->entity.curstate.body = Attachment + 1;
+
+	gEngfuncs.CL_CreateVisibleEntity( ET_TEMPENTITY, &pTemp->entity );
+	pTemp->entity.curstate.effects |= EF_FULLBRIGHT | flags; // CL_CreateVisibleEntity clears 'effects' field, so we need to add it here
+}
+
 /*
 =========================
 HUD_StudioEvent
@@ -545,19 +718,29 @@ fired during this frame, handle the event by it's tag ( e.g., muzzleflash, sound
 */
 void HUD_StudioEvent( const struct mstudioevent_s *event, const struct cl_entity_s *entity )
 {
+	// Aynekko: muzzleflash light now depends on eqipped weapon
+	// for monsters and other players the light will be default!
+	int WeaponID = 0;
+	if( entity == GET_VIEWMODEL() )
+		WeaponID = gHUD.m_Ammo.m_pWeapon->iId;
+	
 	switch( event->event )
 	{
 	case 5001:
-		gEngfuncs.pEfxAPI->R_MuzzleFlash( (float *)&entity->attachment[0], Q_atoi( event->options ));
+		R_MuzzleFlash( entity, 0, atoi( event->options ));
+		R_MuzzleDynLight( entity, 0, WeaponID );
 		break;
 	case 5011:
-		gEngfuncs.pEfxAPI->R_MuzzleFlash( (float *)&entity->attachment[1], Q_atoi( event->options ));
+		R_MuzzleFlash( entity, 1, atoi( event->options ) );
+		R_MuzzleDynLight( entity, 1, WeaponID );
 		break;
 	case 5021:
-		gEngfuncs.pEfxAPI->R_MuzzleFlash( (float *)&entity->attachment[2], Q_atoi( event->options ));
+		R_MuzzleFlash( entity, 2, atoi( event->options ) );
+		R_MuzzleDynLight( entity, 2, WeaponID );
 		break;
 	case 5031:
-		gEngfuncs.pEfxAPI->R_MuzzleFlash( (float *)&entity->attachment[3], Q_atoi( event->options ));
+		R_MuzzleFlash( entity, 3, atoi( event->options ) );
+		R_MuzzleDynLight( entity, 3, WeaponID );
 		break;
 	case 5002:
 		gEngfuncs.pEfxAPI->R_SparkEffect( (float *)&entity->attachment[0], Q_atoi( event->options ), -100, 100 );
@@ -1162,6 +1345,12 @@ void R_VidInit( void )
 		FREE_TEXTURE( tr.shadowTextures[i] );
 	}
 
+	for( i = 0; i < MAX_SHADOWS; i++ )
+	{
+		if( !tr.shadowCubemaps[i] ) break;
+		FREE_TEXTURE( tr.shadowCubemaps[i] );
+	}
+
 	for( i = 0; i < tr.num_framebuffers; i++ )
 	{
 		if( !tr.frame_buffers[i].init ) break;
@@ -1170,6 +1359,7 @@ void R_VidInit( void )
 
 	memset( tr.subviewTextures, 0, sizeof( tr.subviewTextures ));
 	memset( tr.shadowTextures, 0, sizeof( tr.shadowTextures ));
+	memset( tr.shadowCubemaps, 0, sizeof( tr.shadowCubemaps ) );
 	memset( tr.frame_buffers, 0, sizeof( tr.frame_buffers ));
 
 	tr.num_framebuffers = 0;

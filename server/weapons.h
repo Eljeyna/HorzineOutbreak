@@ -113,7 +113,7 @@ public:
 // weapon clip/carry ammo capacities
 #define FUEL_MAX_CARRY		500
 #define URANIUM_MAX_CARRY		100
-#define	_9MM_MAX_CARRY			240
+#define	_9MM_MAX_CARRY			240 //240
 #define _556_MAX_CARRY			400
 #define _357_MAX_CARRY			70
 #define BUCKSHOT_MAX_CARRY		48

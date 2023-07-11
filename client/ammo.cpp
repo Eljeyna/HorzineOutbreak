@@ -292,6 +292,7 @@ int CHudAmmo::VidInit( void )
 	// Load sprites for buckets (top row of weapon menu)
 	m_HUD_bucket0 = gHUD.GetSpriteIndex( "bucket1" );
 	m_HUD_selection = gHUD.GetSpriteIndex( "selection" );
+	m_HUD_divider = gHUD.GetSpriteIndex( "divider" ); //Diffusion
 
 	ghsprBuckets = gHUD.GetSprite( m_HUD_bucket0 );
 	giBucketWidth = gHUD.GetSpriteRect( m_HUD_bucket0 ).right - gHUD.GetSpriteRect( m_HUD_bucket0 ).left;
@@ -550,7 +551,7 @@ int CHudAmmo::MsgFunc_CurWeapon(const char *pszName, int iSize, void *pbuf )
 
 	int iState = READ_BYTE();
 	//int iState = READ_SHORT();
-	int iId = READ_CHAR();
+	iId = READ_CHAR();
 	int iClip = READ_CHAR();
 
 	// detect if we're also on target
@@ -881,12 +882,15 @@ int CHudAmmo::Draw( float flTime )
 			UnpackRGB( r, g, b, gHUD.m_iHUDColor );
 
 			// draw the | bar
-			FillRGBA( x, y, iBarWidth, gHUD.m_iFontHeight, r, g, b, a );
+			//FillRGBA( x, y, iBarWidth, gHUD.m_iFontHeight, r, g, b, a );
+			ScaleColors( r, g, b, a );
+			SPR_Set( gHUD.GetSprite( m_HUD_divider ), r,g,b );
+			SPR_DrawAdditive( 0, x, y, &gHUD.GetSpriteRect(m_HUD_divider ));
 
 			x += iBarWidth + AmmoWidth / 2;
 
 			// GL Seems to need this
-			ScaleColors( r, g, b, a );
+			//ScaleColors( r, g, b, a );
 			x = gHUD.DrawHudNumber( x, y, iFlags | DHN_3DIGITS, gWR.CountAmmo( pw->iAmmoType ), r, g, b );
 
 

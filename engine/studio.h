@@ -687,10 +687,10 @@ typedef struct mstudiomat_s
 	unsigned short	gl_diffuse_id;		// diffuse texture
 	int		flags;			// mstudiotexture_t->flags
 	unsigned short	shaderNum;		// constantly assigned shader to this surface
-	unsigned short	omniLightShaderNum;		// cached omni light shader for this face
+	unsigned short	omniLightShaderNum[2];		// cached omni light shader for this face
 	unsigned short	projLightShaderNum[2];	// cached proj light shader for this face
 	unsigned short	glsl_sequence;		// cache sequence
-	unsigned short	glsl_sequence_omni;		// same as above but for omnilights
+	unsigned short	glsl_sequence_omni[2];		// same as above but for omnilights
 	unsigned short	glsl_sequence_proj[2];	// same as above but for projlights
 } mstudiomaterial_t;
 

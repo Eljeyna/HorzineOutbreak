@@ -191,6 +191,8 @@ public:
 private:
 	// Local interfaces
 
+	int iPlayerIndex;
+
 	// Extract bbox from current sequence
 	virtual int StudioExtractBbox ( cl_entity_t *e, studiohdr_t *phdr, int sequence, Vector &mins, Vector &maxs );
 

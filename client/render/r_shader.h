@@ -128,6 +128,9 @@ typedef struct glsl_prog_s
 	GLint		u_GrassFadeStart;
 	GLint		u_GrassFadeDist;
 	GLint		u_GrassFadeEnd;
+	GLint		u_DynLightBrightness;
+	GLint		u_MeshScale;
+	GLint		u_MeshAngles;
 } glsl_program_t;
 
 typedef struct

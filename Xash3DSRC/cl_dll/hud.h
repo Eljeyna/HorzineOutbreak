@@ -135,6 +135,7 @@ private:
 	WEAPON *m_pWeapon;
 	int	m_HUD_bucket0;
 	int m_HUD_selection;
+	int m_HUD_divider;
 
 };
 

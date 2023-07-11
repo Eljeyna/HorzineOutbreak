@@ -295,15 +295,9 @@ void R_DrawSkyPortal( cl_entity_t *skyPortal )
 
 	if( skyPortal->curstate.scale )
 	{
-		Vector	centre, diff;
-		float	scale;
-
-		// TODO: use world->mins and world->maxs instead ?
-		centre = (worldmodel->mins + worldmodel->maxs) * 0.5f;
-		scale = skyPortal->curstate.scale / 100.0f;
-		diff = centre - RI->vieworg;
-
-		RI->vieworg = skyPortal->curstate.origin + (-scale * diff);
+		float scale = 1.0f / skyPortal->curstate.scale;
+		RI->vieworg *= scale;
+		RI->vieworg += skyPortal->curstate.origin;
 	}
 	else
 	{

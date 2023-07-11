@@ -22,6 +22,31 @@
 
 #define WEAPON_IS_ONTARGET		0x40
 
+// constant items
+#define ITEM_HEALTHKIT		1
+#define ITEM_ANTIDOTE		2
+#define ITEM_SECURITY		3
+#define ITEM_BATTERY		4
+
+#define WEAPON_NONE				0
+#define WEAPON_CROWBAR			1
+#define WEAPON_AXE				16
+#define WEAPON_CHAINSAW			17
+#define WEAPON_GLOCK			2
+#define WEAPON_PYTHON			3
+#define WEAPON_MP5				4
+#define WEAPON_CYCLER			5
+#define WEAPON_CROSSBOW			6
+#define WEAPON_SHOTGUN			7
+#define WEAPON_RPG				8
+#define WEAPON_GAUSS			9
+#define WEAPON_EGON				10
+#define WEAPON_HORNETGUN		11
+#define WEAPON_HANDGRENADE		12
+#define WEAPON_TRIPMINE			13
+#define WEAPON_SATCHEL			14
+#define WEAPON_SNARK			15
+
 struct WEAPON
 {
 	char	szName[MAX_WEAPON_NAME];

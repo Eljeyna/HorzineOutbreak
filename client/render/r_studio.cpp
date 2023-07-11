@@ -45,7 +45,7 @@ int HUD_GetStudioModelInterface( int version, struct r_studio_interface_s **ppin
 		return 0;
 
 	// Copy in engine helper functions
-	memcpy( &IEngineStudio, pstudio, sizeof( IEngineStudio ));
+	memcpy( &IEngineStudio, pstudio, sizeof( IEngineStudio ) );
 
 	if( g_fRenderInitialized )
 	{
@@ -64,7 +64,7 @@ int HUD_GetStudioModelInterface( int version, struct r_studio_interface_s **ppin
 //	Implementation of bone setup class
 //
 //================================================================================================
-void CBaseBoneSetup :: debugMsg( char *szFmt, ... )
+void CBaseBoneSetup::debugMsg( char *szFmt, ... )
 {
 	char	buffer[2048];	// must support > 1k messages
 	va_list	args;
@@ -79,12 +79,12 @@ void CBaseBoneSetup :: debugMsg( char *szFmt, ... )
 	gEngfuncs.Con_Printf( buffer );
 }
 
-mstudioanim_t *CBaseBoneSetup :: GetAnimSourceData( mstudioseqdesc_t *pseqdesc )
+mstudioanim_t *CBaseBoneSetup::GetAnimSourceData( mstudioseqdesc_t *pseqdesc )
 {
 	return g_StudioRenderer.StudioGetAnim( RI->currentmodel, pseqdesc );
 }
 
-void CBaseBoneSetup :: debugLine( const Vector& origin, const Vector& dest, int r, int g, int b, bool noDepthTest, float duration )
+void CBaseBoneSetup::debugLine( const Vector &origin, const Vector &dest, int r, int g, int b, bool noDepthTest, float duration )
 {
 	if( noDepthTest )
 		pglDisable( GL_DEPTH_TEST );
@@ -92,8 +92,8 @@ void CBaseBoneSetup :: debugLine( const Vector& origin, const Vector& dest, int 
 	pglColor3ub( r, g, b );
 
 	pglBegin( GL_LINES );
-		pglVertex3fv( origin );
-		pglVertex3fv( dest );
+	pglVertex3fv( origin );
+	pglVertex3fv( dest );
 	pglEnd();
 }
 
@@ -103,20 +103,20 @@ Init
 
 ====================
 */
-void CStudioModelRenderer :: Init( void )
+void CStudioModelRenderer::Init( void )
 {
 	// Set up some variables shared with engine
-	m_pCvarHiModels		= IEngineStudio.GetCvar( "cl_himodels" );
-	m_pCvarDrawViewModel	= IEngineStudio.GetCvar( "r_drawviewmodel" );
-	m_pCvarGlowShellFreq	= IEngineStudio.GetCvar( "r_glowshellfreq" );
-	m_pCvarHand		= CVAR_REGISTER( "cl_righthand", "0", FCVAR_ARCHIVE );
-	m_pCvarViewmodelFov		= CVAR_REGISTER( "cl_viewmodel_fov", "90", FCVAR_ARCHIVE );
-	m_pCvarCompatible		= CVAR_REGISTER( "r_studio_compatible", "1", FCVAR_ARCHIVE );
-	m_pCvarLodScale		= CVAR_REGISTER( "cl_lod_scale", "5.0", FCVAR_ARCHIVE );
-	m_pCvarLodBias		= CVAR_REGISTER( "cl_lod_bias", "0", FCVAR_ARCHIVE );
+//	m_pCvarHiModels = IEngineStudio.GetCvar("cl_himodels");
+	m_pCvarDrawViewModel = IEngineStudio.GetCvar( "r_drawviewmodel" );
+	m_pCvarGlowShellFreq = IEngineStudio.GetCvar( "r_glowshellfreq" );
+	m_pCvarHand = CVAR_REGISTER( "cl_righthand", "0", FCVAR_ARCHIVE );
+	m_pCvarViewmodelFov = CVAR_REGISTER( "cl_viewmodel_fov", "90", FCVAR_ARCHIVE );
+	m_pCvarCompatible = CVAR_REGISTER( "r_studio_compatible", "1", FCVAR_ARCHIVE );
+	m_pCvarLodScale = CVAR_REGISTER( "cl_lod_scale", "5.0", FCVAR_ARCHIVE );
+	m_pCvarLodBias = CVAR_REGISTER( "cl_lod_bias", "0", FCVAR_ARCHIVE );
 
-	m_pChromeSprite		= IEngineStudio.GetChromeSprite();
-	m_chromeCount		= 0;
+	m_pChromeSprite = IEngineStudio.GetChromeSprite();
+	m_chromeCount = 0;
 }
 
 /*
@@ -125,7 +125,7 @@ VidInit
 
 ====================
 */
-void CStudioModelRenderer :: VidInit( void )
+void CStudioModelRenderer::VidInit( void )
 {
 }
 
@@ -135,19 +135,19 @@ CStudioModelRenderer
 
 ====================
 */
-CStudioModelRenderer :: CStudioModelRenderer( void )
+CStudioModelRenderer::CStudioModelRenderer( void )
 {
-	m_fDoInterp	= true;
-	m_pCurrentEntity	= NULL;
-	m_pCvarHiModels	= NULL;
-	m_pCvarDrawViewModel= NULL;
-	m_pCvarHand	= NULL;
-	m_pChromeSprite	= NULL;
-	m_pStudioHeader	= NULL;
-	m_pBodyPart	= NULL;
-	m_pSubModel	= NULL;
-	m_pPlayerInfo	= NULL;
-	m_pRenderModel	= NULL;
+	m_fDoInterp = true;
+	m_pCurrentEntity = NULL;
+	//	m_pCvarHiModels = NULL;
+	m_pCvarDrawViewModel = NULL;
+	m_pCvarHand = NULL;
+	m_pChromeSprite = NULL;
+	m_pStudioHeader = NULL;
+	m_pBodyPart = NULL;
+	m_pSubModel = NULL;
+	m_pPlayerInfo = NULL;
+	m_pRenderModel = NULL;
 }
 
 /*
@@ -167,7 +167,7 @@ working with current entity
 
 ====================
 */
-bool CStudioModelRenderer :: StudioSetEntity( cl_entity_t *pEnt )
+bool CStudioModelRenderer::StudioSetEntity( cl_entity_t *pEnt )
 {
 	if( !pEnt || !pEnt->model || pEnt->model->type != mod_studio )
 		return false;
@@ -176,21 +176,19 @@ bool CStudioModelRenderer :: StudioSetEntity( cl_entity_t *pEnt )
 	SET_CURRENT_ENTITY( m_pCurrentEntity );
 	m_pPlayerInfo = NULL;
 
-	if( !m_fDrawViewModel && ( m_pCurrentEntity->player || m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer ))
+	if( !m_fDrawViewModel && (m_pCurrentEntity->player || m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer) )
 	{
-		int	iPlayerIndex;
-
 		if( m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer )
 			iPlayerIndex = m_pCurrentEntity->curstate.renderamt - 1;
 		else iPlayerIndex = m_pCurrentEntity->curstate.number - 1;
-          
-		if( iPlayerIndex < 0 || iPlayerIndex >= GET_MAX_CLIENTS( ))
+
+		if( iPlayerIndex < 0 || iPlayerIndex >= GET_MAX_CLIENTS() )
 			return false;
 
-		if( RP_LOCALCLIENT( m_pCurrentEntity ) && atoi( gEngfuncs.PhysInfo_ValueForKey( "incar" )))
+		if( RP_LOCALCLIENT( m_pCurrentEntity ) && atoi( gEngfuncs.PhysInfo_ValueForKey( "incar" ) ) )
 			return false;
 
-		if( RP_NORMALPASS() && RP_LOCALCLIENT( m_pCurrentEntity ) && !FBitSet( RI->params, RP_THIRDPERSON ) && UTIL_IsLocal( RI->viewentity ))
+		if( RP_NORMALPASS() && RP_LOCALCLIENT( m_pCurrentEntity ) && !FBitSet( RI->params, RP_THIRDPERSON ) && UTIL_IsLocal( RI->viewentity ) )
 		{
 			// hide playermodel in firstperson
 			return false;
@@ -200,10 +198,10 @@ bool CStudioModelRenderer :: StudioSetEntity( cl_entity_t *pEnt )
 			RI->currentmodel = m_pRenderModel = IEngineStudio.SetupPlayerModel( iPlayerIndex );
 
 			// show highest resolution multiplayer model
-			if( CVAR_TO_BOOL( m_pCvarHiModels ) && m_pRenderModel != m_pCurrentEntity->model )
-				m_pCurrentEntity->curstate.body = 255;
+//			if (/*CVAR_TO_BOOL(m_pCvarHiModels) && */m_pRenderModel != m_pCurrentEntity->model)
+			m_pCurrentEntity->curstate.body = 255; // diffusion - always HD model
 
-			if( !( !developer_level && GET_MAX_CLIENTS() == 1 ) && ( m_pRenderModel == m_pCurrentEntity->model ))
+			if( !(!developer_level && GET_MAX_CLIENTS() == 1) && (m_pRenderModel == m_pCurrentEntity->model) )
 				m_pCurrentEntity->curstate.body = 1; // force helmet
 		}
 
@@ -212,16 +210,14 @@ bool CStudioModelRenderer :: StudioSetEntity( cl_entity_t *pEnt )
 			m_pPlayerInfo = IEngineStudio.PlayerInfo( iPlayerIndex );
 	}
 	else
-	{
 		RI->currentmodel = m_pRenderModel = RI->currententity->model;
-	}
 
 	if( m_pRenderModel == NULL )
 		return false;
 
 	m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
 
- 	// downloading in-progress ?
+	// downloading in-progress ?
 	if( m_pStudioHeader == NULL )
 		return false;
 
@@ -229,7 +225,7 @@ bool CStudioModelRenderer :: StudioSetEntity( cl_entity_t *pEnt )
 	IEngineStudio.StudioSetHeader( m_pStudioHeader );
 	IEngineStudio.SetRenderModel( m_pRenderModel );
 
-	if( !StudioSetupInstance( ))
+	if( !StudioSetupInstance() )
 	{
 		ALERT( at_error, "Couldn't create instance for entity %d\n", pEnt->index );
 		return false; // out of memory ?
@@ -242,7 +238,7 @@ bool CStudioModelRenderer :: StudioSetEntity( cl_entity_t *pEnt )
 //-----------------------------------------------------------------------------
 // Fast version without data reconstruction or changing
 //-----------------------------------------------------------------------------
-bool CStudioModelRenderer :: StudioSetEntity( gl_studiomesh_t *entry )
+bool CStudioModelRenderer::StudioSetEntity( gl_studiomesh_t *entry )
 {
 	studiohdr_t *phdr;
 
@@ -252,7 +248,7 @@ bool CStudioModelRenderer :: StudioSetEntity( gl_studiomesh_t *entry )
 	if( entry->parent->modelhandle == INVALID_HANDLE )
 		return false; // not initialized?
 
-	if(( phdr = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel )) == NULL )
+	if( (phdr = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel )) == NULL )
 		return false; // no model?
 
 	RI->currentmodel = m_pRenderModel = entry->model;
@@ -264,8 +260,11 @@ bool CStudioModelRenderer :: StudioSetEntity( gl_studiomesh_t *entry )
 	return true;
 }
 
-bool CStudioModelRenderer :: StudioSetupInstance( void )
+bool CStudioModelRenderer::StudioSetupInstance( void )
 {
+	if( m_pCurrentEntity->model->type != mod_studio )
+		return false;
+
 	// first call ?
 	if( m_pCurrentEntity->modelhandle == INVALID_HANDLE )
 	{
@@ -282,7 +281,7 @@ bool CStudioModelRenderer :: StudioSetupInstance( void )
 		m_pModelInstance = &m_ModelInstances[m_pCurrentEntity->modelhandle];
 
 		// model has been changed or something like
-		if( !IsModelInstanceValid( m_pModelInstance ))
+		if( !IsModelInstanceValid( m_pModelInstance ) )
 			ClearInstanceData( false );
 	}
 
@@ -294,11 +293,11 @@ bool CStudioModelRenderer :: StudioSetupInstance( void )
 //-----------------------------------------------------------------------------
 // It's not valid if the model index changed + we have non-zero instance data
 //-----------------------------------------------------------------------------
-bool CStudioModelRenderer :: IsModelInstanceValid( ModelInstance_t *inst )
+bool CStudioModelRenderer::IsModelInstanceValid( ModelInstance_t *inst )
 {
 	const model_t *pModel;
 
-	if( !m_fDrawViewModel && ( inst->m_pEntity->player || m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer ))
+	if( !m_fDrawViewModel && (inst->m_pEntity->player || m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer) )
 	{
 		if( m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer )
 			pModel = IEngineStudio.SetupPlayerModel( inst->m_pEntity->curstate.renderamt - 1 );
@@ -309,9 +308,9 @@ bool CStudioModelRenderer :: IsModelInstanceValid( ModelInstance_t *inst )
 	return inst->m_pModel == pModel;
 }
 
-void CStudioModelRenderer :: DestroyInstance( word handle )
+void CStudioModelRenderer::DestroyInstance( word handle )
 {
-	if( !m_ModelInstances.IsValidIndex( handle ))
+	if( !m_ModelInstances.IsValidIndex( handle ) )
 		return;
 
 	ModelInstance_t *inst = &m_ModelInstances[handle];
@@ -330,7 +329,7 @@ void CStudioModelRenderer :: DestroyInstance( word handle )
 	m_ModelInstances.Remove( handle );
 }
 
-void CStudioModelRenderer :: UpdateInstanceMaterials( void )
+void CStudioModelRenderer::UpdateInstanceMaterials( void )
 {
 	ASSERT( m_pStudioHeader != NULL );
 	ASSERT( m_pModelInstance != NULL );
@@ -347,13 +346,14 @@ void CStudioModelRenderer :: UpdateInstanceMaterials( void )
 	for( int i = 0; i < m_pStudioHeader->numtextures; i++ )
 	{
 		m_pModelInstance->materials[i].glsl_sequence = -1;
-		m_pModelInstance->materials[i].glsl_sequence_omni = -1;
+		m_pModelInstance->materials[i].glsl_sequence_omni[0] = -1;
+		m_pModelInstance->materials[i].glsl_sequence_omni[1] = -1;
 		m_pModelInstance->materials[i].glsl_sequence_proj[0] = -1;
 		m_pModelInstance->materials[i].glsl_sequence_proj[1] = -1;
 	}
 }
 
-void CStudioModelRenderer :: ClearInstanceData( bool create )
+void CStudioModelRenderer::ClearInstanceData( bool create )
 {
 	if( create )
 	{
@@ -379,20 +379,22 @@ void CStudioModelRenderer :: ClearInstanceData( bool create )
 	m_pModelInstance->info_flags = 0;
 
 	ClearBounds( m_pModelInstance->absmin, m_pModelInstance->absmax );
-	memset( &m_pModelInstance->bonecache, 0, sizeof( BoneCache_t ));
-	memset( m_pModelInstance->m_protationmatrix, 0, sizeof( matrix3x4 ));
+	memset( &m_pModelInstance->bonecache, 0, sizeof( BoneCache_t ) );
+	memset( m_pModelInstance->m_protationmatrix, 0, sizeof( matrix3x4 ) );
 	memset( m_pModelInstance->m_pbones, 0, sizeof( matrix3x4 ) * MAXSTUDIOBONES );
 	memset( m_pModelInstance->m_pwpnbones, 0, sizeof( matrix3x4 ) * MAXSTUDIOBONES );
 	memset( m_pModelInstance->attachment, 0, sizeof( StudioAttachment_t ) * MAXSTUDIOATTACHMENTS );
+	//	memset( m_pModelInstance->m_glstudiobones, 0, sizeof( Vector4D ) * MAXSTUDIOBONES * 3 );
+//	memset( m_pModelInstance->m_glbones, 0, sizeof( float ) * 16 * MAXSTUDIOBONES );
 	memset( m_pModelInstance->m_studioquat, 0, sizeof( Vector4D ) * MAXSTUDIOBONES );
 	memset( m_pModelInstance->m_studiopos, 0, sizeof( Vector ) * MAXSTUDIOBONES );
 	memset( m_pModelInstance->m_weaponquat, 0, sizeof( Vector4D ) * MAXSTUDIOBONES );
 	memset( m_pModelInstance->m_weaponpos, 0, sizeof( Vector ) * MAXSTUDIOBONES );
-	memset( &m_pModelInstance->lighting, 0, sizeof( mstudiolight_t ));
+	memset( &m_pModelInstance->lighting, 0, sizeof( mstudiolight_t ) );
 
-	memset( &m_pModelInstance->lerp, 0, sizeof( mstudiolerp_t ));
-	memset( &m_pModelInstance->m_controller, 0, sizeof( m_pModelInstance->m_controller ));
-	memset( &m_pModelInstance->m_seqblend, 0, sizeof( m_pModelInstance->m_seqblend ));
+	memset( &m_pModelInstance->lerp, 0, sizeof( mstudiolerp_t ) );
+	memset( &m_pModelInstance->m_controller, 0, sizeof( m_pModelInstance->m_controller ) );
+	memset( &m_pModelInstance->m_seqblend, 0, sizeof( m_pModelInstance->m_seqblend ) );
 	m_pModelInstance->m_bProceduralBones = false;
 	m_pModelInstance->m_current_seqblend = 0;
 	m_pModelInstance->lerp.stairoldz = m_pCurrentEntity->origin[2];
@@ -406,6 +408,9 @@ void CStudioModelRenderer :: ClearInstanceData( bool create )
 	m_pModelInstance->visframe = -1;
 	m_pModelInstance->radius = 0.0f;
 	m_pModelInstance->info_flags = 0;
+//	m_pModelInstance->lerpFactor = 0.0f;
+//	m_pModelInstance->cubemap[0] = &world->defaultCubemap;
+//	m_pModelInstance->cubemap[1] = &world->defaultCubemap;
 
 	m_boneSetup.SetStudioPointers( m_pStudioHeader, m_pModelInstance->m_poseparameter );
 
@@ -422,7 +427,7 @@ void CStudioModelRenderer :: ClearInstanceData( bool create )
 	// setup attachment names
 	for( int i = 0; i < Q_min( MAXSTUDIOATTACHMENTS, m_pStudioHeader->numattachments ); i++ )
 	{
-		Q_strncpy( att[i].name, pattachment[i].name, sizeof( att[0].name ));
+		Q_strncpy( att[i].name, pattachment[i].name, sizeof( att[0].name ) );
 		att[i].local.Identity();
 		att[i].local.SetOrigin( pattachment[i].org );
 	}
@@ -432,11 +437,11 @@ void CStudioModelRenderer :: ClearInstanceData( bool create )
 		m_pModelInstance->styles[map] = 255;
 }
 
-void CStudioModelRenderer :: ProcessUserData( model_t *mod, qboolean create, const byte *buffer )
+void CStudioModelRenderer::ProcessUserData( model_t *mod, qboolean create, const byte *buffer )
 {
 	m_pRenderModel = mod;
 
-	if( !( m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel )))
+	if( !(m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel )) )
 		return;
 
 	IEngineStudio.StudioSetHeader( m_pStudioHeader );
@@ -459,13 +464,13 @@ void CStudioModelRenderer :: ProcessUserData( model_t *mod, qboolean create, con
 	}
 }
 
-bool CStudioModelRenderer :: CheckBoneCache( float f )
+bool CStudioModelRenderer::CheckBoneCache( float f )
 {
 	if( m_fShootDecal || !m_pModelInstance )
 		return false;
 
 	if( m_pModelInstance->m_bProceduralBones )
-		return false; // need to be updated every frame
+		return false; // needs to be updated every frame
 
 	BoneCache_t *cache = &m_pModelInstance->bonecache;
 	cl_entity_t *e = m_pCurrentEntity;
@@ -473,9 +478,9 @@ bool CStudioModelRenderer :: CheckBoneCache( float f )
 	bool pos_valid = (cache->transform == m_pModelInstance->m_protationmatrix) ? true : false;
 	bool param_valid = !memcmp( cache->poseparam, m_pModelInstance->m_poseparameter, sizeof( float ) * MAXSTUDIOPOSEPARAM );
 
-	// make sure what all cached values are unchanged
+	// make sure that all cached values are unchanged
 	if( cache->frame == f && cache->sequence == e->curstate.sequence && pos_valid && !memcmp( cache->blending, e->curstate.blending, 2 )
-	&& !memcmp( cache->controller, e->curstate.controller, 4 ) && cache->mouthopen == e->mouth.mouthopen && param_valid )
+		&& !memcmp( cache->controller, e->curstate.controller, 4 ) && cache->mouthopen == e->mouth.mouthopen && param_valid )
 	{
 		if( m_pPlayerInfo )
 		{
@@ -484,10 +489,13 @@ bool CStudioModelRenderer :: CheckBoneCache( float f )
 		}
 		else
 		{
-			// cache are valid
+			// cache is valid
 			return true;
 		}
 	}
+
+	// save rotationmatrix to GL-style array
+//	m_pModelInstance->m_protationmatrix.CopyToArray( m_pModelInstance->m_glmatrix );
 
 	// update bonecache
 	cache->frame = f;
@@ -507,7 +515,7 @@ bool CStudioModelRenderer :: CheckBoneCache( float f )
 	return false;
 }
 
-void CStudioModelRenderer :: LoadLocalMatrix( int bone, mstudioboneinfo_t *boneinfo )
+void CStudioModelRenderer::LoadLocalMatrix( int bone, mstudioboneinfo_t *boneinfo )
 {
 	mposetobone_t *m = m_pRenderModel->poseToBone;
 
@@ -529,7 +537,7 @@ void CStudioModelRenderer :: LoadLocalMatrix( int bone, mstudioboneinfo_t *bonei
 	m->posetobone[bone][3][2] = boneinfo->poseToBone[2][3];
 }
 
-void CStudioModelRenderer :: ComputeSkinMatrix( mstudioboneweight_t *boneweights, const matrix3x4 worldtransform[], matrix3x4 &result )
+void CStudioModelRenderer::ComputeSkinMatrix( mstudioboneweight_t *boneweights, const matrix3x4 worldtransform[], matrix3x4 &result )
 {
 	float	flWeight0, flWeight1, flWeight2, flWeight3;
 	int	numbones = 0;
@@ -623,15 +631,19 @@ void CStudioModelRenderer :: ComputeSkinMatrix( mstudioboneweight_t *boneweights
 	}
 }
 
-void CStudioModelRenderer :: UploadBufferBase( vbomesh_t *pOut, svert_t *arrayxvert )
+void CStudioModelRenderer::UploadBufferBase( vbomesh_t *pOut, svert_t *arrayxvert )
 {
 	static svert_v0_t	arraysvert[MAXARRAYVERTS];
 
 	// convert to GLSL-compacted array
-	for( int i = 0; i <m_nNumArrayVerts; i++ )
+	for( int i = 0; i < m_nNumArrayVerts; i++ )
 	{
-		arraysvert[i].vertex = arrayxvert[i].vertex;
-		arraysvert[i].normal = arrayxvert[i].normal;
+		arraysvert[i].vertex[0] = arrayxvert[i].vertex[0];
+		arraysvert[i].vertex[1] = arrayxvert[i].vertex[1];
+		arraysvert[i].vertex[2] = arrayxvert[i].vertex[2];
+		arraysvert[i].normal[0] = arrayxvert[i].normal[0];
+		arraysvert[i].normal[1] = arrayxvert[i].normal[1];
+		arraysvert[i].normal[2] = arrayxvert[i].normal[2];
 		arraysvert[i].stcoord[0] = arrayxvert[i].stcoord[0];
 		arraysvert[i].stcoord[1] = arrayxvert[i].stcoord[1];
 		arraysvert[i].boneid[0] = arrayxvert[i].boneid[0];
@@ -643,28 +655,32 @@ void CStudioModelRenderer :: UploadBufferBase( vbomesh_t *pOut, svert_t *arrayxv
 	pglBindBufferARB( GL_ARRAY_BUFFER_ARB, pOut->vbo );
 	pglBufferDataARB( GL_ARRAY_BUFFER_ARB, m_nNumArrayVerts * sizeof( svert_v0_t ), &arraysvert[0], GL_STATIC_DRAW_ARB );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, vertex ));
+	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, vertex ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_POSITION );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, stcoord ));
+	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, stcoord ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_TEXCOORD0 );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, normal ));
+	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, normal ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_NORMAL );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_BONE_INDEXES, 4, GL_BYTE, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, boneid )); 
+	pglVertexAttribPointerARB( ATTR_INDEX_BONE_INDEXES, 4, GL_BYTE, GL_FALSE, sizeof( svert_v0_t ), (void *)offsetof( svert_v0_t, boneid ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_BONE_INDEXES );
 }
 
-void CStudioModelRenderer :: UploadBufferVLight( vbomesh_t *pOut, svert_t *arrayxvert )
+void CStudioModelRenderer::UploadBufferVLight( vbomesh_t *pOut, svert_t *arrayxvert )
 {
 	static svert_v1_t	arraysvert[MAXARRAYVERTS];
 
 	// convert to GLSL-compacted array
 	for( int i = 0; i < m_nNumArrayVerts; i++ )
 	{
-		arraysvert[i].vertex = arrayxvert[i].vertex;
-		arraysvert[i].normal = arrayxvert[i].normal;
+		arraysvert[i].vertex[0] = arrayxvert[i].vertex[0];
+		arraysvert[i].vertex[1] = arrayxvert[i].vertex[1];
+		arraysvert[i].vertex[2] = arrayxvert[i].vertex[2];
+		arraysvert[i].normal[0] = arrayxvert[i].normal[0];
+		arraysvert[i].normal[1] = arrayxvert[i].normal[1];
+		arraysvert[i].normal[2] = arrayxvert[i].normal[2];
 		arraysvert[i].stcoord[0] = arrayxvert[i].stcoord[0];
 		arraysvert[i].stcoord[1] = arrayxvert[i].stcoord[1];
 		arraysvert[i].light[0] = arrayxvert[i].light[0];
@@ -676,28 +692,32 @@ void CStudioModelRenderer :: UploadBufferVLight( vbomesh_t *pOut, svert_t *array
 	pglBindBufferARB( GL_ARRAY_BUFFER_ARB, pOut->vbo );
 	pglBufferDataARB( GL_ARRAY_BUFFER_ARB, m_nNumArrayVerts * sizeof( svert_v1_t ), &arraysvert[0], GL_STATIC_DRAW_ARB );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, vertex ));
+	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, vertex ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_POSITION );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, stcoord ));
+	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, stcoord ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_TEXCOORD0 );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, normal ));
+	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, normal ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_NORMAL );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_LIGHT_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, light )); 
+	pglVertexAttribPointerARB( ATTR_INDEX_LIGHT_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof( svert_v1_t ), (void *)offsetof( svert_v1_t, light ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_LIGHT_COLOR );
 }
 
-void CStudioModelRenderer :: UploadBufferWeight( vbomesh_t *pOut, svert_t *arrayxvert )
+void CStudioModelRenderer::UploadBufferWeight( vbomesh_t *pOut, svert_t *arrayxvert )
 {
 	static svert_v2_t	arraysvert[MAXARRAYVERTS];
 
 	// convert to GLSL-compacted array
 	for( int i = 0; i < m_nNumArrayVerts; i++ )
 	{
-		arraysvert[i].vertex = arrayxvert[i].vertex;
-		arraysvert[i].normal = arrayxvert[i].normal;
+		arraysvert[i].vertex[0] = arrayxvert[i].vertex[0];
+		arraysvert[i].vertex[1] = arrayxvert[i].vertex[1];
+		arraysvert[i].vertex[2] = arrayxvert[i].vertex[2];
+		arraysvert[i].normal[0] = arrayxvert[i].normal[0];
+		arraysvert[i].normal[1] = arrayxvert[i].normal[1];
+		arraysvert[i].normal[2] = arrayxvert[i].normal[2];
 		arraysvert[i].stcoord[0] = arrayxvert[i].stcoord[0];
 		arraysvert[i].stcoord[1] = arrayxvert[i].stcoord[1];
 		arraysvert[i].boneid[0] = arrayxvert[i].boneid[0];
@@ -713,30 +733,32 @@ void CStudioModelRenderer :: UploadBufferWeight( vbomesh_t *pOut, svert_t *array
 	pglBindBufferARB( GL_ARRAY_BUFFER_ARB, pOut->vbo );
 	pglBufferDataARB( GL_ARRAY_BUFFER_ARB, m_nNumArrayVerts * sizeof( svert_v2_t ), &arraysvert[0], GL_STATIC_DRAW_ARB );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, vertex ));
+	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, vertex ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_POSITION );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, stcoord ));
+	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, stcoord ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_TEXCOORD0 );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, normal ));
+	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, normal ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_NORMAL );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_BONE_INDEXES, 4, GL_BYTE, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, boneid )); 
+	pglVertexAttribPointerARB( ATTR_INDEX_BONE_INDEXES, 4, GL_BYTE, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, boneid ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_BONE_INDEXES );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_BONE_WEIGHTS, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, weight )); 
+	pglVertexAttribPointerARB( ATTR_INDEX_BONE_WEIGHTS, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof( svert_v2_t ), (void *)offsetof( svert_v2_t, weight ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_BONE_WEIGHTS );
 }
 
-void CStudioModelRenderer :: UploadBufferGeneric( vbomesh_t *pOut, svert_t *arrayxvert, bool vertex_light )
+void CStudioModelRenderer::UploadBufferGeneric( vbomesh_t *pOut, svert_t *arrayxvert, bool vertex_light )
 {
 	static svert_v3_t	arraysvert[MAXARRAYVERTS];
 
 	// convert to GLSL-compacted array
 	for( int i = 0; i < m_nNumArrayVerts; i++ )
 	{
-		arraysvert[i].vertex = arrayxvert[i].vertex;
+		arraysvert[i].vertex[0] = arrayxvert[i].vertex[0];
+		arraysvert[i].vertex[1] = arrayxvert[i].vertex[1];
+		arraysvert[i].vertex[2] = arrayxvert[i].vertex[2];
 		arraysvert[i].normal[0] = FloatToHalf( arrayxvert[i].normal[0] );
 		arraysvert[i].normal[1] = FloatToHalf( arrayxvert[i].normal[1] );
 		arraysvert[i].normal[2] = FloatToHalf( arrayxvert[i].normal[2] );
@@ -759,49 +781,49 @@ void CStudioModelRenderer :: UploadBufferGeneric( vbomesh_t *pOut, svert_t *arra
 	pglBindBufferARB( GL_ARRAY_BUFFER_ARB, pOut->vbo );
 	pglBufferDataARB( GL_ARRAY_BUFFER_ARB, m_nNumArrayVerts * sizeof( svert_v3_t ), &arraysvert[0], GL_STATIC_DRAW_ARB );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, vertex ));
+	pglVertexAttribPointerARB( ATTR_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, vertex ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_POSITION );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, stcoord ));
+	pglVertexAttribPointerARB( ATTR_INDEX_TEXCOORD0, 2, GL_HALF_FLOAT_ARB, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, stcoord ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_TEXCOORD0 );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, normal ));
+	pglVertexAttribPointerARB( ATTR_INDEX_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, normal ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_NORMAL );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_BONE_INDEXES, 4, GL_BYTE, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, boneid )); 
+	pglVertexAttribPointerARB( ATTR_INDEX_BONE_INDEXES, 4, GL_BYTE, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, boneid ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_BONE_INDEXES );
 
-	pglVertexAttribPointerARB( ATTR_INDEX_BONE_WEIGHTS, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, weight )); 
+	pglVertexAttribPointerARB( ATTR_INDEX_BONE_WEIGHTS, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, weight ) );
 	pglEnableVertexAttribArrayARB( ATTR_INDEX_BONE_WEIGHTS );
 
 	if( vertex_light )
 	{
-		pglVertexAttribPointerARB( ATTR_INDEX_LIGHT_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, light )); 
+		pglVertexAttribPointerARB( ATTR_INDEX_LIGHT_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof( svert_v3_t ), (void *)offsetof( svert_v3_t, light ) );
 		pglEnableVertexAttribArrayARB( ATTR_INDEX_LIGHT_COLOR );
 	}
 }
 
-void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomesh_t *pMesh, const mstudiomodel_t *pSubModel, const matrix3x4 bones[], dmodellight_t *dml )
+void CStudioModelRenderer::MeshCreateBuffer( vbomesh_t *pOut, const mstudiomesh_t *pMesh, const mstudiomodel_t *pSubModel, const matrix3x4 bones[], dmodellight_t *dml )
 {
 	// FIXME: if various skinfamilies has different sizes then our texcoords probably will be invalid for pev->skin != 0
-	short		*pskinref = (short *)((byte *)m_pStudioHeader + m_pStudioHeader->skinindex); // setup skinref for skin == 0
-	mstudiotexture_t	*ptexture = (mstudiotexture_t *)((byte *)m_pStudioHeader + m_pStudioHeader->textureindex);
-	mstudiomaterial_t	*pmaterial = (mstudiomaterial_t *)m_pRenderModel->materials;
+	short *pskinref = (short *)((byte *)m_pStudioHeader + m_pStudioHeader->skinindex); // setup skinref for skin == 0
+	mstudiotexture_t *ptexture = (mstudiotexture_t *)((byte *)m_pStudioHeader + m_pStudioHeader->textureindex);
+	mstudiomaterial_t *pmaterial = (mstudiomaterial_t *)m_pRenderModel->materials;
 	ptexture = &ptexture[pskinref[pMesh->skinref]];
 	pmaterial = &pmaterial[pskinref[pMesh->skinref]];
 
-	mstudiobone_t	*pbones = (mstudiobone_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
-	short		*ptricmds = (short *)((byte *)m_pStudioHeader + pMesh->triindex);
-	Vector		*pstudioverts = (Vector *)((byte *)m_pStudioHeader + pSubModel->vertindex);
-	Vector		*pstudionorms = (Vector *)((byte *)m_pStudioHeader + pSubModel->normindex);
-	byte		*pvertbone = ((byte *)m_pStudioHeader + pSubModel->vertinfoindex);
-	byte		*pnormbone = ((byte *)m_pStudioHeader + pSubModel->norminfoindex);
+	mstudiobone_t *pbones = (mstudiobone_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
+	short *ptricmds = (short *)((byte *)m_pStudioHeader + pMesh->triindex);
+	Vector *pstudioverts = (Vector *)((byte *)m_pStudioHeader + pSubModel->vertindex);
+	Vector *pstudionorms = (Vector *)((byte *)m_pStudioHeader + pSubModel->normindex);
+	byte *pvertbone = ((byte *)m_pStudioHeader + pSubModel->vertinfoindex);
+	byte *pnormbone = ((byte *)m_pStudioHeader + pSubModel->norminfoindex);
 
 	// if weights was missed their offsets just equal to 0
-	mstudioboneweight_t	*pvertweight = (mstudioboneweight_t *)((byte *)m_pStudioHeader + pSubModel->blendvertinfoindex);
-	mstudioboneweight_t	*pnormweight = (mstudioboneweight_t *)((byte *)m_pStudioHeader + pSubModel->blendnorminfoindex);
-	bool 		has_boneweights = ( m_pRenderModel->poseToBone != NULL ) ? true : false;
-	bool		has_vertexlight = ( dml != NULL && dml->numverts > 0 ) ? true : false;
+	mstudioboneweight_t *pvertweight = (mstudioboneweight_t *)((byte *)m_pStudioHeader + pSubModel->blendvertinfoindex);
+	mstudioboneweight_t *pnormweight = (mstudioboneweight_t *)((byte *)m_pStudioHeader + pSubModel->blendnorminfoindex);
+	bool 		has_boneweights = (m_pRenderModel->poseToBone != NULL) ? true : false;
+	bool		has_vertexlight = (dml != NULL && dml->numverts > 0) ? true : false;
 	static svert_t	arrayxvert[MAXARRAYVERTS];
 	matrix3x4		skinMat;
 	int		i;
@@ -815,9 +837,9 @@ void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomes
 	m_nNumArrayVerts = m_nNumArrayElems = 0;
 
 	// first create trifan array from studiomodel mesh
-	while( i = *( ptricmds++ ))
+	while( i = *(ptricmds++) )
 	{
-		bool	strip = ( i < 0 ) ? false : true;
+		bool	strip = (i < 0) ? false : true;
 		int	vertexState = 0;
 
 		if( i < 0 ) i = -i;
@@ -849,7 +871,7 @@ void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomes
 			else
 			{
 				// draw triangle fan [0 n-1 n]
-				m_arrayelems[m_nNumArrayElems++] = m_nNumArrayVerts - ( vertexState - 1 );
+				m_arrayelems[m_nNumArrayElems++] = m_nNumArrayVerts - (vertexState - 1);
 				m_arrayelems[m_nNumArrayElems++] = m_nNumArrayVerts - 1;
 				m_arrayelems[m_nNumArrayElems++] = m_nNumArrayVerts;
 			}
@@ -860,7 +882,7 @@ void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomes
 
 			if( dml != NULL && dml->numverts > 0 )
 			{
-				dvertlight_t	*vl = &dml->verts[m_nNumLightVerts++];
+				dvertlight_t *vl = &dml->verts[m_nNumLightVerts++];
 
 				// pack lightvalues into single float
 				for( int map = 0; map < MAXLIGHTMAPS; map++ )
@@ -871,13 +893,13 @@ void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomes
 				}
 			}
 
-			if( FBitSet( ptexture->flags, STUDIO_NF_CHROME ))
+			if( FBitSet( ptexture->flags, STUDIO_NF_CHROME ) )
 			{
 				// probably always equal 64 (see studiomdl.c for details)
 				arrayxvert[m_nNumArrayVerts].stcoord[0] = FloatToHalf( s );
 				arrayxvert[m_nNumArrayVerts].stcoord[1] = FloatToHalf( t );
 			}
-			else if( FBitSet( ptexture->flags, STUDIO_NF_UV_COORDS ))
+			else if( FBitSet( ptexture->flags, STUDIO_NF_UV_COORDS ) )
 			{
 				arrayxvert[m_nNumArrayVerts].stcoord[0] = ptricmds[2];
 				arrayxvert[m_nNumArrayVerts].stcoord[1] = ptricmds[3];
@@ -890,7 +912,7 @@ void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomes
 
 			if( m_pRenderModel->poseToBone != NULL )
 			{
-				mstudioboneweight_t	*pCurWeight = &pvertweight[ptricmds[0]];
+				mstudioboneweight_t *pCurWeight = &pvertweight[ptricmds[0]];
 
 				arrayxvert[m_nNumArrayVerts].boneid[0] = pCurWeight->bone[0];
 				arrayxvert[m_nNumArrayVerts].boneid[1] = pCurWeight->bone[1];
@@ -961,7 +983,7 @@ void CStudioModelRenderer :: MeshCreateBuffer( vbomesh_t *pOut, const mstudiomes
 	pglBindBufferARB( GL_ELEMENT_ARRAY_BUFFER_ARB, 0 );
 }
 
-mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
+mvbocache_t *CStudioModelRenderer::CreateMeshCache( dmodellight_t *dml )
 {
 	bool		unique_model = (dml == NULL);	// just for more readable code
 	TmpModel_t	submodel[MAXSTUDIOMODELS];	// list of unique models
@@ -970,15 +992,15 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 	static Vector4D	q[MAXSTUDIOBONES];
 	int		i, j, k, bufSize = 0;
 	int		num_submodels = 0;
-	byte		*buffer, *bufend;		// simple bounds check
-	mvbocache_t	*studiocache;
-	mstudiobodyparts_t	*pbodypart;
-	mstudiomodel_t	*psubmodel;
-	msubmodel_t	*pModel;
-	mstudiobone_t	*pbones;
+	byte *buffer, *bufend;		// simple bounds check
+	mvbocache_t *studiocache;
+	mstudiobodyparts_t *pbodypart;
+	mstudiomodel_t *psubmodel;
+	msubmodel_t *pModel;
+	mstudiobone_t *pbones;
 
 	// materials goes first to determine bump
-	if( unique_model ) LoadStudioMaterials ();
+	if( unique_model ) LoadStudioMaterials();
 
 	// build default pose to build seamless TBN-space
 	pbones = (mstudiobone_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
@@ -986,13 +1008,13 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 	m_boneSetup.SetStudioPointers( m_pStudioHeader, m_pModelInstance->m_poseparameter );
 
 	// setup local bone matrices
-	if( unique_model && FBitSet( m_pStudioHeader->flags, STUDIO_HAS_BONEINFO ))
+	if( unique_model && FBitSet( m_pStudioHeader->flags, STUDIO_HAS_BONEINFO ) )
 	{
 		// NOTE: extended boneinfo goes immediately after bones
 		mstudioboneinfo_t *boneinfo = (mstudioboneinfo_t *)((byte *)pbones + m_pStudioHeader->numbones * sizeof( mstudiobone_t ));
 
 		// alloc storage for bone array
-		m_pRenderModel->poseToBone = (mposetobone_t *)Mem_Alloc( sizeof( mposetobone_t ));
+		m_pRenderModel->poseToBone = (mposetobone_t *)Mem_Alloc( sizeof( mposetobone_t ) );
 
 		for( j = 0; j < m_pStudioHeader->numbones; j++ )
 			LoadLocalMatrix( j, &boneinfo[j] );
@@ -1001,10 +1023,10 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 	// compute default pose with no anim
 	m_boneSetup.InitPose( pos, q );
 
-	for( i = 0; i < m_pStudioHeader->numbones; i++ ) 
+	for( i = 0; i < m_pStudioHeader->numbones; i++ )
 	{
 		if( pbones[i].parent == -1 ) bones[i] = matrix3x4( pos[i], q[i] );
-		else bones[i] = bones[pbones[i].parent].ConcatTransforms( matrix3x4( pos[i], q[i] ));
+		else bones[i] = bones[pbones[i].parent].ConcatTransforms( matrix3x4( pos[i], q[i] ) );
 	}
 
 	if( m_pRenderModel->poseToBone != NULL )
@@ -1014,7 +1036,7 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 			bones[i] = bones[i].ConcatTransforms( m_pRenderModel->poseToBone->posetobone[i] );
 	}
 
-	memset( submodel, 0, sizeof( submodel ));
+	memset( submodel, 0, sizeof( submodel ) );
 	num_submodels = 0;
 
 	// build list of unique submodels (by name)
@@ -1029,14 +1051,14 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 
 			for( k = 0; k < num_submodels; k++ )
 			{
-				if( !Q_stricmp( submodel[k].name, psubmodel->name ))
+				if( !Q_stricmp( submodel[k].name, psubmodel->name ) )
 					break;
 			}
 
 			// add new one
 			if( k == num_submodels )
 			{
-				Q_strncpy( submodel[k].name, psubmodel->name, sizeof( submodel[k].name ));
+				Q_strncpy( submodel[k].name, psubmodel->name, sizeof( submodel[k].name ) );
 				submodel[k].pmodel = psubmodel;
 				num_submodels++;
 			}
@@ -1080,7 +1102,7 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 			for( j = 0; j < MAXSTUDIOMODELS; j++ )
 			{
 				if( dml->submodels[j].submodel_offset == offset )
-					break;			
+					break;
 			}
 
 			ASSERT( j != MAXSTUDIOMODELS );
@@ -1115,7 +1137,7 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 			// find supposed model
 			for( k = 0; k < num_submodels; k++ )
 			{
-				if( !Q_stricmp( submodel[k].name, psubmodel->name ))
+				if( !Q_stricmp( submodel[k].name, psubmodel->name ) )
 				{
 					pBodyPart->models[j] = submodel[k].pout;
 					break;
@@ -1141,9 +1163,9 @@ mvbocache_t *CStudioModelRenderer :: CreateMeshCache( dmodellight_t *dml )
 //-----------------------------------------------------------------------------
 // all the caches should be build before starting the new map
 //-----------------------------------------------------------------------------
-void CStudioModelRenderer :: CreateMeshCacheVL( const char *modelname, int cacheID )
+void CStudioModelRenderer::CreateMeshCacheVL( const char *modelname, int cacheID )
 {
-	dvlightlump_t	*vl = world->vertex_lighting;
+	dvlightlump_t *vl = world->vertex_lighting;
 
 	// first we need throw previous mesh
 	ReleaseVBOCache( &tr.vertex_light_cache[cacheID] );
@@ -1160,7 +1182,7 @@ void CStudioModelRenderer :: CreateMeshCacheVL( const char *modelname, int cache
 	// first initialization
 	if( cacheID < vl->nummodels && vl->dataofs[cacheID] != -1 )
 	{
-		dmodellight_t	*dml = (dmodellight_t *)((byte *)vl + vl->dataofs[cacheID]);
+		dmodellight_t *dml = (dmodellight_t *)((byte *)vl + vl->dataofs[cacheID]);
 
 		m_nNumLightVerts = 0;
 
@@ -1185,13 +1207,13 @@ void CStudioModelRenderer :: CreateMeshCacheVL( const char *modelname, int cache
 //-----------------------------------------------------------------------------
 // all the caches should be build before starting the new map
 //-----------------------------------------------------------------------------
-void CStudioModelRenderer :: FreeMeshCacheVL( void )
+void CStudioModelRenderer::FreeMeshCacheVL( void )
 {
 	for( int i = 0; i < MAX_LIGHTCACHE; i++ )
 		ReleaseVBOCache( &tr.vertex_light_cache[i] );
 }
 
-void CStudioModelRenderer :: CreateMeshCacheVL( dmodellight_t *dml, int cacheID )
+void CStudioModelRenderer::CreateMeshCacheVL( dmodellight_t *dml, int cacheID )
 {
 	if( m_pRenderModel->modelCRC == dml->modelCRC )
 	{
@@ -1219,7 +1241,7 @@ void CStudioModelRenderer :: CreateMeshCacheVL( dmodellight_t *dml, int cacheID 
 	}
 }
 
-void CStudioModelRenderer :: ReleaseVBOCache( mvbocache_t **ppvbocache )
+void CStudioModelRenderer::ReleaseVBOCache( mvbocache_t **ppvbocache )
 {
 	ASSERT( ppvbocache != NULL );
 
@@ -1254,9 +1276,9 @@ void CStudioModelRenderer :: ReleaseVBOCache( mvbocache_t **ppvbocache )
 	*ppvbocache = NULL;
 }
 
-void CStudioModelRenderer :: DestroyMeshCache( void )
+void CStudioModelRenderer::DestroyMeshCache( void )
 {
-	FreeStudioMaterials ();
+	FreeStudioMaterials();
 
 	ReleaseVBOCache( &m_pRenderModel->studiocache );
 
@@ -1265,14 +1287,14 @@ void CStudioModelRenderer :: DestroyMeshCache( void )
 	m_pRenderModel->poseToBone = NULL;
 }
 
-void CStudioModelRenderer :: LoadStudioMaterials( void )
+void CStudioModelRenderer::LoadStudioMaterials( void )
 {
 	// first we need alloc copy of all the materials to prevent modify mstudiotexture_t
 	m_pRenderModel->materials = (mstudiomaterial_t *)Mem_Alloc( sizeof( mstudiomaterial_t ) * m_pStudioHeader->numtextures );
 
-	mstudiotexture_t	*ptexture = (mstudiotexture_t *)((byte *)m_pStudioHeader + m_pStudioHeader->textureindex);
+	mstudiotexture_t *ptexture = (mstudiotexture_t *)((byte *)m_pStudioHeader + m_pStudioHeader->textureindex);
 	bool		bone_weights = FBitSet( m_pStudioHeader->flags, STUDIO_HAS_BONEWEIGHTS ) ? true : false;
-	mstudiomaterial_t	*pmaterial = (mstudiomaterial_t *)m_pRenderModel->materials;
+	mstudiomaterial_t *pmaterial = (mstudiomaterial_t *)m_pRenderModel->materials;
 	char		diffuse[64], texname[64], mdlname[64];
 	int		i;
 
@@ -1289,7 +1311,7 @@ void CStudioModelRenderer :: LoadStudioMaterials( void )
 		pmaterial->pSource = ptexture;
 		pmaterial->flags = ptexture->flags;
 
-		if( IMAGE_EXISTS( diffuse ) && !FBitSet( ptexture->flags, STUDIO_NF_COLORMAP ))
+		if( IMAGE_EXISTS( diffuse ) && !FBitSet( ptexture->flags, STUDIO_NF_COLORMAP ) )
 		{
 			int	texture_ext = LOAD_TEXTURE( diffuse, NULL, 0, 0 );
 			int	encodeType = RENDER_GET_PARM( PARM_TEX_ENCODE, texture_ext );
@@ -1301,7 +1323,7 @@ void CStudioModelRenderer :: LoadStudioMaterials( void )
 				pmaterial->gl_diffuse_id = texture_ext;
 
 				// semi-transparent textures must have additive flag to invoke renderer insert supposed mesh into translist
-				if( FBitSet( pmaterial->flags, STUDIO_NF_ADDITIVE ))
+				if( FBitSet( pmaterial->flags, STUDIO_NF_ADDITIVE ) )
 				{
 					if( RENDER_GET_PARM( PARM_TEX_FLAGS, pmaterial->gl_diffuse_id ) & TF_HAS_ALPHA )
 						pmaterial->flags |= STUDIO_NF_HAS_ALPHA;
@@ -1337,11 +1359,11 @@ void CStudioModelRenderer :: LoadStudioMaterials( void )
 	}
 }
 
-void CStudioModelRenderer :: FreeStudioMaterials( void )
+void CStudioModelRenderer::FreeStudioMaterials( void )
 {
 	if( !m_pRenderModel->materials ) return;
 
-	mstudiomaterial_t	*pmaterial = (mstudiomaterial_t *)m_pRenderModel->materials;
+	mstudiomaterial_t *pmaterial = (mstudiomaterial_t *)m_pRenderModel->materials;
 
 	// release textures for current model
 	for( int i = 0; i < m_pStudioHeader->numtextures; i++, pmaterial++ )
@@ -1354,11 +1376,11 @@ void CStudioModelRenderer :: FreeStudioMaterials( void )
 	m_pRenderModel->materials = NULL;
 }
 
-void CStudioModelRenderer :: DestroyAllModelInstances( void )
+void CStudioModelRenderer::DestroyAllModelInstances( void )
 {
 	// NOTE: should destroy in reverse-order because it's linked list not array!
 	for( int i = m_ModelInstances.Count(); --i >= 0; )
-          {
+	{
 		DestroyInstance( i );
 	}
 
@@ -1372,7 +1394,7 @@ R_QSortStudioMeshes
 Quick sort
 ================
 */
-void CStudioModelRenderer :: QSortStudioMeshes( gl_studiomesh_t *meshes, int Li, int Ri )
+void CStudioModelRenderer::QSortStudioMeshes( gl_studiomesh_t *meshes, int Li, int Ri )
 {
 	int lstack[QSORT_MAX_STACKDEPTH], rstack[QSORT_MAX_STACKDEPTH];
 	int li, ri, stackdepth = 0, total = Ri + 1;
@@ -1383,7 +1405,7 @@ mark0:
 		li = Li;
 		ri = Ri;
 
-		R_MeshCopy( meshes[( Li+Ri ) >> 1], median );
+		R_MeshCopy( meshes[(Li + Ri) >> 1], median );
 
 		if( R_MeshCmp( meshes[Li], median ) )
 		{
@@ -1411,7 +1433,7 @@ mark0:
 			}
 		} while( li < ri );
 
-		if( ( Li < ri ) && ( stackdepth < QSORT_MAX_STACKDEPTH ) )
+		if( (Li < ri) && (stackdepth < QSORT_MAX_STACKDEPTH) )
 		{
 			lstack[stackdepth] = li;
 			rstack[stackdepth] = Ri;
@@ -1441,14 +1463,14 @@ mark0:
 		R_MeshCopy( meshes[li], tempbuf );
 		ri = li - 1;
 
-		while( ( ri >= 0 ) && ( R_MeshCmp( meshes[ri], tempbuf ) ) )
+		while( (ri >= 0) && (R_MeshCmp( meshes[ri], tempbuf )) )
 		{
-			R_MeshCopy( meshes[ri], meshes[ri+1] );
+			R_MeshCopy( meshes[ri], meshes[ri + 1] );
 			ri--;
 		}
 
-		if( li != ri+1 )
-			R_MeshCopy( tempbuf, meshes[ri+1] );
+		if( li != ri + 1 )
+			R_MeshCopy( tempbuf, meshes[ri + 1] );
 	}
 }
 
@@ -1459,13 +1481,17 @@ R_GetEntityRenderMode
 check for texture flags
 ================
 */
-int CStudioModelRenderer :: GetEntityRenderMode( cl_entity_t *ent )
+int CStudioModelRenderer::GetEntityRenderMode( cl_entity_t *ent )
 {
-	cl_entity_t	*oldent = IEngineStudio.GetCurrentEntity();
+	return ent->curstate.rendermode;
+	// diffusion - this isn't needed for me
+
+	/*
+	cl_entity_t *oldent = IEngineStudio.GetCurrentEntity();
 	int		i, opaque, trans;
-	mstudiotexture_t	*ptexture;
-	model_t		*model;
-	studiohdr_t	*phdr;
+	mstudiotexture_t *ptexture;
+	model_t *model;
+	studiohdr_t *phdr;
 
 	SET_CURRENT_ENTITY( ent );
 
@@ -1473,16 +1499,17 @@ int CStudioModelRenderer :: GetEntityRenderMode( cl_entity_t *ent )
 		model = IEngineStudio.SetupPlayerModel( ent->curstate.number - 1 );
 	else if( ent->curstate.renderfx == kRenderFxDeadPlayer )
 		model = IEngineStudio.SetupPlayerModel( ent->curstate.renderamt - 1 );
-	else model = ent->model;
+	else
+		model = ent->model;
 
 	SET_CURRENT_ENTITY( oldent );
 
-	if(( phdr = (studiohdr_t *)IEngineStudio.Mod_Extradata( model )) == NULL )
+	if( (phdr = (studiohdr_t *)IEngineStudio.Mod_Extradata( model )) == NULL )
 	{
-		if( R_ModelOpaque( ent->curstate.rendermode ))
+		if( R_ModelOpaque( ent->curstate.rendermode ) )
 		{
 			// forcing to choose right sorting type
-			if(( model && model->type == mod_brush ) && FBitSet( model->flags, MODEL_TRANSPARENT ))
+			if( (model && model->type == mod_brush) && FBitSet( model->flags, MODEL_TRANSPARENT ) )
 				return kRenderTransAlpha;
 		}
 		return ent->curstate.rendermode;
@@ -1492,7 +1519,7 @@ int CStudioModelRenderer :: GetEntityRenderMode( cl_entity_t *ent )
 	for( opaque = trans = i = 0; i < phdr->numtextures; i++, ptexture++ )
 	{
 		// ignore chrome & additive it's just a specular-like effect
-		if( FBitSet( ptexture->flags, STUDIO_NF_ADDITIVE ) && !FBitSet( ptexture->flags, STUDIO_NF_CHROME ))
+		if( FBitSet( ptexture->flags, STUDIO_NF_ADDITIVE ) && !FBitSet( ptexture->flags, STUDIO_NF_CHROME ) )
 			trans++;
 		else opaque++;
 	}
@@ -1501,6 +1528,7 @@ int CStudioModelRenderer :: GetEntityRenderMode( cl_entity_t *ent )
 	if( trans > opaque )
 		return kRenderTransAdd;
 	return ent->curstate.rendermode;
+	*/
 }
 
 /*
@@ -1510,7 +1538,7 @@ StudioExtractBbox
 Extract bbox from current sequence
 ================
 */
-int CStudioModelRenderer :: StudioExtractBbox( cl_entity_t *e, studiohdr_t *phdr, int sequence, Vector &mins, Vector &maxs )
+int CStudioModelRenderer::StudioExtractBbox( cl_entity_t *e, studiohdr_t *phdr, int sequence, Vector &mins, Vector &maxs )
 {
 	if( !phdr || sequence < 0 || sequence >= phdr->numseq )
 		return 0;
@@ -1529,15 +1557,15 @@ StudioComputeBBox
 Compute a full bounding box for current sequence
 ================
 */
-int CStudioModelRenderer :: StudioComputeBBox( cl_entity_t *e )
+int CStudioModelRenderer::StudioComputeBBox( cl_entity_t *e )
 {
 	Vector scale = Vector( 1.0f, 1.0f, 1.0f );
 	Vector angles, mins, maxs;
 
-	if( FBitSet( m_pModelInstance->info_flags, MF_STATIC_BOUNDS ))
+	if( FBitSet( m_pModelInstance->info_flags, MF_STATIC_BOUNDS ) )
 		return true; // bounds already computed
 
-	if( !StudioExtractBbox( e, m_pStudioHeader, e->curstate.sequence, mins, maxs ))
+	if( !StudioExtractBbox( e, m_pStudioHeader, e->curstate.sequence, mins, maxs ) )
 		return false;
 
 	if( m_pModelInstance->m_bProceduralBones )
@@ -1547,10 +1575,10 @@ int CStudioModelRenderer :: StudioComputeBBox( cl_entity_t *e )
 	}
 
 	// prevent to compute env_static bounds every frame
-	if( FBitSet( e->curstate.iuser1, CF_STATIC_ENTITY ))
+	if( FBitSet( e->curstate.iuser1, CF_STATIC_ENTITY ) )
 		SetBits( m_pModelInstance->info_flags, MF_STATIC_BOUNDS );
 
-	if( FBitSet( e->curstate.iuser1, CF_STATIC_ENTITY ))
+	if( FBitSet( e->curstate.iuser1, CF_STATIC_ENTITY ) )
 	{
 		if( e->curstate.startpos != g_vecZero )
 			scale = e->curstate.startpos;
@@ -1586,7 +1614,7 @@ StudioPlayerBlend
 
 ====================
 */
-void CStudioModelRenderer :: StudioPlayerBlend( mstudioseqdesc_t *pseqdesc, int &pBlend, float &pPitch )
+void CStudioModelRenderer::StudioPlayerBlend( mstudioseqdesc_t *pseqdesc, int &pBlend, float &pPitch )
 {
 	pBlend = (pPitch * 3.0f);
 
@@ -1610,15 +1638,15 @@ void CStudioModelRenderer :: StudioPlayerBlend( mstudioseqdesc_t *pseqdesc, int 
 	}
 }
 
-void CStudioModelRenderer :: AddBlendSequence( int oldseq, int newseq, float prevframe, bool gaitseq )
+void CStudioModelRenderer::AddBlendSequence( int oldseq, int newseq, float prevframe, bool gaitseq )
 {
 	mstudioseqdesc_t *poldseqdesc = (mstudioseqdesc_t *)((byte *)m_pStudioHeader + m_pStudioHeader->seqindex) + oldseq;
 	mstudioseqdesc_t *pnewseqdesc = (mstudioseqdesc_t *)((byte *)m_pStudioHeader + m_pStudioHeader->seqindex) + newseq;
 
 	// sequence has changed, hold the previous sequence info
-	if( oldseq != newseq && !FBitSet( pnewseqdesc->flags, STUDIO_SNAP ))
+	if( oldseq != newseq && !FBitSet( pnewseqdesc->flags, STUDIO_SNAP ) )
 	{
-		mstudioblendseq_t	*pseqblending;
+		mstudioblendseq_t *pseqblending;
 
 		// move current sequence into circular buffer
 		m_pModelInstance->m_current_seqblend = (m_pModelInstance->m_current_seqblend + 1) & MASK_SEQBLENDS;
@@ -1635,7 +1663,7 @@ void CStudioModelRenderer :: AddBlendSequence( int oldseq, int newseq, float pre
 	}
 }
 
-float CStudioModelRenderer :: CalcStairSmoothValue( float oldz, float newz, float smoothtime, float smoothvalue )
+float CStudioModelRenderer::CalcStairSmoothValue( float oldz, float newz, float smoothtime, float smoothvalue )
 {
 	if( oldz < newz )
 		return bound( newz - tr.movevars->stepsize, oldz + smoothtime * smoothvalue, newz );
@@ -1644,15 +1672,15 @@ float CStudioModelRenderer :: CalcStairSmoothValue( float oldz, float newz, floa
 	return 0.0f;
 }
 
-int CStudioModelRenderer :: StudioCheckLOD( void )
+int CStudioModelRenderer::StudioCheckLOD( void )
 {
-	mstudiobodyparts_t    *m_pBodyPart;
-    
+	mstudiobodyparts_t *m_pBodyPart;
+
 	for( int i = 0; i < m_pStudioHeader->numbodyparts; i++ )
 	{
 		m_pBodyPart = (mstudiobodyparts_t *)((byte *)m_pStudioHeader + m_pStudioHeader->bodypartindex) + i;
-        
-		if( !Q_stricmp( m_pBodyPart->name, "studioLOD" ))
+
+		if( !Q_stricmp( m_pBodyPart->name, "studioLOD" ) )
 			return m_pBodyPart->nummodels;
 	}
 
@@ -1665,9 +1693,8 @@ StudioSetUpTransform
 
 ====================
 */
-void CStudioModelRenderer :: StudioSetUpTransform( void )
+void CStudioModelRenderer::StudioSetUpTransform( void )
 {
-	cl_entity_t	*e = m_pCurrentEntity;
 	qboolean		disable_smooth = false;
 	float		step, smoothtime;
 
@@ -1677,26 +1704,24 @@ void CStudioModelRenderer :: StudioSetUpTransform( void )
 		smoothtime = bound( 0.0f, tr.time - m_pModelInstance->lerp.stairtime, 0.1f );
 		m_pModelInstance->lerp.stairtime = tr.time;
 
-		if( e->curstate.onground == -1 || FBitSet( e->curstate.effects, EF_NOINTERP ))
+		if( m_pCurrentEntity->curstate.onground == -1 || FBitSet( m_pCurrentEntity->curstate.effects, EF_NOINTERP ) )
 			disable_smooth = true;
 
-		if( e->curstate.movetype != MOVETYPE_STEP && e->curstate.movetype != MOVETYPE_WALK )
+		if( m_pCurrentEntity->curstate.movetype != MOVETYPE_STEP && m_pCurrentEntity->curstate.movetype != MOVETYPE_WALK )
 			disable_smooth = true;
 
-		if( !FBitSet( m_pModelInstance->info_flags, MF_INIT_SMOOTHSTAIRS ))
+		if( !FBitSet( m_pModelInstance->info_flags, MF_INIT_SMOOTHSTAIRS ) )
 		{
 			SetBits( m_pModelInstance->info_flags, MF_INIT_SMOOTHSTAIRS );
 			disable_smooth = true;
 		}
 
 		if( disable_smooth )
-		{
-			m_pModelInstance->lerp.stairoldz = e->origin[2];
-		}
+			m_pModelInstance->lerp.stairoldz = m_pCurrentEntity->origin[2];
 		else
 		{
-			step = CalcStairSmoothValue( m_pModelInstance->lerp.stairoldz, e->origin[2], smoothtime, STAIR_INTERP_TIME );
-			if( step ) m_pModelInstance->lerp.stairoldz = e->origin[2] = step;
+			step = CalcStairSmoothValue( m_pModelInstance->lerp.stairoldz, m_pCurrentEntity->origin[2], smoothtime, STAIR_INTERP_TIME );
+			if( step ) m_pModelInstance->lerp.stairoldz = m_pCurrentEntity->origin[2] = step;
 		}
 	}
 
@@ -1706,43 +1731,41 @@ void CStudioModelRenderer :: StudioSetUpTransform( void )
 
 	float lodDist = (origin - RI->vieworg).Length() * tr.lodScale;
 	float  radius = Q_max( m_pModelInstance->radius, 1.0f ); // to avoid division by zero
-	int lodnum = (int)( lodDist / radius );
+	int lodnum = (int)(lodDist / radius);
 	int numLods;
 
-	if( CVAR_TO_BOOL( m_pCvarLodScale ))
+	if( CVAR_TO_BOOL( m_pCvarLodScale ) )
 		lodnum /= (int)fabs( m_pCvarLodScale->value );
-	if( CVAR_TO_BOOL( m_pCvarLodBias ))
+	if( CVAR_TO_BOOL( m_pCvarLodBias ) )
 		lodnum += (int)fabs( m_pCvarLodBias->value );
 
 	// apply lodnum to model
-	if(( numLods = StudioCheckLOD( )) != 0 )
+	if( (numLods = StudioCheckLOD()) != 0 )
 	{
 		// set derived LOD
-		e->curstate.body = Q_min( lodnum, numLods - 1 );
+		m_pCurrentEntity->curstate.body = Q_min( lodnum, numLods - 1 );
 	}
 
 	if( m_pPlayerInfo )
 	{
-		int		iBlend, m_iGaitSequence = 0;
-		mstudioseqdesc_t	*pseqdesc;
+		int m_iGaitSequence = 0;
+		int iBlend = 0;
+		mstudioseqdesc_t *pseqdesc;
 
 		if( m_pCurrentEntity->curstate.renderfx != kRenderFxDeadPlayer )
-			m_iGaitSequence = IEngineStudio.GetPlayerState( m_nPlayerIndex )->gaitsequence;
+			m_iGaitSequence = IEngineStudio.GetPlayerState( iPlayerIndex )->gaitsequence;
 
 		if( m_iGaitSequence )
 		{
 			pseqdesc = (mstudioseqdesc_t *)((byte *)m_pStudioHeader + m_pStudioHeader->seqindex) + m_pCurrentEntity->curstate.sequence;
-
-			// calc blend (FXIME: move to the server)
+			// calc blend (FIXME: move to the server)
 			StudioPlayerBlend( pseqdesc, iBlend, angles[PITCH] );
 			m_pCurrentEntity->curstate.blending[0] = iBlend;
 			m_pCurrentEntity->latched.prevblending[0] = iBlend;
 			m_pPlayerInfo->gaitsequence = m_iGaitSequence;
 		}
 		else
-		{
 			m_pPlayerInfo->gaitsequence = 0;
-		}
 
 		// don't rotate clients, only aim
 		angles[PITCH] = 0.0f;
@@ -1755,24 +1778,25 @@ void CStudioModelRenderer :: StudioSetUpTransform( void )
 		m_pModelInstance->lerp.gaitframe = m_pPlayerInfo->gaitframe;
 	}
 
-	if( FBitSet( m_pCurrentEntity->curstate.effects, EF_NOINTERP ) || ( tr.realframecount - m_pModelInstance->cached_frame ) > 1 )
-	{
+	if( FBitSet( m_pCurrentEntity->curstate.effects, EF_NOINTERP ) || (tr.realframecount - m_pModelInstance->cached_frame) > 1 )
 		m_pModelInstance->lerp.sequence = m_pCurrentEntity->curstate.sequence;
-	}
 	else if( m_pCurrentEntity->curstate.sequence != m_pModelInstance->lerp.sequence )
 	{
-		AddBlendSequence( m_pModelInstance->lerp.sequence, m_pCurrentEntity->curstate.sequence, m_pModelInstance->lerp.frame );
+		AddBlendSequence( m_pModelInstance->lerp.sequence, m_pCurrentEntity->curstate.sequence, m_pModelInstance->lerp.frame ); // diffusion FIXME, this adds a glitch
 		m_pModelInstance->lerp.sequence = m_pCurrentEntity->curstate.sequence;
 	}
 
+	// store prevseqblending manually, engine doesn't do it
+	m_pCurrentEntity->latched.prevseqblending[0] = m_pCurrentEntity->curstate.blending[0];
+	m_pCurrentEntity->latched.prevseqblending[1] = m_pCurrentEntity->curstate.blending[1];
+
 	// don't blend sequences for a dead player or a viewmodel
+	// diffusion - allow viewmodel if needed
 	if( m_fDrawViewModel || m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer )
-		memset( &m_pModelInstance->m_seqblend, 0, sizeof( m_pModelInstance->m_seqblend ));
+		memset( &m_pModelInstance->m_seqblend, 0, sizeof( m_pModelInstance->m_seqblend ) );
 
 	if( m_pCurrentEntity->curstate.startpos != g_vecZero )
-	{
 		scale = m_pCurrentEntity->curstate.startpos;
-	}
 	else if( m_pCurrentEntity->curstate.scale > 0.0f && m_pCurrentEntity->curstate.scale <= 16.0f )
 	{
 		// apply studiomodel scale (clamp scale to prevent too big sizes on some HL maps)
@@ -1781,15 +1805,17 @@ void CStudioModelRenderer :: StudioSetUpTransform( void )
 
 	// build the rotation matrix
 	m_pModelInstance->m_protationmatrix = matrix3x4( origin, angles, scale );
-	m_pModelInstance->m_plightmatrix = m_pModelInstance->m_protationmatrix;
 
-	if( m_pCurrentEntity == GET_VIEWMODEL() && CVAR_TO_BOOL( m_pCvarHand ))
+	// light matrix is needed for lights, because dynlights are set up in local space of the model
+	m_pModelInstance->m_plightmatrix = matrix3x4( origin, angles, Vector( 1.0f / scale.x, 1.0f / scale.y, 1.0f / scale.z ) );
+
+	if( m_pCurrentEntity == GET_VIEWMODEL() && CVAR_TO_BOOL( m_pCvarHand ) )
 	{
 		// inverse the right vector
 		m_pModelInstance->m_protationmatrix.SetRight( -m_pModelInstance->m_protationmatrix.GetRight() );
 	}
 
-	StudioFxTransform( e, m_pModelInstance->m_protationmatrix );
+	StudioFxTransform( m_pCurrentEntity, m_pModelInstance->m_protationmatrix );
 }
 
 /*
@@ -1798,7 +1824,7 @@ StudioEstimateFrame
 
 ====================
 */
-float CStudioModelRenderer :: StudioEstimateFrame( mstudioseqdesc_t *pseqdesc )
+float CStudioModelRenderer::StudioEstimateFrame( mstudioseqdesc_t *pseqdesc )
 {
 	double dfdt = 0, f = 0;
 
@@ -1810,29 +1836,21 @@ float CStudioModelRenderer :: StudioEstimateFrame( mstudioseqdesc_t *pseqdesc )
 
 	f += dfdt;
 
-	if( pseqdesc->flags & STUDIO_LOOPING ) 
+	if( pseqdesc->flags & STUDIO_LOOPING )
 	{
 		if( pseqdesc->numframes > 1 )
-		{
-			f -= (int)(f / (pseqdesc->numframes - 1)) *  (pseqdesc->numframes - 1);
-		}
+			f -= (int)(f / (pseqdesc->numframes - 1)) * (pseqdesc->numframes - 1);
 
-		if( f < 0.0 ) 
-		{
+		if( f < 0.0 )
 			f += (pseqdesc->numframes - 1);
-		}
 	}
-	else 
+	else
 	{
-		if( f >= pseqdesc->numframes - 1.001 ) 
-		{
+		if( f >= pseqdesc->numframes - 1.001 )
 			f = pseqdesc->numframes - 1.001;
-		}
 
-		if( f < 0.0 ) 
-		{
+		if( f < 0.0 )
 			f = 0.0;
-		}
 	}
 
 	return f;
@@ -1844,43 +1862,34 @@ StudioEstimateFrame
 
 ====================
 */
-float CStudioModelRenderer :: StudioEstimateGaitFrame( mstudioseqdesc_t *pseqdesc )
+
+float CStudioModelRenderer::StudioEstimateGaitFrame( mstudioseqdesc_t *pseqdesc )
 {
 	double dfdt = 0, f = 0;
 
 	if( m_fDoInterp && tr.time >= m_pCurrentEntity->curstate.animtime )
-	{
 		dfdt = (tr.time - m_pCurrentEntity->curstate.animtime) / 0.1f;
-	}
 
-	if( pseqdesc->numframes > 1)
+	if( pseqdesc->numframes > 1 )
 		f = m_pCurrentEntity->curstate.fuser1;
 
 	f += dfdt;
 
-	if( pseqdesc->flags & STUDIO_LOOPING ) 
+	if( pseqdesc->flags & STUDIO_LOOPING )
 	{
 		if( pseqdesc->numframes > 1 )
-		{
-			f -= (int)(f / (pseqdesc->numframes - 1)) *  (pseqdesc->numframes - 1);
-		}
+			f -= (int)(f / (pseqdesc->numframes - 1)) * (pseqdesc->numframes - 1);
 
-		if( f < 0.0 ) 
-		{
+		if( f < 0.0 )
 			f += (pseqdesc->numframes - 1);
-		}
 	}
-	else 
+	else
 	{
-		if( f >= pseqdesc->numframes - 1.001 ) 
-		{
+		if( f >= pseqdesc->numframes - 1.001 )
 			f = pseqdesc->numframes - 1.001;
-		}
 
-		if( f < 0.0 ) 
-		{
+		if( f < 0.0 )
 			f = 0.0;
-		}
 	}
 
 	return f;
@@ -1892,19 +1901,18 @@ StudioEstimateInterpolant
 
 ====================
 */
-float CStudioModelRenderer :: StudioEstimateInterpolant( void )
+float CStudioModelRenderer::StudioEstimateInterpolant( void )
 {
 	float dadt = 1.0;
 
-	if( m_fDoInterp && ( m_pCurrentEntity->curstate.animtime >= m_pCurrentEntity->latched.prevanimtime + 0.01f ))
+	if( m_fDoInterp && (m_pCurrentEntity->curstate.animtime >= m_pCurrentEntity->latched.prevanimtime + 0.01f) )
 	{
 		dadt = (tr.time - m_pCurrentEntity->curstate.animtime) / 0.1f;
 
 		if( dadt > 2.0f )
-		{
 			dadt = 2.0f;
-		}
 	}
+
 	return dadt;
 }
 
@@ -1914,32 +1922,33 @@ StudioInterpolatePoseParams
 
 ====================
 */
-void CStudioModelRenderer :: StudioInterpolatePoseParams( cl_entity_t *e, float dadt )
+void CStudioModelRenderer::StudioInterpolatePoseParams( cl_entity_t *e, float dadt )
 {
-	if( !m_boneSetup.CountPoseParameters( ))
-	{
+	// diffusionposeparameters - disable
+//	if( !m_boneSetup.CountPoseParameters() )
+//	{
 		// interpolate blends
-		m_pModelInstance->m_poseparameter[0] = (e->curstate.blending[0] * dadt + e->latched.prevblending[0] * (1.0f - dadt)) / 255.0f;
-		m_pModelInstance->m_poseparameter[1] = (e->curstate.blending[1] * dadt + e->latched.prevblending[1] * (1.0f - dadt)) / 255.0f;
-	}
-	else
-	{
-		m_pModelInstance->m_poseparameter[0] = (e->curstate.vuser1[0] * dadt + e->prevstate.vuser1[0] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[1] = (e->curstate.vuser1[1] * dadt + e->prevstate.vuser1[1] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[2] = (e->curstate.vuser1[2] * dadt + e->prevstate.vuser1[2] * (1.0f - dadt));
+	m_pModelInstance->m_poseparameter[0] = (e->curstate.blending[0] * dadt + e->latched.prevblending[0] * (1.0f - dadt)) / 255.0f;
+	m_pModelInstance->m_poseparameter[1] = (e->curstate.blending[1] * dadt + e->latched.prevblending[1] * (1.0f - dadt)) / 255.0f;
+	/*	}
+		else
+		{
+			m_pModelInstance->m_poseparameter[0] = (e->curstate.vuser1[0] * dadt + e->prevstate.vuser1[0] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[1] = (e->curstate.vuser1[1] * dadt + e->prevstate.vuser1[1] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[2] = (e->curstate.vuser1[2] * dadt + e->prevstate.vuser1[2] * (1.0f - dadt));
 
-		m_pModelInstance->m_poseparameter[3] = (e->curstate.vuser2[0] * dadt + e->prevstate.vuser2[0] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[4] = (e->curstate.vuser2[1] * dadt + e->prevstate.vuser2[1] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[5] = (e->curstate.vuser2[2] * dadt + e->prevstate.vuser2[2] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[3] = (e->curstate.vuser2[0] * dadt + e->prevstate.vuser2[0] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[4] = (e->curstate.vuser2[1] * dadt + e->prevstate.vuser2[1] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[5] = (e->curstate.vuser2[2] * dadt + e->prevstate.vuser2[2] * (1.0f - dadt));
 
-		m_pModelInstance->m_poseparameter[6] = (e->curstate.vuser3[0] * dadt + e->prevstate.vuser3[0] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[7] = (e->curstate.vuser3[1] * dadt + e->prevstate.vuser3[1] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[8] = (e->curstate.vuser3[2] * dadt + e->prevstate.vuser3[2] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[6] = (e->curstate.vuser3[0] * dadt + e->prevstate.vuser3[0] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[7] = (e->curstate.vuser3[1] * dadt + e->prevstate.vuser3[1] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[8] = (e->curstate.vuser3[2] * dadt + e->prevstate.vuser3[2] * (1.0f - dadt));
 
-		m_pModelInstance->m_poseparameter[ 9] = (e->curstate.vuser4[0] * dadt + e->prevstate.vuser4[0] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[10] = (e->curstate.vuser4[1] * dadt + e->prevstate.vuser4[1] * (1.0f - dadt));
-		m_pModelInstance->m_poseparameter[11] = (e->curstate.vuser4[2] * dadt + e->prevstate.vuser4[2] * (1.0f - dadt));
-	}
+			m_pModelInstance->m_poseparameter[9] = (e->curstate.vuser4[0] * dadt + e->prevstate.vuser4[0] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[10] = (e->curstate.vuser4[1] * dadt + e->prevstate.vuser4[1] * (1.0f - dadt));
+			m_pModelInstance->m_poseparameter[11] = (e->curstate.vuser4[2] * dadt + e->prevstate.vuser4[2] * (1.0f - dadt));
+		}*/
 }
 
 /*
@@ -1948,7 +1957,7 @@ StudioInterpolateBlends
 
 ====================
 */
-void CStudioModelRenderer :: StudioInterpolateBlends( cl_entity_t *e, float dadt )
+void CStudioModelRenderer::StudioInterpolateBlends( cl_entity_t *e, float dadt )
 {
 	mstudiobonecontroller_t *pbonecontroller = (mstudiobonecontroller_t *)((byte *)m_pStudioHeader + m_pStudioHeader->bonecontrollerindex);
 
@@ -1961,7 +1970,7 @@ void CStudioModelRenderer :: StudioInterpolateBlends( cl_entity_t *e, float dadt
 		if( i <= 3 )
 		{
 			// check for 360% wrapping
-			if( FBitSet( pbonecontroller[j].type, STUDIO_RLOOP ))
+			if( FBitSet( pbonecontroller[j].type, STUDIO_RLOOP ) )
 			{
 				if( abs( e->curstate.controller[i] - e->latched.prevcontroller[i] ) > 128 )
 				{
@@ -1969,15 +1978,14 @@ void CStudioModelRenderer :: StudioInterpolateBlends( cl_entity_t *e, float dadt
 					int b = (e->latched.prevcontroller[j] + 128) % 256;
 					value = ((a * dadt) + (b * (1.0f - dadt)) - 128);
 				}
-				else 
+				else
 				{
 					value = ((e->curstate.controller[i] * dadt + (e->latched.prevcontroller[i]) * (1.0f - dadt)));
 				}
 			}
-			else 
-			{
+			else
 				value = (e->curstate.controller[i] * dadt + e->latched.prevcontroller[i] * (1.0 - dadt));
-			}
+
 			m_pModelInstance->m_controller[i] = bound( 0, Q_rint( value ), 255 );
 		}
 	}
@@ -1989,7 +1997,7 @@ StudioGetAnim
 
 ====================
 */
-mstudioanim_t *CStudioModelRenderer :: StudioGetAnim( model_t *m_pSubModel, mstudioseqdesc_t *pseqdesc )
+mstudioanim_t *CStudioModelRenderer::StudioGetAnim( model_t *m_pSubModel, mstudioseqdesc_t *pseqdesc )
 {
 	mstudioseqgroup_t *pseqgroup;
 	cache_user_t *paSequences;
@@ -2003,12 +2011,12 @@ mstudioanim_t *CStudioModelRenderer :: StudioGetAnim( model_t *m_pSubModel, mstu
 
 	if( paSequences == NULL )
 	{
-		paSequences = (cache_user_t *)IEngineStudio.Mem_Calloc( MAXSTUDIOGROUPS, sizeof( cache_user_t ));
+		paSequences = (cache_user_t *)IEngineStudio.Mem_Calloc( MAXSTUDIOGROUPS, sizeof( cache_user_t ) );
 		m_pSubModel->submodels = (dmodel_t *)paSequences;
 	}
 
 	// check for already loaded
-	if( !IEngineStudio.Cache_Check(( struct cache_user_s *)&(paSequences[pseqdesc->seqgroup] )))
+	if( !IEngineStudio.Cache_Check( (struct cache_user_s *)&(paSequences[pseqdesc->seqgroup]) ) )
 	{
 		char filepath[128], modelpath[128], modelname[64];
 
@@ -2019,7 +2027,7 @@ mstudioanim_t *CStudioModelRenderer :: StudioGetAnim( model_t *m_pSubModel, mstu
 		Q_snprintf( filepath, sizeof( filepath ), "%s/%s%i%i.mdl", modelpath, modelname, pseqdesc->seqgroup / 10, pseqdesc->seqgroup % 10 );
 
 		ALERT( at_console, "loading: %s\n", filepath );
-		IEngineStudio.LoadCacheFile( filepath, (struct cache_user_s *)&paSequences[pseqdesc->seqgroup] );			
+		IEngineStudio.LoadCacheFile( filepath, (struct cache_user_s *)&paSequences[pseqdesc->seqgroup] );
 	}
 
 	return (mstudioanim_t *)((byte *)paSequences[pseqdesc->seqgroup].data + pseqdesc->animindex);
@@ -2031,7 +2039,7 @@ Studio_FxTransform
 
 ====================
 */
-void CStudioModelRenderer :: StudioFxTransform( cl_entity_t *ent, matrix3x4 &transform )
+void CStudioModelRenderer::StudioFxTransform( cl_entity_t *ent, matrix3x4 &transform )
 {
 	switch( ent->curstate.renderfx )
 	{
@@ -2040,13 +2048,13 @@ void CStudioModelRenderer :: StudioFxTransform( cl_entity_t *ent, matrix3x4 &tra
 		if( RANDOM_LONG( 0, 49 ) == 0 )
 		{
 			// choose between x & z
-			switch( RANDOM_LONG( 0, 1 ))
+			switch( RANDOM_LONG( 0, 1 ) )
 			{
 			case 0:
-				transform.SetForward( transform.GetForward() * RANDOM_FLOAT( 1.0f, 1.484f ));
-				break; 
+				transform.SetForward( transform.GetForward() * RANDOM_FLOAT( 1.0f, 1.484f ) );
+				break;
 			case 1:
-				transform.SetUp( transform.GetUp() * RANDOM_FLOAT( 1.0f, 1.484f ));
+				transform.SetUp( transform.GetUp() * RANDOM_FLOAT( 1.0f, 1.484f ) );
 				break;
 			}
 		}
@@ -2056,27 +2064,27 @@ void CStudioModelRenderer :: StudioFxTransform( cl_entity_t *ent, matrix3x4 &tra
 		}
 		break;
 	case kRenderFxExplode:
-		{
-			float scale = 1.0f + ( tr.time - ent->curstate.animtime ) * 10.0f;
-			if( scale > 2 ) scale = 2; // don't blow up more than 200%
-			transform.SetRight( transform.GetRight() * scale );
-		}
-		break;
+	{
+		float scale = 1.0f + (tr.time - ent->curstate.animtime) * 10.0f;
+		if( scale > 2 ) scale = 2; // don't blow up more than 200%
+		transform.SetRight( transform.GetRight() * scale );
+	}
+	break;
 	}
 }
 
-void CStudioModelRenderer :: BlendSequence( Vector pos[], Vector4D q[], mstudioblendseq_t *pseqblend )
+void CStudioModelRenderer::BlendSequence( Vector pos[], Vector4D q[], mstudioblendseq_t *pseqblend )
 {
-	CIKContext	*pIK = NULL;
+	CIKContext *pIK = NULL;
 
 	// to prevent division by zero
 	if( pseqblend->fadeout <= 0.0f )
 		pseqblend->fadeout = 0.2f;
 
-	if( m_boneSetup.GetNumIKChains( ))
+	if( m_boneSetup.GetNumIKChains() )
 		pIK = &m_pModelInstance->m_ik;
 
-	if( pseqblend->blendtime && ( pseqblend->blendtime + pseqblend->fadeout > tr.time ) && ( pseqblend->sequence < m_pStudioHeader->numseq ))
+	if( pseqblend->blendtime && (pseqblend->blendtime + pseqblend->fadeout > tr.time) && (pseqblend->sequence < m_pStudioHeader->numseq) )
 	{
 		float	s = 1.0f - (tr.time - pseqblend->blendtime) / pseqblend->fadeout;
 
@@ -2097,11 +2105,11 @@ void CStudioModelRenderer :: BlendSequence( Vector pos[], Vector4D q[], mstudiob
 			float m_flGaitBoneWeights[MAXSTUDIOBONES];
 			bool copy = true;
 
-			for( int i = 0; i < m_pStudioHeader->numbones; i++)
+			for( int i = 0; i < m_pStudioHeader->numbones; i++ )
 			{
-				if( !Q_strcmp( pbones[i].name, "Bip01 Spine" ))
+				if( !Q_strcmp( pbones[i].name, "Bip01 Spine" ) )
 					copy = false;
-				else if( !Q_strcmp( pbones[pbones[i].parent].name, "Bip01 Pelvis" ))
+				else if( !Q_strcmp( pbones[pbones[i].parent].name, "Bip01 Pelvis" ) )
 					copy = true;
 				m_flGaitBoneWeights[i] = (copy) ? 1.0f : 0.0f;
 			}
@@ -2117,7 +2125,7 @@ void CStudioModelRenderer :: BlendSequence( Vector pos[], Vector4D q[], mstudiob
 //-----------------------------------------------------------------------------
 // Purpose: update latched IK contacts if they're in a moving reference frame.
 //-----------------------------------------------------------------------------
-void CStudioModelRenderer :: UpdateIKLocks( CIKContext *pIK )
+void CStudioModelRenderer::UpdateIKLocks( CIKContext *pIK )
 {
 	if( !pIK ) return;
 
@@ -2130,7 +2138,7 @@ void CStudioModelRenderer :: UpdateIKLocks( CIKContext *pIK )
 	{
 		CIKTarget *pTarget = &pIK->m_target[i];
 
-		if( !pTarget->IsActive( ))
+		if( !pTarget->IsActive() )
 			continue;
 
 		if( pTarget->GetOwner() != -1 )
@@ -2140,7 +2148,7 @@ void CStudioModelRenderer :: UpdateIKLocks( CIKContext *pIK )
 			if( pOwner != NULL )
 			{
 				pTarget->UpdateOwner( pOwner->index, pOwner->origin, pOwner->angles );
-			}				
+			}
 		}
 	}
 }
@@ -2148,7 +2156,7 @@ void CStudioModelRenderer :: UpdateIKLocks( CIKContext *pIK )
 //-----------------------------------------------------------------------------
 // Purpose: Find the ground or external attachment points needed by IK rules
 //-----------------------------------------------------------------------------
-void CStudioModelRenderer :: CalculateIKLocks( CIKContext *pIK )
+void CStudioModelRenderer::CalculateIKLocks( CIKContext *pIK )
 {
 	if( !pIK ) return;
 
@@ -2171,160 +2179,160 @@ void CStudioModelRenderer :: CalculateIKLocks( CIKContext *pIK )
 		CIKTarget *pTarget = &pIK->m_target[i];
 		float flDist = pTarget->est.radius;
 
-		if( !pTarget->IsActive( ))
+		if( !pTarget->IsActive() )
 			continue;
 
 		switch( pTarget->type )
 		{
 		case IK_GROUND:
+		{
+			Vector estGround;
+			Vector p1, p2;
+
+			// adjust ground to original ground position
+			estGround = (pTarget->est.pos - m_pCurrentEntity->origin);
+			estGround = estGround - (estGround * up) * up;
+			estGround = m_pCurrentEntity->origin + estGround + pTarget->est.floor * up;
+
+			p1 = estGround + up * pTarget->est.height;
+			p2 = estGround - up * pTarget->est.height;
+			float r = Q_max( pTarget->est.radius, 1 );
+
+			Vector mins = Vector( -r, -r, 0.0f );
+			Vector maxs = Vector( r, r, r * 2.0f );
+
+			// don't IK to other characters
+			gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
+			gEngfuncs.pEventAPI->EV_PushTraceBounds( 2, mins, maxs );
+			trace = gEngfuncs.pEventAPI->EV_VisTraceLine( p1, p2, PM_STUDIO_IGNORE );
+			physent_t *ve = gEngfuncs.pEventAPI->EV_GetVisent( trace->ent );
+			cl_entity_t *m_pGround = (ve) ? GET_ENTITY( ve->info ) : NULL;
+			gEngfuncs.pEventAPI->EV_PopTraceBounds();
+
+			if( m_pGround != NULL && m_pGround->curstate.movetype == MOVETYPE_PUSH )
 			{
-				Vector estGround;
-				Vector p1, p2;
+				pTarget->SetOwner( m_pGround->index, m_pGround->origin, m_pGround->angles );
+			}
+			else
+			{
+				pTarget->ClearOwner();
+			}
 
-				// adjust ground to original ground position
-				estGround = (pTarget->est.pos - m_pCurrentEntity->origin);
-				estGround = estGround - (estGround * up) * up;
-				estGround = m_pCurrentEntity->origin + estGround + pTarget->est.floor * up;
+			if( trace->startsolid )
+			{
+				// trace from back towards hip
+				Vector tmp = (estGround - pTarget->trace.closest).Normalize();
 
-				p1 = estGround + up * pTarget->est.height;
-				p2 = estGround - up * pTarget->est.height;
-				float r = Q_max( pTarget->est.radius, 1 );
+				p1 = estGround - tmp * pTarget->est.height;
+				p2 = estGround;
+				mins = Vector( -r, -r, 0.0f );
+				maxs = Vector( r, r, 1.0f );
 
-				Vector mins = Vector( -r, -r, 0.0f );
-				Vector maxs = Vector(  r,  r, r * 2.0f );
-
-				// don't IK to other characters
 				gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
 				gEngfuncs.pEventAPI->EV_PushTraceBounds( 2, mins, maxs );
 				trace = gEngfuncs.pEventAPI->EV_VisTraceLine( p1, p2, PM_STUDIO_IGNORE );
-				physent_t *ve = gEngfuncs.pEventAPI->EV_GetVisent( trace->ent );
-				cl_entity_t *m_pGround = (ve) ? GET_ENTITY( ve->info ) : NULL;
+				ve = gEngfuncs.pEventAPI->EV_GetVisent( trace->ent );
+				m_pGround = (ve) ? GET_ENTITY( ve->info ) : NULL;
 				gEngfuncs.pEventAPI->EV_PopTraceBounds();
-
-				if( m_pGround != NULL && m_pGround->curstate.movetype == MOVETYPE_PUSH )
-				{
-					pTarget->SetOwner( m_pGround->index, m_pGround->origin, m_pGround->angles );
-				}
-				else
-				{
-					pTarget->ClearOwner();
-				}
-
-				if( trace->startsolid )
-				{
-					// trace from back towards hip
-					Vector tmp = (estGround - pTarget->trace.closest).Normalize();
-
-					p1 = estGround - tmp * pTarget->est.height;
-					p2 = estGround;
-					mins = Vector( -r, -r, 0.0f );
-					maxs = Vector(  r,  r, 1.0f );
-
-					gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
-					gEngfuncs.pEventAPI->EV_PushTraceBounds( 2, mins, maxs );
-					trace = gEngfuncs.pEventAPI->EV_VisTraceLine( p1, p2, PM_STUDIO_IGNORE );
-					ve = gEngfuncs.pEventAPI->EV_GetVisent( trace->ent );
-					m_pGround = (ve) ? GET_ENTITY( ve->info ) : NULL;
-					gEngfuncs.pEventAPI->EV_PopTraceBounds();
-
-					if( !trace->startsolid )
-					{
-						p1 = trace->endpos;
-						p2 = p1 - up * pTarget->est.height;
-
-						gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
-						trace = gEngfuncs.pEventAPI->EV_VisTraceLine( p1, p2, PM_STUDIO_IGNORE );
-						ve = gEngfuncs.pEventAPI->EV_GetVisent( trace->ent );
-						m_pGround = (ve) ? GET_ENTITY( ve->info ) : NULL;
-					}
-				}
 
 				if( !trace->startsolid )
 				{
-					if( m_pGround == GET_ENTITY( 0 ))
+					p1 = trace->endpos;
+					p2 = p1 - up * pTarget->est.height;
+
+					gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
+					trace = gEngfuncs.pEventAPI->EV_VisTraceLine( p1, p2, PM_STUDIO_IGNORE );
+					ve = gEngfuncs.pEventAPI->EV_GetVisent( trace->ent );
+					m_pGround = (ve) ? GET_ENTITY( ve->info ) : NULL;
+				}
+			}
+
+			if( !trace->startsolid )
+			{
+				if( m_pGround == GET_ENTITY( 0 ) )
+				{
+					// clamp normal to 33 degrees
+					const float limit = 0.832;
+					float dot = DotProduct( trace->plane.normal, up );
+
+					if( dot < limit )
 					{
-						// clamp normal to 33 degrees
-						const float limit = 0.832;
-						float dot = DotProduct( trace->plane.normal, up );
-
-						if( dot < limit )
-						{
-							ASSERT( dot >= 0 );
-							// subtract out up component
-							Vector diff = trace->plane.normal - up * dot;
-							// scale remainder such that it and the up vector are a unit vector
-							float d = sqrt(( 1.0f - limit * limit ) / DotProduct( diff, diff ) );
-							trace->plane.normal = up * limit + d * diff;
-						}
-
-						// FIXME: this is wrong with respect to contact position and actual ankle offset
-						pTarget->SetPosWithNormalOffset( trace->endpos, trace->plane.normal );
-						pTarget->SetNormal( trace->plane.normal );
-						pTarget->SetOnWorld( true );
-
-						// only do this on forward tracking or commited IK ground rules
-						if( pTarget->est.release < 0.1f )
-						{
-							// keep track of ground height
-							float offset = DotProduct( pTarget->est.pos, up );
-
-							if( minHeight > offset )
-								minHeight = offset;
-							if( maxHeight < offset )
-								maxHeight = offset;
-						}
-						// FIXME: if we don't drop legs, running down hills looks horrible
-						/*
-						if (DotProduct( pTarget->est.pos, up ) < DotProduct( estGround, up ))
-						{
-							pTarget->est.pos = estGround;
-						}
-						*/
+						ASSERT( dot >= 0 );
+						// subtract out up component
+						Vector diff = trace->plane.normal - up * dot;
+						// scale remainder such that it and the up vector are a unit vector
+						float d = sqrt( (1.0f - limit * limit) / DotProduct( diff, diff ) );
+						trace->plane.normal = up * limit + d * diff;
 					}
-					else if( m_pGround != NULL )
+
+					// FIXME: this is wrong with respect to contact position and actual ankle offset
+					pTarget->SetPosWithNormalOffset( trace->endpos, trace->plane.normal );
+					pTarget->SetNormal( trace->plane.normal );
+					pTarget->SetOnWorld( true );
+
+					// only do this on forward tracking or commited IK ground rules
+					if( pTarget->est.release < 0.1f )
 					{
-						pTarget->SetPos( trace->endpos );
-						pTarget->SetAngles( m_pCurrentEntity->angles );
+						// keep track of ground height
+						float offset = DotProduct( pTarget->est.pos, up );
 
-						// only do this on forward tracking or commited IK ground rules
-						if( pTarget->est.release < 0.1f )
-						{
-							float offset = DotProduct( pTarget->est.pos, up );
-
-							if( minHeight > offset )
-								minHeight = offset;
-
-							if( maxHeight < offset )
-								maxHeight = offset;
-						}
-						// FIXME: if we don't drop legs, running down hills looks horrible
-						/*
-						if (DotProduct( pTarget->est.pos, up ) < DotProduct( estGround, up ))
-						{
-							pTarget->est.pos = estGround;
-						}
-						*/
+						if( minHeight > offset )
+							minHeight = offset;
+						if( maxHeight < offset )
+							maxHeight = offset;
 					}
-					else
+					// FIXME: if we don't drop legs, running down hills looks horrible
+					/*
+					if (DotProduct( pTarget->est.pos, up ) < DotProduct( estGround, up ))
 					{
-						pTarget->IKFailed();
+						pTarget->est.pos = estGround;
 					}
+					*/
+				}
+				else if( m_pGround != NULL )
+				{
+					pTarget->SetPos( trace->endpos );
+					pTarget->SetAngles( m_pCurrentEntity->angles );
+
+					// only do this on forward tracking or commited IK ground rules
+					if( pTarget->est.release < 0.1f )
+					{
+						float offset = DotProduct( pTarget->est.pos, up );
+
+						if( minHeight > offset )
+							minHeight = offset;
+
+						if( maxHeight < offset )
+							maxHeight = offset;
+					}
+					// FIXME: if we don't drop legs, running down hills looks horrible
+					/*
+					if (DotProduct( pTarget->est.pos, up ) < DotProduct( estGround, up ))
+					{
+						pTarget->est.pos = estGround;
+					}
+					*/
 				}
 				else
 				{
-					if( m_pGround != GET_ENTITY( 0 ))
-					{
-						pTarget->IKFailed( );
-					}
-					else
-					{
-						pTarget->SetPos( trace->endpos );
-						pTarget->SetAngles( m_pCurrentEntity->angles );
-						pTarget->SetOnWorld( true );
-					}
+					pTarget->IKFailed();
 				}
 			}
-			break;
+			else
+			{
+				if( m_pGround != GET_ENTITY( 0 ) )
+				{
+					pTarget->IKFailed();
+				}
+				else
+				{
+					pTarget->SetPos( trace->endpos );
+					pTarget->SetAngles( m_pCurrentEntity->angles );
+					pTarget->SetOnWorld( true );
+				}
+			}
+		}
+		break;
 		case IK_ATTACHMENT:
 			flDist = pTarget->est.radius;
 			for( j = 1; j < RENDER_GET_PARM( PARM_MAX_ENTITIES, 0 ); j++ )
@@ -2371,14 +2379,14 @@ void CStudioModelRenderer :: CalculateIKLocks( CIKContext *pIK )
 			if( flDist >= pTarget->est.radius )
 			{
 				// no solution, disable ik rule
-				pTarget->IKFailed( );
+				pTarget->IKFailed();
 			}
 			break;
 		}
 	}
 }
 
-void CStudioModelRenderer :: StudioSetBonesExternal( const cl_entity_t *ent, const Vector pos[], const Radian ang[] )
+void CStudioModelRenderer::StudioSetBonesExternal( const cl_entity_t *ent, const Vector pos[], const Radian ang[] )
 {
 	m_pCurrentEntity = (cl_entity_t *)ent;
 	m_pRenderModel = ent->model;
@@ -2408,7 +2416,7 @@ void CStudioModelRenderer :: StudioSetBonesExternal( const cl_entity_t *ent, con
 	m_pModelInstance->m_bProceduralBones = true;
 }
 
-void CStudioModelRenderer :: StudioCalcBonesProcedural( Vector pos[], Vector4D q[] )
+void CStudioModelRenderer::StudioCalcBonesProcedural( Vector pos[], Vector4D q[] )
 {
 	if( !m_pModelInstance->m_bProceduralBones )
 		return;
@@ -2430,49 +2438,52 @@ StudioSetupBones
 
 ====================
 */
-void CStudioModelRenderer :: StudioSetupBones( void )
+
+void CStudioModelRenderer::StudioSetupBones( void )
 {
 	float		adj[MAXSTUDIOCONTROLLERS];
-	cl_entity_t	*e = m_pCurrentEntity;	// for more readability
-	CIKContext	*pIK = NULL;
-	mstudioboneinfo_t	*pboneinfo;
-	mstudioseqdesc_t	*pseqdesc;
+	cl_entity_t *e = m_pCurrentEntity;	// for more readability
+	CIKContext *pIK = NULL;
+	mstudioboneinfo_t *pboneinfo;
+	mstudioseqdesc_t *pseqdesc;
 	matrix3x4		bonematrix;
-	mstudiobone_t	*pbones;
+	mstudiobone_t *pbones;
 	int		i;
 
 	static Vector	pos[MAXSTUDIOBONES];
 	static Vector4D	q[MAXSTUDIOBONES];
+	float cycle;
 
-	if( e->curstate.sequence < 0 || e->curstate.sequence >= m_pStudioHeader->numseq ) 
+	if( e->curstate.sequence < 0 || e->curstate.sequence >= m_pStudioHeader->numseq )
 	{
 		int sequence = (short)e->curstate.sequence;
 		ALERT( at_warning, "StudioSetupBones: sequence %i/%i out of range for model %s\n", sequence, m_pStudioHeader->numseq, m_pRenderModel->name );
 		e->curstate.sequence = 0;
-          }
+	}
 
 	pseqdesc = (mstudioseqdesc_t *)((byte *)m_pStudioHeader + m_pStudioHeader->seqindex) + e->curstate.sequence;
 	float f = StudioEstimateFrame( pseqdesc );
+
 	float dadt = StudioEstimateInterpolant();
-	
+
 	StudioInterpolatePoseParams( e, dadt );
 
-	if( CheckBoneCache( f )) return; // using a cached bones no need transformations
+	if( CheckBoneCache( f ) ) return; // using a cached bones no need transformations
 
-	if( m_boneSetup.GetNumIKChains( ))
+	if( m_boneSetup.GetNumIKChains() )
 	{
-		if( FBitSet( e->curstate.effects, EF_NOINTERP ))
+		if( FBitSet( e->curstate.effects, EF_NOINTERP ) )
 			m_pModelInstance->m_ik.ClearTargets();
 		m_pModelInstance->m_ik.Init( &m_boneSetup, e->angles, e->origin, tr.time, tr.realframecount );
 		pIK = &m_pModelInstance->m_ik;
 	}
 
-	float cycle = f / m_boneSetup.LocalMaxFrame( e->curstate.sequence );
+	cycle = f / m_boneSetup.LocalMaxFrame( e->curstate.sequence );
 	StudioInterpolateBlends( e, dadt );
 
 	m_boneSetup.InitPose( pos, q );
 	m_boneSetup.UpdateRealTime( tr.time );
-	if( CVAR_TO_BOOL( m_pCvarCompatible ))
+	if( CVAR_TO_BOOL( m_pCvarCompatible ) )
 		m_boneSetup.CalcBoneAdj( adj, m_pModelInstance->m_controller, e->mouth.mouthopen );
 	m_boneSetup.AccumulatePose( pIK, pos, q, e->curstate.sequence, cycle, 1.0 );
 	m_pModelInstance->lerp.frame = f;
@@ -2480,7 +2491,7 @@ void CStudioModelRenderer :: StudioSetupBones( void )
 	pbones = (mstudiobone_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
 	pboneinfo = (mstudioboneinfo_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex + m_pStudioHeader->numbones * sizeof( mstudiobone_t ));
 
-	if( m_pPlayerInfo && ( m_pPlayerInfo->gaitsequence < 0 || m_pPlayerInfo->gaitsequence >= m_pStudioHeader->numseq )) 
+	if( m_pPlayerInfo && (m_pPlayerInfo->gaitsequence < 0 || m_pPlayerInfo->gaitsequence >= m_pStudioHeader->numseq) )
 		m_pPlayerInfo->gaitsequence = 0;
 
 	// calc gait animation
@@ -2489,11 +2500,11 @@ void CStudioModelRenderer :: StudioSetupBones( void )
 		float m_flGaitBoneWeights[MAXSTUDIOBONES];
 		bool copy = true;
 
-		for( int i = 0; i < m_pStudioHeader->numbones; i++)
+		for( int i = 0; i < m_pStudioHeader->numbones; i++ )
 		{
-			if( !Q_strcmp( pbones[i].name, "Bip01 Spine" ))
+			if( !Q_strcmp( pbones[i].name, "Bip01 Spine" ) )
 				copy = false;
-			else if( !Q_strcmp( pbones[pbones[i].parent].name, "Bip01 Pelvis" ))
+			else if( !Q_strcmp( pbones[pbones[i].parent].name, "Bip01 Pelvis" ) )
 				copy = true;
 			m_flGaitBoneWeights[i] = (copy) ? 1.0f : 0.0f;
 		}
@@ -2508,6 +2519,7 @@ void CStudioModelRenderer :: StudioSetupBones( void )
 		m_boneSetup.AccumulatePose( pIK, pos, q, m_pPlayerInfo->gaitsequence, cycle, 1.0 );
 		m_boneSetup.SetBoneWeights( NULL ); // back to default rules
 		m_pPlayerInfo->gaitframe = f;
+		//		m_pModelInstance->lerp.gaitframe = f;
 	}
 
 	// blends from previous sequences
@@ -2517,12 +2529,12 @@ void CStudioModelRenderer :: StudioSetupBones( void )
 	CIKContext auto_ik;
 	auto_ik.Init( &m_boneSetup, e->angles, e->origin, 0.0f, 0 );
 	m_boneSetup.CalcAutoplaySequences( &auto_ik, pos, q );
-	if( !CVAR_TO_BOOL( m_pCvarCompatible ))
+	if( !CVAR_TO_BOOL( m_pCvarCompatible ) )
 		m_boneSetup.CalcBoneAdj( pos, q, m_pModelInstance->m_controller, e->mouth.mouthopen );
 
-	byte	boneComputed[MAXSTUDIOBONES];
+	byte boneComputed[MAXSTUDIOBONES];
 
-	memset( boneComputed, 0, sizeof( boneComputed ));
+	memset( boneComputed, 0, sizeof( boneComputed ) );
 
 	// don't calculate IK on ragdolls
 	if( pIK != NULL )
@@ -2535,16 +2547,16 @@ void CStudioModelRenderer :: StudioSetupBones( void )
 
 	StudioCalcBonesProcedural( pos, q );
 
-	for( i = 0; i < m_pStudioHeader->numbones; i++ ) 
+	for( i = 0; i < m_pStudioHeader->numbones; i++ )
 	{
 		// animate all non-simulated bones
-		if( CalcProceduralBone( m_pStudioHeader, i, m_pModelInstance->m_pbones ))
+		if( CalcProceduralBone( m_pStudioHeader, i, m_pModelInstance->m_pbones ) )
 			continue;
 
 		// initialize bonematrix
 		bonematrix = matrix3x4( pos[i], q[i] );
 
-		if( FBitSet( pbones[i].flags, BONE_JIGGLE_PROCEDURAL ) && FBitSet( m_pStudioHeader->flags, STUDIO_HAS_BONEINFO ))
+		if( FBitSet( pbones[i].flags, BONE_JIGGLE_PROCEDURAL ) && FBitSet( m_pStudioHeader->flags, STUDIO_HAS_BONEINFO ) )
 		{
 			// Physics-based "jiggle" bone
 			// Bone is assumed to be along the Z axis
@@ -2571,24 +2583,47 @@ void CStudioModelRenderer :: StudioSetupBones( void )
 			else m_pModelInstance->m_pbones[i] = m_pModelInstance->m_pbones[pbones[i].parent].ConcatTransforms( bonematrix );
 		}
 	}
+
+	mposetobone_t *m = m_pModelInstance->m_pModel->poseToBone;
+
+	// convert bones into compacted GLSL array
+	if( m != NULL )
+	{
+		for( int i = 0; i < m_pStudioHeader->numbones; i++ )
+		{
+			matrix3x4 out = m_pModelInstance->m_pbones[i].ConcatTransforms( m->posetobone[i] );
+//			out.CopyToArray4x3( &m_pModelInstance->m_glstudiobones[i * 3] );
+			m_pModelInstance->m_studioquat[i] = out.GetQuaternion();
+			m_pModelInstance->m_studiopos[i] = out.GetOrigin();
+		}
+	}
+	else
+	{
+		for( int i = 0; i < m_pStudioHeader->numbones; i++ )
+		{
+//			m_pModelInstance->m_pbones[i].CopyToArray4x3( &m_pModelInstance->m_glstudiobones[i * 3] );
+			m_pModelInstance->m_studioquat[i] = m_pModelInstance->m_pbones[i].GetQuaternion();
+			m_pModelInstance->m_studiopos[i] = m_pModelInstance->m_pbones[i].GetOrigin();
+		}
+	}
 }
 
 /*
 ====================
 StudioMergeBones
 
-FIXME: this need a been rewrited with bone weights
+FIXME: this needs to be rewritten with bone weights
 ====================
 */
-void CStudioModelRenderer :: StudioMergeBones( matrix3x4 bones[], matrix3x4 cached_bones[], model_t *pModel, model_t *pParentModel )
+void CStudioModelRenderer::StudioMergeBones( matrix3x4 bones[], matrix3x4 cached_bones[], model_t *pModel, model_t *pParentModel )
 {
 	matrix3x4		bonematrix;
 	static Vector	pos[MAXSTUDIOBONES];
 	static Vector4D	q[MAXSTUDIOBONES];
 	float		poseparams[MAXSTUDIOPOSEPARAM];
 	int		sequence = m_pCurrentEntity->curstate.sequence;
-	model_t		*oldmodel = m_pRenderModel;
-	studiohdr_t	*oldheader = m_pStudioHeader;
+	model_t *oldmodel = m_pRenderModel;
+	studiohdr_t *oldheader = m_pStudioHeader;
 
 	ASSERT( pModel != NULL && pModel->type == mod_studio );
 	ASSERT( pParentModel != NULL && pParentModel->type == mod_studio );
@@ -2599,7 +2634,7 @@ void CStudioModelRenderer :: StudioMergeBones( matrix3x4 bones[], matrix3x4 cach
 	// tell the bonesetup about current model
 	m_boneSetup.SetStudioPointers( m_pStudioHeader, poseparams ); // don't touch original parameters
 
-	if( sequence < 0 || sequence >= m_pStudioHeader->numseq ) 
+	if( sequence < 0 || sequence >= m_pStudioHeader->numseq )
 		sequence = 0;
 
 	mstudioseqdesc_t *pseqdesc = (mstudioseqdesc_t *)((byte *)m_pStudioHeader + m_pStudioHeader->seqindex) + sequence;
@@ -2616,11 +2651,12 @@ void CStudioModelRenderer :: StudioMergeBones( matrix3x4 bones[], matrix3x4 cach
 	mstudiobone_t *pchildbones = (mstudiobone_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
 	mstudiobone_t *pparentbones = (mstudiobone_t *)((byte *)m_pParentHeader + m_pParentHeader->boneindex);
 
-	for( int i = 0; i < m_pStudioHeader->numbones; i++ ) 
+	int i, j;
+	for( i = 0; i < m_pStudioHeader->numbones; i++ )
 	{
-		for( int j = 0; j < m_pParentHeader->numbones; j++ )
+		for( j = 0; j < m_pParentHeader->numbones; j++ )
 		{
-			if( !Q_stricmp( pchildbones[i].name, pparentbones[j].name ))
+			if( !Q_stricmp( pchildbones[i].name, pparentbones[j].name ) )
 			{
 				bones[i] = cached_bones[j];
 				break;
@@ -2650,10 +2686,10 @@ StudioBuildNormalTable
 NOTE: m_pSubModel must be set
 ====================
 */
-void CStudioModelRenderer :: StudioBuildNormalTable( void )
+void CStudioModelRenderer::StudioBuildNormalTable( void )
 {
-	cl_entity_t	*e = m_pCurrentEntity;
-	mstudiomesh_t	*pmesh;
+	cl_entity_t *e = m_pCurrentEntity;
+	mstudiomesh_t *pmesh;
 	int		i, j;
 
 	ASSERT( m_pSubModel != NULL );
@@ -2665,14 +2701,14 @@ void CStudioModelRenderer :: StudioBuildNormalTable( void )
 	for( i = 0; i < m_pSubModel->numverts; i++ )
 		m_normaltable[i] = -1;
 
-	for( j = 0; j < m_pSubModel->nummesh; j++ ) 
+	for( j = 0; j < m_pSubModel->nummesh; j++ )
 	{
-		short	*ptricmds;
+		short *ptricmds;
 
 		pmesh = (mstudiomesh_t *)((byte *)m_pStudioHeader + m_pSubModel->meshindex) + j;
 		ptricmds = (short *)((byte *)m_pStudioHeader + pmesh->triindex);
 
-		while( i = *( ptricmds++ ))
+		while( i = *(ptricmds++) )
 		{
 			if( i < 0 ) i = -i;
 
@@ -2701,11 +2737,11 @@ NOTE: m_pSubModel must be set
 m_verts must be computed
 ====================
 */
-void CStudioModelRenderer :: StudioGenerateNormals( void )
+void CStudioModelRenderer::StudioGenerateNormals( void )
 {
 	Vector		e0, e1, norm;
 	int		v0, v1, v2;
-	mstudiomesh_t	*pmesh;
+	mstudiomesh_t *pmesh;
 	int		i, j;
 
 	ASSERT( m_pSubModel != NULL );
@@ -2713,14 +2749,14 @@ void CStudioModelRenderer :: StudioGenerateNormals( void )
 	for( i = 0; i < m_pSubModel->numverts; i++ )
 		m_norms[i] = g_vecZero;
 
-	for( j = 0; j < m_pSubModel->nummesh; j++ ) 
+	for( j = 0; j < m_pSubModel->nummesh; j++ )
 	{
-		short	*ptricmds;
+		short *ptricmds;
 
 		pmesh = (mstudiomesh_t *)((byte *)m_pStudioHeader + m_pSubModel->meshindex) + j;
 		ptricmds = (short *)((byte *)m_pStudioHeader + pmesh->triindex);
 
-		while( i = *( ptricmds++ ))
+		while( i = *(ptricmds++) )
 		{
 			if( i < 0 )
 			{
@@ -2796,7 +2832,7 @@ StudioSetupChrome
 
 ====================
 */
-void CStudioModelRenderer :: StudioSetupChrome( float *pchrome, int bone, const Vector &normal )
+void CStudioModelRenderer::StudioSetupChrome( float *pchrome, int bone, const Vector &normal )
 {
 	float	n;
 
@@ -2830,12 +2866,12 @@ StudioCalcAttachments
 
 ====================
 */
-void CStudioModelRenderer :: StudioCalcAttachments( matrix3x4 bones[], int local_space )
+void CStudioModelRenderer::StudioCalcAttachments( matrix3x4 bones[], int local_space )
 {
 	if( m_pCurrentEntity->modelhandle == INVALID_HANDLE || !m_pModelInstance )
 		return; // too early ?
 
-	if( FBitSet( m_pModelInstance->info_flags, MF_ATTACHMENTS_DONE ))
+	if( FBitSet( m_pModelInstance->info_flags, MF_ATTACHMENTS_DONE ) )
 		return; // already computed
 
 	StudioAttachment_t *att = m_pModelInstance->attachment;
@@ -2843,7 +2879,7 @@ void CStudioModelRenderer :: StudioCalcAttachments( matrix3x4 bones[], int local
 	cl_entity_t *e = m_pCurrentEntity;
 
 	// prevent to compute env_static bounds every frame
-	if( FBitSet( e->curstate.iuser1, CF_STATIC_ENTITY ))
+	if( FBitSet( e->curstate.iuser1, CF_STATIC_ENTITY ) )
 		SetBits( m_pModelInstance->info_flags, MF_ATTACHMENTS_DONE );
 
 	if( m_pStudioHeader->numattachments <= 0 )
@@ -2888,41 +2924,74 @@ StudioGetAttachment
 
 ====================
 */
-void CStudioModelRenderer :: StudioGetAttachment( const cl_entity_t *ent, int iAttachment, Vector *origin, Vector *angles, int flags )
+void CStudioModelRenderer::StudioGetAttachment( const cl_entity_t *ent, int iAttachment, Vector *origin, Vector *angles, int flags )
 {
-	int	studio_flags = STUDIO_EVENTS;
+	// diffusion - rewritten
 
-	if( FBitSet( flags, AF_FORCE_RECALC ))
-		SetBits( studio_flags, STUDIO_FORCE );
-
-	if( FBitSet( flags, AF_LOCAL_SPACE ))
-		SetBits( studio_flags, STUDIO_LOCAL_SPACE );
-
-	if( !ent || !ent->model || ( !origin && !angles  ))
+	if( !ent || !ent->model || (!origin && !angles) )
 		return;
 
-	RI->currententity = (cl_entity_t *)ent;
-	RI->currentmodel = ent->model;
-	if( !RI->currentmodel ) return;
+	studiohdr_t *phdr = (studiohdr_t *)IEngineStudio.Mod_Extradata( ent->model );
 
-	// force to compute attachments
-	SET_CURRENT_ENTITY( RI->currententity );
-	StudioDrawModel( studio_flags );
-
-	SET_CURRENT_ENTITY( NULL );
-	RI->currententity = NULL;
-	RI->currentmodel = NULL;
+	if( !phdr )
+		return;
 
 	if( ent->modelhandle == INVALID_HANDLE )
 		return; // too early ?
 
 	ModelInstance_t *inst = &m_ModelInstances[ent->modelhandle];
 
-	// make sure we not overflow
-	iAttachment = bound( 0, iAttachment, inst->numattachments - 1 );
+	// make sure we don't overflow
+	iAttachment = bound( 0, iAttachment, phdr->numattachments - 1 );
 
-	if( origin ) *origin = inst->attachment[iAttachment].origin;
+	Vector AttOrg = inst->attachment[iAttachment].origin;
+
+	// diffusion - FIXME this is a hack for attached sprites.
+	// when the model is not visible on screen initially, the attachment's coord is zero.
+	// so this is a "solution" so we don't see anything in the world center if entity is in the PVS.
+	if( AttOrg == g_vecZero )
+		AttOrg = ent->origin;
+
+	if( origin ) *origin = AttOrg;
 	if( angles ) *angles = inst->attachment[iAttachment].angles;
+
+	return;
+	//	}
+	/*
+		int	studio_flags = STUDIO_EVENTS;
+
+		if( FBitSet( flags, AF_FORCE_RECALC ) )
+			SetBits( studio_flags, STUDIO_FORCE );
+
+		if( FBitSet( flags, AF_LOCAL_SPACE ) )
+			SetBits( studio_flags, STUDIO_LOCAL_SPACE );
+
+		if( !ent || !ent->model || (!origin && !angles) )
+			return;
+
+		RI->currententity = (cl_entity_t *)ent;
+		RI->currentmodel = ent->model;
+		if( !RI->currentmodel ) return;
+
+		// force to compute attachments
+		SET_CURRENT_ENTITY( RI->currententity );
+		StudioDrawModel( studio_flags );
+
+		SET_CURRENT_ENTITY( NULL );
+		RI->currententity = NULL;
+		RI->currentmodel = NULL;
+
+		if( ent->modelhandle == INVALID_HANDLE )
+			return; // too early ?
+
+		ModelInstance_t *inst = &m_ModelInstances[ent->modelhandle];
+
+		// make sure we not overflow
+		iAttachment = bound( 0, iAttachment, inst->numattachments - 1 );
+
+		if( origin ) *origin = inst->attachment[iAttachment].origin;
+		if( angles ) *angles = inst->attachment[iAttachment].angles;
+		*/
 }
 
 /*
@@ -2931,7 +3000,7 @@ StudioGetAttachment
 
 ====================
 */
-int CStudioModelRenderer :: StudioGetAttachmentNumber( const cl_entity_t *ent, const char *attachment )
+int CStudioModelRenderer::StudioGetAttachmentNumber( const cl_entity_t *ent, const char *attachment )
 {
 	if( !ent || ent->modelhandle == INVALID_HANDLE )
 		return -1;
@@ -2941,16 +3010,16 @@ int CStudioModelRenderer :: StudioGetAttachmentNumber( const cl_entity_t *ent, c
 	for( int i = 0; i < inst->numattachments; i++ )
 	{
 		StudioAttachment_t *att = &inst->attachment[i];
-		if( !Q_stricmp( att->name, attachment ))
+		if( !Q_stricmp( att->name, attachment ) )
 			return i;
 	}
 
 	return -1;
 }
 
-float CStudioModelRenderer :: StudioSequenceDuration( const cl_entity_t *ent, int sequence )
+float CStudioModelRenderer::StudioSequenceDuration( const cl_entity_t *ent, int sequence )
 {
-	if( !StudioSetEntity( (cl_entity_t *)ent ))
+	if( !StudioSetEntity( (cl_entity_t *)ent ) )
 		return 0.0f;
 	return m_boneSetup.LocalDuration( sequence );
 }
@@ -2962,7 +3031,7 @@ StudioSetupModel
 glow shell used it
 ====================
 */
-int CStudioModelRenderer :: StudioSetupModel( int bodypart, void **ppbodypart, void **ppsubmodel )
+int CStudioModelRenderer::StudioSetupModel( int bodypart, void **ppbodypart, void **ppsubmodel )
 {
 	mstudiobodyparts_t *pbodypart;
 	mstudiomodel_t *psubmodel;
@@ -2990,11 +3059,11 @@ StudioLighting
 used for lighting decals
 ===============
 */
-void CStudioModelRenderer :: StudioLighting( float *lv, int bone, int flags, const Vector &normal )
+void CStudioModelRenderer::StudioLighting( float *lv, int bone, int flags, const Vector &normal )
 {
-	mstudiolight_t	*light = &m_pModelInstance->lighting;
+	mstudiolight_t *light = &m_pModelInstance->lighting;
 
-	if( FBitSet( flags, STUDIO_NF_FULLBRIGHT ) || FBitSet( m_pCurrentEntity->curstate.effects, EF_FULLBRIGHT ) || R_FullBright( ))
+	if( FBitSet( flags, STUDIO_NF_FULLBRIGHT ) || FBitSet( m_pCurrentEntity->curstate.effects, EF_FULLBRIGHT ) || R_FullBright() )
 	{
 		*lv = 1.0f;
 		return;
@@ -3002,12 +3071,12 @@ void CStudioModelRenderer :: StudioLighting( float *lv, int bone, int flags, con
 
 	float	illum = light->ambientlight;
 
-	if( FBitSet( flags, STUDIO_NF_FLATSHADE ))
+	if( FBitSet( flags, STUDIO_NF_FLATSHADE ) )
 	{
 		illum += light->shadelight * 0.8f;
 	}
-          else
-          {
+	else
+	{
 		float	lightcos;
 
 		if( bone != -1 ) lightcos = DotProduct( normal, m_bonelightvecs[bone] );
@@ -3016,10 +3085,10 @@ void CStudioModelRenderer :: StudioLighting( float *lv, int bone, int flags, con
 
 		illum += light->shadelight;
 
- 		// do modified hemispherical lighting
-		lightcos = (lightcos + ( SHADE_LAMBERT - 1.0f )) / SHADE_LAMBERT;
+		// do modified hemispherical lighting
+		lightcos = (lightcos + (SHADE_LAMBERT - 1.0f)) / SHADE_LAMBERT;
 		if( lightcos > 0.0f )
-			illum -= light->shadelight * lightcos; 
+			illum -= light->shadelight * lightcos;
 		illum = Q_max( illum, 0.0f );
 	}
 
@@ -3033,19 +3102,19 @@ StudioStaticLight
 
 ===============
 */
-void CStudioModelRenderer :: StudioStaticLight( cl_entity_t *ent )
+void CStudioModelRenderer::StudioStaticLight( cl_entity_t *ent )
 {
 	// setup advanced vertexlighting for env_static entities
-	if(( ent->curstate.iuser3 > 0 ) && world->vertex_lighting != NULL )
+	if( (ent->curstate.iuser3 > 0) && world->vertex_lighting != NULL )
 	{
 		int		cacheID = ent->curstate.iuser3 - 1;
-		dvlightlump_t	*vl = world->vertex_lighting;
+		dvlightlump_t *vl = world->vertex_lighting;
 
-		if( FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ))
+		if( FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ) )
 		{
 			// here we does nothing
 		}
-		else if( !FBitSet( m_pModelInstance->info_flags, MF_VL_BAD_CACHE ))
+		else if( !FBitSet( m_pModelInstance->info_flags, MF_VL_BAD_CACHE ) )
 		{
 			// first initialization
 			if( cacheID < vl->nummodels && vl->dataofs[cacheID] != -1 )
@@ -3056,7 +3125,7 @@ void CStudioModelRenderer :: StudioStaticLight( cl_entity_t *ent )
 		}
 	}
 
-	if( !FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ))
+	if( !FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ) )
 	{
 		float	dynamic = r_dynamic->value;
 		alight_t	lighting;
@@ -3082,10 +3151,15 @@ StudioClientEvents
 
 ===============
 */
-void CStudioModelRenderer :: StudioClientEvents( void )
+
+void CStudioModelRenderer::StudioClientEvents( void )
 {
-	mstudioseqdesc_t	*pseqdesc;
-	mstudioevent_t	*pevent;
+	mstudioseqdesc_t *pseqdesc;
+	mstudioevent_t *pevent;
+
+	// invalid sequence number specified - FIXME happens with cl_lw 1
+	if( m_pCurrentEntity->curstate.sequence < 0 || m_pCurrentEntity->curstate.sequence >= m_pStudioHeader->numseq )
+		return;
 
 	pseqdesc = (mstudioseqdesc_t *)((byte *)m_pStudioHeader + m_pStudioHeader->seqindex) + m_pCurrentEntity->curstate.sequence;
 	pevent = (mstudioevent_t *)((byte *)m_pStudioHeader + pseqdesc->eventindex);
@@ -3114,7 +3188,7 @@ StudioSetRenderMode
 
 ===============
 */
-void CStudioModelRenderer :: StudioSetRenderMode( const int rendermode )
+void CStudioModelRenderer::StudioSetRenderMode( const int rendermode )
 {
 	pglDisable( GL_ALPHA_TEST );
 
@@ -3150,11 +3224,11 @@ StudioDrawMeshChrome
 
 ===============
 */
-void CStudioModelRenderer :: StudioDrawMeshChrome( short *ptricmds, float s, float t, float scale )
+void CStudioModelRenderer::StudioDrawMeshChrome( short *ptricmds, float s, float t, float scale )
 {
 	int	i;
 
-	while( i = *( ptricmds++ ))
+	while( i = *(ptricmds++) )
 	{
 		if( i < 0 )
 		{
@@ -3181,13 +3255,12 @@ StudioDrawPoints
 
 ===============
 */
-void CStudioModelRenderer :: StudioDrawPoints( void )
+void CStudioModelRenderer::StudioDrawPoints( void )
 {
 	float	shellscale = 0.0f;
 	int	i, j, k;
 
 	ASSERT( m_pStudioHeader != NULL );
-
 
 	// grab the model textures array (with remap infos)
 	mstudiotexture_t *ptexture = (mstudiotexture_t *)((byte *)m_pStudioHeader + m_pStudioHeader->textureindex);
@@ -3201,7 +3274,7 @@ void CStudioModelRenderer :: StudioDrawPoints( void )
 
 	if( FBitSet( m_pStudioHeader->flags, STUDIO_HAS_BONEWEIGHTS ) && m_pSubModel->blendvertinfoindex != 0 )
 	{
-		mstudioboneweight_t	*pvertweight = (mstudioboneweight_t *)((byte *)m_pStudioHeader + m_pSubModel->blendvertinfoindex);
+		mstudioboneweight_t *pvertweight = (mstudioboneweight_t *)((byte *)m_pStudioHeader + m_pSubModel->blendvertinfoindex);
 		matrix3x4 skinMat;
 
 		// compute weighted vertexes
@@ -3228,15 +3301,15 @@ void CStudioModelRenderer :: StudioDrawPoints( void )
 	Vector *pstudionorms = (Vector *)((byte *)m_pStudioHeader + m_pSubModel->normindex);
 	byte *pnormbone = ((byte *)m_pStudioHeader + m_pSubModel->norminfoindex);
 
-	for( j = k = 0; j < m_pSubModel->nummesh; j++ ) 
+	for( j = k = 0; j < m_pSubModel->nummesh; j++ )
 	{
 		for( i = 0; i < pmesh[j].numnorms; i++, k++, pstudionorms++, pnormbone++ )
 			StudioSetupChrome( m_chrome[k], *pnormbone, (float *)pstudionorms );
 	}
 
-	for( j = 0; j < m_pSubModel->nummesh; j++ ) 
+	for( j = 0; j < m_pSubModel->nummesh; j++ )
 	{
-		short	*ptricmds = (short *)((byte *)m_pStudioHeader + pmesh[j].triindex);
+		short *ptricmds = (short *)((byte *)m_pStudioHeader + pmesh[j].triindex);
 		float	s = 1.0f / (float)ptexture[pskinref[pmesh->skinref]].width;
 		float	t = 1.0f / (float)ptexture[pskinref[pmesh->skinref]].height;
 
@@ -3250,9 +3323,9 @@ StudioDrawPoints
 
 ===============
 */
-void CStudioModelRenderer :: StudioDrawShell( void )
+void CStudioModelRenderer::StudioDrawShell( void )
 {
-	if( FBitSet( RI->params, RP_SHADOWVIEW ))
+	if( FBitSet( RI->params, RP_SHADOWVIEW ) )
 		return;
 
 	if( m_pCurrentEntity->curstate.renderfx != kRenderFxGlowShell )
@@ -3273,7 +3346,8 @@ void CStudioModelRenderer :: StudioDrawShell( void )
 
 	gEngfuncs.pTriAPI->SpriteTexture( m_pChromeSprite, 0 );
 
-	for( int i = 0; i < m_pStudioHeader->numbodyparts; i++ )
+	int i;
+	for( i = 0; i < m_pStudioHeader->numbodyparts; i++ )
 	{
 		StudioSetupModel( i, (void **)&m_pBodyPart, (void **)&m_pSubModel );
 		IEngineStudio.GL_SetRenderMode( kRenderTransAdd );
@@ -3310,7 +3384,7 @@ StudioDrawHulls
 
 ===============
 */
-void CStudioModelRenderer :: StudioDrawHulls( void )
+void CStudioModelRenderer::StudioDrawHulls( void )
 {
 	float	alpha, lv;
 	int	i, j;
@@ -3330,7 +3404,7 @@ void CStudioModelRenderer :: StudioDrawHulls( void )
 
 	for( i = 0; i < m_pStudioHeader->numhitboxes; i++ )
 	{
-		mstudiobbox_t	*pbbox = (mstudiobbox_t *)((byte *)m_pStudioHeader + m_pStudioHeader->hitboxindex);
+		mstudiobbox_t *pbbox = (mstudiobbox_t *)((byte *)m_pStudioHeader + m_pStudioHeader->hitboxindex);
 		vec3_t		tmp, p[8];
 
 		for( j = 0; j < 8; j++ )
@@ -3368,14 +3442,14 @@ StudioDrawAbsBBox
 
 ===============
 */
-void CStudioModelRenderer :: StudioDrawAbsBBox( void )
+void CStudioModelRenderer::StudioDrawAbsBBox( void )
 {
 	Vector p[8], tmp;
 	float lv;
 	int i;
 
 	// looks ugly, skip
-	if( m_pCurrentEntity == GET_VIEWMODEL( ))
+	if( m_pCurrentEntity == GET_VIEWMODEL() )
 		return;
 
 	R_LoadIdentity();
@@ -3383,9 +3457,9 @@ void CStudioModelRenderer :: StudioDrawAbsBBox( void )
 	// compute a full bounding box
 	for( i = 0; i < 8; i++ )
 	{
-  		p[i][0] = ( i & 1 ) ? m_pModelInstance->absmin[0] : m_pModelInstance->absmax[0];
-  		p[i][1] = ( i & 2 ) ? m_pModelInstance->absmin[1] : m_pModelInstance->absmax[1];
-  		p[i][2] = ( i & 4 ) ? m_pModelInstance->absmin[2] : m_pModelInstance->absmax[2];
+		p[i][0] = (i & 1) ? m_pModelInstance->absmin[0] : m_pModelInstance->absmax[0];
+		p[i][1] = (i & 2) ? m_pModelInstance->absmin[1] : m_pModelInstance->absmax[1];
+		p[i][2] = (i & 4) ? m_pModelInstance->absmin[2] : m_pModelInstance->absmax[2];
 	}
 
 	GL_Bind( GL_TEXTURE0, tr.whiteTexture );
@@ -3416,9 +3490,9 @@ StudioDrawBones
 
 ===============
 */
-void CStudioModelRenderer :: StudioDrawBones( void )
+void CStudioModelRenderer::StudioDrawBones( void )
 {
-	mstudiobone_t	*pbones = (mstudiobone_t *) ((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
+	mstudiobone_t *pbones = (mstudiobone_t *)((byte *)m_pStudioHeader + m_pStudioHeader->boneindex);
 	Vector		point;
 
 	R_TransformForEntity( m_pModelInstance->m_protationmatrix );
@@ -3431,13 +3505,13 @@ void CStudioModelRenderer :: StudioDrawBones( void )
 			pglPointSize( 3.0f );
 			pglColor3f( 1, 0.7f, 0 );
 			pglBegin( GL_LINES );
-			
+
 			m_pModelInstance->m_pbones[pbones[i].parent].GetOrigin( point );
 			pglVertex3fv( point );
 
 			m_pModelInstance->m_pbones[i].GetOrigin( point );
 			pglVertex3fv( point );
-			
+
 			pglEnd();
 
 			pglColor3f( 0, 0, 0.8f );
@@ -3470,33 +3544,33 @@ void CStudioModelRenderer :: StudioDrawBones( void )
 	pglEnable( GL_TEXTURE_2D );
 }
 
-void CStudioModelRenderer :: StudioDrawAttachments( void )
+void CStudioModelRenderer::StudioDrawAttachments( void )
 {
 	pglDisable( GL_TEXTURE_2D );
 	pglDisable( GL_DEPTH_TEST );
-	
+
 	for( int i = 0; i < m_pStudioHeader->numattachments; i++ )
 	{
-		mstudioattachment_t	*pattachments;
+		mstudioattachment_t *pattachments;
 		Vector v[4];
 
-		pattachments = (mstudioattachment_t *) ((byte *)m_pStudioHeader + m_pStudioHeader->attachmentindex);		
+		pattachments = (mstudioattachment_t *)((byte *)m_pStudioHeader + m_pStudioHeader->attachmentindex);
 		v[0] = m_pModelInstance->m_pbones[pattachments[i].bone].VectorTransform( pattachments[i].org );
 		v[1] = m_pModelInstance->m_pbones[pattachments[i].bone].VectorTransform( pattachments[i].vectors[0] );
 		v[2] = m_pModelInstance->m_pbones[pattachments[i].bone].VectorTransform( pattachments[i].vectors[1] );
 		v[3] = m_pModelInstance->m_pbones[pattachments[i].bone].VectorTransform( pattachments[i].vectors[2] );
-		
+
 		pglBegin( GL_LINES );
 		pglColor3f( 1, 0, 0 );
 		pglVertex3fv( v[0] );
 		pglColor3f( 1, 1, 1 );
-		pglVertex3fv (v[1] );
+		pglVertex3fv( v[1] );
 		pglColor3f( 1, 0, 0 );
-		pglVertex3fv (v[0] );
+		pglVertex3fv( v[0] );
 		pglColor3f( 1, 1, 1 );
-		pglVertex3fv (v[2] );
+		pglVertex3fv( v[2] );
 		pglColor3f( 1, 0, 0 );
-		pglVertex3fv (v[0] );
+		pglVertex3fv( v[0] );
 		pglColor3f( 1, 1, 1 );
 		pglVertex3fv( v[3] );
 		pglEnd();
@@ -3519,7 +3593,7 @@ StudioSetupRenderer
 
 ===============
 */
-void CStudioModelRenderer :: StudioSetupRenderer( int rendermode )
+void CStudioModelRenderer::StudioSetupRenderer( int rendermode )
 {
 	pglTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
 	pglDisable( GL_ALPHA_TEST );
@@ -3532,7 +3606,7 @@ StudioRestoreRenderer
 
 ===============
 */
-void CStudioModelRenderer :: StudioRestoreRenderer( void )
+void CStudioModelRenderer::StudioRestoreRenderer( void )
 {
 	pglTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE );
 	pglShadeModel( GL_FLAT );
@@ -3545,46 +3619,40 @@ StudioRenderModel
 
 ====================
 */
-void CStudioModelRenderer :: StudioRenderModel( void )
+void CStudioModelRenderer::StudioRenderModel( void )
 {
 #if 0
 	m_pCurrentEntity->curstate.renderfx = kRenderFxGlowShell;
 	m_pCurrentEntity->curstate.renderamt = 255;
 #endif
 	StudioSetupRenderer( m_pCurrentEntity->curstate.rendermode );
-	
+
 	if( r_drawentities->value == 2 )
-	{
-		StudioDrawBones ();
-	}
+		StudioDrawBones();
 	else if( r_drawentities->value == 3 )
-	{
-		StudioDrawHulls ();
-	}
+		StudioDrawHulls();
 	else
 	{
-		DrawStudioMeshes ();
+		DrawStudioMeshes();
 		GL_BindShader( NULL );
-		StudioDrawShell ();
+		StudioDrawShell();
 
 		if( r_drawentities->value == 4 )
 		{
 			gEngfuncs.pTriAPI->RenderMode( kRenderTransAdd );
-			StudioDrawHulls ();
+			StudioDrawHulls();
 			gEngfuncs.pTriAPI->RenderMode( kRenderNormal );
 		}
 		else if( r_drawentities->value == 5 )
-		{
-			StudioDrawAbsBBox( );
-		}
+			StudioDrawAbsBBox();
 		else if( r_drawentities->value == 6 )
-		{
-			StudioDrawAttachments( );
-		}
+			StudioDrawAttachments();
 	}
 
 	StudioRestoreRenderer();
 }
+
+
 
 /*
 ====================
@@ -3592,24 +3660,24 @@ StudioDrawModel
 
 ====================
 */
-int CStudioModelRenderer :: StudioDrawModel( int flags )
+int CStudioModelRenderer::StudioDrawModel( int flags )
 {
 	alight_t lighting;
 	Vector dir;
 
-	if( !StudioSetEntity( IEngineStudio.GetCurrentEntity( )))
+	if( !StudioSetEntity( IEngineStudio.GetCurrentEntity() ) )
 		return 0;
 
-	if( FBitSet( flags, STUDIO_RENDER ))
+	if( FBitSet( flags, STUDIO_RENDER ) )
 	{
-		if( !StudioComputeBBox( m_pCurrentEntity ))
+		if( !StudioComputeBBox( m_pCurrentEntity ) )
 			return 0; // invalid sequence
 
-		if( !Mod_CheckBoxVisible( m_pModelInstance->absmin, m_pModelInstance->absmax ))
+		if( !Mod_CheckBoxVisible( m_pModelInstance->absmin, m_pModelInstance->absmax ) )
 			return 0;
 
 		// see if the bounding box lets us trivially reject, also sets
-		if( R_CullModel( m_pCurrentEntity, m_pModelInstance->absmin, m_pModelInstance->absmax ))
+		if( R_CullModel( m_pCurrentEntity, m_pModelInstance->absmin, m_pModelInstance->absmax ) )
 			return 0;
 
 		m_pModelInstance->visframe = tr.realframecount; // visible
@@ -3620,12 +3688,12 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 			return 1;
 	}
 
-	if( FBitSet( flags, STUDIO_FORCE ) || ( m_pModelInstance->cached_frame != tr.realframecount ))
+	if( FBitSet( flags, STUDIO_FORCE ) || (m_pModelInstance->cached_frame != tr.realframecount) )
 	{
 		if( m_pCurrentEntity->player || m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer )
-			m_pPlayerInfo = IEngineStudio.PlayerInfo( m_nPlayerIndex );
+			m_pPlayerInfo = IEngineStudio.PlayerInfo( iPlayerIndex );
 
-		StudioSetUpTransform ();
+		StudioSetUpTransform();
 
 		if( m_pCurrentEntity->curstate.movetype == MOVETYPE_FOLLOW && m_pCurrentEntity->curstate.aiment > 0 )
 		{
@@ -3641,7 +3709,12 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 				return 0;
 			}
 		}
-		else StudioSetupBones ( );
+		else
+			StudioSetupBones();
+
+		// convert bones into gl-format
+//		for( int i = 0; i < m_pStudioHeader->numbones; i++ )
+//			m_pModelInstance->m_pbones[i].CopyToArray( m_pModelInstance->m_glbones[i] );
 
 		m_pPlayerInfo = NULL;
 
@@ -3654,6 +3727,7 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 			for( int i = 0; i < m_pStudioHeader->numbones; i++ )
 			{
 				matrix3x4 out = m_pModelInstance->m_pbones[i].ConcatTransforms( m_pRenderModel->poseToBone->posetobone[i] );
+//				out.CopyToArray4x3( &m_pModelInstance->m_glstudiobones[i * 3] );
 				m_pModelInstance->m_studioquat[i] = out.GetQuaternion();
 				m_pModelInstance->m_studiopos[i] = out.GetOrigin();
 			}
@@ -3662,6 +3736,7 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 		{
 			for( int i = 0; i < m_pStudioHeader->numbones; i++ )
 			{
+//				m_pModelInstance->m_pbones[i].CopyToArray4x3( &m_pModelInstance->m_glstudiobones[i * 3] );
 				m_pModelInstance->m_studioquat[i] = m_pModelInstance->m_pbones[i].GetQuaternion();
 				m_pModelInstance->m_studiopos[i] = m_pModelInstance->m_pbones[i].GetOrigin();
 			}
@@ -3702,15 +3777,15 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 			m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
 		}
 
-		// now this frame cached
+		// now this frame is cached
 		m_pModelInstance->cached_frame = tr.realframecount;
 	}
 
-	if( FBitSet( flags, STUDIO_EVENTS ))
+	if( FBitSet( flags, STUDIO_EVENTS ) )
 	{
 		// calc attachments only once per frame
-		StudioCalcAttachments( m_pModelInstance->m_pbones, FBitSet( flags, STUDIO_LOCAL_SPACE ));
-		StudioClientEvents( );
+		StudioCalcAttachments( m_pModelInstance->m_pbones, FBitSet( flags, STUDIO_LOCAL_SPACE ) );
+		StudioClientEvents();
 
 		// copy attachments into global entity array
 		// g-cont: share client attachments with viewmodel
@@ -3721,15 +3796,15 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 		}
 	}
 
-	if( FBitSet( flags, STUDIO_RENDER ))
+	if( FBitSet( flags, STUDIO_RENDER ) )
 	{
 		mbodypart_t *pbodyparts = NULL;
 		model_t *pweaponmodel = NULL;
 
-		if( !FBitSet( RI->params, RP_SHADOWVIEW ))
+		if( !FBitSet( RI->params, RP_SHADOWVIEW ) )
 		{
 			if( m_pCurrentEntity->player )
-				m_pPlayerInfo = IEngineStudio.PlayerInfo( m_nPlayerIndex );
+				m_pPlayerInfo = IEngineStudio.PlayerInfo( iPlayerIndex );
 
 			// get remap colors
 			if( m_pPlayerInfo != NULL )
@@ -3744,7 +3819,7 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 			}
 
 			IEngineStudio.StudioSetRemapColors( m_nTopColor, m_nBottomColor );
-                    }
+		}
 
 		m_nNumDrawMeshes = 0;
 
@@ -3752,8 +3827,8 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 		if( m_pModelInstance->m_VlCache != NULL )
 			pbodyparts = m_pModelInstance->m_VlCache->bodyparts;
 
-		for( int i = 0 ; i < m_pStudioHeader->numbodyparts; i++ )
-			AddBodyPartToDrawList( m_pStudioHeader, pbodyparts, i, ( RI->currentlight != NULL ), true );
+		for( int i = 0; i < m_pStudioHeader->numbodyparts; i++ )
+			AddBodyPartToDrawList( m_pStudioHeader, pbodyparts, i, (RI->currentlight != NULL), true );
 
 		if( m_pCurrentEntity->curstate.weaponmodel )
 			pweaponmodel = IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel );
@@ -3763,9 +3838,9 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 			m_pRenderModel = RI->currentmodel = pweaponmodel;
 			m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
 
-			// add weaponmodel parts (weaponmodel can't cache materials because doesn't has instance)
-			for( int i = 0 ; i < m_pStudioHeader->numbodyparts; i++ )
-				AddBodyPartToDrawList( m_pStudioHeader, NULL, i, ( RI->currentlight != NULL ), false );
+			// add weaponmodel parts (weaponmodel can't cache materials because doesn't have instance)
+			for( int i = 0; i < m_pStudioHeader->numbodyparts; i++ )
+				AddBodyPartToDrawList( m_pStudioHeader, NULL, i, (RI->currentlight != NULL), false );
 
 			m_pRenderModel = RI->currentmodel = m_pModelInstance->m_pModel;
 			m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
@@ -3773,7 +3848,8 @@ int CStudioModelRenderer :: StudioDrawModel( int flags )
 			r_stats.c_studio_models_drawn++;
 		}
 
-		StudioRenderModel( );
+		StudioRenderModel();
+
 	}
 
 	return 1;
@@ -3785,7 +3861,7 @@ StudioFormatAttachment
 
 ====================
 */
-void CStudioModelRenderer :: StudioFormatAttachment( Vector &point )
+void CStudioModelRenderer::StudioFormatAttachment( Vector &point )
 {
 	float worldx = tan( (float)RI->fov_x * M_PI / 360.0 );
 	float viewx = tan( m_flViewmodelFov * M_PI / 360.0 );
@@ -3818,15 +3894,13 @@ void CStudioModelRenderer :: StudioFormatAttachment( Vector &point )
 DrawStudioModel
 =================
 */
-void CStudioModelRenderer :: DrawStudioModelInternal( cl_entity_t *e )
+void CStudioModelRenderer::DrawStudioModelInternal( cl_entity_t *e )
 {
 	if( RI->params & RP_ENVVIEW )
 		return;
 
 	if( e->player )
-	{
-		StudioDrawModel( STUDIO_RENDER|STUDIO_EVENTS );
-	}
+		StudioDrawModel( STUDIO_RENDER | STUDIO_EVENTS );
 	else
 	{
 		if( e->curstate.movetype == MOVETYPE_FOLLOW && e->curstate.aiment > 0 )
@@ -3843,9 +3917,10 @@ void CStudioModelRenderer :: DrawStudioModelInternal( cl_entity_t *e )
 			}
 		}
 
-		StudioDrawModel( STUDIO_RENDER|STUDIO_EVENTS );
+		StudioDrawModel( STUDIO_RENDER | STUDIO_EVENTS );
 	}
 }
+
 
 /*
 ===============
@@ -3854,18 +3929,18 @@ ChooseStudioProgram
 Select the program for mesh (diffuse\bump\debug)
 ===============
 */
-word CStudioModelRenderer :: ChooseStudioProgram( studiohdr_t *phdr, mstudiomaterial_t *mat, bool lightpass )
+word CStudioModelRenderer::ChooseStudioProgram( studiohdr_t *phdr, mstudiomaterial_t *mat, bool lightpass )
 {
 	bool vertex_lighting = FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ) ? true : false;
 	bool bone_weighting = (m_pRenderModel->poseToBone != NULL) ? true : false;
 	bool fullbright = false;
 
-	if( FBitSet( RI->params, RP_SHADOWVIEW ))
+	if( FBitSet( RI->params, RP_SHADOWVIEW ) )
 		return (glsl.studioDepthFill[bone_weighting] - glsl_programs);
 
 	switch( m_pCurrentEntity->curstate.rendermode )
 	{
-	case kRenderTransAdd: 
+	case kRenderTransAdd:
 		fullbright = true;
 		break;
 	}
@@ -3881,7 +3956,7 @@ AddMeshToDrawList
 
 ====================
 */
-void CStudioModelRenderer :: AddMeshToDrawList( studiohdr_t *phdr, const vbomesh_t *mesh, bool lightpass, bool cached_materials )
+void CStudioModelRenderer::AddMeshToDrawList( studiohdr_t *phdr, const vbomesh_t *mesh, bool lightpass, bool cached_materials )
 {
 	int m_skinnum = bound( 0, m_pCurrentEntity->curstate.skin, phdr->numskinfamilies - 1 );
 	short *pskinref = (short *)((byte *)phdr + phdr->skinindex);
@@ -3893,15 +3968,15 @@ void CStudioModelRenderer :: AddMeshToDrawList( studiohdr_t *phdr, const vbomesh
 	else mat = &m_pRenderModel->materials[pskinref[mesh->skinref]];
 
 	// goes into regular arrays
-	if( FBitSet( RI->params, RP_SHADOWVIEW ))
+	if( FBitSet( RI->params, RP_SHADOWVIEW ) )
 		lightpass = false;
 
 	if( lightpass )
 	{
-		if( FBitSet( mat->flags, STUDIO_NF_FULLBRIGHT ))
+		if( FBitSet( mat->flags, STUDIO_NF_FULLBRIGHT ) )
 			return; // can't light fullbrights
 
-		if( FBitSet( mat->flags, STUDIO_NF_NODLIGHT ))
+		if( FBitSet( mat->flags, STUDIO_NF_NODLIGHT ) )
 			return; // shader was failed to compile
 
 		if( m_nNumLightMeshes >= MAX_MODEL_MESHES )
@@ -3912,7 +3987,7 @@ void CStudioModelRenderer :: AddMeshToDrawList( studiohdr_t *phdr, const vbomesh
 	}
 	else
 	{
-		if( FBitSet( mat->flags, STUDIO_NF_NODRAW ))
+		if( FBitSet( mat->flags, STUDIO_NF_NODRAW ) )
 			return; // shader was failed to compile
 
 		if( m_nNumDrawMeshes >= MAX_MODEL_MESHES )
@@ -3924,11 +3999,13 @@ void CStudioModelRenderer :: AddMeshToDrawList( studiohdr_t *phdr, const vbomesh
 	gl_studiomesh_t *entry = NULL;
 	word hProgram = 0;
 
-	if( !( hProgram = ChooseStudioProgram( phdr, mat, lightpass )))
+	if( !(hProgram = ChooseStudioProgram( phdr, mat, lightpass )) )
 		return; // failed to build shader, don't draw this surface
 
-	if( lightpass ) entry = &m_LightMeshes[m_nNumLightMeshes++];
-	else entry = &m_DrawMeshes[m_nNumDrawMeshes++];
+	if( lightpass )
+		entry = &m_LightMeshes[m_nNumLightMeshes++];
+	else
+		entry = &m_DrawMeshes[m_nNumDrawMeshes++];
 
 	entry->mesh = (vbomesh_t *)mesh;
 	entry->hProgram = hProgram;
@@ -3943,7 +4020,7 @@ AddBodyPartToDrawList
 
 ====================
 */
-void CStudioModelRenderer :: AddBodyPartToDrawList( studiohdr_t *phdr, mbodypart_s *bodyparts, int bodypart, bool lightpass, bool cached_materials )
+void CStudioModelRenderer::AddBodyPartToDrawList( studiohdr_t *phdr, mbodypart_s *bodyparts, int bodypart, bool lightpass, bool cached_materials )
 {
 	if( !bodyparts ) bodyparts = m_pRenderModel->studiocache->bodyparts;
 	if( !bodyparts ) HOST_ERROR( "%s missed cache\n", m_pCurrentEntity->model->name );
@@ -3960,12 +4037,12 @@ void CStudioModelRenderer :: AddBodyPartToDrawList( studiohdr_t *phdr, mbodypart
 		AddMeshToDrawList( phdr, &pSubModel->meshes[i], lightpass, cached_materials );
 }
 
-void CStudioModelRenderer :: DrawMeshFromBuffer( const vbomesh_t *mesh )
+void CStudioModelRenderer::DrawMeshFromBuffer( const vbomesh_t *mesh )
 {
 	pglBindVertexArray( mesh->vao );
 	pglBindBufferARB( GL_ELEMENT_ARRAY_BUFFER_ARB, mesh->ibo );
 
-	if( GL_Support( R_DRAW_RANGEELEMENTS_EXT ))
+	if( GL_Support( R_DRAW_RANGEELEMENTS_EXT ) )
 		pglDrawRangeElementsEXT( GL_TRIANGLES, 0, mesh->numVerts - 1, mesh->numElems, GL_UNSIGNED_INT, 0 );
 	else pglDrawElements( GL_TRIANGLES, mesh->numElems, GL_UNSIGNED_INT, 0 );
 
@@ -3973,12 +4050,12 @@ void CStudioModelRenderer :: DrawMeshFromBuffer( const vbomesh_t *mesh )
 	r_stats.num_flushes++;
 }
 
-void CStudioModelRenderer :: AddStudioToLightList( plight_t *pl )
+void CStudioModelRenderer::AddStudioToLightList( plight_t *pl )
 {
 	mbodypart_t *pbodyparts = NULL;
 	model_t *pweaponmodel = NULL;
 
-	if( FBitSet( m_pCurrentEntity->curstate.effects, EF_FULLBRIGHT ))
+	if( FBitSet( m_pCurrentEntity->curstate.effects, EF_FULLBRIGHT ) )
 		return;
 
 	ASSERT( m_pModelInstance != NULL );
@@ -3986,24 +4063,30 @@ void CStudioModelRenderer :: AddStudioToLightList( plight_t *pl )
 	if( m_pModelInstance->visframe != tr.realframecount )
 		return;
 
+	// diffusion - HACKHACK: don't light your own player/weapon model with your own flashlight
+	if( pl->effect == 1 )
+	{
+		if( m_pCurrentEntity->index == pl->entitynum )
+			return;
+	}
+
 	RI->currentmodel = m_pRenderModel = m_pModelInstance->m_pModel;
 	m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
 
 	Vector modelpos = m_pModelInstance->m_protationmatrix.GetOrigin();
 	float dist = (pl->origin - modelpos).Length();
-
-	if( !dist || dist > ( pl->radius + m_pModelInstance->radius ))
+	if( !dist )
 		return;
 
-	if( pl->frustum.CullBox( m_pModelInstance->absmin, m_pModelInstance->absmax ))
+	if( pl->frustum.CullBox( m_pModelInstance->absmin, m_pModelInstance->absmax ) )
 		return;
 
 	// change shared model with instanced model for this entity (it has personal vertex light cache)
 	if( m_pModelInstance->m_VlCache != NULL )
 		pbodyparts = m_pModelInstance->m_VlCache->bodyparts;
 
-	// all checks are passed, now all the model meshes will lighted
-	for( int i = 0 ; i < m_pStudioHeader->numbodyparts; i++ )
+	// all checks have passed, now all the model meshes will be lighted
+	for( int i = 0; i < m_pStudioHeader->numbodyparts; i++ )
 		AddBodyPartToDrawList( m_pStudioHeader, pbodyparts, i, true, true );
 
 	if( m_pCurrentEntity->curstate.weaponmodel )
@@ -4015,7 +4098,7 @@ void CStudioModelRenderer :: AddStudioToLightList( plight_t *pl )
 		m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
 
 		// add weaponmodel parts (weaponmodel can't cache materials because doesn't has instance)
-		for( int i = 0 ; i < m_pStudioHeader->numbodyparts; i++ )
+		for( int i = 0; i < m_pStudioHeader->numbodyparts; i++ )
 			AddBodyPartToDrawList( m_pStudioHeader, NULL, i, true, false );
 
 		m_pRenderModel = RI->currentmodel = m_pModelInstance->m_pModel;
@@ -4023,7 +4106,7 @@ void CStudioModelRenderer :: AddStudioToLightList( plight_t *pl )
 	}
 }
 
-void CStudioModelRenderer :: BuildMeshListForLight( plight_t *pl )
+void CStudioModelRenderer::BuildMeshListForLight( plight_t *pl )
 {
 	m_nNumLightMeshes = 0;
 	tr.modelorg = pl->origin;
@@ -4031,26 +4114,31 @@ void CStudioModelRenderer :: BuildMeshListForLight( plight_t *pl )
 	AddStudioToLightList( pl );
 }
 
-void CStudioModelRenderer :: DrawLightForMeshList( plight_t *pl )
+void CStudioModelRenderer::DrawLightForMeshList( plight_t *pl )
 {
-	mstudiomaterial_t	*cached_material = NULL;
-	model_t		*cached_model = NULL;
-	GLfloat		gl_lightViewProjMatrix[16];
+	mstudiomaterial_t *cached_material = NULL;
+	model_t *cached_model = NULL;
+	GLfloat	gl_lightViewProjMatrix[16];
 
 	float y2 = (float)RI->viewport[3] - pl->h - pl->y;
 	pglScissor( pl->x, y2, pl->w, pl->h );
 
 	// sorting list to reduce shader switches
-	if( !CVAR_TO_BOOL( r_nosort )) QSortStudioMeshes( m_LightMeshes, 0, m_nNumLightMeshes - 1 );
+	if( !CVAR_TO_BOOL( r_nosort ) )
+		QSortStudioMeshes( m_LightMeshes, 0, m_nNumLightMeshes - 1 );
 
-	tr.modelorg = m_pModelInstance->m_protationmatrix.VectorITransform( RI->vieworg );
+	m_pModelInstance = &m_ModelInstances[RI->currententity->modelhandle];
+
+	tr.modelorg = m_pModelInstance->m_plightmatrix.VectorITransform( RI->vieworg );
 	Vector right = m_pModelInstance->m_plightmatrix.VectorIRotate( RI->vright );
-	Vector lightorg = m_pModelInstance->m_protationmatrix.VectorITransform( pl->origin );
+	Vector lightorg = m_pModelInstance->m_plightmatrix.VectorITransform( pl->origin );
 	Vector lightdir = m_pModelInstance->m_plightmatrix.VectorIRotate( pl->frustum.GetPlane( FRUSTUM_FAR )->normal );
 
 	matrix4x4 lightView = pl->modelviewMatrix.ConcatTransforms( m_pModelInstance->m_protationmatrix );
 	matrix4x4 projectionView = pl->projectionMatrix.Concat( lightView );
 	projectionView.CopyToArray( gl_lightViewProjMatrix );
+
+	matrix4x4 OmniShadowMatrix = pl->projectionMatrix;
 
 	// sorting list to reduce shader switches
 	for( int i = 0; i < m_nNumLightMeshes; i++ )
@@ -4060,35 +4148,47 @@ void CStudioModelRenderer :: DrawLightForMeshList( plight_t *pl )
 		m_pStudioHeader = (studiohdr_t *)IEngineStudio.Mod_Extradata( m_pRenderModel );
 		int m_skinnum = bound( 0, m_pCurrentEntity->curstate.skin, m_pStudioHeader->numskinfamilies - 1 );
 		vbomesh_t *pMesh = entry->mesh;
+		Vector ang = m_pCurrentEntity->angles;
 
 		short *pskinref = (short *)((byte *)m_pStudioHeader + m_pStudioHeader->skinindex);
 		pskinref += (m_skinnum * m_pStudioHeader->numskinref);
 
 		mstudiomaterial_t *mat = &m_pRenderModel->materials[pskinref[pMesh->skinref]];
+		int num_bones;
 
-		// begin draw the sorted list
-		if(( i == 0 ) || ( RI->currentshader != &glsl_programs[entry->hProgram] ))
+		// begin to draw the sorted list
+		if( (i == 0) || (RI->currentshader != &glsl_programs[entry->hProgram]) )
 		{
-			GL_BindShader( &glsl_programs[entry->hProgram] );			
+			GL_BindShader( &glsl_programs[entry->hProgram] );
 
 			ASSERT( RI->currentshader != NULL );
 
 			// write constants
 			pglUniformMatrix4fvARB( RI->currentshader->u_LightViewProjectionMatrix, 1, GL_FALSE, &gl_lightViewProjMatrix[0] );
-			float shadowWidth = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture );
-			float shadowHeight = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture );
+			//			float shadowWidth = 0.5f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture[0] );
+			//			float shadowHeight = 0.5f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture[0] );
+			float shadowWidth = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture[0] );
+			float shadowHeight = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture[0] );
 
 			// depth scale and bias and shadowmap resolution
 			pglUniform4fARB( RI->currentshader->u_LightDir, lightdir.x, lightdir.y, lightdir.z, pl->fov );
 			pglUniform4fARB( RI->currentshader->u_LightDiffuse, pl->color.r / 255.0f, pl->color.g / 255.0f, pl->color.b / 255.0f, pl->lightFalloff );
-			pglUniform4fARB( RI->currentshader->u_ShadowParams, shadowWidth, shadowHeight, -pl->projectionMatrix[2][2], pl->projectionMatrix[3][2] );
-			pglUniform4fARB( RI->currentshader->u_LightOrigin, lightorg.x, lightorg.y, lightorg.z, ( 1.0f / pl->radius ));
+			pglUniform4fARB( RI->currentshader->u_ShadowParams, shadowWidth, shadowHeight, -OmniShadowMatrix[2][2], OmniShadowMatrix[3][2] );
+			pglUniform3fARB( RI->currentshader->u_MeshAngles, ang.x, ang.y, ang.z );
+			pglUniform4fARB( RI->currentshader->u_LightOrigin, lightorg.x, lightorg.y, lightorg.z, (1.0f / pl->radius) );
 			pglUniform3fARB( RI->currentshader->u_ViewOrigin, tr.modelorg.x, tr.modelorg.y, tr.modelorg.z );
 			pglUniform3fARB( RI->currentshader->u_ViewRight, right.x, right.y, right.z );
 			pglUniform4fARB( RI->currentshader->u_FogParams, tr.fogColor[0], tr.fogColor[1], tr.fogColor[2], tr.fogDensity );
+			pglUniform1fARB( RI->currentshader->u_DynLightBrightness, pl->brightness );
+			R_SetRenderColor( m_pCurrentEntity );
+
+			num_bones = Q_min( m_pStudioHeader->numbones, glConfig.max_skinning_bones );
+			pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_studioquat[0][0] );
+			pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_studiopos[0][0] );
+			//	pglUniform4fvARB( RI->currentshader->u_BonesArray, num_bones * 3, &m_pModelInstance->m_glstudiobones[0][0] );
 
 			GL_Bind( GL_TEXTURE1, pl->projectionTexture );
-			GL_Bind( GL_TEXTURE2, pl->shadowTexture );
+			GL_Bind( GL_TEXTURE2, pl->shadowTexture[0] );
 
 			// reset cache
 			cached_material = NULL;
@@ -4097,10 +4197,10 @@ void CStudioModelRenderer :: DrawLightForMeshList( plight_t *pl )
 
 		if( cached_model != m_pRenderModel )
 		{
-			int num_bones = Q_min( m_pStudioHeader->numbones, glConfig.max_skinning_bones );
+			num_bones = Q_min( m_pStudioHeader->numbones, glConfig.max_skinning_bones );
 
 			// update bones array
-			if( m_pRenderModel == IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel ))
+			if( m_pRenderModel == IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel ) )
 			{
 				pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_weaponquat[0][0] );
 				pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_weaponpos[0][0] );
@@ -4109,14 +4209,22 @@ void CStudioModelRenderer :: DrawLightForMeshList( plight_t *pl )
 			{
 				pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_studioquat[0][0] );
 				pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_studiopos[0][0] );
+				//	pglUniformMatrix4fvARB( RI->currentshader->u_BonesArray, m_pStudioHeader->numbones, GL_FALSE, &m_pModelInstance->m_glbones[0][0] );
+
+						// diffusion - an attempt to fix the lighting
+				float scale = RI->currententity->curstate.scale;
+				if( scale <= 0.0f ) scale = 1.0f;
+				pglUniform1fARB( RI->currentshader->u_MeshScale, scale );
 			}
+
+			ModelInstance_t *inst = &m_ModelInstances[m_pCurrentEntity->modelhandle];
 
 			cached_model = m_pRenderModel;
 		}
 
 		if( cached_material != mat )
 		{
-			if( CVAR_TO_BOOL( r_lightmap ) && !CVAR_TO_BOOL( r_fullbright ))
+			if( CVAR_TO_BOOL( r_lightmap ) && !CVAR_TO_BOOL( r_fullbright ) )
 				GL_Bind( GL_TEXTURE0, tr.whiteTexture );
 			else GL_Bind( GL_TEXTURE0, mat->gl_diffuse_id );
 
@@ -4133,12 +4241,12 @@ void CStudioModelRenderer :: DrawLightForMeshList( plight_t *pl )
 	GL_Cull( GL_FRONT );
 }
 
-void CStudioModelRenderer :: RenderDynLightList( void )
+void CStudioModelRenderer::RenderDynLightList( void )
 {
-	if( FBitSet( RI->params, RP_ENVVIEW ))
+	if( FBitSet( RI->params, RP_ENVVIEW ) )
 		return;
 
-	if( !R_CountPlights( ))
+	if( !R_CountPlights() )
 		return;
 
 	GL_Blend( GL_TRUE );
@@ -4153,13 +4261,13 @@ void CStudioModelRenderer :: RenderDynLightList( void )
 		if( pl->die < tr.time || !pl->radius || pl->culled )
 			continue;
 
+		if( !Mod_CheckBoxVisible( pl->absmin, pl->absmax ) )
+			continue;
+
+		if( R_CullBox( pl->absmin, pl->absmax ) )
+			continue;
+
 		RI->currentlight = pl;
-
-		if( !Mod_CheckBoxVisible( pl->absmin, pl->absmax ))
-			continue;
-
-		if( R_CullBox( pl->absmin, pl->absmax ))
-			continue;
 
 		// draw world from light position
 		BuildMeshListForLight( pl );
@@ -4172,18 +4280,19 @@ void CStudioModelRenderer :: RenderDynLightList( void )
 
 	GL_SelectTexture( glConfig.max_texture_units - 1 ); // force to cleanup all the units
 	pglDisable( GL_SCISSOR_TEST );
+	GL_DepthMask( GL_TRUE ); // diffusion
 	GL_CleanUpTextureUnits( 0 );
 	RI->currentlight = NULL;
 }
 
-void CStudioModelRenderer :: DrawStudioMeshes( void )
+void CStudioModelRenderer::DrawStudioMeshes( void )
 {
-	mstudiomaterial_t	*cached_material = NULL;
-	cl_entity_t	*cached_entity = NULL;
-	model_t		*cached_model = NULL;
+	mstudiomaterial_t *cached_material = NULL;
+	cl_entity_t *cached_entity = NULL;
+	model_t *cached_model = NULL;
 	int		i;
 
-	if( FBitSet( RI->params, RP_SHADOWVIEW ))
+	if( FBitSet( RI->params, RP_SHADOWVIEW ) )
 	{
 		DrawStudioMeshesShadow();
 		return;
@@ -4196,17 +4305,17 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 		return; // out of memory ?
 
 	m_pModelInstance = &m_ModelInstances[m_pCurrentEntity->modelhandle];
-	tr.modelorg = m_pModelInstance->m_protationmatrix.VectorITransform( RI->vieworg );
+	tr.modelorg = m_pModelInstance->m_plightmatrix.VectorITransform( RI->vieworg );
 	Vector right = m_pModelInstance->m_plightmatrix.VectorIRotate( RI->vright );
 
 	R_TransformForEntity( m_pModelInstance->m_protationmatrix );
-//	R_LoadIdentity();
+	//	R_LoadIdentity();
 	GL_Blend( GL_FALSE );
 	GL_AlphaTest( GL_FALSE );
 	GL_DepthMask( GL_TRUE );
 
 	// sorting list to reduce shader switches
-	if( !CVAR_TO_BOOL( r_nosort )) QSortStudioMeshes( m_DrawMeshes, 0, m_nNumDrawMeshes - 1 );
+	if( !CVAR_TO_BOOL( r_nosort ) ) QSortStudioMeshes( m_DrawMeshes, 0, m_nNumDrawMeshes - 1 );
 
 	// sorting list to reduce shader switches
 	for( i = 0; i < m_nNumDrawMeshes; i++ )
@@ -4225,9 +4334,9 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 		ASSERT( m_pCurrentEntity->modelhandle != INVALID_HANDLE );
 
 		// begin draw the sorted list
-		if(( i == 0 ) || ( RI->currentshader != &glsl_programs[entry->hProgram] ))
+		if( (i == 0) || (RI->currentshader != &glsl_programs[entry->hProgram]) )
 		{
-			GL_BindShader( &glsl_programs[entry->hProgram] );			
+			GL_BindShader( &glsl_programs[entry->hProgram] );
 
 			ASSERT( RI->currentshader != NULL );
 
@@ -4236,7 +4345,7 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 			pglUniform3fARB( RI->currentshader->u_ViewRight, right.x, right.y, right.z );
 			pglUniform4fARB( RI->currentshader->u_FogParams, tr.fogColor[0], tr.fogColor[1], tr.fogColor[2], tr.fogDensity );
 
-			if( FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ))
+			if( FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ) )
 				pglUniform4fvARB( RI->currentshader->u_GammaTable, 64, &tr.gamma_table[0][0] );
 
 			// reset cache
@@ -4245,7 +4354,7 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 			cached_model = NULL;
 		}
 
-		if( cached_entity != m_pCurrentEntity || ( cached_model != m_pRenderModel ))
+		if( cached_entity != m_pCurrentEntity || (cached_model != m_pRenderModel) )
 		{
 			// update bones array
 			mstudiolight_t *light = &m_pModelInstance->lighting;
@@ -4259,7 +4368,7 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 				else lightstyles[map] = 0.0f;
 			}
 
-			if( m_pRenderModel == IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel ))
+			if( m_pRenderModel == IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel ) )
 			{
 				pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_weaponquat[0][0] );
 				pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_weaponpos[0][0] );
@@ -4268,9 +4377,13 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 			{
 				pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_studioquat[0][0] );
 				pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_studiopos[0][0] );
+				//		pglUniform4fvARB( RI->currentshader->u_BonesArray, num_bones * 3, &m_pModelInstance->m_glstudiobones[0][0] );
+				float scale = RI->currententity->curstate.scale;
+				if( scale <= 0.0f ) scale = 1.0f;
+				pglUniform1fARB( RI->currentshader->u_MeshScale, scale * 100 );
 			}
 
-			if( FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ))
+			if( FBitSet( m_pModelInstance->info_flags, MF_VERTEX_LIGHTING ) )
 			{
 				pglUniform4fARB( RI->currentshader->u_LightStyleValues, lightstyles.x, lightstyles.y, lightstyles.z, lightstyles.w );
 			}
@@ -4289,9 +4402,9 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 
 		if( cached_material != mat )
 		{
-			if( CVAR_TO_BOOL( r_lightmap ) && !CVAR_TO_BOOL( r_fullbright ))
+			if( CVAR_TO_BOOL( r_lightmap ) && !CVAR_TO_BOOL( r_fullbright ) )
 				GL_Bind( GL_TEXTURE0, tr.whiteTexture );
-			else if( FBitSet( mat->flags, STUDIO_NF_COLORMAP ))
+			else if( FBitSet( mat->flags, STUDIO_NF_COLORMAP ) )
 				IEngineStudio.StudioSetupSkin( m_pStudioHeader, pskinref[pMesh->skinref] );
 			else GL_Bind( GL_TEXTURE0, mat->gl_diffuse_id );
 
@@ -4299,16 +4412,16 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 				GL_Cull( GL_NONE );
 			else GL_Cull( GL_FRONT );
 
-			if( FBitSet( mat->flags, STUDIO_NF_MASKED|STUDIO_NF_HAS_ALPHA ))
+			if( FBitSet( mat->flags, STUDIO_NF_MASKED | STUDIO_NF_HAS_ALPHA ) )
 			{
 				pglAlphaFunc( GL_GREATER, 0.5f );
 				GL_AlphaTest( GL_TRUE );
 				GL_DepthMask( GL_TRUE );
 				GL_Blend( GL_FALSE );
 			}
-			else if( FBitSet( mat->flags, STUDIO_NF_ADDITIVE ))
+			else if( FBitSet( mat->flags, STUDIO_NF_ADDITIVE ) )
 			{
-				if( R_ModelOpaque( RI->currententity->curstate.rendermode ))
+				if( R_ModelOpaque( RI->currententity->curstate.rendermode ) )
 				{
 					pglBlendFunc( GL_SRC_ALPHA, GL_ONE );
 					GL_DepthMask( GL_FALSE );
@@ -4318,11 +4431,12 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 			}
 			else
 			{
-				if( R_ModelOpaque( RI->currententity->curstate.rendermode ))
+				if( R_ModelOpaque( RI->currententity->curstate.rendermode ) )
 				{
 					GL_DepthMask( GL_TRUE );
 					GL_Blend( GL_FALSE );
 				}
+
 				StudioSetRenderMode( m_pCurrentEntity->curstate.rendermode );
 			}
 			cached_material = mat;
@@ -4334,22 +4448,26 @@ void CStudioModelRenderer :: DrawStudioMeshes( void )
 
 	GL_SelectTexture( glConfig.max_texture_units - 1 ); // force to cleanup all the units
 	GL_CleanUpTextureUnits( 0 );
+
+	pglAlphaFunc( GL_GREATER, DEFAULT_ALPHATEST );
+	GL_DepthMask( GL_FALSE );
+	GL_Blend( GL_FALSE );
 	GL_AlphaTest( GL_FALSE );
 	GL_Cull( GL_FRONT );
 
-	RenderDynLightList ();
+	RenderDynLightList();
 
 	pglBindBufferARB( GL_ELEMENT_ARRAY_BUFFER_ARB, 0 );
 	pglBindVertexArray( GL_FALSE );
 
-	DrawDecal( RI->currententity );
+	//	DrawDecal( RI->currententity );  // diffusion - studiodecals have huge fps loss
 	m_nNumDrawMeshes = 0;
 }
 
-void CStudioModelRenderer :: DrawStudioMeshesShadow( void )
+void CStudioModelRenderer::DrawStudioMeshesShadow( void )
 {
-	mstudiomaterial_t	*cached_material = NULL;
-	model_t		*cached_model = NULL;
+	mstudiomaterial_t *cached_material = NULL;
+	model_t *cached_model = NULL;
 	int		i;
 
 	if( !m_nNumDrawMeshes )
@@ -4361,13 +4479,13 @@ void CStudioModelRenderer :: DrawStudioMeshesShadow( void )
 	m_pModelInstance = &m_ModelInstances[m_pCurrentEntity->modelhandle];
 
 	R_TransformForEntity( m_pModelInstance->m_protationmatrix );
-//	R_LoadIdentity();
+	//	R_LoadIdentity();
 	GL_Blend( GL_FALSE );
 	GL_AlphaTest( GL_FALSE );
 	GL_DepthMask( GL_TRUE );
 
 	// sorting list to reduce shader switches
-	if( !CVAR_TO_BOOL( r_nosort )) QSortStudioMeshes( m_DrawMeshes, 0, m_nNumDrawMeshes - 1 );
+	if( !CVAR_TO_BOOL( r_nosort ) ) QSortStudioMeshes( m_DrawMeshes, 0, m_nNumDrawMeshes - 1 );
 
 	// sorting list to reduce shader switches
 	for( i = 0; i < m_nNumDrawMeshes; i++ )
@@ -4387,9 +4505,9 @@ void CStudioModelRenderer :: DrawStudioMeshesShadow( void )
 		ASSERT( m_pCurrentEntity->modelhandle != INVALID_HANDLE );
 
 		// begin draw the sorted list
-		if(( i == 0 ) || ( RI->currentshader != &glsl_programs[entry->hProgram] ))
+		if( (i == 0) || (RI->currentshader != &glsl_programs[entry->hProgram]) )
 		{
-			GL_BindShader( &glsl_programs[entry->hProgram] );			
+			GL_BindShader( &glsl_programs[entry->hProgram] );
 
 			ASSERT( RI->currentshader != NULL );
 
@@ -4403,7 +4521,7 @@ void CStudioModelRenderer :: DrawStudioMeshesShadow( void )
 			// update bones array
 			int num_bones = Q_min( m_pStudioHeader->numbones, glConfig.max_skinning_bones );
 
-			if( m_pRenderModel == IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel ))
+			if( m_pRenderModel == IEngineStudio.GetModelByIndex( m_pCurrentEntity->curstate.weaponmodel ) )
 			{
 				pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_weaponquat[0][0] );
 				pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_weaponpos[0][0] );
@@ -4412,29 +4530,34 @@ void CStudioModelRenderer :: DrawStudioMeshesShadow( void )
 			{
 				pglUniform4fvARB( RI->currentshader->u_BoneQuaternion, num_bones, &m_pModelInstance->m_studioquat[0][0] );
 				pglUniform3fvARB( RI->currentshader->u_BonePosition, num_bones, &m_pModelInstance->m_studiopos[0][0] );
+				//	pglUniform4fvARB( RI->currentshader->u_BonesArray, num_bones * 3, &m_pModelInstance->m_glstudiobones[0][0] );
+
+				float scale = RI->currententity->curstate.scale;
+				if( scale <= 0.0f ) scale = 1.0f;
+				pglUniform1fARB( RI->currentshader->u_MeshScale, scale * 100 );
 			}
 			cached_model = m_pRenderModel;
 		}
 
 		if( cached_material != mat )
 		{
-			if( FBitSet( mat->flags, STUDIO_NF_MASKED ))
+			if( FBitSet( mat->flags, STUDIO_NF_MASKED ) )
 				GL_Bind( GL_TEXTURE0, mat->gl_diffuse_id );
-			else GL_Bind( GL_TEXTURE0, tr.whiteTexture );
+			else
+				GL_Bind( GL_TEXTURE0, tr.whiteTexture );
 
 			if( mat->flags & STUDIO_NF_TWOSIDE )
 				GL_Cull( GL_NONE );
-			else GL_Cull( GL_FRONT );
+			else
+				GL_Cull( GL_FRONT );
 
-			if( FBitSet( mat->flags, STUDIO_NF_MASKED|STUDIO_NF_HAS_ALPHA ))
+			if( FBitSet( mat->flags, STUDIO_NF_MASKED | STUDIO_NF_HAS_ALPHA ) )
 			{
 				pglAlphaFunc( GL_GREATER, 0.5f );
 				GL_AlphaTest( GL_TRUE );
 			}
 			else
-			{
 				GL_AlphaTest( GL_FALSE );
-			}
 
 			cached_material = mat;
 		}
@@ -4458,13 +4581,13 @@ RunViewModelEvents
 
 =================
 */
-void CStudioModelRenderer :: RunViewModelEvents( void )
+void CStudioModelRenderer::RunViewModelEvents( void )
 {
-	if( !CVAR_TO_BOOL( m_pCvarDrawViewModel ))
+	if( !CVAR_TO_BOOL( m_pCvarDrawViewModel ) )
 		return;
 
 	// ignore in thirdperson, camera view or client is died
-	if( FBitSet( RI->params, RP_THIRDPERSON ) || CL_IsDead() || !UTIL_IsLocal( RI->viewentity ))
+	if( FBitSet( RI->params, RP_THIRDPERSON ) || CL_IsDead() || !UTIL_IsLocal( RI->viewentity ) )
 		return;
 
 	if( RI->params & RP_NONVIEWERREF )
@@ -4478,8 +4601,8 @@ void CStudioModelRenderer :: RunViewModelEvents( void )
 
 	SET_CURRENT_ENTITY( RI->currententity );
 	StudioDrawModel( STUDIO_EVENTS );
-
 	SET_CURRENT_ENTITY( NULL );
+
 	m_fDrawViewModel = false;
 	RI->currententity = NULL;
 	RI->currentmodel = NULL;
@@ -4491,19 +4614,19 @@ DrawViewModel
 
 =================
 */
-void CStudioModelRenderer :: DrawViewModel( void )
+void CStudioModelRenderer::DrawViewModel( void )
 {
-	if( !CVAR_TO_BOOL( m_pCvarDrawViewModel ))
+	if( !CVAR_TO_BOOL( m_pCvarDrawViewModel ) )
 		return;
 
 	// ignore in thirdperson, camera view or client is died
-	if( FBitSet( RI->params, RP_THIRDPERSON ) || CL_IsDead() || !UTIL_IsLocal( RI->viewentity ))
+	if( FBitSet( RI->params, RP_THIRDPERSON ) || CL_IsDead() || !UTIL_IsLocal( RI->viewentity ) )
 		return;
 
 	if( RI->params & RP_NONVIEWERREF )
 		return;
 
-	if( !IEngineStudio.Mod_Extradata( GET_VIEWMODEL()->model ))
+	if( !IEngineStudio.Mod_Extradata( GET_VIEWMODEL()->model ) )
 		return;
 
 	RI->currententity = GET_VIEWMODEL();
@@ -4517,10 +4640,10 @@ void CStudioModelRenderer :: DrawViewModel( void )
 		return; // invisible ?
 
 	// hack the depth range to prevent view model from poking into walls
-	pglDepthRange( gldepthmin, gldepthmin + 0.3f * ( gldepthmax - gldepthmin ));
+	pglDepthRange( gldepthmin, gldepthmin + 0.3f * (gldepthmax - gldepthmin) );
 
 	// backface culling for left-handed weapons
-	if( CVAR_TO_BOOL( m_pCvarHand ))
+	if( CVAR_TO_BOOL( m_pCvarHand ) )
 		GL_FrontFace( !glState.frontFace );
 
 	m_fDrawViewModel = true;
@@ -4560,15 +4683,13 @@ void CStudioModelRenderer :: DrawViewModel( void )
 		GL_LoadMatrix( RI->projectionMatrix );
 	}
 	else
-	{
 		StudioDrawModel( STUDIO_RENDER );
-	}
 
 	// restore depth range
 	pglDepthRange( gldepthmin, gldepthmax );
 
 	// backface culling for left-handed weapons
-	if( CVAR_TO_BOOL( m_pCvarHand ))
+	if( CVAR_TO_BOOL( m_pCvarHand ) )
 		GL_FrontFace( !glState.frontFace );
 
 	SET_CURRENT_ENTITY( NULL );
@@ -4577,11 +4698,9 @@ void CStudioModelRenderer :: DrawViewModel( void )
 	RI->currentmodel = NULL;
 }
 
-void CStudioModelRenderer :: ClearLightCache( void )
+void CStudioModelRenderer::ClearLightCache( void )
 {
 	// force to recalc static light again
 	for( int i = m_ModelInstances.Count(); --i >= 0; )
-          {
 		ModelInstance_t *inst = &m_ModelInstances[i];
-	}
 }

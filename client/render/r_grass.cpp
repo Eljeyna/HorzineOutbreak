@@ -264,7 +264,7 @@ bool R_BuildGrassMesh( msurface_t *surf, mextrasurf_t *es, grassentry_t *entry, 
 {
 	mfaceinfo_t *land = surf->texinfo->faceinfo;
 	bvert_t *v0, *v1, *v2;
-
+	
 	// update random set to get predictable positions for grass 'random' placement
 	RANDOM_SEED(( surf - worldmodel->surfaces ) * entry->seed );
 
@@ -318,7 +318,7 @@ bool R_BuildGrassMesh( msurface_t *surf, mextrasurf_t *es, grassentry_t *entry, 
 		}
 	}
 
-	// nothing to added?
+	// nothing to be added?
 	if( !m_iNumVertex ) return false;
 
 build_mesh:
@@ -417,7 +417,8 @@ void R_DrawGrassMeshFromBuffer( const grass_t *mesh )
 
 	if( GL_Support( R_DRAW_RANGEELEMENTS_EXT ))
 		pglDrawRangeElementsEXT( GL_TRIANGLES, 0, mesh->vbo.numVerts - 1, mesh->vbo.numElems, GL_UNSIGNED_SHORT, 0 );
-	else pglDrawElements( GL_TRIANGLES, mesh->vbo.numElems, GL_UNSIGNED_SHORT, 0 );
+	else
+		pglDrawElements( GL_TRIANGLES, mesh->vbo.numElems, GL_UNSIGNED_SHORT, 0 );
 
 	r_stats.c_total_tris += (mesh->vbo.numVerts / 2);
 	r_stats.c_grass_polys += (mesh->vbo.numVerts / 4);
@@ -489,6 +490,26 @@ void R_DrawGrassShadowMesh( grass_t *grass, int tex, word &hCachedMatrix )
 }
 
 /*
+=================
+R_SortGrassMeshes
+
+sort by texture
+=================
+*/
+static int R_SortGrassMeshes( struct grass_s* const* pa, struct grass_s* const* pb )
+{
+	grass_t* a = (grass_t*)*pa;
+	grass_t* b = (grass_t*)*pb;
+
+	if( a->texture > b->texture )
+		return -1;
+	if( a->texture < b->texture )
+		return 1;
+
+	return 0;
+}
+
+/*
 ================
 R_RenderGrassOnList
 
@@ -505,15 +526,16 @@ void R_RenderGrassOnList( void )
 
 	GL_AlphaTest( GL_TRUE );
 	pglAlphaFunc( GL_GREATER, r_grass_alpha->value );
+	
 	GL_Cull( GL_NONE );	// grass is double-sided poly
-
+	
 	for( int i = 0; i < GRASS_TEXTURES; i++ )
 	{
 		for( grass_t *g = grass_surfaces[i]; g != NULL; g = g->chain )
 			R_DrawGrassMesh( g, i, hLastShader, hCachedMatrix );
 	}
-
 	pglBindVertexArray( world->vertex_array_object ); // restore old binding
+	GL_AlphaTest( GL_FALSE ); // diffusion - fix
 	GL_Cull( GL_FRONT );
 }
 
@@ -525,7 +547,7 @@ render grass with diffuse or skyambient lighting
 ================
 */
 void R_DrawLightForGrassMesh( plight_t *pl, grass_t *grass, int tex, word &hLastShader, word &hCachedMatrix )
-{
+{	
 	GLfloat gl_lightViewProjMatrix[16];
 
 	if( hLastShader != grass->vbo.hLightShader )
@@ -539,8 +561,8 @@ void R_DrawLightForGrassMesh( plight_t *pl, grass_t *grass, int tex, word &hLast
 
 		// write constants
 		pglUniformMatrix4fvARB( RI->currentshader->u_LightViewProjectionMatrix, 1, GL_FALSE, &gl_lightViewProjMatrix[0] );
-		float shadowWidth = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture );
-		float shadowHeight = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture );
+		float shadowWidth = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture[0] );
+		float shadowHeight = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture[0] );
 
 		// depth scale and bias and shadowmap resolution
 		pglUniform4fARB( RI->currentshader->u_LightDir, lightdir.x, lightdir.y, lightdir.z, pl->fov );
@@ -548,9 +570,10 @@ void R_DrawLightForGrassMesh( plight_t *pl, grass_t *grass, int tex, word &hLast
 		pglUniform4fARB( RI->currentshader->u_ShadowParams, shadowWidth, shadowHeight, -pl->projectionMatrix[2][2], pl->projectionMatrix[3][2] );
 		pglUniform4fARB( RI->currentshader->u_LightOrigin, pl->origin.x, pl->origin.y, pl->origin.z, ( 1.0f / pl->radius ));
 		pglUniform4fARB( RI->currentshader->u_FogParams, tr.fogColor[0], tr.fogColor[1], tr.fogColor[2], tr.fogDensity );
+		pglUniform1fARB( RI->currentshader->u_DynLightBrightness, pl->brightness );
 
 		GL_Bind( GL_TEXTURE1, pl->projectionTexture );
-		GL_Bind( GL_TEXTURE2, pl->shadowTexture );
+		GL_Bind( GL_TEXTURE2, pl->shadowTexture[0] );
 
 		pglUniform3fARB( RI->currentshader->u_ViewOrigin, tr.cached_vieworigin.x, tr.cached_vieworigin.y, tr.cached_vieworigin.z );
 		pglUniform1fARB( RI->currentshader->u_GrassFadeStart, m_flGrassFadeStart );
@@ -592,6 +615,7 @@ void R_DrawLightForGrass( plight_t *pl )
 
 	GL_AlphaTest( GL_TRUE );
 	pglAlphaFunc( GL_GREATER, r_grass_alpha->value );
+	
 	GL_Cull( GL_NONE );
 
 	for( int i = 0; i < GRASS_TEXTURES; i++ )
@@ -601,6 +625,7 @@ void R_DrawLightForGrass( plight_t *pl )
 	}
 
 	pglBindVertexArray( world->vertex_array_object ); // restore old binding
+	GL_AlphaTest( GL_FALSE ); // diffusion - fix
 	GL_Cull( GL_FRONT );
 }
 
@@ -613,6 +638,9 @@ construct and rendering the grass
 */
 void R_RenderShadowGrassOnList( void )
 {
+	if( !CVAR_TO_BOOL( r_grass_shadows ) )
+		return;
+	
 	word	hCachedMatrix = -1;
 	word	hLastShader = -1;
 
@@ -621,6 +649,7 @@ void R_RenderShadowGrassOnList( void )
 
 	GL_AlphaTest( GL_TRUE );
 	pglAlphaFunc( GL_GREATER, r_grass_alpha->value );
+	
 	GL_Cull( GL_NONE );	// grass is double-sided poly
 	GL_BindShader( glsl.grassDepthFill );
 
@@ -635,7 +664,8 @@ void R_RenderShadowGrassOnList( void )
 		for( grass_t *g = grass_surfaces[i]; g != NULL; g = g->chain )
 			R_DrawGrassShadowMesh( g, i, hCachedMatrix );
 	}
-
+	
+	GL_AlphaTest( GL_FALSE ); //diffusion - fix
 	GL_Cull( GL_FRONT );
 }
 
@@ -648,14 +678,22 @@ clear the chains
 */
 void R_GrassPrepareFrame( void )
 {
+	if( !CVAR_TO_BOOL( r_grass ) )
+		return;
+	
 	for( int i = 0; i < GRASS_TEXTURES; i++ )
 		grass_surfaces[i] = NULL;
 
-	m_flGrassFadeStart = r_grass_fade_start->value;
+	// diffusion - make grass distance FOV-based.
+	// for FOV above 70 default values are used
+	float FOVfactor = bound( 30, RI->fov_x, 70 ) / 70;
 
+	m_flGrassFadeStart = fabs( r_grass_fade_start->value * (1 / FOVfactor) );
 	if( m_flGrassFadeStart < GRASS_ANIM_DIST )
 		m_flGrassFadeStart = GRASS_ANIM_DIST;
-	m_flGrassFadeDist = Q_max( 0.0f, r_grass_fade_dist->value );
+
+	m_flGrassFadeDist = fabs( r_grass_fade_dist->value * (1 / FOVfactor) );
+
 	m_flGrassFadeEnd = m_flGrassFadeStart + m_flGrassFadeDist;
 }
 
@@ -686,6 +724,7 @@ word R_ChooseGrassProgram( msurface_t *s, grass_t *g, bool lightpass )
 
 	if( lightpass )
 		return GL_UberShaderForGrassDlight( RI->currentlight, g );
+
 	return GL_UberShaderForGrassSolid( s, g );
 }
 
@@ -705,7 +744,8 @@ void R_ReLightGrass( msurface_t *surf, bool force )
 	if( !hdr || m_bGrassUseVBO )
 		return;
 
-	for( int maps = 0; maps < MAXLIGHTMAPS && surf->styles[maps] != 255; maps++ )
+	int maps;
+	for( maps = 0; maps < MAXLIGHTMAPS && surf->styles[maps] != 255; maps++ )
 	{
 		if( force || ( tr.lightstylevalue[surf->styles[maps]] != hdr->cached_light[maps] ))
 		{
@@ -846,12 +886,11 @@ void R_GrassInitForSurface( msurface_t *surf )
 
 		if( m_bGrassUseVBO )
 		{
-			if( count ) es->grasscount++; // mesh added 
+			if( count )
+				es->grasscount++; // mesh added 
 		}
 		else
-		{
 			es->grasscount += count;
-		}
 	}
 
 	if( es->grasscount > 0 )
@@ -1044,7 +1083,8 @@ find or add unique texture for grass
 */
 byte R_GrassTextureForName( const char *name )
 {
-	for( byte i = 0; i < GRASS_TEXTURES && grasstexs[i].name[0]; i++ )
+	byte i;
+	for( i = 0; i < GRASS_TEXTURES && grasstexs[i].name[0]; i++ )
 	{
 		if( !Q_stricmp( grasstexs[i].name, name ))
 			return i;	// found
@@ -1074,13 +1114,14 @@ void R_GrassInit( void )
 {
 	static int random_seed = 1; // starts from 1
 
-	char *afile = (char *)gEngfuncs.COM_LoadFile( "gfx/grass/grassinfo.txt", 5, NULL );
+	char *afile = (char *)gEngfuncs.COM_LoadFile( "scripts/grassinfo.txt", 5, NULL );
 	if( !afile ) ALERT( at_error, "couldn't load grassinfo.txt\n" );
 
-	// remove grass description from the pervious map
+	// remove grass description from the previous map
 	grassInfo.Purge();
 
 	memset( grasstexs, 0, sizeof( grasstexs ));
+
 	m_bGrassUseVBO = GL_Support( R_TEXTURE_ARRAY_EXT ); // TESTTEST
 
 	if( afile )
@@ -1113,7 +1154,7 @@ void R_GrassInit( void )
 			}
 			entry.density = Q_atof( token );
 			entry.density = bound( 0.1f, entry.density, 512.0f );
-
+			
 			pfile = COM_ParseLine( pfile, token );
 			if( !pfile )
 			{
@@ -1244,13 +1285,9 @@ static inline void R_AnimateGrass( grass_t *g, float time )
 	g->cva.mesh[15].v[0] = g->cva.pos[0] + s1;		g->cva.mesh[15].v[1] = g->cva.pos[1] - s1;		g->cva.mesh[15].v[2] = g->cva.pos[2];
 }
 
-/*
-================
-R_AddToGrassChain
-
-add grass to drawchains
-================
-*/
+//===============================================================
+// R_AddToGrassChain: add grass to drawchains
+//===============================================================
 bool R_AddGrassToChain( msurface_t *surf, CFrustum *frustum, bool lightpass, mworldleaf_t *leaf )
 {
 	if( !CVAR_TO_BOOL( r_grass ))
@@ -1259,23 +1296,29 @@ bool R_AddGrassToChain( msurface_t *surf, CFrustum *frustum, bool lightpass, mwo
 	mextrasurf_t *es = surf->info;
 	grasshdr_t *hdr = es->grass;
 	bool normalpass = false;
+	float fadestart, fadedist, fadeend;
 
 	if( !FBitSet( world->features, WORLD_HAS_GRASS ) || FBitSet( RI->params, RP_NOGRASS ))
 		return false; // don't waste time
 
+	// diffusion
+	if (leaf || !es->grasscount) 
+		return false;
+
 	bool shadowpass = FBitSet( RI->params, RP_SHADOWVIEW ) ? true : false;
 	
-	if(( shadowpass && !CVAR_TO_BOOL( r_grass_shadows )) || ( lightpass && !CVAR_TO_BOOL( r_grass_lighting ))) 
+	if(( shadowpass && !CVAR_TO_BOOL( r_grass_shadows )) || ( lightpass && !CVAR_TO_BOOL( r_grass_lighting )))
 		return false;
 
 	if( !lightpass && !shadowpass )
 		normalpass = true;
 
-	float fadestart = r_grass_fade_start->value;
+	fadestart = m_flGrassFadeStart;
 	if( fadestart < GRASS_ANIM_DIST ) 
 		fadestart = GRASS_ANIM_DIST;
-	float fadedist = abs( r_grass_fade_dist->value );
-	float fadeend = fadestart + fadedist;	// draw_dist
+
+	fadedist = m_flGrassFadeDist;
+	fadeend = fadestart + fadedist;	// draw_dist
 
 	if( es->grasscount && !hdr )
 	{
@@ -1291,7 +1334,9 @@ bool R_AddGrassToChain( msurface_t *surf, CFrustum *frustum, bool lightpass, mwo
 		// initialize grass for surface
 		if( m_bGrassUseVBO )
 			R_ConstructGrassVBO( surf );
-		else R_ConstructGrass( surf );
+		else
+			R_ConstructGrass( surf );
+
 		hdr = es->grass;
 
 		if( hdr && leaf )
@@ -1301,9 +1346,6 @@ bool R_AddGrassToChain( msurface_t *surf, CFrustum *frustum, bool lightpass, mwo
 			AddPointToBounds( hdr->maxs, leaf->mins, leaf->maxs, LEAF_MAX_EXPAND );
 		}
 	}
-
-	// we are in special mode!
-	if( leaf ) return false;
 
 	if( hdr )
 	{
@@ -1416,7 +1458,8 @@ bool R_AddGrassToChain( msurface_t *surf, CFrustum *frustum, bool lightpass, mwo
 	{
 		if( lightpass )
 			tr.num_light_grass++;
-		else tr.num_draw_grass++;
+		else
+			tr.num_draw_grass++;
 	}
 
 	return true;
@@ -1437,11 +1480,11 @@ void R_UnloadFarGrass( void )
 	if( ++tr.grassunloadframe < 1000 )
 		return; // thinking ~one tick per second
 
-	float draw_dist = r_grass_fade_start->value;
+	float draw_dist = m_flGrassFadeStart;
 
 	if( draw_dist < GRASS_ANIM_DIST )
 		draw_dist = GRASS_ANIM_DIST;
-	draw_dist += abs( r_grass_fade_dist->value );
+	draw_dist += m_flGrassFadeDist;
 
 	// check surfaces
 	for( int i = 0; i < worldmodel->numsurfaces; i++ )
@@ -1449,7 +1492,9 @@ void R_UnloadFarGrass( void )
 		msurface_t *surf = &worldmodel->surfaces[i];
 		mextrasurf_t *es = surf->info;
 
-		if( !es->grasscount ) continue; // surface doesn't contain grass
+		if( !es->grasscount )
+			continue; // surface doesn't contain grass
+
 		float curdist = ( tr.cached_vieworigin - es->origin ).Length();
 
 		if( curdist > ( draw_dist * 1.2f ) && es->grass )
@@ -1499,9 +1544,9 @@ void R_DrawGrass( qboolean lightpass )
 		}
 	}
 
-	GL_Cull( GL_NONE );
 	pglEnable( GL_ALPHA_TEST );
 	pglAlphaFunc( GL_GREATER, bound( 0.0f, r_grass_alpha->value, 1.0f ));
+	GL_Cull( GL_NONE );
 	pglTexEnvi( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
 	pglColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
 
@@ -1553,7 +1598,7 @@ void R_DrawGrass( qboolean lightpass )
 	pglDisableClientState( GL_TEXTURE_COORD_ARRAY );
 	pglDisableClientState( GL_VERTEX_ARRAY );
 	tr.num_draw_grass = tr.num_light_grass = 0;
-	pglAlphaFunc( GL_GREATER, 0.25f );
+
 	pglDisable( GL_ALPHA_TEST );
 	GL_Cull( GL_FRONT );
 }
@@ -1582,8 +1627,8 @@ void R_DrawGrassLight( plight_t *pl )
 
 	// write constants
 	pglUniformMatrix4fvARB( RI->currentshader->u_LightViewProjectionMatrix, 1, GL_FALSE, &gl_lightViewProjMatrix[0] );
-	float shadowWidth = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture );
-	float shadowHeight = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture );
+	float shadowWidth = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_WIDTH, pl->shadowTexture[0] );
+	float shadowHeight = 1.0f / (float)RENDER_GET_PARM( PARM_TEX_HEIGHT, pl->shadowTexture[0] );
 
 	// depth scale and bias and shadowmap resolution
 	pglUniform4fARB( RI->currentshader->u_LightDir, lightdir.x, lightdir.y, lightdir.z, pl->fov );
@@ -1592,9 +1637,10 @@ void R_DrawGrassLight( plight_t *pl )
 	pglUniform4fARB( RI->currentshader->u_LightOrigin, pl->origin.x, pl->origin.y, pl->origin.z, ( 1.0f / pl->radius ));
 	pglUniform4fARB( RI->currentshader->u_FogParams, tr.fogColor[0], tr.fogColor[1], tr.fogColor[2], tr.fogDensity );
 	pglUniform1fARB( RI->currentshader->u_LightScale, 1.0f );
+	pglUniform1fARB( RI->currentshader->u_DynLightBrightness, pl->brightness );
 
 	GL_Bind( GL_TEXTURE1, pl->projectionTexture );
-	GL_Bind( GL_TEXTURE2, pl->shadowTexture );
+	GL_Bind( GL_TEXTURE2, pl->shadowTexture[0] );
 
 	R_DrawGrass( true );
 

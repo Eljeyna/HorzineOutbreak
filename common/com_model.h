@@ -224,10 +224,10 @@ typedef struct mextrasurf_s
 	word		lightmaptexturenum;	// custom lightmap number
 
 	word		shaderNum[2];		// constantly assigned shader to this surface
-	word		omniLightShaderNum;		// cached omni light shader for this face
+	word		omniLightShaderNum[2];		// cached omni light shader for this face
 	word		projLightShaderNum[2];	// cached proj light shader for this face
 	word		glsl_sequence[2];		// if( tr.glsl_valid_sequence != es->glsl_sequence ) it's time to recompile shader
-	word		glsl_sequence_omni;		// same as above but for omnilights
+	word		glsl_sequence_omni[2];		// same as above but for omnilights
 	word		glsl_sequence_proj[2];	// same as above but for projlights
 	float		texofs[2];		// conveyor offsets
 	int		cached_frame;

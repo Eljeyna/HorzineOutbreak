@@ -316,3 +316,42 @@ void R_DrawRenderPasses( int passnum )
 	pglEnd();
 	GL_Setup3D();
 }
+
+bool ValidateFBO( void )
+{
+	if( !GL_Support( R_FRAMEBUFFER_OBJECT ) )
+		return false;
+
+	// check FBO status
+	GLenum status = pglCheckFramebufferStatus( GL_FRAMEBUFFER_EXT );
+
+	switch( status )
+	{
+	case GL_FRAMEBUFFER_COMPLETE_EXT:
+		return true;
+	case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT:
+		ALERT( at_error, "ValidateFBO: attachment is NOT complete\n" );
+		return false;
+	case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT:
+		ALERT( at_error, "ValidateFBO: no image is attached to FBO\n" );
+		return false;
+	case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT:
+		ALERT( at_error, "ValidateFBO: attached images have different dimensions\n" );
+		return false;
+	case GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT:
+		ALERT( at_error, "ValidateFBO: color attached images have different internal formats\n" );
+		return false;
+	case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT:
+		ALERT( at_error, "ValidateFBO: draw buffer incomplete\n" );
+		return false;
+	case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT:
+		ALERT( at_error, "ValidateFBO: read buffer incomplete\n" );
+		return false;
+	case GL_FRAMEBUFFER_UNSUPPORTED_EXT:
+		ALERT( at_error, "ValidateFBO: unsupported by current FBO implementation\n" );
+		return false;
+	default:
+		ALERT( at_error, "ValidateFBO: unknown error\n" );
+		return false;
+	}
+}

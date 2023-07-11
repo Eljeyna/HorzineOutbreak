@@ -75,6 +75,8 @@ cvar_t	*r_show_light_scissors;
 cvar_t	*r_show_normals;
 cvar_t	*r_show_lightprobes;
 
+cvar_t *r_shadowquality;
+
 cvar_t	v_iyaw_cycle	= { "v_iyaw_cycle", "2", 0, 2 };
 cvar_t	v_iroll_cycle	= { "v_iroll_cycle", "0.5", 0, 0.5 };
 cvar_t	v_ipitch_cycle	= { "v_ipitch_cycle", "1", 0, 1 };
@@ -171,6 +173,8 @@ void V_Init( void )
 	r_show_light_scissors = CVAR_REGISTER( "r_show_light_scissors", "0", 0 );
 	r_show_normals = CVAR_REGISTER( "r_show_normals", "0", 0 );
 	r_show_lightprobes = CVAR_REGISTER( "r_show_lightprobes", "0", 0 );
+
+	r_shadowquality = CVAR_REGISTER( "r_shadowquality", "0", FCVAR_ARCHIVE );
 
 	ADD_COMMAND( "thirdperson", V_ThirdPerson );
 	ADD_COMMAND( "firstperson", V_FirstPerson );

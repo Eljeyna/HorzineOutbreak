@@ -60,4 +60,7 @@ extern cvar_t	*r_show_light_scissors;
 extern cvar_t	*r_show_normals;
 extern cvar_t	*r_show_lightprobes;
 
+// diffusion - new
+extern cvar_t *r_shadowquality;
+
 #endif//R_CVARS_H

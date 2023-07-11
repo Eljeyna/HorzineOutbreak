@@ -805,6 +805,10 @@ void ClientPrecache( void )
 
 	if (giPrecacheGrunt)
 		UTIL_PrecacheOther("monster_human_grunt");
+
+	PRECACHE_MODEL("sprites/muzzleflash1.spr");
+	PRECACHE_MODEL("sprites/muzzleflash2.spr");
+	PRECACHE_MODEL("sprites/muzzleflash3.spr");
 }
 
 /*

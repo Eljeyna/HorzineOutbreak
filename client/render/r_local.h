@@ -67,6 +67,8 @@ GNU General Public License for more details.
 #define TF_SCREEN		(TF_NOMIPMAP|TF_CLAMP)
 #define TF_SPOTLIGHT	(TF_BORDER)
 #define TF_SHADOW		(TF_CLAMP|TF_DEPTHMAP)
+#define TF_SHADOW_CUBEMAP	(TF_NOMIPMAP|TF_CLAMP|TF_CUBEMAP|TF_DEPTHMAP|TF_LUMINANCE)
+#define TF_IMAGE		(TF_NOMIPMAP|TF_CLAMP)
 
 #define TF_DEPTHBUFFER	(TF_SCREEN|TF_DEPTHMAP|TF_NEAREST|TF_LUMINANCE|TF_NOCOMPARE)
 #define TF_COLORBUFFER	(TF_SCREEN|TF_NEAREST)
@@ -154,6 +156,7 @@ typedef struct plight_s
 	matrix4x4		projectionMatrix;	// light projection matrix
 	matrix4x4		modelviewMatrix;	// light modelview
 	matrix4x4		lightviewProjMatrix;// lightview projection
+	matrix4x4		viewMatrix;
 
 	Vector		absmin, absmax;	// world bounds
 	CFrustum		frustum;		// light frustum
@@ -162,7 +165,7 @@ typedef struct plight_s
 	struct model_s	*pSprite;		// animated sprite
 	int		cinTexturenum;	// not gltexturenum!
 	int		lastframe;	// cinematic lastframe
-	int		shadowTexture;	// shadowmap for this light
+	int		shadowTexture[MAX_SHADOWS];	// shadowmap for this light
 
 	// scissor data
 	float		x, y, w, h;
@@ -171,6 +174,9 @@ typedef struct plight_s
 	float		lightFalloff;	// falloff factor
 	int		flags;
 	float		fov;
+	int effect; // diffusion - hackhack...
+	int entitynum;
+	float brightness;
 } plight_t;
 
 // 68 bytes here
@@ -290,8 +296,10 @@ typedef struct
 	gl_texbuffer_t	subviewTextures[MAX_SUBVIEW_TEXTURES];
 	int		cinTextures[MAX_MOVIE_TEXTURES];
 	int		shadowTextures[MAX_SHADOWS];
+	int		shadowCubemaps[MAX_SHADOWS];
 	int		num_subview_used;	// used mirror textures per full frame
 	int		num_shadows_used;	// used shadow textures per full frame
+	int		num_CM_shadows_used; // // used shadow cube textures per full frame
 	int		num_cin_used;	// used movie textures per full frame
 
 	int		screen_depth;
@@ -361,9 +369,9 @@ typedef struct
 
 	// cached shadernums for dynamic lighting
 	bool		nodlights;
-	unsigned short	omniLightShaderNum;		// cached omni light shader for this face
+	unsigned short	omniLightShaderNum[2];		// cached omni light shader for this face
 	unsigned short	projLightShaderNum[2];	// cached proj light shader for this face
-	unsigned short	glsl_sequence_omni;		// same as above but for omnilights
+	unsigned short	glsl_sequence_omni[2];		// same as above but for omnilights
 	unsigned short	glsl_sequence_proj[2];	// same as above but for projlights
 
 	Vector4D		gamma_table[64];
@@ -516,6 +524,8 @@ typedef struct
 extern glState_t glState;
 extern glConfig_t glConfig;
 
+#define ConPrintf gEngfuncs.Con_Printf
+
 //
 // r_opengl.cpp
 //
@@ -567,6 +577,7 @@ void R_DrawLightScissors( void );
 void DrawLightProbes( void );
 void DrawWireFrame( void );
 void DrawNormals( void );
+bool ValidateFBO( void );
 
 //
 // r_decals.c
@@ -628,6 +639,9 @@ void R_ResetRefState( void );
 void R_PushRefState( void );
 void R_PopRefState( void );
 ref_instance_t *R_GetPrevInstance( void );
+void R_DrawEntitiesOnList( void );
+void R_DrawSolidEntities(void);
+void R_DrawTranslucentEntities(void);
 
 //
 // r_misc.cpp
@@ -708,7 +722,7 @@ void V_AdjustFov( float &fov_x, float &fov_y, float width, float height, bool lo
 //
 void R_DrawWorld( void );
 void R_DrawWorldShadowPass( void );
-void R_DrawBrushModel( cl_entity_t *e );
+void R_DrawBrushModel( cl_entity_t *e, bool translucent );
 void R_DrawBrushModelShadow( cl_entity_t *e );
 void R_ProcessWorldData( model_t *mod, qboolean create, const byte *buffer );
 bool Mod_CheckLayerNameForSurf( msurface_t *surf, const char *checkName );

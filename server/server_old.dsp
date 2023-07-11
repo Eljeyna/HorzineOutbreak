@@ -43,7 +43,8 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 1
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I ".\\" /I "..\engine" /I "..\common" /I "..\game_shared" /I "..\phys_shared" /I ".\monsters" /I ".\physics" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /FD /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /Oy- /I ".\\" /I "..\engine" /I "..\common" /I "..\game_shared" /I "..\phys_shared" /I ".\monsters" /I ".\physics" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /FD /c
+# SUBTRACT CPP /Fr /YX
 # ADD BASE MTL /nologo /D "NDEBUG" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -55,10 +56,15 @@ LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /machine:I386
 # ADD LINK32 msvcrt.lib /nologo /subsystem:windows /dll /pdb:none /machine:I386 /nodefaultlib:"libc.lib" /def:".\server.def"
 # SUBTRACT LINK32 /profile /map /debug
-# Begin Special Build Tool
+# Begin Custom Build - Custom Build in progress
+TargetDir=\XashXTSRC\temp\server\!release
+InputPath=\XashXTSRC\temp\server\!release\server.dll
 SOURCE="$(InputPath)"
-PostBuild_Cmds=copy /Y "D:\!DIFFUSION 2020\source code\client-server-launcher\temp\server\!release\server.dll" "D:\!DIFFUSION 2020\!GAME_developer\diffusion\bin\server.dll"
-# End Special Build Tool
+
+"Z:\server.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	copy $(TargetDir)\server.dll "Z:\server.dll"
+
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "server - Win32 Debug"
 
@@ -90,10 +96,15 @@ LINK32=link.exe
 # SUBTRACT BASE LINK32 /profile /map /debug
 # ADD LINK32 msvcrt.lib /nologo /subsystem:windows /dll /incremental:yes /debug /machine:I386 /nodefaultlib:"libc.lib" /def:".\server.def"
 # SUBTRACT LINK32 /profile /map
-# Begin Special Build Tool
+# Begin Custom Build - Custom Build in progress
+TargetDir=\XashXTSRC\temp\server\!debug
+InputPath=\XashXTSRC\temp\server\!debug\server.dll
 SOURCE="$(InputPath)"
-PostBuild_Cmds=copy /Y "D:\!DIFFUSION 2020\source code\client-server-launcher\temp\server\!release\server.dll" "D:\!DIFFUSION 2020\!GAME_developer\diffusion\bin\server.dll"
-# End Special Build Tool
+
+"Z:\server.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	copy $(TargetDir)\server.dll "Z:\server.dll"
+
+# End Custom Build
 
 !ENDIF 
 

@@ -581,7 +581,7 @@ void R_ClearScene( void )
 
 	tr.num_solid_entities = tr.num_trans_entities = 0;
 	tr.local_client_added = false;
-	tr.num_shadows_used = 0;
+	tr.num_shadows_used = tr.num_CM_shadows_used = 0;
 	tr.sky_camera = NULL;
 }
 
@@ -1081,7 +1081,7 @@ static void R_CheckFog( void )
 	// eyes above water
 	if( tr.viewparams.waterlevel < 3 )
 	{
-		if( tr.movevars->fog_settings != 0 )
+		if( tr.movevars->fog_settings != 0x00000000 )
 		{
 			// enable global exponential color
 			tr.fogColor[0] = ((tr.movevars->fog_settings & 0xFF000000) >> 24) / 255.0f;
@@ -1184,63 +1184,15 @@ void R_DrawParticles( qboolean trans )
 	DRAW_PARTICLES( &rvp, trans, tr.frametime );
 }
 
-/*
-=============
-R_DrawEntitiesOnList
-=============
-*/
+//=============================================================================
+// R_DrawEntitiesOnList: draw all entities which are listed for rendering
+//=============================================================================
 void R_DrawEntitiesOnList( void )
 {
-	int	i;
-
-	glState.drawTrans = false;
-	GL_CheckForErrors();
-	tr.blend = 1.0f;
-
-	// first draw solid entities
-	for( i = 0; i < tr.num_solid_entities; i++ )
-	{
-		RI->currententity = tr.solid_entities[i];
-		RI->currentmodel = RI->currententity->model;
-
-		// tell engine about current entity
-		SET_CURRENT_ENTITY( RI->currententity );
-
-		switch( RI->currentmodel->type )
-		{
-		case mod_brush:
-			R_DrawBrushModel( RI->currententity );
-			break;
-		case mod_studio:
-			R_DrawStudioModel( RI->currententity );
-			break;
-		default:
-			break;
-		}
-	}
-
-	GL_CheckForErrors();
-
-	// draw sprites seperately, because of alpha blending
-	for( i = 0; i < tr.num_solid_entities; i++ )
-	{
-		RI->currententity = tr.solid_entities[i];
-		RI->currentmodel = RI->currententity->model;
-
-		// tell engine about current entity
-		SET_CURRENT_ENTITY( RI->currententity );
-
-		switch( RI->currentmodel->type )
-		{
-		case mod_sprite:
-			R_DrawSpriteModel( RI->currententity );
-			break;
-		default:
-			break;
-		}
-	}
-
-	GL_CheckForErrors();
+	R_RunViewmodelEvents(); // diffusion - FIXED!!!
+	
+	// solid ents first
+	R_DrawSolidEntities();
 
 	R_DrawParticles( false );
 
@@ -1250,13 +1202,109 @@ void R_DrawEntitiesOnList( void )
 
 	GL_CheckForErrors();
 
+	// then translucent ents
+	R_DrawTranslucentEntities();
+	
+	R_RestoreGLState();
+	pglTexEnvi( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+	HUD_DrawTransparentTriangles();
+
+	GL_CheckForErrors();
+
+	R_AllowFog( false );
+	R_DrawParticles( true );
+	R_AllowFog( true );
+	
+	GL_CheckForErrors();
+
+	glState.drawTrans = false;
+
+	R_DrawViewModel();
+	
+	GL_CheckForErrors();
+}
+
+
+//=============================================================================
+// R_DrawSolidEntities: draw solid entities - brushes, studio models,
+// sprites (in that order)
+//=============================================================================
+void R_DrawSolidEntities(void)
+{
+	int	i;
+
+	glState.drawTrans = false;
+	GL_CheckForErrors();
+	tr.blend = 1.0f;
+	
+	// 1: brush entities
+	for( i = 0; i < tr.num_solid_entities; i++ )
+	{
+		RI->currententity = tr.solid_entities[i];
+		RI->currentmodel = RI->currententity->model;
+
+		if( RI->currentmodel->type != mod_brush )
+			continue;
+
+		// tell engine about current entity
+		SET_CURRENT_ENTITY( RI->currententity );
+
+		R_DrawBrushModel( RI->currententity, false );
+	}
+
+	GL_CheckForErrors();
+
+	// 2: studio models
+	for( i = 0; i < tr.num_solid_entities; i++ )
+	{
+		RI->currententity = tr.solid_entities[i];
+		RI->currentmodel = RI->currententity->model;
+
+		if( RI->currentmodel->type != mod_studio )
+			continue;
+
+		SET_CURRENT_ENTITY( RI->currententity );
+
+		R_DrawStudioModel( RI->currententity );
+	}
+
+	GL_CheckForErrors();
+
+	// 3: sprites
+	for( i = 0; i < tr.num_solid_entities; i++ )
+	{
+		RI->currententity = tr.solid_entities[i];
+		RI->currentmodel = RI->currententity->model;
+
+		if( RI->currentmodel->type != mod_sprite )
+			continue;
+
+		SET_CURRENT_ENTITY( RI->currententity );
+
+		R_DrawSpriteModel( RI->currententity );
+	}
+
+	GL_CheckForErrors();
+}
+
+//=============================================================================
+// R_DrawTranslucentEntities: draw translucent entities - brushes, studio models,
+// sprites (in that order)
+//=============================================================================
+void R_DrawTranslucentEntities(void)
+{
+	int i;
+	
 	glState.drawTrans = true;
 
-	// then draw translucent entities
+	// brushes:
 	for( i = 0; i < tr.num_trans_entities; i++ )
 	{
 		RI->currententity = tr.trans_entities[i];
 		RI->currentmodel = RI->currententity->model;
+
+		if( RI->currentmodel->type != mod_brush )
+			continue;
 
 		// tell engine about current entity
 		SET_CURRENT_ENTITY( RI->currententity );
@@ -1268,40 +1316,50 @@ void R_DrawEntitiesOnList( void )
 
 		if( tr.blend <= 0.0f ) continue;
 
-		switch( RI->currentmodel->type )
-		{
-		case mod_brush:
-			R_DrawBrushModel( RI->currententity );
-			break;
-		case mod_studio:
-			R_DrawStudioModel( RI->currententity );
-			break;
-		case mod_sprite:
-			R_DrawSpriteModel( RI->currententity );
-			break;
-		default:
-			break;
-		}
+		R_DrawBrushModel( RI->currententity, true );
 	}
 
 	GL_CheckForErrors();
 
-	R_RestoreGLState();
-	pglTexEnvi( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
-	HUD_DrawTransparentTriangles();
+	// models:
+	for( i = 0; i < tr.num_trans_entities; i++ )
+	{
+		RI->currententity = tr.trans_entities[i];
+		RI->currentmodel = RI->currententity->model;
+
+		if( RI->currentmodel->type != mod_studio )
+			continue;
+
+		SET_CURRENT_ENTITY( RI->currententity );
+
+		if( RI->currententity->curstate.rendermode != kRenderNormal )
+			tr.blend = CL_FxBlend( RI->currententity ) / 255.0f;
+		else tr.blend = 1.0f;
+
+		if( tr.blend <= 0.0f ) continue;
+
+		R_DrawStudioModel( RI->currententity );
+	}
 
 	GL_CheckForErrors();
 
-	R_AllowFog( false );
-	R_DrawParticles( true );
-	R_AllowFog( true );
+	// sprites:
+	for( i = 0; i < tr.num_trans_entities; i++ )
+	{
+		RI->currententity = tr.trans_entities[i];
+		RI->currentmodel = RI->currententity->model;
 
-	GL_CheckForErrors();
+		if( RI->currentmodel->type != mod_sprite )
+			continue;
 
-	glState.drawTrans = false;
-	pglDisable( GL_BLEND );	// Trinity Render issues
+		SET_CURRENT_ENTITY( RI->currententity );
 
-	R_DrawViewModel();
+		if( RI->currententity->curstate.rendermode != kRenderNormal )
+			tr.blend = CL_FxBlend( RI->currententity ) / 255.0f;
+		else tr.blend = 1.0f;
+
+		R_DrawSpriteModel( RI->currententity );
+	}
 
 	GL_CheckForErrors();
 }
@@ -1315,19 +1373,20 @@ RI->refdef must be set before the first call
 */
 void R_RenderScene( void )
 {
-	char	empty[MAX_REF_STACK];
+	char empty[MAX_REF_STACK];
 
 	// set the worldmodel
-	if(( worldmodel = GET_ENTITY( 0 )->model ) == NULL )
-		HOST_ERROR( "R_RenderView: NULL worldmodel\n" );
-
+	if( (worldmodel = GET_ENTITY( 0 )->model) == NULL )
+		HOST_ERROR( "R_RenderScene: NULL worldmodel\n" );
+	
 	if( (int)r_speeds->value == 7 )
 	{
 		int	num_faces = 0;
+		unsigned int i;
 
 		if( glState.stack_position > 0 )
 			num_faces = R_GetPrevInstance()->num_subview_faces;
-		for( unsigned int i = 0; i < glState.stack_position; i++ )
+		for( i = 0; i < glState.stack_position; i++ )
 			empty[i] = ' ';
 		empty[i] = '\0';
 
@@ -1335,11 +1394,12 @@ void R_RenderScene( void )
 		const char *string = va( "%s->%d %s (%d subview)\n", empty, glState.stack_position, R_GetNameForView( ), num_faces );
 		Q_strncat( r_depth_msg, string, sizeof( r_depth_msg ));
 	}
+	
+	if( RP_NORMALPASS() ) // no shadowpass for 3D sky and subviews
+		R_RenderShadowmaps();
 
 	// recursive draw mirrors, portals, etc
-	R_RenderSubview ();
-
-	R_RenderShadowmaps();
+	R_RenderSubview(); // diffusion - I moved this here. position before shadowmaps cause the flashlight to flicker if there is a monitor or two in view (and no shadows).
 
 	R_CheckSkyPortal( tr.sky_camera );
 
@@ -1355,12 +1415,13 @@ void R_RenderScene( void )
 	R_SetupFrame();
 	R_SetupGL();
 	R_Clear( ~0 );
-
+	
 	R_PushDlights();
+
 	R_CheckFog();
 
 	R_DrawWorld();
-
+	
 	R_DrawEntitiesOnList();
 
 	R_EndGL();
@@ -1631,7 +1692,7 @@ int HUD_RenderFrame( const ref_viewpass_t *rvp )
 
 	memset( tr.visbytes, 0, tr.pvssize );
 	tr.fCustomRendering = true;
-	R_RunViewmodelEvents();
+
 	tr.realframecount++;
 
 	// draw main view

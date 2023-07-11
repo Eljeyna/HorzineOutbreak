@@ -428,18 +428,6 @@ void CRpg::PrimaryAttack()
 		// player "shoot" animation
 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
-		MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, m_pPlayer->pev->origin );
-			WRITE_BYTE(TE_DLIGHT);
-			WRITE_COORD(m_pPlayer->pev->origin.x); // X
-			WRITE_COORD(m_pPlayer->pev->origin.y); // Y
-			WRITE_COORD(m_pPlayer->pev->origin.z); // Z
-			WRITE_BYTE( 48 ); // radius * 0.1
-			WRITE_BYTE( 255 ); // r
-			WRITE_BYTE( 204 ); // g
-			WRITE_BYTE( 0 ); // b
-			WRITE_BYTE( 5 ); // time * 10
-			WRITE_BYTE( 40 ); // decay * 0.1
-		MESSAGE_END( );
 
 		UTIL_MakeVectors( m_pPlayer->pev->v_angle );
 		Vector vecSrc = m_pPlayer->GetGunPosition( ) + gpGlobals->v_forward * 16 + gpGlobals->v_right * 8 + gpGlobals->v_up * -8;

@@ -1641,7 +1641,11 @@ void PM_CatagorizePosition (void)
 
 	point[0] = pmove->origin[0];
 	point[1] = pmove->origin[1];
-	point[2] = pmove->origin[2] - 2;
+
+	if( pmove->movetype == MOVETYPE_NOCLIP || pmove->spectator )
+		point[2] = pmove->origin[2]; // diffusion - no glueing with ground when noclipping or spectating
+	else
+		point[2] = pmove->origin[2] - 2;
 
 	if (pmove->velocity[2] > 180)   // Shooting up really fast.  Definitely not on ground.
 	{
@@ -2431,11 +2435,21 @@ void PM_NoClip()
 {
 	Vector		wishvel;
 	float		fmove, smove;
-//	float		currentspeed, addspeed, accelspeed;
 
 	// Copy movement amounts
-	fmove = pmove->cmd.forwardmove;
-	smove = pmove->cmd.sidemove;
+	// diffusion - faster and slower speeds!
+	int NormalMultipier = 4;
+
+	if( pmove->cmd.buttons & IN_DUCK )
+	{
+		fmove = pmove->cmd.forwardmove * 2;
+		smove = pmove->cmd.sidemove * 2;
+	}
+	else
+	{
+		fmove = pmove->cmd.forwardmove * NormalMultipier;
+		smove = pmove->cmd.sidemove * NormalMultipier;
+	}
 
 	pmove->forward = pmove->forward.Normalize();
 	pmove->right = pmove->right.Normalize();
